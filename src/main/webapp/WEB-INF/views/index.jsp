@@ -7,37 +7,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"  href="css/planner.css">
-
 <c:import url="./template/boot.jsp"/>
+<link rel="stylesheet"  href="css/planner.css">
 </head>
 <body>
-
+<c:import url="./template/nav.jsp"/>
 	<div class="container">
-		<div class="main-container">
-			<div class="row">
-				<h3 class="planner-title">여행제목</h3>
-			</div>
-			<div class="row">
-				<div class="map">
-					<div class="map-peopleType">
-						여자혼자
-					</div>
-					<div class="map-rootModify">
-						루트수정
-					</div>
-					<div class="map-startDate">
-						날짜
-					</div>
-					<div class="map-date">
-						3일간
-					</div>
-				</div>
+		<div class="jumbotron marginTop50px">
+			<h3>스투비플래너로 상상속 유럽여행을 현실로 만들어 보세요.</h3>
+			<p>855,014명의 유럽계획 데이터를 활용한 추천과 시뮬레이션 기능을 활용해 여행 아이디어를 실제 여행으로 만들어 예상 비용과 소요시간을 계산해 보세요.</p>
+			<div class="main_planner_btn_div">
+				<input type="button" class="main_planner_btn_diy" value="DIY">
+				<input type="button" class="main_planner_btn_request" value="request">
 			</div>
 		</div>
-		
-	
 	</div>
-	
+	<a href="board/board">sdfasdf</a>
 </body>
 </html>

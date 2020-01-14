@@ -1,9 +1,4 @@
 @charset "UTF-8";
-
-.container{
-	background-color: red;
-}
-
 .planner-title{
 	color:white;
 }
@@ -37,4 +32,130 @@
 }
 .map-date{
 	background-color: yellow;
+}
+*{padding: 0;margin: 0;}
+.navRow{}
+.navTop{
+	height: 94px;
+	border-bottom: 1px solid #999999;
+}
+.navBottom{
+	height: 40px;
+	padding-top: 12px;
+	border-bottom: 1px solid #999999;
+}
+.nav-logo{
+	margin: 0 auto;
+}
+.nav_menu{
+	height: 28px;
+}
+.nav_menu_ul{
+	height: 28px;
+	width:700px;
+	margin: 0 auto;
+}
+.nav_menu_li{
+	padding-bottom: 1px;
+	float: left;
+	list-style: none;
+	margin:0 40px;
+	display: inline-block;
+	height: inherit;
+	line-height: 24px;
+}
+.nav_menu_li>a{
+	color: #474747;
+	text-decoration: none;
+}
+.nav_menu_li:hover{
+	border-bottom: 3px solid #e1ea88;
+}
+.nav_menu_li_active{
+	border-bottom: 3px solid #6f9c3b;
+}
+.nav_logo{
+	width: 190px;
+	height: 39px;
+	margin: 20px auto 0 auto;
+}
+.nav_log_img{
+	width: inherit;
+	height: inherit;
+}
+.container{
+}
+.nav_gnb_menu{
+	float: right;
+}
+.gnb_ul{
+	line-height: 24px;
+}
+.gnb_li{
+	float: right;
+	margin: 0 20px;
+	display: inline-block;
+	color: #474747;
+}
+.gnb_li>a{
+	color: #999999;
+	text-decoration: none;
+}
+.gnb_login{
+	border:1px solid #68a26c;
+	border-radius: 5px;
+	padding: 1px 10px;
+	line-height: 20px;
+	font-weight: bold;
+}
+.nav_search{
+	width: 27px;
+	height: 27px;
+	float: right;
+	background: red;
+}
+.jumbotron{
+	text-align: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 230px;
+}
+.jumbotron>p{
+	font-size: 14px;
+}
+.marginTop50px{
+	margin-top:50px;
+}
+.main_planner_btn_div{
+	background:gold;
+	width: 450px;
+	margin:0 auto;
+}
+.main_planner_btn_diy{
+	width:198px;
+	float: left;
+	height: 53px;
+	border-radius: 30px;
+	border:1px solid tomato;
+	margin-right: 50px;
+	color: tomato;
+}
+.main_planner_btn_request{
+	width:198px;
+	height: 53px;
+	border-radius:30px;
+	border:1px solid #6f9c3b;
+	float: left;
+	color: #6f9c3b;
+}
+.tab{
+	border-bottom: 1px solid #green;
+}
+.tab>li{
+	float:left;
+	width:200px;
+	height:30px;
+	margin:0px 1px;
+	list-style:none;
+	border:1px solid green;
 }
