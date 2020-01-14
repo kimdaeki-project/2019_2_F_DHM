@@ -248,6 +248,8 @@
 								<div class="nolist-transfer" onclick="transfer();">
 									<img src="../image/train.jpg">
 								</div>
+								<div class="notlist-ballon"></div>
+								<div class="notlist-ballon2"> </div>
 							</li>
 							<li class="">
 								<div class="nolist-dot"></div>

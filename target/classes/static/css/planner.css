@@ -177,3 +177,27 @@
 	height: 35px;
 	width: 35px;
 }
+
+.notlist-ballon{
+	position: absolute;
+	top: 73px;
+	left: 150px;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-bottom-color: #efefef;
+	border-top: 0;
+	margin-left: -20px;
+	margin-top: -20px;
+}
+
+.notlist-ballon2{
+	position: absolute;
+	top: 73px;
+	left: 40px;
+	width: 180px;
+	height: 90px;
+	padding: 0 5px 5px 10px;
+	text-align: left;
+	background: #efefef;
+}
