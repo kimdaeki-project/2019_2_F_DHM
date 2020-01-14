@@ -7,10 +7,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet"  href="css/planner.css">
 
+<c:import url="./template/boot.jsp"/>
 </head>
 <body>
 
-<h1>index</h1>
+	<div class="container">
+		<div class="main-container">
+			<div class="row">
+				<h3 class="planner-title">여행제목</h3>
+			</div>
+			<div class="row">
+				<div class="map">
+					<div class="map-peopleType">
+						여자혼자
+					</div>
+					<div class="map-rootModify">
+						루트수정
+					</div>
+					<div class="map-startDate">
+						날짜
+					</div>
+					<div class="map-date">
+						3일간
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	
+	</div>
+	
 </body>
 </html>
