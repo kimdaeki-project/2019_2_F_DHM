@@ -27,11 +27,100 @@
 					<div class="map" id="map">
 						지도올자리
 						<div class="map-peopleType">
-							<div class="map-header">
-								<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_2_2.png">
+							<div class="swiper-before">
+								<div class="map-header">
+									<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_2_2.png">
+								</div>
+								<div class="map-body">남자끼리</div>
 							</div>
-							<div class="map-body">남자끼리</div>
-							
+							<div class="swiper-modal swiper">
+								<div class="modal-head" style="text-align: center; padding-top: 20px;">
+									<font style="color: white; font-size: 13pt; font-weight: 700;">누구와 함께하는 여행인가요?</font>
+								</div>
+								<div style="padding-bottom: 15px;">
+									<div style="float: left; width: 33%;">
+										<a>
+											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_1_1_w.png" width="100%">
+										</a>
+										<div style="margin-top: -15px; text-align: center;">
+											<font style="color: white;font-size: 8pt;">여자혼자</font>
+										</div>
+									</div>
+									
+									
+									<div style="float: left; width: 33%;">
+										<a>
+											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_1_2_w.png" width="100%">
+										</a>
+										<div style="margin-top: -15px; text-align: center;">
+											<font style="color: white;font-size: 8pt;">남자혼자</font>
+										</div>
+									</div>
+									
+									<div style="float: left; width: 33%;">
+										<a>
+											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_1_3_w.png" width="100%">
+										</a>
+										<div style="margin-top: -15px; text-align: center;">
+											<font style="color: white;font-size: 8pt;">커플/신혼</font>
+										</div>
+									</div>
+									
+									<div style="float: left; width: 33%;">
+										<a>
+											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_2_1_w.png" width="100%">
+										</a>
+										<div style="margin-top: -15px; text-align: center;">
+											<font style="color: white;font-size: 8pt;">여자끼리</font>
+										</div>
+									</div>
+									
+									<div style="float: left; width: 33%;">
+										<a>
+											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_2_2_w.png" width="100%">
+										</a>
+										<div style="margin-top: -15px; text-align: center;">
+											<font style="color: white;font-size: 8pt;">남자끼리</font>
+										</div>
+									</div>
+									
+									<div style="float: left; width: 33%;">
+										<a>
+											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_2_3_w.png" width="100%">
+										</a>
+										<div style="margin-top: -15px; text-align: center;">
+											<font style="color: white;font-size: 8pt;">남녀함께</font>
+										</div>
+									</div>
+									
+									<div style="float: left; width: 33%;">
+										<a>
+											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_3_1_w.png" width="100%">
+										</a>
+										<div style="margin-top: -15px; text-align: center;">
+											<font style="color: white;font-size: 8pt;">아이들과</font>
+										</div>
+									</div>
+									
+									<div style="float: left; width: 33%;">
+										<a>
+											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_3_2_w.png" width="100%">
+										</a>
+										<div style="margin-top: -15px; text-align: center;">
+											<font style="color: white;font-size: 8pt;">부모님과</font>
+										</div>
+									</div>
+									
+									<div style="float: left; width: 33%;">
+										<a>
+											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_3_3_w.png" width="100%">
+										</a>
+										<div style="margin-top: -15px; text-align: center;">
+											<font style="color: white;font-size: 8pt;">부모님끼리</font>
+										</div>
+									</div>
+								</div>
+							</div>	
 						</div>
 						<div class="map-rootModify">
 							<div class="map-header">
@@ -57,6 +146,7 @@
 				<div class="calendar-wrapper">
 					<div class="calendar">
 						<h3 style="text-align: center;">2020년 1월</h3>
+						<div class="cal-event">부산</div>
 						<table class="cal-table">
 							<thead>
 								<tr class="t-head">
@@ -256,27 +346,133 @@
 				</div>
 				<div class="middle-wrapper">
 					<div class="row" style="margin-top: 20px;">
+								
 						<ul class="nolist">
 							<li class="">
+			
 								<div class="nolist-dot"></div>
 								<div class="nolist-line"></div>
 								<div class="nolist-region">부산</div>
-								<div class="nolist-transfer" onclick="transfer();">
-									<img src="../image/train.jpg">
+								
+								<div class="nolist-transfer-comment">1월 14일 이동</div>
+								<div class="nolist-transfer">
+									<i class="fa fa-train"></i>
 								</div>
+								
+								<div class="swiper-vehicle-wrapper swiper">
+									<div class="swiper-vehicle" id="bus">
+										<i class="fa fa-bus" style="margin-right: 2px;"></i>
+										<font>버스</font>
+									</div>
+									<div class="swiper-vehicle" id="taxi" style="margin-left: 8px;">
+										<i class="fa fa-taxi"></i>
+										<font>택시</font>
+									</div>
+									<div class="swiper-vehicle" id="train">
+										<i class="fa fa-train" style="margin-right: 2px;"></i>
+										<font>기차</font>
+									</div>
+									<div class="swiper-vehicle" id="car" style="margin-left: 8px;">
+										<i class="fa fa-car"></i>
+										<font>자가용</font>
+									</div>
+								</div>
+								
 								<div class="notlist-ballon"></div>
-								<div class="notlist-ballon2"> </div>
+								<div class="notlist-ballon2"> 
+									<div class="ballon2-title">
+										<div>버스로 이동</div>
+									</div>
+									<div class="ballon2-contents">
+										<div><input type="text"></div>
+									</div>
+								</div>
 							</li>
+							
 							<li class="">
+			
 								<div class="nolist-dot"></div>
 								<div class="nolist-line"></div>
 								<div class="nolist-line2"></div>
 								<div class="nolist-region">대구</div>
+								<div class="nolist-transfer-comment">1월 14일 이동</div>
 								<div class="nolist-transfer">
-									
+									<i class="fa fa-train"></i>
+								</div>
 								
+								<div class="swiper-vehicle-wrapper swiper">
+									<div class="swiper-vehicle" id="bus">
+										<i class="fa fa-bus" style="margin-right: 2px;"></i>
+										<font>버스</font>
+									</div>
+									<div class="swiper-vehicle" id="taxi" style="margin-left: 8px;">
+										<i class="fa fa-taxi"></i>
+										<font>택시</font>
+									</div>
+									<div class="swiper-vehicle" id="train">
+										<i class="fa fa-train" style="margin-right: 2px;"></i>
+										<font>기차</font>
+									</div>
+									<div class="swiper-vehicle" id="car" style="margin-left: 8px;">
+										<i class="fa fa-car"></i>
+										<font>자가용</font>
+									</div>
+								</div>
+								
+								<div class="notlist-ballon"></div>
+								<div class="notlist-ballon2"> 
+									<div class="ballon2-title">
+										<div>버스로 이동</div>
+									</div>
+									<div class="ballon2-contents">
+										<div><input type="text"></div>
+									</div>
 								</div>
 							</li>
+					
+					
+							<li class="">
+								<div class="nolist-dot"></div>
+								<div class="nolist-line"></div>
+								<div class="nolist-dot2"></div>
+								<div class="nolist-line2"></div>
+								<div class="nolist-region">서울</div>
+								<div class="nolist-transfer-comment">1월 14일 이동</div>
+								<div class="nolist-transfer">
+									<i class="fa fa-train"></i>
+								</div>
+								
+								<div class="swiper-vehicle-wrapper swiper">
+									<div class="swiper-vehicle" id="bus">
+										<i class="fa fa-bus" style="margin-right: 2px;"></i>
+										<font>버스</font>
+									</div>
+									<div class="swiper-vehicle" id="taxi" style="margin-left: 8px;">
+										<i class="fa fa-taxi"></i>
+										<font>택시</font>
+									</div>
+									<div class="swiper-vehicle" id="train">
+										<i class="fa fa-train" style="margin-right: 2px;"></i>
+										<font>기차</font>
+									</div>
+									<div class="swiper-vehicle" id="car" style="margin-left: 8px;">
+										<i class="fa fa-car"></i>
+										<font>자가용</font>
+									</div>
+								</div>
+								
+								<div class="notlist-ballon"></div>
+								<div class="notlist-ballon2"> 
+									<div class="ballon2-title">
+										<div>버스로 이동</div>
+									</div>
+									<div class="ballon2-contents">
+										<div><input type="text"></div>
+									</div>
+								</div>
+								
+							</li>
+					
 						</ul>
 						
 					</div>
@@ -299,6 +495,18 @@
 
 		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
+		$('.map-peopleType').click(function(){
+			
+			$('.map-peopleType').toggleClass("peopleTypeSwiper");
+			$('.swiper-before').toggleClass("swiper");
+			$('.swiper-modal').toggleClass("swiper");	
+		});
+
+		$('.nolist-transfer').click(function(){
+			
+			$('.swiper-vehicle-wrapper').toggleClass("swiper");
+		});
+		
 	</script>
 </body>
 </html>
