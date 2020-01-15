@@ -10,5 +10,10 @@ public class HomeController {
 	public String index() throws Exception{
 		return "index";
 	}
+	
+	@GetMapping("/template/basic")
+	public String basic() {
+		return "template/basic";
+	}
 }
 	

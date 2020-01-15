@@ -1,8 +1,16 @@
 @charset "UTF-8";
+article{
+	clear: both;
+}
 .planner-title{
 	color:white;
 }
-
+.paddingTop50px{
+	padding-top: 50px;
+}
+.paddingTop100px{
+	padding-top: 100px;
+}
 .map{
 	width:60%;
 	height: 480px;
@@ -56,13 +64,15 @@
 	margin: 0 auto;
 }
 .nav_menu_li{
-	padding-bottom: 1px;
 	float: left;
 	list-style: none;
 	margin:0 40px;
 	display: inline-block;
 	height: inherit;
 	line-height: 24px;
+	background:white;
+	margin-bottom: 50px;
+	border-bottom: 1px solid #999999;
 }
 .nav_menu_li>a{
 	color: #474747;
@@ -79,11 +89,12 @@
 	height: 39px;
 	margin: 20px auto 0 auto;
 }
-.nav_log_img{
-	width: inherit;
-	height: inherit;
+.nav_log_img{  
+	width: 190px;
+	height: 39px;
 }
 .container{
+	clear: both;
 }
 .nav_gnb_menu{
 	float: right;
@@ -149,13 +160,105 @@
 	color: #6f9c3b;
 }
 .tab{
-	border-bottom: 1px solid #green;
+	width:100%;
+	background:gold;
 }
-.tab>li{
-	float:left;
-	width:200px;
-	height:30px;
-	margin:0px 1px;
-	list-style:none;
-	border:1px solid green;
+.tab li:first-child{
+	width:25%;
+	height:50px;
+	line-height:50px;
+	display: inline-block;
+	float: left;
+	text-align: center;
+	border-top-left-radius: 5px;
 }
+.tab li{
+	width:25%;
+	height:50px;
+	line-height:50px;
+	display: inline-block;
+	float: left;
+	text-align: center;
+	border-bottom: 1px solid #999;
+	background:white;
+	cursor: pointer;
+}
+.tab li:hover{
+	background:#efefef;
+	border-bottom: 1px solid green;
+	color:#999;
+}
+.tab li a{
+	text-decoration: none;
+	color:#333;
+}
+.tab li:last-child{
+	border-top-right-radius: 5px;
+}
+
+.section{
+	background:white;
+	width:100%;
+}
+table{
+	text-align: center;
+}
+th{
+	text-align: center;
+}
+.float_right{
+	float: right;
+}
+
+/* board select */
+.board_select_row{
+	width: 100%;
+	padding:0 2%;
+	overflow: hidden;
+}
+.board_select_col{
+	display: inline-block;
+	width: 24.5%;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+.board_select_column{
+	font-size: 14px;
+	font-weight: bold;
+	height: 30px;
+	line-height: 30px;
+}
+.board_select_title{
+	text-align: center;
+	padding: 10px 0;
+}
+.board_select_border_bottom{
+	border-bottom: 1px solid #999;
+	padding-bottom: 10px;
+}
+.board_select_contents{
+	padding:15px 0;
+	font-size: 16px;
+	min-height: 300px;
+	margin-top: 10px;
+}
+.button{
+	background: white;
+	padding: 5px 10px;
+	border:3px solid yellowgreen;
+	border-radius: 20px;	
+	color:yellowgreen;
+	margin-right: 10px;
+}
+.button2{
+	background: yellowgreen;
+	padding: 5px 10px;
+	border:3px solid yellowgreen;
+	border-radius: 20px;
+	color:white;
+	margin-right: 10px;
+}
+
+
+
