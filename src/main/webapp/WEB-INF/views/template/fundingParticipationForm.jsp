@@ -14,13 +14,7 @@
 			<form:textarea cssClass="form-control" path="contents" id="contents"/>
 			<form:errors  path="contents" cssClass="error"/>
 			</div>
-			
-			 <div class="form-group">
-		      <label for="people">Funding Price : </label>
-		       <form:input class="form-control" path="price"/>
-		       <form:errors path="price" cssClass="error"/>
-		    </div>
-			
+		
 		    <div class="form-group">
 		      <label for="goal">Funding Goal : </label>
 		      <form:input placeholder="Enter goal" class="form-control" path="goal"/>
@@ -44,7 +38,7 @@
 		     <input type="date" min="2020-01-16" class="form-control" name="end"/>
 		      <input type="time" class="form-control" name="time2"/>
 		    </div>
-
+		    
 		    <div class="form-group">
 		      <label for="people">Funding People : </label>
 		       <form:input class="form-control" path="people"/>

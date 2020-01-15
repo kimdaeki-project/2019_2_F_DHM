@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>대동여지도</title>
+<title>대동여행지도</title>
 <c:import url="../template/boot.jsp" />
 <c:import url="../template/summernote.jsp" />
 </head>

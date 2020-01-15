@@ -1,5 +1,6 @@
 package com.f.dhm.funding;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
 
@@ -24,9 +25,9 @@ public class FundingController {
 	
 	//select
 	@GetMapping("fundingSelect")
-	public ModelAndView fundingSelect(Integer fNum) throws Exception{
+	public ModelAndView fundingSelect(int num) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		Optional<FundingVO> opt = fundingService.fundingSelect(fNum);
+		Optional<FundingVO> opt = fundingService.fundingSelect(num);
 		
 		if(opt.isPresent()) {
 			mv.setViewName("funding/fundingSelect");
@@ -46,7 +47,7 @@ public class FundingController {
 		pager = fundingService.fundingList(pager);
 		
 		mv.addObject("list", pager);
-		mv.setViewName("funding/fundingWrite");
+		mv.setViewName("funding/fundingList");
 		
 		return mv;
 	}
@@ -62,34 +63,58 @@ public class FundingController {
 	}
 	
 	@PostMapping("fundingWrite")
-	public String fundingWrite(FundingVO fundingVO) throws Exception{
+	public String fundingWrite(@RequestParam String start, @RequestParam String time1,
+								@RequestParam String end, @RequestParam String time2,
+								FundingVO fundingVO) throws Exception{
+		String startTime = start +" "+ time1;
+		String endTime = end +" "+ time2;
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date startTime2 = transFormat.parse(startTime);
+		Date endTime2 = transFormat.parse(endTime);
+		fundingVO.setStartTime(startTime2);
+		fundingVO.setEndTime(endTime2);
 		fundingService.fundingWrite(fundingVO);
 		
 		return "redirect:./fundingList";
 	}
 	//update
 	@GetMapping("fundingUpdate")
-	public ModelAndView fundingUpdate(Integer fNum) throws Exception{
+	public ModelAndView fundingUpdate(@ModelAttribute FundingVO fundingVO, int num) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		fundingService.fundingSelect(fNum);
+		Optional<FundingVO> opt = fundingService.fundingSelect(num);
+		
+		if(opt.isPresent()) {
+			mv.setViewName("funding/fundingUpdate");
+			mv.addObject("vo", opt.get());
+		}else {
+			mv.setViewName("common/result");
+			mv.addObject("message", "No Contents");
+			mv.addObject("path", "./fundingList");
+		}
 		return mv;
 	}
 	@PostMapping
-	public String fundingUpdate(FundingVO fundingVO
-//			, @RequestParam String fName, @RequestParam String contents,
-//			@RequestParam int goal, @RequestParam Date startTime,
-//			@RequestParam Date endTime, @RequestParam int people
+	public String fundingUpdate(FundingVO fundingVO,
+			@RequestParam String start, @RequestParam String time1,
+			@RequestParam String end, @RequestParam String time2
 			) throws Exception{
 //		fundingService.fundingUpdate(fName, contents, goal, startTime, endTime, people, fundingVO.getFNum());
+		String startTime = start +" "+ time1;
+		String endTime = end +" "+ time2;
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date startTime2 = transFormat.parse(startTime);
+		Date endTime2 = transFormat.parse(endTime);
+		fundingVO.setStartTime(startTime2);
+		fundingVO.setEndTime(endTime2);
 		fundingService.fundingUpdate(fundingVO);
 		
 		return "redirect:./fundingList";
 	}
 	//delete
 	@GetMapping("fundingDelete")
-	public String fundingDelete(Integer fNum) throws Exception{
+	public String fundingDelete(int num) throws Exception{
 //		ModelAndView mv = new ModelAndView();
-		fundingService.fundingDelete(fNum);
+		fundingService.fundingDelete(num);
 		
 		return "redirect:./fundingList";
 	}
