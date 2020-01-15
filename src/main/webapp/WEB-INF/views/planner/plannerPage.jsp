@@ -7,11 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet"  href="../css/planner.css">
-
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
 <c:import url="../template/boot.jsp"/>
 </head>
 <body>
+	<div style="background-color: #f5f5f5">
 	<div class="header">
 	</div>
 	<div class="container">
@@ -22,19 +24,33 @@
 			</div>
 			<div class="main-contents">
 				<div class="map-wrapper">
-					<div class="map">
+					<div class="map" id="map">
 						지도올자리
 						<div class="map-peopleType">
-							여자혼자
+							<div class="map-header">
+								<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_2_2.png">
+							</div>
+							<div class="map-body">남자끼리</div>
+							
 						</div>
 						<div class="map-rootModify">
-							루트수정
+							<div class="map-header">
+								<i class="fa fa-cog fa-2x" style="color: #747474; margin-top: 9px;margin-bottom: 7px;"></i>
+							</div>
+							<div class="map-body">루트수정</div>
+							
 						</div>
 						<div class="map-startDate">
-							2020-1-14일 출발
+							<div class="map-header">
+							<i class="fa fa-cog" aria-hidden="true" style="color: #747474; margin-top: 9px;margin-bottom: 7px;"><div style="font-size: 12px; font-weight: 700; float: right; margin-left: 2px; line-height: 1.2;">2020년1월14일 출발</div></i>
+							</div>
+							<div class="map-body"></div>
+							
 						</div>
 						<div class="map-date">
-							3일간
+							<div class="map-header"></div>
+							<div class="map-body">3일간</div>
+							
 						</div>
 					</div>
 				</div>
@@ -268,12 +284,20 @@
 			</div>
 		</div>
 		
-	
+	</div>
 	</div>
 	<script type="text/javascript">
 		function transfer(){
 			alert('dd');
 		}
+
+		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+		var options = { //지도를 생성할 때 필요한 기본 옵션
+			center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+			level: 3 //지도의 레벨(확대, 축소 정도)
+		};
+
+		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
 	</script>
 </body>
