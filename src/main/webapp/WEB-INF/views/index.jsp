@@ -10,19 +10,34 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="container" style="height: 100px;"></div>
 
-<h1>index</h1>
+<h1 style="text-align: center;">DHM 홈페이지</h1>
 
-	<ul class="nav navbar-nav">
-		<li class="dropdown">member<span class="caret"></span>
-			<ul class="dropdown-menu">
-				<li><a href="${pageContext.request.contextPath}/member/memberJoin">member join</a></li>
-				<li><a href="${pageContext.request.contextPath}/member/memberLogin">member Login</a></li>
-				<li><a href="${pageContext.request.contextPath}/member/memberFacebookLogin">member FacebookJoin</a></li>
-			</ul>
-		</li>
-	</ul>
+<div style="padding-left: 780px;">
+	<a href="#"><img src="./imgs/5.png"></a>
+</div>
+
+<div class="container" style="height: 200px;"></div>
+
+<div style="padding-left: 840px;">
+	<a href="${pageContext.request.contextPath}/member/memberJoin"><button>회원가입</button></a>
+	<a href="${pageContext.request.contextPath}/member/memberLogin"><button>로그인</button></a>
+	<a href="${pageContext.request.contextPath}/member/memberFacebookLogin"><button>페이스북 로그인</button></a>
+</div>
 	
+<div class="container" style="height: 100px;"></div>
 
+	
+<div style="padding-left: 800px;">
+	<a href="http://211.238.142.38/schedule/showList"><button>성주형 감시</button></a>
+	<a href="http://211.238.142.32"><button>재용이형 감시</button></a>
+	<a href="http://211.238.142.33"><button>혜현이 감시</button></a>
+	<a href="http://211.238.142.39"><button>병주형 감시</button></a>
+	<a href="http://211.238.142.44"><button>팀 감시</button></a> <!-- 1team : 26 / 2team : 45 -->
+</div>
+	
+	
+	
 </body>
 </html>

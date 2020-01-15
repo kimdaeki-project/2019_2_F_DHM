@@ -8,11 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/member/**")
 public class MemberController {
 
-	
-	
-	
-	
-	
+
 	//-----------------------------------------------------------------------
 	
 	
@@ -57,11 +53,16 @@ public class MemberController {
 	//-----------------------------------------------------------------------
 	
 	//-----------------------------------------------------------------------
+	@GetMapping("memberPrivacyPolicy")
+	public String memberPrivacyPolicy()throws Exception{
+		
+		return "member/memberUsePage/memberPrivacyPolicy";
+	}
 	
+	@GetMapping("memberTermsAndConditions")
+	public String memberTermsAndConditions()throws Exception{
+		
+		return "member/memberUsePage/memberTermsAndConditions";
+	}
 	//-----------------------------------------------------------------------
-	
-	
-	
-	
-	
 }
