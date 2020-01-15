@@ -38,7 +38,7 @@
 		</div>
 		<input type="button" class="button2" value="write" id="write">
 		<ul class="pager">
-			<li><a href="#">Previous</a></li>
+			<li><a href="#">Back</a></li>
 			<li><a href="#">1</a></li>
 			<li><a href="#">2</a></li>
 			<li><a href="#">3</a></li>
