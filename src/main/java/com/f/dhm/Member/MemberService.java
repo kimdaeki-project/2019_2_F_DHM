@@ -23,7 +23,7 @@ public class MemberService {
 		return memberRepository.findByIdAndPw(memberVO.getId(), memberVO.getPw());
 	}
 	
-	
+
 	
 	
 	
