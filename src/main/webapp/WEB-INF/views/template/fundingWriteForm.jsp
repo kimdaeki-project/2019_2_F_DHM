@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
+<script type="text/javascript" src="../js/summernote.js" ></script>
 		<form:form id="frm" modelAttribute="fundingVO">
 			<div class="form-group">
 		      <label for="name">Funding Name :</label>
@@ -35,13 +35,13 @@
 			
 			<div class="form-group">
 		      <label for="startTime">Funding StartTime : </label>
-		      <input type="date" min="2020-01-15" class="form-control" name="start"/>
+		      <input type="date" class="form-control" id="start" name="start"/>
 		      <input type="time" class="form-control" name="time1"/>
 		    </div>
 		    
 		    <div class="form-group">
 		      <label for="endTime">Funding EndTime : </label>
-		     <input type="date" min="2020-01-16" class="form-control" name="end"/>
+		     <input type="date" class="form-control" id="end" name="end"/>
 		      <input type="time" class="form-control" name="time2"/>
 		    </div>
 

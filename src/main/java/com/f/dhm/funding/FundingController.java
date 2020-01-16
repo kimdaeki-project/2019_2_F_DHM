@@ -2,6 +2,7 @@ package com.f.dhm.funding;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.Resource;
@@ -119,4 +120,17 @@ public class FundingController {
 		return "redirect:./fundingList";
 	}
 	
+	//fundingJoin//
+	@GetMapping("fundingJoinList")
+	public ModelAndView fundingJoinList(FundingVO fundingVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+//		List<FundingVO> list = fundingService.fundingJoinList(num);
+		fundingVO = fundingService.fundingJoinList(fundingVO);
+		
+		mv.addObject("vo", fundingVO);
+//		mv.addObject("list", list);
+		mv.setViewName("funding/fundingJoinList");
+		System.out.println("123");
+		return mv;
+	}
 }

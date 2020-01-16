@@ -1,5 +1,6 @@
 package com.f.dhm.funding;
 
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
@@ -14,7 +15,7 @@ public class FundingService {
 	
 	@Resource(name = "fundingRepository")
 	private FundingRepository fundingRepository;
-	
+	//funding//
 	public void fundingWrite(FundingVO fundingVO) throws Exception{
 		fundingRepository.save(fundingVO);
 	}//write
@@ -46,6 +47,21 @@ public class FundingService {
 		fundingRepository.deleteById(num);
 	}//delete
 
+	//fundingJoin//
+	public FundingVO fundingJoinList(FundingVO fundingVO) throws Exception{
+//		List<FundingVO> list = fundingRepository.fundingJoinList(num);
+		
+		fundingVO = fundingRepository.findById(fundingVO.getNum()).get();
+		fundingVO.getFundingJoinVOs();
+		
+		return fundingVO;
+	}//select
+	
+	
+//	public void fundingJoinSelect2(String id) throws Exception{
+//		fundingRepository.fundingJoinSelect(id);
+//	}//select2
+	
 
 	
 }

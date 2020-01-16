@@ -34,8 +34,6 @@
 				<td>${vo.startTime}</td>
 				<td>${vo.endTime}</td>
 				<td>${vo.people}</td>
-
-				<td><input type="text" id="days"></td>
 			</tr>
 		</c:forEach>
 	
