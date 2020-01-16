@@ -9,7 +9,7 @@ body{
 }
 .container{
 	background-color: #cccc99;
-	height: 1000px;
+	height: 1800px;
 }
 
 .planner-title{
@@ -256,7 +256,7 @@ body{
 	font-weight: 700;
 	position: relative;
 	color:gray;
-	left: 40px;
+	left:115px;
 }
 .notlist-ballon{
 	position: absolute;
@@ -327,6 +327,12 @@ body{
 	height: 150px;
 	
 }
-.schedule-list{
+.wishlist{
 	width: 150px;
+}
+
+.schedule-wrapper{
+	overflow-x:auto;
+	margin-top: 30px; 
+	
 }

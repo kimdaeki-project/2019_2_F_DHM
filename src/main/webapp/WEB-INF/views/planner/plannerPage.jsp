@@ -10,7 +10,20 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet"  href="../css/planner.css">
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
+
+<!-- <link rel="stylesheet" href="../css/swiper.css">
+<link rel="stylesheet" href="../css/swiper.min.css">
+<script src="../css/swiper.js"></script>
+<script src="../css/swiper.min.js"></script>  -->
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+
+<script src="https://unpkg.com/swiper/js/swiper.js"></script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+
 <c:import url="../template/boot.jsp"/>
+
 </head>
 <body>
 	<div style="background-color: #f5f5f5">
@@ -344,11 +357,13 @@
 				<div class="middle-title">
 					<h3 style="color: black;">여행루트</h3>
 				</div>
-				<div class="middle-wrapper">
-					<div class="row" style="margin-top: 20px;">
+				<div class="middle-wrapper" style="height: 300px;">
+					
+		
+					<div class="swiper-container" style="margin-top: 20px; height: 250px;">
 								
-						<ul class="nolist">
-							<li class="">
+						<div class="nolist swiper-wrapper">
+							<div class="swiper-slide">
 			
 								<div class="nolist-dot"></div>
 								<div class="nolist-line"></div>
@@ -387,9 +402,9 @@
 										<div><input type="text"></div>
 									</div>
 								</div>
-							</li>
+							</div>
 							
-							<li class="">
+							<div class="swiper-slide">
 			
 								<div class="nolist-dot"></div>
 								<div class="nolist-line"></div>
@@ -428,10 +443,10 @@
 										<div><input type="text"></div>
 									</div>
 								</div>
-							</li>
+							</div>
 					
 					
-							<li class="">
+							<div class="swiper-slide">
 								<div class="nolist-dot"></div>
 								<div class="nolist-line"></div>
 								<div class="nolist-dot2"></div>
@@ -471,9 +486,9 @@
 									</div>
 								</div>
 								
-							</li>
+							</div>
 					
-						</ul>
+						</div>
 						
 					</div>
 				</div>
@@ -485,24 +500,88 @@
 					<h3 style="color: black;">일정표</h3>
 				</div>
 				<div class="middle-wrapper">
+					<!-- 체크한 관광지 -->
 					<div class="tourlist">
-						<div>
-							<ul class="swiper-wrapper">
-								<li class="schedule-list">
-									<div>
+						<div class="swiper-container">
+							<div class="swiper-wrapper">
+								
+									<div class="swiper-slide" style="width: 170px;">
 										<a>
 										<div class="tour-img">
 											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
-												<div style="position: absolute; top: 120px; right:0; width: 150px; height: 24px; color: white; font-size: 15px;background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));"">
+												<div style="position: absolute; top: 120px; right:25; width: 150px; height: 24px; color: white; font-size: 15px;background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));"">
 													<font>대구 이월드</font>
 												</div>
 											</div>
 										</a>
 									</div>
-								</li>
+									
+									<div class="swiper-slide">
+										<a>
+										<div class="tour-img">
+											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
+												<div style="position: absolute; top: 120px; right:25; width: 150px; height: 24px; color: white; font-size: 15px;background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));"">
+													<font>대구 이월드</font>
+												</div>
+											</div>
+										</a>
+									</div>
+									
+									<div class="swiper-slide">
+										<a>
+										<div class="tour-img">
+											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
+												<div style="position: absolute; top: 120px; right:25; width: 150px; height: 24px; color: white; font-size: 15px;background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));"">
+													<font>대구 이월드</font>
+												</div>
+											</div>
+										</a>
+									</div>
+									
+									<div class="swiper-slide">
+										<a>
+										<div class="tour-img">
+											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
+												<div style="position: absolute; top: 120px; right:25; width: 150px; height: 24px; color: white; font-size: 15px;background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));"">
+													<font>대구 이월드</font>
+												</div>
+											</div>
+										</a>
+									</div>
+									
+									<div class="swiper-slide">
+										<a>
+										<div class="tour-img">
+											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
+												<div style="position: absolute; top: 120px; right:25; width: 150px; height: 24px; color: white; font-size: 15px;background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));"">
+													<font>대구 이월드</font>
+												</div>
+											</div>
+										</a>
+									</div>
+									
+									<div class="swiper-slide">
+										<a>
+										<div class="tour-img">
+											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
+												<div style="position: absolute; top: 120px; right:25; width: 150px; height: 24px; color: white; font-size: 15px;background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));"">
+													<font>대구 이월드</font>
+												</div>
+											</div>
+										</a>
+									</div>
+									
 								
-							</ul>
+								
+							</div>
 						</div>
+					</div>
+					<!-- 일정표 -->
+					<div class="schedule-wrapper">
+						<div class="">
+						
+						</div>
+						
 					</div>
 				</div>
 			
@@ -536,6 +615,20 @@
 		$('.nolist-transfer').click(function(){
 			$('.swiper-vehicle-wrapper').toggleClass("swiper");
 		});
+
+
+
+		/* swiper */
+		   var swiper = new Swiper('.swiper-container', {
+		      slidesPerView: 5,
+		      spaceBetween: 0,
+		      freeMode: true,
+		      pagination: {
+		        el: '.swiper-pagination',
+		        clickable: true,
+		      },
+		    });
+
 		
 	</script>
 </body>

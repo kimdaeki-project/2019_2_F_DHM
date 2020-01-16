@@ -23,7 +23,7 @@ public class ScheduleVO {
 	@NotEmpty
 	private String sName; //스케줄이름
 	@NotEmpty
-	private String tour; //지역이름
+	private String tour; //관광지이름
 	private int cost;	
 	private Date start;
 	private Date end;
