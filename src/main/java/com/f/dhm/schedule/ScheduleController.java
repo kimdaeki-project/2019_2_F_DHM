@@ -15,4 +15,16 @@ public class ScheduleController {
 		mv.setViewName("/schedule/showList");
 		return mv;
 	}
+	
+	@GetMapping("addSchedule")
+	public ModelAndView addSch(String cityName, String startDate, String endDate) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("cityName", cityName);
+		mv.addObject("startDate", startDate);
+		mv.addObject("endDate", endDate);
+		mv.setViewName("/schedule/addSchedule");
+		
+		return mv;
+	}
 }
