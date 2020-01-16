@@ -342,7 +342,7 @@
 			
 			<div class="middle-contents">
 				<div class="middle-title">
-					<h3 style="color: black;">간략한 일정</h3>
+					<h3 style="color: black;">여행루트</h3>
 				</div>
 				<div class="middle-wrapper">
 					<div class="row" style="margin-top: 20px;">
@@ -478,6 +478,36 @@
 					</div>
 				</div>
 			</div>
+			<!-- 여행루트 끝 -->
+			<!-- 세부일정표 시작 -->
+			<div class="middle-contents2">
+				<div class="midde-title">
+					<h3 style="color: black;">일정표</h3>
+				</div>
+				<div class="middle-wrapper">
+					<div class="tourlist">
+						<div>
+							<ul class="swiper-wrapper">
+								<li class="schedule-list">
+									<div>
+										<a>
+										<div class="tour-img">
+											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
+												<div style="position: absolute; top: 120px; right:0; width: 150px; height: 24px; color: white; font-size: 15px;background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));"">
+													<font>대구 이월드</font>
+												</div>
+											</div>
+										</a>
+									</div>
+								</li>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+			
 		</div>
 		
 	</div>
@@ -502,8 +532,8 @@
 			$('.swiper-modal').toggleClass("swiper");	
 		});
 
+		
 		$('.nolist-transfer').click(function(){
-			
 			$('.swiper-vehicle-wrapper').toggleClass("swiper");
 		});
 		
