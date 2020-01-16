@@ -9,6 +9,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "member")
@@ -26,10 +27,10 @@ public class MemberVO {
 	private String name;
 	@NotEmpty
 	private String email;
-	@NotEmpty
+	@NotNull
 	private Date birth;
 	@NotEmpty
-	private int gender;
+	private Integer gender;
 	private int check;
 	private int grade;
 	private int social;
