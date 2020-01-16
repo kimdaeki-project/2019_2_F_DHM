@@ -11,7 +11,7 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name = "members")
+@Table(name = "member")
 public class MemberVO {
 
 	
@@ -35,8 +35,8 @@ public class MemberVO {
 	private int social;
 	//img는 MemberFilesVO에 입력
 	
-	@OneToOne(mappedBy = "memberVO", cascade = CascadeType.ALL)
-	private MemberFilesVO memberFilesVO;
+//	@OneToOne(mappedBy = "memberVO", cascade = CascadeType.ALL)
+//	private MemberFilesVO memberFilesVO;
 
 	public String getId() {
 		return id;
@@ -118,13 +118,13 @@ public class MemberVO {
 		this.social = social;
 	}
 
-	public MemberFilesVO getMemberFilesVO() {
-		return memberFilesVO;
-	}
-
-	public void setMemberFilesVO(MemberFilesVO memberFilesVO) {
-		this.memberFilesVO = memberFilesVO;
-	}
+//	public MemberFilesVO getMemberFilesVO() {
+//		return memberFilesVO;
+//	}
+//
+//	public void setMemberFilesVO(MemberFilesVO memberFilesVO) {
+//		this.memberFilesVO = memberFilesVO;
+//	}
 	
 	
 	

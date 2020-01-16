@@ -172,13 +172,15 @@ padding-top: 27px;
 padding-left: 100px;
 }
 
-.login5-5{
+#login5-5{
 padding-top: 7px;
 padding-left: 100px;
 font-size: 12px;
 text-decoration: underline;
 color: #8f8f8f;
 font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
+text-decoration: none;
+color: black;
 }
 
 .checkbox{

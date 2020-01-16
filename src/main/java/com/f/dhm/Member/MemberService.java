@@ -20,8 +20,10 @@ public class MemberService {
 	
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception{
 		
-		return memberRepository.findById(memberVO.getId()).get();
+		return memberRepository.findByIdAndPw(memberVO.getId(), memberVO.getPw());
 	}
+	
+	
 	
 	
 	

@@ -21,7 +21,7 @@ public class MemberController {
 	
 	@GetMapping("memberJoin")
 	public String memberJoin()throws Exception{
-		System.out.println("ㅎㅇ");
+
 		return "member/memberJoin";
 	}
 	
@@ -70,6 +70,13 @@ public class MemberController {
 	
 	
 	//-----------------------------------------------------------------------
+	@GetMapping("memberLogout")
+	public String memberLogout(HttpSession session)throws Exception{
+		
+		session.invalidate();
+		
+		return "redirect:../";
+	}
 	
 	//-----------------------------------------------------------------------
 	

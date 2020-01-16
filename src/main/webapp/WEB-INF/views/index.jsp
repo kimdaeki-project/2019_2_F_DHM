@@ -21,9 +21,14 @@
 <div class="container" style="height: 200px;"></div>
 
 <div style="padding-left: 840px;">
-	<a href="${pageContext.request.contextPath}/member/memberJoin"><button>회원가입</button></a>
+	<c:if test= "${not empty member}"> 
+	<a href="${pageContext.request.contextPath}/member/memberLogout"><button>로그아웃</button></a>
+	</c:if>
+	<c:if test= "${ empty member}"> 
 	<a href="${pageContext.request.contextPath}/member/memberLogin"><button>로그인</button></a>
+	<a href="${pageContext.request.contextPath}/member/memberJoin"><button>회원가입</button></a>	
 	<a href="${pageContext.request.contextPath}/member/memberFacebookLogin"><button>페이스북 로그인</button></a>
+	</c:if>
 </div>
 	
 <div class="container" style="height: 100px;"></div>

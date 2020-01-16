@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- boot.jsp jquery만 가져옴 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <c:import url="./membercss.jsp"/>
 <meta charset="UTF-8">
 <title>member Join</title>
@@ -23,7 +25,7 @@
 			<div class="Join3">
 				<div class="Join3-1">회원가입/정보변경</div>
 			</div>
-			
+		<form action="memberJoin" id="frm2" method="post">	
 			<div class="Join4">
 				<div class="Join4-1-a">
 					<div class="Join4-1-1">이름</div>					
@@ -106,9 +108,9 @@
 						</label>
 				</div>
 				
-				<a class="Join4or5-1" href="${pageContext.request.contextPath}/member/memberUsePage/memberPrivacyPolicy">이용약관</a>
+				<a class="Join4or5-1" href="${pageContext.request.contextPath}/member/memberUsePage/memberPrivacyPolicy" target="_blank">이용약관</a>
 				
-				<a class="Join4or5-2" href="${pageContext.request.contextPath}/member/memberUsePage/memberTermsAndConditions">개인정보 취급방침</a>
+				<a class="Join4or5-2" href="${pageContext.request.contextPath}/member/memberUsePage/memberTermsAndConditions" target="_blank">개인정보 취급방침</a>
 				
 				<div class="Join4-check2">
 						<label class="checkbox" style="font-size:11pt; color: gray;">
@@ -116,10 +118,10 @@
 							약관과 개인정보 수집 및 이용방침에 동의합니다.		
 						</label>
 				</div>
-				
 					
 			</div>			
-			
+		</form>		
+		
 			<div class="Join5">
 				<div class="Join5-btn1">회원가입</div>
 				<div class="Join5-btn2"><a href="${pageContext.request.contextPath}/">취소</a></div>
@@ -127,7 +129,14 @@
 			
 		</div>
 	</div>
-	
+<script type="text/javascript">
+$(".Join5-btn1").click(function() {
+    document.getElementById('frm2').submit();
+    
+    return false;
+});
+
+</script>	
                                         
 </body>
 </html>
