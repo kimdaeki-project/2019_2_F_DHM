@@ -34,6 +34,7 @@ public class MemberService {
 		return memberRepository.findByIdAndPw(memberVO.getId(), memberVO.getPw());
 	}
 	//----------------------------------------
+	
 	public void memberJoin(MemberVO memberVO)throws Exception{
 												
 		memberRepository.save(memberVO);															

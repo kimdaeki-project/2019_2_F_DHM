@@ -29,8 +29,8 @@ public class MemberVO {
 	private String email;
 	@NotNull
 	private Date birth;
-	@NotEmpty
-	private Integer gender;
+	
+	private int gender;
 	private int check;
 	private int grade;
 	private int social;
