@@ -43,13 +43,11 @@
 
 					<div class="login5-2">
 						<div class="lgon5-3">
-							<label for="id"></label><input type="text" class="login5-2-1 form-control" id="id" name="id">
-<!-- 							<div class="login5-2-btn1"><a href="#"><img alt="people" src="../imgs/people.png"></a></div> -->
+							<label for="ID"></label><input type="text" class="login5-2-1 form-control" id="id" name="id" placeholder="Enter id">
 						</div>
 						
 						<div class="lgon5-4">
-							<label for="pw"></label><input type="password" class=" login5-2-2 form-control" id="pw" name="pw">
-<!-- 							<div class="login5-2-btn2"><a href="#"><img alt="lock" src="../imgs/lock.png"></a></div> -->
+							<label for="pw"></label><input type="password" class=" login5-2-2 form-control" id="pw" name="pw" placeholder="Enter password">
 						</div>
 						
 						<div class="login5-5">아이디/비밀번호 찾기</div>
@@ -63,7 +61,7 @@
 				</div>
 			
 			<div class="Login6">
-				<div class="btn1"><a href="#">로그인</a></div>
+				<div class="btn1">로그인</div>
 				<div class="btn2"><a href="${pageContext.request.contextPath}/member/memberJoin">회원가입</a></div>
 			</div>
 		</div>
@@ -78,6 +76,12 @@
 	
 	<div class="footer"></div>
 	
+<script type="text/javascript">
+	
 
+
+
+
+</script>
 </body>
 </html>
