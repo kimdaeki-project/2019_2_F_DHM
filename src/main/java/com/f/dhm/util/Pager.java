@@ -1,6 +1,5 @@
 package com.f.dhm.util;
 
-
 import javax.persistence.criteria.CriteriaBuilder;
 
 import javax.persistence.criteria.CriteriaQuery;
@@ -14,12 +13,13 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 public class Pager {
+
 	private int curPage;
 	private int perPage;
 	private Integer startNum;
@@ -28,14 +28,17 @@ public class Pager {
 	private Integer totalBlock;
 	private Page<? extends Object> pageList;
 	private Pageable pageable;
+
 	
 	public Pager() {
 		this.curPage=0;
 		this.perPage=5;
+
 	}
 	
 	public void makeNum() {
 		int perBlock=5;
+
 		this.totalBlock = pageList.getTotalPages()/perBlock;
 		
 		if(pageList.getTotalPages()%perBlock !=0) {
