@@ -6,29 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>대동여행지도</title>
-<c:import url="../template/boot.jsp" />
+<c:import url="./template/fundingBoot.jsp" />
 
 </head>
 <body>
 	<div class="container">
 		<h1>Funding Participation Form</h1>
 		
-		<c:import url="../template/fundingJoinWriteForm.jsp" />	
+		<c:import url="./template/fundingJoinWriteForm.jsp" />	
 		
 	
 	</div>
-<script type="text/javascript">
-$("#participation").click(function() {
-	//다른 input들 검증.
-	if($("#contents").val('')){
-		alert("Empty");
-	}else {
-		$("#frm").submit();
-	}
-});
-$("#re").click(function(){
-	location.href= "./fundingList";
-	});
-</script>
+
 </body>
 </html>

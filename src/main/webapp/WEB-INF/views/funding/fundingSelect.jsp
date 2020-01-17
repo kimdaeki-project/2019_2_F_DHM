@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>대동여행지도</title>
-<c:import url="../template/boot.jsp"></c:import>
+<c:import url="./template/fundingBoot.jsp"></c:import>
 
 </head>
 <body>
