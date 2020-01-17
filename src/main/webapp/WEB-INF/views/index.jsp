@@ -38,7 +38,7 @@
 
 	
 <div style="padding-left: 800px;">
-	<a href="http://211.238.142.38/schedule/showList"><button>성주형 감시</button></a>
+	<a href="http://211.238.142.38/planner/makePlanner"><button>성주형 감시</button></a>
 	<a href="http://211.238.142.32"><button>재용이형 감시</button></a>
 	<a href="http://211.238.142.33"><button>혜현이 감시</button></a>
 	<a href="http://211.238.142.39"><button>병주형 감시</button></a>

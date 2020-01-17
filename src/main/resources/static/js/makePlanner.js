@@ -17,11 +17,12 @@ function selectTripImgs(a, b, twith) {
 }
 
 $("#thedate").datepicker({
-//	dayNames : ['월요일','화요일','수요일','목요일','금요일','토요일','일요일'],
+
+    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
 	dayNamesMin : ['일','월','화','수','목','금','토'],
 	minDate : 1
 });
-$("#thedate").datepicker( "option", "dateFormat", "yy-mm-dd" );
+$("#thedate").datepicker( "option", "dateFormat", "yy-mm-dd (D)" );
 var today = new Date().toISOString().substr(0, 10).replace('T', ' ');
 $("#thedate").prop("value", today);
 $("#thedate").prop("min", today);
@@ -108,34 +109,17 @@ $(".mkp-ajax").click(function() {
 });
 
 
-//$("#testBtn").click(function () {
-//	var setDay = new Date(today).toISOString().substr(5, 6).replace('T', ' ');
-//	var calDay = new Date();
-//	for (var i = 1; i < count; i++) {
-//		var bak = $("#c"+i+"  .nights-day").text()*1;
-//		$("#c"+i+" .sDate").text(setDay);
-//		calDay = new Date(setDay);
-//		var day = 1000*60*60*24*bak;
-//		console.log("bak = "+bak);
-//		console.log("day = "+day);
-//		day = calDay.getTime() + day;
-//		calDay.setTime(day);
-//		calDay = new Date(setDay).toISOString().substr(5, 6).replace('T', ' ');
-//		$("#c"+i+" .eDate").text(calDay);
-//		setDay = calDay;
-//	}
-//});
 
 function uptDate() {
 	var setDay = new Date(today);
 	console.log(setDay);
-	var setDay2 = new Date(today).toISOString().substr(5, 6).replace('T', ' ');
+	var setDay2 = new Date(today).toISOString().substr(5, 8).replace('T', ' ');
 	for (var i = 1; i < count; i++) {
 		$("#c"+i+" .sDate").text(setDay2);
 		var bak = $("#c"+i+"  .nights-day").text()*1;
 		setDay.setDate(setDay.getDate()+bak);
 		console.log(setDay);
-		var calDay = new Date(setDay).toISOString().substr(5, 6).replace('T', ' ');
+		var calDay = new Date(setDay).toISOString().substr(5, 8).replace('T', ' ');
 		$("#c"+i+" .eDate").text(calDay);
 		setDay2 = calDay;
 	}
