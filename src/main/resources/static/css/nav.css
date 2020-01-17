@@ -1,9 +1,41 @@
 @charset "UTF-8";
+
+/* .planner-title{ */
+/* 	color:white; */
+/* } */
+/* .map{ */
+/* 	width:60%; */
+/* 	height: 480px; */
+/* 	background-color: purple; */
+/* 	padding-top: 15px;	 */
+	
+/* } */
+
+/* .map-peopleType{ */
+/* 	background-color: yellow;	 */
+/* 	height:70px; */
+/* 	width: 60px; */
+	
+/* 	margin-left: 15px; */
+/* } */
+
+/* .map-rootModify{ */
+/* 	background-color: yellow; */
+/* 	height:70px; */
+/* 	width: 60px; */
+/* 	position: static; */
+/* 	right: 10px; */
+/* } */
+
+/* .map-startDate{ */
+/* 	background-color: yellow; */
+/* } */
+/* .map-date{ */
+/* 	background-color: yellow; */
+/* } */
+*{padding: 0;margin: 0;}
 article{
 	clear: both;
-}
-.planner-title{
-	color:white;
 }
 .paddingTop50px{
 	padding-top: 50px;
@@ -11,38 +43,6 @@ article{
 .paddingTop100px{
 	padding-top: 100px;
 }
-.map{
-	width:60%;
-	height: 480px;
-	background-color: purple;
-	padding-top: 15px;	
-	
-}
-
-.map-peopleType{
-	background-color: yellow;	
-	height:70px;
-	width: 60px;
-	
-	margin-left: 15px;
-}
-
-.map-rootModify{
-	background-color: yellow;
-	height:70px;
-	width: 60px;
-	position: static;
-	right: 10px;
-}
-
-.map-startDate{
-	background-color: yellow;
-}
-.map-date{
-	background-color: yellow;
-}
-*{padding: 0;margin: 0;}
-.navRow{}
 .navTop{
 	height: 94px;
 	border-bottom: 1px solid #999999;
