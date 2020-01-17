@@ -184,7 +184,14 @@
 	display: none;
 }
 
-
+.bakModal{
+	position:fixed;
+	top:0;
+	opacity: 0.80;
+	background-color: black;
+	width: 100%;
+	height: 100%;
+}
 
 
 
