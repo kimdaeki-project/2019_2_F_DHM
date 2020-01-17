@@ -1,9 +1,9 @@
 var tripwith = 0;
 $("#tripwith").click(function () {
 	if (tripwith%2!=1) {		
-		$("#sch-left-tripwith").css("display","block");	
+		$("#mkp-left-tripwith").css("display","block");	
 	}else{
-		$("#sch-left-tripwith").css("display","none");
+		$("#mkp-left-tripwith").css("display","none");
 	}
 	tripwith++;
 });
@@ -12,7 +12,7 @@ $("#tripwith").click(function () {
 function selectTripImgs(a, b, twith) {
 	$("#tripwith_img").prop("src","/imgs/tripwith/TW_"+a+"_"+b+".png");
 	$("#tripwith_txt").text(twith);
-	$("#sch-left-tripwith").css("display","none");
+	$("#mkp-left-tripwith").css("display","none");
 	tripwith = 0;
 }
 
@@ -31,7 +31,7 @@ $("#thedate").change(function() {
 });
 
 
-$(".sch-city-list").on("click",".ifm-info", function() {
+$(".mkp-city-list").on("click",".ifm-info", function() {
 	if ($(this).parent().prop("class")=="open-ifm") {		
 		$(".open-ifm-sel").prop("class", "open-ifm");
 		$(this).parent().prop("class","open-ifm-sel");
@@ -50,11 +50,11 @@ $(".ifm-closer").click(function() {
 });
 
 
-$(".sch-city-list").on("click",".city-del", function() {
+$(".mkp-city-list").on("click",".city-del", function() {
 	if (confirm("일정을 취소하시겠습니까?")) {
 		$(this).parent().parent().parent().remove();
 		var i = 1;
-		$(".sch-city-info").each(function() {
+		$(".mkp-city-info").each(function() {
 			$(this).prop("id", "c"+i);
 			i++;
 		});
@@ -73,7 +73,7 @@ $(".city-selOne").click(function() {
 
 /////////도시추가 스크립트
 var count = 1;
-$(".sch-ajax").click(function() {
+$(".mkp-ajax").click(function() {
 	if (confirm("일정을 추가 하시겠습니까?")) {
 		
 		var cityName = $(this).parent().prev().val();
@@ -88,7 +88,7 @@ $(".sch-ajax").click(function() {
 		
 		$.ajax({
 			type : "GET",
-			url		: "addSchedule",
+			url		: "addPlanner",
 			data	: {
 				cityName : cityName,
 				startDate : startDate,
@@ -97,7 +97,7 @@ $(".sch-ajax").click(function() {
 				
 			},
 			success	: function(d) {
-				$(".sch-city-list").append(d);
+				$(".mkp-city-list").append(d);
 				count++;
 				uptDate();
 			}
