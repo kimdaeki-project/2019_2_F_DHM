@@ -15,6 +15,7 @@ import com.f.dhm.planner.PlannerVO;
 @RequestMapping("/schedule/**")
 public class ScheduleController {
 	
+
 	@Autowired
 	private ScheduleService scheduleService;
 	@Autowired
@@ -39,17 +40,6 @@ public class ScheduleController {
 		mv.setViewName("/schedule/showList");
 		return mv;
 	}
+
 	
-	@GetMapping("addSchedule")
-	public ModelAndView addSch(String cityName, String startDate, String endDate, String count) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		
-		mv.addObject("cityName", cityName);
-		mv.addObject("startDate", startDate);
-		mv.addObject("endDate", endDate);
-		mv.addObject("count", count);
-		mv.setViewName("/schedule/addSchedule");
-		
-		return mv;
-	}
 }

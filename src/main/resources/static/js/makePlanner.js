@@ -144,11 +144,15 @@ function uptDate() {
 
 
 
-function showModal(cName) {
-	alert(cName);
+function showModal(cName,sid) {
+	$(".chos-cityName").text(cName);
+	$(".chos-sleep").css("display","block");
+	$(".chos-sleep-opt").prop("name","setSleep("+sid+")");
 }
 
-
+function closeSleep() {
+	$(".chos-sleep").css("display","none");
+}
 
 
 

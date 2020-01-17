@@ -5,7 +5,7 @@
 					<div style="width:29px;border-right:3px solid #3ad195;height:7px;"> </div>
 					<div>
 						<div class="mkp-city-one" >
-							<a onclick="showModal('${cityName}')" >
+							<a onclick="showModal('${cityName}','c${count}')" >
 								<font style="color:#696969;font-size:10pt;font-weight:bold" class="nights"> <span class="nights-day">1</span>박  
 									<i class="fa fa-angle-down"></i>
 								</font>
