@@ -14,6 +14,6 @@ public class PlannerService {
 	
 	public PlannerVO plannerSelect(PlannerVO plannerVO) throws Exception{
 		
-		return repository.save(plannerVO);
+		return repository.findById(plannerVO);
 	}
 }
