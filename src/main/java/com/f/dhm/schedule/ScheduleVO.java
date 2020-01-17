@@ -3,11 +3,13 @@ package com.f.dhm.schedule;
 
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+
 
 import lombok.Getter;
 import lombok.Setter;
@@ -24,6 +26,7 @@ public class ScheduleVO {
 	private String sName; //스케줄이름
 	@NotEmpty
 	private String tour; //관광지이름
+
 	private int cost;	
 	private Date start;
 	private Date end;

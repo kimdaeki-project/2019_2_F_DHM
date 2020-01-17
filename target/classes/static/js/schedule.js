@@ -16,19 +16,22 @@ function selectTripImgs(a, b, twith) {
 	tripwith = 0;
 }
 
-$("#thedate").datepicker();
+$("#thedate").datepicker({
+//	dayNames : ['월요일','화요일','수요일','목요일','금요일','토요일','일요일'],
+	dayNamesMin : ['일','월','화','수','목','금','토'],
+	minDate : 1
+});
 $("#thedate").datepicker( "option", "dateFormat", "yy-mm-dd" );
 var today = new Date().toISOString().substr(0, 10).replace('T', ' ');
 $("#thedate").prop("value", today);
+$("#thedate").prop("min", today);
 $("#thedate").change(function() {
 	today = $(this).val();
+	uptDate();
 });
 
 
 $(".sch-city-list").on("click",".ifm-info", function() {
-	
-//});
-//$(".ifm-info").click(function () {
 	if ($(this).parent().prop("class")=="open-ifm") {		
 		$(".open-ifm-sel").prop("class", "open-ifm");
 		$(this).parent().prop("class","open-ifm-sel");
@@ -50,7 +53,15 @@ $(".ifm-closer").click(function() {
 $(".sch-city-list").on("click",".city-del", function() {
 	if (confirm("일정을 취소하시겠습니까?")) {
 		$(this).parent().parent().parent().remove();
+		var i = 1;
+		$(".sch-city-info").each(function() {
+			$(this).prop("id", "c"+i);
+			i++;
+		});
+		count = i;
+		uptDate();
 	}
+	
 });
 
 $(".city-selOne").click(function() {
@@ -67,13 +78,12 @@ $(".sch-ajax").click(function() {
 		
 		var cityName = $(this).parent().prev().val();
 		var startDate = today;
-		today = new Date();
+		var cDay = new Date();
 		var day = 1000*60*60*24*count;
-		count++;
-		day = today.getTime() + day;
-		today.setTime(day);
-		today = new Date(today).toISOString().substr(5, 6).replace('T', ' ');
-		var endDate = today;
+		day = cDay.getTime() + day;
+		cDay.setTime(day);
+		cDay = new Date(cDay).toISOString().substr(5, 6).replace('T', ' ');
+		var endDate = cDay;
 		
 		
 		$.ajax({
@@ -82,22 +92,61 @@ $(".sch-ajax").click(function() {
 			data	: {
 				cityName : cityName,
 				startDate : startDate,
-				endDate	: endDate
+				endDate	: endDate,
+				count : count
+				
 			},
 			success	: function(d) {
 				$(".sch-city-list").append(d);
+				count++;
+				uptDate();
 			}
 		});
 	}
+	
+	
 });
 
 
-$(".sch-city-list").on("click",
+//$("#testBtn").click(function () {
+//	var setDay = new Date(today).toISOString().substr(5, 6).replace('T', ' ');
+//	var calDay = new Date();
+//	for (var i = 1; i < count; i++) {
+//		var bak = $("#c"+i+"  .nights-day").text()*1;
+//		$("#c"+i+" .sDate").text(setDay);
+//		calDay = new Date(setDay);
+//		var day = 1000*60*60*24*bak;
+//		console.log("bak = "+bak);
+//		console.log("day = "+day);
+//		day = calDay.getTime() + day;
+//		calDay.setTime(day);
+//		calDay = new Date(setDay).toISOString().substr(5, 6).replace('T', ' ');
+//		$("#c"+i+" .eDate").text(calDay);
+//		setDay = calDay;
+//	}
+//});
+
+function uptDate() {
+	var setDay = new Date(today);
+	console.log(setDay);
+	var setDay2 = new Date(today).toISOString().substr(5, 6).replace('T', ' ');
+	for (var i = 1; i < count; i++) {
+		$("#c"+i+" .sDate").text(setDay2);
+		var bak = $("#c"+i+"  .nights-day").text()*1;
+		setDay.setDate(setDay.getDate()+bak);
+		console.log(setDay);
+		var calDay = new Date(setDay).toISOString().substr(5, 6).replace('T', ' ');
+		$("#c"+i+" .eDate").text(calDay);
+		setDay2 = calDay;
+	}
+	
+}
 
 
 
-
-
+function showModal(cName) {
+	alert(cName);
+}
 
 
 

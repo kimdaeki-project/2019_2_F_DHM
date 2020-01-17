@@ -22,7 +22,7 @@
 					<div style="padding-right:20px;padding-left:5px;padding-top:1px;">
 						<div style="border-radius:2;border:1px solid #efefef;padding-left:10px;background:#fff;width: 50%; ">
 							<span style="padding-left:0px;padding-right:0px;color:#696969;font-size:9pt;"><i class="fa fa-calendar"></i> 출발</span>
-							<input style="width:95px;font-size:11pt;background:#fff;margin-left:0px;padding-left:5px;padding-top:2px;padding-bottom:2px;color:#c0c0c0;border:0px solid #c0c0c0" id="thedate"  type="text"   onchange="updateDate()">
+							<input style="width:100px;font-size:9pt;background:#fff;margin-left:0px;padding-left:5px;padding-top:2px;padding-bottom:2px;color:#c0c0c0;border:0px solid #c0c0c0" id="thedate"  type="text"> 
 							
 <!-- 							<input type="checkbox" id="arr_nextday"><font style="color:#696969;font-size:8pt">+1 도착</font> -->
 						</div>
@@ -112,7 +112,10 @@
 		</div>
 	 </div>
 
-
+</div>
+<div class="bakModal">
+	<div class="selectModal">
+	</div>
 </div>
 </section>
 <script src="/js/schedule.js"></script>

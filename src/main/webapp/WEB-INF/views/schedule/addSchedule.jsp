@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
-			<div class="sch-city-info" title="${i} }">
+			<div class="sch-city-info" id="c${count}" >
 				<div class="city-menu-left">
 					<div style="width:29px;border-right:3px solid #3ad195;height:7px;"> </div>
 					<div>
 						<div class="sch-city-one" >
-							<a >
-								<font style="color:#696969;font-size:10pt;font-weight:bold" class="nights">1박  
+							<a onclick="showModal('${cityName}')" >
+								<font style="color:#696969;font-size:10pt;font-weight:bold" class="nights"> <span class="nights-day">1</span>박  
 									<i class="fa fa-angle-down"></i>
 								</font>
 							</a>
