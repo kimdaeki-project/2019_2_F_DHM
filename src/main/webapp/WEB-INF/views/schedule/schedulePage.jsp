@@ -365,7 +365,7 @@
 										<div class="nolist-line"></div>
 										<div class="nolist-dot2"></div>
 										<div class="nolist-region">${vo.region}</div>
-										<div class="nolist-transfer-comment">1월 14일 이동</div>
+										<div class="nolist-transfer-comment">${vo.dDate} 이동</div>
 										<div class="nolist-transfer">
 											<i class="fa fa-train"></i>
 										</div>

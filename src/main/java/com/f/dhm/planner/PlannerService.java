@@ -10,12 +10,20 @@ import org.springframework.stereotype.Service;
 @Service
 @Transactional
 public class PlannerService {
-	
+
 	@Autowired
 	private PlannerRepository repository;
-	
-	public List<PlannerVO> plannerSelect(PlannerVO plannerVO) throws Exception{
+
+	public List<PlannerVO> plannerSelect(PlannerVO plannerVO) throws Exception {
 
 		return repository.findById("a@a.com");
 	}
+
+	
+	public void bakTotal(PlannerVO plannerVO) throws Exception{
+	  
+	  
+	
+	}
+	 
 }
