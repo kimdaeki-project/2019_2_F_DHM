@@ -28,7 +28,8 @@
 		<div class="main-container">
 			
 			<div >
-				<h3 class="contents-title">여행제목</h3>
+				<h3 class="contents-title">${planner["0"].title}</h3>
+				
 			</div>
 			<div class="main-contents">
 				<div class="map-wrapper">
@@ -355,132 +356,50 @@
 				<div class="middle-wrapper" style="height: 300px;">
 					
 		
-					<div class="swiper-container" style="margin-top: 20px; height: 250px;">
-								
-						<div class="nolist swiper-wrapper">
-							<div class="swiper-slide">
-			
-								<div class="nolist-dot"></div>
-								<div class="nolist-line"></div>
-								<div class="nolist-region">부산</div>
-								
-								<div class="nolist-transfer-comment">1월 14일 이동</div>
-								<div class="nolist-transfer">
-									<i class="fa fa-train"></i>
-								</div>
-								
-								<div class="swiper-vehicle-wrapper swiper">
-									<div class="swiper-vehicle" id="bus">
-										<i class="fa fa-bus" style="margin-right: 2px;"></i>
-										<font>버스</font>
-									</div>
-									<div class="swiper-vehicle" id="taxi" style="margin-left: 8px;">
-										<i class="fa fa-taxi"></i>
-										<font>택시</font>
-									</div>
-									<div class="swiper-vehicle" id="train">
-										<i class="fa fa-train" style="margin-right: 2px;"></i>
-										<font>기차</font>
-									</div>
-									<div class="swiper-vehicle" id="car" style="margin-left: 8px;">
-										<i class="fa fa-car"></i>
-										<font>자가용</font>
-									</div>
-								</div>
-								
-								<div class="notlist-ballon"></div>
-								<div class="notlist-ballon2"> 
-									<div class="ballon2-title">
-										<div>버스로 이동</div>
-									</div>
-									<div class="ballon2-contents">
-										<div><input type="text"></div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="swiper-slide">
-			
-								<div class="nolist-dot"></div>
-								<div class="nolist-line"></div>
-								<div class="nolist-line2"></div>
-								<div class="nolist-region">대구</div>
-								<div class="nolist-transfer-comment">1월 14일 이동</div>
-								<div class="nolist-transfer">
-									<i class="fa fa-train"></i>
-								</div>
-								
-								<div class="swiper-vehicle-wrapper swiper">
-									<div class="swiper-vehicle" id="bus">
-										<i class="fa fa-bus" style="margin-right: 2px;"></i>
-										<font>버스</font>
-									</div>
-									<div class="swiper-vehicle" id="taxi" style="margin-left: 8px;">
-										<i class="fa fa-taxi"></i>
-										<font>택시</font>
-									</div>
-									<div class="swiper-vehicle" id="train">
-										<i class="fa fa-train" style="margin-right: 2px;"></i>
-										<font>기차</font>
-									</div>
-									<div class="swiper-vehicle" id="car" style="margin-left: 8px;">
-										<i class="fa fa-car"></i>
-										<font>자가용</font>
-									</div>
-								</div>
-								
-								<div class="notlist-ballon"></div>
-								<div class="notlist-ballon2"> 
-									<div class="ballon2-title">
-										<div>버스로 이동</div>
-									</div>
-									<div class="ballon2-contents">
-										<div><input type="text"></div>
-									</div>
-								</div>
-							</div>
+					<div class="swiper-container" style="margin-top: 20px; height: 250px;">	
+							<div class="nolist swiper-wrapper">
+								<c:forEach items="${planner}" var="vo">
+									<div class="swiper-slide">
 					
-					
-							<div class="swiper-slide">
-								<div class="nolist-dot"></div>
-								<div class="nolist-line"></div>
-								<div class="nolist-dot2"></div>
-								<div class="nolist-line2"></div>
-								<div class="nolist-region">서울</div>
-								<div class="nolist-transfer-comment">1월 14일 이동</div>
-								<div class="nolist-transfer">
-									<i class="fa fa-train"></i>
-								</div>
-								
-								<div class="swiper-vehicle-wrapper swiper">
-									<div class="swiper-vehicle" id="bus">
-										<i class="fa fa-bus" style="margin-right: 2px;"></i>
-										<font>버스</font>
+										<div class="nolist-dot"></div>
+										<div class="nolist-line"></div>
+										<div class="nolist-dot2"></div>
+										<div class="nolist-region">${vo.region}</div>
+										<div class="nolist-transfer-comment">1월 14일 이동</div>
+										<div class="nolist-transfer">
+											<i class="fa fa-train"></i>
+										</div>
+										
+										<div class="swiper-vehicle-wrapper swiper">
+											<div class="swiper-vehicle" id="bus">
+												<i class="fa fa-bus" style="margin-right: 2px;"></i>
+												<font>버스</font>
+											</div>
+											<div class="swiper-vehicle" id="taxi" style="margin-left: 8px;">
+												<i class="fa fa-taxi"></i>
+												<font>택시</font>
+											</div>
+											<div class="swiper-vehicle" id="train">
+												<i class="fa fa-train" style="margin-right: 2px;"></i>
+												<font>기차</font>
+											</div>
+											<div class="swiper-vehicle" id="car" style="margin-left: 8px;">
+												<i class="fa fa-car"></i>
+												<font>자가용</font>
+											</div>
+										</div>
+										
+										<div class="notlist-ballon"></div>
+										<div class="notlist-ballon2"> 
+											<div class="ballon2-title">
+												<div>버스로 이동</div>
+											</div>
+											<div class="ballon2-contents">
+												<div><input type="text"></div>
+											</div>
+										</div>
 									</div>
-									<div class="swiper-vehicle" id="taxi" style="margin-left: 8px;">
-										<i class="fa fa-taxi"></i>
-										<font>택시</font>
-									</div>
-									<div class="swiper-vehicle" id="train">
-										<i class="fa fa-train" style="margin-right: 2px;"></i>
-										<font>기차</font>
-									</div>
-									<div class="swiper-vehicle" id="car" style="margin-left: 8px;">
-										<i class="fa fa-car"></i>
-										<font>자가용</font>
-									</div>
-								</div>
-								
-								<div class="notlist-ballon"></div>
-								<div class="notlist-ballon2"> 
-									<div class="ballon2-title">
-										<div>버스로 이동</div>
-									</div>
-									<div class="ballon2-contents">
-										<div><input type="text"></div>
-									</div>
-								</div>
-								
+								</c:forEach>
 							</div>
 					
 						</div>

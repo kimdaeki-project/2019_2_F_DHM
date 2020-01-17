@@ -212,7 +212,7 @@ a:hover{
 .nolist-dot2{
 	position: absolute;
 	top: 30px;
-	left: 220px;
+	left: 268px;
 	margin-left: -5px;
 	border-radius: 100px;
 	width: 10px;
@@ -223,7 +223,7 @@ a:hover{
 	position: absolute;
 	top: 34px;
 	left: 45px;
-	width: 180px;
+	width: 220px;
 	margin-left: -5px;
 	border-top: 2px dashed #696969;
 }

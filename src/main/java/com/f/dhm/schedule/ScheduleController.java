@@ -22,14 +22,15 @@ public class ScheduleController {
 	
 	
 	@GetMapping("schedulePage")
-	public String plannerPage(ModelAndView mv, PlannerVO plannerVO) throws Exception{
-		
-		plannerVO = plannerService.plannerSelect(plannerVO);
+	public ModelAndView plannerPage( PlannerVO plannerVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<PlannerVO> plannerList= plannerService.plannerSelect(plannerVO);
 		List<ScheduleVO> ar = scheduleService.scheduleList();
-		mv.addObject("plannerVO", plannerVO);
+		System.out.println(plannerList.size());
+		mv.addObject("planner", plannerList);
 		mv.addObject("list", ar);
 		mv.setViewName("/schedule/schedulePage");
-		return "schedule/schedulePage";
+		return mv;
 	}
 	
 	@GetMapping("showList")

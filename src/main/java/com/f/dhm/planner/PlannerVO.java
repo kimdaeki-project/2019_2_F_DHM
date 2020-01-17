@@ -11,7 +11,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "planner")
 public class PlannerVO {
@@ -29,4 +30,6 @@ public class PlannerVO {
 	private String region;
 	private String transfer;
 	private int totalCost;
+	
+	
 }
