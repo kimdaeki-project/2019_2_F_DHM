@@ -14,7 +14,7 @@ import com.f.dhm.util.FilePathGenerator;
 import com.f.dhm.util.FileSaver;
 
 @Service
-@Transactional
+@Transactional(rollbackOn = Exception.class)
 public class MemberService {
 
 	@Autowired
@@ -36,7 +36,7 @@ public class MemberService {
 	//----------------------------------------
 	
 	public void memberJoin(MemberVO memberVO)throws Exception{
-												
+								System.out.println(memberVO.getMailCheck()+"chEck");				
 		memberRepository.save(memberVO);															
 	}
 	//----------------------------------------

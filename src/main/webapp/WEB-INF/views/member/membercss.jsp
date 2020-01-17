@@ -339,6 +339,8 @@ margin-top:5px;
 height: 50px;
 }
 
+
+
 .Join4-1-1{
 width: 150px;
 font-size: 13px;
@@ -347,6 +349,17 @@ padding-left: 30px;
 padding-top: 15px;
 float: left;
 }
+
+.Join4-1-2{
+width: 150px;
+font-size: 13px;
+color: gray;
+padding-left: 30px;
+padding-top: 5px;
+float: left;
+}
+
+
 
 .Join-text{
 float: left;
@@ -664,10 +677,24 @@ margin-top: 10px;
 margin-left: 30px;
 }
 
+.FJoin-text2{
+float: left;
+margin-top: 5px;
+margin-left: 30px;
+}
+
 .FJoin4-2{
 width: 273px;
 height: 27px;
 }
+
+
+.FJoin4-2-j{
+width: 273px;
+height: 27px;
+margin-left: 30px;
+}
+
 
 .FJoin4-3{
 width: 192px;

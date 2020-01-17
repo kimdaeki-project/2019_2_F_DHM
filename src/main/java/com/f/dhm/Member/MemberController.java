@@ -32,16 +32,15 @@ public class MemberController {
 	
 	
 	@PostMapping("memberJoin")
-	public ModelAndView memberJoin(MemberVO memberVO, BindingResult bindingResult)throws Exception{
+	public ModelAndView memberJoin(@Valid MemberVO memberVO, BindingResult bindingResult)throws Exception{
 			System.out.println("memberVO.getBirth() : "+memberVO.getBirth());
 			System.out.println("memberVO.getGender() : " + memberVO.getGender());
 			System.out.println("memberVO.getName() : " + memberVO.getName());
 			System.out.println("memberVO.getPassword() : " + memberVO.getPw());
 			System.out.println("memberVO.getPassword2() : " + memberVO.getPw2());
 			System.out.println("memberVO.getEmail() : " + memberVO.getEmail());
-			//
-			memberVO.setCheck(0);
-			//
+			System.out.println("check1 : "+memberVO.getMailCheck());
+	
 		ModelAndView mv = new ModelAndView();
 										
 		if(memberService.memberJoinValidate(memberVO, bindingResult)) {

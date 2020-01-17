@@ -11,8 +11,10 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
-@Table(name = "member")
+@Table(name = "members")
 public class MemberVO {
 
 	
@@ -27,17 +29,27 @@ public class MemberVO {
 	private String name;
 	@NotEmpty
 	private String email;
-	@NotNull
-	private Date birth;
-	
+	//@NotNull
+	@CreationTimestamp
+	private Date birth;	
 	private int gender;
-	private int check;
+	
+	private int mailCheck;
 	private int grade;
 	private int social;
 	//img는 MemberFilesVO에 입력
 	
 //	@OneToOne(mappedBy = "memberVO", cascade = CascadeType.ALL)
 //	private MemberFilesVO memberFilesVO;
+
+		private String img;
+	public String getImg() {
+			return img;
+		}
+
+		public void setImg(String img) {
+			this.img = img;
+		}
 
 	public String getId() {
 		return id;
@@ -95,12 +107,13 @@ public class MemberVO {
 		this.gender = gender;
 	}
 
-	public int getCheck() {
-		return check;
+
+	public int getMailCheck() {
+		return mailCheck;
 	}
 
-	public void setCheck(int check) {
-		this.check = check;
+	public void setMailCheck(int mailCheck) {
+		this.mailCheck = mailCheck;
 	}
 
 	public int getGrade() {
