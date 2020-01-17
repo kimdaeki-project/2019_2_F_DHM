@@ -1,19 +1,31 @@
 @charset "UTF-8";
 
 body{
-	background-color: #cccc99;
+	background-color: #f9f6f1;
+}
+a{
+	cursor: pointer;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: none;
 }
 .header{
 	background-color:white;
 	height: 136px;
 }
 .container{
-	background-color: #cccc99;
+	background-color: #f9f6f1;
 	height: 1800px;
 }
 
-.planner-title{
-	color:black;
+.contents-title{
+	color: #555;
+	margin-top: 5px;
+	font-family: "Open Sans", Arial, sans-serif;
+	line-height: 27px;
+	font-size: 18pt;
+	font-weight: 600;
 }
 .main-contents{
 	overflow: hidden;
@@ -265,7 +277,7 @@ body{
 	width: 0;
 	height: 0;
 	border: 20px solid transparent;
-	border-bottom-color: #cccc99;
+	border-bottom-color: #f9f6f1;
 	border-top: 0;
 	margin-left: -20px;
 	margin-top: -20px;
@@ -280,7 +292,7 @@ body{
 	height: 90px;
 	padding: 0 5px 5px 10px;
 	text-align: left;
-	background: #cccc99;
+	background: #f9f6f1;
 	padding: 10px;
 	border-radius: 5px;
 }
@@ -327,6 +339,29 @@ body{
 	height: 150px;
 	
 }
+.tour-name{
+	position: absolute;
+	top: 120px;
+	width: 150px;
+	height:24px;
+	color:white;
+	font-size:15px;
+	background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));
+	text-align: center;
+}
+.tour-add{
+	line-height: 40px;
+	text-align: center;
+	background: #fff;
+	border-top: 0px solid #efefef;
+	width: 150px;
+}
+.tour-add font{
+	font-size: 12px;
+	font-weight: 300;
+	line-height: 16px;
+	color: #666;
+}
 .wishlist{
 	width: 150px;
 }
@@ -334,5 +369,78 @@ body{
 .schedule-wrapper{
 	overflow-x:auto;
 	margin-top: 30px; 
-	
+	height: 560px;
 }
+.schedule-top{
+	position: relative;
+	height: 90px;
+}
+.schedule-top2{
+	position: absolute;
+	right: 5px; 
+	top: 8px;
+}
+.schedule-map{
+	display: inline-block;
+	padding-top: 5px 5px 2px 5px;
+	border: 1px solid #efefef;
+	border-radius: 5px;
+}
+.schedule-map img{
+	width: 25px;
+}
+.schedule-map-title{
+	margin-top: 4px;
+	font-size: 10pt;
+	color: #c0c0c0;
+}
+.schedule-li{
+	border-radius: 1px solid #f5f5f5;
+	background: #fff;
+
+}
+.sbold{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	text-align: left;
+	padding-left: 8px;
+	font-size: 14pt;
+	color: #696969;
+}
+.sarea{
+	position: absolute;
+	top: 40px;
+	left: 0px;
+	font-size: 10pt;
+	text-align: left;
+	padding: 0 0 5px 8px;
+	color: #696969;
+	width: 123px;
+}
+.schedule-body{
+	position: relative;
+}
+
+.schedule-body-row{
+	border-top: 1px solid #efefef;
+	height: 30px;
+	font-size: 8pt;
+	text-align: left;
+	color: #c0c0c0;
+	padding-left: 10px;
+	position: relative;
+}
+.schedule-body-content{
+	position: absolute;
+	top: 3px;
+	left: 40px;
+	color: gray;
+	font-size: 9pt;
+}
+
+
+
+
+
+

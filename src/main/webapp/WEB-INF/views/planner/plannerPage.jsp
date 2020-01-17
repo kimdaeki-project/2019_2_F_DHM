@@ -33,7 +33,7 @@
 		<div class="main-container">
 			
 			<div >
-				<h3 class="planner-title">여행제목</h3>
+				<h3 class="contents-title">여행제목</h3>
 			</div>
 			<div class="main-contents">
 				<div class="map-wrapper">
@@ -355,7 +355,7 @@
 			
 			<div class="middle-contents">
 				<div class="middle-title">
-					<h3 style="color: black;">여행루트</h3>
+					<h3 class="contents-title">여행루트</h3>
 				</div>
 				<div class="middle-wrapper" style="height: 300px;">
 					
@@ -497,21 +497,26 @@
 			<!-- 세부일정표 시작 -->
 			<div class="middle-contents2">
 				<div class="midde-title">
-					<h3 style="color: black;">일정표</h3>
+					<h3 class="contents-title">일정표</h3>
 				</div>
 				<div class="middle-wrapper">
 					<!-- 체크한 관광지 -->
 					<div class="tourlist">
-						<div class="swiper-container">
+						<div class="swiper-container swiper-container2">
 							<div class="swiper-wrapper">
 								
 									<div class="swiper-slide" style="width: 170px;">
 										<a>
 										<div class="tour-img">
 											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
-												<div style="position: absolute; top: 120px; right:25; width: 150px; height: 24px; color: white; font-size: 15px;background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));"">
+												<div class="tour-name">
 													<font>대구 이월드</font>
 												</div>
+										</div>
+										</a>
+										<a>
+											<div class="tour-add">
+												<font><i class="fa fa-plus"></i>일정추가</font>
 											</div>
 										</a>
 									</div>
@@ -520,9 +525,14 @@
 										<a>
 										<div class="tour-img">
 											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
-												<div style="position: absolute; top: 120px; right:25; width: 150px; height: 24px; color: white; font-size: 15px;background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));"">
+												<div class="tour-name">
 													<font>대구 이월드</font>
 												</div>
+											</div>
+										</a>
+										<a>
+											<div class="tour-add">
+												<font><i class="fa fa-plus"></i>일정추가</font>
 											</div>
 										</a>
 									</div>
@@ -531,9 +541,14 @@
 										<a>
 										<div class="tour-img">
 											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
-												<div style="position: absolute; top: 120px; right:25; width: 150px; height: 24px; color: white; font-size: 15px;background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));"">
+												<div class="tour-name">
 													<font>대구 이월드</font>
 												</div>
+											</div>
+										</a>
+										<a>
+											<div class="tour-add">
+												<font><i class="fa fa-plus"></i>일정추가</font>
 											</div>
 										</a>
 									</div>
@@ -542,9 +557,14 @@
 										<a>
 										<div class="tour-img">
 											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
-												<div style="position: absolute; top: 120px; right:25; width: 150px; height: 24px; color: white; font-size: 15px;background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));"">
+												<div class="tour-name">
 													<font>대구 이월드</font>
 												</div>
+											</div>
+										</a>
+										<a>
+											<div class="tour-add">
+												<font><i class="fa fa-plus"></i>일정추가</font>
 											</div>
 										</a>
 									</div>
@@ -553,9 +573,14 @@
 										<a>
 										<div class="tour-img">
 											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
-												<div style="position: absolute; top: 120px; right:25; width: 150px; height: 24px; color: white; font-size: 15px;background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));"">
+												<div class="tour-name">
 													<font>대구 이월드</font>
 												</div>
+											</div>
+										</a>
+										<a>
+											<div class="tour-add">
+												<font><i class="fa fa-plus"></i>일정추가</font>
 											</div>
 										</a>
 									</div>
@@ -564,9 +589,14 @@
 										<a>
 										<div class="tour-img">
 											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
-												<div style="position: absolute; top: 120px; right:25; width: 150px; height: 24px; color: white; font-size: 15px;background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));"">
+												<div class="tour-name">
 													<font>대구 이월드</font>
 												</div>
+											</div>
+										</a>
+										<a>
+											<div class="tour-add">
+												<font><i class="fa fa-plus"></i>일정추가</font>
 											</div>
 										</a>
 									</div>
@@ -578,8 +608,340 @@
 					</div>
 					<!-- 일정표 -->
 					<div class="schedule-wrapper">
-						<div class="">
-						
+						<div class="swiper-container">
+							<ul class="swiper-wrapper nolist" style="margin-left: -40px;">
+								<!-- li 하나 -->
+								<li class="swiper-slide schedule-li" style="height: 560px;">
+									<div class="schedule-top">
+										<div class="schedule-top2">
+											<a>
+												<div class="schedule-map">
+													<img src="https://www.stubbyplanner.com/img_v15/icon_map.png">
+													<div class="schedule-map-title">지도</div>
+												</div>
+											</a>
+										</div>
+										<div class="sbold">1/17
+											<span style="font-size: 10pt; color: #c0c0c0">목, 첫쨋날</span>
+										</div>
+										<div class="sarea">
+											<div style="line-height: 110%; height: 32px;">부산(첫쨋날)</div>
+										</div>
+									</div>
+									<div class="schedule-body">
+										<div class="schedule-body-row">0~9
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">9
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">10
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">11
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">12
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">13
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">14
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">15
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">16
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">17
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">18
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">19
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">20
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">20-24
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">숙소
+											<div class="schedule-body-content"></div>
+										</div>
+									</div>
+								</li>
+								<!-- li 하나 -->
+								<li class="swiper-slide schedule-li" style="height: 560px;">
+									<div class="schedule-top">
+										<div class="schedule-top2">
+											<a>
+												<div class="schedule-map">
+													<img src="https://www.stubbyplanner.com/img_v15/icon_map.png">
+													<div class="schedule-map-title">지도</div>
+												</div>
+											</a>
+										</div>
+										<div class="sbold">1/18
+											<span style="font-size: 10pt; color: #c0c0c0">금, 둘쨋날</span>
+										</div>
+										<div class="sarea">
+											<div style="line-height: 110%; height: 32px;">부산(둘쨋날)</div>
+										</div>
+									</div>
+									<div class="schedule-body">
+										<div class="schedule-body-row">0~9
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">9
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">10
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">11
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">12
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">13
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">14
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">15
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">16
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">17
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">18
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">19
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">20
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">20-24
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">숙소
+											<div class="schedule-body-content"></div>
+										</div>
+									</div>
+								</li>
+								<!-- li 하나 -->
+								<li class="swiper-slide schedule-li" style="height: 560px;">
+									<div class="schedule-top">
+										<div class="schedule-top2">
+											<a>
+												<div class="schedule-map">
+													<img src="https://www.stubbyplanner.com/img_v15/icon_map.png">
+													<div class="schedule-map-title">지도</div>
+												</div>
+											</a>
+										</div>
+										<div class="sbold">1/19
+											<span style="font-size: 10pt; color: #c0c0c0">토, 셋쨋날</span>
+										</div>
+										<div class="sarea">
+											<div style="line-height: 110%; height: 32px;">포항(셋쨋날)</div>
+										</div>
+									</div>
+									<div class="schedule-body">
+										<div class="schedule-body-row">0~9
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">9
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">10
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">11
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">12
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">13
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">14
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">15
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">16
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">17
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">18
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">19
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">20
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">20-24
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">숙소
+											<div class="schedule-body-content"></div>
+										</div>
+									</div>
+								</li>
+								<!-- li 하나 -->
+								<li class="swiper-slide schedule-li" style="height: 560px;">
+									<div class="schedule-top">
+										<div class="schedule-top2">
+											<a>
+												<div class="schedule-map">
+													<img src="https://www.stubbyplanner.com/img_v15/icon_map.png">
+													<div class="schedule-map-title">지도</div>
+												</div>
+											</a>
+										</div>
+										<div class="sbold">1/17
+											<span style="font-size: 10pt; color: #c0c0c0">목, 첫쨋날</span>
+										</div>
+										<div class="sarea">
+											<div style="line-height: 110%; height: 32px;">부산(첫쨋날)</div>
+										</div>
+									</div>
+									<div class="schedule-body">
+										<div class="schedule-body-row">0~9
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">9
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">10
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">11
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">12
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">13
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">14
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">15
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">16
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">17
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">18
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">19
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">20
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">20-24
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">숙소
+											<div class="schedule-body-content"></div>
+										</div>
+									</div>
+								</li>
+								<!-- li 하나 -->
+								<li class="swiper-slide schedule-li" style="height: 560px;">
+									<div class="schedule-top">
+										<div class="schedule-top2">
+											<a>
+												<div class="schedule-map">
+													<img src="https://www.stubbyplanner.com/img_v15/icon_map.png">
+													<div class="schedule-map-title">지도</div>
+												</div>
+											</a>
+										</div>
+										<div class="sbold">1/17
+											<span style="font-size: 10pt; color: #c0c0c0">목, 첫쨋날</span>
+										</div>
+										<div class="sarea">
+											<div style="line-height: 110%; height: 32px;">부산(첫쨋날)</div>
+										</div>
+									</div>
+									<div class="schedule-body">
+										<div class="schedule-body-row">0~9
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">9
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">10
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">11
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">12
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">13
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">14
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">15
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">16
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">17
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">18
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">19
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">20
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">20-24
+											<div class="schedule-body-content"></div>
+										</div>
+										<div class="schedule-body-row">숙소
+											<div class="schedule-body-content"></div>
+										</div>
+									</div>
+								</li>
+								
+							</ul>
 						</div>
 						
 					</div>
@@ -629,6 +991,16 @@
 		      },
 		    });
 
+		   var swiper = new Swiper('.swiper-container2', {
+			      slidesPerView: 7,
+			      spaceBetween: 0,
+			      freeMode: true,
+			      pagination: {
+			        el: '.swiper-pagination',
+			        clickable: true,
+			      },
+			    });
+			
 		
 	</script>
 </body>
