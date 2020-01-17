@@ -184,18 +184,54 @@
 	display: none;
 }
 
-.bakModal{
+.chos-sleep{
 	position:fixed;
 	top:0;
 	opacity: 0.80;
 	background-color: black;
 	width: 100%;
 	height: 100%;
+	display: none;
 }
 
+.chos-sleep-info{
+	background-color: black;
+	width: 600px;
+	height: 600px;
+	z-index: 9999;
+/* 	position: relative; */
+	top : 30px;
+	margin: 0 auto;
+	text-align: center;
+}
+.chos-sleep-list{
+	margin-left: 45px;
+	width: 555px;
+	height: 600px;
+}
 
-
-
+.chos-sleep-opt{
+	
+	line-height: 1.42857143;
+	font-size: 9pt;
+	text-align: center;
+	box-sizing: border-box;
+	font-family: 'NanumGothic';
+	display: inline-block;
+	cursor: pointer;
+	height: 96px;
+	float: left;
+	width: 96px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 5px solid #3ad195;
+	color: #fff;
+	border-radius: 70px;
+	padding-top: 10px;
+	font-weight: bold;
+}
 
 
 

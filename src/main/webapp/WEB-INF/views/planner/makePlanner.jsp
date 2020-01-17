@@ -113,10 +113,26 @@
 	 </div>
 
 </div>
-<!-- <div class="bakModal"> -->
-<!-- 	<div class="selectModal"> -->
-<!-- 	</div> -->
-<!-- </div> -->
+<div class="chos-sleep">
+	<div class="chos-sleep-info">
+		<div class="chos-sleep-title"> <font style="font-size: 20px; color: white; font-weight: bold;"><span class="chos-cityName"></span>&nbsp;체류기간 선택 </font>
+			<a onclick="closeSleep()" style="color:#fff;font-size:27pt; float: right;"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+		</div>
+		<br>
+		<div class="chos-sleep-list">
+			<div class="chos-sleep-opt" title="0"> <font style="font-size: 18px;">무박</font></div>
+			<div class="chos-sleep-opt" title="1"> <font style="font-size: 18px;">1박</font></div>
+			<div class="chos-sleep-opt" title="2"> <font style="font-size: 18px;">2박</font></div>
+			<div class="chos-sleep-opt" title="3"> <font style="font-size: 18px;">3박</font></div>
+			<div class="chos-sleep-opt" title="4"> <font style="font-size: 18px;">4박</font></div>
+			<div class="chos-sleep-opt" title="5"> <font style="font-size: 18px;">5박</font></div>
+			<div class="chos-sleep-opt" title="6"> <font style="font-size: 18px;">6박</font></div>
+			<div class="chos-sleep-opt" title="7"> <font style="font-size: 18px;">7박</font></div>
+			<div class="chos-sleep-opt" title="8"> <font style="font-size: 18px;">8박</font></div>
+			<div class="chos-sleep-opt" title="9"> <font style="font-size: 18px;">9박</font></div>
+		</div>
+	</div>
+</div>
 </section>
 <script src="../js/makePlanner.js"></script>
 </body>
