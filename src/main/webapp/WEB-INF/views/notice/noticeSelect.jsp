@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"/>
-<link rel="stylesheet"  href="../css/planner.css">
+<link rel="stylesheet"  href="../css/basic.css">
 </head>
 <body>
 <c:import url="../template/nav.jsp"/>
