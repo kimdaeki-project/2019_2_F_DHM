@@ -3,7 +3,6 @@ package com.f.dhm.schedule;
 
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
