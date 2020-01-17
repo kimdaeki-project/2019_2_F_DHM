@@ -7,7 +7,7 @@
 	
 }
 
-.sch-left{
+.mkp-left{
 	font-size: 14px;
 	line-height: 1.42857143;
 	color: #333;
@@ -18,7 +18,7 @@
 	border-right: 1px solid #efefef;
 }
 
-.sch-left-menu{
+.mkp-left-menu{
 	width: 100%;
 	height: 85px;
 	padding-top: 5px;
@@ -28,7 +28,7 @@
 	background: #3ad195;
 }
 
-#sch-left-tripwith{
+#mkp-left-tripwith{
 	border-radius: 5px;
 	z-index: 999;
 	position: absolute;
@@ -54,17 +54,17 @@
 	height:70px; 
 }
 
-.sch-ifm-main{
+.mkp-ifm-main{
 	width: 100%;
 	height: 900px;
 	background-color: purple;
 }
 
-.sch-city-list{
+.mkp-city-list{
 	
 }
 
-.sch-city-info{
+.mkp-city-info{
 	padding-left: 3%;
 	width: 100%;
 	border-top: 1px solid #efefef;
@@ -76,7 +76,7 @@
 .city-menu-left{
 	float: left;
 }
-.sch-city-one{
+.mkp-city-one{
 	float:left;
 	width:53px;
 	height:53px;
@@ -93,7 +93,7 @@
 	margin-top: 7px;
 }
 
-.sch-city-name{
+.mkp-city-name{
 	width: 35%;
 	padding-left: 10px;
 	padding-top: 7px;
@@ -101,7 +101,7 @@
 	font-weight: bold;
 }
 
-.sch-city-date{
+.mkp-city-date{
 	font-size: 11px;
 	font-weight: normal;
 }
@@ -137,7 +137,7 @@
 
 
 
-.del-sch{
+.del-mkp{
 	background: gray;
 	height: 14px;
 	width: 14px;
