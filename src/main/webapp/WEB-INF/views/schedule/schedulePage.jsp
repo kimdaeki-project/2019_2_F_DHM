@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-
+<link rel="stylesheet"  href="../css/basic.css">
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 
@@ -25,7 +25,7 @@
 	<div style="background-color: #f5f5f5">
 	<div class="header">
 	</div>
-	<div class="container">
+	<div class="container container2">
 		<div class="main-container">
 			
 			<div >
@@ -536,7 +536,7 @@
 					<!-- 일정표 -->
 					<div class="schedule-wrapper">
 						<div class="swiper-container">
-							<ul class="swiper-wrapper nolist" style="margin-left: -40px;">
+							<ul class="swiper-wrapper nolist" >
 								<!-- li 하나 -->
 								<li class="swiper-slide schedule-li" style="height: 560px;">
 									<div class="schedule-top">
