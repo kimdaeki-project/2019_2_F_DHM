@@ -8,13 +8,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet"  href="../css/planner.css">
+<link rel="stylesheet"  href="../css/schedule.css">
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
-
-<!-- <link rel="stylesheet" href="../css/swiper.css">
-<link rel="stylesheet" href="../css/swiper.min.css">
-<script src="../css/swiper.js"></script>
-<script src="../css/swiper.min.js"></script>  -->
 
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
@@ -506,22 +501,25 @@
 							<div class="swiper-wrapper">
 								
 									<div class="swiper-slide" style="width: 170px;">
+										<div class="card">
 										<a>
-										<div class="tour-img">
-											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
-												<div class="tour-name">
-													<font>대구 이월드</font>
-												</div>
+											<div class="tour-img">
+												<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
+													<div class="tour-name">
+														<font>대구 이월드</font>
+													</div>
+											</div>
+										</a>
+										<a>
+											<div class="tour-add">
+												<font><i class="fa fa-plus"></i>일정추가</font>
+											</div>
+										</a>
 										</div>
-										</a>
-										<a>
-											<div class="tour-add">
-												<font><i class="fa fa-plus"></i>일정추가</font>
-											</div>
-										</a>
 									</div>
 									
 									<div class="swiper-slide">
+										<div class="card">
 										<a>
 										<div class="tour-img">
 											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
@@ -535,9 +533,11 @@
 												<font><i class="fa fa-plus"></i>일정추가</font>
 											</div>
 										</a>
+										</div>
 									</div>
 									
 									<div class="swiper-slide">
+										<div class="card">									
 										<a>
 										<div class="tour-img">
 											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
@@ -551,9 +551,11 @@
 												<font><i class="fa fa-plus"></i>일정추가</font>
 											</div>
 										</a>
+										</div>
 									</div>
 									
 									<div class="swiper-slide">
+										<div class="card">
 										<a>
 										<div class="tour-img">
 											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
@@ -567,9 +569,11 @@
 												<font><i class="fa fa-plus"></i>일정추가</font>
 											</div>
 										</a>
+										</div>
 									</div>
 									
 									<div class="swiper-slide">
+										<div class="card">
 										<a>
 										<div class="tour-img">
 											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
@@ -583,9 +587,11 @@
 												<font><i class="fa fa-plus"></i>일정추가</font>
 											</div>
 										</a>
+										</div>
 									</div>
 									
 									<div class="swiper-slide">
+										<div class="card">
 										<a>
 										<div class="tour-img">
 											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
@@ -599,6 +605,7 @@
 												<font><i class="fa fa-plus"></i>일정추가</font>
 											</div>
 										</a>
+										</div>
 									</div>
 									
 								

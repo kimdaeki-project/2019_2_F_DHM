@@ -9,10 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/planner/**")
 public class PlannerController {
 
-	@GetMapping("plannerPage")
-	public String plannerPage() throws Exception{
-		return "planner/plannerPage";
-	}
+	
 	
 	@GetMapping("makePlanner")
 	public ModelAndView makePlanner() throws Exception{

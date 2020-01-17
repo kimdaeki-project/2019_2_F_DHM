@@ -20,6 +20,7 @@ import lombok.Setter;
 public class ScheduleVO {
 	@Id
 	private int sNum;
+	@NotEmpty
 	private int pNum;
 	@NotEmpty
 	private String sName; //스케줄이름

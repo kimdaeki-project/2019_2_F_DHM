@@ -7,18 +7,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "planner")
 public class PlannerVO {
 	
 	@Id
 	private int pStep;
-	@NotEmpty
 	private int pNum;
 	@NotEmpty
 	private String id;
