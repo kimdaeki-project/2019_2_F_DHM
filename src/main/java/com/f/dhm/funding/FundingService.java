@@ -15,6 +15,10 @@ public class FundingService {
 	
 	@Resource(name = "fundingRepository")
 	private FundingRepository fundingRepository;
+	
+	@Resource(name = "fundingJoinRepository")
+	private FundingJoinRepository fundingJoinRepository;
+	
 	//funding//
 	public void fundingWrite(FundingVO fundingVO) throws Exception{
 		fundingRepository.save(fundingVO);
@@ -37,10 +41,9 @@ public class FundingService {
 	}//list
 
 	public void fundingUpdate(FundingVO fundingVO) throws Exception{
-		fundingRepository.fundingUpdate(fundingVO.getName(), fundingVO.getContents(), fundingVO.getPrice(),
-				fundingVO.getGoal(), fundingVO.getStartTime(), fundingVO.getEndTime(), fundingVO.getPeople(), fundingVO.getNum());
-//		fundingRepository.fundingUpdate("testest", "테스트 테스트 테스트 테스트", 
-//				2000000, Calendar.getInstance().getTime(), Calendar.getInstance().getTime(), 3, 2);
+//		fundingRepository.fundingUpdate(fundingVO.getName(), fundingVO.getContents(), fundingVO.getPrice(),
+//				fundingVO.getGoal(), fundingVO.getStartTime(), fundingVO.getEndTime(), fundingVO.getPeople(), fundingVO.getNum());
+		fundingRepository.save(fundingVO);
 	}
 
 	public void fundingDelete(int num) throws Exception{
@@ -62,6 +65,15 @@ public class FundingService {
 //		fundingRepository.fundingJoinSelect(id);
 //	}//select2
 	
-
+//	public void fudningJoinUpdate(FundingJoinVO fundingJoinVO) throws Exception{
+//		fundingRepository.fundingJoinUpdate(fundingJoinVO.getParticipationPeople(), fundingJoinVO.getNum());
+//	}
 	
+	public void fundingJoinWrite(FundingJoinVO fundingJoinVO) throws Exception{
+		fundingJoinRepository.save(fundingJoinVO);
+	}
+	
+	public void fundingJoinDelete(int num) throws Exception{
+		fundingJoinRepository.deleteById(num);
+	}
 }

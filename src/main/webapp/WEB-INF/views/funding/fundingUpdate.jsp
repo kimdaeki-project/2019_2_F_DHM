@@ -31,6 +31,12 @@
 	document.getElementById('time1').value = time1;
 	document.getElementById('end').value = end;
 	document.getElementById('time2').value = time2;
+
+	$("#re").click(function(){
+		location.href= "./fundingSelect?num=${vo.num}";
+		});
+
+
 	</script>
 </body>
 </html>

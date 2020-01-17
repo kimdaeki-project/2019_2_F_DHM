@@ -5,6 +5,7 @@
 		<form:form id="frm" modelAttribute="fundingVO">
 			<div class="form-group">
 			<input type="hidden" value="${vo.num}" name="num">
+			<input type="hidden" value="${vo.id}" name="id">
 		      <label for="name">Funding Name :</label>
 		      <form:input  class="form-control" path="name" value="${vo.name}"/>
 		      <form:errors path="name"></form:errors>
@@ -12,7 +13,8 @@
 		    
 			<div class="form-group">
 		    <label for="contents">Funding Contents : </label>
-			<form:textarea cssClass="form-control" path="contents" id="contents" value="${vo.contents}"/>
+			<%-- <form:textarea cssClass="form-control" path="contents" id="contents" value=""/> --%>
+			<textarea id="contents" name="contents">${vo.contents}</textarea>
 			<form:errors  path="contents" cssClass="error"/>
 			</div>
 		
@@ -49,6 +51,7 @@
 		    </div>
 			
 		     <div class="row" style="margin-top: 50px;">
-		    <input type="button" id="write" class="btn btn-danger col-sm-3" value="Update">
+		    <input type="button" id="write" class="btn btn-success col-sm-2" value="Update">&nbsp;&nbsp;
+		    <input type="button" id="re" class="btn btn-primary col-sm-2" value="back">
 		   	</div> 
 		</form:form>

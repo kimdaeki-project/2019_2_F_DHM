@@ -21,11 +21,10 @@ public class FundingJoinVO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int num;
 //	private int fNum;
-	private int pNum;
 	private String id;
-	private String email;
+//	private String email;
 	private BigInteger price;
-	private BigInteger participationPeople;
+	private int participationPeople;
 	
 	@ManyToOne
 	@JoinColumn(name = "fNum")

@@ -28,7 +28,7 @@ public class Pager {
 	
 	public Pager() {
 		this.curPage=0;
-		this.perPage=10;
+		this.perPage=5;
 	}
 	
 	public void makeNum() {

@@ -35,7 +35,7 @@
 
 	</div>
 		<div>
-			<a href="./fundingParticipation?num=${vo.num}" class="btn btn-primary">Participation</a>
+			<a href="./fundingJoinWrite?num=${vo.num}" class="btn btn-primary">Participation</a>
 			<a href="./fundingUpdate?num=${vo.num }" class="btn btn-success">Update</a>
 			<a href="./fundingDelete?num=${vo.num }" class="btn btn-danger">Delete</a>
 			<a href="./fundingList" class="btn btn-primary">List</a>

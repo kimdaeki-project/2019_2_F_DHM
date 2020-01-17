@@ -23,7 +23,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "funding")
+@Table(name = "\"funding\"")
 public class FundingVO {
 	
 	@Id
