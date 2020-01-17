@@ -12,11 +12,7 @@
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
 		<h1>basic title</h1>
-		<div class="section">
-				
-					contents	
-				
-			</div>
+		<div class="section">contents</div>
 	</div>
 </body>
 </html>

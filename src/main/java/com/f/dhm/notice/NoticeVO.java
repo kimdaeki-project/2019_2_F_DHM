@@ -10,7 +10,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.beans.factory.annotation.Value;
 
 import lombok.Data;
 //num	int
@@ -35,4 +34,6 @@ public class NoticeVO  {
 	private Date regDate;
 	
 	private int hit;
+	
+
 }

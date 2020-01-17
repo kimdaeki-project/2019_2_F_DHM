@@ -12,10 +12,11 @@
 							<ul class="gnb_ul">
 								<li class="gnb_li gnb_login"><a href="#" style="color: #68a26c; font-weight: bold;">로그인</a></li>
 								<li class="gnb_li"><a href="">회원가입</a></li>
-								<li class="gnb_li"><a href="">고객센터</a></li>
+								<li class="gnb_li"><a href="${pageContext.request.contextPath}/gnb/serviceCenter">고객센터</a></li>
 								<li class="gnb_li"><a href="">예약내역</a></li>
 							</ul>
-						</div>
+						
+					</div>
 					</div>
 				</div>
 			</div>

@@ -14,26 +14,30 @@
 		<h6>NOTICE</h6>
 		<div class="section">
 			<article>
+			
 			<div class="board_select_row">
-				<h1 class="board_select_title">${noticeVO.title }</h1>
+				<table class="board_table">
+				<tr class="board_select_tr">
+					<th class="board_title_th">TITLE</th>
+					<th class="board_writer_th">WRITER</th>
+					<th class="board_date_th">DATE</th>
+					<th class="board_hit_th">HIT</th>
+				</tr>
+				<tr class="board_select_tr">
+					<td class="board_title" style="padding-left: 13px;">${noticeVO.title }</td>
+					<td>${noticeVO.id }</td>
+					<td>${noticeVO.regDate}</td>
+					<td>${noticeVO.hit}</td>
+				</tr>
+				</table>
 			</div>
 			<div class="board_select_row">
-				<div class="board_select_col board_select_column">num</div>
-				<div class="board_select_col board_select_column">id</div>
-				<div class="board_select_col board_select_column">regDate</div>
-				<div class="board_select_col board_select_column">hit</div>
-			</div>
-			<div class="board_select_row board_select_border_bottom">
-				<div class="board_select_col">${noticeVO.num}</div>
-				<div class="board_select_col">${noticeVO.id}</div>
-				<div class="board_select_col">${noticeVO.regDate}</div>
-				<div class="board_select_col">${noticeVO.hit}</div>
-			</div>
-			<div class="board_select_row">
-				<div class=" board_select_contents">
+				<div class="board_select_contents">
 					${noticeVO.contents}
 				</div>
 			</div>
+			
+			
 			</article>
 			<div class="board_select_row"><br>
 				<input type="button" class="button2" value="update" id="update">

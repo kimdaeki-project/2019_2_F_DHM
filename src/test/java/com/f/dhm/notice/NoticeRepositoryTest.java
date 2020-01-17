@@ -15,7 +15,7 @@ class NoticeRepositoryTest {
 	@Autowired
 	private NoticeRepository noticeRepository;
 	
-	@Test
+	//@Test
 	void test() {
 		List<NoticeVO> list=noticeRepository.findAll();
 		for(NoticeVO noticeVO:list) {
@@ -25,8 +25,17 @@ class NoticeRepositoryTest {
 			System.out.println(noticeVO.getId());
 			System.out.println(noticeVO.getRegDate());
 		}
-		
-		
+	}
+	
+	@Test
+	void writeNotice() {
+		for(int i=50;i<100;i++) {
+			NoticeVO noticeVO=new NoticeVO();
+			noticeVO.setId("wirter"+i);
+			noticeVO.setTitle("test Write title : "+i);
+			noticeVO.setContents("test contents"+i);
+			noticeRepository.save(noticeVO);
+		}
 	}
 
 }

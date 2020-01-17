@@ -15,5 +15,10 @@ public class HomeController {
 	public String basic() {
 		return "template/basic";
 	}
+	
+	@GetMapping("/gnb/serviceCenter")
+	public String serviceCenter() {
+		return "gnb/serviceCenter";
+	}
 }
 	

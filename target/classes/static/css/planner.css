@@ -137,6 +137,12 @@ article{
 .marginTop50px{
 	margin-top:50px;
 }
+.aNodeco{
+	text-decoration: none;
+}
+.aColor{
+	color:#5d5d5d;
+}
 .main_planner_btn_div{
 	background:gold;
 	width: 450px;
@@ -161,7 +167,6 @@ article{
 }
 .tab{
 	width:100%;
-	background:gold;
 }
 .tab li:first-child{
 	width:25%;
@@ -195,7 +200,15 @@ article{
 .tab li:last-child{
 	border-top-right-radius: 5px;
 }
-
+.tab_contents{
+	width: 100%;
+	padding: 20px 10px;
+	min-height: 300px;
+}
+.tab_active{
+	font-weight:bold;
+	color: green;
+}
 .section{
 	background:white;
 	width:100%;
@@ -242,23 +255,108 @@ th{
 	font-size: 16px;
 	min-height: 300px;
 	margin-top: 10px;
+	color: #5d5d5d;
 }
+/* button btn */
 .button{
 	background: white;
 	padding: 5px 10px;
-	border:3px solid yellowgreen;
+	border:1px solid #5d5d5d;
 	border-radius: 20px;	
-	color:yellowgreen;
-	margin-right: 10px;
+	color: #5d5d5d;
 }
 .button2{
-	background: yellowgreen;
+	background: #5d5d5d;
 	padding: 5px 10px;
-	border:3px solid yellowgreen;
+	border:1px solid #5d5d5d;
 	border-radius: 20px;
 	color:white;
-	margin-right: 10px;
 }
-
-
-
+.board_list_btn{
+	width: 68px;
+	height: 36px;
+	margin-top: 15px;
+	float: right;
+}
+.board_table{
+	width: 100%;
+	color:#5d5d5d;
+}
+.board_table tr:first-child:hover{
+	background:white;
+	cursor: default;
+}
+.board_table tr:hover{
+	background:#f7f7f7;
+	cursor: pointer;
+}
+.board_table th{
+	height: 38px;
+	border-top: 2px solid #333;
+	border-bottom: 1px solid #cdcdcd;
+	line-height: 38px;
+	font-weight: normal;
+}
+.board_table td{
+	height: 35px;
+	border-bottom: 1px solid #cdcdcd;
+	line-height: 35px;
+}
+.board_no_th{
+	width:8%;
+}
+.board_title_th{
+	width:58%;
+}
+.board_title{
+	text-align: left;
+}
+.board_writer_th{
+	width:13%;
+}
+.board_date_th{
+	width: 13%;
+}
+.board_hit_th{
+	width:8%;
+}
+.board_select_tr{
+	cursor: default;
+}
+.board_table_select{
+	width: 100%;
+	color:#5d5d5d;
+}
+.board_table_select th{
+	height: 38px;
+	border-top: 2px solid #333;
+	border-bottom: 1px solid #cdcdcd;
+	line-height: 38px;
+	font-weight: normal;
+}
+.board_table_select td{
+	height: 35px;
+	border-bottom: 1px solid #cdcdcd;
+	line-height: 35px;
+}
+.board_no_th{
+	width:8%;
+}
+.board_title_th{
+	width:58%;
+}
+.board_title{
+	text-align: left;
+}
+.board_writer_th{
+	width:13%;
+}
+.board_date_th{
+	width: 13%;
+}
+.board_hit_th{
+	width:8%;
+}
+.board_select_tr{
+	cursor: default;
+}

@@ -27,7 +27,7 @@
 <%-- 				 <form:errors path="contents" /> --%>
 			</div>
 			
-			<div class="float_right"><button class="btn btn-primary ">submit</button></div>
+			<div class="float_right"><button class="button2">submit</button></div>
 			</form:form>
 			
 		</article>
