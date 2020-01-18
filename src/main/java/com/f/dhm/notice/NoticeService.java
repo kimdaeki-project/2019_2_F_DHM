@@ -13,6 +13,13 @@ public class NoticeService {
 	@Autowired
 	private NoticeRepository noticeRepository;
 	
+	public void noticeUpdate(NoticeVO noticeVO)throws Exception{
+		System.out.println("11111111111111111111111");
+		System.out.println("noticeVO.getNum() : "+noticeVO.getNum());
+		System.out.println("noticeVO.gettitle : "+noticeVO.getTitle());
+		noticeRepository.save(noticeVO);
+	}
+	
 	public void noticeDelete(int num)throws Exception{
 		noticeRepository.deleteById(num);
 	}

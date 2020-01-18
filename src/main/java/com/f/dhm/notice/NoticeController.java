@@ -24,8 +24,12 @@ public class NoticeController {
 
 	@Autowired
 	private NoticeService noticeService;
-	@Autowired
-	private NoticeRepository noticeRepository;
+	
+	@PostMapping("noticeUpdate")
+	public String noticeUpdate(NoticeVO noticeVO)throws Exception{
+		noticeService.noticeUpdate(noticeVO);
+		return "redirect:./noticeList";
+	}
 	
 	@GetMapping("noticeUpdate")
 	public String noticeUpdate(int num, Model model)throws Exception{
@@ -55,8 +59,8 @@ public class NoticeController {
 		if (!bindingResult.hasErrors()) {
 			//////////////////////////////
 			//세션값 받아와서 id 세팅해주기!!!
-			//////////////////////////////
 			noticeVO.setId("ims330k");
+			//////////////////////////////
 			noticeService.noticeWrite(noticeVO);
 			
 			
