@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
@@ -514,7 +515,7 @@
 										<div class="card">
 										<a>
 										<div class="tour-img">
-											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
+											<img src="http://tong.visitkorea.or.kr/cms/resource/50/1886150_image2_1.jpg">
 												<div class="tour-name">
 													<font>대구 이월드</font>
 												</div>
@@ -879,8 +880,40 @@
 		</div>
 		
 	</div>
-	</div>
+					<div class="open-ifm" >
+						<div class="ifm-info"><i class="fa fa-calendar-check-o"></i></div>
+						<div class="ifm-opener">
+							<p><span>${cityName }</span>에서 경험하고 싶은 것들을 선택해보세염<span style="float: right; font-size: 20px; cursor: pointer;" class="ifm-closer"><i class="fa fa-times-circle"></i></span></p>
+							<iframe src="http://api.visitkorea.or.kr/openapi/service/rest/PhotoGalleryService/galleryList?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=TestApp&_type=json"></iframe>
+							<iframe src="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailImage?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&contentId=134546&imageYN=Y&MobileOS=ETC&MobileApp=AppTest&imgname"></iframe>
+						</div>
+					</div>
 	<script type="text/javascript">
+
+/* 
+		 $.ajax({
+	     	type: "GET",
+	     	url:"./tour",
+	     	data:{
+	     			title:response.title,
+	     			firstimage: response.firstimage
+	     			
+	     	},
+	     	success : function(result)
+	     	{
+	     	  alert(response.title);    
+	     	},
+	     	error: function(result) {
+				
+				},
+				complete : function() {
+					location.href="../";
+				}
+			 
+	
+	     });  */
+
+	
 		function transfer(){
 			alert('dd');
 		}

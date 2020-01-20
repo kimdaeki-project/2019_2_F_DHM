@@ -21,9 +21,14 @@ public class ScheduleController {
 	@Autowired
 	private PlannerService plannerService;
 	
+	@GetMapping("tour")
+	public void tourList() throws Exception{
+		
+	
+	}
 	
 	@GetMapping("schedulePage")
-	public ModelAndView plannerPage( PlannerVO plannerVO) throws Exception{
+	public ModelAndView plannerPage( PlannerVO plannerVO, ScheduleVO scheduleVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<PlannerVO> plannerList= plannerService.plannerSelect(plannerVO);
 		List<ScheduleVO> ar = scheduleService.scheduleList();
