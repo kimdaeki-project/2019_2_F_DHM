@@ -7,6 +7,7 @@
 <html>
 <head>
 <!-- boot.jsp jquery만 가져옴 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <c:import url="./membercss.jsp"/>
 <meta charset="UTF-8">
@@ -42,7 +43,7 @@
 						<spring:input path="id" class="Join4-3" placeholder="영문/숫자만 사용가능, 4~12자"/>
 					</div>
 					<span class="input-group-btn">
-						<button onclick="javascript:check('');"
+						<button
 						class="btn-u btn-u-red btn_check" type="button"
 						id="input_id">중복확인						
 						</button>
@@ -54,7 +55,7 @@
 					<div class="Join-text">
 						<label for="pw"></label>
 						<spring:password path="pw" class="Join4-2" placeholder="영문/숫자만 사용가능, 4~12자"/>
-						<spring:errors path="pw"></spring:errors>
+						
 					</div>
 				</div>
 				
@@ -73,7 +74,7 @@
 						<label for="email"></label><spring:input path="email" class="Join4-4"/>
 					</div>
 					<span class="input-group-btn">
-						<button onclick="javascript:check('');"
+						<button
 						class="btn-u btn-u-red" type="button"									
 						id="pid_btn">중복확인						
 						</button>
@@ -110,8 +111,8 @@
 				
 				<div class="Join4-check2">
 						<label class="checkbox" style="font-size:11pt; color: gray;">
-							<input type="checkbox" id="agreeok" value="0" >
-							약관과 개인정보 수집 및 이용방침에 동의합니다.		
+							<input type="checkbox" id="agreeok" value="0">
+							약관과 개인정보 수집 및 이용방침에 동의합니다.
 						</label>
 				</div>
 					
@@ -125,13 +126,80 @@
 			
 		</div>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- ID 중복확인 DIV -------------------------------------------------------------------------------------------------------------------------->
+	<!--오류사항 -->
+	<div id="Xid" style="">
+		<div id="idsame" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
+			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
+				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">아이디는 5자~10자까지<br> 가능합니다.</div>
+			</div>
+		</div>
+	
+		<div class="Xidsame3" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
+			<div class="Xidsame2" style="background-color: #64db99; height: 40px; width: 40px; 
+				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div>
+		</div>
+	</div>
+	
+	<!--정상사항 -->
+<!-- 	<div id="Xid1" style=""> -->
+<!-- 		<div id="idsame2" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;"> -->
+<!-- 			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;"> -->
+<!-- 				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">사용 가능한 아이디입니다.</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+	
+<!-- 		<div class="Xidsame7" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;">  -->
+<!-- 			<div class="Xidsame6" style="background-color: #64db99; height: 40px; width: 40px;  -->
+<!-- 				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+
+	
+	<!-- EMAIL 중복확인 DIV ------------------------------------------------------------------------------------------------------------------------>
+	<!--오류사항 -->
+	<div id="Xid2" style="">
+		<div id="emailsame" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 280px;">
+			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
+				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">잘못된 이메일 주소입니다.</div>
+			</div>
+		</div>
+	
+		<div class="Xidsame5" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 80px;"> 
+			<div class="Xidsame4" style="background-color: #64db99; height: 40px; width: 40px; 
+				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div> 
+		</div>
+	</div>
+	
+
+	<!--정상사항 -->
+<!-- 	<div id="Xid3" style=""> -->
+<!-- 		<div id="emailsame2" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 280px;"> -->
+<!-- 			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;"> -->
+<!-- 				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">사용 가능한 이메일입니다.</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+	
+<!-- 		<div class="Xidsame9" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 80px;">  -->
+<!-- 			<div class="Xidsame8" style="background-color: #64db99; height: 40px; width: 40px;  -->
+<!-- 				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+	
+	
+	
 <script type="text/javascript">
+//-----------------------------------------------------------------------	
 
-$(".Join5-btn1").click(function() {
-    document.getElementById('frm2').submit(); 
-    return false;
-});
-
+//광고메일 동의
 $("#mailok").click(function(){
     var check=$('#mailok').is(':checked');
     if(check){
@@ -144,11 +212,130 @@ $("#mailok").click(function(){
         }
     });
 
-$("#agreeok").click(function(){
+
+//약관 및 개인정보 동의
+$("#agreeok").click(function(){	
+	check2 = $('#agreeok').is(':checked');
+});
+
+var check2=false;
+
+$(".Join5-btn1").click(function(){
+     if(check2 == false){
+ 		alert("약관과 개인정보 수집 및 이용방침에 동의 체크 확인 부탁드립니다.");
+ 		
+ 		
+     }else{
+    	 document.getElementById('frm2').submit(); 
+         }
+ });
+
+//-----------------------------------------------------------------------	
+
+//ID중복 확인    		택>>		1. 사용가능한 아이디입니다 .   2. 6~12자까지 가능합니다
+$(function(){
+
+			$('#Xid').hide();
+  
+$("#input_id").click(function(){
+
+	$("#input_id").css("background","#95a5a6");
+
+	$("#Xid").show();
 	
+	});
 });
 
 
+$(".Xidsame2").click(function(){
+
+	$("#Xid").hide();
+	
+ 	$("#input_id").css("background","#e74c3c");
+
+});
+
+//-----------------------------------------------------------------------
+
+// $(function(){
+
+// 			$('#Xid1').hide();
+  
+// $("#input_id").click(function(){
+
+// 	$("#input_id").css("background","#95a5a6");
+
+// 	$("#Xid1").show();
+	
+// 	});
+// });
+
+
+// $(".Xidsame6").click(function(){
+
+// 	$("#Xid1").hide();
+
+//	$("#input_id").css("background","#e74c3c");
+
+// });
+
+//-----------------------------------------------------------------------
+
+//EMAIL중복 확인	 택>>		1. 잘못된 주소입니다.			2. 주소 확인 되었습니다.
+
+$(function(){
+
+			$('#Xid2').hide();
+  
+$("#pid_btn").click(function(){
+
+	$("#pid_btn").css("background","#95a5a6");
+
+	$("#Xid2").show();
+	
+	});
+});
+
+
+$(".Xidsame4").click(function(){
+
+	$("#Xid2").hide();
+
+	$("#pid_btn").css("background","#e74c3c");
+
+});
+//-----------------------------------------------------------------------
+
+// $(function(){
+
+// 			$('#Xid3').hide();
+
+// $("#pid_btn").click(function(){
+
+// 	$("#pid_btn").css("background","#95a5a6");
+
+// 	$("#Xid3").show();
+	
+// 	});
+// });
+
+
+// $(".Xidsame8").click(function(){
+
+// 	$("#Xid3").hide();
+
+//	$("#pid_btn").css("background","#e74c3c");
+
+// });
+
+
+//-----------------------------------------------------------------------
+
+//필수 규정 
+
+//1. 아이디 : 6~12자
+//2. pw : 4~12wk
+//3. 이메일 : @포함(naver.com / daum.net / gmail.com)
 
 
 

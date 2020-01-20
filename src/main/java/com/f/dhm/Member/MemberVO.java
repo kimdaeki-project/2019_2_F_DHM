@@ -42,14 +42,14 @@ public class MemberVO {
 //	@OneToOne(mappedBy = "memberVO", cascade = CascadeType.ALL)
 //	private MemberFilesVO memberFilesVO;
 
-		private String img;
-	public String getImg() {
-			return img;
-		}
 
-		public void setImg(String img) {
-			this.img = img;
-		}
+//	public String getImg() {
+//			return img;
+//		}
+//
+//		public void setImg(String img) {
+//			this.img = img;
+//		}
 
 	public String getId() {
 		return id;

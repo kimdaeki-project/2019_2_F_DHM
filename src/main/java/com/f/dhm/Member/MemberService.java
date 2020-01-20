@@ -36,7 +36,8 @@ public class MemberService {
 	//----------------------------------------
 	
 	public void memberJoin(MemberVO memberVO)throws Exception{
-								System.out.println(memberVO.getMailCheck()+"chEck");				
+								System.out.println(memberVO.getMailCheck()+"chEck");
+
 		memberRepository.save(memberVO);															
 	}
 	//----------------------------------------
@@ -55,10 +56,12 @@ public class MemberService {
 		boolean ch = memberRepository.existsById(memberVO.getId());		
 		
 		if(ch) {			
-			check = true;														
-			bindingResult.rejectValue("id", "Duplicate Id", "중복 ID입니다");														
+			check = true;											
+//			javascript로 실행
+//			bindingResult.rejectValue("id", "Duplicate Id", "중복 ID입니다");														
 		}			
 		System.out.println("check"+check);
+		
 		return check;
 	}
 
