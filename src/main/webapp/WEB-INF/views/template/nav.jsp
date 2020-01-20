@@ -12,10 +12,16 @@
 							<ul class="gnb_ul">
 								<li class="gnb_li gnb_login"><a href="#" style="color: #68a26c; font-weight: bold;">로그인</a></li>
 								<li class="gnb_li"><a href="">회원가입</a></li>
-								<li class="gnb_li"><a href="${pageContext.request.contextPath}/gnb/serviceCenter">고객센터</a></li>
+								<li class="gnb_li"><a style="cursor: pointer;" id="service">고객센터</a></li>
 								<li class="gnb_li"><a href="">예약내역</a></li>
 							</ul>
-						
+						<div class="service_dropDown">
+							<ul class="service_dropDown_ul">
+								<li class="service_dropDown_li"><a href="${pageContext.request.contextPath}/gnb/serviceCenter">FAQ</a></li>
+								<li class="service_dropDown_li"><a href="${pageContext.request.contextPath}/notice/noticeList">NOTICE</a></li>
+								<li class="service_dropDown_li"><a href="#">QNA</a></li>
+							</ul>
+						</div>
 					</div>
 					</div>
 				</div>
@@ -36,3 +42,8 @@
 			</div>
 	</div>
 </nav>
+<script type="text/javascript">
+$('#service').click(function(){
+	$('.service_dropDown').toggleClass("displayBlock");
+})
+</script>

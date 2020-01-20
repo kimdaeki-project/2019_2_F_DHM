@@ -360,3 +360,40 @@ th{
 .board_select_tr{
 	cursor: default;
 }
+/* nav */
+#service{
+	position: relative; 
+}
+.service_dropDown{
+	display:none;
+	position: absolute;
+	right: 580px;
+	top:80px;
+}
+.service_dropDown_ul{
+	background: #f5f5f5;
+	border:1px solid #c4c4c4;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.service_dropDown_li{
+	display: block;
+	width: 96px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	border-bottom:1px solid #c4c4c4;
+}
+
+.service_dropDown_li>a:hover{
+	text-decoration: none;
+}
+.service_dropDown_li:hover{
+	background:#c4c4c4;
+}
+.displayBlock{
+	display: block;
+}
+.displayNone{
+	display: none;
+}

@@ -1,5 +1,8 @@
 package com.f.dhm.notice;
 
+
+
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,20 @@ public class NoticeService {
 
 	@Autowired
 	private NoticeRepository noticeRepository;
+	
+	public void noticeUpdate(NoticeVO noticeVO)throws Exception{
+		System.out.println("11111111111111111111111");
+		System.out.println("noticeVO.getNum() : "+noticeVO.getNum());
+		System.out.println("noticeVO.gettitle : "+noticeVO.getTitle());
+		System.out.println("noticeVO.getContents() : "+noticeVO.getContents());
+		System.out.println("noticeVO.getId() : "+noticeVO.getId());
+		System.out.println("NOTICEvo.DATE() : "+noticeVO.getRegDate());
+
+		NoticeVO ntc=noticeRepository.findById(noticeVO.getNum()).get();
+		noticeVO.setRegDate(ntc.getRegDate());
+		
+		noticeRepository.save(noticeVO);
+	}
 	
 	public void noticeDelete(int num)throws Exception{
 		noticeRepository.deleteById(num);

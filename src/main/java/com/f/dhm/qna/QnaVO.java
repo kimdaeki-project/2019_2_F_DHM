@@ -1,24 +1,19 @@
-package com.f.dhm.notice;
+package com.f.dhm.qna;
+
 import java.sql.Date;
-import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Data;
-//num	int
-//title	varchar(45)
-//contents	varchar(45)
-//id	varchar(45)
-//regDate	varchar(45)
-//hit	varchar(45)
-@Entity
-@Table(name = "notice")
+
 @Data
-public class NoticeVO  {
+public class QnaVO {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +24,12 @@ public class NoticeVO  {
 	private String id;
 	@CreationTimestamp
 	private Date regDate;
+	@UpdateTimestamp
+	private Date upDate;
 
+	
 	private int hit;
+	private int ref;
+	private int step;
+	private int depth;
 }

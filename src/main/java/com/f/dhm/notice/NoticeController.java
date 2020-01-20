@@ -27,6 +27,12 @@ public class NoticeController {
 	@Autowired
 	private NoticeRepository noticeRepository;
 	
+	@PostMapping("noticeUpdate")
+	public String noticeUpdate(NoticeVO noticeVO)throws Exception{
+		noticeService.noticeUpdate(noticeVO);
+		return "redirect:./noticeList";
+	}
+	
 	@GetMapping("noticeUpdate")
 	public String noticeUpdate(int num, Model model)throws Exception{
 		NoticeVO noticeVO=noticeService.selectById(num);

@@ -22,7 +22,5 @@
 			</div>
 		</div>
 	</div>
-	<a href="notice/noticeList">noticeList</a><br>
-	<a href="notice/noticeWrite">notice Write</a>
 </body>
 </html>
