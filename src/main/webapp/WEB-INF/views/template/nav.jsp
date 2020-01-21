@@ -19,7 +19,7 @@
 							<ul class="service_dropDown_ul">
 								<li class="service_dropDown_li"><a href="${pageContext.request.contextPath}/gnb/serviceCenter">FAQ</a></li>
 								<li class="service_dropDown_li"><a href="${pageContext.request.contextPath}/notice/noticeList">NOTICE</a></li>
-								<li class="service_dropDown_li"><a href="#">QNA</a></li>
+								<li class="service_dropDown_li"><a href="${pageContext.request.contextPath}/qna/qnaList">QNA</a></li>
 							</ul>
 						</div>
 					</div>

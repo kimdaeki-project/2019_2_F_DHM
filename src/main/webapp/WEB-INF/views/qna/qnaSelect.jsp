@@ -12,7 +12,35 @@
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
 		<h1>basic title</h1>
-		<div class="section">contents</div>
+		<div class="section">
+			<article>
+			<div class="board_select_row">
+				<table class="board_table">
+				<tr class="board_select_tr">
+					<th class="board_title_th">TITLE</th>
+					<th class="board_writer_th">WRITER</th>
+					<th class="board_date_th">DATE</th>
+					<th class="board_hit_th">HIT</th>
+				</tr>
+				<tr class="board_select_tr">
+					<td class="board_title" style="padding-left: 13px;">${qnaVO.title }</td>
+					<td>${qnaVO.writer }</td>
+					<td>${qnaVO.regDate}</td>
+					<td>${qnaVO.hit}</td>
+				</tr>
+				</table>
+			</div>
+			<div class="board_select_row">
+				<div class="board_select_contents">
+					${qnaVO.contents}
+				</div>
+			</div>
+			</article>
+			<div class="board_select_row"><br>
+				<input type="button" class="button2" value="update" id="update">
+				<input type="button" class="button" value="delete" id="delete">
+			</div>	
+		</div>
 	</div>
 </body>
 </html>

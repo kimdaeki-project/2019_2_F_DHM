@@ -156,6 +156,7 @@ article{
 	border:1px solid tomato;
 	margin-right: 50px;
 	color: tomato;
+	letter-spacing: 1px;
 }
 .main_planner_btn_request{
 	width:198px;
@@ -164,6 +165,7 @@ article{
 	border:1px solid #6f9c3b;
 	float: left;
 	color: #6f9c3b;
+	letter-spacing: 1px;
 }
 .tab{
 	width:100%;

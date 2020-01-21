@@ -2,9 +2,11 @@ package com.f.dhm.qna;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -13,6 +15,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 import lombok.Data;
 
 @Data
+@Entity
+@Table(name = "qna")
 public class QnaVO {
 
 	@Id
@@ -21,15 +25,17 @@ public class QnaVO {
 	@NotEmpty(message = "제목을 입력해 주세요")
 	private String title;
 	private String contents;
-	private String id;
+
+	private String writer;
+
 	@CreationTimestamp
 	private Date regDate;
 	@UpdateTimestamp
-	private Date upDate;
+	private Date reDate;
 
 	
 	private int hit;
-	private int ref;
 	private int step;
+	private int ref;
 	private int depth;
 }
