@@ -1,10 +1,14 @@
 package com.f.dhm.schedule;
 
-import java.util.List;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.f.dhm.planner.PlannerVO;
+
 public interface ScheduleRepository extends JpaRepository<ScheduleVO, Integer>{
+
+
 
 	
 }

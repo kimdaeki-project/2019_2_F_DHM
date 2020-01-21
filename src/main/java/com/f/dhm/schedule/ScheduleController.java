@@ -27,13 +27,21 @@ public class ScheduleController {
 	
 	}
 	
+	@GetMapping("type")
+	public void type(String type, PlannerVO plannerVO) throws Exception{
+		System.out.println("test:"+type);
+		plannerService.typeUpdate(type, plannerVO);
+		
+		System.out.println(plannerVO.getType());
+	}
+	
 	@GetMapping("schedulePage")
 	public ModelAndView plannerPage( PlannerVO plannerVO, ScheduleVO scheduleVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<PlannerVO> plannerList= plannerService.plannerSelect(plannerVO);
 		List<ScheduleVO> ar = scheduleService.scheduleList();
-		System.out.println(plannerList.size());
 		mv.addObject("planner", plannerList);
+		mv.addObject("type", plannerList.get(0).getType());
 		mv.addObject("list", ar);
 		mv.setViewName("/schedule/schedulePage");
 		return mv;

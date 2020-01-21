@@ -18,6 +18,7 @@ public class ScheduleService {
 
 	
 	
+	
 	public List<ScheduleVO> scheduleList() throws Exception{
 		return repository.findAll();
 	}

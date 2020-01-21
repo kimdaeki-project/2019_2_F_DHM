@@ -20,7 +20,7 @@ public class PlannerVO {
 	@Id
 	private int pStep;
 	private int pNum;
-	@NotEmpty
+	//@NotEmpty
 	private String id;
 	private String title;
 	private String type;

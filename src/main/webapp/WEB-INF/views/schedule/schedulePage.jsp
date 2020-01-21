@@ -40,22 +40,50 @@
 						<div class="map-peopleType">
 							<div class="swiper-before">
 								<div class="map-header">
-									<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_2_2.png">
+									<c:if test="${type eq '남자끼리'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_2_2.png">
+									</c:if>
+									<c:if test="${type eq '여자끼리'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_2_1.png">
+									</c:if>
+									<c:if test="${type eq '여자혼자'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_1_1.png">
+									</c:if>
+									<c:if test="${type eq '남자혼자'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_1_2.png">
+									</c:if>
+									<c:if test="${type eq '커플/신혼'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_1_3.png">
+									</c:if>
+									<c:if test="${type eq '부모님과'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_3_2.png">
+									</c:if>
+									<c:if test="${type eq '아이들과'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_3_1.png">
+									</c:if>
+									<c:if test="${type eq '부모님끼리'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_3_3.png">
+									</c:if>
+									<c:if test="${type eq '남녀함께'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_2_3.png">
+									</c:if>
 								</div>
-								<div class="map-body">남자끼리</div>
+								<div class="map-body">${planner["0"].type}</div>
 							</div>
 							<div class="swiper-modal swiper">
 								<div class="modal-head" style="text-align: center; padding-top: 20px;">
 									<font style="color: white; font-size: 13pt; font-weight: 700;">누구와 함께하는 여행인가요?</font>
 								</div>
 								<div style="padding-bottom: 15px;">
-									<div style="float: left; width: 33%;">
-										<a>
+									<div style="float: left; width: 33%;" onclick="type()">
+										<a >
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_1_1_w.png" width="100%">
 										</a>
 										<div style="margin-top: -15px; text-align: center;">
-											<font style="color: white;font-size: 8pt;">여자혼자</font>
+											<font style="color: white;font-size: 8pt;" >여자혼자</font>
+											<input type="hidden" value="여자혼자"id="type" >
 										</div>
+										
 									</div>
 									
 									
@@ -890,6 +918,20 @@
 					</div>
 	<script type="text/javascript">
 
+		function type(){
+			var type=$("#type").val();
+			alert(type);
+			$.ajax({
+				type:"GET",
+				url:"./type",
+				data:{
+					type:type
+				},
+				success:function(result){
+					alert(type);
+				},
+			});
+		}
 /* 
 		 $.ajax({
 	     	type: "GET",
