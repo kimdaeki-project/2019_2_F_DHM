@@ -70,6 +70,9 @@ public class MemberService {
 		return memberRepository.existsById(id);
 	}
 	//----------------------------------------
+	public boolean memberEMAILCheck(String email)throws Exception{
+		return memberRepository.existsById(email);
+	}
 	//----------------------------------------
 	//----------------------------------------
 	//----------------------------------------

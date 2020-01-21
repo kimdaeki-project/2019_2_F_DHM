@@ -64,10 +64,7 @@ public class MemberController {
 									
 		return mv;
 	}
-	
 	//-----------------------------------------------------------------------
-	
-	
 	@GetMapping("memberLogin")
 	public String memberLogin()throws Exception{
 		
@@ -91,16 +88,31 @@ public class MemberController {
 		mv.setViewName("common/result");
 		
 		return mv;
-	}
-	
+	}	
 	//-----------------------------------------------------------------------
-	
-	
 	@GetMapping("memberFacebookLogin")
 	public String memberFacebookLogin()throws Exception{
 		
 		return "member/memberFacebookLogin";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -115,15 +127,20 @@ public class MemberController {
 		session.invalidate();
 		
 		return "redirect:../";
-	}
-	
+	}	
 	//-----------------------------------------------------------------------
 	@PostMapping("memberIdCheck")
 	@ResponseBody
 	public boolean memberIdCheck(String id)throws Exception{
 		return memberService.memberIdCheck(id);
 	}
-	
+	//-----------------------------------------------------------------------
+	@PostMapping("memberEMAILCheck")
+	@ResponseBody
+	public boolean memberEMAILCheck(String email)throws Exception{
+		return memberService.memberEMAILCheck(email);
+	}
+	//-----------------------------------------------------------------------
 	@ModelAttribute("memberVO")
 	public MemberVO memberVO()throws Exception{
 		return new MemberVO();
