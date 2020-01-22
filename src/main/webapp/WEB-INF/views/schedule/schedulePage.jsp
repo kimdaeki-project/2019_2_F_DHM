@@ -75,87 +75,96 @@
 									<font style="color: white; font-size: 13pt; font-weight: 700;">누구와 함께하는 여행인가요?</font>
 								</div>
 								<div style="padding-bottom: 15px;">
-									<div style="float: left; width: 33%;" onclick="type()">
+									<div style="float: left; width: 33%;" onclick="type()" class="typediv">
 										<a >
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_1_1_w.png" width="100%">
 										</a>
 										<div style="margin-top: -15px; text-align: center;">
 											<font style="color: white;font-size: 8pt;" >여자혼자</font>
-											<input type="hidden" value="여자혼자"id="type" >
+											
 										</div>
-										
+										<input type="hidden" value="여자혼자" class="type" >
 									</div>
 									
 									
-									<div style="float: left; width: 33%;">
+									<div style="float: left; width: 33%;" onclick="type()" class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_1_2_w.png" width="100%">
 										</a>
 										<div style="margin-top: -15px; text-align: center;">
 											<font style="color: white;font-size: 8pt;">남자혼자</font>
+											
 										</div>
+										<input type="hidden" value="남자혼자" class="type" >
 									</div>
 									
-									<div style="float: left; width: 33%;">
+									<div style="float: left; width: 33%;" onclick="type()" class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_1_3_w.png" width="100%">
 										</a>
 										<div style="margin-top: -15px; text-align: center;">
 											<font style="color: white;font-size: 8pt;">커플/신혼</font>
+											<input type="hidden" value="커플/신혼" class="type" >
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;">
+									<div style="float: left; width: 33%;" onclick="type()"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_2_1_w.png" width="100%">
 										</a>
 										<div style="margin-top: -15px; text-align: center;">
 											<font style="color: white;font-size: 8pt;">여자끼리</font>
+											<input type="hidden" value="여자끼리" class="type" >
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;">
+									<div style="float: left; width: 33%;" onclick="type()"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_2_2_w.png" width="100%">
 										</a>
 										<div style="margin-top: -15px; text-align: center;">
 											<font style="color: white;font-size: 8pt;">남자끼리</font>
+											<input type="hidden" value="남자끼리" class="type" >
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;">
+									<div style="float: left; width: 33%;" onclick="type()"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_2_3_w.png" width="100%">
 										</a>
 										<div style="margin-top: -15px; text-align: center;">
 											<font style="color: white;font-size: 8pt;">남녀함께</font>
+											<input type="hidden" value="남녀함께" class="type" >
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;">
+									<div style="float: left; width: 33%;" onclick="type()"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_3_1_w.png" width="100%">
 										</a>
 										<div style="margin-top: -15px; text-align: center;">
 											<font style="color: white;font-size: 8pt;">아이들과</font>
+											<input type="hidden" value="아이들과" class="type" >
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;">
+									<div style="float: left; width: 33%;" onclick="type()"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_3_2_w.png" width="100%">
 										</a>
 										<div style="margin-top: -15px; text-align: center;">
 											<font style="color: white;font-size: 8pt;">부모님과</font>
+											<input type="hidden" value="부모님과" class="type" >
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;">
+									<div style="float: left; width: 33%;" onclick="type()"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_3_3_w.png" width="100%">
 										</a>
 										<div style="margin-top: -15px; text-align: center;">
 											<font style="color: white;font-size: 8pt;">부모님끼리</font>
+											<input type="hidden" value="부모님끼리" class="type" >
 										</div>
 									</div>
 								</div>
@@ -911,15 +920,17 @@
 					<div class="open-ifm" >
 						<div class="ifm-info"><i class="fa fa-calendar-check-o"></i></div>
 						<div class="ifm-opener">
-							<p><span>${cityName }</span>에서 경험하고 싶은 것들을 선택해보세염<span style="float: right; font-size: 20px; cursor: pointer;" class="ifm-closer"><i class="fa fa-times-circle"></i></span></p>
-							<iframe src="http://api.visitkorea.or.kr/openapi/service/rest/PhotoGalleryService/galleryList?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=TestApp&_type=json"></iframe>
-							<iframe src="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailImage?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&contentId=134546&imageYN=Y&MobileOS=ETC&MobileApp=AppTest&imgname"></iframe>
+							<p><span>${cityName}</span>에서 경험하고 싶은 것들을 선택해보세염<span style="float: right; font-size: 20px; cursor: pointer;" class="ifm-closer"><i class="fa fa-times-circle"></i></span></p>
+							<!-- <iframe src="http://api.visitkorea.or.kr/openapi/service/rest/PhotoGalleryService/galleryList?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=TestApp&_type=json"></iframe>
+							<iframe src="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailImage?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&contentId=134546&imageYN=Y&MobileOS=ETC&MobileApp=AppTest&imgname"></iframe> -->
 						</div>
 					</div>
 	<script type="text/javascript">
 
 		function type(){
-			var type=$("#type").val();
+
+			var type = this.$(".typediv .type").val();
+					
 			alert(type);
 			$.ajax({
 				type:"GET",
@@ -931,6 +942,9 @@
 					alert(type);
 				},
 			});
+
+			event.stopImmediatePropagation();
+			
 		}
 /* 
 		 $.ajax({
@@ -951,8 +965,7 @@
 				complete : function() {
 					location.href="../";
 				}
-			 
-	
+			 	
 	     });  */
 
 	
@@ -978,6 +991,7 @@
 		
 		$('.nolist-transfer').click(function(){
 			$('.swiper-vehicle-wrapper').toggleClass("swiper");
+			event.stopImmediatePropagation();
 		});
 
 
