@@ -32,8 +32,7 @@ public class MemberVO {
 	//@NotNull
 	@CreationTimestamp
 	private Date birth;	
-	private int gender;
-	
+	private int gender;	
 	private int mailCheck;
 	private int grade;
 	private int social;

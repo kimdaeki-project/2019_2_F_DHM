@@ -137,7 +137,16 @@ public class MemberController {
 	//-----------------------------------------------------------------------
 	@PostMapping("memberEMAILCheck")
 	@ResponseBody
-	public boolean memberEMAILCheck(String email)throws Exception{
+	public MemberVO memberEMAILCheck(String email)throws Exception{
+		MemberVO memberVO = new MemberVO();
+		
+		
+		
+		
+		
+		
+		
+		
 		return memberService.memberEMAILCheck(email);
 	}
 	//-----------------------------------------------------------------------

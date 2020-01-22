@@ -11,5 +11,7 @@ public interface MemberRepository extends JpaRepository<MemberVO, String>{
 //	@Query(value = "select q from MemberVO q where id =: id", nativeQuery = true)
 //	MemberVO findMemberVO(@Param("id")String id)throws Exception;
 	
+	public MemberVO findByEmail(String email)throws Exception;
+	
 	
 }

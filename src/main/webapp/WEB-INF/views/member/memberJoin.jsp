@@ -27,7 +27,7 @@
 			<div class="Join3">
 				<div class="Join3-1">회원가입/정보변경</div>
 			</div>
-		<spring:form action="memberJoin" id="frm2" method="post" modelAttribute="memberVO">	
+		<spring:form action="memberJoin" id="frm2" method="post" modelAttribute="memberVO" >	
 			<div class="Join4">
 				<div class="Join4-1-a">
 					<div class="Join4-1-1">이름</div>					
@@ -71,12 +71,12 @@
 				<div class="Join4-1-b">
 					<div class="Join4-1-1">이메일</div>
 					<div class="Join-text">
-						<label for="email"></label><spring:input path="email" class="Join4-4" id="email10"/>
+						<label for="email"></label><spring:input  path="email" class="Join4-4" id="email10" placeholder="네이버 이메일만 등록 가능."/>		
 					</div>
 					<span class="input-group-btn">
 						<button
 						class="btn-u btn-u-red" type="button"									
-						id="pid_btn">중복확인						
+						id="pid_btn">중복확인			
 						</button>
 					</span>
 				</div>
@@ -180,13 +180,13 @@
 	<!-- EMAIL 중복확인 DIV ------------------------------------------------------------------------------------------------------------------------->
 	<!--오류사항 ------------------------------------------------------------------------------------------------------------------------------------>
 	<div id="Xid2" style="">
-		<div id="emailsame" style="position: fixed; top: 125px; left:630px; background-color: #fff; height: 80px; width: 250px;">
+		<div id="emailsame" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
 			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
 				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">잘못된 이메일 주소입니다.</div>
 			</div>
 		</div>
 	
-		<div class="Xidsame5" style= " position: fixed; background-color: #fff; top: 110px; left: 850px; height: 50px; width: 50px;"> 
+		<div class="Xidsame5" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
 			<div class="Xidsame4" style="background-color: #64db99; height: 40px; width: 40px; 
 				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div> 
 		</div>
@@ -208,13 +208,13 @@
 	
 	<!--중복사항 ------------------------------------------------------------------------------------------------------------------------------------>
 	<div id="Xid5" style="">
-		<div id="emailsame3" style="position: fixed; top: 125px; left:1030px; background-color: #fff; height: 80px; width: 250px;">
+		<div id="emailsame3" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
 			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
 				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">이메일 중복입니다.</div>
 			</div>
 		</div>
 	
-		<div class="Xidsame12" style= " position: fixed; background-color: #fff; top: 110px; left: 1250px; height: 50px; width: 50px;"> 
+		<div class="Xidsame12" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
 			<div class="Xidsame13" style="background-color: #64db99; height: 40px; width: 40px; 
   				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div> 
 		</div>
@@ -250,10 +250,22 @@ $("#agreeok").click(function(){
 	check2 = $('#agreeok').is(':checked');
 });
 
+		
+//아이디 이메일 중복 버튼을 눌러야 로그인이 가능하게끔 하기
+$("#input_id").click(function(){	
+	check3 = $('#input_id').is(':checked');
+});
+
+$("#pid_btn").click(function(){	
+	check4 = $('#pid_btn').is(':checked');
+});
+
 //		+++++++
 
 //약관 및 조합 변수 설정
 var check2=false;
+var check3=false;
+var check4=false;
 //이름 제약조건
 var name = $("#name10").val();
 var kor = name.match(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/);
@@ -262,7 +274,7 @@ var pw = $("#pw10").val();
 var ENG = pw.match(/[A-Z]/g);
 var num = pw.match(/[0-9]/g);
 var eng = pw.match(/[a-z]/g);
-var spe = pw.match(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/ig);
+var spe = pw.match(/[`~!@@#$%^&*|₩₩₩'₩';:₩/?]/ig);
 
 //이름, pw 약관 및 개인정보 동의
 $(".Join5-btn1").click(function(){
@@ -273,20 +285,22 @@ $(".Join5-btn1").click(function(){
 	 ENG = pw.match(/[A-Z]/g);
 	 num = pw.match(/[0-9]/g);
 	 eng = pw.match(/[a-z]/g);
-	 spe = pw.match(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/ig);
+	 spe = pw.match(/[`~!@@#$%^&*|₩₩₩'₩';:₩/?]/ig);
 
      if(check2 == false){
  		alert("[check] 약관과 개인정보 수집 및 이용방침에 동의 체크 확인 부탁드립니다.");	
 			
 	}else {
-	    	 if(kor.length <1 || kor.length > 5){
-				alert("[name] 이름을 정확히 입력하십시오.");
+// 	    	 if(kor.length == null){
+// 				alert("[name] 이름을 정확히 입력하십시오.");
 	
-	        	 }else if(kor==null){
-					alert("[name] 이름을 똑바로 입력하시오.");
-					
+// 	        	 }else 
+		        	 if(kor==null){
+					alert("[name] 한글을 포함한 이름을 다시 입력해주시기 바랍니다.");
+					return false;
+		        	 }
 	        	 }//else if 문(kor==null)   	 
-		
+				
 			 if(pw.length < 5 || pw.length > 13){		
 				alert("[password] 영문, 숫자를 혼합한 6자리 ~ 12자리 이내로 입력해주세요.");				
 				 
@@ -294,14 +308,20 @@ $(".Join5-btn1").click(function(){
 					alert("[password] 한글을 제외한 특수문자, 영문 대소문자, 숫자를 혼합하여 입력해주세요."); 	
 						
 					}else { 
-		
-		    			document.getElementById('frm2').submit(); 
+
+						if(check3 == false){
+							alert("[oberlap] 아이디 중복 확인 해주시기 바랍니다.");
+							}else{
+								if(check4 == false){
+									alert("[oberlap] 이메일 중복 확인 해주시기 바랍니다.");
+								}else{
+					    			document.getElementById('frm2').submit(); 									
 						}//else문
+					}	
 	   		 }//if else문 (check2 == false)
-			
-	 }); //function문
 
-
+						
+}); //function문
 
 //-----------------------------------------------------------------------	
 
@@ -341,12 +361,13 @@ $("#input_id").click(function(){
 								if(d){
 									
 									 $("#input_id").css("background","#95a5a6");	
-									 $("#Xid4").show();			
+									 $("#Xid4").show();	
+									 check3 = false;		
 
 								}else {
 
 									$("#input_id").css("background","#95a5a6");
-								
+									check3 = true;
 									$("#Xid1").show();
 
 								}	
@@ -409,56 +430,8 @@ $(".Xidsame11").click(function(){
 // });
 // //-----------------------------------------------------------------------
 
-// $(function(){
-
-// 			$('#Xid3').hide();
-
-// $("#pid_btn").click(function(){
-
-// 	$("#pid_btn").css("background","#95a5a6");
-
-// 	$("#Xid3").show();
-	
-// 	});
-// });
-
-
-// $(".Xidsame8").click(function(){
-
-// 	$("#Xid3").hide();
-
-// 	$("#pid_btn").css("background","#e74c3c");
-
-// });
-
-
-// //-----------------------------------------------------------------------
-
-// $(function(){
-
-// 			$('#Xid5').hide();
-
-// $("#pid_btn").click(function(){
-
-// 	$("#pid_btn").css("background","#95a5a6");
-
-// 	$("#Xid5").show();
-	
-// 	});
-// });
-
-
-// $(".Xidsame13").click(function(){
-
-// 	$("#Xid5").hide();
-
-// 	$("#pid_btn").css("background","#e74c3c");
-
-// });
-/////////////
 var email = $("#email10").val();
-var spe2 = email.match(/@/ig);
-var spe3 = email.match(/.com/ig);
+var spe2 = email.match(/[@]/ig);
 
 	$("#Xid2").hide(); //중복 입력 상자 숨기
 	$('#Xid3').hide(); //입력 성공 상자 숨기
@@ -466,35 +439,40 @@ var spe3 = email.match(/.com/ig);
 
 $("#pid_btn").click(function(){
 	email = $("#email10").val();
-	spe2 = email.match(/@/ig);
+	spe2 = email.match(/[@]/ig);
 
-
-
-
-	
-$.ajax({
-
-	type : "POST",
-	url  : "memberEMAILCheck",
-	data : {
-		email : email
-		},
-	success : function(c){
-
-		if(c){
-			
-			 $("#pid_btn").css("background","#95a5a6");	
-			 $("#Xid5").show();			
-
-		}else {
-
-			$("#pid_btn").css("background","#95a5a6");
+	if(spe2 == null){
 		
-			$("#Xid3").show();
+		$("#pid_btn").css("background","#95a5a6");	
+		$("#Xid2").show();
+		
+		}else{
 
-		}	
-	}//success문
-});	//ajax문
+		$.ajax({
+		
+			type : "POST",
+			url  : "memberEMAILCheck",
+			data : {
+				email : email
+				},
+			success : function(c){
+		
+				if(c){
+					
+					 $("#pid_btn").css("background","#95a5a6");	
+					 check4 = false;
+					 $("#Xid5").show();			
+		
+				}else {
+		 
+					$("#pid_btn").css("background","#95a5a6");
+					check4 = true;
+					$("#Xid3").show();
+		
+				}	
+			}//success문
+		});	//ajax문
+	}
 
 });//function문
 
