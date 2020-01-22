@@ -42,6 +42,7 @@ public class ScheduleController {
 //		scheduleService.findDay(deDate);
 		mv.addObject("planner", plannerList);
 		mv.addObject("type", plannerList.get(0).getType());
+		mv.addObject("dDate", deDate);
 		mv.addObject("list", ar);
 		mv.setViewName("/schedule/schedulePage");
 		return mv;

@@ -18,6 +18,10 @@
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>  
+
 <c:import url="../template/boot.jsp"/>
 
 </head>
@@ -36,7 +40,6 @@
 			<div class="main-contents">
 				<div class="map-wrapper">
 					<div class="map" id="map">
-						지도올자리
 						<div class="map-peopleType">
 							<div class="swiper-before">
 								<div class="map-header">
@@ -168,7 +171,11 @@
 						</div>
 						<div class="map-startDate">
 							<div class="map-header">
-							<i class="fa fa-cog" aria-hidden="true" style="color: #747474; margin-top: 9px;margin-bottom: 7px;"><div style="font-size: 12px; font-weight: 700; float: right; margin-left: 2px; line-height: 1.2;">2020년1월14일 출발</div></i>
+								<i class="fa fa-cog" aria-hidden="true" style="color: #747474; margin-top: 9px;margin-bottom: 7px;">
+								  <div style="font-size: 12px; font-weight: 700; float: right; margin-left: 2px; line-height: 1.2;">
+								  	<fmt:formatDate value="${dDate}" pattern="yy년MM월dd일"/> 출발
+								  </div>
+								</i>
 							</div>
 							<div class="map-body"></div>
 							
@@ -184,6 +191,9 @@
 					<div class="calendar">
 						<h3 style="text-align: center;">2020년 1월</h3>
 						<div class="cal-event">부산</div>
+						<input type="text" id="testDatepicker">  
+
+						
 						<table class="cal-table">
 							<thead>
 								<tr class="t-head">
@@ -393,7 +403,7 @@
 										<div class="nolist-line"></div>
 										<div class="nolist-dot2"></div>
 										<div class="nolist-region">${vo.region}</div>
-										<div class="nolist-transfer-comment">${vo.deDate} 이동</div>
+										<div class="nolist-transfer-comment"><fmt:formatDate value="${vo.deDate}" pattern="MM월dd일"/> 이동<fmt:formatDate value="${vo.deDate}" pattern="(E)"/></div>
 										<div class="nolist-transfer">
 											<i class="fa fa-train"></i>
 											
@@ -563,7 +573,7 @@
 										</div>
 										<div class="sbold">
 										<fmt:formatDate value="${vo.deDate}" pattern="MM/dd"/> 								
-											<span style="font-size: 10pt; color: #c0c0c0">목, 첫쨋날 </span>
+											<span style="font-size: 10pt; color: #c0c0c0"><fmt:formatDate value="${vo.deDate}" pattern="E"/> </span>
 										</div>
 										<div class="sarea">
 											<div style="line-height: 110%; height: 32px;">${vo.region}</div>
@@ -640,6 +650,15 @@
 					</div>
 	<script type="text/javascript">
 
+
+
+		
+	$(function() {
+	    $( "#testDatepicker" ).datepicker({
+	    });
+	});
+
+	
 		/* type 바꾸기 */
 		function type(type){
 	

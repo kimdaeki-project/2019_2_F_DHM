@@ -30,6 +30,7 @@ public class PlannerVO {
 	private String region;
 	private String transfer;
 	private int totalCost;
+	
 	public int getPlStep() {
 		return plStep;
 	}
