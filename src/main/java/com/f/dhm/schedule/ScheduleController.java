@@ -1,5 +1,6 @@
 package com.f.dhm.schedule;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +30,7 @@ public class ScheduleController {
 	
 	@GetMapping("type")
 	public void type(String type, PlannerVO plannerVO) throws Exception{
-		System.out.println("test:"+type);
 		plannerService.typeUpdate(type, plannerVO);
-		
-		System.out.println(plannerVO.getType());
 	}
 	
 	@GetMapping("schedulePage")
@@ -40,6 +38,8 @@ public class ScheduleController {
 		ModelAndView mv = new ModelAndView();
 		List<PlannerVO> plannerList= plannerService.plannerSelect(plannerVO);
 		List<ScheduleVO> ar = scheduleService.scheduleList();
+		Date deDate = plannerList.get(0).getDeDate();
+//		scheduleService.findDay(deDate);
 		mv.addObject("planner", plannerList);
 		mv.addObject("type", plannerList.get(0).getType());
 		mv.addObject("list", ar);
