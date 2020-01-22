@@ -13,22 +13,26 @@
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
 		<article>
-	<h1>Qna Write</h1>
-			<form:form action="qnaWrite" modelAttribute="qnaVO" method="post">
+	<h1>${kind }</h1>
+		<c:if test="${comment ne null}">
+<%-- 			 --%>
+			<div class="form-group">${qnaVO.contents}</div>
+		</c:if>
+			<form:form action="${kind }" modelAttribute="qnaVO" method="post">
 			<div class="form-group">
 				<label for="usr">title:</label> 
 				<form:input	class="form-control" path="title" />
 			</div>
 			<div class="form-group">
 				<label for="usr">writer:</label> 
-				<form:input	class="form-control" path="writer" />
+				<form:input	class="form-control" path="writer"  />
 			</div>
 			<div class="form-group">
 				<label for="usr">contents:</label>
-				 <form:textarea path="contents" class="contents"/>
-<%-- 				 <form:errors path="contents" /> --%>
+				 <form:textarea path="contents" class="contents" id="content"/>
+					
 			</div>
-			
+			<form:input path="num" />
 			<div class="float_right"><button class="button2">submit</button></div>
 			</form:form>
 			
@@ -36,11 +40,22 @@
 </div>
 	<div style="height: 200px; background: gold; margin-top: 100px;">footer</div>
 <script>
+var contentsPlaceholder="write contents!";
+
+if('${kind}'=='qnaComment'){
+	contentsPlaceholder=" ";
+	$('#content').html(contentsPlaceholder);
+	$('#title').text(contentsPlaceholder);
+	$('#writer').text(contentsPlaceholder);
+}
+
 $('.contents').summernote({
-    placeholder: 'write contents!',
+    placeholder: contentsPlaceholder,
     tabsize: 2,
     height: 500
   });
+
+
   </script>
 </body>
 </html>

@@ -24,7 +24,7 @@
 				</tr>
 				<tr class="board_select_tr">
 					<td class="board_title" style="padding-left: 13px;">${qnaVO.title }</td>
-					<td>${qnaVO.writer }</td>
+					<td>${qnaVO.writer}</td>
 					<td>${qnaVO.regDate}</td>
 					<td>${qnaVO.hit}</td>
 				</tr>
@@ -33,14 +33,27 @@
 			<div class="board_select_row">
 				<div class="board_select_contents">
 					${qnaVO.contents}
+					
 				</div>
 			</div>
 			</article>
 			<div class="board_select_row"><br>
-				<input type="button" class="button2" value="update" id="update">
+				<input type="button" class="button2" value="댓글쓰기" id="comment">
 				<input type="button" class="button" value="delete" id="delete">
 			</div>	
 		</div>
 	</div>
+	
+		
+	
+	<script type="text/javascript">
+	$('#comment').click(function(){
+		location.href="qnaComment?num=${qnaVO.num}";
+		});
+
+	$('#delete').click(function(){
+		location.href="qnaDelete?num=${qnaVO.num}";
+		});
+	</script>
 </body>
 </html>

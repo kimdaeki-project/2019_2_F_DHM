@@ -16,6 +16,40 @@ public class QnaController {
 	@Autowired
 	private QnaService qnaService;
 
+	@GetMapping("qnaDeleteAll")
+	public String qnaDeleteAll()throws Exception{
+		qnaService.qnaDeleteAll();
+		return "redirect:qnaList";
+	}
+	@GetMapping("qnaDelete")
+	public String qnaDelete(int num) throws Exception{
+		qnaService.qnaDelete(num);
+		return "redirect:qnaList";
+	}
+	@PostMapping("qnaComment")
+	public String qnaComment(QnaVO qnaVO)throws Exception{
+		System.out.println("--------------------------test : qnaComment--------------------------");
+		System.out.println(qnaVO.getNum());
+		System.out.println(qnaVO.getTitle());
+		System.out.println(qnaVO.getContents());
+		System.out.println(qnaVO.getWriter());
+		System.out.println(qnaVO.getRegDate());
+		System.out.println(qnaVO.getReDate());
+		System.out.println("------------------------------------------------------------------------------");
+		qnaService.qnaComment(qnaVO);
+		return "redirect:./qnaList";
+	}
+	
+	@GetMapping("qnaComment")
+	public String qnaComment(int num, Model model)throws Exception{
+		QnaVO qnaVO=qnaService.qnaSelect(num);
+		qnaVO.setTitle("[re :"+qnaVO.getTitle()+"]");
+		model.addAttribute("qnaVO", qnaVO);
+		model.addAttribute("comment", "is coment");
+		model.addAttribute("kind", "qnaComment");
+		return "qna/qnaWrite";
+	}
+	
 	@GetMapping("qnaList")
 	public ModelAndView qnaList ()throws Exception{
 		ModelAndView mv=new ModelAndView();
@@ -31,14 +65,18 @@ public class QnaController {
 	}
 	
 	@GetMapping("qnaWrite")
-	public String qnaWrite() {
+	public String qnaWrite(Model model) {
+		model.addAttribute("kind", "qnaWrite");
 		return "qna/qnaWrite";
 	}
 	
 	@PostMapping("qnaWrite")
-	public void qnaWrite(QnaVO qnaVO)throws Exception {
+	public String qnaWrite(QnaVO qnaVO)throws Exception {
 		System.out.println("0000000000000000000000000000000 writer : "+qnaVO.getWriter());
+		System.out.println(qnaVO.getRegDate());
+		System.out.println(qnaVO.getReDate());
 		qnaService.qnaWrite(qnaVO);
+		return "redirect:./qnaList";
 	}
 	
 	@ModelAttribute
