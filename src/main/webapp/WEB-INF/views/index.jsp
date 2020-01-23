@@ -23,6 +23,7 @@
 <div style="padding-left: 840px;">
 	<c:if test= "${not empty member}"> 
 	<a href="${pageContext.request.contextPath}/member/memberLogout"><button>로그아웃</button></a>
+	<a href="${pageContext.request.contextPath}/member/memberMypage"><button>마이 페이지</button></a>
 	</c:if>
 	<c:if test= "${ empty member}"> 
 	<a href="${pageContext.request.contextPath}/member/memberLogin"><button>로그인</button></a>

@@ -249,7 +249,6 @@ $("#mailok").click(function(){
 $("#agreeok").click(function(){	
 	check2 = $('#agreeok').is(':checked');
 });
-
 		
 //아이디 이메일 중복 버튼을 눌러야 로그인이 가능하게끔 하기
 $("#input_id").click(function(){	
@@ -451,7 +450,7 @@ $("#pid_btn").click(function(){
 				}	
 			}//success문
 		});	//ajax문
-	}
+	}//spe2, spe3 제약 true 일때 시작문
 
 });//function문
 
