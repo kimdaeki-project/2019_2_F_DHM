@@ -8,21 +8,14 @@
 <!-- boot.jsp jquery만 가져옴 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <c:import url="./membercss.jsp"/>
+<link rel="stylesheet"  href="../css/basic.css">
 <meta charset="UTF-8">
 <title>member Login</title>
 </head>
 <body>
+<c:import url="../template/nav.jsp"/>
 
-	<div class="header">
-		<c:if test= "${not empty member}"> 
-			<a href="${pageContext.request.contextPath}/member/memberJoin"><button>Member Join</button></a>
-			<a href="${pageContext.request.contextPath}/member/memberLogin"><button>Member Login</button></a>
-			<a href="${pageContext.request.contextPath}/member/memberFacebookLogin"><button>Member FacebookJoin</button></a>
-			<button>Logout</button>
-		</c:if>
-	</div>
-
-	<div class="container container1"></div>
+	
 	
 	<div class="mainbox">
 		<div class="loginbox">

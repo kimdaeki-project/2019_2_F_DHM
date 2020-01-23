@@ -9,10 +9,12 @@
 <!-- boot.jsp jquery만 가져옴 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <c:import url="./membercss.jsp"/>
+<link rel="stylesheet"  href="../css/basic.css">
 <meta charset="UTF-8">
 <title>member Join</title>
 </head>
 <body>
+<c:import url="../template/nav.jsp"/>
 	<div class="Joinmain">
 		<div class="JoinMainPage">
 			<div class="Join1">

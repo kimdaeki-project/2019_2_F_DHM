@@ -31,17 +31,7 @@ a:hover{
 
 /* 예시  header , footer  start*********************************************************************/
 
-.header{
-height: 136px;
-width: 100%;
-background-color: #95a5a6;
-}
 
-.footer{
-height: 260px;
-width: 100%;
-background-color: #95a5a6;
-}
 
 /* 예시  header, footer  end   *********************************************************************/
 
@@ -50,6 +40,7 @@ background-color: #95a5a6;
 background-color: white;
 height: 600px;
 width: 1885px;
+margin-top: 100px;
 }
 
 .container1{

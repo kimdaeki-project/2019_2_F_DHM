@@ -6,6 +6,7 @@
 <html>
 <head>
 <c:import url="./membercss.jsp"/>
+<link rel="stylesheet"  href="../css/basic.css">
 <meta charset="UTF-8">
 <title>member FacebookJoin</title>
 </head>
