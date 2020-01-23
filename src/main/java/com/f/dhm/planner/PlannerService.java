@@ -29,7 +29,10 @@ public class PlannerService {
 	
 	}
 	 
-
+	public int getPlnum() throws Exception{
+		List<PlannerVO> list = repository.findAllByOrderByPlStepDesc();
+		return	list.get(0).getPlNum()+1;
+	}
 	
 
 }

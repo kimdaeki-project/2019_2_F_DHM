@@ -20,15 +20,15 @@ public class PlannerController {
 	
 	
 	@GetMapping("addPlanner")
-	public ModelAndView addSch(String cityName, String startDate, String endDate, String count) throws Exception{
+	public ModelAndView addSch(String cityName, String startDate, String endDate, String count) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		
+
 		mv.addObject("cityName", cityName);
 		mv.addObject("startDate", startDate);
 		mv.addObject("endDate", endDate);
 		mv.addObject("count", count);
 		mv.setViewName("/planner/addPlanner");
-		
+
 		return mv;
 	}
 }

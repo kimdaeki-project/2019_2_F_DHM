@@ -10,5 +10,6 @@ public interface PlannerRepository extends JpaRepository<PlannerVO, Integer>{
 
 	List<PlannerVO> findById(String id);
 	
+	List<PlannerVO> findAllByOrderByPlStepDesc();
 
 }
