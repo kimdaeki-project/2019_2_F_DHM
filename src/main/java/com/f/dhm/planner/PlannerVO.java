@@ -30,39 +30,5 @@ public class PlannerVO {
 	private String transfer;
 	private int totalCost;
 	
-	public int getPlStep() {
-		return plStep;
-	}
-	public int getPlNum() {
-		return plNum;
-	}
-	public String getId() {
-		return id;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public String getType() {
-		return type;
-	}
-	public Date getDeDate() {
-		return deDate;
-	}
-	public Date getArDate() {
-		return arDate;
-	}
-	public int getBak() {
-		return bak;
-	}
-	public String getRegion() {
-		return region;
-	}
-	public String getTransfer() {
-		return transfer;
-	}
-	public int getTotalCost() {
-		return totalCost;
-	}
-	
 	
 }
