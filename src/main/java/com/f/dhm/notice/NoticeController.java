@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -24,8 +25,6 @@ public class NoticeController {
 
 	@Autowired
 	private NoticeService noticeService;
-	@Autowired
-	private NoticeRepository noticeRepository;
 	
 	@PostMapping("noticeUpdate")
 	public String noticeUpdate(NoticeVO noticeVO)throws Exception{
@@ -54,16 +53,25 @@ public class NoticeController {
 		model.addAttribute("noticeVO", notice);
 		return "notice/noticeSelect";
 	}
+	
 	@PostMapping("noticeWrite")
-	public String noticeWrite(@Valid NoticeVO noticeVO, BindingResult bindingResult) throws Exception{
+	public String noticeWrite(@Valid NoticeVO noticeVO, BindingResult bindingResult, List<MultipartFile> files) throws Exception{
+		files.remove(0);
 		System.out.println("Test : noticeController.noticeWrite.noticeVO : "+noticeVO);
 		
+		System.out.println("test ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+		System.out.println(files.size());
+		
+		for (int i = 0; i < files.size(); i++) {
+			System.out.println(i+"번째");
+			System.out.println(files.get(i).getOriginalFilename());
+		}
 		if (!bindingResult.hasErrors()) {
 			//////////////////////////////
 			//세션값 받아와서 id 세팅해주기!!!
-			//////////////////////////////
 			noticeVO.setId("ims330k");
-			noticeService.noticeWrite(noticeVO);
+			//////////////////////////////
+			noticeService.noticeWrite(noticeVO,files);
 			
 			
 		}else {
@@ -92,7 +100,7 @@ public class NoticeController {
 		return "notice/noticeList";
 	}
 	
-	@ModelAttribute
+	@ModelAttribute(name = "notice")
 	NoticeVO noticeVO() {
 		return new NoticeVO();
 	}

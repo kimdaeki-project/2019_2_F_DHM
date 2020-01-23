@@ -399,3 +399,22 @@ th{
 .displayNone{
 	display: none;
 }
+#filePlus{
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	border:none;
+	border-radius: 5px;
+	background: #c4c4c4;
+	margin-top: 20px;
+}
+.inputFile{
+	margin:10px 0;
+	display: inline;
+}
+.inputFileDelete{
+	font-size: 15px;
+	font-weight: bold;
+	float: left;
+	display: inline;
+}
