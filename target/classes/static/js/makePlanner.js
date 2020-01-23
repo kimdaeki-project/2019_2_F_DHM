@@ -6,8 +6,8 @@ $("#tripwith").click(function () {
 });
 
 $(".mkp-city-list").on("click",".mkp-trans-btn", function(e) {
+	e.preventDefault();
 	if ($(this).children("div").css("display") == "none") {
-		e.preventDefault();
 		$(".mkp-trans-picker").css("display","none");
 		$(this).children("div").slideToggle("fast");
 	}else{
@@ -64,7 +64,15 @@ $(".mkp-city-list").on("click",".ifm-closer", function() {
 $(".mkp-city-list").on("click",".city-del", function() {
 	if (confirm("일정을 취소하시겠습니까?")) {
 		$(this).parent().parent().parent().parent().remove();
+		var ti = $(".mkp-trans-info-ex").html();
+		ti = '<div class="mkp-trans-info">'+ti+'</div>';
 		setId();
+		$(".mkp-trans-info").remove();
+		for (var i = 1; i < count; i++) {
+			if (i != 1 ) {
+				$("#c"+i).before(ti);
+			}
+		}
 	}
 	
 });
@@ -131,7 +139,7 @@ $(".mkp-ajax").click(function() {
 
 function uptDate() {
 	var setDay = new Date(today);
-	var setDay2 = new Date(today).toISOString().substr(2, 9).replace('T', ' ');
+	var setDay2 = new Date(today).toISOString().substr(0, 10).replace('T', ' ');
 	for (var i = 1; i < count; i++) {
 		$("#c"+i+" .sDate").text(setDay2);
 		var bak = $("#c"+i+"  .nights-day").text()*1;
@@ -139,7 +147,7 @@ function uptDate() {
 			bak = 0;
 		}
 		setDay.setDate(setDay.getDate()+bak);
-		var calDay = new Date(setDay).toISOString().substr(2, 9).replace('T', ' ');
+		var calDay = new Date(setDay).toISOString().substr(0, 10).replace('T', ' ');
 		$("#c"+i+" .eDate").text(calDay);
 		setDay2 = calDay;
 	}
@@ -147,12 +155,6 @@ function uptDate() {
 }
 
 
-
-//function showModal(cName,sid) {
-//	$(".chos-cityName").text(cName);
-//	$(".chos-sleep").css("display","block");
-//	$("#save-sleep").prop("title",sid);
-//}
 
 $("body").on("click",".click-sleep", function() {
 	$(".chos-cityName").text($(this).prop("id"));
@@ -178,18 +180,80 @@ function closeSleep() {
 $(function() {
 	$(".mkp-city-list").sortable({
 		stop : function() {
-			var ti = $(".mkp-trans-info-ex").html();
-			ti = '<div class="mkp-trans-info">'+ti+'</div>';
-			setId();
-			$(".mkp-trans-info").remove();
-			for (var i = 1; i < count; i++) {
-				if (i != 1 ) {
-					$("#c"+i).before(ti);
-				}
-			}
+				addTsel();
 		}
 	});
 });
+
+
+//function addTsel() {
+//	var ti = $(".mkp-trans-info-ex").html();
+//	ti = '<div class="mkp-trans-info">'+ti+'</div>';
+//	setId();
+//	$(".mkp-trans-info").remove();
+//	for (var i = 1; i < count; i++) {
+//		if (i != 1 ) {
+//			$("#c"+i).before(ti);
+//		}
+//	}
+//}
+
+function addTsel() {
+	var ti = $(".mkp-trans-info-ex").html();
+	ti = '<div class="mkp-trans-info">'+ti+'</div>';
+	setId();
+	for (var i = 1; i < count; i++) {
+		if (i == 1 ) {
+			$("#c"+i).prev().remove();
+		}else if(i == 2){
+			$("#c"+i).prev().remove();
+			$("#c"+i).before(ti);
+		}
+	}
+}
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////
+
+
+//for (var i = 0; i < count; i++) {
+//	id[i] = "coo";
+//	title[i]="";
+//	type[i]="$("#tripwith_txt").text()";
+//	people[i]="";
+//	deDate[i]=$(".sDate").text();
+//	arDate[i]=$(".eDate").text();
+//	bak[i]=$(".nights-day").text();
+//	region[i]=$(".city-sel-name").text();
+//	transfer[i]=$(".mkp-trans-chos").text().trim();
+//}
+
+
+$(".mkp-member-btn").click(function() {
+	$(this).children("div").slideToggle();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

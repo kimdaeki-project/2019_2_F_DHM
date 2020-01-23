@@ -292,10 +292,47 @@
 	display: none;
 }
 
+.mkp-right-remote{
+	position: fixed;
+	right: 20px;
+	top: 30px;
+	
+}
 
+.mkp-member-btn{
+	background-color: #22acff;
+	width: 200px;
+	height: 50px;
+	border-radius: 10px;
+	line-height: 50px;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+}
 
+.mkp-guest-btn{
+	background-color: #ff685a;
+	width: 200px;
+	height: 50px;
+	border-radius: 10px;
+	line-height: 50px;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+}
 
-
+.mkp-member-hide{
+	position:fixed;
+	top:75px;
+	right:25px;
+	background-color: #3ad195;
+	border-radius: 10px;
+	display: none;
+}
 
 
 

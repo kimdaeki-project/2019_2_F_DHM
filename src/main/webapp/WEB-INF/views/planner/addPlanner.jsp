@@ -2,9 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
-<div>
+<div >
 <c:if test="${count ne 1 }">
-			<div class="mkp-trans-info">
+			<div class="mkp-trans-info" draggable="false">
 				<div style="padding-top:0px;padding-bottom:0px">
 					<div style="float:left;width:29px;height:40px;border-right:3px solid #3ad195;">&nbsp;</div>
 					<div style="float:left;width:150px;height:40px;padding-top:10px;margin-left:-25px;">

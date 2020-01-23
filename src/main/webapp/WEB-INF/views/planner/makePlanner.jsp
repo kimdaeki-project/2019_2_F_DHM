@@ -120,9 +120,34 @@
 			</div>
 		</div>
 	 </div>
-
+	<div class="mkp-right-remote" draggable="false">
+		<c:choose>
+			<c:when test="${member ne null }">
+				<div class="mkp-member-btn">
+					<p>작업완료</p>
+					<div class="mkp-member-hide">
+						<p>Planner 제목</p>
+						<input id="mkp-pln-title">
+						<p>여행 인원</p>
+						<select id="mkp-pln-pepp" >
+							<c:forEach begin="1" end="10" var="p">
+								<option>${p }명</option>
+							</c:forEach>
+						</select>
+					</div>	
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div class="mkp-guest-btn">
+					<p>GUEST로 작업중</p>
+				</div>
+			</c:otherwise>
+		</c:choose>
+		<div>
+		</div>
+	</div>
 </div>
-<!-- 숙박ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+<!--hide ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 <div class="chos-sleep">
 	<div class="chos-sleep-info">
 		<div class="chos-sleep-title"> <font style="font-size: 20px; color: white; font-weight: bold;"><span class="chos-cityName"></span>&nbsp;체류기간 선택 </font>
@@ -181,6 +206,7 @@
 				</div>
 			</div>
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+<!--hide ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 </section>
 <script src="../js/makePlanner.js"></script>
 </body>
