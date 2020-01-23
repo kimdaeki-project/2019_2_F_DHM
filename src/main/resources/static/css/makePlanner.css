@@ -32,9 +32,9 @@
 	border-radius: 5px;
 	z-index: 999;
 	position: absolute;
-	top: 73px;
+	top: 81px;
 	width: 270px;
-	left: 13px;
+	left: 193px;
 	background: rgb(105, 105, 105);
 	display: none;	
 }
@@ -61,6 +61,7 @@
 }
 
 .mkp-city-list{
+	border-collapse: collapse;
 	
 }
 
@@ -71,6 +72,7 @@
     border-bottom: 1px solid #efefef;
     height: 67px;
     overflow: hidden;
+    border-collapse: collapse;
 }
 
 .city-menu-left{
@@ -103,7 +105,7 @@
 
 .mkp-city-date{
 	font-size: 11px;
-	font-weight: normal;
+	color: #c0c0c0;
 }
 
 .open-ifm{
@@ -199,8 +201,8 @@
 	width: 600px;
 	height: 600px;
 	z-index: 9999;
-/* 	position: relative; */
-	top : 30px;
+	position: relative;
+	top : 50px;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -234,19 +236,103 @@
 }
 
 
+.mkp-trans-info{
+	line-height: 1.43;
+	color: #333;
+	cursor: pointer;
+	box-sizing: border-box;
+	margin: 0 0 10px;
+	margin-bottom: 0px;
+	padding-left: 3%;
+	padding-right: 10px;
+	text-align: left;
+	font-size: 9pt;
+}
+
+.mkp-trans-picker{
+	width: 400px;
+	background-color: #3ad195;
+	display: none;
+	border-radius: 3px;
+	height: 35px;
+	z-index: 999;
+	position: relative;
+	z-index: 999;
+	
+	
+}
+
+.mkp-trans-sct{
+	margin-top:5px;
+	margin-bottom:2px;
+	margin-left:8px;
+	width:70px;
+	height:25px;
+	border: 3px solid white;
+	color: white;
+	float: left;
+	line-height: 20px;
+}
 
 
 
+.mkp-trans-btn{
+	border-radius:3px;
+	display:block;
+	text-align:center;
+	padding-top:2px;
+	padding-bottom:2px;
+	margin-right:3px;
+	width:50px;
+	background:#3ad195;
+	cursor:pointer;
+}
 
+.mkp-trans-info-ex{
+	display: none;
+}
 
+.mkp-right-remote{
+	position: fixed;
+	right: 20px;
+	top: 30px;
+	
+}
 
+.mkp-member-btn{
+	background-color: #22acff;
+	width: 200px;
+	height: 50px;
+	border-radius: 10px;
+	line-height: 50px;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+}
 
+.mkp-guest-btn{
+	background-color: #ff685a;
+	width: 200px;
+	height: 50px;
+	border-radius: 10px;
+	line-height: 50px;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+}
 
-
-
-
-
-
+.mkp-member-hide{
+	position:fixed;
+	top:75px;
+	right:25px;
+	background-color: #3ad195;
+	border-radius: 10px;
+	display: none;
+}
 
 
 
