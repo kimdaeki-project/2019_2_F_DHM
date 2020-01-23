@@ -5,10 +5,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<c:import url="./member/membercss.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<c:import url="./template/boot.jsp"/>
-<link rel="stylesheet"  href="css/basic.css">
 </head>
 <body>
 <div class="container" style="height: 100px;"></div>
@@ -24,6 +23,7 @@
 <div style="padding-left: 840px;">
 	<c:if test= "${not empty member}"> 
 	<a href="${pageContext.request.contextPath}/member/memberLogout"><button>로그아웃</button></a>
+	<a href="${pageContext.request.contextPath}/member/memberMypage"><button>마이 페이지</button></a>
 	</c:if>
 	<c:if test= "${ empty member}"> 
 	<a href="${pageContext.request.contextPath}/member/memberLogin"><button>로그인</button></a>
@@ -42,7 +42,6 @@
 	<a href="http://211.238.142.39"><button>병주형 감시</button></a>
 	<a href="http://211.238.142.44"><button>팀 감시</button></a> <!-- 1team : 26 / 2team : 45 -->
 </div>
-	
 
 	
 <c:import url="./template/nav.jsp"/>

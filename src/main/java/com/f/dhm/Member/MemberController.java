@@ -23,7 +23,7 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 
-	//-----------------------------------------------------------------------
+	//회원가입-----------------------------------------------------------------------
 	@GetMapping("memberJoin")
 	public String memberJoin()throws Exception{
 	
@@ -33,13 +33,6 @@ public class MemberController {
 	
 	@PostMapping("memberJoin")
 	public ModelAndView memberJoin(@Valid MemberVO memberVO, BindingResult bindingResult)throws Exception{
-			System.out.println("memberVO.getBirth() : "+memberVO.getBirth());
-			System.out.println("memberVO.getGender() : " + memberVO.getGender());
-			System.out.println("memberVO.getName() : " + memberVO.getName());
-			System.out.println("memberVO.getPassword() : " + memberVO.getPw());
-			System.out.println("memberVO.getPassword2() : " + memberVO.getPw2());
-			System.out.println("memberVO.getEmail() : " + memberVO.getEmail());
-			System.out.println("check1 : "+memberVO.getMailCheck());
 	
 		ModelAndView mv = new ModelAndView();
 										
@@ -48,13 +41,13 @@ public class MemberController {
 			mv.setViewName("member/memberJoin");
 
 		}else {
-								System.out.println("3");		
+
 			memberService.memberJoin(memberVO);		
-								System.out.println("4");
+
 			String path = "../";
-								System.out.println("5");
+
 			String message = "DHM 회원이 되신 것을 축하드립니다.";
-								System.out.println("6");
+
 			mv.setViewName("common/result");
 			mv.addObject("message", message);											
 			mv.addObject("path", path);
@@ -62,10 +55,7 @@ public class MemberController {
 									
 		return mv;
 	}
-	
-	//-----------------------------------------------------------------------
-	
-	
+	//로그인-----------------------------------------------------------------------
 	@GetMapping("memberLogin")
 	public String memberLogin()throws Exception{
 		
@@ -89,11 +79,8 @@ public class MemberController {
 		mv.setViewName("common/result");
 		
 		return mv;
-	}
-	
-	//-----------------------------------------------------------------------
-	
-	
+	}	
+	//페이스북 로그인-----------------------------------------------------------------------
 	@GetMapping("memberFacebookLogin")
 	public String memberFacebookLogin()throws Exception{
 		
@@ -106,31 +93,48 @@ public class MemberController {
 	
 	
 	
-	//-----------------------------------------------------------------------
+	//로그아웃-----------------------------------------------------------------------
 	@GetMapping("memberLogout")
 	public String memberLogout(HttpSession session)throws Exception{
 		
 		session.invalidate();
 		
 		return "redirect:../";
-	}
-	
-	//-----------------------------------------------------------------------
+	}	
+	//ID 체크-----------------------------------------------------------------------
 	@PostMapping("memberIdCheck")
 	@ResponseBody
 	public boolean memberIdCheck(String id)throws Exception{
 		return memberService.memberIdCheck(id);
 	}
-	
+	//EMAIL 체크-----------------------------------------------------------------------
+	@PostMapping("memberEMAILCheck")
+	@ResponseBody
+	public MemberVO memberEMAILCheck(String email)throws Exception{		
+		
+		return memberService.memberEMAILCheck(email);
+	}
+	//-----------------------------------------------------------------------
 	@ModelAttribute("memberVO")
 	public MemberVO memberVO()throws Exception{
 		return new MemberVO();
 	}
+	//마이 페이지-----------------------------------------------------------------------
+	@GetMapping("memberMypage")
+	public String memberMypage()throws Exception{
+		
+		return "member/memberMypage";
+	}
+	
+	@PostMapping("memberMypage")
+	public MemberVO memberMypage(String gender, String birth)throws Exception{
+		//ModelAndView mv = new ModelAndView();
+		
+		return memberService.memberMypage(gender, birth);
+	}
 	//-----------------------------------------------------------------------
 	
-	//-----------------------------------------------------------------------
-	
-	//-----------------------------------------------------------------------
+	//개인정보 및 이용약관 페이지-----------------------------------------------------------------------
 	@GetMapping("memberPrivacyPolicy")
 	public String memberPrivacyPolicy()throws Exception{
 		
