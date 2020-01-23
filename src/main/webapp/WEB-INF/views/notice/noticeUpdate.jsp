@@ -15,7 +15,7 @@
 <div class="container">
 	<article>
 	<h1>Notice Update</h1>
-			<form:form action="noticeWrite" modelAttribute="noticeVO" method="post">
+			<form:form action="noticeUpdate" modelAttribute="noticeVO" method="post">
 				<div class="form-group">
 				<label for="usr">title:</label> 
 				<form:input	class="form-control" path="title"/>
@@ -27,9 +27,10 @@
 <%-- 				 <form:errors path="contents" /> --%>
 			</div>
 			
+			<form:input path="num" class="displayNone"/>
+			<form:input path="id" class="displayNone"/>
 			<div class="float_right"><button class="button2">submit</button></div>
 			</form:form>
-			
 		</article>
 </div>
 	<div style="height: 200px; background: gold; margin-top: 100px;">footer</div>

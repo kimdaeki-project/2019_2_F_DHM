@@ -2,9 +2,9 @@ package com.f.dhm.notice;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
-import java.util.Optional;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,7 +27,7 @@ class NoticeRepositoryTest {
 		}
 	}
 	
-	@Test
+	//@Test
 	void writeNotice() {
 		for(int i=50;i<100;i++) {
 			NoticeVO noticeVO=new NoticeVO();
@@ -36,6 +36,15 @@ class NoticeRepositoryTest {
 			noticeVO.setContents("test contents"+i);
 			noticeRepository.save(noticeVO);
 		}
+	}
+	
+	@Test
+	void calendarGetTime(){
+		Calendar calendar= Calendar.getInstance();
+		SimpleDateFormat format = new SimpleDateFormat();
+		format.applyPattern("yyyy-MM-dd");
+
+		System.out.println("calendar.getTime() : "+format.format(calendar.getTime()));
 	}
 
 }

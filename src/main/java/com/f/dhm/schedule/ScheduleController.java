@@ -1,5 +1,6 @@
 package com.f.dhm.schedule;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +22,27 @@ public class ScheduleController {
 	@Autowired
 	private PlannerService plannerService;
 	
+	@GetMapping("tour")
+	public void tourList() throws Exception{
+		
+	
+	}
+	
+	@GetMapping("type")
+	public void type(String type, PlannerVO plannerVO) throws Exception{
+		plannerService.typeUpdate(type, plannerVO);
+	}
 	
 	@GetMapping("schedulePage")
-	public ModelAndView plannerPage( PlannerVO plannerVO) throws Exception{
+	public ModelAndView plannerPage( PlannerVO plannerVO, ScheduleVO scheduleVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<PlannerVO> plannerList= plannerService.plannerSelect(plannerVO);
 		List<ScheduleVO> ar = scheduleService.scheduleList();
-		System.out.println(plannerList.size());
+		Date deDate = plannerList.get(0).getDeDate();
+//		scheduleService.findDay(deDate);
 		mv.addObject("planner", plannerList);
+		mv.addObject("type", plannerList.get(0).getType());
+		mv.addObject("dDate", deDate);
 		mv.addObject("list", ar);
 		mv.setViewName("/schedule/schedulePage");
 		return mv;
