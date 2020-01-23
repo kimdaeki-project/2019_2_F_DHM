@@ -17,26 +17,33 @@
 	style="height: 100px; background-color:#ff9c9c; 
 	width: 1903px; height: 54px; position: fixed; top: 0;"></div>
 
-
-	<div class="mypagemain">
-		<div class="mypagemain3"></div>
-		<div class="mypagemain2">
+	<!-- B ->> M ->> S boss grade-->
+	<div class="mypagemain"><!-- b boss -->
+		<div class="mypagemain3"><!-- m-1 boss -->
 		
-			<div class="mypage1">
-				<div style="height: 250px; width: 250px; margin-left: 5px; margin-top: 10px;">
-					<a href="#"><img src="../imgs/dog.jpg" style="height: 250px; width: 250px;border-radius: 50%;"></a>
+		</div><!-- m boss -->
+		
+		<div class="mypagemain2"><!-- m-2 boss -->
+		
+			<div class="mypage1"><!-- s-1 boss -->
+				<div class="mypage1-1">
+					<a href="#"><img src="../imgs/dog.jpg" class="mypage1-1-1"></a>
+				</div>
+				<div class="mypage1-2">
+					<div class="mypage1-2-1"></div>
+					<div class="mypage1-2-2"></div>
 				</div>
 			</div>
 		
-			<div class="mypage2">
+			<div class="mypage2"><!-- s-2 boss -->
 				<div class="mypage2-1">
-				<div class="mypage2-1-1">sex : , birth: </div>
+					<div class="mypage2-1-1">sex : , birth: </div>
 				</div>
 				<div class="mypage2-2"></div>
 				<div class="mypage2-3"></div>
 			</div>
 			
-			<div class="mypage3">
+			<div class="mypage3"><!-- s-3 boss -->
 				<div class="mypage3-1"></div>
 				<div class="mypage3-2"></div>
 				<div class="mypage3-3"></div>
@@ -46,7 +53,7 @@
 		
 		</div>
 		
-	</div>
+	</div><!-- b boss -->
 	
 	
 	<div class="container" 

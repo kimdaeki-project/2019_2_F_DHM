@@ -892,6 +892,42 @@ border: 1px solid #e8e8e8;
 border-radius: 5px;
 }
 
+.mypage1-1{
+height: 250px; 
+width: 250px; 
+margin-left: 7px; 
+margin-top: 10px;
+}
+
+.mypage1-1-1{
+height: 250px; 
+width: 250px;
+border-radius: 50%;
+}
+
+.mypage1-2{
+width: 220px;
+height: 50px;
+margin-left: 20px;
+margin-top: 20px;
+background-color: white;
+}
+
+.mypage1-2-1{
+width: 120px;
+height: 50px;
+background-color: yellow;
+float: left;
+font-size: 10px;
+}
+
+.mypage1-2-2{
+width: 100px;
+height: 50px;
+background-color: orange;
+float: right;
+}
+
 .mypage2{
 background-color: white;
 height: 200px;
