@@ -407,31 +407,9 @@ $(".Xidsame11").click(function(){
 
 //EMAIL중복 확인	 택>>		1. 잘못된 주소입니다.			2. 주소 확인 되었습니다.
 
-// $(function(){
-
-// 			$('#Xid2').hide();
-  
-// $("#pid_btn").click(function(){
-
-// 	$("#pid_btn").css("background","#95a5a6");
-
-// 	$("#Xid2").show();
-	
-// 	});
-// });
-
-
-// $(".Xidsame4").click(function(){
-
-// 	$("#Xid2").hide();
-
-// 	$("#pid_btn").css("background","#e74c3c");
-
-// });
-// //-----------------------------------------------------------------------
-
 var email = $("#email10").val();
 var spe2 = email.match(/[@]/ig);
+var spe3 = email.match(/[.]/ig);
 
 	$("#Xid2").hide(); //중복 입력 상자 숨기
 	$('#Xid3').hide(); //입력 성공 상자 숨기
@@ -440,8 +418,9 @@ var spe2 = email.match(/[@]/ig);
 $("#pid_btn").click(function(){
 	email = $("#email10").val();
 	spe2 = email.match(/[@]/ig);
+	spe3 = email.match(/[.]/ig);
 
-	if(spe2 == null){
+	if(spe2 == null || spe3 == null){
 		
 		$("#pid_btn").css("background","#95a5a6");	
 		$("#Xid2").show();
