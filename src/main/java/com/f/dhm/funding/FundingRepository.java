@@ -1,8 +1,5 @@
 package com.f.dhm.funding;
 
-
-
-import java.math.BigInteger;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -10,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 public interface FundingRepository extends JpaRepository<FundingVO, Integer> {
 	
@@ -26,12 +24,13 @@ public interface FundingRepository extends JpaRepository<FundingVO, Integer> {
 //	@Query("UPDATE FundingVO f SET fName = ?1, contents = ?2, price = ?3, goal = ?4, startTime = ?5, endTime = ?6, people = ?7 WHERE fNum = ?8")
 //	void fundingUpdate(String fName, String contents, BigInteger price, BigInteger goal, java.util.Date startTime, java.util.Date endTime, int people, int num) throws Exception;
 	
+	@Transactional
 	@Modifying
-	@Query("UPDATE FundingJoinVO fj SET participationPeople = ?1 WHERE num = ?2")
-	void fundingJoinUpdate(int participationPeople, int num) throws Exception;
+	@Query("UPDATE FundingVO f SET status = ?1, gage = ?2 WHERE fNum = ?3")
+	void fundingUpdate(int status, int gage, int fNum) throws Exception;
 	//fundingJoin
 	//펀딩한 사람이 확인
-//	@Query(value = "SELECT f.fNum, j.participationPeople, (j.price * j.participationPeople) total, j.id, j.email FROM funding f "
+//	@Query(value = "SELECT f.fNum, j.participationPeople, (j.price * j.participationPeople) total, j.id FROM funding f "
 //			+ "RIGHT JOIN fundingJoin j ON f.fNum = j.fNum"
 //			+ " WHERE f.fNum = ?1", nativeQuery = true)
 //	List<FundingVO> fundingJoinList(int num) throws Exception;

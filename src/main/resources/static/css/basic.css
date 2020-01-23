@@ -156,6 +156,7 @@ article{
 	border:1px solid tomato;
 	margin-right: 50px;
 	color: tomato;
+	letter-spacing: 1px;
 }
 .main_planner_btn_request{
 	width:198px;
@@ -164,6 +165,7 @@ article{
 	border:1px solid #6f9c3b;
 	float: left;
 	color: #6f9c3b;
+	letter-spacing: 1px;
 }
 .tab{
 	width:100%;
@@ -359,4 +361,60 @@ th{
 }
 .board_select_tr{
 	cursor: default;
+}
+/* nav */
+#service{
+	position: relative; 
+}
+.service_dropDown{
+	display:none;
+	position: absolute;
+	right: 580px;
+	top:93px;
+}
+.service_dropDown_ul{
+	background: #f5f5f5;
+	border:1px solid #c4c4c4;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.service_dropDown_li{
+	display: block;
+	width: 96px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	border-bottom:1px solid #c4c4c4;
+}
+
+.service_dropDown_li>a:hover{
+	text-decoration: none;
+}
+.service_dropDown_li:hover{
+	background:#c4c4c4;
+}
+.displayBlock{
+	display: block;
+}
+.displayNone{
+	display: none;
+}
+#filePlus{
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	border:none;
+	border-radius: 5px;
+	background: #c4c4c4;
+	margin-top: 20px;
+}
+.inputFile{
+	margin:10px 0;
+	display: inline;
+}
+.inputFileDelete{
+	font-size: 15px;
+	font-weight: bold;
+	float: left;
+	display: inline;
 }

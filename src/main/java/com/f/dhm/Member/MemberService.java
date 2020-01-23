@@ -28,18 +28,18 @@ public class MemberService {
 	
 	
 	
-	//----------------------------------------
+	//로그인----------------------------------------
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception{
 		
 		return memberRepository.findByIdAndPw(memberVO.getId(), memberVO.getPw());
 	}
-	//----------------------------------------
+	//회원가입----------------------------------------
 	
 	public void memberJoin(MemberVO memberVO)throws Exception{
-								System.out.println(memberVO.getMailCheck()+"chEck");				
+
 		memberRepository.save(memberVO);															
 	}
-	//----------------------------------------
+	//제약 조건----------------------------------------
 	public boolean memberJoinValidate(MemberVO memberVO, BindingResult bindingResult)throws Exception{
 		boolean check = false;
 														
@@ -55,19 +55,28 @@ public class MemberService {
 		boolean ch = memberRepository.existsById(memberVO.getId());		
 		
 		if(ch) {			
-			check = true;														
-			bindingResult.rejectValue("id", "Duplicate Id", "중복 ID입니다");														
+			check = true;											
+//			javascript로 실행
+//			bindingResult.rejectValue("id", "Duplicate Id", "중복 ID입니다");														
 		}			
 		System.out.println("check"+check);
+		
 		return check;
 	}
 
-	//----------------------------------------
+	//ID 체크----------------------------------------
 	public boolean memberIdCheck(String id)throws Exception{
 		return memberRepository.existsById(id);
 	}
+	//EMAIL 체크----------------------------------------
+	public MemberVO memberEMAILCheck(String email)throws Exception{
+		return memberRepository.findByEmail(email);
+	}
 	//----------------------------------------
-	//----------------------------------------
+	public MemberVO memberMypage(String gender, String birth)throws Exception{
+		
+		return memberRepository.findByGenderAndBirth(gender, birth);
+	}
 	//----------------------------------------
 	//----------------------------------------
 	

@@ -9,7 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import com.f.dhm.util.Pager;
 
-@Transactional
+//@Transactional
 @Service
 public class FundingService {
 	
@@ -70,6 +70,9 @@ public class FundingService {
 //	}
 	
 	public void fundingJoinWrite(FundingJoinVO fundingJoinVO) throws Exception{
+		System.out.println(fundingJoinVO.getFundingVO().getGage()+": gage/service");
+		System.out.println(fundingJoinVO.getFundingVO().getStatus()+": status/service");
+		fundingRepository.fundingUpdate(fundingJoinVO.getFundingVO().getStatus(), fundingJoinVO.getFundingVO().getGage(), fundingJoinVO.getFundingVO().getNum());
 		fundingJoinRepository.save(fundingJoinVO);
 	}
 	

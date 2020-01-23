@@ -4,6 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface FundingJoinRepository extends JpaRepository<FundingJoinVO, Integer> {
 	
 
+//	@Query("SELECT SUM(fj.gage) FROM fundingJoin fj")
+//	FundingJoinVO gageSum() throws Exception;
 	//fundingJoin
 	//펀딩한 사람이 확인
 //	@Query(value = "SELECT f.fNum, j.participationPeople, (j.price * j.participationPeople) total, j.id, j.email FROM funding f "

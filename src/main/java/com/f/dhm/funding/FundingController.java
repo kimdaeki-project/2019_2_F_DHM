@@ -1,11 +1,14 @@
 package com.f.dhm.funding;
 
+import java.math.BigInteger;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,7 +49,7 @@ public class FundingController {
 	public ModelAndView fundingList(Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		pager = fundingService.fundingList(pager);
-
+		
 		mv.addObject("list", pager);
 		mv.setViewName("funding/fundingList");
 
@@ -67,13 +70,25 @@ public class FundingController {
 	public String fundingWrite(@RequestParam String start, @RequestParam String time1,
 			@RequestParam String end, @RequestParam String time2,
 			FundingVO fundingVO) throws Exception{
+		//날짜+시간 합쳐서 집어넣기
 		String startTime = start +" "+ time1;
 		String endTime = end +" "+ time2;
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		Date startTime2 = transFormat.parse(startTime);
 		Date endTime2 = transFormat.parse(endTime);
+		//날짜 차이 구해서 집어넣기
+//		System.out.println(start);
+//		System.out.println(end);
+		SimpleDateFormat transFormat2 = new SimpleDateFormat("yyyy-MM-dd");
+		Date start2 = transFormat2.parse(start);
+		Date end2 = transFormat2.parse(end);
+//		System.out.println(start2);
+//		System.out.println(end2);
+		long restTime  = (end2.getTime() - start2.getTime()) / (60*60*24*1000);
+//		System.out.println(restTime+"일");
 		fundingVO.setStartTime(startTime2);
 		fundingVO.setEndTime(endTime2);
+		fundingVO.setRestTime((int)restTime+1);
 		fundingService.fundingWrite(fundingVO);
 
 		return "redirect:./fundingList";
@@ -100,13 +115,25 @@ public class FundingController {
 			@RequestParam String end, @RequestParam String time2
 			) throws Exception{
 		//		fundingService.fundingUpdate(fName, contents, goal, startTime, endTime, people, fundingVO.getFNum());
+		//날짜+시간 합쳐서 집어넣기
 		String startTime = start +" "+ time1;
 		String endTime = end +" "+ time2;
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		Date startTime2 = transFormat.parse(startTime);
 		Date endTime2 = transFormat.parse(endTime);
+		//날짜 차이 구해서 집어넣기
+		SimpleDateFormat transFormat2 = new SimpleDateFormat("yyyy-MM-dd");
+		Date start2 = transFormat2.parse(start);
+		System.out.println(start2);
+		Date end2 = Calendar.getInstance().getTime();
+		
+//		System.out.println(start2);
+//		System.out.println(end2);
+		long restTime  = (start2.getTime() - end2.getTime()) / (60*60*24*1000);
+		System.out.println(restTime);
 		fundingVO.setStartTime(startTime2);
 		fundingVO.setEndTime(endTime2);
+		fundingVO.setRestTime((int)restTime+1);
 		fundingService.fundingUpdate(fundingVO);
 
 		return "redirect:./fundingList";
@@ -126,7 +153,7 @@ public class FundingController {
 		ModelAndView mv = new ModelAndView();
 		//		List<FundingVO> list = fundingService.fundingJoinList(num);
 		fundingVO = fundingService.fundingJoinList(fundingVO);
-
+		
 		mv.addObject("vo", fundingVO);
 		//		mv.addObject("list", list);
 		mv.setViewName("funding/fundingJoinList");
@@ -172,10 +199,29 @@ public class FundingController {
 	}
 	
 	@PostMapping("fundingJoinWrite")
-	public String fundingJoinWrite(FundingJoinVO fundingJoinVO, String fNum) throws Exception{
-		System.out.println(fNum+"fNum임");
-		FundingVO fundingVO = new FundingVO();
-		fundingVO.setNum(Integer.parseInt(fNum));
+	public String fundingJoinWrite(@RequestParam int price, @RequestParam int goal,
+									@RequestParam int participationPeople, FundingJoinVO fundingJoinVO, FundingVO fundingVO, int fNum) throws Exception{
+//		System.out.println(fNum+"fNum임");
+		
+		
+//		System.out.println(price+"price");
+//		System.out.println(goal+"goal");
+//		System.out.println(participationPeople+"people");
+		//DB에 넣을 status
+		int status = price*participationPeople;
+//		System.out.println(status+"status/controller");
+		//DB에 넣을 gage
+		int gage = (status*100/goal);
+//		System.out.println(gage+"gage/controller");
+		//DB에 저장되어 있던 status
+		int status2 = fundingVO.getStatus();
+//		System.out.println(status2+"status2/controller");
+		//DB에 저장되어 있던 gage
+		int gage2 = fundingVO.getGage();
+//		System.out.println(gage2+"gage2/controller");
+		fundingVO.setStatus(status2+status);
+		fundingVO.setGage(gage2+gage);
+		fundingVO.setNum(fNum);
 		fundingJoinVO.setFundingVO(fundingVO);
 		fundingService.fundingJoinWrite(fundingJoinVO);
 		return "redirect:./fundingList";

@@ -7,6 +7,8 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -29,7 +31,18 @@ public class PlannerService {
 	
 	}
 	 
-
+	public void typeUpdate(String type, PlannerVO plannerVO) throws Exception{
+		
+		//plannerVO.setType(type);	
+		
+		//@Query(value = "update planner set type=#{type} where id=a@a.com",nativeQuery = true)
+		repository.typeUpdate(type);
+		
+	}
+	public int getPlnum() throws Exception{
+		List<PlannerVO> list = repository.findAllByOrderByPlStepDesc();
+		return	list.get(0).getPlNum()+1;
+	}
 	
 
 }
