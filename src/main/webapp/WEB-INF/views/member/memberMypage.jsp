@@ -30,8 +30,8 @@
 					<a href="#"><img src="../imgs/dog.jpg" class="mypage1-1-1"></a>
 				</div>
 				<div class="mypage1-2">
-					<div class="mypage1-2-1"></div>
-					<div class="mypage1-2-2"></div>
+					<div class="mypage1-2-1">dudwo123wjs</div>
+					<div class="mypage1-2-2"></div>  
 				</div>
 			</div>
 		
