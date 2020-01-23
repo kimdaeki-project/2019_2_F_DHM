@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
@@ -13,18 +14,23 @@
 
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-
+<link rel="stylesheet"  href="../css/basic.css">
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>  
 
 <c:import url="../template/boot.jsp"/>
 
 </head>
 <body>
+<c:import url="../template/nav.jsp"/>
 	<div style="background-color: #f5f5f5">
 	<div class="header">
 	</div>
-	<div class="container">
+	<div class="container container2">
 		<div class="main-container">
 			
 			<div >
@@ -34,30 +40,55 @@
 			<div class="main-contents">
 				<div class="map-wrapper">
 					<div class="map" id="map">
-						지도올자리
 						<div class="map-peopleType">
 							<div class="swiper-before">
 								<div class="map-header">
-									<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_2_2.png">
+									<c:if test="${type eq '남자끼리'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_2_2.png">
+									</c:if>
+									<c:if test="${type eq '여자끼리'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_2_1.png">
+									</c:if>
+									<c:if test="${type eq '여자혼자'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_1_1.png">
+									</c:if>
+									<c:if test="${type eq '남자혼자'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_1_2.png">
+									</c:if>
+									<c:if test="${type eq '커플/신혼'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_1_3.png">
+									</c:if>
+									<c:if test="${type eq '부모님과'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_3_2.png">
+									</c:if>
+									<c:if test="${type eq '아이들과'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_3_1.png">
+									</c:if>
+									<c:if test="${type eq '부모님끼리'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_3_3.png">
+									</c:if>
+									<c:if test="${type eq '남녀함께'}">
+										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_2_3.png">
+									</c:if>
 								</div>
-								<div class="map-body">남자끼리</div>
+								<div class="map-body">${planner["0"].type}</div>
 							</div>
 							<div class="swiper-modal swiper">
 								<div class="modal-head" style="text-align: center; padding-top: 20px;">
 									<font style="color: white; font-size: 13pt; font-weight: 700;">누구와 함께하는 여행인가요?</font>
 								</div>
 								<div style="padding-bottom: 15px;">
-									<div style="float: left; width: 33%;">
-										<a>
+									<div style="float: left; width: 33%;" onclick="type('여자혼자')" class="typediv">
+										<a >
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_1_1_w.png" width="100%">
 										</a>
 										<div style="margin-top: -15px; text-align: center;">
-											<font style="color: white;font-size: 8pt;">여자혼자</font>
+											<font style="color: white;font-size: 8pt;" >여자혼자</font>
 										</div>
 									</div>
 									
 									
-									<div style="float: left; width: 33%;">
+									<div style="float: left; width: 33%;" onclick="type('남자혼자')" class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_1_2_w.png" width="100%">
 										</a>
@@ -66,7 +97,7 @@
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;">
+									<div style="float: left; width: 33%;" onclick="type('커플/신혼')" class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_1_3_w.png" width="100%">
 										</a>
@@ -75,7 +106,7 @@
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;">
+									<div style="float: left; width: 33%;" onclick="type('여자끼리')"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_2_1_w.png" width="100%">
 										</a>
@@ -84,7 +115,7 @@
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;">
+									<div style="float: left; width: 33%;" onclick="type('남자끼리')"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_2_2_w.png" width="100%">
 										</a>
@@ -93,7 +124,7 @@
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;">
+									<div style="float: left; width: 33%;" onclick="type('남녀함께')"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_2_3_w.png" width="100%">
 										</a>
@@ -102,7 +133,7 @@
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;">
+									<div style="float: left; width: 33%;" onclick="type('아이들과')"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_3_1_w.png" width="100%">
 										</a>
@@ -111,7 +142,7 @@
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;">
+									<div style="float: left; width: 33%;" onclick="type('부모님과')"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_3_2_w.png" width="100%">
 										</a>
@@ -120,7 +151,7 @@
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;">
+									<div style="float: left; width: 33%;" onclick="type('부모님끼리')"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_3_3_w.png" width="100%">
 										</a>
@@ -140,7 +171,11 @@
 						</div>
 						<div class="map-startDate">
 							<div class="map-header">
-							<i class="fa fa-cog" aria-hidden="true" style="color: #747474; margin-top: 9px;margin-bottom: 7px;"><div style="font-size: 12px; font-weight: 700; float: right; margin-left: 2px; line-height: 1.2;">2020년1월14일 출발</div></i>
+								<i class="fa fa-cog" aria-hidden="true" style="color: #747474; margin-top: 9px;margin-bottom: 7px;">
+								  <div style="font-size: 12px; font-weight: 700; float: right; margin-left: 2px; line-height: 1.2;">
+								  	<fmt:formatDate value="${dDate}" pattern="yy년MM월dd일"/> 출발
+								  </div>
+								</i>
 							</div>
 							<div class="map-body"></div>
 							
@@ -156,6 +191,9 @@
 					<div class="calendar">
 						<h3 style="text-align: center;">2020년 1월</h3>
 						<div class="cal-event">부산</div>
+						<input type="text" id="testDatepicker">  
+
+						
 						<table class="cal-table">
 							<thead>
 								<tr class="t-head">
@@ -365,29 +403,13 @@
 										<div class="nolist-line"></div>
 										<div class="nolist-dot2"></div>
 										<div class="nolist-region">${vo.region}</div>
-										<div class="nolist-transfer-comment">${vo.dDate} 이동</div>
+										<div class="nolist-transfer-comment"><fmt:formatDate value="${vo.deDate}" pattern="MM월dd일"/> 이동<fmt:formatDate value="${vo.deDate}" pattern="(E)"/></div>
 										<div class="nolist-transfer">
 											<i class="fa fa-train"></i>
+											
 										</div>
 										
-										<div class="swiper-vehicle-wrapper swiper">
-											<div class="swiper-vehicle" id="bus">
-												<i class="fa fa-bus" style="margin-right: 2px;"></i>
-												<font>버스</font>
-											</div>
-											<div class="swiper-vehicle" id="taxi" style="margin-left: 8px;">
-												<i class="fa fa-taxi"></i>
-												<font>택시</font>
-											</div>
-											<div class="swiper-vehicle" id="train">
-												<i class="fa fa-train" style="margin-right: 2px;"></i>
-												<font>기차</font>
-											</div>
-											<div class="swiper-vehicle" id="car" style="margin-left: 8px;">
-												<i class="fa fa-car"></i>
-												<font>자가용</font>
-											</div>
-										</div>
+										
 										
 										<div class="notlist-ballon"></div>
 										<div class="notlist-ballon2"> 
@@ -513,7 +535,7 @@
 										<div class="card">
 										<a>
 										<div class="tour-img">
-											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
+											<img src="http://tong.visitkorea.or.kr/cms/resource/50/1886150_image2_1.jpg">
 												<div class="tour-name">
 													<font>대구 이월드</font>
 												</div>
@@ -535,7 +557,9 @@
 					<!-- 일정표 -->
 					<div class="schedule-wrapper">
 						<div class="swiper-container">
-							<ul class="swiper-wrapper nolist" style="margin-left: -40px;">
+							<ul class="swiper-wrapper nolist" >
+								<c:forEach items="${planner}" var="vo">
+								
 								<!-- li 하나 -->
 								<li class="swiper-slide schedule-li" style="height: 560px;">
 									<div class="schedule-top">
@@ -547,11 +571,12 @@
 												</div>
 											</a>
 										</div>
-										<div class="sbold">1/17
-											<span style="font-size: 10pt; color: #c0c0c0">목, 첫쨋날</span>
+										<div class="sbold">
+										<fmt:formatDate value="${vo.deDate}" pattern="MM/dd"/> 								
+											<span style="font-size: 10pt; color: #c0c0c0"><fmt:formatDate value="${vo.deDate}" pattern="E"/> </span>
 										</div>
 										<div class="sarea">
-											<div style="line-height: 110%; height: 32px;">부산(첫쨋날)</div>
+											<div style="line-height: 110%; height: 32px;">${vo.region}</div>
 										</div>
 									</div>
 									<div class="schedule-body">
@@ -602,270 +627,7 @@
 										</div>
 									</div>
 								</li>
-								<!-- li 하나 -->
-								<li class="swiper-slide schedule-li" style="height: 560px;">
-									<div class="schedule-top">
-										<div class="schedule-top2">
-											<a>
-												<div class="schedule-map">
-													<img src="https://www.stubbyplanner.com/img_v15/icon_map.png">
-													<div class="schedule-map-title">지도</div>
-												</div>
-											</a>
-										</div>
-										<div class="sbold">1/18
-											<span style="font-size: 10pt; color: #c0c0c0">금, 둘쨋날</span>
-										</div>
-										<div class="sarea">
-											<div style="line-height: 110%; height: 32px;">부산(둘쨋날)</div>
-										</div>
-									</div>
-									<div class="schedule-body">
-										<div class="schedule-body-row">0~9
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">9
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">10
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">11
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">12
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">13
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">14
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">15
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">16
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">17
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">18
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">19
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">20
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">20-24
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">숙소
-											<div class="schedule-body-content"></div>
-										</div>
-									</div>
-								</li>
-								<!-- li 하나 -->
-								<li class="swiper-slide schedule-li" style="height: 560px;">
-									<div class="schedule-top">
-										<div class="schedule-top2">
-											<a>
-												<div class="schedule-map">
-													<img src="https://www.stubbyplanner.com/img_v15/icon_map.png">
-													<div class="schedule-map-title">지도</div>
-												</div>
-											</a>
-										</div>
-										<div class="sbold">1/19
-											<span style="font-size: 10pt; color: #c0c0c0">토, 셋쨋날</span>
-										</div>
-										<div class="sarea">
-											<div style="line-height: 110%; height: 32px;">포항(셋쨋날)</div>
-										</div>
-									</div>
-									<div class="schedule-body">
-										<div class="schedule-body-row">0~9
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">9
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">10
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">11
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">12
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">13
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">14
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">15
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">16
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">17
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">18
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">19
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">20
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">20-24
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">숙소
-											<div class="schedule-body-content"></div>
-										</div>
-									</div>
-								</li>
-								<!-- li 하나 -->
-								<li class="swiper-slide schedule-li" style="height: 560px;">
-									<div class="schedule-top">
-										<div class="schedule-top2">
-											<a>
-												<div class="schedule-map">
-													<img src="https://www.stubbyplanner.com/img_v15/icon_map.png">
-													<div class="schedule-map-title">지도</div>
-												</div>
-											</a>
-										</div>
-										<div class="sbold">1/17
-											<span style="font-size: 10pt; color: #c0c0c0">목, 첫쨋날</span>
-										</div>
-										<div class="sarea">
-											<div style="line-height: 110%; height: 32px;">부산(첫쨋날)</div>
-										</div>
-									</div>
-									<div class="schedule-body">
-										<div class="schedule-body-row">0~9
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">9
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">10
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">11
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">12
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">13
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">14
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">15
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">16
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">17
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">18
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">19
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">20
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">20-24
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">숙소
-											<div class="schedule-body-content"></div>
-										</div>
-									</div>
-								</li>
-								<!-- li 하나 -->
-								<li class="swiper-slide schedule-li" style="height: 560px;">
-									<div class="schedule-top">
-										<div class="schedule-top2">
-											<a>
-												<div class="schedule-map">
-													<img src="https://www.stubbyplanner.com/img_v15/icon_map.png">
-													<div class="schedule-map-title">지도</div>
-												</div>
-											</a>
-										</div>
-										<div class="sbold">1/17
-											<span style="font-size: 10pt; color: #c0c0c0">목, 첫쨋날</span>
-										</div>
-										<div class="sarea">
-											<div style="line-height: 110%; height: 32px;">부산(첫쨋날)</div>
-										</div>
-									</div>
-									<div class="schedule-body">
-										<div class="schedule-body-row">0~9
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">9
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">10
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">11
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">12
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">13
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">14
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">15
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">16
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">17
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">18
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">19
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">20
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">20-24
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">숙소
-											<div class="schedule-body-content"></div>
-										</div>
-									</div>
-								</li>
+								</c:forEach>
 								
 							</ul>
 						</div>
@@ -878,8 +640,65 @@
 		</div>
 		
 	</div>
-	</div>
+					<div class="open-ifm" >
+						<div class="ifm-info"><i class="fa fa-calendar-check-o"></i></div>
+						<div class="ifm-opener">
+							<p><span>${cityName}</span>에서 경험하고 싶은 것들을 선택해보세염<span style="float: right; font-size: 20px; cursor: pointer;" class="ifm-closer"><i class="fa fa-times-circle"></i></span></p>
+							<!-- <iframe src="http://api.visitkorea.or.kr/openapi/service/rest/PhotoGalleryService/galleryList?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=TestApp&_type=json"></iframe>
+							<iframe src="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailImage?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&contentId=134546&imageYN=Y&MobileOS=ETC&MobileApp=AppTest&imgname"></iframe> -->
+						</div>
+					</div>
 	<script type="text/javascript">
+
+
+
+		
+	$(function() {
+	    $( "#testDatepicker" ).datepicker({
+	    });
+	});
+
+	
+		/* type 바꾸기 */
+		function type(type){
+	
+			$.ajax({
+				type:"GET",
+				url:"./type",
+				data:{
+					type:type
+				},
+				success:function(result){
+					alert(type);
+				},
+			});
+			location.reload();
+			event.stopImmediatePropagation();
+		}
+
+		/* 
+		 $.ajax({
+	     	type: "GET",
+	     	url:"./tour",
+	     	data:{
+	     			title:response.title,
+	     			firstimage: response.firstimage
+	     			
+	     	},
+	     	success : function(result)
+	     	{
+	     	  alert(response.title);    
+	     	},
+	     	error: function(result) {
+				
+				},
+				complete : function() {
+					location.href="../";
+				}
+			 	
+	     });  */
+
+	
 		function transfer(){
 			alert('dd');
 		}
@@ -901,9 +720,9 @@
 
 		
 		$('.nolist-transfer').click(function(){
-			$('.swiper-vehicle-wrapper').toggleClass("swiper");
+			this.$('.swiper-vehicle-wrapper').toggleClass("swiper");
+			event.stopImmediatePropagation();
 		});
-
 
 
 		/* swiper */

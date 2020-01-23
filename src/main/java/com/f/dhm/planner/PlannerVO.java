@@ -18,41 +18,24 @@ import lombok.Setter;
 public class PlannerVO {
 	
 	@Id
-	private int pStep;
-	private int pNum;
-	@NotEmpty
+	private int plStep;
+	private int plNum;
+	//@NotEmpty
 	private String id;
 	private String title;
 	private String type;
-	private Date dDate;
-	private Date aDate;
+	private Date deDate;
+	private Date arDate;
 	private int bak;
 	private String region;
 	private String transfer;
 	private int totalCost;
-	public int getpStep() {
-		return pStep;
+	
+	public int getPlStep() {
+		return plStep;
 	}
-	public void setpStep(int pStep) {
-		this.pStep = pStep;
-	}
-	public int getpNum() {
-		return pNum;
-	}
-	public void setpNum(int pNum) {
-		this.pNum = pNum;
-	}
-	public Date getdDate() {
-		return dDate;
-	}
-	public void setdDate(Date dDate) {
-		this.dDate = dDate;
-	}
-	public Date getaDate() {
-		return aDate;
-	}
-	public void setaDate(Date aDate) {
-		this.aDate = aDate;
+	public int getPlNum() {
+		return plNum;
 	}
 	public String getId() {
 		return id;
@@ -62,6 +45,12 @@ public class PlannerVO {
 	}
 	public String getType() {
 		return type;
+	}
+	public Date getDeDate() {
+		return deDate;
+	}
+	public Date getArDate() {
+		return arDate;
 	}
 	public int getBak() {
 		return bak;
@@ -75,7 +64,6 @@ public class PlannerVO {
 	public int getTotalCost() {
 		return totalCost;
 	}
-	
 	
 	
 }
