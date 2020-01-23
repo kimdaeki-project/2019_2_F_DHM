@@ -8,8 +8,8 @@
 <title>대동여지도</title>
  
 <c:import url="./template/fundingBoot.jsp" />
-<c:import url="../template/summernote.jsp" />
-
+<c:import url="./template/summernote.jsp" />
+<%-- <c:import url="./template/ckeditor.jsp" /> --%>
 </head>
 <body>
 	<div class="container">
@@ -17,8 +17,8 @@
 		<c:import url="./template/fundingWriteForm.jsp" />	
 
 	</div>
-	<script type="text/javascript" src="../js/summernote.js" ></script>
-	<script type="text/javascript">
+<script type="text/javascript" src="../js/summernote.js" ></script>
+<script type="text/javascript">
 	$("#re").click(function(){
 		location.href= "./fundingList";
 		});

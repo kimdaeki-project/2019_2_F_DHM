@@ -22,12 +22,12 @@
 		<span id="name">${vo.name}</span><br><br>
 		내용
 		<p class="excert">${ vo.contents }</p><br>
-		펀딩 금액<br><input type="text" id="price">원<br><br>
-		펀딩 목표<br><input type="text" id="goal">원<br><br>
+		펀딩 금액<br><span id="price"></span>원<br><br>
+		펀딩 목표<br><span id="goal"></span>원<br><br>
 		펀딩 시작 시간<br>
-		<span id="startTime">${vo.startTime}</span><br><br>
+		<span id="startTime"></span>시<br><br>
 		펀딩 마감 시간<br>
-		<span id="endTime">${vo.endTime}</span><br><br>
+		<span id="endTime"></span>시<br><br>
 		펀딩 최대 참여 인원수<br>
 		<span id="people">${vo.people}</span>
 	</div>
@@ -42,10 +42,22 @@
 		</div>
 	</div>
 <script type="text/javascript">
-var goal = ${vo.goal};
-var price = ${vo.price};	  
-	   document.getElementById("goal").value = goal.toLocaleString();
-	   document.getElementById("price").value = price.toLocaleString();
+	var goal = ${vo.goal};
+	var price = ${vo.price};	  
+	goal = goal.toLocaleString();
+	price = price.toLocaleString();
+	document.getElementById('price').innerHTML = price;
+	document.getElementById('goal').innerHTML = goal;
+
+	var startTime = '${vo.startTime}';
+	var endTime = '${vo.endTime}';
+
+	var start = startTime.substring(0, 16);
+	var end = endTime.substring(0, 16);
+
+	document.getElementById('startTime').innerHTML = start;
+	document.getElementById('endTime').innerHTML = end;
+	
 </script>
 </body>
 </html>
