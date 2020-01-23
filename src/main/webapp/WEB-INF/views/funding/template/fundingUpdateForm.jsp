@@ -6,6 +6,8 @@
 			<div class="form-group">
 			<input type="hidden" value="${vo.num}" name="num">
 			<input type="hidden" value="${vo.id}" name="id">
+			<input type="hidden" value="${vo.gage}" name="gage">
+			<input type="hidden" value="${vo.status}" name="status">
 		      <label for="name">Funding Name :</label>
 		      <form:input  class="form-control" path="name" value="${vo.name}"/>
 		      <form:errors path="name"></form:errors>

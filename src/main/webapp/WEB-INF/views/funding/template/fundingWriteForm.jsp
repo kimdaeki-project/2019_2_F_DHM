@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<script type="text/javascript" src="../js/summernote.js" ></script>
+
 		<form:form id="frm" modelAttribute="fundingVO">
 			<div class="form-group">
 		      <label for="name">Funding Name :</label>
@@ -10,11 +10,11 @@
 		    </div>
 		    
 			<div class="form-group">
-		    <label for="contents">Funding Contents : </label>
-			<form:input placeholder="Enter contents" cssClass="form-control" path="contents" id="contents"/>
-			<form:errors  path="contents" cssClass="error"/>
-			</div>
+		   <label for="contents">Funding Contents : </label>
+		     <form:textarea placeholder="Enter contents" class="form-control" path="contents"/>
+		       <form:errors path="contents" cssClass="error"/>
 			
+			</div>
 			 <div class="form-group">
 		      <label for="people">Funding Price : </label>
 		       <form:input placeholder="Enter price" class="form-control" path="price"/>
@@ -52,7 +52,8 @@
 		    </div>
 			
 		     <div class="row" style="margin-top: 50px;">
-		    <input type="button" id="write" class="btn btn-success col-sm-3" value="Write">
+		 	<!-- <input type="submit" id="write" class="btn btn-success col-sm-3" value="Write"> -->
+			<input type="button" id="write" class="btn btn-success col-sm-3" value="Write">
 		   	<input type="button" id="re" class="btn btn-primary col-sm-3" value="back">
 		   	</div> 
 		</form:form>
