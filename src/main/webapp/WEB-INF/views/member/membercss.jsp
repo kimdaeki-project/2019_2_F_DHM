@@ -867,4 +867,168 @@ margin-right: 5px;
 
 /* MemberFacebookLogin Page Css End *********************************************************************/
 
+/* memberMypage css  Start **********************************************************************/
+
+.mypagemain{
+background-color: white;
+height: 880px;
+width: 1165px;
+margin-left: 370px;
+margin-top: 90px;
+border-bottom: 1px solid #e8e8e8;
+}
+
+.mypagemain2{
+background-color: white;
+height: 880px;
+width: 265px;
+}
+
+.mypage1{ 
+background-color: #f5f5f5;
+height: 360px;
+width: 263px;
+border: 1px solid #e8e8e8;
+border-radius: 5px;
+}
+
+.mypage1-1{
+height: 250px; 
+width: 250px; 
+margin-left: 7px; 
+margin-top: 10px;
+}
+
+.mypage1-1-1{
+height: 250px; 
+width: 250px;
+border-radius: 50%;
+}
+
+.mypage1-2{
+width: 220px;
+height: 50px;
+margin-left: 20px;
+margin-top: 20px;
+background-color: white;
+}
+
+.mypage1-2-1{
+width: 120px;
+height: 50px;
+background-color: yellow;
+float: left;
+font-size: 10px;
+}
+
+.mypage1-2-2{
+width: 100px;
+height: 50px;
+background-color: orange;
+float: right;
+}
+
+.mypage2{
+background-color: white;
+height: 200px;
+width: 263px;
+border: 1px solid #e8e8e8;
+border-radius: 5px;
+}
+
+.mypage2-1{
+background-color: white;
+height: 40px;
+width: 263px;
+}
+
+.mypage2-1-1{
+height: 25px;
+width: 150px;
+margin-left: 15px;
+background-color: white;
+padding-top: 8px;
+color: #807e7e;
+}
+
+.mypage2-2{
+background-color: white;
+height: 80px;
+width: 263px;
+border-bottom: 1px solid #e8e8e8;
+}
+
+.mypage2-3{
+background-color: white;
+height: 80px;
+width: 263px;
+}
+
+.mypage3{
+background-color: white;
+height: 250px;
+width: 233px;
+border: 1px solid #e8e8e8;
+border-radius: 5px;
+margin-top: 25px;
+margin-left: 15px;
+}
+
+.mypage3-1{
+background-color: white;
+height: 49px;
+width: 233px;
+border-bottom:1px solid #e8e8e8;
+}
+
+.mypage3-2{
+background-color: white;
+height: 49px;
+width: 233px;
+border-bottom:1px solid #e8e8e8;
+}
+
+.mypage3-3{
+background-color: white;
+height: 49px;
+width: 233px;
+border-bottom:1px solid #e8e8e8;
+}
+
+.mypage3-4{
+background-color: white;
+height: 49px;
+width: 233px;
+border-bottom:1px solid #e8e8e8;
+}
+
+.mypage3-5{
+background-color: white;
+height: 50px;
+width: 233px;
+}
+
+.mypagemain3{
+background-color: #f2f5da;
+width:870px;
+height: 850px;
+float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* memberMypage css  End **********************************************************************/
 </style>
