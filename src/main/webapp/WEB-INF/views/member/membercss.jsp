@@ -966,9 +966,15 @@ width: 110px;
 float: left;
 height: 25px;
 text-align: center;
-}
-.mypage2-1-1-2{
 border-right: 1px solid #e8e8e8;
+}
+
+.mypage2-1-1-3{
+font-size: 15px;
+width: 110px;
+float: left;
+height: 25px;
+text-align: center;
 }
 
 .mypage2-2{

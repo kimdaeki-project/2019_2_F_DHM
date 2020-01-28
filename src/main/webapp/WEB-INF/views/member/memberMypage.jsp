@@ -42,7 +42,7 @@
 		
 			<div class="mypage2"><!-- s-2 boss -->
 				<div class="mypage2-1">
-					<div class="mypage2-1-1"><p class="mypage2-1-1-1 mypage2-1-1-2">${member.gender}</p><p class="mypage2-1-1-1">${member.birth}</p></div>
+					<div class="mypage2-1-1"><p class="mypage2-1-1-1">${member.gender}</p><p class="mypage2-1-1-3">${member.birth}</p></div>
 				</div>
 				<div class="mypage2-2"></div>
 				<div class="mypage2-3"></div>
@@ -67,6 +67,48 @@
 	© DHM PLANNER 2020
 	</div>
 
+<script type="text/javascript">
+	$(function(){
+		//등급 출력 변경
+ 		if(${member.grade} == 0){
+	   	 $('.mypage1-2-2-1').html('slave');
+		}else{
+			if(${member.grade} == 1){
+				$('.mypage1-2-2-1').html('admin');
+				}
+			}
+		});
+
+	$(function(){
+		//성별 출력 변경
+ 		if(${member.gender} == 1){
+	   	 $('.mypage2-1-1-1').html('male');
+		}else{
+			if(${member.gender} == 2){
+				$('.mypage2-1-1-1').html('female');
+				}
+			}
+		});
+
+	//mypage2-1-1-3
+		$(function(){
+		//생년 출력 변경
+		//substring  >> 문자열 추출
+		
+
+			
+
+			 
+		});
+	
+
+
+
+
+
+
+
+</script>
 
 </body>
 </html>
