@@ -18,6 +18,7 @@
 	width: 1903px; height: 54px; position: fixed; top: 0;"></div>
 
 	<!-- B ->> M ->> S boss grade-->
+	<form action="./memberMypage"  method="POST">
 	<div class="mypagemain"><!-- b boss -->
 		<div class="mypagemain3"><!-- m-1 boss -->
 		
@@ -30,14 +31,18 @@
 					<a href="#"><img src="../imgs/dog.jpg" class="mypage1-1-1"></a>
 				</div>
 				<div class="mypage1-2">
-					<div class="mypage1-2-1">dudwo123wjs</div>
-					<div class="mypage1-2-2"></div>  
+					<div class="mypage1-2-1">
+						<p style="font-size: 18px; font-weight: 700; margin-top: 10px; text-align: center;">${member.id}</p>
+					</div>
+					<div class="mypage1-2-2">
+						<p class="mypage1-2-2-1">${member.grade}</p>
+					</div>  
 				</div>
 			</div>
 		
 			<div class="mypage2"><!-- s-2 boss -->
 				<div class="mypage2-1">
-					<div class="mypage2-1-1">sex : , birth: </div>
+					<div class="mypage2-1-1"><p class="mypage2-1-1-1 mypage2-1-1-2">${member.gender}</p><p class="mypage2-1-1-1">${member.birth}</p></div>
 				</div>
 				<div class="mypage2-2"></div>
 				<div class="mypage2-3"></div>
@@ -54,7 +59,7 @@
 		</div>
 		
 	</div><!-- b boss -->
-	
+	</form>
 	
 	<div class="container" 
 	style="background-color: white; width: 1903px; height: 50px; 

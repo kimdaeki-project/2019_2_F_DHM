@@ -910,22 +910,31 @@ width: 220px;
 height: 50px;
 margin-left: 20px;
 margin-top: 20px;
-background-color: white;
+background-color: #f5f5f5;
 }
 
 .mypage1-2-1{
-width: 120px;
+width: 140px;
 height: 50px;
-background-color: yellow;
+background-color: #f5f5f5;
 float: left;
 font-size: 10px;
 }
 
 .mypage1-2-2{
-width: 100px;
-height: 50px;
-background-color: orange;
+margin-top: 10px;
+width: 80px;
+height: 30px;
+background-color: rgb(153, 153, 153);
 float: right;
+border-radius: .25em;
+}
+
+.mypage1-2-2-1{
+color: white;
+font-weight: 700;
+text-align: center;
+margin-top: 4px;
 }
 
 .mypage2{
@@ -944,11 +953,22 @@ width: 263px;
 
 .mypage2-1-1{
 height: 25px;
-width: 150px;
+width: 240px;
 margin-left: 15px;
 background-color: white;
 padding-top: 8px;
 color: #807e7e;
+}
+
+.mypage2-1-1-1{
+font-size: 15px;
+width: 110px;
+float: left;
+height: 25px;
+text-align: center;
+}
+.mypage2-1-1-2{
+border-right: 1px solid #e8e8e8;
 }
 
 .mypage2-2{
@@ -962,6 +982,7 @@ border-bottom: 1px solid #e8e8e8;
 background-color: white;
 height: 80px;
 width: 263px;
+border-bottom: 1px solid #e8e8e8;
 }
 
 .mypage3{

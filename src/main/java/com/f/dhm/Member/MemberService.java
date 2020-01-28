@@ -1,6 +1,7 @@
 package com.f.dhm.Member;
 
 import java.io.File;
+import java.sql.Date;
 
 import javax.transaction.Transactional;
 
@@ -73,12 +74,14 @@ public class MemberService {
 		return memberRepository.findByEmail(email);
 	}
 	//----------------------------------------
-	public MemberVO memberMypage(String gender, String birth)throws Exception{
+	public MemberVO memberMypage(int gender, Date birth)throws Exception{		
+		MemberVO memberVO = new MemberVO();
 		
-		return memberRepository.findByGenderAndBirth(gender, birth);
+		return memberRepository.findByGenderAndBirth(memberVO.getGender(), memberVO.getBirth());
 	}
 	//----------------------------------------
 	//----------------------------------------
+
 	
 	
 }

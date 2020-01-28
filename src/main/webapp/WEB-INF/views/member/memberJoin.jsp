@@ -32,7 +32,7 @@
 				<div class="Join4-1-a">
 					<div class="Join4-1-1">이름</div>					
 					<div class="Join-text">
-						<label for="name"></label><spring:input path="name" class="Join4-2" placeholder="한글만 입력 가능" id="name10"/>											
+						<label for="name"></label><spring:input path="name" class="Join4-2" placeholder="한글 이름만 입력가능" id="name10"/>											
 					</div>
 				</div>
 				
@@ -71,7 +71,7 @@
 				<div class="Join4-1-b">
 					<div class="Join4-1-1">이메일</div>
 					<div class="Join-text">
-						<label for="email"></label><spring:input  path="email" class="Join4-4" id="email10" placeholder="네이버 이메일만 등록 가능."/>		
+						<label for="email"></label><spring:input  path="email" class="Join4-4" id="email10" placeholder="이메일 주소만 등록 가능."/>		
 					</div>
 					<span class="input-group-btn">
 						<button
@@ -476,6 +476,8 @@ $(".Xidsame13").click(function(){
 	$("#pid_btn").css("background","#e74c3c");
 
 });
+
+
 		
 
 
