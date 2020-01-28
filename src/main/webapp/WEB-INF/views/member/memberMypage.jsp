@@ -6,6 +6,14 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<!-- 버튼 bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  
+  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <c:import url="./membercss.jsp"/>
 <meta charset="UTF-8">
@@ -13,9 +21,9 @@
 </head>
 <body>
 
-	<div class="container" 
+	<div 
 	style="height: 100px; background-color:#ff9c9c; 
-	width: 1903px; height: 54px; position: fixed; top: 0;"></div>
+	width: 100%; height: 54px; position: fixed; top: 0;"></div>
 
 	<!-- B ->> M ->> S boss grade-->
 	<form action="./memberMypage"  method="POST">
@@ -44,8 +52,20 @@
 				<div class="mypage2-1">
 					<div class="mypage2-1-1"><p class="mypage2-1-1-1">${member.gender}</p><p class="mypage2-1-1-3">${member.birth}</p></div>
 				</div>
-				<div class="mypage2-2"></div>
-				<div class="mypage2-3"></div>
+				<div class="mypage2-2">
+					<button class="mypage2-2-1">
+					<strong>0 </strong> Mentees
+					</button>					
+					<button class="mypage2-2-2">
+					<strong>0 </strong> Mentors
+					</button>
+				</div>
+				<div class="mypage2-3">
+<!-- 					<div class="btn-group"> -->
+<!--   						<button type="button" class="btn btn-warning">사진 변경</button> -->
+<!--  						<button type="button" class="btn btn-warning">프로필 관리</button> -->
+<!-- 					</div> -->
+				</div>
 			</div>
 			
 			<div class="mypage3"><!-- s-3 boss -->
@@ -68,19 +88,23 @@
 	</div>
 
 <script type="text/javascript">
+	//등급 출력 변경
 	$(function(){
-		//등급 출력 변경
  		if(${member.grade} == 0){
-	   	 $('.mypage1-2-2-1').html('slave');
+	   	 $('.mypage1-2-2-1').html('Beginner');
 		}else{
 			if(${member.grade} == 1){
-				$('.mypage1-2-2-1').html('admin');
+				$('.mypage1-2-2-1').html('guide');
+				}else{
+					if(${member.grade} == 2){
+						$('.mypage1-2-2-1').html('admin');
+					}
 				}
 			}
 		});
 
+	//성별 출력 변경
 	$(function(){
-		//성별 출력 변경
  		if(${member.gender} == 1){
 	   	 $('.mypage2-1-1-1').html('male');
 		}else{
@@ -90,16 +114,12 @@
 			}
 		});
 
-	//mypage2-1-1-3
-		
-		//생년 출력 변경
-		//substring  >> 문자열 추출
-			
-		$(document).ready(function(){
-			 var mbirth = $( '.mypage2-1-1-3' ).text().substring( 0, 4 );
-			 $( '.mypage2-1-1-3' ).text(mbirth);
-
-			});
+	//생년 출력 변경
+	//substring  >> 문자열 추출			
+	$(document).ready(function(){
+		 var mbirth = $( '.mypage2-1-1-3' ).text().substring( 0, 4 );
+		 $( '.mypage2-1-1-3' ).text(mbirth);
+		});
 
 			
 

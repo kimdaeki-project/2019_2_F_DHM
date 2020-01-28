@@ -984,12 +984,41 @@ width: 263px;
 border-bottom: 1px solid #e8e8e8;
 }
 
+.mypage2-2-1{
+background-color: #f2eeee;
+height: 50px;
+width: 100px;
+border-radius: 10px;
+margin-top: 10px;
+margin-left: 20px;
+color: #807e7e;
+}
+
+.mypage2-2-2{
+background-color: #f2eeee;
+height: 50px;
+width: 100px;
+border-radius: 10px;
+margin-top: 10px;
+margin-left: 5px;
+color: #807e7e;
+}
+
 .mypage2-3{
 background-color: white;
 height: 80px;
 width: 263px;
 border-bottom: 1px solid #e8e8e8;
 }
+
+/* .btn btn-warning{ */
+/* width: 100px; */
+/* height: 100px; */
+/* font-size: 15px; */
+/* color: white; */
+/* margin-top: 20px; */
+/* margin-left: 20px; */
+/* } */
 
 .mypage3{
 background-color: white;
