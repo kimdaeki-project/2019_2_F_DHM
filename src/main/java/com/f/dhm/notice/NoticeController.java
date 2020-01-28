@@ -2,6 +2,9 @@ package com.f.dhm.notice;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,13 +49,7 @@ public class NoticeController {
 		noticeService.noticeDelete(num);
 		return "redirect:./noticeList";
 	}
-	@GetMapping("noticeSelect")
-	public String noticeSelect(int num,Model model)throws Exception{
-		System.out.println("TEST : NOTICECONTROLLER.noticeSelect.num : "+num);
-		NoticeVO notice=noticeService.selectById(num);
-		model.addAttribute("noticeVO", notice);
-		return "notice/noticeSelect";
-	}
+	
 	
 	@PostMapping("noticeWrite")
 	public String noticeWrite(@Valid NoticeVO noticeVO, BindingResult bindingResult, List<MultipartFile> files) throws Exception{
@@ -110,8 +107,24 @@ public class NoticeController {
 	/*
 	 * hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 	 */
-	
-	// 리뷰 상세 페이지
+	@GetMapping("noticeSelect")
+	public String noticeSelect(int num,Model model,HttpServletRequest request, HttpServletResponse response)throws Exception{
+		System.out.println("TEST : NOTICECONTROLLER.noticeSelect.num : "+num);
+		
+		NoticeVO notice=noticeService.selectById(num);
+		model.addAttribute("noticeVO", notice);
+		Cookie cookie=new Cookie("noticeBoardNo", String.valueOf(num));
+//		Cookie[] cookies=request.getCookies();
+//		
+//		Cookie viewCookie=null;
+//		if(cookies!=null&&cookies.length>0) {
+//			for(int i=0;i<cookies.length;i++) {
+//				
+//			}
+//		}
+		return "notice/noticeSelect";
+	}
+//		리뷰 상세 페이지
 //    @RequestMapping(value = "/reviewDetail.do")
 //    public ModelAndView reviewDetail(HttpServletRequest request, HttpServletResponse response, HttpSession session,  @RequestParam int reviewNo) {
 //        
