@@ -16,6 +16,13 @@ public class QnaService {
 	@Autowired
 	private QnaRepository qnaRepository;
 	
+	public void increaseHit(int num) {
+		QnaVO qnaVO=qnaRepository.findById(num).get();
+		int hit=qnaVO.getHit();
+		hit++;
+		qnaVO.setHit(hit);
+		qnaRepository.save(qnaVO);
+	}
 	public void qnaDeleteAll()throws Exception{
 		qnaRepository.deleteAll();
 	}
@@ -57,7 +64,7 @@ public class QnaService {
 	}
 	
 	public List<QnaVO> qnaList()throws Exception{
-		List<QnaVO> qnaList=qnaRepository.findAll();
+		List<QnaVO> qnaList=qnaRepository.qnalisst();
 		return qnaList;
 	}
 }

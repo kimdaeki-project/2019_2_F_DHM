@@ -84,7 +84,7 @@ public class NoticeController {
 	}
 	
 	@GetMapping("noticeList")
-	public String noticeList(Model model, @PageableDefault (size = 20, sort = {"num"},direction = Direction.DESC,page = 0)Pageable pageable) throws Exception{
+	public ModelAndView noticeList(ModelAndView mv, @PageableDefault (size = 20, sort = {"num"},direction = Direction.DESC,page = 0)Pageable pageable) throws Exception{
 		Page<NoticeVO> noticePage=noticeService.noticeListPage(pageable);
 		System.out.println("--------------noticePage info--------------");
 		System.out.println("noticePage.getNumber() : "+noticePage.getNumber());
@@ -93,8 +93,9 @@ public class NoticeController {
 		System.out.println("noticePage.getTotalPages() : "+noticePage.getTotalPages());
 		System.out.println("noticePage.getPageable() : "+noticePage.getPageable());
 		
-		model.addAttribute("noticePage", noticePage);
-		return "notice/noticeList";
+		mv.addObject("noticePage", noticePage);
+		mv.setViewName("notice/noticeList");
+		return mv;
 	}
 	
 	@ModelAttribute(name = "notice")
@@ -102,97 +103,67 @@ public class NoticeController {
 		return new NoticeVO();
 	}
 	
-	
-	
-	/*
-	 * hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-	 */
 	@GetMapping("noticeSelect")
 	public String noticeSelect(int num,Model model,HttpServletRequest request, HttpServletResponse response)throws Exception{
-		System.out.println("TEST : NOTICECONTROLLER.noticeSelect.num : "+num);
-		
+		System.out.println("TEST : NOTICECONTROLLER.noticeSelect.num : "+num);		
 		NoticeVO notice=noticeService.selectById(num);
-		model.addAttribute("noticeVO", notice);
-		Cookie cookie=new Cookie("noticeBoardNo", String.valueOf(num));
-//		Cookie[] cookies=request.getCookies();
-//		
-//		Cookie viewCookie=null;
-//		if(cookies!=null&&cookies.length>0) {
-//			for(int i=0;i<cookies.length;i++) {
-//				
-//			}
-//		}
+		
+		Cookie[] cookies=request.getCookies();
+		
+		Cookie viewCookie=null;	//비교하기 위해 새로운 쿠키
+		
+		if(cookies!=null&&cookies.length>0) {	//쿠키가 있을 경우
+			for(int i=0;i<cookies.length;i++) {
+				if(cookies[i].getName().equals("cookie"+num)) {	//cookie의 name이 cookie+num과 일치하는 쿠키를 viewCookie에 넣어줌.
+					System.out.println("처음 쿠키가 생성한 뒤 들어옴.");
+					viewCookie=cookies[i];
+				}
+			}
+		}
+		
+		if(notice!=null) {
+			model.addAttribute("noticeVO", notice);
+
+			if(viewCookie==null) {
+				System.out.println("cookie 없음!");
+				Cookie newCookie=new Cookie("cookie"+num, "|" + num + "|"); //쿠키 생성
+				response.addCookie(newCookie); 	//쿠키 추가
+				//쿠키를 추가시키고 조회수 증가시킴
+				noticeService.increaseHit(num);
+			}
+			else {	//viewCookie가 null이 아닐 경우 쿠키가 있으므로 증가 로직을 처리하지 않음
+				System.out.println("쿠키 있음");
+				//쿠키값 받아옴.
+				String ckValue=viewCookie.getValue();
+				System.out.println("cookie : "+ckValue);
+			}
+		}
+		//cookie////////////////////
 		return "notice/noticeSelect";
 	}
-//		리뷰 상세 페이지
-//    @RequestMapping(value = "/reviewDetail.do")
-//    public ModelAndView reviewDetail(HttpServletRequest request, HttpServletResponse response, HttpSession session,  @RequestParam int reviewNo) {
-//        
-//        // 해당 게시판 번호를 받아 리뷰 상세페이지로 넘겨줌
-//        BoardVO review = bService.reviewDetail(reviewNo);
-//        ModelAndView view = new ModelAndView();
-//        
-//        Cookie[] cookies = request.getCookies();
-//        
-//        // 비교하기 위해 새로운 쿠키
-//        Cookie viewCookie = null;
-// 
-//        // 쿠키가 있을 경우 
-//        if (cookies != null && cookies.length > 0) 
-//        {
-//            for (int i = 0; i < cookies.length; i++)
-//            {
-//                // Cookie의 name이 cookie + reviewNo와 일치하는 쿠키를 viewCookie에 넣어줌 
-//                if (cookies[i].getName().equals("cookie"+reviewNo))
-//                { 
-//                    System.out.println("처음 쿠키가 생성한 뒤 들어옴.");
-//                    viewCookie = cookies[i];
-//                }
-//            }
-//        }
-//        
-//        if (review != null) {
-//            System.out.println("System - 해당 상세 리뷰페이지로 넘어감");
-//            
-//            view.addObject("review", review);
-// 
-//            // 만일 viewCookie가 null일 경우 쿠키를 생성해서 조회수 증가 로직을 처리함.
-//            if (viewCookie == null) {    
-//                System.out.println("cookie 없음");
-//                
-//                // 쿠키 생성(이름, 값)
-//                Cookie newCookie = new Cookie("cookie"+reviewNo, "|" + reviewNo + "|");
-//                                
-//                // 쿠키 추가
-//                response.addCookie(newCookie);
-// 
-//                // 쿠키를 추가 시키고 조회수 증가시킴
-//                int result = bService.viewUp(reviewNo);
-//                
-//                if(result>0) {
-//                    System.out.println("조회수 증가");
-//                }else {
-//                    System.out.println("조회수 증가 에러");
-//                }
-//            }
-//            // viewCookie가 null이 아닐경우 쿠키가 있으므로 조회수 증가 로직을 처리하지 않음.
-//            else {
-//                System.out.println("cookie 있음");
-//                
-//                // 쿠키 값 받아옴.
-//                String value = viewCookie.getValue();
-//                
-//                System.out.println("cookie 값 : " + value);
-//        
-//            }
-// 
-//            view.setViewName("reviewDetail");
-//            return view;
-//        } 
-//        else {
-//            // 에러 페이지 설정
-//            view.setViewName("error/reviewError");
-//            return view;
-//        }
-//    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

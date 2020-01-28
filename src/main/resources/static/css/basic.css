@@ -1,5 +1,19 @@
 @charset "UTF-8";
-
+.displayBlock{
+	display: block;
+}
+.displayNone{
+	display: none;
+}
+.paddingTop50px{
+	padding-top: 50px;
+}
+.paddingTop100px{
+	padding-top: 100px;
+}
+.paddingLeft20px{
+	padding-left: 20px;
+}
 /* .planner-title{ */
 /* 	color:white; */
 /* } */
@@ -37,12 +51,7 @@
 article{
 	clear: both;
 }
-.paddingTop50px{
-	padding-top: 50px;
-}
-.paddingTop100px{
-	padding-top: 100px;
-}
+
 .navTop{
 	height: 94px;
 	border-bottom: 1px solid #999999;
@@ -393,12 +402,7 @@ th{
 .service_dropDown_li:hover{
 	background:#c4c4c4;
 }
-.displayBlock{
-	display: block;
-}
-.displayNone{
-	display: none;
-}
+
 #filePlus{
 	width: 100px;
 	height: 40px;
@@ -417,4 +421,22 @@ th{
 	font-weight: bold;
 	float: left;
 	display: inline;
+}
+.boardSelectFiles{
+	border-top: 1px solid #999;
+	padding:5px;
+}
+.boardSelectFiles_ul{
+	width: 100%;
+}
+.boardSelectFiles_li{
+	width:inherit;
+	height: 30px;
+	line-height:30px;
+	list-style:none;
+}
+.boardSelectFiles_title{
+	font-size: 16px;
+	letter-spacing: 1px;
+	color: #333;
 }

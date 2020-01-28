@@ -14,6 +14,8 @@ class NoticeRepositoryTest {
 
 	@Autowired
 	private NoticeRepository noticeRepository;
+	@Autowired
+	private NoticeService noticeService;
 	
 	//@Test
 	void test() {
@@ -38,13 +40,23 @@ class NoticeRepositoryTest {
 		}
 	}
 	
-	@Test
+	//@Test
 	void calendarGetTime(){
 		Calendar calendar= Calendar.getInstance();
 		SimpleDateFormat format = new SimpleDateFormat();
 		format.applyPattern("yyyy-MM-dd");
 
 		System.out.println("calendar.getTime() : "+format.format(calendar.getTime()));
+	}
+	
+	@Test
+	void increaseHit() {
+		try {
+			noticeService.increaseHit(140);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -19,6 +19,14 @@ public class NoticeService {
 	@Autowired
 	private NoticeRepository noticeRepository;
 	
+	public void increaseHit(int num)throws Exception{
+		NoticeVO noticeVO=noticeRepository.findById(num).get();
+		int hit=noticeVO.getHit();
+		hit++;
+		noticeVO.setHit(hit);
+		noticeRepository.save(noticeVO);
+	}
+	
 	public void noticeUpdate(NoticeVO noticeVO)throws Exception{
 		System.out.println("11111111111111111111111");
 		System.out.println("noticeVO.getNum() : "+noticeVO.getNum());
@@ -36,10 +44,16 @@ public class NoticeService {
 	public void noticeDelete(int num)throws Exception{
 		noticeRepository.deleteById(num);
 	}
+	
 	public NoticeVO selectById(int num)throws Exception{
 		NoticeVO noticeVO=noticeRepository.findById(num).get();
-		int hit=noticeVO.getHit();
-		noticeVO.setHit(hit++);
+		System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: service print : selectById(int num) ");
+		List<NoticeFilesVO> files=noticeVO.getNoticeFilesVOs();
+		System.out.println("**get ** ** ok**");
+		for(int i=0;i<files.size();i++) {
+			System.out.println("files.get(i).getFnum() : "+files.get(i).getFnum());
+			System.out.println("files.get(i).getFname() : "+files.get(i).getOname());
+		}
 		return noticeVO;
 	}
 	public List<NoticeVO> noticeList()throws Exception{
@@ -74,9 +88,7 @@ public class NoticeService {
 				noticeVO.setNoticeFilesVOs(noticeFilesVOs);
 			}
 		}
-		
-		
-		
+
 		noticeRepository.save(noticeVO);
 	}
 	

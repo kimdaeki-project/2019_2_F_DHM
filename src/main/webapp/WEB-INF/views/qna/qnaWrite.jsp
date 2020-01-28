@@ -32,7 +32,7 @@
 				 <form:textarea path="contents" class="contents" id="content"/>
 					
 			</div>
-			<form:input path="num" />
+			<form:input path="num" class="displayNone"/>
 			<div class="float_right"><button class="button2">submit</button></div>
 			</form:form>
 			
