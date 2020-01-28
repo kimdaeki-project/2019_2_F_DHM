@@ -42,6 +42,8 @@ $("#thedate").change(function() {
 });
 
 
+
+
 $(".mkp-city-list").on("click",".ifm-info", function() {
 	if ($(this).parent().prop("class")=="open-ifm") {		
 		$(".open-ifm-sel").prop("class", "open-ifm");

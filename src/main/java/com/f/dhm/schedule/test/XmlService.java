@@ -36,27 +36,42 @@ public class XmlService {
 	
 	
 		NodeList nodeList = doc.getElementsByTagName("items");
-		System.out.println("chid : "+ doc.toString());
-	System.out.println(nodeList.getLength());
 		List<Item> itemlist = new ArrayList<Item>();
 		
 		//////////////////////////////////////////////////////
 		
-		  for(int i=0;i<10;i++) { 
+		  for(int i=0;i<nodeList.getLength();i++) { 
 			  Node n = nodeList.item(i); 
 			  NodeList nl =n.getChildNodes(); 
 			  
-			  for(int j=0;j<nl.getLength();j++) { 
+			  for(int j=0;j<4;j++) { 
 				  Node n2 = nl.item(j);
 				  Element elem = (Element)n2; 
+				  String title = elem.getElementsByTagName("title").item(0).getTextContent();
+				  String firstImage;
+				  String addr;
+				  Integer areaCode = Integer.parseInt(elem.getElementsByTagName("areacode").item(0).getTextContent());
 				  
-				  System.out.println("n2 :" + elem.getElementsByTagName("title").item(0).getTextContent());
-				  Item item2 = new Item(
-							elem.getElementsByTagName("title").item(0).getTextContent(),
-							elem.getElementsByTagName("firstimage").item(0).getTextContent(),
-							elem.getElementsByTagName("addr1").item(0).getTextContent(),
-							Integer.parseInt(elem.getElementsByTagName("areacode").item(0).getTextContent())
-							);
+				
+				  if (elem.getElementsByTagName("firstimage").item(0).getTextContent()==null) {
+					firstImage="";
+				}else {
+					firstImage = elem.getElementsByTagName("firstimage").item(0).getTextContent();
+				}
+				  if (elem.getElementsByTagName("addr1").item(0).getTextContent()== null) {
+					addr = "";
+				}else {
+					addr = elem.getElementsByTagName("addr1").item(0).getTextContent();
+				}
+				
+				  
+				  Item item2 = new Item(title, addr, areaCode, firstImage);
+				  
+				  
+				  System.out.println("n"+j+" = " + elem.getElementsByTagName("title").item(0).getTextContent());
+				  System.out.println("n"+j+" = " + elem.getElementsByTagName("addr1").item(0).getTextContent());
+				  System.out.println("n"+j+" = " + elem.getElementsByTagName("firstimage").item(0).getTextContent());
+				  System.out.println("n"+j+" = " + elem.getElementsByTagName("areacode").item(0).getTextContent());
 //			  } 
 //			  
 //		  }
@@ -84,9 +99,6 @@ public class XmlService {
 				items.setItem(itemlist);
 
 		}
-		System.out.println("ggggg:" + itemlist.size());
-		System.out.println("node:"+node);
-		System.out.println("service: "+items.getItem().get(0).getTitle());
 		return items;
 		
 	}

@@ -1,6 +1,6 @@
 package com.f.dhm.planner;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,8 +26,8 @@ public class PlannerVO {
 	private String title;
 	private String type;
 	private int people;
-	private String deDate;
-	private String arDate;
+	private Date deDate;
+	private Date arDate;
 	private int bak;
 	private String region;
 	private String transfer;

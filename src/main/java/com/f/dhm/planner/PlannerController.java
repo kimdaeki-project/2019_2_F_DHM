@@ -11,11 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.f.dhm.schedule.test.XmlService;
+
 @Controller
 @RequestMapping("/planner/**")
 public class PlannerController {
 	@Autowired
 	private PlannerService service;
+	
+	@Autowired
+	private XmlService xService;
 	
 	
 	@GetMapping("makePlanner")
@@ -36,6 +41,14 @@ public class PlannerController {
 		mv.addObject("count", count);
 		mv.setViewName("/planner/addPlanner");
 
+		return mv;
+	}
+	
+	@GetMapping("ifmOpen")
+	@ResponseBody
+	public ModelAndView ifmOpen() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("list", xService.parseTour().getItem());
 		return mv;
 	}
 	
@@ -67,8 +80,8 @@ public class PlannerController {
 			vo.setType(type);
 			people = people.replaceAll("명", "");
 			vo.setPeople(Integer.valueOf(people));
-			vo.setDeDate(deDate[i]);
-			vo.setArDate(arDate[i]);
+//			vo.setDeDate(deDate[i]);
+//			vo.setArDate(arDate[i]);
 			vo.setBak(Integer.valueOf(bak[i]));
 			vo.setRegion(region[i]);
 			if (i < deDate.length-1) {				

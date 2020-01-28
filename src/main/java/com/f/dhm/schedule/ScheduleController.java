@@ -52,14 +52,17 @@ public class ScheduleController {
 		List<PlannerVO> plannerList= plannerService.plannerSelect(plannerVO);
 		List<ScheduleVO> ar = scheduleService.scheduleList();
 
-		Items ar2=xmlService.parseTour();
-		String deDate = plannerList.get(0).getDeDate();
+		Date deDate = plannerList.get(0).getDeDate();
 	//scheduleService.findDay(deDate);
+		Items ar2=xmlService.parseTour();
+		System.out.println("///////////////////////");
+		for (Item item : ar2.getItem()) {
+			System.out.println("title = "+item.getTitle());
+			System.out.println("addr1 = "+item.getAddr1());
+			System.out.println("image = "+item.getFirstimage());
+			System.out.println("area = "+item.getAreacode());
+		}
 		
-		System.out.println("ar의 사이즈:"+ar2.getItem().size());
-		System.out.println("title:"+ar2.getItem().get(0).getTitle());
-		System.out.println("title:"+ar2.getItem().get(0).getAddr1());
-		System.out.println("title:"+ar2.getItem().get(5).getTitle());
 		mv.addObject("planner", plannerList);
 		mv.addObject("type", plannerList.get(0).getType());
 		mv.addObject("dDate", deDate);
