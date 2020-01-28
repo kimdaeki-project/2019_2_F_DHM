@@ -652,12 +652,12 @@
 
 
 
-		
-	$(function() {
-	    $( "#testDatepicker" ).datepicker({
-	    });
-	});
-
+		/* 
+		$(function() {
+		    $( "#testDatepicker" ).datepicker({
+		    });
+		});
+ */
 	
 		/* type 바꾸기 */
 		function type(type){
@@ -720,7 +720,7 @@
 
 		
 		$('.nolist-transfer').click(function(){
-			this.$('.swiper-vehicle-wrapper').toggleClass("swiper");
+			$('.swiper-vehicle-wrapper').toggleClass("swiper");
 			event.stopImmediatePropagation();
 		});
 
