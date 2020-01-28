@@ -409,8 +409,6 @@
 											
 										</div>
 										
-										
-										
 										<div class="notlist-ballon"></div>
 										<div class="notlist-ballon2"> 
 											<div class="ballon2-title">
@@ -646,19 +644,41 @@
 							<p><span>${cityName}</span>에서 경험하고 싶은 것들을 선택해보세염<span style="float: right; font-size: 20px; cursor: pointer;" class="ifm-closer"><i class="fa fa-times-circle"></i></span></p>
 							<!-- <iframe src="http://api.visitkorea.or.kr/openapi/service/rest/PhotoGalleryService/galleryList?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=TestApp&_type=json"></iframe>
 							<iframe src="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailImage?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&contentId=134546&imageYN=Y&MobileOS=ETC&MobileApp=AppTest&imgname"></iframe> -->
+							<a onclick="tour()" href="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&areaCode=35&MobileOS=ETC&MobileApp=AppTest">ggg</a>
 						</div>
 					</div>
 	<script type="text/javascript">
 
 
 
+		/* 
+		$(function() {
+		    $( "#testDatepicker" ).datepicker({
+		    });
+		});
+		*/
+		function tour() {
+			
+			 $.ajax({
+			 	type: "GET",
+			 	url:"./tour",
+			 	data:{
+			 			title:response.title,
+			 			firstimage: response.firstimage
+			 	},
+			 	success : function(result)
+			 	{
+			 	  		alert(response.title);    
+			 	},
+			 	error: function(result) {
+					
+				},
+				complete : function() {
+				  		location.href="../";
+				}	
+			 });  
+		} 
 		
-	$(function() {
-	    $( "#testDatepicker" ).datepicker({
-	    });
-	});
-
-	
 		/* type 바꾸기 */
 		function type(type){
 	
@@ -676,27 +696,7 @@
 			event.stopImmediatePropagation();
 		}
 
-		/* 
-		 $.ajax({
-	     	type: "GET",
-	     	url:"./tour",
-	     	data:{
-	     			title:response.title,
-	     			firstimage: response.firstimage
-	     			
-	     	},
-	     	success : function(result)
-	     	{
-	     	  alert(response.title);    
-	     	},
-	     	error: function(result) {
-				
-				},
-				complete : function() {
-					location.href="../";
-				}
-			 	
-	     });  */
+		
 
 	
 		function transfer(){
@@ -720,7 +720,7 @@
 
 		
 		$('.nolist-transfer').click(function(){
-			this.$('.swiper-vehicle-wrapper').toggleClass("swiper");
+			$('.swiper-vehicle-wrapper').toggleClass("swiper");
 			event.stopImmediatePropagation();
 		});
 
