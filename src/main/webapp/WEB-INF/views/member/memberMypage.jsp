@@ -91,16 +91,20 @@
 		});
 
 	//mypage2-1-1-3
-		$(function(){
+		
 		//생년 출력 변경
 		//substring  >> 문자열 추출
-		
+			
+		$(document).ready(function(){
+			 var mbirth = $( '.mypage2-1-1-3' ).text().substring( 0, 4 );
+			 $( '.mypage2-1-1-3' ).text(mbirth);
+
+			});
 
 			
 
 			 
-		});
-	
+		
 
 
 
