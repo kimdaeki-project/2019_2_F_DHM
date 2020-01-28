@@ -325,14 +325,87 @@
 	cursor: pointer;
 }
 
-.mkp-member-hide{
-	position:fixed;
-	top:75px;
-	right:25px;
-	background-color: #3ad195;
-	border-radius: 10px;
+
+.mkp-complete{
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+	background-color: black;
+	position: fixed;
+	top:0;
 	display: none;
 }
+
+.mkp-compl-inner{
+	color: white;
+	font-weight: bold;	
+	width: 600px;
+	margin: 50px auto;
+	height: 300px;
+}
+
+
+.mkp-table{
+	width: 600px;
+	height: 200px;
+	background-color: black;
+	float: left;
+	text-align: center;
+}
+
+.mkp-table-save{
+	width: 600px;
+	font-size: 30px;
+	text-align: center;
+	color: white;
+}
+
+.mkp-table-title{
+	width: 20%;
+	line-height: 20px;
+}
+
+.mkp-table-pepp{
+	width: 20%;
+	line-height: 20px;
+}
+
+.mkp-table-mail{
+	width: 20%;
+	line-height: 20px;
+}
+
+
+.mkp-table input{
+	color: black;
+	width: 90%;
+	height: 30px;
+}
+
+.mkp-table select{
+	color: black;
+	height: 30px;
+	width: 90%;
+}
+
+.mkp-clp-btn{
+	width: 90%;
+	height: 30px;
+	background-color: #3ad195;
+	border-radius: 5px;
+	border: none;
+	font-size: 20px;
+	margin-left: 7%;
+}
+
+
+
+
+
+
+
+
+
 
 
 

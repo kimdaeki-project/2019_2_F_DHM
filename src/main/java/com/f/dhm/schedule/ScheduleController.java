@@ -38,7 +38,7 @@ public class ScheduleController {
 		ModelAndView mv = new ModelAndView();
 		List<PlannerVO> plannerList= plannerService.plannerSelect(plannerVO);
 		List<ScheduleVO> ar = scheduleService.scheduleList();
-		Date deDate = plannerList.get(0).getDeDate();
+		String deDate = plannerList.get(0).getDeDate();
 //		scheduleService.findDay(deDate);
 		mv.addObject("planner", plannerList);
 		mv.addObject("type", plannerList.get(0).getType());

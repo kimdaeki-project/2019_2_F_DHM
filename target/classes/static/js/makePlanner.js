@@ -16,7 +16,7 @@ $(".mkp-city-list").on("click",".mkp-trans-btn", function(e) {
 } );
 
 $(".mkp-city-list").on("click",".mkp-trans-sct", function() {
-	$(this).parent().parent().children("font").html($(this).text()+'<i class="fa fa-chevron-circle-down""></i>');
+	$(this).parent().parent().children("font").html('<span class="mkp-trans-chos">'+$(this).text()+'</span>'+'<i class="fa fa-chevron-circle-down""></i>');
 });
 
 function selectTripImgs(a, b, twith) {
@@ -127,7 +127,7 @@ $(".mkp-ajax").click(function() {
 			success	: function(d) {
 				$(".mkp-city-list").append(d);
 				count++;
-				//uptDate();
+				uptDate();
 			}
 		});
 	}
@@ -186,17 +186,7 @@ $(function() {
 });
 
 
-//function addTsel() {
-//	var ti = $(".mkp-trans-info-ex").html();
-//	ti = '<div class="mkp-trans-info">'+ti+'</div>';
-//	setId();
-//	$(".mkp-trans-info").remove();
-//	for (var i = 1; i < count; i++) {
-//		if (i != 1 ) {
-//			$("#c"+i).before(ti);
-//		}
-//	}
-//}
+
 
 function addTsel() {
 	var ti = $(".mkp-trans-info-ex").html();
@@ -222,28 +212,67 @@ function addTsel() {
 /////////////////////////////////////////////////////
 
 
-//for (var i = 0; i < count; i++) {
-//	id[i] = "coo";
-//	title[i]="";
-//	type[i]="$("#tripwith_txt").text()";
-//	people[i]="";
-//	deDate[i]=$(".sDate").text();
-//	arDate[i]=$(".eDate").text();
-//	bak[i]=$(".nights-day").text();
-//	region[i]=$(".city-sel-name").text();
-//	transfer[i]=$(".mkp-trans-chos").text().trim();
-//}
 
 
-$(".mkp-member-btn").click(function() {
-	$(this).children("div").slideToggle();
+
+function openComplete() {
+	$(".mkp-complete").slideDown("fast");
+}
+
+function closeComplete() {
+	$(".mkp-complete").slideUp("fast");
+}
+
+var deDate = new Array();
+var arDate = new Array();
+var bak = new Array();
+var region = new Array();
+var transfer = new Array();
+
+$(".mkp-clp-btn").click(function() {
+	
+	jQuery.ajaxSettings.traditional = true;
+
+	
+	if (confirm("저장하시겠습니까?")) {
+		var id = $("#member-id").val();
+		var title=$("#mkp-title").val();
+		var type=$("#tripwith_txt").text();
+		var people=$("#mkp-people").val();
+		for (var i = 0; i < count-1; i++) {
+			console.log($(".sDate")[i].innerText);
+			deDate.push($(".sDate")[i].innerText);
+			arDate.push($(".eDate")[i].innerText);
+			bak.push($(".nights-day")[i].innerText);
+			region.push($(".city-sel-name")[i].innerText);
+			if (i < count-2) {
+				console.log($(".mkp-trans-chos")[i].innerText.trim());
+				transfer.push($(".mkp-trans-chos")[i].innerText.trim());
+			}
+		}
+		$.ajax({
+			type	: "POST",
+			url		: "makePlanner",
+			data	: {
+				id 		: id,
+				title 	: title,
+				type	: type,
+				people	: people,
+				deDate	: deDate,
+				arDate	: arDate,
+				bak		: bak,
+				region	: region,
+				transfer	: transfer
+			},
+			success	: function(d) {
+					alert("저장돼었습니다.");
+					location.href = "scheduel/schdulePage?plNum="+d;
+				}
+			
+			
+		});
+	}
 });
-
-
-
-
-
-
 
 
 

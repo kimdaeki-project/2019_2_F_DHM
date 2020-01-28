@@ -123,22 +123,12 @@
 	<div class="mkp-right-remote" draggable="false">
 		<c:choose>
 			<c:when test="${member ne null }">
-				<div class="mkp-member-btn">
+				<div class="mkp-member-btn" onclick="openComplete()">
 					<p>작업완료</p>
-					<div class="mkp-member-hide">
-						<p>Planner 제목</p>
-						<input id="mkp-pln-title">
-						<p>여행 인원</p>
-						<select id="mkp-pln-pepp" >
-							<c:forEach begin="1" end="10" var="p">
-								<option>${p }명</option>
-							</c:forEach>
-						</select>
-					</div>	
 				</div>
 			</c:when>
 			<c:otherwise>
-				<div class="mkp-guest-btn">
+				<div class="mkp-guest-btn" onclick="openComplete()">
 					<p>GUEST로 작업중</p>
 				</div>
 			</c:otherwise>
@@ -151,7 +141,7 @@
 <div class="chos-sleep">
 	<div class="chos-sleep-info">
 		<div class="chos-sleep-title"> <font style="font-size: 20px; color: white; font-weight: bold;"><span class="chos-cityName"></span>&nbsp;체류기간 선택 </font>
-			<a onclick="closeSleep()" style="color:#fff;font-size:27pt; float: right;"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+			<a onclick="closeSleep()" style="color:#fff;font-size:27pt; float: right; cursor: pointer;"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
 		</div>
 		<br>
 		<br>
@@ -205,6 +195,95 @@
 					<div style="clear:both"></div>
 				</div>
 			</div>
+<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+<div class="mkp-complete"> 
+	<div class="mkp-compl-inner">
+	
+		<c:choose>
+			<c:when test="${member ne null }">
+				<input type="hidden" value="${member.id }" id="member-id">
+				<p class="mkp-table-save">플래너 저장
+					<a onclick="closeComplete()" style="color:#fff; font-size:27pt; float: right; cursor: pointer;"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+				</p>
+			<table class="mkp-table">
+				<tbody>
+				<tr>
+					<td class="mkp-table-title">
+						<p>여행명 </p>
+					</td>
+					<td>
+						<input id="mkp-title">
+					</td>
+				</tr>
+				<tr>
+					<td class="mkp-table-pepp">
+						<p>인원</p>
+					</td>
+					<td>
+						<select id="mkp-people">
+								<option>인원선택</option>
+								<c:forEach begin="1" end="10" var="p">
+								<option value="${p }">${p }명</option>
+								</c:forEach>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="mkp-table-mail">
+						<p> 이메일 </p>
+					</td>
+					<td>
+						<input value="${member.email }" id="mkp-email"> 
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<button class="mkp-clp-btn">저장하기</button>
+			</c:when>
+			<c:otherwise>
+					<p class="mkp-table-save">GUEST 플래너 저장
+						<a onclick="closeComplete()" style="color:#fff; font-size:27pt; float: right; cursor: pointer;"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+					</p>
+				<table class="mkp-table">
+					<tbody>
+					<tr>
+						<td class="mkp-table-title">
+							<p>여행명 </p>
+						</td>
+						<td>
+							<input id="mkp-title">
+						</td>
+					</tr>
+					<tr>
+						<td class="mkp-table-pepp">
+							<p>인원</p>
+						</td>
+						<td>
+							<select id="mkp-people">
+									<option>인원선택</option>
+									<c:forEach begin="1" end="10" var="p">
+									<option>${p }명</option>
+									</c:forEach>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="mkp-table-mail">
+							<p> 이메일 </p>
+						</td>
+						<td>
+							<input type="email" id="mkp-emial">
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<button class="mkp-clp-btn">저장하기</button>
+				<p style="font-size: 11px; text-align: center; margin-top: 10px;">GUEST 플래너는 누구나 접근 가능하며 임의로 수정 될 수 있습니다.</p>
+			</c:otherwise>
+		</c:choose>
+		
+	</div>
+</div>
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 <!--hide ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 </section>
