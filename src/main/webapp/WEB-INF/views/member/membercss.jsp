@@ -1064,6 +1064,7 @@ margin-right: 20px;
 }
 
 .mypage3-2{
+cursor: pointer;
 background-color: white;
 height: 49px;
 width: 233px;
@@ -1083,6 +1084,7 @@ margin-top: 12px;
 }
 
 .mypage3-3{
+cursor: pointer;
 background-color: white;
 height: 49px;
 width: 233px;
@@ -1102,6 +1104,7 @@ margin-top: 12px;
 }
 
 .mypage3-4{
+cursor: pointer;
 background-color: white;
 height: 49px;
 width: 233px;
@@ -1121,6 +1124,7 @@ margin-top: 12px;
 }
 
 .mypage3-5{
+cursor: pointer;
 background-color: white;
 height: 50px;
 width: 233px;
@@ -1146,11 +1150,31 @@ float: right;
 }
 
 
-
-
-
-
-
+.my1{
+height: 300px;
+width: 300px;
+background-color: red;
+}
+ .my2{ 
+ height: 300px; 
+ width: 300px; 
+ background-color: blue; 
+ } 
+ .my3{ 
+ height: 300px; 
+ width: 300px; 
+ background-color: gray; 
+ } 
+ .my4{ 
+ height: 300px; 
+ width: 300px; 
+ background-color: orange; 
+ } 
+ .my5{ 
+ height: 300px; 
+ width: 300px; 
+ background-color: white; 
+ } 
 
 
 

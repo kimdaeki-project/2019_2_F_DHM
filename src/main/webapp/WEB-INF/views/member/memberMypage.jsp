@@ -30,7 +30,11 @@
 	<form action="./memberMypage"  method="POST">
 	<div class="mypagemain"><!-- b boss -->
 		<div class="mypagemain3"><!-- m-1 boss -->
-		
+			<div class="my1" id="my1"></div>
+			<div class="my2" id="my2"></div>
+			<div class="my3" id="my3"></div>
+			<div class="my4" id="my4"></div>
+			<div class="my5" id="my5"></div>
 		</div><!-- m boss -->
 		
 		<div class="mypagemain2"><!-- m-2 boss -->
@@ -77,7 +81,7 @@
 					<div class="mypage3-1-1">
 						여행 
 						<span id= "span_all_cnt" class="mypage3-1-2">0</span>                                      
-					</div>	
+					</div>
 				</div>
 				<div class="mypage3-2">  	
 					<svg style="width: 15px; height: 15px; margin-top: 15px; margin-left: 30px; color : #716e6e"
@@ -281,7 +285,37 @@ $('.msgbing4').hide();
 		$('.msgbing4').show();			
 	});	
 	
-//---------------
+//-----------------------------------------------------------------------
+//5가지 소분류 비동기
+
+$(function(){
+	$("#mypage3-1").click(function(){
+		$.ajax({ type: 'post' , 
+			url: '/memberMypage.jsp' , 
+			dataType : 'jsp' , 
+			success: function(data) { 
+				$("#my1").html(data); 
+			} 
+		});
+	});
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
