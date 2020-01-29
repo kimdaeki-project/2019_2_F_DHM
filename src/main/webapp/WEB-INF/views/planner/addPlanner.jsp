@@ -68,7 +68,7 @@
 						<div class="ifm-info"><i class="fa fa-calendar-check-o"></i></div>
 						<div class="ifm-opener">
 							<p><span>${cityName }</span>에서 경험하고 싶은 것들을 선택해보세염<span style="float: right; font-size: 20px; cursor: pointer;" class="ifm-closer"><i class="fa fa-times-circle"></i></span></p>
-							<iframe src="http://localhost/schedule/schedulePage"></iframe>
+							<iframe src="http://localhost/planner/ifmOpen"></iframe>
 							
 						</div>
 					</div>
