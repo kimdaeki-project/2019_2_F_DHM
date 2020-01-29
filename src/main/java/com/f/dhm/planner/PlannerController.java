@@ -32,13 +32,14 @@ public class PlannerController {
 	
 	
 	@GetMapping("addPlanner")
-	public ModelAndView addSch(String cityName, String startDate, String endDate, String count) throws Exception {
+	public ModelAndView addSch(String cityName, String startDate, String endDate, String count,String arCode) throws Exception {
 		ModelAndView mv = new ModelAndView();
 
 		mv.addObject("cityName", cityName);
 		mv.addObject("startDate", startDate);
 		mv.addObject("endDate", endDate);
 		mv.addObject("count", count);
+		mv.addObject("arCode", arCode);
 		mv.setViewName("/planner/addPlanner");
 
 		return mv;
@@ -46,9 +47,26 @@ public class PlannerController {
 	
 	@GetMapping("ifmOpen")
 	@ResponseBody
-	public ModelAndView ifmOpen() throws Exception{
+	public ModelAndView ifmOpen(String arCode) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("list", xService.parseTour().getItem());
+		int acode = Integer.valueOf(arCode);
+		//음식점
+		mv.addObject("food", xService.searchTour(acode, 39, "P", 1).getItem());
+		//관광
+		mv.addObject("tour", xService.searchTour(acode, 12, "P", 1).getItem());
+		//문화시설
+		mv.addObject("culture", xService.searchTour(acode, 14, "P", 1).getItem());
+		//숙박
+		mv.addObject("hotel", xService.searchTour(acode, 32, "P", 1).getItem());
+		//여행코스
+		mv.addObject("course", xService.searchTour(acode, 25, "P", 1).getItem());
+		//쇼핑
+		mv.addObject("shopping", xService.searchTour(acode, 38, "P", 1).getItem());
+		//행사
+		mv.addObject("festival", xService.searchTour(acode, 15, "P", 1).getItem());
+		//레포츠
+		mv.addObject("report", xService.searchTour(acode, 28, "P", 1).getItem());
+		
 		mv.setViewName("/planner/ifmOpen");
 		return mv;
 	}

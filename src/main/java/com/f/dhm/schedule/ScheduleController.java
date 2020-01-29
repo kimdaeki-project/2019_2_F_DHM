@@ -55,14 +55,6 @@ public class ScheduleController {
 		Date deDate = plannerList.get(0).getDeDate();
 	//scheduleService.findDay(deDate);
 		Items ar2=xmlService.parseTour();
-		System.out.println("///////////////////////");
-		for (Item item : ar2.getItem()) {
-			System.out.println("title = "+item.getTitle());
-			System.out.println("addr1 = "+item.getAddr1());
-			System.out.println("image = "+item.getFirstimage());
-			System.out.println("area = "+item.getAreacode());
-		}
-		
 		mv.addObject("planner", plannerList);
 		mv.addObject("type", plannerList.get(0).getType());
 		mv.addObject("dDate", deDate);

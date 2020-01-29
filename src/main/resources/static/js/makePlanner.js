@@ -114,6 +114,7 @@ $(".mkp-ajax").click(function() {
 		cDay.setTime(day);
 		cDay = new Date(cDay).toISOString().substr(0, 10).replace('T', ' ');
 		var endDate = cDay;
+		var arCode = $(this).parent().next().val();
 		
 		
 		$.ajax({
@@ -123,7 +124,8 @@ $(".mkp-ajax").click(function() {
 				cityName : cityName,
 				startDate : startDate,
 				endDate	: endDate,
-				count : count
+				count : count,
+				arCode : arCode
 				
 			},
 			success	: function(d) {

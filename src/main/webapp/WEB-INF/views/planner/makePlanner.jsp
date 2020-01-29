@@ -90,6 +90,7 @@
 				<p>국제공항</p>
 				<button class="mkp-ajax">일정 추가</button>
 			</div>
+			<input type="hidden" value="2">
 		</div>
 		<div class="city-btn">
 			<button value="서울" class="city-selOne">서울</button>
@@ -97,6 +98,7 @@
 				<p>대한민국 수도</p>
 				<button class="mkp-ajax">일정 추가</button>
 			</div>
+			<input type="hidden" value="1">
 		</div>
 		<div class="city-btn">
 			<button value="대전" class="city-selOne">대전</button>
@@ -104,6 +106,7 @@
 				<p>카이스트</p>
 				<button class="mkp-ajax">일정 추가</button>
 			</div>
+			<input type="hidden" value="3">
 		</div>
 		<div class="city-btn">
 			<button value="부산" class="city-selOne">부산</button>
@@ -111,6 +114,7 @@
 				<p>등킨도나스</p>
 				<button class="mkp-ajax">일정 추가</button>
 			</div>
+			<input type="hidden" value="6">
 		</div>
 		<div class="city-btn">
 			<button value="제주도" class="city-selOne">제주도</button>
@@ -118,6 +122,7 @@
 				<p>선물은 감귤초콜렛</p>
 				<button class="mkp-ajax">일정 추가</button>
 			</div>
+			<input type="hidden" value="39">
 		</div>
 	 </div>
 	<div class="mkp-right-remote" draggable="false">
