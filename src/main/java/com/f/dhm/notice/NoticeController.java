@@ -55,10 +55,8 @@ public class NoticeController {
 	public String noticeWrite(@Valid NoticeVO noticeVO, BindingResult bindingResult, List<MultipartFile> files) throws Exception{
 		files.remove(0);
 		System.out.println("Test : noticeController.noticeWrite.noticeVO : "+noticeVO);
-		
 		System.out.println("test ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
 		System.out.println(files.size());
-		
 		for (int i = 0; i < files.size(); i++) {
 			System.out.println(i+"번째");
 			System.out.println(files.get(i).getOriginalFilename());
@@ -69,8 +67,6 @@ public class NoticeController {
 			noticeVO.setId("ims330k");
 			//////////////////////////////
 			noticeService.noticeWrite(noticeVO,files);
-			
-			
 		}else {
 			//bindingResult.rejectValue(field, errorCode);
 		}

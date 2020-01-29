@@ -21,7 +21,7 @@
 					<th class="board_date_th">DATE</th>
 					<th class="board_hit_th">HIT</th>
 				</tr>
-				<c:forEach items="${qnaList}" var="list">
+				<c:forEach items="${qnaList.content}" var="list">
 				<tr>
 					<td>${list.num }</td>
 					<td class="board_title">
@@ -41,6 +41,15 @@
 			<input type="button" class="button" value="글쓰기" id="write">
 			<input type="button" class="button" value="전체 지우기" id="deleteAll">
 		</div>
+		
+		<ul class="pager">
+			<c:forEach begin="1" end="${qnaList.totalPages }" var="i">
+<%-- 				<li><a href="?page=${postPage.number-1}">Back</a></li> --%>
+					<li><a href="qnaList?page=${i-1}">${i}</a></li>
+<%-- 				<c:if test="${noticePage.totalPages eq i }"><li><a href="?page=${i+1}">Next</a></li></c:if>		 --%>
+			</c:forEach>
+		</ul>
+
 	</div>
 <script type="text/javascript">
 //write one qna

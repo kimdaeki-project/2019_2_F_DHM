@@ -25,7 +25,7 @@
 			</div>
 			<div class="form-group">
 				<label for="usr">writer:</label> 
-				<form:input	class="form-control" path="writer"  />
+				<form:input	class="form-control" path="writer"/>
 			</div>
 			<div class="form-group">
 				<label for="usr">contents:</label>

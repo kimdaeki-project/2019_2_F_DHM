@@ -3,8 +3,13 @@ package com.f.dhm.qna;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,12 +20,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.resource.HttpResource;
 
+import com.f.dhm.Member.MemberVO;
+
+
 @Controller
 @RequestMapping("/qna/**")
 public class QnaController {
 	
 	@Autowired
 	private QnaService qnaService;
+	@Autowired
+	private QnaRepository qnaRepository;
 
 	@GetMapping("qnaDeleteAll")
 	public String qnaDeleteAll()throws Exception{
@@ -32,6 +42,7 @@ public class QnaController {
 		qnaService.qnaDelete(num);
 		return "redirect:qnaList";
 	}
+	
 	@PostMapping("qnaComment")
 	public String qnaComment(QnaVO qnaVO)throws Exception{
 		System.out.println("--------------------------test : qnaComment--------------------------");
@@ -57,9 +68,10 @@ public class QnaController {
 	}
 	
 	@GetMapping("qnaList")
-	public ModelAndView qnaList ()throws Exception{
+	public ModelAndView qnaList (@PageableDefault(size = 20, page = 0,sort = {"ref"},direction = Direction.DESC)Pageable pageable)throws Exception{
 		ModelAndView mv=new ModelAndView();
-		mv.addObject("qnaList", qnaService.qnaList());
+		Page<QnaVO> qnaPage=qnaService.qnaListPage(pageable);
+		mv.addObject("qnaList", qnaPage);
 		mv.setViewName("qna/qnaList");
 		return mv;
 	}
@@ -76,7 +88,6 @@ public class QnaController {
 				}
 			}
 		}
-		
 		if(qnaVO!=null) {
 			model.addAttribute("qnaVO",qnaService.qnaSelect(num) );
 			if(viewCookie==null) {
@@ -96,14 +107,29 @@ public class QnaController {
 	}
 	
 	@GetMapping("qnaWrite")
-	public String qnaWrite(Model model) {
-		model.addAttribute("kind", "qnaWrite");
-		return "qna/qnaWrite";
+	public ModelAndView qnaWrite(HttpSession session) {
+		ModelAndView mv =new ModelAndView();
+		MemberVO memberVO=(MemberVO) session.getAttribute("member");
+		String path="../member/memberLogin";
+		String message="로그인이 필요합니다.";
+		if(memberVO==null) {
+			//need login, go forward
+			mv.setViewName("common/result");			
+			mv.addObject("path", path);
+			mv.addObject("message", message);
+		}
+		else {
+			//login ok, go to page
+			mv.addObject("kind"	, "qnaWrite");
+			mv.setViewName("qna/qnaWrite");
+		}
+		return mv;
 	}
 	
 	@PostMapping("qnaWrite")
 	public String qnaWrite(QnaVO qnaVO)throws Exception {
 		qnaService.qnaWrite(qnaVO);
+
 		return "redirect:./qnaList";
 	}
 	

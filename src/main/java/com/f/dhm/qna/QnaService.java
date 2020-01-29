@@ -7,6 +7,8 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -63,8 +65,7 @@ public class QnaService {
 		return qnaVO;
 	}
 	
-	public List<QnaVO> qnaList()throws Exception{
-		List<QnaVO> qnaList=qnaRepository.qnalisst();
-		return qnaList;
+	public Page<QnaVO> qnaListPage(Pageable pageable)throws Exception{
+		return qnaRepository.qnalisst(pageable);
 	}
 }
