@@ -300,8 +300,7 @@ var content = [
 		city : '<div class="city-btn"><button value="서울" class="city-selOne">서울</button><div class="city-btn-info"><img src="../city/seoul.jpg" class="city-btn-img"><br><span class="city-btn-p1">서울</span><br><br><span class="city-btn-p2">대한민국 수도</span><br><button class="mkp-ajax">+</button></div><input type="hidden" value="1"></div>'
 	},
 	{
-		city : '<div class="city-btn"><button value="인천" class="city-selOne">인천</button><div class="city-btn-info">'
-			   +'<p>대한민국 수도</p><button class="mkp-ajax">일정 추가</button></div><input type="hidden" value="2"></div>'
+		city : '<div class="city-btn"><button value="인천" class="city-selOne">인천</button><div class="city-btn-info"><img src="../city/‌incheon.jpg" class="city-btn-img"><br><span class="city-btn-p1">인천</span><br><br><span class="city-btn-p2">인천 국제공항, 월미도</span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="2"></div>'
 	},
 	{
 		city : '<div class="city-btn"><button value="대전" class="city-selOne">대전</button><div class="city-btn-info">'
