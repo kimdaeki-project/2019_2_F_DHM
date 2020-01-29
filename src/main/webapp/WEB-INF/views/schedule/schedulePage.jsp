@@ -599,6 +599,24 @@
 		</div>
 		
 	</div>
+	
+	<div class="swiper-container" >
+		<ul class="swiper-wrapper nolist" style="height: 200px; clear: both;">
+			<c:forEach items="${food }" var="fo">
+				<li class="swiper-slide" >
+					<div style="height: 200px;"> 
+						<div>${fo.title }</div>
+						<div><img alt="여행사진" src="${fo.firstimage }" width="100px" height="100px"></div>
+						<div>${fo.addr1 }</div>	 
+					</div>
+				</li>
+			</c:forEach>
+		</ul>
+		   <!-- Add Pagination -->
+   		 <div class="swiper-pagination"></div>	
+	</div>
+	
+	<%-- 
 					<div class="open-ifm" >
 						<div class="ifm-info"><i class="fa fa-calendar-check-o"></i></div>
 						<div class="ifm-opener">
@@ -607,7 +625,7 @@
 							<iframe src="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailImage?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&contentId=134546&imageYN=Y&MobileOS=ETC&MobileApp=AppTest&imgname"></iframe> -->
 							<a onclick="tour()" href="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&areaCode=35&MobileOS=ETC&MobileApp=AppTest">ggg</a>
 						</div>
-					</div>
+					</div> --%>
 	<script type="text/javascript">
 
 

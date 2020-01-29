@@ -12,28 +12,28 @@
 </head>
 <body>
 	<p class="sch-ifm-p">음식점 목록</p>
-	<div class="swiper-container">
-		<ul class="swiper-wrapper nolist">
-			
-				<li class="swiper-slide ll" >
-					<c:forEach items="${food }" var="fo">
-						<div class="card"> 
-							<div>${fo.title }</div>
-							<div></div><img alt="여행사진" src="${fo.firstimage }" width="100px" height="100px"><br>
-								 ${fo.addr1 } <br>
-						</div>
-					</c:forEach>
+	<div class="swiper-container" >
+		<ul class="swiper-wrapper nolist" style="height: 200px; clear: both; ">
+			<c:forEach items="${food }" var="fo">
+				<li class="swiper-slide" >
+					<div style="height: 200px;"> 
+						<div>${fo.title }</div>
+						<div><img alt="여행사진" src="${fo.firstimage }" width="100px" height="100px"></div>
+						<div>${fo.addr1 }</div>	 
+					</div>
 				</li>
-			
-		</ul>	
+			</c:forEach>
+		</ul>
+		   <!-- Add Pagination -->
+   		 <div class="swiper-pagination"></div>	
 	</div>
 	
-	<br>
+	
 	<p class="sch-ifm-p">관광지 목록</p>
-	<div class="swiper-container">
-		<div class="swiper-wrapper nolist">
+	<div >
+		<div >
 			<c:forEach items="${tour}" var="tu">
-				<div class="swiper-slide ll" >
+				<div >
 					<div> ${tu.title } <br>
 						 ${tu.addr1 } <br>
 						<img alt="여행사진" src="${tu.firstimage }" width="100px" height="100px">
@@ -104,17 +104,29 @@
 	</ul>
 	</c:forEach>
 <script type="text/javascript">
-
-/* 	var swiper = new Swiper('.swiper-container', {
+/* 
+ 	var swiper = new Swiper('.swiper-container', {
 	    slidesPerView: 7,
-	    spaceBetween: 5,
+	    spaceBetween: 2,
 	    freeMode: true,
 	    pagination: {
 	      el: '.swiper-pagination',
 	      clickable: true,
 	    },
-	  }); */
+	  }); 
+ */
 
+ var swiper = new Swiper('.swiper-container', {
+     slidesPerView: 10,
+     spaceBetween: 0,
+     grabCursor: true,
+     pagination: {
+       el: '.swiper-pagination',
+       clickable: true,
+     },
+   });
+ 
+ 
 </script>
 </body>
 </html>

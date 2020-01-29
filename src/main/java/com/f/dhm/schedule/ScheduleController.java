@@ -54,7 +54,13 @@ public class ScheduleController {
 
 		Date deDate = plannerList.get(0).getDeDate();
 	//scheduleService.findDay(deDate);
-		Items ar2=xmlService.parseTour();
+		//Items ar2=xmlService.parseTour();
+		Items ar2=xmlService.searchTour(1, 39, "P", 1);;
+		
+		
+		//음식점
+		mv.addObject("food", xmlService.searchTour(1, 39, "P", 1).getItem());
+		
 		mv.addObject("planner", plannerList);
 		mv.addObject("type", plannerList.get(0).getType());
 		mv.addObject("dDate", deDate);

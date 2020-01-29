@@ -86,8 +86,8 @@ public class XmlService {
 		
 		Items items=new Items();
 		String URL="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?"
-				+ "ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D"
-				+ "&areaCode="+arCode+"&MobileOS=ETC&MobileApp=AppTest&numOfRows=21"
+				+ "ServiceKey=5f%2Fbm26fN4EnlhTfrvyCPp0546ZP4TmM4rkpjz9XGPUpLaEHJcmmb2mJ7Gxl5UXrDIpBQ4%2BJ5ObMDF5nM22Qhg%3D%3D"
+				+ "&areaCode="+arCode+"&MobileOS=ETC&MobileApp=AppTest&numOfRows=100"
 				+ "&contentTypeId="+typeNum+"&arrange="+arr+"&pageNo="+pageNum;
 		
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -116,20 +116,18 @@ public class XmlService {
 				  
 				
 				  if (elem.getElementsByTagName("firstimage").item(0)==null) {
-					firstImage="../imgs/noimage.png";
-				}else {
-					firstImage = elem.getElementsByTagName("firstimage2").item(0).getTextContent();
-				}
+						firstImage="../imgs/noimage.png";
+				  }else {
+						firstImage = elem.getElementsByTagName("firstimage2").item(0).getTextContent();
+				  }
 				  if (elem.getElementsByTagName("addr1").item(0)== null) {
-					addr = "";
-				}else {
-					addr = elem.getElementsByTagName("addr1").item(0).getTextContent();
-				}
+						addr = "";
+				  }else {
+						addr = elem.getElementsByTagName("addr1").item(0).getTextContent();
+				  }
 				
-				  
 				  Item item2 = new Item(title, addr, areaCode, firstImage);
 				  
-
 					itemlist.add(item2);
 				}
 		
