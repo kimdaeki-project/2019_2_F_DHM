@@ -49,6 +49,7 @@ public class PlannerController {
 	public ModelAndView ifmOpen() throws Exception{
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("list", xService.parseTour().getItem());
+		mv.setViewName("/planner/ifmOpen");
 		return mv;
 	}
 	
