@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../css/makePlanner.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<script src="https://unpkg.com/swiper/js/swiper.js"></script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <title>viewPage</title>
 </head>
 <body>
@@ -141,6 +143,27 @@
 		<div>
 		</div>
 	</div>
+	
+	
+	<div class="swiper-container" style=" clear:both; list-style: none;">
+		<ul class="swiper-wrapper nolist">
+				<c:forEach items="${food}" var="fo">
+					<li class="swiper-slide" style="height: 150px; float:left;  ">
+						<div class="schedule-top">
+							<div class="card" style="position:  absolute;"> 
+								<div class="tour-name"><font>${fo.title}</font></div>
+								<div class="tour-img"><img alt="여행사진" src="${fo.firstimage }" width="100px" height="100px"></div>
+								<div>${fo.addr1 }</div>
+							</div>
+						</div>
+					</li>
+				</c:forEach>				
+		</ul>	
+	</div>
+	
+	
+	
+	
 </div>
 <!--hide ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 <div class="chos-sleep">
@@ -293,5 +316,16 @@
 <!--hide ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 </section>
 <script src="../js/makePlanner.js"></script>
+<script type="text/javascript">
+var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 7,
+    spaceBetween: 3,
+    freeMode: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+</script>
 </body>
 </html>

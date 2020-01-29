@@ -26,6 +26,7 @@ public class PlannerController {
 	@GetMapping("makePlanner")
 	public ModelAndView makePlanner() throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
 		mv.setViewName("/planner/makePlanner");
 		return mv;
 	}

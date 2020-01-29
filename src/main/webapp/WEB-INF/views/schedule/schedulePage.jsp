@@ -510,45 +510,6 @@
 										</a>
 										</div>
 									</div>
-									
-									<div class="swiper-slide">
-										<div class="card">
-										<a>
-										<div class="tour-img">
-											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
-												<div class="tour-name">
-													<font>대구 이월드</font>
-												</div>
-											</div>
-										</a>
-										<a>
-											<div class="tour-add">
-												<font><i class="fa fa-plus"></i>일정추가</font>
-											</div>
-										</a>
-										</div>
-									</div>
-									
-									<div class="swiper-slide">
-										<div class="card">
-										<a>
-										<div class="tour-img">
-											<img src="http://tong.visitkorea.or.kr/cms/resource/50/1886150_image2_1.jpg">
-												<div class="tour-name">
-													<font>대구 이월드</font>
-												</div>
-											</div>
-										</a>
-										<a>
-											<div class="tour-add">
-												<font><i class="fa fa-plus"></i>일정추가</font>
-											</div>
-										</a>
-										</div>
-									</div>
-									
-								
-								
 							</div>
 						</div>
 					</div>
