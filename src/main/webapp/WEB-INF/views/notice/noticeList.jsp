@@ -12,7 +12,7 @@
 <body>
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
-		<h3>notice list</h3>
+		<h3 style="text-align: center;">Notice list</h3>
 		<div class="section">
 
 			<!-- 			<table class="table "> -->
@@ -33,9 +33,7 @@
 			<!-- 					</tr> -->
 			<%-- 				</c:forEach> --%>
 			<!-- 			</table> -->
-			<div class="board_list_btn">
-				
-			</div>
+			
 			
 			<table class="board_table">
 				<tr>

@@ -26,4 +26,5 @@ public interface QnaRepository extends JpaRepository<QnaVO, Integer>{
 	
 	
 	
+	
 }

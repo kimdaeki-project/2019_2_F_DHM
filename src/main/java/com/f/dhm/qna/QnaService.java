@@ -11,6 +11,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import jdk.nashorn.internal.runtime.FindProperty;
+
 @Service
 @Transactional
 public class QnaService {
@@ -40,16 +42,20 @@ public class QnaService {
 		QnaVO qnaVO2=new QnaVO();
 		qnaVO2.setTitle(qnaVO.getTitle());
 		qnaVO2.setContents(qnaVO.getContents());
-		qnaVO2.setWriter(qnaVO.getWriter());
-		
-		//QnaVO qnaVO2=qnaRepository.findById(num).get();
+		qnaVO2.setWriter(qnaVO.getWriter());	
 		qnaVO=qnaRepository.findById(qnaVO.getNum()).get();
-		int depth=qnaVO.getDepth();
-		depth++;
-		qnaVO2.setDepth(depth);
-		System.out.println("test : qnaService.qnaVO.getRef : "+qnaVO.getRef());
-		qnaVO2.setRef(qnaVO.getRef());////////////////////////////////////////////
-		qnaRepository.save(qnaVO2);
+		qnaVO2.setRef(qnaVO.getRef());
+		qnaVO2.setDepth(qnaVO.getDepth()+1);
+		int step=qnaVO.getStep()+1;
+		qnaVO2.setStep(step);
+		List<QnaVO> stepIncreaseList=qnaRepository.findByRef(qnaVO.getRef());
+		for( int i=0;i<stepIncreaseList.size();i++) {
+			if(stepIncreaseList.get(i).getStep()>=step) {
+				stepIncreaseList.get(i).setStep(stepIncreaseList.get(i).getStep()+1);
+			}
+		}
+		qnaRepository.saveAll(stepIncreaseList);		
+		qnaRepository.save(qnaVO2);	
 	}
 	
 	public void qnaWrite(QnaVO qnaVO)throws Exception{

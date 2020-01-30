@@ -29,8 +29,7 @@ public class QnaController {
 	
 	@Autowired
 	private QnaService qnaService;
-	@Autowired
-	private QnaRepository qnaRepository;
+	
 
 	@GetMapping("qnaDeleteAll")
 	public String qnaDeleteAll()throws Exception{

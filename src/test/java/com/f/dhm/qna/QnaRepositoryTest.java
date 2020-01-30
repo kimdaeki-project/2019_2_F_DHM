@@ -23,57 +23,33 @@ class QnaRepositoryTest {
 	@Autowired
 	private QnaService qnaService;
 	
-	//@Test
-	void test() throws Exception{
-		QnaVO qnavo=new QnaVO();
-		qnavo.setContents("11111");
-		qnavo.setWriter("wireteasdf");
-		qnavo.setTitle("title");
-		qnaRepository.save(qnavo);
-	}
-	
-	//@Test
-	void test2()throws Exception{
-		for(int i=0; i<50;i++) {
-			QnaVO qnaVO=new QnaVO();
-			qnaVO.setContents("contents_"+i);
-			qnaVO.setWriter("writer_"+i);
-			qnaVO.setTitle("title"+i);
-			qnaRepository.save(qnaVO);
-			
-		}
-	}
-	
-	//@Test
-	void test3()throws Exception{
-		
-		List<QnaVO> list=qnaRepository.findAll(org.springframework.data.domain.Sort.by("ref").descending());
-		for(int i=0;i<list.size();i++) {
-			System.out.println("- "+i+"번째");
-			System.out.println("list.get("+i+").getNum() : "+list.get(i).getNum());
-			System.out.println("list.get("+i+").getTitle() : "+list.get(i).getTitle());
-			System.out.println("list.get("+i+").getWriter() : "+list.get(i).getWriter());
-			System.out.println("list.get("+i+").getRef() : "+list.get(i).getRef());
-		}
-		//https://engkimbs.tistory.com/833
-//		System.out.println(list);
-	}
-	
-	//@Test
-	void test4(Pageable pageable)throws Exception{
-	//OrderBy
-	//findByAgeOrderByLastnameDesc
-	//… where x.age = ?1 order by x.lastname des
-
-		
-	}
 	
 	@Test
-	void test5()throws Exception{
-		QnaVO qnaVO=qnaService.qnaSelect(120);
-		System.out.println();
+	public void stepupdate()throws Exception{
+		QnaVO qnaVO=new QnaVO();
+		qnaVO.setNum(332);
+		qnaVO.setContents("332test");
+		qnaVO.setTitle("332test");
+		qnaVO.setWriter("t332est");
+//		---------------------------
+		QnaVO qnaVO2=new QnaVO();
+		qnaVO2.setTitle(qnaVO.getTitle());
+		qnaVO2.setContents(qnaVO.getContents());
+		qnaVO2.setWriter(qnaVO.getWriter());	
+		qnaVO=qnaRepository.findById(qnaVO.getNum()).get();
+		qnaVO2.setRef(qnaVO.getRef());
+		qnaVO2.setDepth(qnaVO.getDepth()+1);
+		int step=qnaVO.getStep()+1;
+		qnaVO2.setStep(step);
+		List<QnaVO> stepIncreaseList=qnaRepository.findByRef(qnaVO.getRef());
+		for( int i=0;i<stepIncreaseList.size();i++) {
+			if(stepIncreaseList.get(i).getStep()>=step) {
+				stepIncreaseList.get(i).setStep(stepIncreaseList.get(i).getStep()+1);
+			}
+		}
+		qnaRepository.saveAll(stepIncreaseList);		
+		qnaRepository.save(qnaVO2);
 	}
-	
 	
 	
 	

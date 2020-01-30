@@ -11,7 +11,7 @@
 <body>
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
-		<h1>qna list</h1>
+		<h3 style="text-align: center;">Qna list</h3>
 		<div class="section">
 			<table class="board_table">
 				<tr>
