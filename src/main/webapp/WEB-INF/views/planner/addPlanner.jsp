@@ -38,9 +38,8 @@
 					<div style="clear:both"></div>
 				</div>
 			</div>
-			
 </c:if>			
-			<div class="mkp-city-info" id="c${count}" title="${index }">
+			<div class="mkp-city-info" id="c${count}">
 				<div class="city-menu-left">
 					<div style="width:29px;border-right:3px solid #3ad195;height:7px;"> </div>
 					<div>
