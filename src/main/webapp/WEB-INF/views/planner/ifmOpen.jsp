@@ -62,7 +62,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishlist"><i class="fa fa-check-circle"></i></div> 
+									<div class="wishdiv"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${tu.firstimage}"></div>
 								</div>
@@ -93,7 +93,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishlist"><i class="fa fa-check-circle"></i></div> 
+									<div class="wishdiv"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${cu.firstimage}"></div>
 								</div>
@@ -124,7 +124,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishlist"><i class="fa fa-check-circle"></i></div> 
+									<div class="wishdiv"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
 								</div>
@@ -154,7 +154,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishlist"><i class="fa fa-check-circle"></i></div> 
+									<div class="wishdiv"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${re.firstimage}"></div>
 								</div>
@@ -184,7 +184,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishlist"><i class="fa fa-check-circle"></i></div> 
+									<div class="wishdiv"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${ho.firstimage}"></div>
 								</div>
@@ -214,7 +214,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishlist"><i class="fa fa-check-circle"></i></div> 
+									<div class="wishdiv"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${co.firstimage}"></div>
 								</div>
@@ -244,7 +244,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishlist"><i class="fa fa-check-circle"></i></div> 
+									<div class="wishdiv"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${sh.firstimage}"></div>
 								</div>
