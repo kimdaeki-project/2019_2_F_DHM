@@ -1143,7 +1143,7 @@ margin-top: 12px;
 }
 
 .mypagemain3{
-background-color: #f2f5da;
+background-color: white;
 width:870px;
 height: 850px;
 float: right;
@@ -1151,30 +1151,71 @@ float: right;
 
 
 .my1{
-height: 300px;
-width: 300px;
+width:870px;
+height: 850px;
 background-color: red;
+float: right;
+
+
 }
- .my2{ 
- height: 300px; 
- width: 300px; 
- background-color: blue; 
- } 
- .my3{ 
- height: 300px; 
- width: 300px; 
- background-color: gray; 
- } 
- .my4{ 
- height: 300px; 
- width: 300px; 
- background-color: orange; 
- } 
- .my5{ 
- height: 300px; 
- width: 300px; 
- background-color: white; 
- } 
+
+.my2{ 
+width:870px;
+height: 850px;
+background-color: blue; 
+float: right;
+
+
+
+} 
+
+.my3{ 
+width:870px;
+height: 850px;
+background-color: gray; 
+float: right;
+
+
+} 
+
+.my4{ 
+width:870px;
+height: 850px;
+background-color: orange; 
+float: right;
+
+
+} 
+
+.my5{ 
+width:870px;
+height: 850px;
+background-color: white; 
+float: right;
+
+
+} 
+
+.asdzxc{
+width:100%;
+height: 100%;
+background-color:rgba(0,0,0,0.85);
+position: absolute;
+top:0px;
+}
+
+.asdzxc2{
+width:598px;
+height: 616px;
+background-color: white;
+margin-left : 700px;
+border-radius: 10px;
+top: 100px;
+position: relative;
+opacity: 1;
+}
+
+
 
 
 
