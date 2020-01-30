@@ -16,6 +16,7 @@
 	float: left;
 	height: 966px;
 	border-right: 1px solid #efefef;
+	overflow: auto;
 }
 
 .mkp-right{
@@ -190,19 +191,24 @@
 	color: white;
 	position: relative;
 	font-weight: bold;
+/* 	position: relative; */
+/* 	z-index: 999px; */
 }
 
 .city-selOne{
-	background-color: #ff3333;
+	background-color: #3ad195;
 	border: none;
 	border-radius: 10px;
 	border: 2px solid white;
+	font-size: 13px;
 }
 
 .city-btn-p1{
 }
 
 .city-btn-p2{
+	font-size: 11px;
+	width: 60px;
 }
 
 .city-btn-img{
@@ -220,6 +226,9 @@
 	color:white;
 	background-color: red;
 	margin-left: 100px;
+	position: relative;
+	bottom: -25px;
+	right: -10px;
 }
 
 .city-btn-info{
@@ -231,8 +240,8 @@
 	background-color: white;
 	width: 300px;
 	height: 150px;
-	position: relative;
-	z-index: 999px;
+/* 	position: relative; */
+/* 	z-index: 99999px; */
 	border-radius: 10px;
 }
 

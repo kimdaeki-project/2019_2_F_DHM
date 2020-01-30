@@ -229,7 +229,7 @@
 							<select id="mkp-people">
 									<option>인원선택</option>
 									<c:forEach begin="1" end="10" var="p">
-									<option>${p }명</option>
+									<option>${p }명  </option>
 									</c:forEach>
 							</select>
 						</td>

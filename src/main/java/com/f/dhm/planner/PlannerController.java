@@ -1,6 +1,8 @@
 package com.f.dhm.planner;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +34,7 @@ public class PlannerController {
 	
 	
 	@GetMapping("addPlanner")
-	public ModelAndView addSch(String cityName, String startDate, String endDate, String count,String arCode) throws Exception {
+	public ModelAndView addSch(String cityName, String startDate, String endDate, String count,String arCode,String index) throws Exception {
 		ModelAndView mv = new ModelAndView();
 
 		mv.addObject("cityName", cityName);
@@ -40,6 +42,7 @@ public class PlannerController {
 		mv.addObject("endDate", endDate);
 		mv.addObject("count", count);
 		mv.addObject("arCode", arCode);
+		mv.addObject("index", index);
 		mv.setViewName("/planner/addPlanner");
 
 		return mv;
@@ -80,17 +83,6 @@ public class PlannerController {
 		
 		int plNum = service.getPlnum();
 		
-		System.out.println("id = "+ id);
-		System.out.println("title = "+ title);
-		System.out.println("type = "+ type);
-		System.out.println("people = "+people);
-		System.out.println("dD length = "+deDate[0]);
-		System.out.println("aD length = "+arDate[0]);
-		System.out.println("bak length = "+bak[0]);
-		System.out.println("region length = "+region[0]);
-		System.out.println("trans length = "+transfer[0]);
-		
-		
 		for (int i = 0; i < deDate.length; i++) {
 			PlannerVO vo = new PlannerVO();
 			vo.setPlNum(plNum);
@@ -99,8 +91,27 @@ public class PlannerController {
 			vo.setType(type);
 			people = people.replaceAll("명", "");
 			vo.setPeople(Integer.valueOf(people));
-//			vo.setDeDate(deDate[i]);
-//			vo.setArDate(arDate[i]);
+			
+			int y = Integer.parseInt(deDate[i].substring(0, 4));
+			int m = Integer.parseInt(deDate[i].substring(5, 7));
+			int d = Integer.parseInt(deDate[i].substring(8));
+			
+			Calendar c = Calendar.getInstance();
+			c.set(y, m-1, d);
+			
+			Date date = new Date(c.getTimeInMillis());
+			
+			vo.setDeDate(date);
+			
+			y = Integer.parseInt(arDate[i].substring(0, 4));
+			m = Integer.parseInt(arDate[i].substring(5, 7));
+			d = Integer.parseInt(arDate[i].substring(8));
+			
+			c.set(y, m-1, d);
+			date = new Date(c.getTimeInMillis());
+			
+			vo.setArDate(date);
+			
 			vo.setBak(Integer.valueOf(bak[i]));
 			vo.setRegion(region[i]);
 			if (i < deDate.length-1) {				
@@ -108,7 +119,8 @@ public class PlannerController {
 			}
 			pList.add(vo);
 		}
-		int check = 0;
+		System.out.println("?????????????????");
+		
 		for (PlannerVO plannerVO : pList) {
 			System.out.println(plannerVO);
 		}
