@@ -226,66 +226,19 @@ var firstimageA = new Array();
 var addr1A = new Array();
 var arCodeA = new Array();
 
-function wish(t, firstimage, addr1, arCode) {
+function saveSch(t, f, a, c) {
+	titleA = t;
+	firstimageA = f;
+	addr1A = a;
+	arCodeA = c;
 	
-	if($(this).children().hasClass("wish-active")){
-
-		$(this).removeClass("wish-active");
-
-			titleA.push(t);
-			firstimageA.push(firstimage);
-			addr1A.push(addr1);
-			arCodeA.push(arCode);
-			/* 
-			$.ajax({
-	        	type:"POST",
-	        	url:"makePlanner",
-	        	data:{
-		        	titleA:titleA,
-		        	firstimage:firstimageA,
-		        	addr1:addr1A,
-		        	arCode:arCodeA
-	        	},
-	        	success : function(){
-	        	},
-	        	error: function() {
-	        		alert('로그인이 필요합니다.');
-					 location.href="member/login";
-				},
-				
-	    	}); */
-
-		}else{
-
-		$(this).children().addClass("wish-active");
-
-
-			titleA.push(t);
-			firstimageA.push(firstimage);
-			addr1A.push(addr1);
-			arCodeA.push(arCode);
-			
-		/* $.ajax({
-        	type: "POST",
-        	url:"../planner/makePlanner",
-        	data:{
-        		titleA:titleA,
-	        	firstimage:firstimageA,
-	        	addr1:addr1A,
-	        	arCode:arCodeA
-        	},
-        	success : function(){ 
-
-	        },
-        	error: function() {
-			  alert('로그인이 필요합니다.');
-			  /* location.href="member/login"; 
-			},
-			
-    	});   */
+	for (var i = 0; i < titleA.length; i++) {
+		console.log("title = "+ titleA[i]);
+		console.log("first = "+ firstimageA[i]);
+		console.log("addr = "+ addr1A[i]);
+		console.log("arCode = "+ arCodeA[i]);
+		console.log(titleA.length);
 	}
-		
-	event.stopImmediatePropagation();
 }
 
 /////////////////////////////////////////////////////
@@ -363,7 +316,7 @@ $(".mkp-clp-btn").click(function() {
 
 var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 var options = { //지도를 생성할 때 필요한 기본 옵션
-	center: new kakao.maps.LatLng(37.571076259872015, 126.97535701250726), //지도의 중심좌표.
+	center: new kakao.maps.LatLng(37.47957447150438, 127.25796704920329), //지도의 중심좌표.
 	level: 10 //지도의 레벨(확대, 축소 정도)
 };
 
@@ -596,7 +549,8 @@ function makePoly(ps) {
 		strokeOpacity: 0.9, // 선 투명도
 		strokeStyle: 'solid' // 선 스타일
 	});
-	
+//	polyline.setPath(pa);
+//	polyline.setMap(map);
 }
 	
 //function uptPoly() {
@@ -622,7 +576,7 @@ function makePoly(ps) {
 //		strokeStyle: 'solid' // 선 스타일
 //	});
 //}
-//	
+	
 	
 	
 ///////////////////////////////////////////카카오맵//////////////////////////////////////

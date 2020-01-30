@@ -283,74 +283,73 @@
 	});
 
 
-/* 	var titleA = new Array();
-	var firstimageA = new Array();
-	var addr1A = new Array();
-	var arCodeA = new Array();
- */
- /* 	
-	function wish(titleA, firstimage, addr1, arCode) {
+// 	var titleA = new Array();
+// 	var firstimageA = new Array();
+// 	var addr1A = new Array();
+// 	var arCodeA = new Array();	
+// 	function wish(titleA, firstimage, addr1, arCode) {
 		
-		if($(this).children().hasClass("wish-active")){
+// 		if($(this).children().hasClass("wish-active")){
 
-			$(this).removeClass("wish-active");
+// 			$(this).removeClass("wish-active");
 
-				titleA.push(titleA);
-				firstimageA.push(firstimage);
-				addr1A.push(addr1);
-				arCodeA.push(arCode);
+// 				titleA.push(titleA);
+// 				firstimageA.push(firstimage);
+// 				addr1A.push(addr1);
+// 				arCodeA.push(arCode);
 				
-				$.ajax({
-		        	type:"POST",
-		        	url:"makePlanner",
-		        	data:{
-			        	titleA:titleA,
-			        	firstimage:firstimageA,
-			        	addr1:addr1A,
-			        	arCode:arCodeA
-		        	},
-		        	success : function(){
-		        	},
-		        	error: function() {
-		        		alert('로그인이 필요합니다.');
-						 location.href="member/login";
-					},
+// 				$.ajax({
+// 		        	type:"POST",
+// 		        	url:"makePlanner",
+// 		        	data:{
+// 			        	titleA:titleA,
+// 			        	firstimage:firstimageA,
+// 			        	addr1:addr1A,
+// 			        	arCode:arCodeA
+// 		        	},
+// 		        	success : function(){
+// 		        	},
+// 		        	error: function() {
+// 		        		alert('로그인이 필요합니다.');
+// 						 location.href="member/login";
+// 					},
 					
-		    	}); 
+// 		    	}); 
 
-			}else{
+// 			}else{
 
-			$(this).children().addClass("wish-active");
+// 			$(this).children().addClass("wish-active");
 
 	
-				titleA.push(titleA);
-				firstimageA.push(firstimage);
-				addr1A.push(addr1);
-				arCodeA.push(arCode);
+// 				titleA.push(titleA);
+// 				firstimageA.push(firstimage);
+// 				addr1A.push(addr1);
+// 				arCodeA.push(arCode);
 				
-			 $.ajax({
-	        	type: "POST",
-	        	url:"../planner/makePlanner",
-	        	data:{
-	        		titleA:titleA,
-		        	firstimage:firstimageA,
-		        	addr1:addr1A,
-		        	arCode:arCodeA
-	        	},
-	        	success : function(){ 
+// 			 $.ajax({
+// 	        	type: "POST",
+// 	        	url:"../planner/makePlanner",
+// 	        	data:{
+// 	        		titleA:titleA,
+// 		        	firstimage:firstimageA,
+// 		        	addr1:addr1A,
+// 		        	arCode:arCodeA
+// 	        	},
+// 	        	success : function(){ 
 
-		        },
-	        	error: function() {
-				  alert('로그인이 필요합니다.');
-				   location.href="member/login"; 
-				},
+// 		        },
+// 	        	error: function() {
+// 				  alert('로그인이 필요합니다.');
+// 				   location.href="member/login"; 
+// 				},
 				
-	    	});   
-		}
+// 	    	});   
+// 		}
 			
-		event.stopImmediatePropagation();
-	} */
+// 		event.stopImmediatePropagation();
+// 	} 
  
 </script>
+<script src="../js/ifmOpen.js"></script>
 </body>
 </html>
