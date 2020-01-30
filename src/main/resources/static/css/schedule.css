@@ -364,9 +364,6 @@ a:hover{
 	line-height: 16px;
 	color: #666;
 }
-.wishlist{
-	width: 150px;
-}
 
 .schedule-wrapper{
 	overflow-x:auto;
@@ -474,7 +471,7 @@ a:hover{
 	overflow: hidden;
 	margin: 0 5px 0 5px;
 }
-.wishlist{
+.wishdiv{
 	position: absolute;
 	right: 10px;
 	top: -3px;

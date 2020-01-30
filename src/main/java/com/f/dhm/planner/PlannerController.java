@@ -1,7 +1,11 @@
 package com.f.dhm.planner;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.f.dhm.Member.MemberVO;
 import com.f.dhm.schedule.test.XmlService;
+import com.f.dhm.wishlist.WishService;
 import com.f.dhm.wishlist.WishVO;
 
 @Controller
@@ -23,6 +29,8 @@ public class PlannerController {
 	@Autowired
 	private XmlService xService;
 	
+	@Autowired
+	private WishService wishService;
 	
 	@GetMapping("makePlanner")
 	public ModelAndView makePlanner() throws Exception{
@@ -77,7 +85,7 @@ public class PlannerController {
 	@PostMapping("makePlanner")
 	@ResponseBody
 	public int makePlanner(String id, String title, String type, String people, String[] deDate, String[] arDate,
-		String[] bak, String[] region, String[] transfer, WishVO wishVO) throws Exception{
+		String[] bak, String[] region, String[] transfer, WishVO wishVO, String title2, String firstimage, String addr1, int arCode,HttpSession session) throws Exception{
 		List<PlannerVO> pList = new ArrayList<PlannerVO>();
 		
 		int plNum = service.getPlnum();
@@ -94,27 +102,63 @@ public class PlannerController {
 		
 		
 		for (int i = 0; i < deDate.length; i++) {
-			PlannerVO vo = new PlannerVO();
-			vo.setPlNum(plNum);
-			vo.setId(id);
-			vo.setTitle(title);
-			vo.setType(type);
-			people = people.replaceAll("명", "");
-			vo.setPeople(Integer.valueOf(people));
-//			vo.setDeDate(deDate[i]);
-//			vo.setArDate(arDate[i]);
-			vo.setBak(Integer.valueOf(bak[i]));
-			vo.setRegion(region[i]);
-			if (i < deDate.length-1) {				
-				vo.setTransfer(transfer[i]);
-			}
-			pList.add(vo);
-		}
+	         PlannerVO vo = new PlannerVO();
+	         vo.setPlNum(plNum);
+	         vo.setId(id);
+	         vo.setTitle(title);
+	         vo.setType(type);
+	         people = people.replaceAll("명", "");
+	         vo.setPeople(Integer.valueOf(people));
+	         
+	         int y = Integer.parseInt(deDate[i].substring(0, 4));
+	         int m = Integer.parseInt(deDate[i].substring(5, 7));
+	         int d = Integer.parseInt(deDate[i].substring(8));
+	         
+	         Calendar c = Calendar.getInstance();
+	         c.set(y, m-1, d);
+	         
+	         Date date = new Date(c.getTimeInMillis());
+	         
+	         vo.setDeDate(date);
+	         
+	         y = Integer.parseInt(arDate[i].substring(0, 4));
+	         m = Integer.parseInt(arDate[i].substring(5, 7));
+	         d = Integer.parseInt(arDate[i].substring(8));
+	         
+	         c.set(y, m-1, d);
+	         date = new Date(c.getTimeInMillis());
+	         
+	         vo.setArDate(date);
+	         
+	         vo.setBak(Integer.valueOf(bak[i]));
+	         vo.setRegion(region[i]);
+	         if (i < deDate.length-1) {            
+	            vo.setTransfer(transfer[i]);
+	         }
+	         pList.add(vo);
+	      }
+		
+		
 		int check = 0;
 		for (PlannerVO plannerVO : pList) {
 			System.out.println(plannerVO);
 		}
 		service.saveList(pList);
+		
+		
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		
+		id= memberVO.getId();
+		
+		wishVO.setId(id);
+		wishVO.setTitle(title2);
+		wishVO.setFirstimage(firstimage);
+		wishVO.setAddr1(addr1);
+		wishVO.setPlNum(plNum);
+		wishVO.setArCode(arCode);
+		wishService.wishAdd(wishVO);
+		
+		
 		
 		return pList.get(0).getPlNum();
 	}

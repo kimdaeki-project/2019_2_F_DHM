@@ -21,8 +21,15 @@ public class WishController {
 	@Autowired
 	private WishService wishService;
 	
+
+	@GetMapping("wishDel")
+	public void wishDel() throws Exception{
+		
+	}
+	
 	@GetMapping("wishAdd")
 	public void wishAdd(String title, String firstimage, String addr1, int arCode,HttpSession session, PlannerVO plannerVO) throws Exception{
+		
 		System.out.println("하이");
 		ModelAndView mv = new ModelAndView();
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
@@ -40,10 +47,6 @@ public class WishController {
 		System.out.println(plNum);
 		System.out.println("바이");
 		
-		
-	}
-	@GetMapping("wishDel")
-	public void wishDel() throws Exception{
 		
 	}
 	
