@@ -4,15 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/makePlanner.css">
+<link rel="stylesheet" type="text/css" href="../css/makePlanner.css"> 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<script src="https://unpkg.com/swiper/js/swiper.js"></script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
 <title>viewPage</title>
 </head>
 <body>
 <c:import url="../template/boot.jsp"/>
 <c:import url="../template/dragJquery.jsp"/>
 <section>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
 <div class="mkp-left">
 	<div class="mkp-left-menu">
 		<div id="topControllerLeft" style="padding-top:5px;width:75%;float:left;">
@@ -83,27 +85,29 @@
 		</div>
 	</div>
 </div>
-<div class="mkp-right">
-	<div class="mkp-right-remote">
-		<c:choose>
-			<c:when test="${member ne null }">
-				<div class="mkp-member-btn" onclick="openComplete()">
-					<p>작업완료</p>
-				</div>
-			</c:when>
-			<c:otherwise>
-				<div class="mkp-guest-btn" onclick="openComplete()">
-					<p>GUEST로 작업중</p>
-				</div>
-			</c:otherwise>
-		</c:choose>
-	</div>
-	<div class="map" id="map">
-	
-	</div>
 
-	
+<div class="mkp-right">
+   <div class="mkp-right-remote">
+      <c:choose>
+         <c:when test="${member ne null }">
+            <div class="mkp-member-btn" onclick="openComplete()">
+               <p>작업완료</p>
+            </div>
+         </c:when>
+         <c:otherwise>
+            <div class="mkp-guest-btn" onclick="openComplete()">
+               <p>GUEST로 작업중</p>
+            </div>
+         </c:otherwise>
+      </c:choose>
+   </div>
+   <div class="map" id="map">
+   
+   </div>
+
+   
 </div>
+
 <!--hide ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 <div class="chos-sleep">
 	<div class="chos-sleep-info">
@@ -229,7 +233,7 @@
 							<select id="mkp-people">
 									<option>인원선택</option>
 									<c:forEach begin="1" end="10" var="p">
-									<option>${p }명  </option>
+									<option>${p }명</option>
 									</c:forEach>
 							</select>
 						</td>
@@ -255,5 +259,8 @@
 <!--hide ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 </section>
 <script src="../js/makePlanner.js"></script>
+<script type="text/javascript">
+
+</script>
 </body>
 </html>

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.f.dhm.Member.MemberVO;
 import com.f.dhm.schedule.test.XmlService;
+import com.f.dhm.wishlist.WishService;
+import com.f.dhm.wishlist.WishVO;
 
 @Controller
 @RequestMapping("/planner/**")
@@ -24,10 +29,13 @@ public class PlannerController {
 	@Autowired
 	private XmlService xService;
 	
+	@Autowired
+	private WishService wishService;
 	
 	@GetMapping("makePlanner")
 	public ModelAndView makePlanner() throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
 		mv.setViewName("/planner/makePlanner");
 		return mv;
 	}
@@ -69,7 +77,7 @@ public class PlannerController {
 		mv.addObject("festival", xService.searchTour(acode, 15, "P", 1).getItem());
 		//레포츠
 		mv.addObject("report", xService.searchTour(acode, 28, "P", 1).getItem());
-		
+		mv.addObject("arCode", acode);
 		mv.setViewName("/planner/ifmOpen");
 		return mv;
 	}
@@ -78,12 +86,13 @@ public class PlannerController {
 	@PostMapping("makePlanner")
 	@ResponseBody
 	public int makePlanner(String id, String title, String type, String people, String[] deDate, String[] arDate,
-		String[] bak, String[] region, String[] transfer) throws Exception{
+		String[] bak, String[] region, String[] transfer, WishVO wishVO, String[] titleA, String[] firstimage, String[] addr1, int[] arCode,HttpSession session) throws Exception{
 		List<PlannerVO> pList = new ArrayList<PlannerVO>();
 		
 		int plNum = service.getPlnum();
 		
 		for (int i = 0; i < deDate.length; i++) {
+
 			PlannerVO vo = new PlannerVO();
 			vo.setPlNum(plNum);
 			vo.setId(id);
@@ -124,6 +133,23 @@ public class PlannerController {
 			System.out.println(plannerVO);
 		}
 		service.saveList(pList);
+		
+		//////////////////////////////////////////
+		
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		
+		id= memberVO.getId();
+		System.out.println("zzzzzzz:"+titleA.length);
+		for(int i=0; i< titleA.length; i++) {
+			wishVO.setId(id);
+			wishVO.setTitle(titleA[i]);
+			wishVO.setFirstimage(firstimage[i]);
+			wishVO.setAddr1(addr1[i]);
+			wishVO.setPlNum(plNum);
+			wishVO.setArCode(arCode[i]);
+			wishService.wishAdd(wishVO);
+			System.out.println("addr"+addr1[i]);
+		}
 		
 		return pList.get(0).getPlNum();
 	}
