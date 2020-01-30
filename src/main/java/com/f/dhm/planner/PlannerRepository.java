@@ -15,8 +15,9 @@ public interface PlannerRepository extends JpaRepository<PlannerVO, Integer>{
 	//PlannerVO save(PlannerVO plannerVO);
 	
 	@Modifying
-	@Query("update PlannerVO p set p.type=?1 where p.id='a@a.com'")
-    void typeUpdate(String type)throws Exception;	
+	@Query("update PlannerVO p set p.type=?1 where p.id=?2")
+    void typeUpdate(String type, String id)throws Exception;
+	
 	List<PlannerVO> findAllByOrderByPlStepDesc();
 
 }

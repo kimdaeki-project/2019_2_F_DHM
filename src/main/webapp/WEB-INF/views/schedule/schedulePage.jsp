@@ -510,45 +510,6 @@
 										</a>
 										</div>
 									</div>
-									
-									<div class="swiper-slide">
-										<div class="card">
-										<a>
-										<div class="tour-img">
-											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
-												<div class="tour-name">
-													<font>대구 이월드</font>
-												</div>
-											</div>
-										</a>
-										<a>
-											<div class="tour-add">
-												<font><i class="fa fa-plus"></i>일정추가</font>
-											</div>
-										</a>
-										</div>
-									</div>
-									
-									<div class="swiper-slide">
-										<div class="card">
-										<a>
-										<div class="tour-img">
-											<img src="http://tong.visitkorea.or.kr/cms/resource/50/1886150_image2_1.jpg">
-												<div class="tour-name">
-													<font>대구 이월드</font>
-												</div>
-											</div>
-										</a>
-										<a>
-											<div class="tour-add">
-												<font><i class="fa fa-plus"></i>일정추가</font>
-											</div>
-										</a>
-										</div>
-									</div>
-									
-								
-								
 							</div>
 						</div>
 					</div>
@@ -638,15 +599,23 @@
 		</div>
 		
 	</div>
-					<div class="open-ifm" >
-						<div class="ifm-info"><i class="fa fa-calendar-check-o"></i></div>
-						<div class="ifm-opener">
-							<p><span>${cityName}</span>에서 경험하고 싶은 것들을 선택해보세염<span style="float: right; font-size: 20px; cursor: pointer;" class="ifm-closer"><i class="fa fa-times-circle"></i></span></p>
-							<!-- <iframe src="http://api.visitkorea.or.kr/openapi/service/rest/PhotoGalleryService/galleryList?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=TestApp&_type=json"></iframe>
-							<iframe src="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailImage?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&contentId=134546&imageYN=Y&MobileOS=ETC&MobileApp=AppTest&imgname"></iframe> -->
-							<a onclick="tour()" href="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&areaCode=35&MobileOS=ETC&MobileApp=AppTest">ggg</a>
-						</div>
+	
+	<div class="swiper-container" >
+		<ul class="swiper-wrapper nolist" style="height: 200px; clear: both;">
+			<c:forEach items="${food }" var="fo">
+				<li class="swiper-slide" >
+					<div style="height: 200px;"> 
+						<div>${fo.title }</div>
+						<div><img alt="여행사진" src="${fo.firstimage }" width="100px" height="100px"></div>
+						<div>${fo.addr1 }</div>	 
 					</div>
+				</li>
+			</c:forEach>
+		</ul>
+		   <!-- Add Pagination -->
+   		 <div class="swiper-pagination"></div>	
+	</div>
+
 	<script type="text/javascript">
 
 
@@ -656,7 +625,11 @@
 		    $( "#testDatepicker" ).datepicker({
 		    });
 		});
-		*/
+
+ */
+	
+
+/* 	
 		function tour() {
 			
 			 $.ajax({
@@ -677,8 +650,8 @@
 				  		location.href="../";
 				}	
 			 });  
-		} 
-		
+		}  */
+
 		/* type 바꾸기 */
 		function type(type){
 	

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.transform.Result;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,9 @@ public class ScheduleController {
 	private XmlService xmlService;
 	
 	
+
+	
+	
 	@GetMapping("tour")
 	public void tourList(String title, String firstimage) throws Exception{
 		
@@ -42,8 +46,8 @@ public class ScheduleController {
 	}
 	
 	@GetMapping("type")
-	public void type(String type, PlannerVO plannerVO) throws Exception{
-		plannerService.typeUpdate(type, plannerVO);
+	public void type(String type, PlannerVO plannerVO, HttpSession session) throws Exception{
+		plannerService.typeUpdate(type, plannerVO, session);
 	}
 	
 	@GetMapping("schedulePage")
@@ -54,7 +58,13 @@ public class ScheduleController {
 
 		Date deDate = plannerList.get(0).getDeDate();
 	//scheduleService.findDay(deDate);
-		Items ar2=xmlService.parseTour();
+		//Items ar2=xmlService.parseTour();
+		Items ar2=xmlService.searchTour(1, 39, "P", 1);;
+		
+		
+		//음식점
+		mv.addObject("food", xmlService.searchTour(1, 39, "P", 1).getItem());
+		
 		mv.addObject("planner", plannerList);
 		mv.addObject("type", plannerList.get(0).getType());
 		mv.addObject("dDate", deDate);

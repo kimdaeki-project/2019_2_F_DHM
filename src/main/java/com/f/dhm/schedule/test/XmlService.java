@@ -53,8 +53,8 @@ public class XmlService {
 				  Integer areaCode = Integer.parseInt(elem.getElementsByTagName("areacode").item(0).getTextContent());
 				  
 				
-				  if (elem.getElementsByTagName("firstimage").item(0)==null) {
-					firstImage="../imgs/noimage.png";
+				 if (elem.getElementsByTagName("firstimage").item(0)==null) {
+					firstImage="https://api.visitkorea.or.kr/static/images/common/noImage.gif";
 				}else {
 					firstImage = elem.getElementsByTagName("firstimage2").item(0).getTextContent();
 				}
@@ -90,8 +90,9 @@ public class XmlService {
 		//영재 인증키 : y6lTW%2Fe1nVt%2BwNPxKIPThO3llzEsDQDhLQAP%2B%2BUMAW%2BBCuZZLSXZiKKU0e966zEmm9vZCa84UyTdC1Y%2FA83LHQ%3D%3D
 		//재용 인증키 : NV9C%2BKH8hcVMH38UJiOUmUeoPzqVz0ZUo%2B23mVS3zgwfV%2FMICch%2Fz%2Bfs50NKfHXLYYkGB4Y5WDSGIVkopSIa7Q%3D%3D
 		String URL="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?"
-				+ "ServiceKey=y6lTW%2Fe1nVt%2BwNPxKIPThO3llzEsDQDhLQAP%2B%2BUMAW%2BBCuZZLSXZiKKU0e966zEmm9vZCa84UyTdC1Y%2FA83LHQ%3D%3D"
-				+ "&areaCode="+arCode+"&MobileOS=ETC&MobileApp=AppTest&numOfRows=21"
+
+				+ "ServiceKey=NV9C%2BKH8hcVMH38UJiOUmUeoPzqVz0ZUo%2B23mVS3zgwfV%2FMICch%2Fz%2Bfs50NKfHXLYYkGB4Y5WDSGIVkopSIa7Q%3D%3D"
+				+ "&areaCode="+arCode+"&MobileOS=ETC&MobileApp=AppTest&numOfRows=10"
 				+ "&contentTypeId="+typeNum+"&arrange="+arr+"&pageNo="+pageNum;
 		
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -120,20 +121,18 @@ public class XmlService {
 				  
 				
 				  if (elem.getElementsByTagName("firstimage").item(0)==null) {
-					firstImage="../imgs/noimage.png";
-				}else {
-					firstImage = elem.getElementsByTagName("firstimage2").item(0).getTextContent();
-				}
+						firstImage="../imgs/noimage.JPG";
+				  }else {
+						firstImage = elem.getElementsByTagName("firstimage2").item(0).getTextContent();
+				  }
 				  if (elem.getElementsByTagName("addr1").item(0)== null) {
-					addr = "";
-				}else {
-					addr = elem.getElementsByTagName("addr1").item(0).getTextContent();
-				}
+						addr = "";
+				  }else {
+						addr = elem.getElementsByTagName("addr1").item(0).getTextContent();
+				  }
 				
-				  
 				  Item item2 = new Item(title, addr, areaCode, firstImage);
 				  
-
 					itemlist.add(item2);
 				}
 		
