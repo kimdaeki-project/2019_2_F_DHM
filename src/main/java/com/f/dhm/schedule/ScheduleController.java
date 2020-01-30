@@ -34,6 +34,13 @@ public class ScheduleController {
 	private XmlService xmlService;
 	
 	
+	@GetMapping("wish")
+	public void myWish() throws Exception{
+		
+	}
+	
+	
+	
 	@GetMapping("tour")
 	public void tourList(String title, String firstimage) throws Exception{
 		
