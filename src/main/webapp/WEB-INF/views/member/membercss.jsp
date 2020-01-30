@@ -934,7 +934,7 @@ border-radius: .25em;
 color: white;
 font-weight: 700;
 text-align: center;
-margin-top: 4px;
+margin-top: 2px;
 }
 
 .mypage2{
@@ -966,9 +966,15 @@ width: 110px;
 float: left;
 height: 25px;
 text-align: center;
-}
-.mypage2-1-1-2{
 border-right: 1px solid #e8e8e8;
+}
+
+.mypage2-1-1-3{
+font-size: 15px;
+width: 110px;
+float: left;
+height: 25px;
+text-align: center;
 }
 
 .mypage2-2{
@@ -976,6 +982,28 @@ background-color: white;
 height: 80px;
 width: 263px;
 border-bottom: 1px solid #e8e8e8;
+}
+
+.mypage2-2-1{
+background-color: #f2eeee;
+height: 50px;
+width: 100px;
+border-radius: 10px;
+margin-top: 10px;
+margin-left: 20px;
+color: #807e7e;
+background-image: linear-gradient(to bottom,#f2eeee 0,#c5c5c5 100%);
+}
+
+.mypage2-2-2{
+background-color: #f2eeee;
+height: 50px;
+width: 100px;
+border-radius: 10px;
+margin-top: 10px;
+margin-left: 10px;
+color: #807e7e;
+background-image: linear-gradient(to bottom,#f2eeee 0,#c5c5c5 100%);
 }
 
 .mypage2-3{
@@ -1000,46 +1028,192 @@ background-color: white;
 height: 49px;
 width: 233px;
 border-bottom:1px solid #e8e8e8;
+border-right:1px solid #e8e8e8;
+background-image: linear-gradient(to bottom,#428bca 0,#3278b3 100%);
+color: #fff;
+background-color: #428bca;
+border-color: #428bca;
+border-top-right-radius: 4px;
+border-top-left-radius: 4px;
+cursor: pointer;
+}
+
+.mypage3-1-1{
+margin-left: 30px;
+padding-top : 13px;
+color: white;
+}
+
+/* 여행 옆 등록게시물 갯수  */
+.mypage3-1-2{
+color: #428bca;
+background-color: #fff;
+float: right;
+display: inline-block;
+min-width: 10px;
+padding: 3px 7px;
+font-size: 14px;
+font-weight: 700;
+line-height: 1;
+vertical-align: baseline;
+white-space: nowrap;
+text-align: center;
+border-radius: 10px;
+margin-top: 2px;
+margin-right: 20px;
 }
 
 .mypage3-2{
+cursor: pointer;
 background-color: white;
 height: 49px;
 width: 233px;
 border-bottom:1px solid #e8e8e8;
+border-right:1px solid #e8e8e8;
+}
+
+.mypage3-2:hover {
+background: #ececec;
+}
+
+.mypage3-2-1{
+color: #716e6e;
+float: right;
+margin-right: 130px;
+margin-top: 12px;
 }
 
 .mypage3-3{
+cursor: pointer;
 background-color: white;
 height: 49px;
 width: 233px;
 border-bottom:1px solid #e8e8e8;
+border-right:1px solid #e8e8e8;
+}
+
+.mypage3-3:hover {
+background: #ececec;
+}
+
+.mypage3-3-1{
+color: #716e6e;
+float: right;
+margin-right: 145px;
+margin-top: 12px;
 }
 
 .mypage3-4{
+cursor: pointer;
 background-color: white;
 height: 49px;
 width: 233px;
 border-bottom:1px solid #e8e8e8;
+border-right:1px solid #e8e8e8;
+}
+
+.mypage3-4:hover {
+background: #ececec;
+}
+
+.mypage3-4-1{
+color: #716e6e;
+float: right;
+margin-right: 130px;
+margin-top: 12px;
 }
 
 .mypage3-5{
+cursor: pointer;
 background-color: white;
 height: 50px;
 width: 233px;
+border-right:1px solid #e8e8e8;
+}
+
+.mypage3-5:hover {
+background: #ececec;
+}
+
+.mypage3-5-1{
+color: #716e6e;
+float: right;
+margin-right: 145px;
+margin-top: 12px;
 }
 
 .mypagemain3{
-background-color: #f2f5da;
+background-color: white;
 width:870px;
 height: 850px;
 float: right;
 }
 
 
+.my1{
+width:870px;
+height: 850px;
+background-color: red;
+float: right;
+
+
+}
+
+.my2{ 
+width:870px;
+height: 850px;
+background-color: blue; 
+float: right;
 
 
 
+} 
+
+.my3{ 
+width:870px;
+height: 850px;
+background-color: gray; 
+float: right;
+
+
+} 
+
+.my4{ 
+width:870px;
+height: 850px;
+background-color: orange; 
+float: right;
+
+
+} 
+
+.my5{ 
+width:870px;
+height: 850px;
+background-color: white; 
+float: right;
+
+
+} 
+
+.asdzxc{
+width:100%;
+height: 100%;
+background-color:rgba(0,0,0,0.85);
+position: absolute;
+top:0px;
+}
+
+.asdzxc2{
+width:598px;
+height: 616px;
+background-color: white;
+margin-left : 700px;
+border-radius: 10px;
+top: 100px;
+position: relative;
+opacity: 1;
+}
 
 
 
