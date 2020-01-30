@@ -35,8 +35,6 @@ class ScheduleTest {
 			pvo.setTransfer("버스");
 			pvo.setPeople(5);
 			Date d = new Date();
-			pvo.setDeDate(d);
-			pvo.setArDate(d);
 			list.add(pvo);
 		}
 		

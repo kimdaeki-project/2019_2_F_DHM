@@ -44,5 +44,13 @@ public class PlannerService {
 		return	list.get(0).getPlNum()+1;
 	}
 	
+	public int saveList(List<PlannerVO> list) throws Exception{
+		list = repository.saveAll(list);
+		return list.get(0).getPlNum();
+	}
+	
+	public PlannerVO saveOne(PlannerVO plannerVO) throws Exception{
+		return repository.save(plannerVO);
+	}
 
 }
