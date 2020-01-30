@@ -86,7 +86,7 @@ public class PlannerController {
 	@PostMapping("makePlanner")
 	@ResponseBody
 	public int makePlanner(String id, String title, String type, String people, String[] deDate, String[] arDate,
-		String[] bak, String[] region, String[] transfer, WishVO wishVO, String title2, String firstimage, String addr1, int arCode,HttpSession session) throws Exception{
+		String[] bak, String[] region, String[] transfer, WishVO wishVO, String[] titleA, String[] firstimage, String[] addr1, int[] arCode,HttpSession session) throws Exception{
 		List<PlannerVO> pList = new ArrayList<PlannerVO>();
 		
 		int plNum = service.getPlnum();
@@ -139,16 +139,17 @@ public class PlannerController {
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		
 		id= memberVO.getId();
-		
-		wishVO.setId(id);
-		wishVO.setTitle(title2);
-		wishVO.setFirstimage(firstimage);
-		wishVO.setAddr1(addr1);
-		wishVO.setPlNum(plNum);
-		wishVO.setArCode(arCode);
-		wishService.wishAdd(wishVO);
-		
-		
+		System.out.println("zzzzzzz:"+titleA.length);
+		for(int i=0; i< titleA.length; i++) {
+			wishVO.setId(id);
+			wishVO.setTitle(titleA[i]);
+			wishVO.setFirstimage(firstimage[i]);
+			wishVO.setAddr1(addr1[i]);
+			wishVO.setPlNum(plNum);
+			wishVO.setArCode(arCode[i]);
+			wishService.wishAdd(wishVO);
+			System.out.println("addr"+addr1[i]);
+		}
 		
 		return pList.get(0).getPlNum();
 	}

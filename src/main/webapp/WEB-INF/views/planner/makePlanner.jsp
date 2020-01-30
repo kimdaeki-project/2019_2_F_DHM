@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
 <title>viewPage</title>
 </head>
 <body>
@@ -84,67 +85,29 @@
 		</div>
 	</div>
 </div>
-<div class="mkp-right-menu">
-	<div class="city-btn-grp">
-		<div class="city-btn">
-			<button value="인천" class="city-selOne">인천</button>
-			<div class="city-btn-info">
-				<p>국제공항</p>
-				<button class="mkp-ajax">일정 추가</button>
-			</div>
-			<input type="hidden" value="2">
-		</div>
-		<div class="city-btn">
-			<button value="서울" class="city-selOne">서울</button>
-			<div class="city-btn-info">
-				<p>대한민국 수도</p>
-				<button class="mkp-ajax">일정 추가</button>
-			</div>
-			<input type="hidden" value="1">
-		</div>
-		<div class="city-btn">
-			<button value="대전" class="city-selOne">대전</button>
-			<div class="city-btn-info">
-				<p>카이스트</p>
-				<button class="mkp-ajax">일정 추가</button>
-			</div>
-			<input type="hidden" value="3">
-		</div>
-		<div class="city-btn">
-			<button value="부산" class="city-selOne">부산</button>
-			<div class="city-btn-info">
-				<p>등킨도나스</p>
-				<button class="mkp-ajax">일정 추가</button>
-			</div>
-			<input type="hidden" value="6">
-		</div>
-		<div class="city-btn">
-			<button value="제주도" class="city-selOne">제주도</button>
-			<div class="city-btn-info">
-				<p>선물은 감귤초콜렛</p>
-				<button class="mkp-ajax">일정 추가</button>
-			</div>
-			<input type="hidden" value="39">
-		</div>
-	 </div>
-	<div class="mkp-right-remote" draggable="false">
-		<c:choose>
-			<c:when test="${member ne null }">
-				<div class="mkp-member-btn" onclick="openComplete()">
-					<p>작업완료</p>
-				</div>
-			</c:when>
-			<c:otherwise>
-				<div class="mkp-guest-btn" onclick="openComplete()">
-					<p>GUEST로 작업중</p>
-				</div>
-			</c:otherwise>
-		</c:choose>
-		<div>
-		</div>
-	</div>
-	
+
+<div class="mkp-right">
+   <div class="mkp-right-remote">
+      <c:choose>
+         <c:when test="${member ne null }">
+            <div class="mkp-member-btn" onclick="openComplete()">
+               <p>작업완료</p>
+            </div>
+         </c:when>
+         <c:otherwise>
+            <div class="mkp-guest-btn" onclick="openComplete()">
+               <p>GUEST로 작업중</p>
+            </div>
+         </c:otherwise>
+      </c:choose>
+   </div>
+   <div class="map" id="map">
+   
+   </div>
+
+   
 </div>
+
 <!--hide ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 <div class="chos-sleep">
 	<div class="chos-sleep-info">

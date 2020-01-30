@@ -10,6 +10,7 @@
 <c:import url="../template/boot.jsp"/>
 </head>
 <body>
+<form action="">
 	<div class="ifm-wrapper">
 		<div class="row"> 
 			<h3 class="ifm-title">금강산도 식후경</h3>
@@ -265,14 +266,9 @@
 			</div>
 		</div>
 		
-		
-		
-		
-		
-
-	
-	
 	</div>
+</form>
+
 <script type="text/javascript">
 
 	function clickinfo(title){
@@ -285,54 +281,75 @@
 		 $(this).toggleClass("wish-active"); 
 	
 	});
-	
-	function wish(title, firstimage, addr1, arCode) {
-		console.log("kkk :"+arCode);
+
+
+/* 	var titleA = new Array();
+	var firstimageA = new Array();
+	var addr1A = new Array();
+	var arCodeA = new Array();
+ */
+ /* 	
+	function wish(titleA, firstimage, addr1, arCode) {
+		
 		if($(this).children().hasClass("wish-active")){
 
 			$(this).removeClass("wish-active");
 
+				titleA.push(titleA);
+				firstimageA.push(firstimage);
+				addr1A.push(addr1);
+				arCodeA.push(arCode);
+				
 				$.ajax({
-		        	type: "POST",
-		        	url:"../planner/makePlanner",
+		        	type:"POST",
+		        	url:"makePlanner",
 		        	data:{
-			        	title2:title,
-			        	firstimage:firstimage,
-			        	addr1:addr1,
-			        	arCode:arCode
+			        	titleA:titleA,
+			        	firstimage:firstimageA,
+			        	addr1:addr1A,
+			        	arCode:arCodeA
 		        	},
 		        	success : function(){
 		        	},
 		        	error: function() {
 		        		alert('로그인이 필요합니다.');
-						/* location.href="member/login"; */
+						 location.href="member/login";
 					},
-		    	});
+					
+		    	}); 
 
 			}else{
 
 			$(this).children().addClass("wish-active");
 
-			$.ajax({
+	
+				titleA.push(titleA);
+				firstimageA.push(firstimage);
+				addr1A.push(addr1);
+				arCodeA.push(arCode);
+				
+			 $.ajax({
 	        	type: "POST",
 	        	url:"../planner/makePlanner",
 	        	data:{
-	        		title:title,
-		        	firstimage:firstimage,
-		        	addr1:addr1,
-		        	arCode:arCode
+	        		titleA:titleA,
+		        	firstimage:firstimageA,
+		        	addr1:addr1A,
+		        	arCode:arCodeA
 	        	},
 	        	success : function(){ 
-	        	},
+
+		        },
 	        	error: function() {
 				  alert('로그인이 필요합니다.');
-				  /* location.href="member/login"; */
+				   location.href="member/login"; 
 				},
-	    	});  
+				
+	    	});   
 		}
 			
 		event.stopImmediatePropagation();
-	}
+	} */
  
 </script>
 </body>
