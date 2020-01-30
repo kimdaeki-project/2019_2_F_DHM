@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Sort;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Pageable;
 
 import com.mysql.cj.x.protobuf.MysqlxCrud.Order.Direction;
 
@@ -59,19 +60,12 @@ class QnaRepositoryTest {
 	}
 	
 	//@Test
-	void test4()throws Exception{
+	void test4(Pageable pageable)throws Exception{
 	//OrderBy
 	//findByAgeOrderByLastnameDesc
 	//… where x.age = ?1 order by x.lastname des
 
-		List<QnaVO> list=qnaRepository.qnalisst();
-		for(int i=0;i<list.size();i++) {
-			System.out.println("- "+i+"번째");
-			System.out.println("list.get("+i+").getNum() : "+list.get(i).getNum());
-			System.out.println("list.get("+i+").getTitle() : "+list.get(i).getTitle());
-			System.out.println("list.get("+i+").getWriter() : "+list.get(i).getWriter());
-			System.out.println("list.get("+i+").getRef() : "+list.get(i).getRef());
-		}
+		
 	}
 	
 	@Test
