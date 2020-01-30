@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.transform.Result;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,11 +35,7 @@ public class ScheduleController {
 	private XmlService xmlService;
 	
 	
-	@GetMapping("wish")
-	public void myWish() throws Exception{
-		
-	}
-	
+
 	
 	
 	@GetMapping("tour")
@@ -49,8 +46,8 @@ public class ScheduleController {
 	}
 	
 	@GetMapping("type")
-	public void type(String type, PlannerVO plannerVO) throws Exception{
-		plannerService.typeUpdate(type, plannerVO);
+	public void type(String type, PlannerVO plannerVO, HttpSession session) throws Exception{
+		plannerService.typeUpdate(type, plannerVO, session);
 	}
 	
 	@GetMapping("schedulePage")

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.f.dhm.schedule.test.XmlService;
+import com.f.dhm.wishlist.WishVO;
 
 @Controller
 @RequestMapping("/planner/**")
@@ -67,7 +68,7 @@ public class PlannerController {
 		mv.addObject("festival", xService.searchTour(acode, 15, "P", 1).getItem());
 		//레포츠
 		mv.addObject("report", xService.searchTour(acode, 28, "P", 1).getItem());
-		
+		mv.addObject("arCode", acode);
 		mv.setViewName("/planner/ifmOpen");
 		return mv;
 	}
@@ -76,7 +77,7 @@ public class PlannerController {
 	@PostMapping("makePlanner")
 	@ResponseBody
 	public int makePlanner(String id, String title, String type, String people, String[] deDate, String[] arDate,
-		String[] bak, String[] region, String[] transfer) throws Exception{
+		String[] bak, String[] region, String[] transfer, WishVO wishVO) throws Exception{
 		List<PlannerVO> pList = new ArrayList<PlannerVO>();
 		
 		int plNum = service.getPlnum();

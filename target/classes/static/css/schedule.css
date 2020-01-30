@@ -520,3 +520,7 @@ a:hover{
 	font-weight: 400;
 	color: #a9a9a9;
 }
+
+.wish-active{
+	color: #ee685a;
+}

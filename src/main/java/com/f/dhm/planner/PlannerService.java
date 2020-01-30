@@ -3,13 +3,15 @@ package com.f.dhm.planner;
 
 import java.util.List;
 
-
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
+
+import com.f.dhm.Member.MemberVO;
 
 @Service
 @Transactional
@@ -31,12 +33,12 @@ public class PlannerService {
 	
 	}
 	 
-	public void typeUpdate(String type, PlannerVO plannerVO) throws Exception{
+	public void typeUpdate(String type, PlannerVO plannerVO, HttpSession session) throws Exception{
 		
 		//plannerVO.setType(type);	
-		
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		//@Query(value = "update planner set type=#{type} where id=a@a.com",nativeQuery = true)
-		repository.typeUpdate(type);
+		repository.typeUpdate(type, memberVO.getId());
 		
 	}
 	public int getPlnum() throws Exception{
