@@ -91,7 +91,6 @@ function setId() {
 		ct++;
 	});
 	count = i;
-	
 	uptDate();
 }
 
@@ -118,9 +117,8 @@ $(".mkp-right").on("click",".mkp-ajax", function() {
 		cDay = new Date(cDay).toISOString().substr(0, 10).replace('T', ' ');
 		var endDate = cDay;
 		var arCode = $(this).parents().next().val();
+		pIndex.push($(this).parents().next().prop("title"));
 		var index = $(this).parents().next().prop("title");
-		
-		
 		
 		$.ajax({
 			type : "GET",
@@ -138,7 +136,7 @@ $(".mkp-right").on("click",".mkp-ajax", function() {
 				$(".mkp-city-list").append(d);
 				count++;
 				uptDate();
-				
+				makePoly(pIndex);
 				$(".city-btn-info-sel").slideUp("fast");
 			}
 		});
@@ -163,13 +161,6 @@ function uptDate() {
 		$("#c"+i+" .eDate").text(calDay);
 		setDay2 = calDay;
 	}
-	
-	pIndex = new Array(); 
-	$(".mkp-city-info").each(function() {
-		pIndex.push($(this).prop("title"));
-	});
-	
-	makePoly(pIndex);
 	
 }
 
@@ -200,6 +191,7 @@ $(function() {
 	$(".mkp-city-list").sortable({
 		stop : function() {
 				addTsel();
+				//uptPoly();
 		}
 	});
 });
@@ -298,7 +290,7 @@ $(".mkp-clp-btn").click(function() {
 var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 var options = { //지도를 생성할 때 필요한 기본 옵션
 	center: new kakao.maps.LatLng(37.571076259872015, 126.97535701250726), //지도의 중심좌표.
-	level: 9 //지도의 레벨(확대, 축소 정도)
+	level: 10 //지도의 레벨(확대, 축소 정도)
 };
 
 var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
@@ -505,26 +497,58 @@ for (var i = 0; i < positions.length; i ++) {
 	}
 }
 
+//var polyline = new kakao.maps.Polyline({
+//	map: map, // 선을 표시할 지도 객체
+//	endArrow: true, // 선의 끝을 화살표로 표시되도록 설정한다
+//	strokeWeight: 4, // 선의 두께
+//	strokeColor: 'green', // 선 색
+//	strokeOpacity: 0.9, // 선 투명도
+//	strokeStyle: 'solid' // 선 스타일
+//});
+
 	
-function makePoly(psArray) {
+function makePoly(ps) {
 	var pa = new Array();
-	for (var i = 0; i < psArray.length; i++) {
-		pa.push(positions[psArray[i]].latlng);
+	for (var i = 0; i < ps.length; i++) {
+		pa.push(positions[ps[i]].latlng);
 	}
 	
-	var polyline1 = new kakao.maps.Polyline({
-		map: map, // 선을 표시할 지도 객체 
-		path: pa,
+	var polyline = new kakao.maps.Polyline({
+		map: map, // 선을 표시할 지도 객체
+		path:pa,
 		endArrow: true, // 선의 끝을 화살표로 표시되도록 설정한다
 		strokeWeight: 4, // 선의 두께
 		strokeColor: 'green', // 선 색
 		strokeOpacity: 0.9, // 선 투명도
 		strokeStyle: 'solid' // 선 스타일
 	});
+	
 }
 	
-
-	
+//function uptPoly() {
+//	polyline.setMap(null);
+//	
+//	var uptPath = new Array();
+//	$(".mkp-city-info").each(function() {
+//		uptPath.push($(this).prop("title"));
+//	});
+//	
+//	var setPoly = new Array();
+//	for (var i = 0; i < uptPath.length; i++) {
+//		setPoly.push(positions[uptPath[i]].latLng);
+//	}
+//	
+//	var polyline2 = new kakao.maps.Polyline({
+//		map: map, // 선을 표시할 지도 객체,
+//		path: setPoly,
+//		endArrow: true, // 선의 끝을 화살표로 표시되도록 설정한다
+//		strokeWeight: 4, // 선의 두께
+//		strokeColor: 'green', // 선 색
+//		strokeOpacity: 0.9, // 선 투명도
+//		strokeStyle: 'solid' // 선 스타일
+//	});
+//}
+//	
 	
 	
 ///////////////////////////////////////////카카오맵//////////////////////////////////////

@@ -119,7 +119,6 @@ public class PlannerController {
 			}
 			pList.add(vo);
 		}
-		System.out.println("?????????????????");
 		
 		for (PlannerVO plannerVO : pList) {
 			System.out.println(plannerVO);
