@@ -210,9 +210,6 @@ function addTsel() {
          $("#c"+i).prev().remove();
          $("#c"+i).before(ti);
       }
-//      else if(!$("#c"+i).prev().hasClass("mkp-trans-info")){
-//    	  $("#c"+i).before(ti);  
-//      }
    }
 }
 
