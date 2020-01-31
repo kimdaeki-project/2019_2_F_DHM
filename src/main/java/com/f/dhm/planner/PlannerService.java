@@ -21,12 +21,23 @@ public class PlannerService {
 	@Autowired
 	private PlannerRepository repository;
 
-	public List<PlannerVO> plannerSelect(PlannerVO plannerVO) throws Exception {
+	
+	//hyehyeon
+	public List<PlannerVO> plannerSelect(PlannerVO plannerVO, HttpSession session) throws Exception {
 
-		return repository.findById("a@a.com");
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		
+		return repository.findById(memberVO.getId());
 	}
 
+	public List<PlannerVO> plannerList(PlannerVO plannerVO, HttpSession session) throws Exception {
+
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		
+		return repository.plannerList(memberVO.getId());
+	}
 	
+	/////////////////////////////////////////////////
 	public void bakTotal(PlannerVO plannerVO) throws Exception{
 	  
 	  
@@ -48,6 +59,7 @@ public class PlannerService {
 	
 	public int saveList(List<PlannerVO> list) throws Exception{
 		list = repository.saveAll(list);
+		
 		return list.get(0).getPlNum();
 	}
 	

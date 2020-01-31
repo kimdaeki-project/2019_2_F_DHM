@@ -1,5 +1,7 @@
 package com.f.dhm.wishlist;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,16 +18,11 @@ public class WishService {
 
 	@Autowired
 	private WishRepository repository;
-	@Autowired
-	private PlannerService pService;
-	
-	
-	public void wishAdd(WishVO wishVO) throws Exception{
+
+	public void wishAdd(List<WishVO> wishlist) throws Exception{
 		 
-		
-		 repository.save(wishVO);
-		 boolean check = repository.existsById(wishVO.getNum());
-		 
+		 repository.saveAll(wishlist);
+		 boolean check = repository.existsById(wishlist.get(0).getNum());
 		 System.out.println("test"+check);
 	}
 	

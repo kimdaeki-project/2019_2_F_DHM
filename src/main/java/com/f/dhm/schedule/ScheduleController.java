@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.f.dhm.Member.MemberVO;
 import com.f.dhm.planner.PlannerService;
 import com.f.dhm.planner.PlannerVO;
 import com.f.dhm.schedule.test.Item;
@@ -51,13 +52,16 @@ public class ScheduleController {
 	}
 	
 	@GetMapping("schedulePage")
-	public ModelAndView plannerPage( PlannerVO plannerVO, ScheduleVO scheduleVO) throws Exception{
+	public ModelAndView plannerPage( PlannerVO plannerVO, ScheduleVO scheduleVO,HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		List<PlannerVO> plannerList= plannerService.plannerSelect(plannerVO);
+		
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		
+		List<PlannerVO> plannerList= plannerService.plannerSelect(plannerVO,session);
 		List<ScheduleVO> ar = scheduleService.scheduleList();
 
 		Date deDate = plannerList.get(0).getDeDate();
-	//scheduleService.findDay(deDate);
+		//scheduleService.findDay(deDate);
 		//Items ar2=xmlService.parseTour();
 		Items ar2=xmlService.searchTour(1, 39, "P", 1);;
 		

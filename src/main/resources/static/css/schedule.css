@@ -521,3 +521,98 @@ a:hover{
 .wish-active{
 	color: #ee685a;
 }
+.mp-title{
+	padding-left: 20px;
+	font-size: 18pt;
+	font-weight: 400;
+	color: #696969;
+}
+.mp-li{
+	background: rgb(245,245,245);
+	flex-basis: 22.5%;
+	float: left;
+}
+.mp-li-wrap{
+	margin-bottom: 20px;
+	position: relative;
+	padding: 0px;
+}
+
+.mp-card{
+	background: #fff;
+	border: 1px solid #efefef;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+}
+
+.mp-p{
+	
+}
+.mp-p img{
+	
+	border: 1px solid #efefef;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	width: 100%;
+}
+.mp-info{
+	position:absolute;
+	left:10px;
+	top:10px;
+	font-size:9pt;
+	line-height:190%;
+	padding-left:6px;
+	padding-right:6px;
+	font-weight:500;
+	background:#3ad195;
+	display:inline-block;
+	border-radius:3px;
+}
+.mp-f div{
+	position:absolute;
+	color:#696969;
+}
+.mp-f{
+	position: relative;
+	height: 65px;
+	z-index: 10;
+}
+.mp-f1{
+	top:5px;
+	right:10px;
+	padding-top:3px;
+	font-size:12pt;
+	font-weight:300;
+	color:#696969;	
+}
+
+.mp-f2{
+	top:5px;
+	left:10px;
+	padding-top:3px;
+	font-size:12pt;
+	font-weight:300;
+}
+.mp-f3{
+
+	top:38px;
+	left:10px;
+	padding-top:0px;
+	font-size:10pt;
+	font-weight:500;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

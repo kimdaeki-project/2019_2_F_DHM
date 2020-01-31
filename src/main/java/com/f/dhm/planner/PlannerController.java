@@ -1,6 +1,8 @@
 package com.f.dhm.planner;
 
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -40,6 +42,34 @@ public class PlannerController {
 		return mv;
 	}
 	
+	//혜현
+	@GetMapping("myPlanner")
+	public ModelAndView myPlanner(PlannerVO plannerVO, HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		
+		List<PlannerVO> ar = service.plannerList(plannerVO, session);
+		
+		int days= 0;
+		
+		for (int j = 0; j < ar.size(); j++) {
+			
+			for(int i=0; i<ar.size();i++) {
+				
+				days =+ ar.get(i).getBak();
+			}
+			plannerVO.setDays(days);
+			System.out.println("갖으아ㅏㅏㅏ:"+plannerVO.getDays());
+		}
+	
+		
+	
+		mv.addObject("list", ar);
+		
+		mv.setViewName("planner/myPlanner");
+		
+		return mv;
+	}
 	
 	@GetMapping("addPlanner")
 	public ModelAndView addSch(String cityName, String startDate, String endDate, String count,String arCode,String index) throws Exception {
@@ -137,6 +167,7 @@ public class PlannerController {
 		//////////////////////////////////////////
 		
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		List<WishVO> wishlist = new ArrayList<WishVO>();
 		
 		id= memberVO.getId();
 		System.out.println("zzzzzzz:"+titleA.length);
@@ -147,9 +178,10 @@ public class PlannerController {
 			wishVO.setAddr1(addr1[i]);
 			wishVO.setPlNum(plNum);
 			wishVO.setArCode(arCode[i]);
-			wishService.wishAdd(wishVO);
+			wishlist.add(wishVO); 
 			System.out.println("addr"+addr1[i]);
 		}
+		wishService.wishAdd(wishlist);
 		
 		return pList.get(0).getPlNum();
 	}

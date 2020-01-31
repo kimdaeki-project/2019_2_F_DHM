@@ -20,4 +20,9 @@ public interface PlannerRepository extends JpaRepository<PlannerVO, Integer>{
 	
 	List<PlannerVO> findAllByOrderByPlStepDesc();
 
+	@Query("select distinct (select max(arDate) from PlannerVO where plNum=?1)-(select min(deDate) from PlannerVO where plNum=?1) from PlannerVO")
+	int days(int plNum) throws Exception;
+	
+	@Query("select p.plNum,p.id,p.type,p.people,p.title from PlannerVO p where p.id=?1 group by p.plNum, p.id, p.type, p.people,p.title order by p.plNum;")
+	List<PlannerVO> plannerList(String id) throws Exception;
 }
