@@ -34,7 +34,7 @@
 		<div class="main-container">
 			
 			<div >
-				<h3 class="contents-title">${plannerTitle}</h3>
+				<h3 class="contents-title">${planner["0"].title}</h3>
 				
 			</div>
 			<div class="main-contents">
@@ -43,42 +43,42 @@
 						<div class="map-peopleType">
 							<div class="swiper-before">
 								<div class="map-header">
-									<c:if test="${plannerType eq '남자끼리'}">
+									<c:if test="${type eq '남자끼리'}">
 										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_2_2.png">
 									</c:if>
-									<c:if test="${plannerType eq '여자끼리'}">
+									<c:if test="${type eq '여자끼리'}">
 										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_2_1.png">
 									</c:if>
-									<c:if test="${plannerType eq '여자혼자'}">
+									<c:if test="${type eq '여자혼자'}">
 										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_1_1.png">
 									</c:if>
-									<c:if test="${plannerType eq '남자혼자'}">
+									<c:if test="${type eq '남자혼자'}">
 										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_1_2.png">
 									</c:if>
-									<c:if test="${plannerType eq '커플/신혼'}">
+									<c:if test="${type eq '커플/신혼'}">
 										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_1_3.png">
 									</c:if>
-									<c:if test="${plannerType eq '부모님과'}">
+									<c:if test="${type eq '부모님과'}">
 										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_3_2.png">
 									</c:if>
-									<c:if test="${plannerType eq '아이들과'}">
+									<c:if test="${type eq '아이들과'}">
 										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_3_1.png">
 									</c:if>
-									<c:if test="${plannerType eq '부모님끼리'}">
+									<c:if test="${type eq '부모님끼리'}">
 										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_3_3.png">
 									</c:if>
-									<c:if test="${plannerType eq '남녀함께'}">
+									<c:if test="${type eq '남녀함께'}">
 										<img id="peopleTypeimg" src="//www.stubbyplanner.com/img_v14/tripwith/TW_2_3.png">
 									</c:if>
 								</div>
-								<div class="map-body">${plannerType}</div>
+								<div class="map-body">${planner["0"].type}</div>
 							</div>
 							<div class="swiper-modal swiper">
 								<div class="modal-head" style="text-align: center; padding-top: 20px;">
 									<font style="color: white; font-size: 13pt; font-weight: 700;">누구와 함께하는 여행인가요?</font>
 								</div>
 								<div style="padding-bottom: 15px;">
-									<div style="float: left; width: 33%;" onclick="type('여자혼자',${plNum})" class="typediv">
+									<div style="float: left; width: 33%;" onclick="type('여자혼자')" class="typediv">
 										<a >
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_1_1_w.png" width="100%">
 										</a>
@@ -88,7 +88,7 @@
 									</div>
 									
 									
-									<div style="float: left; width: 33%;" onclick="type('남자혼자',${plNum})" class="typediv">
+									<div style="float: left; width: 33%;" onclick="type('남자혼자')" class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_1_2_w.png" width="100%">
 										</a>
@@ -97,7 +97,7 @@
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;" onclick="type('커플/신혼',${plNum})" class="typediv">
+									<div style="float: left; width: 33%;" onclick="type('커플/신혼')" class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_1_3_w.png" width="100%">
 										</a>
@@ -106,7 +106,7 @@
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;" onclick="type('여자끼리',${plNum})"class="typediv">
+									<div style="float: left; width: 33%;" onclick="type('여자끼리')"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_2_1_w.png" width="100%">
 										</a>
@@ -115,7 +115,7 @@
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;" onclick="type('남자끼리',${plNum})"class="typediv">
+									<div style="float: left; width: 33%;" onclick="type('남자끼리')"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_2_2_w.png" width="100%">
 										</a>
@@ -124,7 +124,7 @@
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;" onclick="type('남녀함께',${plNum})"class="typediv">
+									<div style="float: left; width: 33%;" onclick="type('남녀함께')"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_2_3_w.png" width="100%">
 										</a>
@@ -133,7 +133,7 @@
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;" onclick="type('아이들과',${plNum})"class="typediv">
+									<div style="float: left; width: 33%;" onclick="type('아이들과')"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_3_1_w.png" width="100%">
 										</a>
@@ -142,7 +142,7 @@
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;" onclick="type('부모님과',${plNum})"class="typediv">
+									<div style="float: left; width: 33%;" onclick="type('부모님과')"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_3_2_w.png" width="100%">
 										</a>
@@ -151,7 +151,7 @@
 										</div>
 									</div>
 									
-									<div style="float: left; width: 33%;" onclick="type('부모님끼리',${plNum})"class="typediv">
+									<div style="float: left; width: 33%;" onclick="type('부모님끼리')"class="typediv">
 										<a>
 											<img src="https://www.stubbyplanner.com/img_v14/tripwith/TW_3_3_w.png" width="100%">
 										</a>
@@ -182,7 +182,7 @@
 						</div>
 						<div class="map-date">
 							<div class="map-header"></div>
-							<div class="map-body">${days}일간</div>
+							<div class="map-body">3일간</div>
 							
 						</div>
 					</div>
@@ -438,24 +438,78 @@
 					<div class="tourlist">
 						<div class="swiper-container swiper-container2">
 							<div class="swiper-wrapper">
-								<c:forEach items="${wishlist}" var="vo">
+								
 									<div class="swiper-slide" style="width: 170px;">
 										<div class="card">
-										
-										  <div class="tour-img">
-												<img src="${vo.firstimage}">
+										<a>
+											<div class="tour-img">
+												<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
 													<div class="tour-name">
-														<font>${vo.title}</font>
+														<font>대구 이월드</font>
 													</div>
-										  </div>
-										<a data-toggle="modal" data-target="#myModal">
+											</div>
+										</a>
+										<a>
 											<div class="tour-add">
 												<font><i class="fa fa-plus"></i>일정추가</font>
 											</div>
 										</a>
 										</div>
 									</div>
-								</c:forEach>
+									
+									<div class="swiper-slide">
+										<div class="card">
+										<a>
+										<div class="tour-img">
+											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
+												<div class="tour-name">
+													<font>대구 이월드</font>
+												</div>
+											</div>
+										</a>
+										<a>
+											<div class="tour-add">
+												<font><i class="fa fa-plus"></i>일정추가</font>
+											</div>
+										</a>
+										</div>
+									</div>
+									
+									<div class="swiper-slide">
+										<div class="card">									
+										<a>
+										<div class="tour-img">
+											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
+												<div class="tour-name">
+													<font>대구 이월드</font>
+												</div>
+											</div>
+										</a>
+										<a>
+											<div class="tour-add">
+												<font><i class="fa fa-plus"></i>일정추가</font>
+											</div>
+										</a>
+										</div>
+									</div>
+									
+									<div class="swiper-slide">
+										<div class="card">
+										<a>
+										<div class="tour-img">
+											<img src="https://d3b39vpyptsv01.cloudfront.net/photo/1/2/04e4c4fef731b38e2ef134bafcc38bdc_m.jpg">
+												<div class="tour-name">
+													<font>대구 이월드</font>
+												</div>
+											</div>
+										</a>
+										<a>
+											<div class="tour-add">
+												<font><i class="fa fa-plus"></i>일정추가</font>
+											</div>
+										</a>
+										</div>
+									</div>
 							</div>
 						</div>
 					</div>
@@ -546,60 +600,41 @@
 		
 	</div>
 	
-	<div id="myModal" class="modal fade" role="dialog">
-  		<div class="modal-dialog">
-		<div class="m-wrapper"></div>
-		<div class="m-box">
-			<div style="width: 600px; clear:both;display: inline-block; ">
-				<div>
-					
-					여행 일정 추가하기
-					
-					<div>
-					일정표에 추가 할 날짜/시간	
+	<div class="swiper-container" >
+		<ul class="swiper-wrapper nolist" style="height: 200px; clear: both;">
+			<c:forEach items="${food }" var="fo">
+				<li class="swiper-slide" >
+					<div style="height: 200px;"> 
+						<div>${fo.title }</div>
+						<div><img alt="여행사진" src="${fo.firstimage }" width="100px" height="100px"></div>
+						<div>${fo.addr1 }</div>	 
 					</div>
-					<div style="float:left; width: 70%;">
-						<select class="form-control" style="height: 30pt; font-size: 12pt; font-weight: 600;">
-							<c:forEach items="${ planner}" var="vo">
-								<option>${vo.region}</option>
-							</c:forEach>
-						</select>
-					</div>
-					<div style="float:left; width: 30%;">
-						<select class="form-control" style="height: 30pt; font-size: 12pt; font-weight: 600;">
-							<option>0~9시</option>
-							<option>9시</option>
-							<option>10시</option>
-							<option>11시</option>
-							<option>12시</option>
-							<option>13시</option>
-							<option>14시</option>
-							<option>15시</option>
-							<option>16시</option>
-							<option>17시</option>
-							<option>18시</option>
-							<option>19시</option>
-							<option>20시</option>
-						</select>
-					</div>
-					<div style="margin-top: 30px; width: 100%;">
-						<a style=" width: 100%; background:#3ad195;border-radius:5px;border:0px solid #c0c0c0;color:#fff;">일정표에 추가</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		</div>
+				</li>
+			</c:forEach>
+		</ul>
+		   <!-- Add Pagination -->
+   		 <div class="swiper-pagination"></div>	
 	</div>
 
 	<script type="text/javascript">
 
 
+
+		/* 
+		$(function() {
+		    $( "#testDatepicker" ).datepicker({
+		    });
+		});
+
+ */
 	
+
+/* 	
 		function tour() {
 			
 			 $.ajax({
 			 	type: "GET",
-			 	url:"./addSC",
+			 	url:"./tour",
 			 	data:{
 			 			title:response.title,
 			 			firstimage: response.firstimage
@@ -615,20 +650,19 @@
 				  		location.href="../";
 				}	
 			 });  
-		}  
+		}  */
 
 		/* type 바꾸기 */
-		function type(type,plNum){
+		function type(type){
 	
 			$.ajax({
 				type:"GET",
 				url:"./type",
 				data:{
-					type:type,
-					plNum:plNum
+					type:type
 				},
 				success:function(result){
-					
+					alert(type);
 				},
 			});
 			location.reload();

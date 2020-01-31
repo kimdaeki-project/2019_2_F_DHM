@@ -31,7 +31,7 @@
 					<div class="nav_menu">
 						<ul class="nav_menu_ul">
 							<li class="nav_menu_li"><a href="">홈</a></li>
-							<li class="nav_menu_li"><a href="${pageContext.request.contextPath}/planner/myPlanner">플래너</a></li>
+							<li class="nav_menu_li"><a href="">플래너</a></li>
 							<li class="nav_menu_li"><a href="">탐색</a></li>
 							<li class="nav_menu_li nav_menu_li_active"><a href="">유럽투어</a></li>
 							<li class="nav_menu_li"><a href="">숙소</a></li>

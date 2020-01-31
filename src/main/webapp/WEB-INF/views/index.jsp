@@ -31,7 +31,6 @@
 	<a href="${pageContext.request.contextPath}/member/memberFacebookLogin"><button>페이스북 로그인</button></a>
 	</c:if>
 	<a href="${pageContext.request.contextPath}/planner/makePlanner"><button>플래너만들기</button></a>
-	<a href="${pageContext.request.contextPath}/planner/myPlanner"><button>내 플래너</button></a>
 </div>
 	
 <div class="container" style="height: 100px;"></div>
