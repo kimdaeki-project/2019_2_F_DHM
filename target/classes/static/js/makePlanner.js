@@ -65,6 +65,19 @@ $(".mkp-city-list").on("click",".ifm-closer", function() {
 
 $(".mkp-city-list").on("click",".city-del", function() {
    if (confirm("일정을 취소하시겠습니까?")) {
+	   
+	   var chn = $(this).parent().parent().parent().prop("id").substr(1);
+	   
+	   $(".city-selOne").each(function() {
+		   if (chn == $(this).text().trim()) {
+			var ctx = '&nbsp;'+$(this).val()+'&nbsp;';
+			$(this).html(ctx);
+			$(this).css("background-color","#3ad195");
+			$(this).prop("name","");
+		}
+	});
+	   
+	   
       $(this).parent().parent().parent().parent().remove();
       var ti = $(".mkp-trans-info-ex").html();
       ti = '<div class="mkp-trans-info">'+ti+'</div>';
@@ -75,7 +88,9 @@ $(".mkp-city-list").on("click",".city-del", function() {
             $("#c"+i).before(ti);
          }
       }
+      
       uptPoly();
+      setNumber();
    }
    
 });
@@ -104,6 +119,7 @@ $(".mkp-right").on("click",".city-selOne", function() {
 
 /////////도시추가 스크립트
 var count = 1;
+var totalBak = 1;
 var pIndex = new Array(); //위도경도 인덱스 배열
 
 $(".mkp-right").on("click",".mkp-ajax", function() {
@@ -120,6 +136,7 @@ $(".mkp-right").on("click",".mkp-ajax", function() {
 		var arCode = $(this).parents().next().val();
 		pIndex.push($(this).parents().next().prop("title"));
 		var index = $(this).parents().next().prop("title");
+		
 		
 		$.ajax({
 			type : "GET",
@@ -139,6 +156,8 @@ $(".mkp-right").on("click",".mkp-ajax", function() {
 				uptDate();
 				makePoly(pIndex);
 				$(".city-btn-info-sel").slideUp("fast");
+				setNumber();
+				totalBak++;
 			}
 		});
 	}
@@ -147,6 +166,7 @@ $(".mkp-right").on("click",".mkp-ajax", function() {
 
 
 function uptDate() {
+	totalBak = 1;
 	var setDay = new Date(today);
 	var setDay2 = new Date(today).toISOString().substr(0, 10).replace('T', ' ');
 	for (var i = 1; i < count; i++) {
@@ -155,13 +175,14 @@ function uptDate() {
 		if ($("#c"+i+"  .nights-day").text() == "무") {
 			bak = 0;
 		}
+		totalBak+=bak;
 		setDay.setDate(setDay.getDate()+bak);
 		var calDay = new Date(setDay).toISOString().substr(0, 10).replace('T', ' ');
 		$("#c"+i+" .eDate").text(calDay);
 		setDay2 = calDay;
 	}
 	
-
+	$("#totalBak").text(totalBak+"일");
 }
 
 
@@ -192,6 +213,7 @@ $(function() {
 		stop : function() {
 				addTsel();
 				uptPoly();
+				setNumber();
 		}
 	});
 });
@@ -206,14 +228,34 @@ function addTsel() {
    for (var i = 1; i < count; i++) {
       if (i == 1 ) {
          $("#c"+i).prev().remove();
-      }else if(i = 2){
+      }else if(i == 2){
          $("#c"+i).prev().remove();
          $("#c"+i).before(ti);
-      }
+      }else if (i > 2) {
+		if (!$("#c"+i).prev().hasClass("mkp-trans-info")) {
+			$("#c"+i).before(ti);	
+		}
+	}
    }
 }
 
 
+function setNumber() {
+	var cn = 1;
+	$(".city-sel-name").each(function() {
+		var comp = $(this).text();
+		$(".city-selOne").each(function() {
+			if ($(this).val()==comp) {
+				var ct = '<font style="font-size:18px; font-weigth:bolder;">&nbsp;'+cn+
+				'&nbsp;</font>';
+				$(this).html(ct);
+				cn++;
+				$(this).prop("name",7);
+				$(this).css("background-color","red");
+			}
+		});
+	});
+}
 
 
 
@@ -246,11 +288,21 @@ function saveSch(t, f, a, c) {
 
 
 function openComplete() {
-   $(".mkp-complete").slideDown("fast");
+	if (count > 1) {		
+		$(".mkp-complete").slideDown("fast");
+		$(".city-selOne").each(function() {
+			if ($(this).prop("name")=="") {
+				$(this).parent().css("visibility","hidden");
+			}
+		});
+	}else{
+		alert("일정을 추가해주세염!");
+	}
 }
 
 function closeComplete() {
    $(".mkp-complete").slideUp("fast");
+   $(".city-btn").css("visibility","visible");
 }
 
 var deDate = new Array();
@@ -275,13 +327,11 @@ $(".mkp-clp-btn").click(function() {
       var type=$("#tripwith_txt").text();
       var people=$("#mkp-people").val();
       for (var i = 0; i < count-1; i++) {
-         console.log($(".sDate")[i].innerText);
          deDate.push($(".sDate")[i].innerText);
          arDate.push($(".eDate")[i].innerText);
          bak.push($(".nights-day")[i].innerText);
          region.push($(".city-sel-name")[i].innerText);
          if (i < count-2) {
-            console.log($(".mkp-trans-chos")[i].innerText.trim());
             transfer.push($(".mkp-trans-chos")[i].innerText.trim());
          }
       }
@@ -317,8 +367,8 @@ $(".mkp-clp-btn").click(function() {
 
 var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 var options = { //지도를 생성할 때 필요한 기본 옵션
-	center: new kakao.maps.LatLng(37.47957447150438, 127.25796704920329), //지도의 중심좌표.
-	level: 10 //지도의 레벨(확대, 축소 정도)
+	center: new kakao.maps.LatLng(36.87626088968973, 128.03188682724283), //지도의 중심좌표.
+	level: 13 //지도의 레벨(확대, 축소 정도)
 };
 
 var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
@@ -332,81 +382,81 @@ map.addControl(control, kakao.maps.ControlPosition.TOPRIGHT);
 
 var content = [
    {
-      city : '<div class="city-btn"><button value="서울" class="city-selOne">서울</button><div class="city-btn-info"><img src="../city/seoul.jpg" class="city-btn-img"><br><span class="city-btn-p1"><img alt="태극기" src="../city/flag.gif"> 서울</span><br><br><span class="city-btn-p2">대한민국 수도</span><br><button class="mkp-ajax">+</button></div><input type="hidden" value="1" title="0"></div>'
+      city : '<div class="city-btn"><button value="서울" class="city-selOne">&nbsp;서울&nbsp;</button><div class="city-btn-info"><img src="../city/seoul.jpg" class="city-btn-img"><br><span class="city-btn-p1"><img alt="태극기" src="../city/flag.gif"> 서울</span><br><br><span class="city-btn-p2">대한민국 수도</span><br><button class="mkp-ajax">+</button></div><input type="hidden" value="1" title="0"></div>'
    },
    {
-      city : '<div class="city-btn"><button value="인천" class="city-selOne">인천</button><div class="city-btn-info"><img src="../city/incheon.jpg" class="city-btn-img"><br><span class="city-btn-p1"><img alt="태극기" src="../city/flag.gif"> 인천</span><br><br><span class="city-btn-p2">인천 국제공항, 월미도</span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="2" title="1"></div>'
+      city : '<div class="city-btn"><button value="인천" class="city-selOne">&nbsp;인천&nbsp;</button><div class="city-btn-info"><img src="../city/incheon.jpg" class="city-btn-img"><br><span class="city-btn-p1"><img alt="태극기" src="../city/flag.gif"> 인천</span><br><br><span class="city-btn-p2">인천 국제공항, 월미도</span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="2" title="1"></div>'
    },
    {
-      city : '<div class="city-btn"><button value="대전" class="city-selOne">대전</button><div class="city-btn-info"><img src="../city/dageon.jpg" class="city-btn-img"><br><span class="city-btn-p1"><img alt="태극기" src="../city/flag.gif"> 대전</span><br><br><span class="city-btn-p2">엑스포의 도시 </span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="3" title="2"></div>'
+      city : '<div class="city-btn"><button value="대전" class="city-selOne">&nbsp;대전&nbsp;</button><div class="city-btn-info"><img src="../city/dageon.jpg" class="city-btn-img"><br><span class="city-btn-p1"><img alt="태극기" src="../city/flag.gif"> 대전</span><br><br><span class="city-btn-p2">엑스포의 도시 </span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="3" title="2"></div>'
    },
    {
-      city : '<div class="city-btn"><button value="대구" class="city-selOne">대구</button><div class="city-btn-info"><img src="../city/daegu.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
+      city : '<div class="city-btn"><button value="대구" class="city-selOne">&nbsp;대구&nbsp;</button><div class="city-btn-info"><img src="../city/daegu.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
          +'<img alt="태극기" src="../city/flag.gif"> 대구</span><br><br><span class="city-btn-p2">'
          +'영남의 중심지</span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="4" title="3"></div>'
    },
    {
-      city : '<div class="city-btn"><button value="광주" class="city-selOne">광주</button><div class="city-btn-info"><img src="../city/gwangju.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
+      city : '<div class="city-btn"><button value="광주" class="city-selOne">&nbsp;광주&nbsp;</button><div class="city-btn-info"><img src="../city/gwangju.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
          +'<img alt="태극기" src="../city/flag.gif"> 광주</span><br><br><span class="city-btn-p2">'
          +'대표적인 관광지 무등산</span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="5" title="4"></div>'
    },
    {
-      city : '<div class="city-btn"><button value="부산" class="city-selOne">부산</button><div class="city-btn-info"><img src="../city/busan.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
+      city : '<div class="city-btn"><button value="부산" class="city-selOne">&nbsp;부산&nbsp;</button><div class="city-btn-info"><img src="../city/busan.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
          +'<img alt="태극기" src="../city/flag.gif"> 부산</span><br><br><span class="city-btn-p2">'
          +'대한민국 제일의 항구</span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="6" title="5"></div>'
    },
    {
-      city : '<div class="city-btn"><button value="울산" class="city-selOne">울산</button><div class="city-btn-info"><img src="../city/ulsan.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
+      city : '<div class="city-btn"><button value="울산" class="city-selOne">&nbsp;울산&nbsp;</button><div class="city-btn-info"><img src="../city/ulsan.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
          +'<img alt="태극기" src="../city/flag.gif"> 울산</span><br><br><span class="city-btn-p2">'
          +'울산 대게</span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="7" title="6"></div>'
    },
    {
-      city : '<div class="city-btn"><button value="세종" class="city-selOne">세종</button><div class="city-btn-info"><img src="../city/sejong.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
+      city : '<div class="city-btn"><button value="세종시" class="city-selOne">&nbsp;세종&nbsp;</button><div class="city-btn-info"><img src="../city/sejong.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
          +'<img alt="태극기" src="../city/flag.gif"> 세종시</span><br><br><span class="city-btn-p2">'
          +'Korea\'s Administration city</span><br> <button class="mkp-ajax">+</button></div><input type="hidden" title="7" value="8"></div>'
    },
    {
-      city : '<div class="city-btn"><button value="경기도" class="city-selOne">경기도</button><div class="city-btn-info"><img src="../city/suwon.png" class="city-btn-img"><br><span class="city-btn-p1">'
+      city : '<div class="city-btn"><button value="경기도" class="city-selOne">&nbsp;경기도&nbsp;</button><div class="city-btn-info"><img src="../city/suwon.png" class="city-btn-img"><br><span class="city-btn-p1">'
          +'<img alt="태극기" src="../city/flag.gif"> 경기도</span><br><br><span class="city-btn-p2" style="font-size:10px;">'
          +'지하철에서 인생 20% 보내는 도민</span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="31" title="8"></div>'
    },
    {
-      city : '<div class="city-btn"><button value="강원도" class="city-selOne">강원도</button><div class="city-btn-info"><img src="../city/gangwon.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
+      city : '<div class="city-btn"><button value="강원도" class="city-selOne">&nbsp;강원도&nbsp;</button><div class="city-btn-info"><img src="../city/gangwon.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
          +'<img alt="태극기" src="../city/flag.gif"> 강원도</span><br><br><span class="city-btn-p2">'
          +'아이폰 감자 2박스에 삽니다 </span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="32" title="9"></div>'
    },
    {
-      city : '<div class="city-btn"><button value="충북" class="city-selOne">충청북도</button><div class="city-btn-info"><img src="../city/cungbuk.jpeg" class="city-btn-img"><br><span class="city-btn-p1">'
+      city : '<div class="city-btn"><button value="충청북도" class="city-selOne">&nbsp;충청북도&nbsp;</button><div class="city-btn-info"><img src="../city/cungbuk.jpeg" class="city-btn-img"><br><span class="city-btn-p1">'
          +'<img alt="태극기" src="../city/flag.gif"> 충청북도</span><br><br><span class="city-btn-p2">'
          +'마법의 단어 뭐여 </span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="33" title="10"></div>'
    },
    {
-      city : '<div class="city-btn"><button value="충남" class="city-selOne">충청남도</button><div class="city-btn-info"><img src="../city/cungnam.PNG" class="city-btn-img"><br><span class="city-btn-p1">'
+      city : '<div class="city-btn"><button value="충청남도" class="city-selOne">&nbsp;충청남도&nbsp;</button><div class="city-btn-info"><img src="../city/cungnam.PNG" class="city-btn-img"><br><span class="city-btn-p1">'
          +'<img alt="태극기" src="../city/flag.gif"> 충청남도</span><br><br><span class="city-btn-p2">'
          +'됐다 그려~ </span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="34" title="11"></div>'
    },
    {
-      city : '<div class="city-btn"><button value="경북" class="city-selOne">경상북도</button><div class="city-btn-info"><img src="../city/gyungju.png" class="city-btn-img"><br><span class="city-btn-p1">'
+      city : '<div class="city-btn"><button value="경상북도" class="city-selOne">&nbsp;경상북도&nbsp;</button><div class="city-btn-info"><img src="../city/gyungju.png" class="city-btn-img"><br><span class="city-btn-p1">'
          +'<img alt="태극기" src="../city/flag.gif"> 경상북도</span><br><br><span class="city-btn-p2">'
          +'첨성대, 불국사 </span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="35" title="12"></div>'
    },
    {
-      city : '<div class="city-btn"><button value="경남" class="city-selOne">경상남도</button><div class="city-btn-info"><img src="../city/gyungnam.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
+      city : '<div class="city-btn"><button value="경상남도" class="city-selOne">&nbsp;경상남도&nbsp;</button><div class="city-btn-info"><img src="../city/gyungnam.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
          +'<img alt="태극기" src="../city/flag.gif"> 경상남도</span><br><br><span class="city-btn-p2">'
          +'이에이승 이에이승 </span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="36" title="13"></div>'
    },
    {
-      city : '<div class="city-btn"><button value="전북" class="city-selOne">전라북도</button><div class="city-btn-info"><img src="../city/jeonbuk.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
+      city : '<div class="city-btn"><button value="전라북도" class="city-selOne">&nbsp;전라북도&nbsp;</button><div class="city-btn-info"><img src="../city/jeonbuk.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
          +'<img alt="태극기" src="../city/flag.gif"> 전라북도</span><br><br><span class="city-btn-p2">'
          +'전주는 비빔밥이 제일 맛없다 </span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="37" title="14"></div>'
    },
    {
-      city : '<div class="city-btn"><button value="전남" class="city-selOne">전라남도</button><div class="city-btn-info"><img src="../city/jeonnam.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
+      city : '<div class="city-btn"><button value="전라남도" class="city-selOne">&nbsp;전라남도&nbsp;</button><div class="city-btn-info"><img src="../city/jeonnam.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
          +'<img alt="태극기" src="../city/flag.gif"> 전라남도</span><br><br><span class="city-btn-p2">'
          +'버즈 - 겁재이 </span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="38" title="15"></div>'
    },
    {
-      city : '<div class="city-btn"><button value="제주도" class="city-selOne">제주도</button><div class="city-btn-info"><img src="../city/jeju.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
+      city : '<div class="city-btn"><button value="제주도" class="city-selOne">&nbsp;제주도&nbsp;</button><div class="city-btn-info"><img src="../city/jeju.jpg" class="city-btn-img"><br><span class="city-btn-p1">'
          +'<img alt="태극기" src="../city/flag.gif"> 제주도</span><br><br><span class="city-btn-p2">'
          +'바람 여자 돌이 많은 삼다도 </span><br> <button class="mkp-ajax">+</button></div><input type="hidden" value="39" title="16"></div>'
    }
@@ -542,21 +592,8 @@ function makePoly(ps) {
 	}
 	if (pa.length>1) {
 		
-//	polyline = new kakao.maps.Polyline({
-//		map: map, // 선을 표시할 지도 객체
-//		path:[
-//			pa[pa.length-2],
-//			pa[pa.length-1]
-//		],
-//		endArrow: true, // 선의 끝을 화살표로 표시되도록 설정한다
-//		strokeWeight: 4, // 선의 두께
-//		strokeColor: 'green', // 선 색
-//		strokeOpacity: 0.9, // 선 투명도
-//		strokeStyle: 'solid' // 선 스타일
-//	});	
 		polyline.setPath(pa);
 	}
-//	polyline.setMap(map);
 }
 	
 var pu;
@@ -577,45 +614,37 @@ function uptPoly() {
 	
 	if (pu.length>1) {
 	
-//		for (var i = 0; i < pu.length-1; i++) {
-//			
-//			polyline = new kakao.maps.Polyline({
-//				map: map, // 선을 표시할 지도 객체
-//				path:[
-//						pu[i],
-//						pu[i+1]
-//					],
-//					endArrow: true, // 선의 끝을 화살표로 표시되도록 설정한다
-//					strokeWeight: 4, // 선의 두께
-//					strokeColor: 'green', // 선 색
-//					strokeOpacity: 0.9, // 선 투명도
-//					strokeStyle: 'solid' // 선 스타일
-//			});
-//		}	
+
 		polyline.setPath(pu);
+	}else if(pu.length==1){
+		
+		polyline.setPath(null);
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function setMapType(maptype) { 
+    var roadmapControl = document.getElementById('btnRoadmap');
+    var skyviewControl = document.getElementById('btnSkyview'); 
+    if (maptype === 'roadmap') {
+        map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);    
+        roadmapControl.className = 'selected_btn';
+        skyviewControl.className = 'btn';
+    } else {
+        map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);    
+        skyviewControl.className = 'selected_btn';
+        roadmapControl.className = 'btn';
+    }
+}
 	
-	
+
+kakao.maps.event.addListener(map, 'tilesloaded', displayMarker);
+
+function displayMarker() {
+    
+    // 마커의 위치를 지도중심으로 설정합니다 
+	map.getCenter(); 
+	setNumber();
+
+}
 	
 ///////////////////////////////////////////카카오맵//////////////////////////////////////
