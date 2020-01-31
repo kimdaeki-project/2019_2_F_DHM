@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 <c:import url="./template/boot.jsp"/>
 <link rel="stylesheet"  href="../css/basic.css">
- <link rel="stylesheet" href="../package/css/swiper.min.css">
+
 
 
 </head>
@@ -136,10 +136,7 @@
 	</div>
 	<div style="height: 100px;">ㄴㅁㅇㄹㅇㅁㄹㄹㄴㅇㅇㄹㄴㅁㅁㄹㅇㄴ</div>
 	
-	 <script src="../package/js/swiper.min.js"></script>
-	 <script>
-    var swiper = new Swiper('.swiper-container');
-  </script>
+	
   
 </body>
 </html>
