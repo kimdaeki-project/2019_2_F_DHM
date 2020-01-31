@@ -22,19 +22,81 @@
 </head>
 <body>
 	
-	<div 
-	style="height: 100px; background-color:#ff9c9c; 
-	width: 100%; height: 54px; position: fixed; top: 0;"></div>
+	<div style="height: 100px; background-color:#ff9c9c; width: 100%; height: 54px; position: fixed; top: 0;"></div>
 
 	<!-- B ->> M ->> S boss grade-->
 	<form action="./memberMypage"  method="POST">
 	<div class="mypagemain"><!-- b boss -->
 		<div class="mypagemain3"><!-- m-1 boss -->
-			<div class="my1" id="my1"></div>
-			<div class="my2" id="my2"></div>
-			<div class="my3" id="my3"></div>
-			<div class="my4" id="my4"></div>
-			<div class="my5" id="my5"></div>
+			<div class="my1" id="my1">
+			
+			</div>
+			
+			<div class="my2" id="my2">
+			
+			</div>
+			
+			<div class="my3" id="my3">
+			
+			</div>
+			
+			<div class="my4" id="my4">
+				<div class="my4-1">
+					<div class="my4-1-1">
+						<div class="my4-1-1-1">
+							<div class="my4-1-1-1-1">자기소개</div>
+						</div>
+						<div class="my4-1-1-2">
+							<div class="my4-1-1-1-2">${member.introduce}</div>
+						</div>
+					</div>
+					<div class="my4-1-2">
+						<div class="my4-1-2-1">
+							<div class="my4-1-2-1-1">현재 체류 지역</div>
+						</div>
+						<div class="my4-1-2-2">
+							<div class="my4-1-2-1-2">${member.live}</div>
+						</div>
+					</div>
+					<div class="my4-1-3">
+						<div class="my4-1-3-1">
+							<div class="my4-1-3-1-1">사용 가능 언어</div>
+						</div>
+						<div class="my4-1-3-2">
+							<div class="my4-1-3-1-2">${member.language}</div>
+						</div>
+					</div>
+					<div class="my4-1-4">
+						<div class="my4-1-4-1">
+							<div class="my4-1-4-1-1">좋아하는 관광지</div>
+						</div>
+						<div class="my4-1-4-2">
+							<div class="my4-1-4-1-2">${member.tour}</div>
+						</div>
+					</div>
+					<div class="my4-1-5">
+						<div class="my4-1-4-1">
+							<div class="my4-1-5-1-1">좋아하는 여행테마</div>
+						</div>
+						<div class="my4-1-4-2">
+							<div class="my4-1-5-1-2">${member.tema}</div>
+						</div>
+					</div>
+					<div class="my4-1-6">
+						<div class="my4-1-6-1">
+								<div class="my4-1-6-1-1">도움을 줄 수 있는 도시</div>
+						</div>
+						<div class="my4-1-6-2">
+							<div class="my4-1-6-1-2">${member.helpcity}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="my5" id="my5">
+			
+			</div>
+			
 		</div><!-- m boss -->
 		
 		<div class="mypagemain2"><!-- m-2 boss -->
@@ -195,17 +257,93 @@
 				<!-- 프로필 관리 창 -->
 
 	</div><!-- b boss -->
-	</form>
-
-	<div class="asdzxc">
-		<div class="asdzxc2"></div>
-	</div>			
 	
 	<div class="container" 
 	style="background-color: white; width: 1903px; height: 50px; 
 	text-align: center; line-height: 50px; font-size: 14px;">
 	© DHM PLANNER 2020
 	</div>
+	
+</form>
+
+	<div class="asdzxc">
+		<div class="asdzxc2">
+			<div class="changeprofile">
+				<div class="changeprofile2">
+					<div class="changeprofile3">프로필 변경</div>
+				</div>	
+			</div>
+			<spring:form action="memberMypage" id="frm3" method="post" modelAttribute="memberVO" >
+				<div class="myintroduce">
+					<input type="hidden" value="${member.id}" name="id">
+					<input type="hidden" value="${member.pw}" name="pw">
+					<input type="hidden" value="${member.name}" name="name">
+					<input type="hidden" value="${member.email}" name="email">
+					<input type="hidden" value="${member.gender}" name="gender">
+					<input type="hidden" value="${member.birth}" name="birth">
+				<div class="myintroduce-0">
+					<div class="myintroduce-1">
+						<div class="myintroduce1-1">자기 소개</div>					
+						<div class="myintroduce1-text">
+							<label for="introduce"></label><spring:input path="introduce" 
+							class="myintroduce1-1-1 myself" id="introduce10" placeholder="간단한 자기 소개 입력해 주시기 바랍니다."/>											
+						</div>
+					</div>
+
+					<div class="myintroduce-2">
+						<div class="myintroduce2-1">현재 체류 지역</div>
+						<div class="myintroduce2-text">
+							<label for=live></label>
+							<spring:input path="live" class="myintroduce2-1-1 myself" id="live10"  placeholder="도시 ,국가를 입력해 주시기 바랍니다."/>
+						</div>
+					</div>
+				</div>
+
+				<div class="myintroduce-0-0">
+					<div class="myintroduce-3">
+						<div class="myintroduce3-1">사용 가능 언어</div>
+						<div class="myintroduce3-text">
+							<label for="language"></label>
+							<spring:input path="language" class="myintroduce3-1-1 myself" id="language10" placeholder="사용 가능한 언어를 입력해 주시기 바랍니다."/>
+						</div>
+					</div>
+
+					<div class="myintroduce-4">
+						<div class="myintroduce4-1">좋아하는 관광지</div>
+						<div class="myintroduce4-text">
+							<label for="tour"></label>
+							<spring:input path="tour" class="myintroduce4-1-1 myself" id="tour" placeholder="좋아하는 관광지를 입력해 주시기 바랍니다."/>
+						</div>
+					</div>
+
+					<div class="myintroduce-5">
+						<div class="myintroduce5-1">좋아하는 여행테마</div>
+						<div class="myintroduce5-text">
+							<label for="tema"></label>
+							<spring:input path="tema" class="myintroduce5-1-1 myself" id="tema10" placeholder="좋아하는 여행 테마를 입력해 주시기 바랍니다."/>
+						</div>
+					</div>
+
+					<div class="myintroduce-6">
+						<div class="myintroduce6-1">도움을 줄 수 있는 도시</div>
+						<div class="myintroduce6-text">
+							<label for="helpcity"></label>
+							<spring:input path="helpcity" class="myintroduce6-1-1 myself" id="helpcity10" placeholder="여행 경험이 있는 도시, 국가를 입력해 주시기 바랍니다."/>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</spring:form>
+			
+			<div class="myintroduce-7">
+				<div class="myintroduce-7-1">변경</div>
+				<div class="myintroduce-7-2">취소</div>
+			</div>
+			
+		</div>
+	</div>			
+	
 
 <script type="text/javascript">
 	//등급 출력 변경
@@ -352,15 +490,22 @@ $('.msgbing4').hide();
 		
 	$(".mypage2-3-2").click(function(){
 		$('.asdzxc').show();
-		$('.asdzxc2').show();
-		});
+		$('.asdzxc2').slideDown();
+	});
 
+	$(".myintroduce-7-2").click(function(){
+		$('.asdzxc').hide();
+		$('.asdzxc2').hide();
+	});     
+		
+//------------------------------------------------------------------------
+//프로필 관리 
 
+$(".myintroduce-7-1").click(function(){
+	
+	document.getElementById('frm3').submit();
 
-
-
-
-
+});
 
 
 
