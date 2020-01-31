@@ -100,15 +100,10 @@
             </div>
          </c:otherwise>
       </c:choose>
-      <div id="totalBak">1일</div>
    </div>
    <div class="map" id="map">
    
    </div>
-   <div class="map-sky-control">
-        <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
-        <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
-    </div>
 
    
 </div>
