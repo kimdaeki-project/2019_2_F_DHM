@@ -23,18 +23,30 @@ public class PlannerService {
 
 	
 	//hyehyeon
-	public List<PlannerVO> plannerSelect(PlannerVO plannerVO, HttpSession session) throws Exception {
+	public List<PlannerVO> plannerSelect(int plNum, HttpSession session) throws Exception {
 
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		
-		return repository.findById(memberVO.getId());
+		return repository.findByIdAndPlNum(memberVO.getId(),plNum);
 	}
 
-	public List<PlannerVO> plannerList(PlannerVO plannerVO, HttpSession session) throws Exception {
+	public String plannerTitle(int plNum) throws Exception{
+		return	repository.plannerTitle(plNum);
+	}
+	
+	public String plannerType(int plNum) throws Exception{
+		return repository.plannerType(plNum);
+	}
+	
+	public List<MyPlannerVO> plannerList(PlannerVO plannerVO, HttpSession session) throws Exception {
 
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		
 		return repository.plannerList(memberVO.getId());
+	}
+	
+	public int days(int plNum) throws Exception{
+		return repository.days(plNum);
 	}
 	
 	/////////////////////////////////////////////////
@@ -44,12 +56,11 @@ public class PlannerService {
 	
 	}
 	 
-	public void typeUpdate(String type, PlannerVO plannerVO, HttpSession session) throws Exception{
+	public void typeUpdate(String type, HttpSession session, int plNum) throws Exception{
 		
-		//plannerVO.setType(type);	
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
-		//@Query(value = "update planner set type=#{type} where id=a@a.com",nativeQuery = true)
-		repository.typeUpdate(type, memberVO.getId());
+	
+		repository.typeUpdate(type,plNum);
 		
 	}
 	public int getPlnum() throws Exception{

@@ -48,24 +48,19 @@ public class PlannerController {
 		ModelAndView mv = new ModelAndView();
 		
 		
-		List<PlannerVO> ar = service.plannerList(plannerVO, session);
+		List<MyPlannerVO> ar = service.plannerList(plannerVO, session);
 		
-		int days= 0;
+		List<Integer> days= new ArrayList<Integer>();
 		
-		for (int j = 0; j < ar.size(); j++) {
-			
-			for(int i=0; i<ar.size();i++) {
-				
-				days =+ ar.get(i).getBak();
-			}
-			plannerVO.setDays(days);
-			System.out.println("갖으아ㅏㅏㅏ:"+plannerVO.getDays());
+
+		
+		for (int i = 0; i < ar.size(); i++) {
+			int d= service.days(ar.get(i).getPlNum());
+			days.add(d);
 		}
 	
-		
-	
 		mv.addObject("list", ar);
-		
+		mv.addObject("days", days);
 		mv.setViewName("planner/myPlanner");
 		
 		return mv;

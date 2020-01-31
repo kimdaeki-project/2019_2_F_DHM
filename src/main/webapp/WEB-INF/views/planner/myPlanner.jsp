@@ -23,12 +23,12 @@
 			<div class="inner-wrap">
 				<div class="container">
 					<h2 class="mp-title">나의 국내여행</h2>
-					<div>
+					<div class="p-wrapper">
 						<div class="swiper-container">
-							<ul class="swiper-wrapper nolist" style="height: 260px;">
-								<c:forEach items="${list}" var="vo">
-									<li class="swiper-slide mp-li" style="height: 250px;">
-									<a>
+							<ul class="swiper-wrapper nolist" style=" clear: both; overflow: hidden;">
+								<c:forEach items="${list}" var="vo" varStatus="i">
+									<li class="swiper-slide mp-li" style="height: 250px; overflow: hidden; float: left;">
+									<a href="../schedule/schedulePage?plNum=${vo.plNum}">
 										<div class="mp-li-wrap">
 											<div class="mp-card">
 												<div class="mp-p">
@@ -36,10 +36,10 @@
 													<div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
 												</div>
 												<div class="mp-f">
-													<div class="mp mp-f1"><%-- ${days}  --%>일간</div>
-													<div>${vo.title}</div>
-													<div class="mp mp-f2"><fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> 출발</div>
-													<div class="mp mp-f3">D-16</div>
+													<div class="mp">${vo.title}</div>
+													<div class="mp-f1"> ${days[i.index]} 일간</div>
+													<div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
+													<div class="mp-f3">D-16</div>
 												</div>
 											</div>
 										
@@ -61,7 +61,7 @@
 </div>
 <script type="text/javascript">
 /* swiper */
-	var swiper = new Swiper('.swiper-container', {
+	/* var swiper = new Swiper('.swiper-container', {
 	   slidesPerView: 5,
 	   spaceBetween: 0,
 	   freeMode: true,
@@ -69,7 +69,16 @@
 	     el: '.swiper-pagination',
 	     clickable: true,
 	   },
-	 });
+	 }); */
+
+	var swiper = new Swiper('.swiper-container', {
+	      slidesPerView: 5,
+	      spaceBetween: 0,
+	      pagination: {
+	        el: '.swiper-pagination',
+	        clickable: true,
+	      },
+	    });
 </script>
 </body>
 </html>

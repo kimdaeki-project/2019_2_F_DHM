@@ -26,4 +26,8 @@ public class WishService {
 		 System.out.println("test"+check);
 	}
 	
+	public List<WishVO> myWish(HttpSession session, int plNum) throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("memberVO");
+		return repository.findByPlNum(plNum);
+	}
 }

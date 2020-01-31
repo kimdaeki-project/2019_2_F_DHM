@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 
 public interface PlannerRepository extends JpaRepository<PlannerVO, Integer>{
@@ -15,14 +14,24 @@ public interface PlannerRepository extends JpaRepository<PlannerVO, Integer>{
 	//PlannerVO save(PlannerVO plannerVO);
 	
 	@Modifying
-	@Query("update PlannerVO p set p.type=?1 where p.id=?2")
-    void typeUpdate(String type, String id)throws Exception;
+	@Query("update PlannerVO p set p.type=?1 where p.plNum=?2")
+    void typeUpdate(String type, int plNum)throws Exception;
 	
 	List<PlannerVO> findAllByOrderByPlStepDesc();
 
-	@Query("select distinct (select max(arDate) from PlannerVO where plNum=?1)-(select min(deDate) from PlannerVO where plNum=?1) from PlannerVO")
+	
+	@Query(nativeQuery = true, value = "select distinct p.plNum,p.id,p.type,p.title from planner p, planner p2 where p.id=? and p.plNum=p2.plNum")
+	List<MyPlannerVO> plannerList(String id) throws Exception;
+
+	List<PlannerVO> findByIdAndPlNum(String id,int plNum);
+	
+	@Query(nativeQuery = true, value = "select distinct title from planner where plNum= ?")
+	String plannerTitle(int plNum) throws Exception;
+	
+	@Query(nativeQuery = true, value = "select distinct type from planner where plNum= ?")
+	String plannerType(int plNum) throws Exception;
+	
+	@Query(nativeQuery = true, value = "select count(bak) from planner where plNum= ?")
 	int days(int plNum) throws Exception;
 	
-	@Query("select p.plNum,p.id,p.type,p.people,p.title from PlannerVO p where p.id=?1 group by p.plNum, p.id, p.type, p.people,p.title order by p.plNum;")
-	List<PlannerVO> plannerList(String id) throws Exception;
 }
