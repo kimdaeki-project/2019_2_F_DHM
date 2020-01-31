@@ -2,6 +2,9 @@ package com.f.dhm.qna;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Transient;
+
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Sort;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +27,7 @@ public interface QnaRepository extends JpaRepository<QnaVO, Integer>{
 	
 	public List<QnaVO> findByRef(int ref)throws Exception;
 	
+	public Page<QnaVO> findByTitleContains(String title, Pageable pageable)throws Exception;
 	
 	
 	

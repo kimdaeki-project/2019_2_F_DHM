@@ -11,7 +11,15 @@
 <body>
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
-		<h3 style="text-align: center;">Qna list</h3>
+		<h3 class="page_title">Qna list</h3>
+		<!-- search -->
+		<form action="./qnaList" method="get" >
+		<img alt="" src="../images/search_icon.png" style="width: 24px; height: 24px; display: inline; float: left; margin:0 5px 5px 5px;" id="icon">
+		<div class="board-search-wrapper">
+			<input type="text" class="board-search-inputText" id="searchingFor" name="searchingFor"><button class="board-search-btn">검색</button>
+		</div>
+		</form>
+		<!-- search -->
 		<div class="section">
 			<table class="board_table">
 				<tr>
@@ -26,7 +34,7 @@
 					<td>${list.num }</td>
 					<td class="board_title">
 						<a href="./qnaSelect?num=${list.num}">
-							<c:if test="${list.depth gt 0 }"><c:forEach begin="0" end="${list.depth-1}">┗</c:forEach></c:if>
+							<c:if test="${list.depth gt 0 }"><c:forEach begin="0" end="${list.depth-1}"><img src="../images/comment.svg"  class="comments"></c:forEach></c:if>
 							${list.title }
 						</a>
 					</td>
@@ -67,6 +75,23 @@ $('#deleteAll').click(function(){
 			location.href="qnaDeleteAll";
 			}
 	}
+});
+
+$('.board-search-btn').click(function(){
+	//ok;
+	var searchingFor=$('#searchingFor').val();
+	if(!searchingFor){
+		alert('검색어를 입력해 주세요');
+		}
+});
+
+$(document).ready(function(){
+	$('.board-search-wrapper').hide();
+});
+
+$('#icon').click(function(){
+	$('.board-search-wrapper').slideToggle();
+	
 })
 </script>
 </body>

@@ -19,8 +19,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.sun.istack.Nullable;
 
 @Controller
 @RequestMapping("/notice/**")
@@ -80,15 +83,11 @@ public class NoticeController {
 	}
 	
 	@GetMapping("noticeList")
-	public ModelAndView noticeList(ModelAndView mv, @PageableDefault (size = 20, sort = {"num"},direction = Direction.DESC,page = 0)Pageable pageable) throws Exception{
-		Page<NoticeVO> noticePage=noticeService.noticeListPage(pageable);
-		System.out.println("--------------noticePage info--------------");
-		System.out.println("noticePage.getNumber() : "+noticePage.getNumber());
-		System.out.println("noticePage.getSize() : "+noticePage.getSize());
-		System.out.println("noticePage.getTotalElements() : "+noticePage.getTotalElements());
-		System.out.println("noticePage.getTotalPages() : "+noticePage.getTotalPages());
-		System.out.println("noticePage.getPageable() : "+noticePage.getPageable());
-		
+	public ModelAndView noticeList(ModelAndView mv, @PageableDefault (size = 20, sort = {"num"},direction = Direction.DESC,page = 0)Pageable pageable,  @RequestParam(name = "searchingFor", defaultValue = "") String searchingFor) throws Exception{
+//		if (searchingFor==null) {
+//			searchingFor="";
+//		}
+		Page<NoticeVO> noticePage=noticeService.noticeListPage(pageable,searchingFor);		
 		mv.addObject("noticePage", noticePage);
 		mv.setViewName("notice/noticeList");
 		return mv;

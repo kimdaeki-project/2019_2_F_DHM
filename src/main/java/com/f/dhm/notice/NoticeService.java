@@ -7,6 +7,8 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
+@Transactional
 public class NoticeService {
 
 	@Autowired
@@ -92,8 +95,8 @@ public class NoticeService {
 		noticeRepository.save(noticeVO);
 	}
 	
-	public Page<NoticeVO> noticeListPage(Pageable pageable)throws Exception{
-		return noticeRepository.findAll(pageable);
+	public Page<NoticeVO> noticeListPage(Pageable pageable,String searchingFor)throws Exception{
+		return noticeRepository.findByTitleContains(searchingFor, pageable);
 	}
 	
 }

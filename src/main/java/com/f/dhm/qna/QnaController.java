@@ -17,10 +17,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.resource.HttpResource;
 
 import com.f.dhm.Member.MemberVO;
+import com.sun.istack.Nullable;
 
 
 @Controller
@@ -67,11 +69,14 @@ public class QnaController {
 	}
 	
 	@GetMapping("qnaList")
-	public ModelAndView qnaList (@PageableDefault(size = 20, page = 0,sort = {"ref"},direction = Direction.DESC)Pageable pageable)throws Exception{
+	public ModelAndView qnaList (@PageableDefault(size = 20, page = 0,sort = {"ref"},direction = Direction.DESC)Pageable pageable, String searchingFor)throws Exception{
+		if(searchingFor==null) {
+			searchingFor="";
+		}
 		ModelAndView mv=new ModelAndView();
-		Page<QnaVO> qnaPage=qnaService.qnaListPage(pageable);
+		Page<QnaVO> qnaPage=qnaService.qnaListPage(pageable,searchingFor);
 		mv.addObject("qnaList", qnaPage);
-		mv.setViewName("qna/qnaList");
+		mv.setViewName("qna/qnaList");		
 		return mv;
 	}
 	

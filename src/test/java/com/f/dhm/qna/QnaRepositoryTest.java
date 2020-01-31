@@ -1,16 +1,20 @@
 package com.f.dhm.qna;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
-
+import javax.validation.constraints.Size;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Sort;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.test.annotation.Rollback;
 
 import com.mysql.cj.x.protobuf.MysqlxCrud.Order.Direction;
 
@@ -22,9 +26,13 @@ class QnaRepositoryTest {
 	
 	@Autowired
 	private QnaService qnaService;
+
+	private String page;
+
+	private String Size;
 	
 	
-	@Test
+	//@Test
 	public void stepupdate()throws Exception{
 		QnaVO qnaVO=new QnaVO();
 		qnaVO.setNum(332);
@@ -51,10 +59,28 @@ class QnaRepositoryTest {
 		qnaRepository.save(qnaVO2);
 	}
 	
+	public Page<QnaVO> getPagePost() {
+	 Page<QnaVO> qnaPage=qnaRepository.findAll(PageRequest.of(0,10));
+
+	 return qnaPage;
+	}
 	
+	//@Test
+	public void pageTest()throws Exception{
+		Page<QnaVO> qnapPage=this.getPagePost();
+		System.out.println("@@@@@@@@@@@@@@@@  test  @@@@@@@@@@@@@@@@");
+		qnapPage.forEach(System.out::println);
+	}
 	
-	
-	
+	@Test
+	@Rollback(false)
+	public void searchWidth() throws Exception{
+		Page<QnaVO> qnaQage=qnaRepository.findByTitleContains("9", PageRequest.of(0, 10));
+		System.out.println("@@@@@@@@@@@@@@@@  test  @@@@@@@@@@@@@@@@");
+		qnaQage.forEach(System.out::println);		
+		
+		assertNotNull(qnaQage);
+	}
 	
 	
 

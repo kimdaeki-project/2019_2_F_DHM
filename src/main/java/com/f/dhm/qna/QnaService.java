@@ -71,7 +71,12 @@ public class QnaService {
 		return qnaVO;
 	}
 	
-	public Page<QnaVO> qnaListPage(Pageable pageable)throws Exception{
-		return qnaRepository.qnalisst(pageable);
+	public Page<QnaVO> qnaListPage(Pageable pageable,String searchingFor)throws Exception{
+		if(searchingFor!=null) {
+			return qnaRepository.findByTitleContains(searchingFor, pageable);
+		}else {
+			
+			return qnaRepository.qnalisst(pageable);
+		}
 	}
 }
