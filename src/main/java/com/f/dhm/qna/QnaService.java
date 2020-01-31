@@ -7,7 +7,11 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import jdk.nashorn.internal.runtime.FindProperty;
 
 @Service
 @Transactional
@@ -16,6 +20,13 @@ public class QnaService {
 	@Autowired
 	private QnaRepository qnaRepository;
 	
+	public void increaseHit(int num) {
+		QnaVO qnaVO=qnaRepository.findById(num).get();
+		int hit=qnaVO.getHit();
+		hit++;
+		qnaVO.setHit(hit);
+		qnaRepository.save(qnaVO);
+	}
 	public void qnaDeleteAll()throws Exception{
 		qnaRepository.deleteAll();
 	}
@@ -31,16 +42,20 @@ public class QnaService {
 		QnaVO qnaVO2=new QnaVO();
 		qnaVO2.setTitle(qnaVO.getTitle());
 		qnaVO2.setContents(qnaVO.getContents());
-		qnaVO2.setWriter(qnaVO.getWriter());
-		
-		//QnaVO qnaVO2=qnaRepository.findById(num).get();
+		qnaVO2.setWriter(qnaVO.getWriter());	
 		qnaVO=qnaRepository.findById(qnaVO.getNum()).get();
-		int depth=qnaVO.getDepth();
-		depth++;
-		qnaVO2.setDepth(depth);
-		System.out.println("test : qnaService.qnaVO.getRef : "+qnaVO.getRef());
-		qnaVO2.setRef(qnaVO.getRef());////////////////////////////////////////////
-		qnaRepository.save(qnaVO2);
+		qnaVO2.setRef(qnaVO.getRef());
+		qnaVO2.setDepth(qnaVO.getDepth()+1);
+		int step=qnaVO.getStep()+1;
+		qnaVO2.setStep(step);
+		List<QnaVO> stepIncreaseList=qnaRepository.findByRef(qnaVO.getRef());
+		for( int i=0;i<stepIncreaseList.size();i++) {
+			if(stepIncreaseList.get(i).getStep()>=step) {
+				stepIncreaseList.get(i).setStep(stepIncreaseList.get(i).getStep()+1);
+			}
+		}
+		qnaRepository.saveAll(stepIncreaseList);		
+		qnaRepository.save(qnaVO2);	
 	}
 	
 	public void qnaWrite(QnaVO qnaVO)throws Exception{
@@ -56,8 +71,12 @@ public class QnaService {
 		return qnaVO;
 	}
 	
-	public List<QnaVO> qnaList()throws Exception{
-		List<QnaVO> qnaList=qnaRepository.findAll();
-		return qnaList;
+	public Page<QnaVO> qnaListPage(Pageable pageable,String searchingFor)throws Exception{
+		if(searchingFor!=null) {
+			return qnaRepository.findByTitleContains(searchingFor, pageable);
+		}else {
+			
+			return qnaRepository.qnalisst(pageable);
+		}
 	}
 }

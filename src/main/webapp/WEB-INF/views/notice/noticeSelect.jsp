@@ -35,6 +35,17 @@
 				<div class="board_select_contents">
 					${noticeVO.contents}
 				</div>
+				<c:if test="${!empty noticeVO.noticeFilesVOs}">
+					<div class="boardSelectFiles">
+						<ul class="boardSelectFiles_ul">
+							<li class="boardSelectFiles_li boardSelectFiles_title">첨부파일</li>
+						<c:forEach items="${noticeVO.noticeFilesVOs}" var="files">
+							<li class="boardSelectFiles_li paddingLeft20px"><a href="#">${files.oname}</a></li>
+						</c:forEach>
+						</ul>
+							 <br>
+					</div>
+				</c:if>
 			</div>
 			
 			
