@@ -25,14 +25,14 @@
 			</div>
 			<div class="form-group">
 				<label for="usr">writer:</label> 
-				<form:input	class="form-control" path="writer"  />
+				<form:input	class="form-control" path="writer"/>
 			</div>
 			<div class="form-group">
 				<label for="usr">contents:</label>
 				 <form:textarea path="contents" class="contents" id="content"/>
 					
 			</div>
-			<form:input path="num" />
+			<form:input path="num" class="displayNone"/>
 			<div class="float_right"><button class="button2">submit</button></div>
 			</form:form>
 			

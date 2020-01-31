@@ -8,14 +8,23 @@
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"/>
 <link rel="stylesheet"  href="../css/basic.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
-		<h3>notice list</h3>
+		<h3 class="page_title">Notice list</h3>
+		<!-- search -->
+		<form action="./qnaList" method="get" >
+		<img alt="" src="../images/search_icon.png" style="width: 24px; height: 24px; display: inline; float: left; margin:0 5px 5px 5px;" id="icon">
+		<div class="board-search-wrapper">
+			<input type="text" class="board-search-inputText" id="searchingFor" name="searchingFor"><button class="board-search-btn">검색</button>
+		</div>
+		</form>
+		<!-- search -->
 		<div class="section">
 
-			<!-- 			<table class="table "> -->
+			<!-- 			<table class="table "> --> 
 			<!-- 				<tr> -->
 			<!-- 					<th>num</th> -->
 			<!-- 					<th>title</th> -->
@@ -33,13 +42,11 @@
 			<!-- 					</tr> -->
 			<%-- 				</c:forEach> --%>
 			<!-- 			</table> -->
-			<div class="board_list_btn">
-				
-			</div>
+			
 			
 			<table class="board_table">
 				<tr>
-					<th class="board_no_th">NO3</th>
+					<th class="board_no_th" >NO</th>
 					<th class="board_title_th">TITLE</th>
 					<th class="board_writer_th">WRITER</th>
 					<th class="board_date_th">DATE</th>
@@ -70,7 +77,6 @@
 <%-- 				<c:if test="${noticePage.totalPages eq i }"><li><a href="?page=${i+1}">Next</a></li></c:if>		 --%>
 			</c:forEach>
 		</ul>
-		
 	</div>
 	
 <script type="text/javascript">
@@ -78,7 +84,13 @@ $('#write').click(function(){
 	location.href="./noticeWrite";
 });
 
-
+$('.board-search-btn').click(function(){
+	//ok;
+	var searchingFor=$('#searchingFor').val();
+	if(!searchingFor){
+		alert('검색어를 입력해 주세요');
+		}
+});
 
 </script>
 </body>

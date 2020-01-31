@@ -2,7 +2,12 @@ package com.f.dhm.qna;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Transient;
+
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Sort;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -17,10 +22,12 @@ public interface QnaRepository extends JpaRepository<QnaVO, Integer>{
 //	@Query("SELECT f FROM FundingVO f WHERE fNum = ?1")
 //	FundingVO fundingSelect(int num) throws Exception;
 	
-	@Query("select q from QnaVO q order by ref desc")
-	public List<QnaVO> qnalisst()throws Exception;
+	@Query(nativeQuery = true, value = "select * from qna order by ref desc, step asc" )
+	public Page<QnaVO> qnalisst(Pageable pageable)throws Exception;
 	
 	public List<QnaVO> findByRef(int ref)throws Exception;
+	
+	public Page<QnaVO> findByTitleContains(String title, Pageable pageable)throws Exception;
 	
 	
 	
