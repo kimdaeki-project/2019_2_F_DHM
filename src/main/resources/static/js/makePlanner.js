@@ -65,19 +65,19 @@ $(".mkp-city-list").on("click",".ifm-closer", function() {
 
 $(".mkp-city-list").on("click",".city-del", function() {
    if (confirm("일정을 취소하시겠습니까?")) {
-	   
-	   var chn = $(this).parent().parent().parent().prop("id").substr(1);
-	   
-	   $(".city-selOne").each(function() {
-		   if (chn == $(this).text().trim()) {
-			var ctx = '&nbsp;'+$(this).val()+'&nbsp;';
-			$(this).html(ctx);
-			$(this).css("background-color","#3ad195");
-			$(this).prop("name","");
-		}
-	});
-	   
-	   
+      
+      var chn = $(this).parent().parent().parent().prop("id").substr(1);
+      
+      $(".city-selOne").each(function() {
+         if (chn == $(this).text().trim()) {
+         var ctx = '&nbsp;'+$(this).val()+'&nbsp;';
+         $(this).html(ctx);
+         $(this).css("background-color","#3ad195");
+         $(this).prop("name","");
+      }
+   });
+      
+      
       $(this).parent().parent().parent().parent().remove();
       var ti = $(".mkp-trans-info-ex").html();
       ti = '<div class="mkp-trans-info">'+ti+'</div>';
@@ -96,18 +96,18 @@ $(".mkp-city-list").on("click",".city-del", function() {
 });
 
 function setId() {
-	var i = 1;
-	$(".mkp-city-info").each(function() {
-		$(this).prop("id", "c"+i);
-		i++;
-	});
-	var ct = 1;
-	$(".click-sleep").each(function() {
-		$(this).prop("title","c"+ct);
-		ct++;
-	});
-	count = i;
-	uptDate();
+   var i = 1;
+   $(".mkp-city-info").each(function() {
+      $(this).prop("id", "c"+i);
+      i++;
+   });
+   var ct = 1;
+   $(".click-sleep").each(function() {
+      $(this).prop("title","c"+ct);
+      ct++;
+   });
+   count = i;
+   uptDate();
 }
 
 $(".mkp-right").on("click",".city-selOne", function() {
@@ -123,66 +123,66 @@ var totalBak = 1;
 var pIndex = new Array(); //위도경도 인덱스 배열
 
 $(".mkp-right").on("click",".mkp-ajax", function() {
-	if (confirm("일정을 추가 하시겠습니까?")) {
-		
-		var cityName = $(this).parents().prev().val();
-		var startDate = today;
-		var cDay = new Date();
-		var day = 1000*60*60*24*count;
-		day = cDay.getTime() + day;
-		cDay.setTime(day);
-		cDay = new Date(cDay).toISOString().substr(0, 10).replace('T', ' ');
-		var endDate = cDay;
-		var arCode = $(this).parents().next().val();
-		pIndex.push($(this).parents().next().prop("title"));
-		var index = $(this).parents().next().prop("title");
-		
-		
-		$.ajax({
-			type : "GET",
-			url		: "addPlanner",
-			data	: {
-				cityName : cityName,
-				startDate : startDate,
-				endDate	: endDate,
-				count : count,
-				arCode : arCode,
-				index : index
-				
-			},
-			success	: function(d) {
-				$(".mkp-city-list").append(d);
-				count++;
-				uptDate();
-				makePoly(pIndex);
-				$(".city-btn-info-sel").slideUp("fast");
-				setNumber();
-				totalBak++;
-			}
-		});
-	}
+   if (confirm("일정을 추가 하시겠습니까?")) {
+      
+      var cityName = $(this).parents().prev().val();
+      var startDate = today;
+      var cDay = new Date();
+      var day = 1000*60*60*24*count;
+      day = cDay.getTime() + day;
+      cDay.setTime(day);
+      cDay = new Date(cDay).toISOString().substr(0, 10).replace('T', ' ');
+      var endDate = cDay;
+      var arCode = $(this).parents().next().val();
+      pIndex.push($(this).parents().next().prop("title"));
+      var index = $(this).parents().next().prop("title");
+      
+      
+      $.ajax({
+         type : "GET",
+         url      : "addPlanner",
+         data   : {
+            cityName : cityName,
+            startDate : startDate,
+            endDate   : endDate,
+            count : count,
+            arCode : arCode,
+            index : index
+            
+         },
+         success   : function(d) {
+            $(".mkp-city-list").append(d);
+            count++;
+            uptDate();
+            makePoly(pIndex);
+            $(".city-btn-info-sel").slideUp("fast");
+            setNumber();
+            totalBak++;
+         }
+      });
+   }
 });
 
 
 
 function uptDate() {
-	totalBak = 1;
-	var setDay = new Date(today);
-	var setDay2 = new Date(today).toISOString().substr(0, 10).replace('T', ' ');
-	for (var i = 1; i < count; i++) {
-		$("#c"+i+" .sDate").text(setDay2);
-		var bak = $("#c"+i+"  .nights-day").text()*1;
-		if ($("#c"+i+"  .nights-day").text() == "무") {
-			bak = 0;
-		}
-		totalBak+=bak;
-		setDay.setDate(setDay.getDate()+bak);
-		var calDay = new Date(setDay).toISOString().substr(0, 10).replace('T', ' ');
-		$("#c"+i+" .eDate").text(calDay);
-		setDay2 = calDay;
-	}
-	
-	$("#totalBak").text(totalBak+"일");
+   totalBak = 1;
+   var setDay = new Date(today);
+   var setDay2 = new Date(today).toISOString().substr(0, 10).replace('T', ' ');
+   for (var i = 1; i < count; i++) {
+      $("#c"+i+" .sDate").text(setDay2);
+      var bak = $("#c"+i+"  .nights-day").text()*1;
+      if ($("#c"+i+"  .nights-day").text() == "무") {
+         bak = 0;
+      }
+      totalBak+=bak;
+      setDay.setDate(setDay.getDate()+bak);
+      var calDay = new Date(setDay).toISOString().substr(0, 10).replace('T', ' ');
+      $("#c"+i+" .eDate").text(calDay);
+      setDay2 = calDay;
+   }
+   
+   $("#totalBak").text(totalBak+"일");
 }
 
 
@@ -209,13 +209,13 @@ function closeSleep() {
 
 
 $(function() {
-	$(".mkp-city-list").sortable({
-		stop : function() {
-				addTsel();
-				uptPoly();
-				setNumber();
-		}
-	});
+   $(".mkp-city-list").sortable({
+      stop : function() {
+            addTsel();
+            uptPoly();
+            setNumber();
+      }
+   });
 });
 
 
@@ -232,29 +232,29 @@ function addTsel() {
          $("#c"+i).prev().remove();
          $("#c"+i).before(ti);
       }else if (i > 2) {
-		if (!$("#c"+i).prev().hasClass("mkp-trans-info")) {
-			$("#c"+i).before(ti);	
-		}
-	}
+      if (!$("#c"+i).prev().hasClass("mkp-trans-info")) {
+         $("#c"+i).before(ti);   
+      }
+   }
    }
 }
 
 
 function setNumber() {
-	var cn = 1;
-	$(".city-sel-name").each(function() {
-		var comp = $(this).text();
-		$(".city-selOne").each(function() {
-			if ($(this).val()==comp) {
-				var ct = '<font style="font-size:18px; font-weigth:bolder;">&nbsp;'+cn+
-				'&nbsp;</font>';
-				$(this).html(ct);
-				cn++;
-				$(this).prop("name",7);
-				$(this).css("background-color","red");
-			}
-		});
-	});
+   var cn = 1;
+   $(".city-sel-name").each(function() {
+      var comp = $(this).text();
+      $(".city-selOne").each(function() {
+         if ($(this).val()==comp) {
+            var ct = '<font style="font-size:18px; font-weigth:bolder;">&nbsp;'+cn+
+            '&nbsp;</font>';
+            $(this).html(ct);
+            cn++;
+            $(this).prop("name",7);
+            $(this).css("background-color","red");
+         }
+      });
+   });
 }
 
 
@@ -270,34 +270,34 @@ var addr1A = new Array();
 var arCodeA = new Array();
 
 function saveSch(t, f, a, c) {
-	titleA = t;
-	firstimageA = f;
-	addr1A = a;
-	arCodeA = c;
-	
-	for (var i = 0; i < titleA.length; i++) {
-		console.log("title = "+ titleA[i]);
-		console.log("first = "+ firstimageA[i]);
-		console.log("addr = "+ addr1A[i]);
-		console.log("arCode = "+ arCodeA[i]);
-		console.log(titleA.length);
-	}
+   titleA = t;
+   firstimageA = f;
+   addr1A = a;
+   arCodeA = c;
+   
+   for (var i = 0; i < titleA.length; i++) {
+      console.log("title = "+ titleA[i]);
+      console.log("first = "+ firstimageA[i]);
+      console.log("addr = "+ addr1A[i]);
+      console.log("arCode = "+ arCodeA[i]);
+      console.log(titleA.length);
+   }
 }
 
 /////////////////////////////////////////////////////
 
 
 function openComplete() {
-	if (count > 1) {		
-		$(".mkp-complete").slideDown("fast");
-		$(".city-selOne").each(function() {
-			if ($(this).prop("name")=="") {
-				$(this).parent().css("visibility","hidden");
-			}
-		});
-	}else{
-		alert("일정을 추가해주세염!");
-	}
+   if (count > 1) {      
+      $(".mkp-complete").slideDown("fast");
+      $(".city-selOne").each(function() {
+         if ($(this).prop("name")=="") {
+            $(this).parent().css("visibility","hidden");
+         }
+      });
+   }else{
+      alert("일정을 추가해주세염!");
+   }
 }
 
 function closeComplete() {
@@ -349,9 +349,9 @@ $(".mkp-clp-btn").click(function() {
             region   : region,
             transfer   : transfer,
             titleA:titleA,
-        	firstimage:firstimageA,
-        	addr1:addr1A,
-        	arCode:arCodeA
+           firstimage:firstimageA,
+           addr1:addr1A,
+           arCode:arCodeA
          },
          success   : function(d) {
                alert("저장되었습니다.");
@@ -367,8 +367,8 @@ $(".mkp-clp-btn").click(function() {
 
 var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 var options = { //지도를 생성할 때 필요한 기본 옵션
-	center: new kakao.maps.LatLng(36.87626088968973, 128.03188682724283), //지도의 중심좌표.
-	level: 13 //지도의 레벨(확대, 축소 정도)
+   center: new kakao.maps.LatLng(36.87626088968973, 128.03188682724283), //지도의 중심좌표.
+   level: 13 //지도의 레벨(확대, 축소 정도)
 };
 
 var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
@@ -576,50 +576,50 @@ for (var i = 0; i < positions.length; i ++) {
 }
 
 var polyline = new kakao.maps.Polyline({
-	map: map, // 선을 표시할 지도 객체
-	endArrow: true, // 선의 끝을 화살표로 표시되도록 설정한다
-	strokeWeight: 4, // 선의 두께
-	strokeColor: 'green', // 선 색
-	strokeOpacity: 0.9, // 선 투명도
-	strokeStyle: 'solid' // 선 스타일
+   map: map, // 선을 표시할 지도 객체
+   endArrow: true, // 선의 끝을 화살표로 표시되도록 설정한다
+   strokeWeight: 4, // 선의 두께
+   strokeColor: 'green', // 선 색
+   strokeOpacity: 0.9, // 선 투명도
+   strokeStyle: 'solid' // 선 스타일
 });
 
-	
+   
 function makePoly(ps) {
-	var pa = new Array();
-	for (var i = 0; i < ps.length; i++) {
-		pa.push(positions[ps[i]].latlng);
-	}
-	if (pa.length>1) {
-		
-		polyline.setPath(pa);
-	}
+   var pa = new Array();
+   for (var i = 0; i < ps.length; i++) {
+      pa.push(positions[ps[i]].latlng);
+   }
+   if (pa.length>1) {
+      
+      polyline.setPath(pa);
+   }
 }
-	
+   
 var pu;
 
 function uptPoly() {
-	
-	pIndex = new Array();
-	$(".mkp-city-info").each(function() {
-		pIndex.push($(this).prop("title"));
-	});
-	
-	
-	pu = new Array();
-	
-	for (var i = 0; i < pIndex.length; i++) {
-		pu.push(positions[pIndex[i]].latlng);
-	}
-	
-	if (pu.length>1) {
-	
+   
+   pIndex = new Array();
+   $(".mkp-city-info").each(function() {
+      pIndex.push($(this).prop("title"));
+   });
+   
+   
+   pu = new Array();
+   
+   for (var i = 0; i < pIndex.length; i++) {
+      pu.push(positions[pIndex[i]].latlng);
+   }
+   
+   if (pu.length>1) {
+   
 
-		polyline.setPath(pu);
-	}else if(pu.length==1){
-		
-		polyline.setPath(null);
-	}
+      polyline.setPath(pu);
+   }else if(pu.length==1){
+      
+      polyline.setPath(null);
+   }
 }
 
 function setMapType(maptype) { 
@@ -635,16 +635,16 @@ function setMapType(maptype) {
         roadmapControl.className = 'btn';
     }
 }
-	
+   
 
 kakao.maps.event.addListener(map, 'tilesloaded', displayMarker);
 
 function displayMarker() {
     
     // 마커의 위치를 지도중심으로 설정합니다 
-	map.getCenter(); 
-	setNumber();
+   map.getCenter(); 
+   setNumber();
 
 }
-	
+   
 ///////////////////////////////////////////카카오맵//////////////////////////////////////
