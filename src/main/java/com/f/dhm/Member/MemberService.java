@@ -64,6 +64,12 @@ public class MemberService {
 		
 		return check;
 	}
+	//프로필 변경----------------------------------------
+	public void memberMypage(MemberVO memberVO)throws Exception{		
+		
+		
+		memberRepository.save(memberVO);
+	}
 
 	//ID 체크----------------------------------------
 	public boolean memberIdCheck(String id)throws Exception{
@@ -72,12 +78,6 @@ public class MemberService {
 	//EMAIL 체크----------------------------------------
 	public MemberVO memberEMAILCheck(String email)throws Exception{
 		return memberRepository.findByEmail(email);
-	}
-	//----------------------------------------
-	public MemberVO memberMypage(int gender, Date birth)throws Exception{		
-		MemberVO memberVO = new MemberVO();
-		
-		return memberRepository.findByGenderAndBirth(memberVO.getGender(), memberVO.getBirth());
 	}
 	//----------------------------------------
 	//----------------------------------------
