@@ -2,7 +2,8 @@ package com.f.dhm;
 
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
+import java.sql.Date;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -23,30 +24,18 @@ class ScheduleTest {
 	
 	@Test
 	void test() throws Exception{
-		List<PlannerVO> list = new ArrayList<>();
-			
-		for (int i = 1; i < 6; i++) {
-			PlannerVO pvo = new PlannerVO();
-			pvo.setTitle("여행 "+i+"일 째");
-			pvo.setId("coo");
-			pvo.setBak(1);
-			pvo.setRegion("서울");
-			pvo.setType("남자끼리");
-			pvo.setTransfer("버스");
-			pvo.setPeople(5);
-			Date d = new Date();
-			pvo.setDeDate(d);
-			pvo.setArDate(d);
-			list.add(pvo);
-		}
+		String date = "2020-01-25";
 		
-		int plNum = service.getPlnum();
+		int y = Integer.parseInt(date.substring(0, 4));
+		int m = Integer.parseInt(date.substring(5, 7));
+		int d = Integer.parseInt(date.substring(8));
 		
-		for (PlannerVO plannerVO : list) {
-			plannerVO.setPlNum(plNum);
-			repository.save(plannerVO);
-			Thread.sleep(100);
-		}
+		Calendar.getInstance().set(y, m, d);
+		
+		Date s = new Date(Calendar.getInstance().getTimeInMillis());
+		
+		System.out.println(s);
+		
 		
 	}
 

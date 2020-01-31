@@ -33,7 +33,6 @@
 			<div class="board_select_row">
 				<div class="board_select_contents">
 					${qnaVO.contents}
-					
 				</div>
 			</div>
 			</article>

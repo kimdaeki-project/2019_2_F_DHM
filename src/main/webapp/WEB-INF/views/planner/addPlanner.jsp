@@ -4,7 +4,7 @@
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 <div >
 <c:if test="${count ne 1 }">
-			<div class="mkp-trans-info" draggable="false">
+			<div class="mkp-trans-info" >
 				<div style="padding-top:0px;padding-bottom:0px">
 					<div style="float:left;width:29px;height:40px;border-right:3px solid #3ad195;">&nbsp;</div>
 					<div style="float:left;width:150px;height:40px;padding-top:10px;margin-left:-25px;">
@@ -39,7 +39,7 @@
 				</div>
 			</div>
 </c:if>			
-			<div class="mkp-city-info" id="c${count}">
+			<div class="mkp-city-info" id="c${count}" title="${index }">
 				<div class="city-menu-left">
 					<div style="width:29px;border-right:3px solid #3ad195;height:7px;"> </div>
 					<div>
@@ -68,7 +68,7 @@
 						<div class="ifm-info"><i class="fa fa-calendar-check-o"></i></div>
 						<div class="ifm-opener">
 							<p><span>${cityName }</span>에서 경험하고 싶은 것들을 선택해보세염<span style="float: right; font-size: 20px; cursor: pointer;" class="ifm-closer"><i class="fa fa-times-circle"></i></span></p>
-							<iframe src="http://api.visitkorea.or.kr/openapi/service/rest/PhotoGalleryService/galleryList?ServiceKey=KkW8cDTbMiDD70xS%2BpXe9JiQvVMyBa5TFeUylgBKuPAxfGxwOz4azNwFlyoQCuLua9hNxhoajrMdw8XV5pjo7w%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=TestApp&_type=json"></iframe>
+							<iframe src="http://localhost/planner/ifmOpen?arCode=${arCode}"></iframe>
 						</div>
 					</div>
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->

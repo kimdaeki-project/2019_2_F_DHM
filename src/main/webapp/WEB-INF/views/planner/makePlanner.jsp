@@ -4,8 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/makePlanner.css">
+<link rel="stylesheet" type="text/css" href="../css/makePlanner.css"> 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<script src="https://unpkg.com/swiper/js/swiper.js"></script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
 <title>viewPage</title>
 </head>
 <body>
@@ -82,76 +85,39 @@
 		</div>
 	</div>
 </div>
-<div class="mkp-right-menu">
-	<div class="city-btn-grp">
-		<div class="city-btn">
-			<button value="인천" class="city-selOne">인천</button>
-			<div class="city-btn-info">
-				<p>국제공항</p>
-				<button class="mkp-ajax">일정 추가</button>
-			</div>
-		</div>
-		<div class="city-btn">
-			<button value="서울" class="city-selOne">서울</button>
-			<div class="city-btn-info">
-				<p>대한민국 수도</p>
-				<button class="mkp-ajax">일정 추가</button>
-			</div>
-		</div>
-		<div class="city-btn">
-			<button value="대전" class="city-selOne">대전</button>
-			<div class="city-btn-info">
-				<p>카이스트</p>
-				<button class="mkp-ajax">일정 추가</button>
-			</div>
-		</div>
-		<div class="city-btn">
-			<button value="부산" class="city-selOne">부산</button>
-			<div class="city-btn-info">
-				<p>등킨도나스</p>
-				<button class="mkp-ajax">일정 추가</button>
-			</div>
-		</div>
-		<div class="city-btn">
-			<button value="제주도" class="city-selOne">제주도</button>
-			<div class="city-btn-info">
-				<p>선물은 감귤초콜렛</p>
-				<button class="mkp-ajax">일정 추가</button>
-			</div>
-		</div>
-	 </div>
-	<div class="mkp-right-remote" draggable="false">
-		<c:choose>
-			<c:when test="${member ne null }">
-				<div class="mkp-member-btn">
-					<p>작업완료</p>
-					<div class="mkp-member-hide">
-						<p>Planner 제목</p>
-						<input id="mkp-pln-title">
-						<p>여행 인원</p>
-						<select id="mkp-pln-pepp" >
-							<c:forEach begin="1" end="10" var="p">
-								<option>${p }명</option>
-							</c:forEach>
-						</select>
-					</div>	
-				</div>
-			</c:when>
-			<c:otherwise>
-				<div class="mkp-guest-btn">
-					<p>GUEST로 작업중</p>
-				</div>
-			</c:otherwise>
-		</c:choose>
-		<div>
-		</div>
-	</div>
+
+<div class="mkp-right">
+   <div class="mkp-right-remote">
+      <c:choose>
+         <c:when test="${member ne null }">
+            <div class="mkp-member-btn" onclick="openComplete()">
+               <p>작업완료</p>
+            </div>
+         </c:when>
+         <c:otherwise>
+            <div class="mkp-guest-btn" onclick="openComplete()">
+               <p>GUEST로 작업중</p>
+            </div>
+         </c:otherwise>
+      </c:choose>
+      <div id="totalBak">1일</div>
+   </div>
+   <div class="map" id="map">
+   
+   </div>
+   <div class="map-sky-control">
+        <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
+        <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
+    </div>
+
+   
 </div>
+
 <!--hide ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 <div class="chos-sleep">
 	<div class="chos-sleep-info">
 		<div class="chos-sleep-title"> <font style="font-size: 20px; color: white; font-weight: bold;"><span class="chos-cityName"></span>&nbsp;체류기간 선택 </font>
-			<a onclick="closeSleep()" style="color:#fff;font-size:27pt; float: right;"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+			<a onclick="closeSleep()" style="color:#fff;font-size:27pt; float: right; cursor: pointer;"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
 		</div>
 		<br>
 		<br>
@@ -206,8 +172,100 @@
 				</div>
 			</div>
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+<div class="mkp-complete"> 
+	<div class="mkp-compl-inner">
+	
+		<c:choose>
+			<c:when test="${member ne null }">
+				<input type="hidden" value="${member.id }" id="member-id">
+				<p class="mkp-table-save">플래너 저장
+					<a onclick="closeComplete()" style="color:#fff; font-size:27pt; float: right; cursor: pointer;"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+				</p>
+			<table class="mkp-table">
+				<tbody>
+				<tr>
+					<td class="mkp-table-title">
+						<p>여행명 </p>
+					</td>
+					<td>
+						<input id="mkp-title">
+					</td>
+				</tr>
+				<tr>
+					<td class="mkp-table-pepp">
+						<p>인원</p>
+					</td>
+					<td>
+						<select id="mkp-people">
+								<option>인원선택</option>
+								<c:forEach begin="1" end="10" var="p">
+								<option value="${p }">${p }명</option>
+								</c:forEach>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="mkp-table-mail">
+						<p> 이메일 </p>
+					</td>
+					<td>
+						<input value="${member.email }" id="mkp-email"> 
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<button class="mkp-clp-btn">저장하기</button>
+			</c:when>
+			<c:otherwise>
+					<p class="mkp-table-save">GUEST 플래너 저장
+						<a onclick="closeComplete()" style="color:#fff; font-size:27pt; float: right; cursor: pointer;"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+					</p>
+				<table class="mkp-table">
+					<tbody>
+					<tr>
+						<td class="mkp-table-title">
+							<p>여행명 </p>
+						</td>
+						<td>
+							<input id="mkp-title">
+						</td>
+					</tr>
+					<tr>
+						<td class="mkp-table-pepp">
+							<p>인원</p>
+						</td>
+						<td>
+							<select id="mkp-people">
+									<option>인원선택</option>
+									<c:forEach begin="1" end="10" var="p">
+									<option>${p }명</option>
+									</c:forEach>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="mkp-table-mail">
+							<p> 이메일 </p>
+						</td>
+						<td>
+							<input type="email" id="mkp-emial">
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<button class="mkp-clp-btn">저장하기</button>
+				<p style="font-size: 11px; text-align: center; margin-top: 10px;">GUEST 플래너는 누구나 접근 가능하며 임의로 수정 될 수 있습니다.</p>
+			</c:otherwise>
+		</c:choose>
+		
+	</div>
+</div>
+<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 <!--hide ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 </section>
 <script src="../js/makePlanner.js"></script>
+<script type="text/javascript">
+
+</script>
 </body>
 </html>
