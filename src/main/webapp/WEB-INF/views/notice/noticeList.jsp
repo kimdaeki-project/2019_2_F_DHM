@@ -15,7 +15,7 @@
 	<div class="container">
 		<h3 class="page_title">Notice list</h3>
 		<!-- search -->
-		<form action="./qnaList" method="get" >
+		<form action="./noticeList" method="get" >
 		<img alt="" src="../images/search_icon.png" style="width: 24px; height: 24px; display: inline; float: left; margin:0 5px 5px 5px;" id="icon">
 		<div class="board-search-wrapper">
 			<input type="text" class="board-search-inputText" id="searchingFor" name="searchingFor"><button class="board-search-btn">검색</button>
