@@ -15,6 +15,6 @@ public interface MemberRepository extends JpaRepository<MemberVO, String>{
 	
 	public MemberVO findByEmail(String email)throws Exception;
 	
-	public MemberVO findByGenderAndBirth(int gender, Date birth)throws Exception;
+//	public MemberVO findByGenderAndBirth(int gender, Date birth)throws Exception;
 	
 }
