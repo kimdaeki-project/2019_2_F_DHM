@@ -12,6 +12,7 @@
 <link rel="stylesheet"  href="../css/basic.css">
  <link rel="stylesheet" href="../package/css/swiper.min.css">
 
+
 </head>
 <body>	
 <c:import url="./template/nav.jsp"/>
