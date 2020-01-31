@@ -168,7 +168,7 @@ $(".mkp-right").on("click",".mkp-ajax", function() {
 function uptDate() {
    totalBak = 1;
    var setDay = new Date(today);
-   var setDay2 = new Date(today).toISOString().substr(0, 10).replace('T', ' ');
+   var setDay2 = new Date(today).toISOString().substr(5, 6).replace('T', ' ');
    for (var i = 1; i < count; i++) {
       $("#c"+i+" .sDate").text(setDay2);
       var bak = $("#c"+i+"  .nights-day").text()*1;
@@ -177,7 +177,7 @@ function uptDate() {
       }
       totalBak+=bak;
       setDay.setDate(setDay.getDate()+bak);
-      var calDay = new Date(setDay).toISOString().substr(0, 10).replace('T', ' ');
+      var calDay = new Date(setDay).toISOString().substr(5, 6).replace('T', ' ');
       $("#c"+i+" .eDate").text(calDay);
       setDay2 = calDay;
    }
@@ -241,6 +241,10 @@ function addTsel() {
 
 
 function setNumber() {
+	mapCenter = map.getCenter();
+	mapLevel = map.getLevel();
+	map.setMaxLevel(14);
+	map.setLevel(14);
    var cn = 1;
    $(".city-sel-name").each(function() {
       var comp = $(this).text();
@@ -255,6 +259,9 @@ function setNumber() {
          }
       });
    });
+   map.setLevel(mapLevel);
+   map.setMaxLevel(13);
+   
 }
 
 
@@ -367,8 +374,8 @@ $(".mkp-clp-btn").click(function() {
 
 var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 var options = { //지도를 생성할 때 필요한 기본 옵션
-   center: new kakao.maps.LatLng(36.87626088968973, 128.03188682724283), //지도의 중심좌표.
-   level: 13 //지도의 레벨(확대, 축소 정도)
+   center: new kakao.maps.LatLng(35.954638908843044, 128.6525083125467), //지도의 중심좌표.
+   level: 12 //지도의 레벨(확대, 축소 정도)
 };
 
 var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
@@ -639,12 +646,15 @@ function setMapType(maptype) {
 
 kakao.maps.event.addListener(map, 'tilesloaded', displayMarker);
 
+var mapCenter;
+var mapLevel;
+
 function displayMarker() {
     
     // 마커의 위치를 지도중심으로 설정합니다 
-   map.getCenter(); 
-   setNumber();
-
+//  mapCenter = map.getCenter();
+//  mapLevel = map.getLevel();
+  
 }
    
 ///////////////////////////////////////////카카오맵//////////////////////////////////////
