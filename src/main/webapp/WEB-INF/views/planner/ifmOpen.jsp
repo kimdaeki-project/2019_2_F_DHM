@@ -53,7 +53,35 @@
 				</ul>
 			</div>
 		</div>
-		
+		<div class="row">
+			<h3 class="ifm-title">쇼핑</h3>
+			<div class="content-wrap">
+				<ul class="nolist ifmopen">
+					<c:forEach items="${shopping }" var="sh">
+						<li>
+							<div class="card2">
+								<div style="position: relative;">
+									<div class="wishdiv"><i class="fa fa-check-circle wishlist"></i></div> 
+									
+									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${sh.firstimage}"></div>
+								</div>
+								<div>
+									<div style="padding: 3px; width: 80%;float: left;">
+										<div class="i-card-title">${sh.title}</div>
+										<div class="addr">${sh.addr1 }</div>
+									</div>
+									<div style="width: 20%; float: left; padding-top: 10px">
+										<a onclick="clickinfo('${sh.title}')">
+											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+										</a>
+									</div>
+								</div>	 
+							</div>
+						</li>
+					</c:forEach>
+				</ul>
+			</div>
+		</div>
 		<div class="row">
 			<h3 class="ifm-title">신나는 관광</h3>
 			<div class="content-wrap">
@@ -236,35 +264,6 @@
 			</div>
 		</div>
 		
-		<div class="row">
-			<h3 class="ifm-title">쇼핑</h3>
-			<div class="content-wrap">
-				<ul class="nolist ifmopen">
-					<c:forEach items="${shopping }" var="sh">
-						<li>
-							<div class="card2">
-								<div style="position: relative;">
-									<div class="wishdiv"><i class="fa fa-check-circle wishlist"></i></div> 
-									
-									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${sh.firstimage}"></div>
-								</div>
-								<div>
-									<div style="padding: 3px; width: 80%;float: left;">
-										<div class="i-card-title">${sh.title}</div>
-										<div class="addr">${sh.addr1 }</div>
-									</div>
-									<div style="width: 20%; float: left; padding-top: 10px">
-										<a onclick="clickinfo('${sh.title}')">
-											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
-										</a>
-									</div>
-								</div>	 
-							</div>
-						</li>
-					</c:forEach>
-				</ul>
-			</div>
-		</div>
 		
 	</div>
 </form>
