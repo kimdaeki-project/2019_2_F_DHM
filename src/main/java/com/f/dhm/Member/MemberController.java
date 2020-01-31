@@ -88,13 +88,6 @@ public class MemberController {
 		
 		return "member/memberFacebookLogin";
 	}
-	
-	
-	
-	
-	
-	
-	
 	//로그아웃-----------------------------------------------------------------------
 	@GetMapping("memberLogout")
 	public String memberLogout(HttpSession session)throws Exception{
@@ -129,12 +122,26 @@ public class MemberController {
 	}
 	
 	@PostMapping("memberMypage")
-	public MemberVO memberMypage(int gender, Date birth)throws Exception{
-		//ModelAndView mv = new ModelAndView();
-		MemberVO memberVO = new MemberVO();
+	public ModelAndView memberMypage(@Valid MemberVO memberVO, BindingResult bindingResult, HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
 		
-		return memberService.memberMypage(memberVO.getGender(), memberVO.getBirth());
-	}
+		mv.setViewName("member/memberMypage");
+		
+		memberService.memberMypage(memberVO);
+			
+		//session.invalidate();
+		session.setAttribute("member",memberVO);
+		
+		String path = "./memberMypage";
+
+		String message = "프로필 변경 되었습니다.";
+
+		mv.setViewName("common/result");
+		mv.addObject("message", message);											
+		mv.addObject("path", path);
+									
+	return mv;
+}
 	//-----------------------------------------------------------------------
 	
 	//개인정보 및 이용약관 페이지-----------------------------------------------------------------------
