@@ -1,5 +1,7 @@
 package com.f.dhm.Member;
 
+import java.sql.Date;
+
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -127,10 +129,11 @@ public class MemberController {
 	}
 	
 	@PostMapping("memberMypage")
-	public MemberVO memberMypage(String gender, String birth)throws Exception{
+	public MemberVO memberMypage(int gender, Date birth)throws Exception{
 		//ModelAndView mv = new ModelAndView();
+		MemberVO memberVO = new MemberVO();
 		
-		return memberService.memberMypage(gender, birth);
+		return memberService.memberMypage(memberVO.getGender(), memberVO.getBirth());
 	}
 	//-----------------------------------------------------------------------
 	
