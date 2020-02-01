@@ -65,7 +65,11 @@ $(".mkp-city-list").on("click",".ifm-closer", function() {
 
 $(".mkp-city-list").on("click",".city-del", function() {
    if (confirm("일정을 취소하시겠습니까?")) {
-      
+	   
+	   displayMarker();
+	   
+      map.setLevel(14);
+      map.setCenter(new kakao.maps.LatLng(35.954638908843044, 128.6525083125467));
       var chn = $(this).parent().parent().parent().prop("id").substr(1);
       
       $(".city-selOne").each(function() {
@@ -91,6 +95,9 @@ $(".mkp-city-list").on("click",".city-del", function() {
       
       uptPoly();
       setNumber();
+      
+      map.setLevel(mapLevel);
+      
    }
    
 });
@@ -644,7 +651,7 @@ function setMapType(maptype) {
 }
    
 
-kakao.maps.event.addListener(map, 'tilesloaded', displayMarker);
+//kakao.maps.event.addListener(map, 'tilesloaded', displayMarker);
 
 var mapCenter;
 var mapLevel;
@@ -652,8 +659,8 @@ var mapLevel;
 function displayMarker() {
     
     // 마커의 위치를 지도중심으로 설정합니다 
-//  mapCenter = map.getCenter();
-//  mapLevel = map.getLevel();
+  mapCenter = map.getCenter();
+  mapLevel = map.getLevel();
   
 }
    
