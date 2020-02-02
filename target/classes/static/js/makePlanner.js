@@ -94,7 +94,7 @@ $(".mkp-city-list").on("click",".city-del", function() {
       }
       
       uptPoly();
-      setNumber();
+      setNumber(false);
       
       map.setLevel(mapLevel);
       
@@ -163,7 +163,7 @@ $(".mkp-right").on("click",".mkp-ajax", function() {
             uptDate();
             makePoly(pIndex);
             $(".city-btn-info-sel").slideUp("fast");
-            setNumber();
+            setNumber(true);
             totalBak++;
          }
       });
@@ -220,7 +220,7 @@ $(function() {
       stop : function() {
             addTsel();
             uptPoly();
-            setNumber();
+            setNumber(false);
       }
    });
 });
@@ -247,7 +247,7 @@ function addTsel() {
 }
 
 
-function setNumber() {
+function setNumber(move) {
 	mapCenter = map.getCenter();
 	mapLevel = map.getLevel();
 	map.setMaxLevel(14);
@@ -268,6 +268,10 @@ function setNumber() {
    });
    map.setLevel(mapLevel);
    map.setMaxLevel(13);
+   
+   if (move) {
+	   map.panTo(positions[$("#c"+(cn-1)).prop("title")].latlng);	
+}
    
 }
 
@@ -608,6 +612,7 @@ function makePoly(ps) {
       
       polyline.setPath(pa);
    }
+   
 }
    
 var pu;
@@ -643,10 +648,16 @@ function setMapType(maptype) {
         map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);    
         roadmapControl.className = 'selected_btn';
         skyviewControl.className = 'btn';
+        polyline.setOptions({
+            strokeColor: 'green'
+        });
     } else {
         map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);    
         skyviewControl.className = 'selected_btn';
         roadmapControl.className = 'btn';
+        polyline.setOptions({
+            strokeColor: 'yellow'
+        });
     }
 }
    
