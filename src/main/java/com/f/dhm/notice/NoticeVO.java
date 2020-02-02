@@ -14,12 +14,7 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.Data;
-//num	int
-//title	varchar(45)
-//contents	varchar(45)
-//id	varchar(45)
-//regDate	varchar(45)
-//hit	varchar(45)
+
 @Entity
 @Table(name = "notice")
 @Data
