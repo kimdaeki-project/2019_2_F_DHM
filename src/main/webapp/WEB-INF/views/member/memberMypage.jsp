@@ -29,7 +29,7 @@
 	<div class="mypagemain"><!-- b boss -->
 		<div class="mypagemain3"><!-- m-1 boss -->
 			<div class="my1" id="my1">
-			
+				<div class="my1-1"></div>
 			</div>
 			
 			<div class="my2" id="my2">
