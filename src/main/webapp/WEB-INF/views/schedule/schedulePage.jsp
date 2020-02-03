@@ -162,7 +162,7 @@
 								</div>
 							</div>	
 						</div>
-						<div class="map-rootModify">
+						<div class="map-rootModify"  style="cursor: pointer;" onclick="uptPlanner(${plNum})">
 							<div class="map-header">
 								<i class="fa fa-cog fa-2x" style="color: #747474; margin-top: 9px;margin-bottom: 7px;"></i>
 							</div>
@@ -643,6 +643,9 @@
 		}
 
 		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+
+		//////////////////////////////////////////////////////////////잠시 수정
+		
 		var options = { //지도를 생성할 때 필요한 기본 옵션
 			center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
 			level: 3 //지도의 레벨(확대, 축소 정도)
@@ -684,7 +687,16 @@
 			        clickable: true,
 			      },
 			    });
-			
+		///////////////////////////////////////////////////////////루트수정
+		
+		function uptPlanner(a){
+				if(confirm("루트를 수정하시겠습니까?")){
+
+					location.href="../planner/updatePlanner?plNum="+a;
+					
+					}
+			}
+		
 		
 	</script>
 </body>

@@ -77,7 +77,6 @@ public class ScheduleController {
 		
 		
 		
-		
 		//음식점
 		mv.addObject("food", xmlService.searchTour(1, 39, "P", 1).getItem());
 		mv.addObject("plannerTitle", plannerTitle);

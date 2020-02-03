@@ -111,8 +111,12 @@ public class PlannerController {
 	@PostMapping("makePlanner")
 	@ResponseBody
 	public int makePlanner(String id, String title, String type, String people, String[] deDate, String[] arDate,
-		String[] bak, String[] region, String[] transfer, WishVO wishVO, String[] titleA, String[] firstimage, String[] addr1, int[] arCode,HttpSession session) throws Exception{
+		String[] bak, String[] region, String[] transfer, WishVO wishVO, String[] titleA, String[] firstimage, 
+		String[] addr1, int[] arCode,HttpSession session, int[] pp, int[] arCodeP) throws Exception{
 		List<PlannerVO> pList = new ArrayList<PlannerVO>();
+		
+		System.out.println("-------wdawdawdawd!@!@#!@$%!@#");
+		
 		
 		int plNum = service.getPlnum();
 		
@@ -151,6 +155,10 @@ public class PlannerController {
 			if (i < deDate.length-1) {				
 				vo.setTransfer(transfer[i]);
 			}
+			
+			vo.setPolyPath(pp[i]);
+			vo.setArCode(arCode[i]);
+			
 			pList.add(vo);
 		}
 		
@@ -161,10 +169,10 @@ public class PlannerController {
 		
 		//////////////////////////////////////////
 		
-		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		//MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		List<WishVO> wishlist = new ArrayList<WishVO>();
 		
-		id= memberVO.getId();
+		//id= memberVO.getId();
 		System.out.println("zzzzzzz:"+titleA.length);
 		for(int i=0; i< titleA.length; i++) {
 			wishVO.setId(id);
@@ -180,4 +188,36 @@ public class PlannerController {
 		
 		return pList.get(0).getPlNum();
 	}
+	
+	
+	@GetMapping("mapTest")
+	public ModelAndView mapTest(HttpSession session) throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		
+		List<PlannerVO> list = service.plannerSelect(3, session);
+		List<Integer> polyPath = new ArrayList<Integer>();
+		for (PlannerVO plannerVO : list) {
+			polyPath.add(plannerVO.getPolyPath());
+		}
+		mv.addObject("pp", polyPath);
+		
+		return mv;
+		
+	}
+	
+	@GetMapping("updatePlanner")
+	public ModelAndView updatePlanner(int plNum, HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<PlannerVO> list = service.plannerSelect(plNum, session);
+		mv.addObject("list", list);
+		
+		return mv;
+	}
+	
+	@GetMapping("waitAminute")
+	public void waiting() {
+		
+	}
+	
 }

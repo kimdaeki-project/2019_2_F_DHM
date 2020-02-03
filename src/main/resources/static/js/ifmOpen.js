@@ -9,7 +9,6 @@ function wish(t, firstimage, addr1, arCode) {
 	if($(this).children().hasClass("wish-active")){
 
 		$(this).removeClass("wish-active");
-			console("왜 안돼");
 			titleA.slice(titleA.findIndex(t),1);
 			firstimageA.slice(firstimageA.findIndex(firstimage),1);
 			addr1A.slice(addr1A.findIndex(addr1),1);

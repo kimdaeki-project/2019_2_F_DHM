@@ -36,7 +36,7 @@
 		</div>
 		<div id="tripwith">
 			<div style="display:block"><img id="tripwith_img" src="/imgs/tripwith/TW_1_3.png" height="43px"></div>
-			<div style="font-size:8pt;"><span id="tripwith_txt">타입선택</span> <i class="fa fa-angle-down"></i></div>
+			<div style="font-size:8pt;"><span id="tripwith_txt">${list.get(0).type }</span> <i class="fa fa-angle-down"></i></div>
 		</div>
 		<div id="mkp-left-tripwith">
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡ trip with ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
@@ -81,7 +81,81 @@
 			</div>
 		</div>
 		<div class="mkp-city-list" style="clear: both;">
-			
+			<c:forEach items="${list }" var="pVO" varStatus="p">
+				<div >
+					<c:if test="${p.index ne 0 }">
+								<div class="mkp-trans-info" >
+									<div style="padding-top:0px;padding-bottom:0px">
+										<div style="float:left;width:29px;height:40px;border-right:3px solid #3ad195;">&nbsp;</div>
+										<div style="float:left;width:150px;height:40px;padding-top:10px;margin-left:-25px;">
+											<div class="mkp-trans-btn">
+												<font style="font-size:9pt;color:#fff"><span class="mkp-trans-chos">${pVO.transfer }&nbsp;</span><i class="fa fa-chevron-circle-down"></i></font>
+													<div class="mkp-trans-picker">
+														<div class="mkp-trans-sct">
+															<i class="fa fa-bus"></i>
+															<font>버스</font>
+														</div>
+														<div class="mkp-trans-sct">
+															<i class="fa fa-taxi"></i>
+															<font>택시</font>
+														</div>
+														<div class="mkp-trans-sct">
+															<i class="fa fa-train"></i>
+															<font>기차</font>
+														</div>
+														<div class="mkp-trans-sct">
+															<i class="fa fa-car"></i>
+															<font>자차</font>
+														</div>
+														<div class="mkp-trans-sct">
+															<i class="fa fa-plane"></i>
+															<font>항공</font>
+														</div>
+													</div>
+											</div>&nbsp;
+										</div>
+										
+										<div style="clear:both"></div>
+									</div>
+								</div>
+					</c:if>			
+								<div class="mkp-city-info" id="c${p.index }" title="${pVO.polyPath }" >
+									<div class="city-menu-left">
+										<div style="width:29px;border-right:3px solid #3ad195;height:7px;"> </div>
+										<div>
+											<div class="mkp-city-one" title="${pVo.arCode }" >
+													<a class="click-sleep" title="c${p.index }" id="${pVO.region}" >
+													<font style="color:#696969;font-size:10pt;font-weight:bold" class="nights"> <span class="nights-day">${pVO.bak }</span>박  
+														<i class="fa fa-angle-down"></i>
+													</font>
+												</a>
+											</div> 
+										</div>
+										<div style="width:29px;border-right:3px solid #3ad195;height:7px;clear: both;"> </div>
+									</div>
+									<div class="city-menu-right">
+										<div class="mkp-city-name">
+											<span class="city-sel-name">${pVO.region }</span>
+											<i class="fa fa-times-circle city-del" style="cursor: pointer;"></i>
+											<p class="mkp-city-date"> 
+												<span class="sDate">${pVO.deDate }</span>
+												~ 
+												<span class="eDate"> ${pVO.arDate }</span>
+											</p>
+										</div>
+					<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+										<div class="open-ifm" >
+											<div class="ifm-info" title="${pVO.arCode}"><i class="fa fa-calendar-check-o"></i></div>
+											<div class="ifm-opener">
+												<p><span>${pVO.region }</span>에서 경험하고 싶은 것들을 선택해보세염<span style="float: right; font-size: 20px; cursor: pointer;" class="ifm-closer"><i class="fa fa-times-circle"></i></span></p>
+												<iframe src="waitAminute"></iframe>
+											</div>
+										</div>
+					<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+									</div>
+								</div>
+				</div>
+			</c:forEach>
 		</div>
 	</div>
 </div>
@@ -188,7 +262,7 @@
 						<p>여행명 </p>
 					</td>
 					<td>
-						<input id="mkp-title">
+						<input id="mkp-title" value="${list.get(0).title }">
 					</td>
 				</tr>
 				<tr>
@@ -198,8 +272,8 @@
 					<td>
 						<select id="mkp-people">
 								<option>인원선택</option>
-								<c:forEach begin="1" end="10" var="p">
-								<option value="${p }">${p }명</option>
+								<c:forEach begin="1" end="10" var="n">
+								<option value="${n }">${n }명</option>
 								</c:forEach>
 						</select>
 					</td>
@@ -266,5 +340,13 @@
 </section>
 <script src="../js/cityList.js"></script>
 <script src="../js/makePlanner.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		setNumber(false);
+		uptPoly();
+		setId();
+		});
+
+</script>
 </body>
 </html>
