@@ -379,6 +379,14 @@
 	<!-- 프로필 사진변경 화면창 -->
 	<div class="changeimg">
 		<div class="changeimg2">
+			<div class="changeimg2-1">
+				<div class="changeimg2-1-1">×</div>
+			
+			</div>
+		
+		
+		
+		
 		
 		</div>
 	</div>
@@ -524,12 +532,12 @@ $('.msgbing4').hide();
 		$('.asdzxc2').hide();
 		
 	$(".mypage2-3-2").click(function(){
-		$('.asdzxc').show();
+		$('.asdzxc').slideDown();
 		$('.asdzxc2').slideDown();
 	});
 	$(".myintroduce-7-2").click(function(){
-		$('.asdzxc').hide();
-		$('.asdzxc2').hide();
+		$('.asdzxc').slideUp();
+		$('.asdzxc2').slideUp();
 	});     
 //------------------------------------------------------------------------	
 //프로필 사진 화면창 띄우기
@@ -537,12 +545,16 @@ $('.msgbing4').hide();
 		$('.changeimg2').hide();
 
 		$(".mypage1-1-1").click(function(){
-			$('.changeimg').show();
- 			$('.changeimg2').slideDown();
+ 			$('.changeimg').slideDown();
+			$('.changeimg2').slideDown();
 		});
-		 
+		
+		$(".changeimg2-1-1").click(function(){
+			$('.changeimg2').slideUp();
+			$('.changeimg').slideUp();
+		});  
  
-
+	
 //------------------------------------------------------------------------
 //프로필 관리 
 $(".myintroduce-7-1").click(function(){
