@@ -1152,8 +1152,16 @@ float: right;
 .my1{
 width:870px;
 height: 850px;
-background-color: red;
+background-color: white;
 float: right;
+}
+
+.my1-1{
+width:870px;
+height: 800px;
+background-color: white;
+border: 1.2px solid rgba(0,0,0,.1);
+border-radius: 5px;
 }
 
 .my2{ 
