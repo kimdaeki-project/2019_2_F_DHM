@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <nav>
 	<div class="navRow">
 			<div class="navTop">
@@ -10,10 +12,18 @@
 						</div>
 						<div class="nav_gnb_menu">
 							<ul class="gnb_ul">
-								<li class="gnb_li gnb_login"><a href="#" style="color: #68a26c; font-weight: bold;">로그인</a></li>
-								<li class="gnb_li"><a href="">회원가입</a></li>
+							<c:if test= "${empty member}">
+								<li class="gnb_li gnb_login"><a href="${pageContext.request.contextPath}/member/memberLogin" 
+								style="color: #68a26c; font-weight: bold;">로그인</a></li>
+								<li class="gnb_li"><a href="${pageContext.request.contextPath}/member/memberJoin">회원가입</a></li>
 								<li class="gnb_li"><a style="cursor: pointer;" id="service">고객센터</a></li>
 								<li class="gnb_li"><a href="">예약내역</a></li>
+							</c:if>
+							
+							<c:if test= "${not empty member}">
+								<li class="gnb_li"><a href="${pageContext.request.contextPath}/member/memberLogout">로그아웃</a></li>
+								<li class="gnb_li"><a href="${pageContext.request.contextPath}/member/memberMypage">마이페이지</a></li>
+							</c:if>
 							</ul>
 						<div class="service_dropDown">
 							<ul class="service_dropDown_ul">

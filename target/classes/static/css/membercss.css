@@ -1,10 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
+@charset "UTF-8";
 /* 공용 css *********************************************************************/
 /* a테그 이벤트 삭제 */
 a{
@@ -51,11 +45,9 @@ background-color: white;
 height: 600px;
 width: 1885px;
 }
-
 .container1{
 height: 100px;
 }
-
 .loginbox{
 width: 553px;
 height: 505px;
@@ -63,13 +55,11 @@ position:absolute;
 left: 675px;
 background-color: white;
 }
-
 .Login1{
 width: 553px;
 height: 47px;
 border: 1px solid rgba(0,0,0,.1);
 }
-
 .Login2{
 width: 553px;
 height: 125px;
@@ -77,31 +67,26 @@ border-left: 1px solid rgba(0,0,0,.1);
 border-right: 1px solid rgba(0,0,0,.1);
 border-bottom: 1px solid rgba(0,0,0,.1);
 }
-
 .Login3{
 width: 553px;
 height: 26px;
 }
-
 .Login4{
 width: 553px;
 height: 47px;
 border: 1px solid rgba(0,0,0,.1);
 }
-
 .Login5{
 width: 553px;
 height: 215px;
 border-left: 1px solid rgba(0,0,0,.1);
 border-right:1px solid rgba(0,0,0,.1);
 }
-
 .Login6{
 width: 553px;
 height: 45px;
 border: 1px solid rgba(0,0,0,.1);
 }
-
 .Login1-1{
 width: 493px;
 height: 31px;
@@ -113,18 +98,15 @@ font-size: 18.5px;
 font-weight: 400;
 color: gray;
 }
-
 .login2img{
 margin-left: 30px;
 margin-top: 25px;
 }
-
 .login5-1{
 width: 100px;
 height: 215px;
 float: left;
 }
-
 .login5-1-1{
 width: 60px;
 height: 30px;
@@ -132,9 +114,7 @@ font-size: 13px;
 padding-top: 32px;
 padding-left: 28px;
 color: gray;
-
 }
-
 .login5-1-2{
 width: 60px;
 height: 30px;
@@ -143,35 +123,29 @@ padding-left: 28px;
 font-size: 13px;
 color: gray;
 }
-
 .login5-2{
 width: 450px;
 height: 215px;
 background-color: white;
 float: right;
 }
-
 .login5-2-1{
 height: 25px;
 width: 280px;
 color: gray;
 }
-
 .login5-2-2{
 height: 25px;
 width: 280px;
 }
-
 .lgon5-3{
 padding-top: 27px;
 padding-left: 100px;
 }
-
 .lgon5-4{
 padding-top: 27px;
 padding-left: 100px;
 }
-
 #login5-5{
 padding-top: 7px;
 padding-left: 100px;
@@ -182,7 +156,6 @@ font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
 text-decoration: none;
 color: black;
 }
-
 .checkbox{
 font: normal 10px FontAwesome;
 color: #333;
@@ -193,13 +166,11 @@ height: 40px;
 background: none;
 box-shadow: none;
 }
-
 .col-8{
 font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
 padding-left: 95px;
 padding-top: 20px;
 }
-
 .btn1{
 position: relative;
 background: #72c02c;
@@ -214,7 +185,6 @@ padding: 11px 25px;
 text-align: center;
 margin-left: 170px;
 }
-
 .btn2{
 float: right;
 -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -242,21 +212,16 @@ background: #7f8c8d;
 margin-right: 162px;
 background-color: 95a5a6;
 }
-
 .Login7{
 margin-left: 394px;
 }
-
 /* MemberLogin Page Css End *********************************************************************/
-
 /* MemberJoin Page Css Start ********************************************************************/
-
 .Joinmain{
 height: 1030px;
 width: 1903px;
 background-color: white;
 }
-
 .JoinMainPage{
 height: 965px;
 width: 555px;
@@ -265,7 +230,6 @@ position:absolute;
 left: 675px;
 margin-top: 17px;
 }
-
 .Join1{
 height: 45px;
 width: 553px;
@@ -275,7 +239,6 @@ border-left: 1px solid rgba(0,0,0,.1);
 border-right: 1px solid rgba(0,0,0,.1);
 border-bottom: 1px solid rgba(0,0,0,.1);
 }
-
 .Join1-1{
 text-align: center;
 font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
@@ -286,7 +249,6 @@ font-size: 20px;
 font-weight: 400;
 padding-top: 7px;
 }
-
 .Join2{
 height: 153px;
 width: 553px;
@@ -295,12 +257,10 @@ border-left: 1px solid rgba(0,0,0,.1);
 border-right: 1px solid rgba(0,0,0,.1);
 border-bottom: 1px solid rgba(0,0,0,.1);
 }
-
 .Join2img{
 padding-left: 30px;
 padding-top: 25px;
 }
-
 .Join3{
 height: 78px;
 width: 553px;
@@ -309,7 +269,6 @@ border-left: 1px solid rgba(0,0,0,.1);
 border-right: 1px solid rgba(0,0,0,.1);
 border-bottom: 1px solid rgba(0,0,0,.1);
 }
-
 .Join3-1{
 text-align: center;
 font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
@@ -320,7 +279,6 @@ font-size: 20px;
 font-weight: 400;
 padding-top: 20px;
 }
-
 .Join4{
 height: 600px;
 width: 553px;
@@ -329,18 +287,13 @@ background-color: white;
 border-right: 1px solid rgba(0,0,0,.1);
 border-left: 1px solid rgba(0,0,0,.1);
 }
-
 .Join4-1-a{
 height: 50px;
 }
-
 .Join4-1-b{
 margin-top:5px;
 height: 50px;
 }
-
-
-
 .Join4-1-1{
 width: 150px;
 font-size: 13px;
@@ -349,7 +302,6 @@ padding-left: 30px;
 padding-top: 15px;
 float: left;
 }
-
 .Join4-1-2{
 width: 150px;
 font-size: 13px;
@@ -358,30 +310,23 @@ padding-left: 30px;
 padding-top: 5px;
 float: left;
 }
-
-
-
 .Join-text{
 float: left;
 margin-top: 10px;
 margin-left: 30px;
 }
-
 .Join4-2{
 width: 273px;
 height: 27px;
 }
-
 .Join4-3{
 width: 192px;
 height: 27px;
 }
-
 .Join4-4{
 width: 192px;
 height: 27px;
 }
-
 /* 중복확인  버튼 css */
 .input-group-btn {
 position: relative;
@@ -392,7 +337,6 @@ white-space: nowrap;
 vertical-align: middle;
 display: table-cell;
 }
-
 .btn-u{
 background: #e74c3c;
 border: 0;
@@ -409,7 +353,6 @@ text-decoration: none;
 margin-top: 10px;
 width: 80px;
 }
-
 button{
 outline: 0 !important;
 line-height: inherit;
@@ -420,28 +363,22 @@ margin: 0;
 font: inherit;
 }
 /* 중복확인  버튼 css */
-
 .Join4-select{
 width: 120px;
 height: 30px;
 }
-
 .Join4-birth1{
 width: 120px;
 height: 30px;
 }
-
 .Join4-birth2{
 width: 120px;
 height: 30px;
 }
-
-
 .Join4-check{
 padding-top: 15px;
 padding-left: 25px;
 }
-
 .Join4or5-1{
 -webkit-tap-highlight-color: rgba(0,0,0,0);
 font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
@@ -461,7 +398,6 @@ margin-top: 25px;
 margin-left: 30px;
 line-height: 35px;
 }
-
 .Join4or5-2{
 -webkit-tap-highlight-color: rgba(0,0,0,0);
 font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
@@ -481,19 +417,16 @@ margin-top: 10px;
 margin-left: 30px;
 line-height: 35px;
 }
-
 .Join4-check2{
 padding-top: 15px;
 padding-left: 25px;
 }
-
 .Join5{
 height: 83px;
 width: 553px;
 background-color: white;
 border: 1px solid rgba(0,0,0,.1);
 }
-
 .Join5-btn1{
 -webkit-tap-highlight-color: rgba(0,0,0,0);
 font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
@@ -516,9 +449,7 @@ background: #5fb611;
 color: #fff;
 margin-left: 171px;
 margin-top: 17px;
-
 }
-
 .Join5-btn2{
 -webkit-tap-highlight-color: rgba(0,0,0,0);
 font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
@@ -540,16 +471,13 @@ background: #95a5a6;
 color: #fff;
 margin-right: 5px;
 }
-
 /* MemberJoin Page Css End *********************************************************************/
-
 /* MemberFacebookLogin Page Css Start *********************************************************************/
 .FJoinmain{
 height: 850px;
 width: 1903px;
 background-color: white;
 }
-
 .FJoinMainPage{
 height: 600px;
 width: 555px;
@@ -558,7 +486,6 @@ position:absolute;
 left: 675px;
 margin-top: 17px;
 }
-
 .FJoin1{
 height: 45px;
 width: 553px;
@@ -568,7 +495,6 @@ border-left: 1px solid rgba(0,0,0,.1);
 border-right: 1px solid rgba(0,0,0,.1);
 border-bottom: 1px solid rgba(0,0,0,.1);
 }
-
 .FJoin1-1{
 text-align: center;
 font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
@@ -579,7 +505,6 @@ font-weight: 400;
 display: block;
 padding-top: 7px;
 }
-
 .FJoin2{
 height: 100px;
 width: 553px;
@@ -587,7 +512,6 @@ background-color: white;
 border-left: 1px solid rgba(0,0,0,.1);
 border-right: 1px solid rgba(0,0,0,.1);
 }
-
 .FJoin2-1{
 width: 150px;
 font-size: 13px;
@@ -596,7 +520,6 @@ padding-left: 30px;
 padding-top: 40px;
 float: left;
 }
-
 .FJoin2-2{
 float: left;
 margin-top: 25px;
@@ -605,12 +528,10 @@ background-color: red;
 height: 60px;
 width: 60px;
 }
-
 .FJoin2-2-img{
 height: 60px;
 width: 60px;
 }
-
 .FJoin2-3{
 float: left;
 margin-top: 40px;
@@ -623,7 +544,6 @@ font-size: 12px;
 font-weight: normal;
 color: #687074;
 }
-
 .FJoin3{
 height: 78px;
 width: 553px;
@@ -632,7 +552,6 @@ border-left: 1px solid rgba(0,0,0,.1);
 border-right: 1px solid rgba(0,0,0,.1);
 border-bottom: 1px solid rgba(0,0,0,.1);
 }
-
 .FJoin3-1{
 text-align: center;
 font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
@@ -643,7 +562,6 @@ font-size: 20px;
 font-weight: 400;
 padding-top: 20px;
 }
-
 .FJoin4{
 height: 430px;
 width: 553px;
@@ -652,16 +570,13 @@ background-color: white;
 border-right: 1px solid rgba(0,0,0,.1);
 border-left: 1px solid rgba(0,0,0,.1);
 }
-
 .FJoin4-1-a{
 height: 50px;
 }
-
 .FJoin4-1-b{
 margin-top:5px;
 height: 50px;
 }
-
 .FJoin4-1-1{
 width: 150px;
 font-size: 13px;
@@ -670,42 +585,33 @@ padding-left: 30px;
 padding-top: 15px;
 float: left;
 }
-
 .FJoin-text{
 float: left;
 margin-top: 10px;
 margin-left: 30px;
 }
-
 .FJoin-text2{
 float: left;
 margin-top: 5px;
 margin-left: 30px;
 }
-
 .FJoin4-2{
 width: 273px;
 height: 27px;
 }
-
-
 .FJoin4-2-j{
 width: 273px;
 height: 27px;
 margin-left: 30px;
 }
-
-
 .FJoin4-3{
 width: 192px;
 height: 27px;
 }
-
 .FJoin4-4{
 width: 192px;
 height: 27px;
 }
-
 /* 중복확인  버튼 css */
 .Finput-group-btn {
 position: relative;
@@ -716,7 +622,6 @@ white-space: nowrap;
 vertical-align: middle;
 display: table-cell;
 }
-
 .Fbtn-u{
 background: #e74c3c;
 border: 0;
@@ -733,7 +638,6 @@ text-decoration: none;
 margin-top: 10px;
 width: 80px;
 }
-
 button{
 outline: 0 !important;
 line-height: inherit;
@@ -744,28 +648,22 @@ margin: 0;
 font: inherit;
 }
 /* 중복확인  버튼 css */
-
 .FJoin4-select{
 width: 120px;
 height: 30px;
 }
-
 .FJoin4-birth1{
 width: 120px;
 height: 30px;
 }
-
 .FJoin4-birth2{
 width: 120px;
 height: 30px;
 }
-
-
 .FJoin4-check{
 padding-top: 15px;
 padding-left: 25px;
 }
-
 .FJoin4or5-1{
 -webkit-tap-highlight-color: rgba(0,0,0,0);
 font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
@@ -785,7 +683,6 @@ margin-top: 25px;
 margin-left: 30px;
 line-height: 35px;
 }
-
 .FJoin4or5-2{
 -webkit-tap-highlight-color: rgba(0,0,0,0);
 font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
@@ -805,19 +702,16 @@ margin-top: 10px;
 margin-left: 30px;
 line-height: 35px;
 }
-
 .FJoin4-check2{
 padding-top: 15px;
 padding-left: 25px;
 }
-
 .FJoin5{
 height: 83px;
 width: 553px;
 background-color: white;
 border: 1px solid rgba(0,0,0,.1);
 }
-
 .FJoin5-btn1{
 -webkit-tap-highlight-color: rgba(0,0,0,0);
 font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
@@ -840,9 +734,7 @@ background: #5fb611;
 color: #fff;
 margin-left: 171px;
 margin-top: 17px;
-
 }
-
 .FJoin5-btn2{
 -webkit-tap-highlight-color: rgba(0,0,0,0);
 font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
@@ -864,9 +756,7 @@ background: #95a5a6;
 color: #fff;
 margin-right: 5px;
 }
-
 /* MemberFacebookLogin Page Css End *********************************************************************/
-
 /* memberMypage css  Start **********************************************************************/
 
 .mypagemain{
@@ -1149,6 +1039,7 @@ height: 850px;
 float: right;
 }
 
+
 .my1{
 width:870px;
 height: 850px;
@@ -1158,10 +1049,20 @@ float: right;
 
 .my1-1{
 width:870px;
-height: 800px;
+height: 450px;
 background-color: white;
 border: 1.2px solid rgba(0,0,0,.1);
 border-radius: 5px;
+}
+
+.my1-1-1{
+width: 250px;
+height: 400px;
+background-color: #f5f5f5;
+border: 1.2px solid rgba(0,0,0,.1);
+border-radius: 5px;
+margin-top: 20px;
+margin-left: 20px;
 }
 
 .my2{ 
@@ -1174,9 +1075,84 @@ float: right;
 .my3{ 
 width:870px;
 height: 850px;
-background-color: gray; 
+background-color: white; 
 float: right;
 } 
+
+.my3-1{
+width:870px;
+height: 300px;
+background-color: white;
+border: 1.2px solid rgba(0,0,0,.1);
+border-radius: 5px;	
+}
+
+.my3-1-1{
+width: 820px;
+height: 120px;
+background-color: white;
+margin-left: 20px;
+margin-top: 30px;
+border-bottom:1px solid #e8e8e8;
+text-align: center;
+font-size: 14px;
+font-family: 'NanumGothic';
+}
+
+.my3-1-2{
+width: 820px;
+height: 60px;
+background-color: white;
+margin-left: 30px;
+margin-top : 20px;
+text-align: center;
+font-size: 14px;
+}
+
+.my3-1-3{
+background-image: linear-gradient(to bottom,#5cb85c 0,#419641 100%);
+background-repeat: repeat-x;
+border-color: #3e8f3e;
+box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);   
+text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+color: #fff;
+background-color: #5cb85c;
+border-color: #4cae4c;
+display: inline-block;
+font-weight: 400;
+vertical-align: middle;
+cursor: pointer;
+user-select: none;  
+border: 1px solid transparent;
+white-space: nowrap;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+border-radius: 4px; 
+margin-top: 20px;
+margin-left: 350px; 
+width: 170px;
+height: 35px;	
+}
+
+.my3-1-4{
+width: 60px;
+height: 25px;
+background-color: rgb(153, 153, 153);
+color: #fff;
+text-align: center;
+font-size: 13px;
+border-radius: 3px;
+line-height: 1.7;
+float: left;
+margin-left: 10px;
+margin-top: -2px;
+}
+
+.my3-1-5{
+float: left;	
+margin-left: 10px;
+}
 
 .my4{ 
 width:870px;
@@ -1184,7 +1160,6 @@ height: 850px;
 background-color: white; 
 float: right;
 } 
-
 .my4-1{
 width:870px;
 height: 800px;
@@ -1192,7 +1167,6 @@ background-color: white;
 border: 1.2px solid rgba(0,0,0,.1);
 border-radius: 5px;
 }
-
 .my4-1-1{
 width:700px;
 height: 130px;
@@ -1202,7 +1176,6 @@ border-radius: 5px;
 margin-top: 50px;
 margin-left: 80px;
 }
-
 .my4-1-1-1{
 width:700px;
 height: 50px;
@@ -1214,12 +1187,10 @@ border-top-right-radius: 3px;
 border-top-left-radius: 3px;
 border-bottom: 1px solid transparent;
 }
-
 .my4-1-1-2{
 width:700px;
 height: 80px;
 }
-
 .my4-1-1-1-1{
 width:100px;
 height: 50px;
@@ -1230,15 +1201,11 @@ font-family: 'NanumGothic';
 font-size: 15px;
 line-height: 3;
 }
-
 .my4-1-1-1-2{
 width:680px;
 height: 80px;
 margin-left: 10px;
 }
-
-
-
 .my4-1-2{
 width:700px;
 height: 80px;
@@ -1248,9 +1215,6 @@ border-radius: 5px;
 margin-top: 30px;
 margin-left: 80px;
 }
-
-
-
 .my4-1-2-1{
 width:700px;
 height: 35px;
@@ -1262,12 +1226,10 @@ border-top-right-radius: 3px;
 border-top-left-radius: 3px;
 border-bottom: 1px solid transparent;
 }
-
 .my4-1-2-2{
 width:700px;
 height: 45px;
 }
-
 .my4-1-2-1-1{
 width:100px;
 height: 35px;
@@ -1278,13 +1240,11 @@ font-family: 'NanumGothic';
 font-size: 15px;
 line-height: 2.2;
 }
-
 .my4-1-2-1-2{
 width:680px;
 height: 45px;
 margin-left: 10px;
 }
-
 .my4-1-3{
 width:700px;
 height: 80px;
@@ -1294,7 +1254,6 @@ border-radius: 5px;
 margin-top: 30px;
 margin-left: 80px;
 }
-
 .my4-1-3-1{
 width:700px;
 height: 35px;
@@ -1306,12 +1265,10 @@ border-top-right-radius: 3px;
 border-top-left-radius: 3px;
 border-bottom: 1px solid transparent;
 }
-
 .my4-1-3-2{
 width:700px;
 height: 45px;
 }
-
 .my4-1-3-1-1{
 width:100px;
 height: 35px;
@@ -1322,13 +1279,11 @@ font-family: 'NanumGothic';
 font-size: 15px;
 line-height: 2.2;
 }
-
 .my4-1-3-1-2{
 width:680px;
 height: 45px;
 margin-left: 10px;
 }
-
 .my4-1-4{
 width:700px;
 height: 80px;
@@ -1338,7 +1293,6 @@ border-radius: 5px;
 margin-top: 30px;
 margin-left: 80px;
 }
-
 .my4-1-4-1{
 width:700px;
 height: 35px;
@@ -1350,12 +1304,10 @@ border-top-right-radius: 3px;
 border-top-left-radius: 3px;
 border-bottom: 1px solid transparent;
 }
-
 .my4-1-4-2{
 width:700px;
 height: 45px;
 }
-
 .my4-1-4-1-1{
 width:300px;
 height: 35px;
@@ -1366,13 +1318,11 @@ font-family: 'NanumGothic';
 font-size: 15px;
 line-height: 2.2;
 }
-
 .my4-1-4-1-2{
 width:680px;
 height: 45px;
 margin-left: 10px;
 }
-
 .my4-1-5{
 width:700px;
 height: 80px;
@@ -1382,7 +1332,6 @@ border-radius: 5px;
 margin-top: 30px;
 margin-left: 80px;
 }
-
 .my4-1-5-1{
 width:700px;
 height: 35px;
@@ -1394,12 +1343,10 @@ border-top-right-radius: 3px;
 border-top-left-radius: 3px;
 border-bottom: 1px solid transparent;
 }
-
 .my4-1-5-2{
 width:700px;
 height: 45px;
 }
-
 .my4-1-5-1-1{
 width:300px;
 height: 35px;
@@ -1410,13 +1357,11 @@ font-family: 'NanumGothic';
 font-size: 15px;
 line-height: 2.2;
 }
-
 .my4-1-5-1-2{
 width:680px;
 height: 45px;
 margin-left: 10px;
 }
-
 .my4-1-6{
 width:700px;
 height: 80px;
@@ -1426,7 +1371,6 @@ border-radius: 5px;
 margin-top: 30px;
 margin-left: 80px;
 }
-
 .my4-1-6-1{
 width:700px;
 height: 35px;
@@ -1438,12 +1382,10 @@ border-top-right-radius: 3px;
 border-top-left-radius: 3px;
 border-bottom: 1px solid transparent;
 }
-
 .my4-1-6-2{
 width:700px;
 height: 45px;
 }
-
 .my4-1-6-1-1{
 width:300px;
 height: 35px;
@@ -1454,19 +1396,79 @@ font-family: 'NanumGothic';
 font-size: 15px;
 line-height: 2.2;
 }
-
 .my4-1-6-1-2{
 width:680px;
 height: 45px;
 margin-left: 10px;
 }
-
+ 
 .my5{ 
 width:870px;
 height: 850px;
-background-color: orange; 
+background-color: white; 
 float: right;
 } 
+
+.my5-1{
+width:870px;
+height: 300px;
+background-color: white;
+border: 1.2px solid rgba(0,0,0,.1);
+border-radius: 5px;		
+}
+
+.my5-1-1{
+width: 810px;
+height: 240px;
+background-color: white;
+margin-left: 30px;
+margin-top: 30px;
+}
+
+.my5-1-2{
+width: 810px;
+height: 120px;
+background-color: white;
+border-bottom:1px solid #e8e8e8;
+}
+
+.my5-1-3{
+width: 810px;
+height: 120px;
+background-color: white;	
+}
+
+.my5-1-2-1{
+background-color: white;
+width: 810px;
+height: 40px;	
+margin-top: 20px;
+font-family: 'NanumGothic';
+font-size: 18px;
+}
+
+.my5-1-2-2{
+background-color: white;	
+width: 810px;
+height: 30px;	
+font-size: 14px;
+}
+
+.my5-1-3-1{
+background-color: white;
+width: 810px;
+height: 40px;	
+margin-top: 20px;
+font-family: 'NanumGothic';
+font-size: 18px;	
+}
+
+.my5-1-3-2{
+background-color: white;	
+width: 810px;
+height: 70px;	
+font-size: 14px;
+}	
 
 .asdzxc{
 width:100%;
@@ -1475,7 +1477,6 @@ background-color:rgba(0,0,0,0.85);
 position: absolute;
 top:0px;
 }
-
 .asdzxc2{
 width:598px;
 height: 616px;
@@ -1486,7 +1487,6 @@ top: 100px;
 position: relative;
 opacity: 1;
 }
-
 /* 프로필 변경 css */
 .changeprofile{
 width: 100%;
@@ -1495,16 +1495,12 @@ background-color: white;
 border-bottom: 1px solid rgba(0,0,0,.1);
 border-radius: 10px;
 }
-
 .changeprofile2{
 width: 100%;
 height: 70px;
 background-color: white;
 border-radius: 10px;
 }
-
-
-
 .changeprofile3{
 height:70px;
 width: 200px;
@@ -1517,14 +1513,12 @@ font-weight: bold;
 line-height: 3.2;
 margin-left: 30px;
 }
-
 .myintroduce-0{
 width : 560px;
 height : 150px;
 border-bottom: 1px solid rgba(0,0,0,.1);
 margin-left: 15px;
 }
-
 /* 입력 text글 css */
 .myself{
 color: #555;
@@ -1538,7 +1532,6 @@ transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 cursor: text;
 -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-
 .myintroduce-1{
 background-color: #fff;
 width: 100%;
@@ -1546,16 +1539,13 @@ height: 74px;
 font-weight: bold;
 font-size: 15px;
 }
-
 .myintroduce1-1{
 padding-top: 5px;
 }
-
 .myintroduce1-1-1{
 width: 474px;
 height: 32.5px;
 }
-
 .myintroduce-2{
 background-color: #fff;
 width: 100%;
@@ -1563,23 +1553,19 @@ height: 74px;
 font-weight: bold;
 font-size: 15px;
 }
-
 .myintroduce2-1{
 padding-top: 5px;
 }
-
 .myintroduce2-1-1{
 width: 474px;
 height: 32.5px;
 }
-
 .myintroduce-0-0{
 width : 560px;
 height : 300px;
 margin-left: 15px;
 background-color: #fff;
 }
-
 .myintroduce-3{
 background-color: #fff;
 width: 100%;
@@ -1588,16 +1574,13 @@ font-weight: bold;
 font-size: 15px;
 padding-top: 5px;
 }
-
 .myintroduce3-1{
 padding-top: 5px;
 }
-
 .myintroduce3-1-1{
 width: 474px;
 height: 32.5px;
 }
-
 .myintroduce-4{
 background-color: #fff;
 width: 100%;
@@ -1605,16 +1588,13 @@ height: 74px;
 font-weight: bold;
 font-size: 15px;
 }
-
 .myintroduce4-1{
 padding-top: 5px;
 }
-
 .myintroduce4-1-1{
 width: 474px;
 height: 32.5px;
 }
-
 .myintroduce-5{
 background-color: #fff;
 width: 100%;
@@ -1622,16 +1602,13 @@ height: 74px;
 font-weight: bold;
 font-size: 15px;
 }
-
 .myintroduce5-1{
 padding-top: 5px;
 }
-
 .myintroduce5-1-1{
 width: 474px;
 height: 32.5px;
 }
-
 .myintroduce-6{
 background-color: #fff;
 width: 100%;
@@ -1639,16 +1616,13 @@ height: 74px;
 font-weight: bold;
 font-size: 15px;
 }
-
 .myintroduce6-1{
 padding-top: 5px;
 }
-
 .myintroduce6-1-1{
 width: 474px;
 height: 32.5px;
 }
-
 .myintroduce-7-1{
 background-image: linear-gradient(to bottom,#428bca 0,#2d6ca2 100%);
 background-repeat: repeat-x;
@@ -1672,7 +1646,6 @@ font-size: 18px;
 line-height: 1.9;
 margin-top: 20px;
 }
-
 .myintroduce-7-2{
 background-image: linear-gradient(to bottom,#428bca 0,#2d6ca2 100%);
 background-repeat: repeat-x;
@@ -1698,20 +1671,5 @@ margin-top: 20px;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* memberMypage css  End **********************************************************************/
-</style>
+

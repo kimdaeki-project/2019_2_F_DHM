@@ -24,6 +24,14 @@ public class MemberFilesVO {
 	@JoinColumn(name = "id")
 	private MemberVO memberVO;
 
+	public MemberVO getMemberVO() {
+		return memberVO;
+	}
+	
+	
+	public void setMemberVO(MemberVO memberVO) {
+		this.memberVO = memberVO;
+	}
 
 	public int getFnum() {
 		return fnum;
@@ -54,18 +62,13 @@ public class MemberFilesVO {
 		this.oname = oname;
 	}
 
-
-	public MemberVO getMemberVO() {
-		return memberVO;
-	}
-
-
-	public void setMemberVO(MemberVO memberVO) {
-		this.memberVO = memberVO;
-	}
+//	public String getId() {
+//		return id;
+//	}
 	
-	
-	
+//	public void setId(String id) {
+//		this.id = id;
+//	}
 	
 	
 }

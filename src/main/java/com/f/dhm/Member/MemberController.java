@@ -156,5 +156,15 @@ public class MemberController {
 		
 		return "member/memberUsePage/memberTermsAndConditions";
 	}
+	
 	//-----------------------------------------------------------------------
+	@PostMapping("myPlanner")
+	public String gomakePlanner()throws Exception{
+		
+		return "planner/myPlanner";
+	}
+	//-----------------------------------------------------------------------
+	
+	//-----------------------------------------------------------------------
+	
 }

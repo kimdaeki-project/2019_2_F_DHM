@@ -44,20 +44,21 @@ public class MemberVO {
 	private String tema;
 	private String helpcity;
 		
-
-	//img, subimg는 MemberFilesVO에 입력 해야함
 	
 //	@OneToOne(mappedBy = "memberVO", cascade = CascadeType.ALL)
 //	private MemberFilesVO memberFilesVO;
-
-
-//	public String getImg() {
-//			return img;
-//		}
 //
-//		public void setImg(String img) {
-//			this.img = img;
-//		}
+//	public MemberFilesVO getMemberFilesVO() {
+//		return memberFilesVO;
+//	}
+//
+//	public void setMemberFilesVO(MemberFilesVO memberFilesVO) {
+//		this.memberFilesVO = memberFilesVO;
+//	}
+	
+	
+	
+	
 
 	public String getId() {
 		return id;

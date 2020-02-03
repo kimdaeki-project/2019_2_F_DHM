@@ -16,7 +16,7 @@
   
   
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<c:import url="./membercss.jsp"/>
+<link rel="stylesheet"  href="../css/membercss.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -29,7 +29,14 @@
 	<div class="mypagemain"><!-- b boss -->
 		<div class="mypagemain3"><!-- m-1 boss -->
 			<div class="my1" id="my1">
-				<div class="my1-1"></div>
+				<div class="my1-1">
+					<div class="my1-1-1">
+						<button class="btn btn-warning" id="gomakePlanner"
+						style="color: white; background-image: linear-gradient(to bottom,#f0ad4e 0,#eb9316 100%);
+  						margin-top: 170px; margin-left: 25px; width: 200px; height: 35px; font-weight: 800; line-height: 0;">
+  						<font style="font-size: 24px;">+</font>다녀온 여행 등록하기</button>
+					</div>
+				</div>
 			</div>
 			
 			<div class="my2" id="my2">
@@ -37,7 +44,18 @@
 			</div>
 			
 			<div class="my3" id="my3">
-			
+				<div class="my3-1">
+					<div class="my3-1-1">
+						<h5>여행중에 잊지못할 경험을 하셨나요?</h5>
+						<h5>답답하고 억울한 상황을 겪으셨다구요?</h5>
+						<h5>잊기전에 리뷰로 남겨, 다음 여행자들과 공유해 보세요!</h5>
+					</div>
+					<div class="my3-1-2">
+						당신의 리뷰는 당신과 비슷한 지역을 가기위해 여행을 계획중인 사람들에게 노출됩니다.<br>
+						이때 당신이 다녀온 여행이 첨부되기 때문에, 광고리뷰가 넘쳐나는 블로그보다 더 신뢰를 얻게됩니다.
+					</div>
+					<button class="my3-1-3"><div class="my3-1-5">리뷰쓰기</div><div class="my3-1-4">+50마일</div></button>
+				</div>
 			</div>
 			
 			<div class="my4" id="my4">
@@ -94,7 +112,19 @@
 			</div>
 			
 			<div class="my5" id="my5">
-			
+				<div class="my5-1">
+					<div class="my5-1-1">
+						<div class="my5-1-2">
+							<div class="my5-1-2-1"><h4>발견한 도시<h4></div>
+							<div class="my5-1-2-2">아직 직접 발견해서 추가하신 도시가 없습니다.</div>
+						</div>
+						<div class="my5-1-3">
+							<div class="my5-1-3-1"><h4>발견한 스팟</h4></div>
+							<div class="my5-1-3-2">아직 직접 발견해서 추가하신 스팟이 없습니다.<br>
+							추가하고 싶은 스팟이 있으면 위의 검색창에 검색을 한 뒤에 없으면 해당 도시의 가이드북에서 추가하실 수 있습니다.</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			
 		</div><!-- m boss -->
@@ -360,7 +390,6 @@
 				}
 			}
 		});
-
 	//성별 출력 변경
 	$(function(){
  		if(${member.gender} == 1){
@@ -371,14 +400,12 @@
 				}
 			}
 		});
-
 	//생년 출력 변경
 	//substring  >> 문자열 추출			
 	$(document).ready(function(){
 		 var mbirth = $( '.mypage2-1-1-3' ).text().substring( 0, 4 );
 		 $( '.mypage2-1-1-3' ).text(mbirth);
 		});
-
 			
 //-----------------------------------------------------------------------
 //5개 아이콘  회전 제어
@@ -386,7 +413,6 @@ $('.msgbing1').hide();
 $('.msgbing2').hide();
 $('.msgbing3').hide();
 $('.msgbing4').hide();
-
 ////////
 	$("div.mypage3-2").mouseout(function(){
 		$('.msgbing10').show();
@@ -437,7 +463,6 @@ $('.msgbing4').hide();
 	$('.my3').hide();
 	$('.my4').hide();
 	$('.my5').hide();
-
 	$("div.mypage3-1").click(function(){		
 		$('.my1').show();
 		
@@ -455,7 +480,6 @@ $('.msgbing4').hide();
 		$('.my4').hide();
 		$('.my5').hide();
 	});
-
 	$("div.mypage3-3").click(function(){		
 		$('.my3').show();
 		
@@ -492,7 +516,6 @@ $('.msgbing4').hide();
 		$('.asdzxc').show();
 		$('.asdzxc2').slideDown();
 	});
-
 	$(".myintroduce-7-2").click(function(){
 		$('.asdzxc').hide();
 		$('.asdzxc2').hide();
@@ -500,19 +523,10 @@ $('.msgbing4').hide();
 		
 //------------------------------------------------------------------------
 //프로필 관리 
-
 $(".myintroduce-7-1").click(function(){
 	
 	document.getElementById('frm3').submit();
-
 });
-
-
-
-
-
-
-
 </script>
 	
 </body>
