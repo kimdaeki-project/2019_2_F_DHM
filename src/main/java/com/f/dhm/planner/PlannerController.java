@@ -180,4 +180,9 @@ public class PlannerController {
 		
 		return pList.get(0).getPlNum();
 	}
+	
+	@GetMapping("reviewPlanner")
+	public void reviewPlanner()throws Exception{
+		
+	}
 }
