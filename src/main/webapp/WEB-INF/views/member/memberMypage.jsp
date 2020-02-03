@@ -133,7 +133,7 @@
 		
 			<div class="mypage1"><!-- s-1 boss -->
 				<div class="mypage1-1">
-					<a href="#"><img src="../imgs/dog.jpg" class="mypage1-1-1"></a>
+					<a><img src="../imgs/dog.jpg" class="mypage1-1-1"></a>
 				</div>
 				<div class="mypage1-2">
 					<div class="mypage1-2-1">
@@ -296,6 +296,7 @@
 	
 </form>
 
+	<!-- 프로필 변경 화면창 -->
 	<div class="asdzxc">
 		<div class="asdzxc2">
 			<div class="changeprofile">
@@ -372,7 +373,17 @@
 			</div>
 			
 		</div>
-	</div>			
+	</div>	
+	
+	
+	<!-- 프로필 사진변경 화면창 -->
+	<div class="changeimg">
+		<div class="changeimg2">
+		
+		</div>
+	</div>
+	
+			
 	
 
 <script type="text/javascript">
@@ -507,7 +518,7 @@ $('.msgbing4').hide();
 		$('.my4').hide();
 	});
 	
-//-----------------------------------------------------------------------
+//------------------------------------------------------------------------
 //프로필 관리 화면창 띄우기
 		$('.asdzxc').hide();
 		$('.asdzxc2').hide();
@@ -520,7 +531,18 @@ $('.msgbing4').hide();
 		$('.asdzxc').hide();
 		$('.asdzxc2').hide();
 	});     
-		
+//------------------------------------------------------------------------	
+//프로필 사진 화면창 띄우기
+ 		$('.changeimg').hide();
+		$('.changeimg2').hide();
+
+		$(".mypage1-1-1").click(function(){
+			$('.changeimg').show();
+ 			$('.changeimg2').slideDown();
+		});
+		 
+ 
+
 //------------------------------------------------------------------------
 //프로필 관리 
 $(".myintroduce-7-1").click(function(){

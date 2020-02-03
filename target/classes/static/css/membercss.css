@@ -793,6 +793,7 @@ margin-top: 10px;
 height: 250px; 
 width: 250px;
 border-radius: 50%;
+cursor: pointer;
 }
 
 .mypage1-2{
@@ -1470,6 +1471,41 @@ height: 70px;
 font-size: 14px;
 }	
 
+/* 프로필 사진 변경 화면창 */
+.changeimg{
+width:100%;
+height: 1020px;
+background-color:rgba(0,0,0,0.85);
+position: absolute;
+top:0px;
+}
+
+.changeimg2{
+width:598px;
+height: 800px;
+background-color: white;
+margin-left : 700px;
+border-radius: 10px;
+top: 100px;
+position: relative;
+opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 프로필 변경 화면창 */
 .asdzxc{
 width:100%;
 height: 1020px;
