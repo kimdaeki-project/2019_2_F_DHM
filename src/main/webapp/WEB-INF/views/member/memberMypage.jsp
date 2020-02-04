@@ -40,7 +40,8 @@
 			</div>
 			
 			<div class="my2" id="my2">
-			
+			<a><img alt="" src="../imgs/${member.memberFilesVO.fname}" class="mypage1-1-1"></a>
+			<a><img src="../imgs/dog.jpg" class="mypage1-1-1"></a>
 			</div>
 			
 			<div class="my3" id="my3">
@@ -133,6 +134,7 @@
 		
 			<div class="mypage1"><!-- s-1 boss -->
 				<div class="mypage1-1">
+
 					<a><img src="../imgs/dog.jpg" class="mypage1-1-1"></a>
 				</div>
 				<div class="mypage1-2">
@@ -368,8 +370,8 @@
 		</spring:form>
 			
 			<div class="myintroduce-7">
-				<div class="myintroduce-7-1">변경</div>
-				<div class="myintroduce-7-2">취소</div>
+					<div class="myintroduce-7-1">변경</div>
+					<div class="myintroduce-7-2">취소</div>
 			</div>
 			
 		</div>
@@ -377,24 +379,71 @@
 	
 	
 	<!-- 프로필 사진변경 화면창 -->
+	<spring:form action="memberMypageImg" id="frm4" method="post" modelAttribute="memberVO" enctype="multipart/form-data">
 	<div class="changeimg">
 		<div class="changeimg2">
 			<div class="changeimg2-1">
 				<div class="changeimg2-1-1">×</div>
-			
 			</div>
-		
-		
-		
-		
-		
+			<div class="changeimgtext"><h4>PHOTO</h4></div>	
+				<!-- 이미지 넣는 버튼  -->	
+				<input class="changeimg2-2" type="file" id="input_img" style="width: 300px;height: 30px;" name="files">
+				<input type="hidden" value="${member.id}" name="id">
+				<input type="hidden" value="${member.pw}" name="pw">
+				<input type="hidden" value="${member.name}" name="name">
+				<input type="hidden" value="${member.email}" name="email">
+				<input type="hidden" value="${member.gender}" name="gender">
+				<input type="hidden" value="${member.birth}" name="birth">
+			<div class="changeimg2-3">
+				<div class="changeimg2-3-1">
+					<!-- 이미지 미리보기 창  -->
+					<div class="img_wrap" style="width: 500px; height: 568px;">
+						<img id="img" style="width: 498px; height: 568px;">
+					</div>
+				</div>
+			</div>
+			<div class="introducebox">
+			<div class="changeimg2-5">저장</div>
+			<div class="changeimg2-4">창닫기</div>
+			</div>
 		</div>
 	</div>
-	
+	</spring:form>
 			
 	
 
 <script type="text/javascript">
+
+	var sel_file;
+
+	$(document).ready(function(){
+		$("#input_img").on("change",handleImgFileSelect);
+	});
+
+	function handleImgFileSelect(e){
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+
+		filesArr.forEach(function(f){
+			if(!f.type.match("image.*")){
+				alert("확장자는 이미지 확장자만 가능합니다.");
+				return;
+				}
+
+			sel_file = f;
+
+			var reader = new FileReader();
+			reader.onload = function(e){
+				$("#img").attr("src", e.target.result);
+				}
+			reader.readAsDataURL(f);
+			
+			});
+		}
+
+
+
+
 	//등급 출력 변경
 	$(function(){
  		if(${member.grade} == 0){
@@ -553,7 +602,16 @@ $('.msgbing4').hide();
 			$('.changeimg2').slideUp();
 			$('.changeimg').slideUp();
 		});  
- 
+
+		$(".changeimg2-4").click(function(){
+			$('.changeimg2').slideUp();
+			$('.changeimg').slideUp();
+		});  
+
+		$(".mypage2-3-1").click(function(){
+ 			$('.changeimg').slideDown();
+			$('.changeimg2').slideDown();
+		});
 	
 //------------------------------------------------------------------------
 //프로필 관리 
@@ -561,6 +619,13 @@ $(".myintroduce-7-1").click(function(){
 	
 	document.getElementById('frm3').submit();
 });
+
+//프로필 사진 관리
+$(".changeimg2-5").click(function(){
+	
+	document.getElementById('frm4').submit();
+});
+
 </script>
 	
 </body>

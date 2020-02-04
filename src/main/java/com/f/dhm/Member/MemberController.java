@@ -1,15 +1,11 @@
 package com.f.dhm.Member;
 
-import java.sql.Date;
-
 import javax.servlet.http.HttpSession;
-import javax.transaction.Transactional;
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import com.f.dhm.Member.MemberVO;
 
 @Controller
 @RequestMapping("/member/**")
@@ -114,7 +111,7 @@ public class MemberController {
 	public MemberVO memberVO()throws Exception{
 		return new MemberVO();
 	}
-	//마이 페이지-----------------------------------------------------------------------
+	//마이 페이지 프로필 변경-----------------------------------------------------------------------
 	@GetMapping("memberMypage")
 	public String memberMypage()throws Exception{
 		
@@ -142,8 +139,38 @@ public class MemberController {
 									
 	return mv;
 }
-	//-----------------------------------------------------------------------
+	//마이페이지 프로필 사진 변경-----------------------------------------------------------------------
+	@GetMapping("memberMypageImg")
+	public String memberMypageImg(HttpSession session, Model model)throws Exception{
+		
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		model.addAttribute("memberVO", memberVO);	
+		
+		return "member/memberMypage";
+	}
 	
+	@PostMapping("memberMypageImg")
+	public ModelAndView memberMypageImg(@Valid MemberVO memberVO, BindingResult bindingResult, HttpSession session, MultipartFile files)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/memberMypage");
+		String message = "프로필 사진 변경 실패";
+
+		if (memberService.memberMypageImg(memberVO, session, files)) {
+			memberVO = memberService.memberLogin(memberVO);
+			message = "프로필 사진 변경 완료";
+		}
+		
+		session.setAttribute("member", memberVO);	
+		String path = "./memberMypage";
+		
+		
+		mv.setViewName("common/result");
+		mv.addObject("message", message);
+		mv.addObject("path", path);
+		
+		
+		return mv;	
+	}
 	//개인정보 및 이용약관 페이지-----------------------------------------------------------------------
 	@GetMapping("memberPrivacyPolicy")
 	public String memberPrivacyPolicy()throws Exception{
