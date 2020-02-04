@@ -140,36 +140,32 @@ public class MemberController {
 	return mv;
 }
 	//마이페이지 프로필 사진 변경-----------------------------------------------------------------------
-	@GetMapping("memberMypageImg")
-	public String memberMypageImg(HttpSession session, Model model)throws Exception{
-		
-		MemberVO memberVO = (MemberVO)session.getAttribute("member");
-		model.addAttribute("memberVO", memberVO);	
-		
-		return "member/memberMypage";
-	}
 	
 	@PostMapping("memberMypageImg")
-	public ModelAndView memberMypageImg(@Valid MemberVO memberVO, BindingResult bindingResult, HttpSession session, MultipartFile files)throws Exception{
+	public void memberMypageImg(MemberVO vo, MultipartFile file,HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("member/memberMypage");
-		String message = "프로필 사진 변경 실패";
+		
+		String msg = "프사 변경 실패";
+		
+		if (vo.getMemberFilesVO() != null) {
+			
+			if (!memberService.updateImg(vo, vo.getMemberFilesVO(), file)) {
+				if (memberService.saveImg(vo, file)) {
+					msg = "프사 변경 성공";
+				}
 
-		if (memberService.memberMypageImg(memberVO, session, files)) {
-			memberVO = memberService.memberLogin(memberVO);
-			message = "프로필 사진 변경 완료";
+			}
+		}else {
+			if (memberService.saveImg(vo, file)) {
+				msg = "프사 변경 성공";
+			}
 		}
 		
-		session.setAttribute("member", memberVO);	
-		String path = "./memberMypage";
 		
-		
+		mv.addObject("message", msg);
+		mv.addObject("path", "/memberMypage");
 		mv.setViewName("common/result");
-		mv.addObject("message", message);
-		mv.addObject("path", path);
 		
-		
-		return mv;	
 	}
 	//개인정보 및 이용약관 페이지-----------------------------------------------------------------------
 	@GetMapping("memberPrivacyPolicy")

@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
 
+import com.f.dhm.Member.MemberFilesRepository;
+import com.f.dhm.Member.MemberFilesVO;
 import com.f.dhm.Member.MemberRepository;
 import com.f.dhm.Member.MemberService;
 import com.f.dhm.Member.MemberVO;
@@ -23,10 +25,11 @@ public class DHMTest {
 
 	@Resource
 	private MemberRepository memberRepository;
-	
+	@Autowired
+	private MemberFilesRepository memberFilesRepository;
 
 	
-	@Test
+	//@Test
 	void memberTest()throws Exception{
 		MemberVO memberVO = new MemberVO();
 		memberVO.setId("test1");
@@ -42,6 +45,17 @@ public class DHMTest {
 		System.out.println(memberVO.getEmail());
 		//Optional<MemberVO> mv = memberRepository.findById("test");
 		//System.out.println(mv.get().getEmail());
+		
+	}
+	
+	@Test
+	public void test()throws Exception{
+		//MemberFilesVO memberFilesVO=new MemberFilesVO();
+		//MemberFilesVO memfiles=memberFilesRepository.findByOname("유금필.png").get();
+		//System.out.println("memfiles.getFnum() : "+memfiles.getFnum());
+		//int fnum=memberRepository.findById("afkn100").get().getMemberFilesVO().getFnum();
+		//System.out.println("fnum : "+fnum);
+		MemberVO memberVO=memberRepository.findById("afkn100").get();
 		
 	}
 	

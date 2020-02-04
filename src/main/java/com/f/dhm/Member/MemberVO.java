@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -15,7 +16,10 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.lang.Nullable;
 
 import lombok.Data;
-@Data
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
 @Entity
 @Table(name = "members")
 public class MemberVO {
@@ -49,7 +53,7 @@ public class MemberVO {
 	private int num;
 		
 	@Nullable
-	@OneToOne(mappedBy = "memberVO", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "memberVO", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private MemberFilesVO memberFilesVO;
 
 	

@@ -387,13 +387,15 @@
 			</div>
 			<div class="changeimgtext"><h4>PHOTO</h4></div>	
 				<!-- 이미지 넣는 버튼  -->	
-				<input class="changeimg2-2" type="file" id="input_img" style="width: 300px;height: 30px;" name="files">
-				<input type="hidden" value="${member.id}" name="id">
-				<input type="hidden" value="${member.pw}" name="pw">
-				<input type="hidden" value="${member.name}" name="name">
-				<input type="hidden" value="${member.email}" name="email">
-				<input type="hidden" value="${member.gender}" name="gender">
-				<input type="hidden" value="${member.birth}" name="birth">
+				<input class="changeimg2-2" type="file" id="input_img" style="width: 300px;height: 30px;" name="file">
+				
+					<input type="hidden" value="${member.id}" name="id">
+<%-- 					<input type="hidden" value="${member.pw}" name="pw"> --%>
+<%-- 					<input type="hidden" value="${member.name}" name="name"> --%>
+<%-- 					<input type="hidden" value="${member.email}" name="email"> --%>
+<%-- 					<input type="hidden" value="${member.gender}" name="gender"> --%>
+<%-- 					<input type="hidden" value="${member.birth}" name="birth"> --%>
+					<input type="hidden" value="${member.memberFilesVO}" name="memberFilesVO">
 			<div class="changeimg2-3">
 				<div class="changeimg2-3-1">
 					<!-- 이미지 미리보기 창  -->

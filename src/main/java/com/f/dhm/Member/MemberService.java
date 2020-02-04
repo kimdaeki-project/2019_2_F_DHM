@@ -79,32 +79,39 @@ public class MemberService {
 		
 		return memberRepository.findByEmail(email);
 	}
-	//프로필 사진 불러오기----------------------------------------
-	public MemberFilesVO getImg(MemberVO memberVO)throws Exception{
-		
-		memberVO = memberRepository.findById(memberVO.getId()).get();
-		
-		return memberVO.getMemberFilesVO();
-	}
+	
 	//프로필 사진 변경----------------------------------------
-	public boolean memberMypageImg(MemberVO memberVO,HttpSession session, MultipartFile files)throws Exception{
-		MemberFilesVO memberFilesVO = new MemberFilesVO();
+	public boolean saveImg(MemberVO vo, MultipartFile file) throws Exception{
+		MemberFilesVO fvo = new MemberFilesVO();
+		fvo.setFname(fileSaver.save(filePathGenerator.getUseClassPathResource("imgs"), file));
+		fvo.setMemberVO(vo);
+		fvo.setOname(file.getOriginalFilename());
 		
-		String realPath=session.getServletContext().getRealPath("/imgs");
-	
-		memberFilesVO.setMemberVO(memberVO);
-		memberFilesVO.setFname(fileSaver.save2(realPath, files));
-		memberFilesVO.setOname(files.getOriginalFilename());
-	
-		memberFilesRepository.save(memberFilesVO);
+		memberFilesRepository.save(fvo);
 		
-		 memberVO =  memberRepository.findById(memberVO.getId()).get();
-			
-		return memberFilesRepository.existsById(memberVO.getMemberFilesVO().getFnum());	
+		vo = memberRepository.findById(vo.getId()).get();
+		
+		if (memberFilesRepository.existsById(vo.getMemberFilesVO().getFnum())) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	
+	public boolean updateImg(MemberVO vo,MemberFilesVO fvo ,MultipartFile file) throws Exception{
+		
+		memberFilesRepository.delete(fvo);
+		
+		if (memberFilesRepository.existsById(fvo.getFnum())) {
+			return false;
+		}else {
+			return true;
+		}
 	}
 	
 	
-	
+
 	
 	
 	

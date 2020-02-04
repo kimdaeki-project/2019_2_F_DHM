@@ -17,10 +17,9 @@ public class MemberFilesVO {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int fnum;
+	private Integer fnum;
 	private String fname;
 	private String oname;
-	
 	
 	@OneToOne
 	@JoinColumn(name = "id")
