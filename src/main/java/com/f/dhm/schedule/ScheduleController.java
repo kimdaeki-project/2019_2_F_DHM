@@ -1,5 +1,6 @@
 package com.f.dhm.schedule;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import javax.xml.transform.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -53,6 +55,27 @@ public class ScheduleController {
 	public void type(String type, int plNum, HttpSession session) throws Exception{
 		plannerService.typeUpdate(type,session, plNum);
 	}
+	
+	@PostMapping("schedulePage")
+	public ModelAndView plannerPage(String scName, int cost, int start, String title) throws Exception{
+		System.out.println(scName);
+		int plNum = plannerService.getPlnum();
+		ModelAndView mv = new ModelAndView();
+		System.out.println("pldfsdfsdf:"+plNum);
+		ScheduleVO scheduleVO = new ScheduleVO();
+		scheduleVO.setPlNum(plNum);
+		scheduleVO.setScName(scName);
+		scheduleVO.setCost(cost);
+		scheduleVO.setStart(start);
+		scheduleVO.setTour(title);
+		
+		scheduleService.scheduleInsert(scheduleVO);
+		mv.setViewName("/schedule/schedulePage");
+		
+		return mv;
+	}
+	
+	
 	
 	@GetMapping("schedulePage")
 	public ModelAndView plannerPage( PlannerVO plannerVO, ScheduleVO scheduleVO,HttpSession session,int plNum) throws Exception{

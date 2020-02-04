@@ -131,7 +131,7 @@ public class PlannerController {
 		
 		
 		if (plNum != null) {			
-			service.plannerDel(id, plNum);
+			//service.plannerDel(id, plNum);
 		}
 		
 		plNum = service.getPlnum();
@@ -193,6 +193,7 @@ public class PlannerController {
 		//id= memberVO.getId();
 		System.out.println("zzzzzzz:"+titleA.length);
 		for(int i=0; i< titleA.length; i++) {
+			wishVO = new WishVO();
 			wishVO.setId(id);
 			wishVO.setTitle(titleA[i]);
 			wishVO.setFirstimage(firstimage[i]);

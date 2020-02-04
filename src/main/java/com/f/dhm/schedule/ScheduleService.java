@@ -40,15 +40,10 @@ public class ScheduleService {
 //	}
 
 	//스케줄 추가
-	public boolean scheduleInsert(List<ScheduleVO> list) throws Exception{
-		int beforeSize = list.size();
-		list = repository.saveAll(list);
+	public void scheduleInsert(ScheduleVO scheduleVO) throws Exception{
 		
-		if (beforeSize == list.size()) {
-			return true;
-		}else {
-			return false;
-		}
+		repository.save(scheduleVO);
+		
 		
 	}
 	

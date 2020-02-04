@@ -27,6 +27,8 @@
 </head>
 <body>
 <c:import url="../template/nav.jsp"/>
+	<form action="schedulePage" method="POST">
+
 	<div style="background-color: #f5f5f5">
 	<div class="header">
 	</div>
@@ -486,7 +488,9 @@
 									</div>
 									<div class="schedule-body">
 										<div class="schedule-body-row">0~9
-											<div class="schedule-body-content"></div>
+											<div class="schedule-body-content">
+												<p>밥먹기
+											</div>
 										</div>
 										<div class="schedule-body-row">9
 											<div class="schedule-body-content"></div>
@@ -545,7 +549,6 @@
 		</div>
 		
 	</div>
-	
 	<div id="myModal" class="modal fade" role="dialog">
   		<div class="modal-dialog">
 		<div class="m-wrapper"></div>
@@ -560,16 +563,16 @@
 					</div>
 					<div style="float:left; width: 70%;">
 						<select class="form-control" style="height: 30pt; font-size: 12pt; font-weight: 600;">
-							<c:forEach items="${ planner}" var="vo">
+							<c:forEach items="${planner}" var="vo">
 								<option>${vo.region}</option>
 							</c:forEach>
 						</select>
 					</div>
 					<div style="float:left; width: 30%;">
-						<select class="form-control" style="height: 30pt; font-size: 12pt; font-weight: 600;">
-							<option>0~9시</option>
-							<option>9시</option>
-							<option>10시</option>
+						<select name="start" title="start" class="form-control" style="height: 30pt; font-size: 12pt; font-weight: 600;">
+							<option value="8">0~9시</option>
+							<option value="9">9시</option>
+							<option value="10">10시</option>
 							<option>11시</option>
 							<option>12시</option>
 							<option>13시</option>
@@ -582,7 +585,15 @@
 							<option>20시</option>
 						</select>
 					</div>
+					<div>
+						일정 코멘트
+						<input type="text" name="scName">
+						예상비용
+						<input type="text" name="cost">
+						<input type="hidden" name="${vo.title}" title="${vo.title}">
+					</div>
 					<div style="margin-top: 30px; width: 100%;">
+						<button type="submit">일정표추가</button>
 						<a style=" width: 100%; background:#3ad195;border-radius:5px;border:0px solid #c0c0c0;color:#fff;">일정표에 추가</a>
 					</div>
 				</div>
@@ -590,7 +601,7 @@
 		</div>
 		</div>
 	</div>
-
+	</form>
 	<script type="text/javascript">
 
 

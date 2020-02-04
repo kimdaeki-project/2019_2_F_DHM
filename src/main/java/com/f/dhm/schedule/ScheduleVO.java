@@ -30,8 +30,8 @@ public class ScheduleVO {
 	private String tour; //관광지이름
 
 	private int cost;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "")
-	private Date start;
+	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "")
+	private int start;
 	private Date end;
 	private String transfer;
 }
