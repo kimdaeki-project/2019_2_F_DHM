@@ -59,11 +59,12 @@ public class ScheduleController {
 	@PostMapping("schedulePage")
 	public ModelAndView plannerPage(String scName, int cost, int start, String title) throws Exception{
 		System.out.println(scName);
-		int plNum = plannerService.getPlnum();
+		//int plNum = plannerService.getPlnum();
 		ModelAndView mv = new ModelAndView();
-		System.out.println("pldfsdfsdf:"+plNum);
+		//System.out.println("pldfsdfsdf:"+plNum);
 		ScheduleVO scheduleVO = new ScheduleVO();
-		scheduleVO.setPlNum(plNum);
+		scheduleVO.setPlNum(27);
+		System.out.println("ㅇㅇㅇㅇㅇㅇ"+scheduleVO.getPlNum());
 		scheduleVO.setScName(scName);
 		scheduleVO.setCost(cost);
 		scheduleVO.setStart(start);

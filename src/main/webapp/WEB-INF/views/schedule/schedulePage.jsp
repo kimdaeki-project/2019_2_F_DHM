@@ -590,7 +590,7 @@
 						<input type="text" name="scName">
 						예상비용
 						<input type="text" name="cost">
-						<input type="hidden" name="${vo.title}" title="${vo.title}">
+						<input type="hidden" name="title" value="${vo.title}" title="${vo.title}">
 					</div>
 					<div style="margin-top: 30px; width: 100%;">
 						<button type="submit">일정표추가</button>

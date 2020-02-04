@@ -5,6 +5,8 @@ package com.f.dhm.schedule;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -21,9 +23,10 @@ import lombok.Setter;
 @Table(name = "schedule")
 public class ScheduleVO {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int scNum;
-	@NotEmpty
-	private int plNum;
+	//@NotEmpty
+	private Integer plNum;
 	@NotEmpty
 	private String scName; //스케줄이름
 	@NotEmpty
