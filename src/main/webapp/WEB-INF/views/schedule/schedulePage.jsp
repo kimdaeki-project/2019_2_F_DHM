@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>${days }일 동안의 국내 여행</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet"  href="../css/schedule.css">
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
@@ -590,7 +590,11 @@
 		</div>
 		</div>
 	</div>
-
+<div style="display: none;">
+	<c:forEach items="${planner }" var="plan">
+		<p class="pp-index" >${plan.polyPath }</p>
+	</c:forEach>
+</div>
 	<script type="text/javascript">
 
 
@@ -642,16 +646,7 @@
 			alert('dd');
 		}
 
-		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 
-		//////////////////////////////////////////////////////////////잠시 수정
-		
-		var options = { //지도를 생성할 때 필요한 기본 옵션
-			center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
-			level: 3 //지도의 레벨(확대, 축소 정도)
-		};
-
-		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
 		$('.map-peopleType').click(function(){
 			
@@ -699,5 +694,7 @@
 		
 		
 	</script>
+	<script src="../js/cityList.js"></script>
+	<script src="../js/kakaoMap.js" ></script>
 </body>
 </html>

@@ -9,7 +9,7 @@
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
-<title>viewPage</title>
+<title>Make Planner</title>
 </head>
 <body>
 <c:import url="../template/boot.jsp"/>

@@ -47,18 +47,40 @@ public class PlannerController {
 	public ModelAndView myPlanner(PlannerVO plannerVO, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
+		List<Integer> days= new ArrayList<Integer>();
 		
 		List<MyPlannerVO> ar = service.plannerList(plannerVO, session);
 		
-		List<Integer> days= new ArrayList<Integer>();
+		List<String> ar2 = new ArrayList<String>();
 		
-
+		for (int i = 0; i < ar.size(); i++) {
+			List<PlannerVO> list = service.plannerSelect(ar.get(i).getPlNum(), session);
+			
+			String path = "";
+			for (int j = 0; j < list.size(); j++) {
+				
+				if (j == 0) {
+					path = list.get(j).getPolyPath().toString();
+				}else {
+					path = path + ", " + list.get(j).getPolyPath();
+				}
+			}
+			
+			path = "["+path+"]";
+			ar2.add(path);
+		}
+		
+		
+		
+		
+		
 		
 		for (int i = 0; i < ar.size(); i++) {
 			int d= service.days(ar.get(i).getPlNum());
 			days.add(d);
 		}
-	
+		
+		mv.addObject("path", ar2);
 		mv.addObject("list", ar);
 		mv.addObject("days", days);
 		mv.setViewName("planner/myPlanner");
@@ -156,7 +178,7 @@ public class PlannerController {
 			
 			vo.setBak(Integer.valueOf(bak[i]));
 			vo.setRegion(region[i]);
-			if (i > 0) {				
+			if (i > 0 && deDate.length > 1) {				
 				vo.setTransfer(transfer[i-1]);
 			}
 			
@@ -177,7 +199,7 @@ public class PlannerController {
 		List<WishVO> wishlist = new ArrayList<WishVO>();
 		
 		//id= memberVO.getId();
-		System.out.println("zzzzzzz:"+titleA.length);
+		
 		for(int i=0; i< titleA.length; i++) {
 			wishVO.setId(id);
 			wishVO.setTitle(titleA[i]);
@@ -195,11 +217,11 @@ public class PlannerController {
 	
 	
 	@GetMapping("mapTest")
-	public ModelAndView mapTest(HttpSession session) throws Exception{
+	public ModelAndView mapTest(int plNum, HttpSession session) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
 		
-		List<PlannerVO> list = service.plannerSelect(3, session);
+		List<PlannerVO> list = service.plannerSelect(plNum, session);
 		List<Integer> polyPath = new ArrayList<Integer>();
 		for (PlannerVO plannerVO : list) {
 			polyPath.add(plannerVO.getPolyPath());

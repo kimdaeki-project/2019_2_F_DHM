@@ -44,8 +44,16 @@
 				<div class="container">
 					<div class="nav_menu">
 						<ul class="nav_menu_ul">
+						
+							<c:choose>
+								<c:when test="${member ne null }">
+									<li class="nav_menu_li"><a href="${pageContext.request.contextPath}/planner/myPlanner">나의 플래너</a></li>								
+								</c:when>
+								<c:otherwise>
+									<li class="nav_menu_li"><a href="${pageContext.request.contextPath}/member/memberLogin">나의 플래너</a></li>
+								</c:otherwise>
+							</c:choose>
 
-							<li class="nav_menu_li"><a href="${pageContext.request.contextPath}/planner/myPlanner">나의 플래너</a></li>
 							<li class="nav_menu_li"><a href="${pageContext.request.contextPath}/planner/makePlanner">플래너만들기</a></li>
 							<li class="nav_menu_li nav_menu_li_active"><a href="">템플릿</a></li>
 

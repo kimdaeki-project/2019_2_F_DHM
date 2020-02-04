@@ -433,12 +433,12 @@ for (var i = 0; i < positions.length; i++) {
      
     
     // 마커를 생성합니다
-    var marker = new kakao.maps.Marker({
-        //map: map, // 마커를 표시할 지도
-        position: positions[i].latlng, // 마커를 표시할 위치
-        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-     
-    });
+//    var marker = new kakao.maps.Marker({
+//        //map: map, // 마커를 표시할 지도
+//        position: positions[i].latlng, // 마커를 표시할 위치
+//        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+//     
+//    });
     
     var overlay = new kakao.maps.CustomOverlay({
        clickable: true,
@@ -452,9 +452,9 @@ for (var i = 0; i < positions.length; i++) {
 
 
    // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-   kakao.maps.event.addListener(marker, 'click', function() {
-       overlay.setMap(map);
-   });
+//   kakao.maps.event.addListener(marker, 'click', function() {
+//       overlay.setMap(map);
+//   });
 
    // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
    function closeOverlay() {
