@@ -24,9 +24,9 @@
 			<div style="height:40px;padding-top:2px;padding-left:4px;">
 				<div style="text-align:left;padding-top:5px;padding-left:5px;">
 					<div style="padding-right:20px;padding-left:5px;padding-top:1px;">
-						<div style="border-radius:2;border:1px solid #efefef;padding-left:10px;background:#fff;width: 50%; ">
+						<div style="border-radius:2;border:1px solid #efefef;padding-left:10px;background:#fff;width: 60%; ">
 							<span style="padding-left:0px;padding-right:0px;color:#696969;font-size:9pt;"><i class="fa fa-calendar"></i> 출발</span>
-							<input style="height:24px; width:100px;font-size:9pt;background:#fff;margin-left:0px;padding-left:5px;padding-top:2px;padding-bottom:2px;color:#c0c0c0;border:0px solid #c0c0c0" id="thedate"  type="text"> 
+							<input style="height:24px; width:70%;font-size:9pt;background:#fff;margin-left:0px;padding-left:5px;padding-top:2px;padding-bottom:2px;color:#c0c0c0;border:0px solid #c0c0c0" id="thedate"  type="text"> 
 							
 <!-- 							<input type="checkbox" id="arr_nextday"><font style="color:#696969;font-size:8pt">+1 도착</font> -->
 						</div>
@@ -100,10 +100,15 @@
             </div>
          </c:otherwise>
       </c:choose>
+      <div id="totalBak">1일</div>
    </div>
    <div class="map" id="map">
    
    </div>
+   <div class="map-sky-control">
+        <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
+        <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
+    </div>
 
    
 </div>
@@ -209,9 +214,10 @@
 				</tr>
 				</tbody>
 			</table>
-			<button class="mkp-clp-btn">저장하기</button>
+			<button class="mkp-clp-btn" name="make" >저장하기</button>
 			</c:when>
 			<c:otherwise>
+				<input type="hidden" value="guest" id="member-id">
 					<p class="mkp-table-save">GUEST 플래너 저장
 						<a onclick="closeComplete()" style="color:#fff; font-size:27pt; float: right; cursor: pointer;"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
 					</p>
@@ -258,9 +264,7 @@
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 <!--hide ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 </section>
+<script src="../js/cityList.js"></script>
 <script src="../js/makePlanner.js"></script>
-<script type="text/javascript">
-
-</script>
 </body>
 </html>
