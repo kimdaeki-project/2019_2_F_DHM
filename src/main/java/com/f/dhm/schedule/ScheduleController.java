@@ -71,10 +71,11 @@ public class ScheduleController {
 		//Items ar2=xmlService.parseTour();
 		Items ar2=xmlService.searchTour(1, 39, "P", 1);;
 		
-		if(wishlist!=null) {
+//		if(wishlist!=null) {
+		if(wishlist.size()>0) {
 			mv.addObject("wishlist",wishlist);
+			
 		}
-		
 		
 		
 		//음식점

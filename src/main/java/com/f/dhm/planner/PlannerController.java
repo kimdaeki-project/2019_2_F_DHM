@@ -133,7 +133,7 @@ public class PlannerController {
 	@PostMapping("makePlanner")
 	@ResponseBody
 	public int makePlanner(String id, String title, String type, String people, String[] deDate, String[] arDate,
-		String[] bak, String[] region, String[] transfer, WishVO wishVO, String[] titleA, String[] firstimage, 
+		String[] bak, String[] region, String[] transfer, String[] titleA, String[] firstimage, 
 		String[] addr1, int[] arCode,HttpSession session, int[] pp, int[] arCodeP, Integer plNum) throws Exception{
 		List<PlannerVO> pList = new ArrayList<PlannerVO>();
 		
@@ -201,14 +201,15 @@ public class PlannerController {
 		//id= memberVO.getId();
 		
 		for(int i=0; i< titleA.length; i++) {
+			WishVO wishVO = new WishVO();
 			wishVO.setId(id);
 			wishVO.setTitle(titleA[i]);
 			wishVO.setFirstimage(firstimage[i]);
 			wishVO.setAddr1(addr1[i]);
 			wishVO.setPlNum(plNum);
 			wishVO.setArCode(arCode[i]);
-			wishlist.add(wishVO); 
-			System.out.println("addr"+addr1[i]);
+			wishlist.add(wishVO);
+
 		}
 		wishService.wishAdd(wishlist);
 		

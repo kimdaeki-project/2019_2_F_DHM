@@ -290,18 +290,13 @@ var addr1A = new Array();
 var arCodeA = new Array();
 
 function saveSch(t, f, a, c) {
-   titleA = t;
-   firstimageA = f;
-   addr1A = a;
-   arCodeA = c;
-   
-   for (var i = 0; i < titleA.length; i++) {
-      console.log("title = "+ titleA[i]);
-      console.log("first = "+ firstimageA[i]);
-      console.log("addr = "+ addr1A[i]);
-      console.log("arCode = "+ arCodeA[i]);
-      console.log(titleA.length);
-   }
+	
+	for (var i = 0; i < t.length; i++) {
+		titleA.push(t[i]);
+		firstimageA.push(f[i]);
+		addr1A.push(a[i]);
+		arCodeA.push(c[i]);		
+	}
 }
 
 /////////////////////////////////////////////////////

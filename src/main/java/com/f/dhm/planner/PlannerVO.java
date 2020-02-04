@@ -36,7 +36,7 @@ public class PlannerVO {
 	@Transient
 	private int days;
 	
-	private int arCode;
+	private Integer arCode;
 	private Integer polyPath;
 	
 }

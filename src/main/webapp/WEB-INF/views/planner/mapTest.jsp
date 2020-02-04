@@ -34,6 +34,7 @@
 <script type="text/javascript">
 	map.setCenter(positions[${pp[pp.size()-1]}].latlng);
 	map.setDraggable(false);
+	map.setZoomable(false); 
 </script>
 </body>
 </html>

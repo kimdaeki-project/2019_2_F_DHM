@@ -32,7 +32,7 @@
 										<div class="mp-li-wrap">
 											<div class="mp-card">
 												<div class="mp-p">
-													<iframe src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="226px" height="207px"></iframe>
+													<iframe src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 <%-- 													<img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
 													<div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
 												</div>
