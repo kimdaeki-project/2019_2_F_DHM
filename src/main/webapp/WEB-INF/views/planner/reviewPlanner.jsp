@@ -11,7 +11,7 @@
 <body>
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
-		<h1>review</h1>
+		<h1 style="color: #c9c9c9; border-bottom: 1px solid #c9c9c9; padding-bottom: 10px;">review</h1>
 		<div class="section" style="background: gold;">
 			<div class="reviewFlexWrapper">
 				<div class="reviewWrapper_leftSide">

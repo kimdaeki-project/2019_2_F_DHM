@@ -28,7 +28,8 @@
 
 			
 			<c:set var="now" value="<%=new Date() %>"/>
-			<fmt:formatDate value="${now}"  type="date" pattern="yyyy-MM-dd" />			
+			<fmt:formatDate value="${now}"  type="date" pattern="yyyy-MM-dd" var="nowFormatDate"/>
+			<fmt:formatDate value="${now}"  type="date" pattern="hhmm" var="nowFormatTime"/>
 			<table class="board_table">
 				<tr>
 					<th class="board_no_th" >NO</th>
@@ -44,7 +45,21 @@
 							<a href="./noticeSelect?num=${list.num}">${list.title }</a>
 						</td>
 						<td>${list.id }</td>
-						<td>${list.regDate}</td>
+						<td>
+							<%-- ${list.regDate} --%>
+							<fmt:formatDate value="${list.regDate }" type="date" pattern="yyyy-MM-dd" var="regdFormatDate"/>	
+							<fmt:formatDate value="${list.regDate }" type="date" pattern="hhmm" var="regdFormatTime"/>	
+							<c:if test="${regdFormatDate eq nowFormatDate }">
+								<c:if test="${nowFormatTime-regdFormatTime lt 60}">
+									<c:if test="${nowFormatTime-regdFormatTime ne 0}">${nowFormatTime-regdFormatTime }분 전</c:if>
+									<c:if test="${nowFormatTime-regdFormatTime eq 0}">방금</c:if>
+								</c:if>
+								<c:if test="${nowFormatTime-regdFormatTime gt 60}">
+									<fmt:parseNumber  value="${(nowFormatTime-regdFormatTime) / 60}" integerOnly="true"/>시간 전
+								</c:if>
+							</c:if>
+							<c:if test="${regdFormatDate ne nowFormatDate }">${regdFormatDate}</c:if>
+						</td>
 						<td>${list.hit }</td>
 					</tr>
 					 </c:forEach>

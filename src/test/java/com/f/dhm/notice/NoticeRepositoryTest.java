@@ -24,7 +24,12 @@ class NoticeRepositoryTest {
 	@Autowired
 	private NoticeService noticeService;
 	
-	
+	@Test
+	public void deleteAll() {
+		
+		noticeRepository.deleteAll();
+		noticeRepository.flush();
+	}
 	
 
 }
