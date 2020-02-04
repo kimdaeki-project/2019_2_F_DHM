@@ -284,10 +284,10 @@ function setNumber(move) {
 
 /////////////////////////////////////////////////////
 //헤현
-var titleA = new Array();
+/*var titleA = new Array();
 var firstimageA = new Array();
 var addr1A = new Array();
-var arCodeA = new Array();
+var arCodeA = new Array();*/
 
 function saveSch(t, f, a, c) {
    titleA = t;

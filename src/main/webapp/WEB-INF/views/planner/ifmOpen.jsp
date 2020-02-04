@@ -22,7 +22,7 @@
 		                             <c:if test="${fo.title eq list[i.index].title}" > 
 		                            	 <div class="wishdiv wish-active" onclick="wish('${fo.title}','${fo.firstimage}','${fo.addr1}',${arCode})"><i class="fa fa-check-circle"></i></div> 
 		                             </c:if>
-		                             <c:if test="${fo.title ne list[i.index].title}"> 
+		                             <c:if test="${empty list[i.index].title}"> 
 		                              	<div class="wishdiv" onclick="wish('${fo.title}','${fo.firstimage}','${fo.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
 		                             </c:if>
 		                            									
@@ -140,7 +140,7 @@
 			<h3 class="ifm-title">축제</h3>
 			<div class="content-wrap">
 				<ul class="nolist ifmopen">
-					<c:forEach items="${festival }" var="fe">
+					<c:forEach items="${festival}" var="fe">
 						<li>
 							<div class="card2">
 								<div style="position: relative;">

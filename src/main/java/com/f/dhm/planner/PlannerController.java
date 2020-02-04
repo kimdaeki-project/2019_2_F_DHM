@@ -93,7 +93,7 @@ public class PlannerController {
 			int plNum=ar.get(i).getPlNum();
 			ar2 = wishService.myWish(session, plNum);
 		}
-		System.out.println("wishlistTest:"+ar2.get(0).getTitle());
+		
 		
 		mv.addObject("list", ar2);
 		
@@ -175,7 +175,7 @@ public class PlannerController {
 			}
 			
 			vo.setPolyPath(pp[i]);
-			vo.setArCode(arCodeP[i]);
+			vo.setArCode(arCode[i]);
 			
 			pList.add(vo);
 		}
