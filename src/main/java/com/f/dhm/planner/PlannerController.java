@@ -53,7 +53,6 @@ public class PlannerController {
 		List<Integer> days= new ArrayList<Integer>();
 		
 
-		
 		for (int i = 0; i < ar.size(); i++) {
 			int d= service.days(ar.get(i).getPlNum());
 			days.add(d);
@@ -83,8 +82,23 @@ public class PlannerController {
 	
 	@GetMapping("ifmOpen")
 	@ResponseBody
-	public ModelAndView ifmOpen(String arCode) throws Exception{
+	public ModelAndView ifmOpen(String arCode, HttpSession session, PlannerVO plannerVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
+		List<MyPlannerVO> ar = service.plannerList(plannerVO, session);
+		List<WishVO> ar2 =null;
+		
+		
+		for (int i = 0; i < ar.size(); i++) {
+			int plNum=ar.get(i).getPlNum();
+			ar2 = wishService.myWish(session, plNum);
+		}
+		System.out.println("wishlistTest:"+ar2.get(0).getTitle());
+		
+		mv.addObject("list", ar2);
+		
+		
+		
 		int acode = Integer.valueOf(arCode);
 		//음식점
 		mv.addObject("food", xService.searchTour(acode, 39, "P", 1).getItem());
