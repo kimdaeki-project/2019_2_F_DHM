@@ -112,13 +112,17 @@ public class PlannerController {
 	@ResponseBody
 	public int makePlanner(String id, String title, String type, String people, String[] deDate, String[] arDate,
 		String[] bak, String[] region, String[] transfer, WishVO wishVO, String[] titleA, String[] firstimage, 
-		String[] addr1, int[] arCode,HttpSession session, int[] pp, int[] arCodeP) throws Exception{
+		String[] addr1, int[] arCode,HttpSession session, int[] pp, int[] arCodeP, Integer plNum) throws Exception{
 		List<PlannerVO> pList = new ArrayList<PlannerVO>();
 		
-		System.out.println("-------wdawdawdawd!@!@#!@$%!@#");
 		
+		if (plNum != null) {			
+			service.plannerDel(id, plNum);
+		}
 		
-		int plNum = service.getPlnum();
+		plNum = service.getPlnum();
+		
+		System.out.println("plNum = " + plNum);
 		
 		for (int i = 0; i < deDate.length; i++) {
 
@@ -152,12 +156,12 @@ public class PlannerController {
 			
 			vo.setBak(Integer.valueOf(bak[i]));
 			vo.setRegion(region[i]);
-			if (i < deDate.length-1) {				
-				vo.setTransfer(transfer[i]);
+			if (i > 0) {				
+				vo.setTransfer(transfer[i-1]);
 			}
 			
 			vo.setPolyPath(pp[i]);
-			vo.setArCode(arCode[i]);
+			vo.setArCode(arCodeP[i]);
 			
 			pList.add(vo);
 		}
@@ -211,7 +215,6 @@ public class PlannerController {
 		ModelAndView mv = new ModelAndView();
 		List<PlannerVO> list = service.plannerSelect(plNum, session);
 		mv.addObject("list", list);
-		
 		return mv;
 	}
 	

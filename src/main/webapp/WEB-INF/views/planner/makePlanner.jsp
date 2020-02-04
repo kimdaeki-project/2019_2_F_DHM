@@ -214,7 +214,7 @@
 				</tr>
 				</tbody>
 			</table>
-			<button class="mkp-clp-btn">저장하기</button>
+			<button class="mkp-clp-btn" name="make" >저장하기</button>
 			</c:when>
 			<c:otherwise>
 				<input type="hidden" value="guest" id="member-id">

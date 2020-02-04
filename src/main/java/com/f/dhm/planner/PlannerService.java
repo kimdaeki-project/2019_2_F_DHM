@@ -77,5 +77,12 @@ public class PlannerService {
 	public PlannerVO saveOne(PlannerVO plannerVO) throws Exception{
 		return repository.save(plannerVO);
 	}
+	
+	public void plannerDel(String id, int plNum) throws Exception{
+		List<PlannerVO> delList =repository.findByIdAndPlNum(id, plNum);
+		
+		repository.deleteAll(delList);
+		
+	}
 
 }

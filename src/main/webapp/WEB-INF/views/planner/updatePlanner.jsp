@@ -123,7 +123,7 @@
 									<div class="city-menu-left">
 										<div style="width:29px;border-right:3px solid #3ad195;height:7px;"> </div>
 										<div>
-											<div class="mkp-city-one" title="${pVo.arCode }" >
+											<div class="mkp-city-one" title="${pVO.arCode }" >
 													<a class="click-sleep" title="c${p.index }" id="${pVO.region}" >
 													<font style="color:#696969;font-size:10pt;font-weight:bold" class="nights"> <span class="nights-day">${pVO.bak }</span>박  
 														<i class="fa fa-angle-down"></i>
@@ -288,7 +288,8 @@
 				</tr>
 				</tbody>
 			</table>
-			<button class="mkp-clp-btn">저장하기</button>
+			<input type="hidden" id="update-plNum" value="${list.get(0).plNum }"> 
+			<button class="mkp-clp-btn" name="update">저장하기</button>
 			</c:when>
 			<c:otherwise>
 				<input type="hidden" value="guest" id="member-id">
@@ -342,6 +343,11 @@
 <script src="../js/makePlanner.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		today = '${list.get(0).deDate}';
+		today = today.substr(0,10);
+		console.log(today);
+		$("#thedate").prop("value", today);
+		
 		setNumber(false);
 		uptPoly();
 		setId();

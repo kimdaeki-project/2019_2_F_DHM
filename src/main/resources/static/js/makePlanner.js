@@ -35,7 +35,9 @@ $("#thedate").datepicker({
 $("#thedate").datepicker( "option", "dateFormat", "yy-mm-dd" );
 var today = new Date().toISOString().substr(0, 10).replace('T', ' ');
 $("#thedate").prop("value", today);
+
 $("#thedate").prop("min", today);
+
 $("#thedate").change(function() {
    today = $(this).val();
    uptDate();
@@ -365,13 +367,17 @@ $(".mkp-clp-btn").click(function() {
       
       $(".mkp-city-one").each(function() {
 		arCodeP.push($(this).prop("title"));
-		alert($(this).prop("title"));
       });
+       var plNum = null;
+      if ($(".mkp-clp-btn").prop("name")=="update") {
+    	  plNum= $("#update-plNum").val();
+      }
       
       $.ajax({
          type   : "POST",
          url      : "makePlanner",
          data   : {
+        	plNum : plNum,
             id       : id,
             title    : title,
             type   : type,
@@ -390,7 +396,7 @@ $(".mkp-clp-btn").click(function() {
          },
          success   : function(d) {
                alert("저장되었습니다.");
-               location.href = "schedule/schedulePage?plNum="+d;
+               location.href = "../schedule/schedulePage?plNum="+d;
             }
          
          
