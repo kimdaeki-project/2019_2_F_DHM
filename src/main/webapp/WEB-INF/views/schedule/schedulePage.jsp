@@ -447,7 +447,7 @@
 										  <div class="tour-img">
 												<img src="${vo.firstimage}">
 													<div class="tour-name">
-														<font>${vo.title}</font>
+														<font class="votitle">${vo.title}</font>
 													</div>
 										  </div>
 										<a data-toggle="modal" data-target="#myModal">
@@ -604,7 +604,8 @@
 	</form>
 	<script type="text/javascript">
 
-
+		var title = $(".votitle").innerText();
+		alert(title);
 	
 		function tour() {
 			
