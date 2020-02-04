@@ -39,11 +39,11 @@
 				</div>
 			</div>
 </c:if>			
-			<div class="mkp-city-info" id="c${count}">
+			<div class="mkp-city-info" id="c${count}" title="${index }">
 				<div class="city-menu-left">
 					<div style="width:29px;border-right:3px solid #3ad195;height:7px;"> </div>
 					<div>
-						<div class="mkp-city-one" >
+						<div class="mkp-city-one" title="${arCode }">
 								<a class="click-sleep" title="c${count }" id="${cityName}" >
 								<font style="color:#696969;font-size:10pt;font-weight:bold" class="nights"> <span class="nights-day">1</span>박  
 									<i class="fa fa-angle-down"></i>
@@ -65,10 +65,10 @@
 					</div>
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 					<div class="open-ifm" >
-						<div class="ifm-info"><i class="fa fa-calendar-check-o"></i></div>
+						<div class="ifm-info" title="${arCode }"><i class="fa fa-calendar-check-o"></i></div>
 						<div class="ifm-opener">
 							<p><span>${cityName }</span>에서 경험하고 싶은 것들을 선택해보세염<span style="float: right; font-size: 20px; cursor: pointer;" class="ifm-closer"><i class="fa fa-times-circle"></i></span></p>
-							<iframe src="http://localhost/planner/ifmOpen?arCode=${arCode}"></iframe>
+							<iframe src="http://localhost/planner/waitAminute"></iframe>
 						</div>
 					</div>
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
