@@ -20,8 +20,8 @@ public class ScheduleService {
 	private ScheduleRepository repository;
 	
 	
-	public List<ScheduleVO> scheduleList() throws Exception{
-		return repository.findAll();
+	public List<ScheduleVO> scheduleList(int plNum) throws Exception{
+		return repository.findByPlNum(plNum);
 	}
 	
 //	public String findDay(Date deDate) throws Exception{
@@ -40,16 +40,9 @@ public class ScheduleService {
 //	}
 
 	//스케줄 추가
-	public boolean scheduleInsert(List<ScheduleVO> list) throws Exception{
-		int beforeSize = list.size();
-		list = repository.saveAll(list);
+	public void scheduleInsert(ScheduleVO scheduleVO) throws Exception{
 		
-		if (beforeSize == list.size()) {
-			return true;
-		}else {
-			return false;
-		}
-		
+		repository.save(scheduleVO);
 	}
 	
 	

@@ -30,6 +30,8 @@
 </head>
 <body>
 <c:import url="../template/nav.jsp"/>
+	<!-- <form action="schedulePage" method="POST"> -->
+
 	<div style="background-color: #f5f5f5">
 	<div class="header">
 	</div>
@@ -38,7 +40,7 @@
 			
 			<div >
 				<h3 class="contents-title">${plannerTitle}</h3>
-				
+				<input type="hidden" id="plNum" value="${plNum}" name ="plNum">
 			</div>
 			<div class="main-contents">
 				<div class="map-wrapper">
@@ -255,12 +257,14 @@
 										  <div class="tour-img">
 												<img src="${vo.firstimage}">
 													<div class="tour-name">
-														<font>${vo.title}</font>
+														<font >${vo.title}</font>
+														<input id="votitle" type="hidden" value="${vo.title}">
 													</div>
 										  </div>
-										<a data-toggle="modal" data-target="#myModal">
+										<a data-toggle="modal" class="md" data-target="#myModal" title="${vo.arCode}">
 											<div class="tour-add">
 												<font><i class="fa fa-plus"></i>일정추가</font>
+												<input type="hidden" name="arCode" value="${vo.arCode}" id="arCode"> 
 											</div>
 										</a>
 										</div>
@@ -294,53 +298,49 @@
 											<div style="line-height: 110%; height: 32px;">${vo.region}</div>
 										</div>
 									</div>
-									<div class="schedule-body">
-										<div class="schedule-body-row">0~9
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">9
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">10
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">11
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">12
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">13
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">14
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">15
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">16
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">17
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">18
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">19
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">20
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">20-24
-											<div class="schedule-body-content"></div>
-										</div>
-										<div class="schedule-body-row">숙소
-											<div class="schedule-body-content"></div>
-										</div>
-									</div>
+									<c:choose>
+										<c:when test="${not empty schedule}">
+											<c:forEach items="${schedule}" var="sc">
+											<div class="schedule-body">
+													<div class="schedule-body-row">0~9
+														<div class="schedule-body-content">
+															<p><c:if test="${sc.start eq 8}">${sc.scName}</c:if> 
+														</div>
+													</div>
+												<c:forEach var="j" step="1" begin="9" end="20">
+													<div class="schedule-body-row">${j}
+														<div class="schedule-body-content">
+															<p><c:if test="${sc.start eq j && sc.arCode eq vo.arCode}">${sc.scName}</c:if> 
+														</div>
+													</div>
+												</c:forEach>
+											
+												<div class="schedule-body-row">숙소
+													<div class="schedule-body-content"></div>
+												</div>
+											</div>
+											</c:forEach>
+										</c:when>
+										<c:otherwise>
+											<div class="schedule-body">
+												<div class="schedule-body-row">0~9
+													<div class="schedule-body-content">
+														
+													</div>
+												</div>
+												<c:forEach var="j" step="1" begin="9" end="20">
+													<div class="schedule-body-row">${j}
+														<div class="schedule-body-content"></div>
+													</div>
+												</c:forEach>
+											
+												<div class="schedule-body-row">숙소
+													<div class="schedule-body-content"></div>
+												</div>
+											</div>	
+										</c:otherwise>
+									</c:choose>
+									
 								</li>
 								</c:forEach>
 								
@@ -355,7 +355,6 @@
 		</div>
 		
 	</div>
-	
 	<div id="myModal" class="modal fade" role="dialog">
   		<div class="modal-dialog">
 		<div class="m-wrapper"></div>
@@ -370,29 +369,30 @@
 					</div>
 					<div style="float:left; width: 70%;">
 						<select class="form-control" style="height: 30pt; font-size: 12pt; font-weight: 600;">
-							<c:forEach items="${planner }" var="vo">
-								<option>${vo.region}</option>
+
+							<c:forEach items="${planner}" var="vo">
+								<option value="" id="a" class="b" title="${vo.arCode}">${vo.region}</option>
 							</c:forEach>
 						</select>
 					</div>
 					<div style="float:left; width: 30%;">
-						<select class="form-control" style="height: 30pt; font-size: 12pt; font-weight: 600;">
-							<option>0~9시</option>
-							<option>9시</option>
-							<option>10시</option>
-							<option>11시</option>
-							<option>12시</option>
-							<option>13시</option>
-							<option>14시</option>
-							<option>15시</option>
-							<option>16시</option>
-							<option>17시</option>
-							<option>18시</option>
-							<option>19시</option>
-							<option>20시</option>
+						<select name="start" title="start" id="start" class="form-control" style="height: 30pt; font-size: 12pt; font-weight: 600;">
+							<option value="8">0~9시</option>
+							<c:forEach  var="i" step="1" begin="9" end="20">
+								<option value="${i}">${i}시</option>
+							</c:forEach>
+				
 						</select>
 					</div>
+					<div>
+						일정 코멘트
+						<input type="text" name="scName" id = "scName">
+						예상비용
+						<input type="text" name="cost" id="cost">
+						<input type="hidden" name="title" id="vot" value="${vo.title}" title="${vo.title}">
+					</div>
 					<div style="margin-top: 30px; width: 100%;">
+						<button type="button" onclick="addSchedule('a',cost,start,'d',${plNum},0);">일정표추가</button>
 						<a style=" width: 100%; background:#3ad195;border-radius:5px;border:0px solid #c0c0c0;color:#fff;">일정표에 추가</a>
 					</div>
 				</div>
@@ -407,30 +407,60 @@
 	</c:forEach>
 </div>
 	<script type="text/javascript">
+		
+	$(".md").click(
+			function(){
+				
+				var tt = $(this).attr("title");
 
+				$(".b").each(function(){
+					if($(this).attr("title") == tt){
+							$(this).prop("selected",true);
+					}
+				});
+			}
+	);
+		
+		function addSchedule(scName, cost, start, title, plNum, arCode){
 
-	
-		function tour() {
+			var title = $("#votitle").val();
+			var scName = $("#scName").val();
+			var cost = $("#cost").val();
+			var start = $("#start").val();
+			var arCode = $("#arCode").val();
+
+			var a =$("#a").val(arCode);
 			
-			 $.ajax({
-			 	type: "GET",
-			 	url:"./addSC",
-			 	data:{
-			 			title:response.title,
-			 			firstimage: response.firstimage
-			 	},
-			 	success : function(result)
-			 	{
-			 	  		alert(response.title);    
-			 	},
-			 	error: function(result) {
-					
+			alert(a);
+			$.ajax({
+				type: "GET",
+				url:"./addSchedule",
+				data:{
+					scName:scName,
+					cost:cost,
+					start:start,
+					title:title,
+					plNum:plNum,
+					arCode:arCode
 				},
-				complete : function() {
-				  		location.href="../";
-				}	
-			 });  
-		}  
+				success: function(result){
+					alert("일정이 추가되었습니다.");
+				},
+				error: function(){
+					alert("fail");
+				},
+				complete: function(){
+					
+				}
+			});
+	
+		}
+
+	/* 
+		var title = $("#votitle").val();
+		$("#vot").outerText="title"; */
+	
+
 
 		/* type 바꾸기 */
 		function type(type,plNum){
