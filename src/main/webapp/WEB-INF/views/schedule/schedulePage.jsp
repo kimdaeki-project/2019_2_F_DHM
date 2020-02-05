@@ -263,7 +263,7 @@
 														<input id="votitle" type="hidden" value="${vo.title}">
 													</div>
 										  </div>
-										<a data-toggle="modal" data-target="#myModal">
+										<a data-toggle="modal" class="md" data-target="#myModal" title="${vo.arCode}">
 											<div class="tour-add">
 												<font><i class="fa fa-plus"></i>일정추가</font>
 												<input type="hidden" name="arCode" value="${vo.arCode}" id="arCode"> 
@@ -372,7 +372,7 @@
 					<div style="float:left; width: 70%;">
 						<select class="form-control" style="height: 30pt; font-size: 12pt; font-weight: 600;">
 							<c:forEach items="${planner}" var="vo">
-								<option>${vo.region}</option>
+								<option value="" id="a" class="b" title="${vo.arCode}">${vo.region}</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -403,8 +403,20 @@
 	</div>
 	<!-- </form> -->
 	<script type="text/javascript">
+		
+	$(".md").click(
+			function(){
+				
+				var tt = $(this).attr("title");
 
-	
+				$(".b").each(function(){
+					if($(this).attr("title") == tt){
+							$(this).prop("selected",true);
+					}
+				});
+			}
+	);
+		
 		function addSchedule(scName, cost, start, title, plNum, arCode){
 
 			var title = $("#votitle").val();
@@ -412,8 +424,10 @@
 			var cost = $("#cost").val();
 			var start = $("#start").val();
 			var arCode = $("#arCode").val();
-				
+
+			var a =$("#a").val(arCode);
 			
+			alert(a);
 			$.ajax({
 				type: "GET",
 				url:"./addSchedule",

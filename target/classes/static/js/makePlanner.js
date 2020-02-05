@@ -292,10 +292,11 @@ var arCodeA = new Array();
 
 function saveSch(t, f, a, c) {
 	
-		titleA=t;
-		firstimageA=f;
-		addr1A=a;
-		arCodeA=c;
+		titleA.push(t);
+		firstimageA.push(f);
+		addr1A.push(a);
+		arCodeA.push(c);
+	
 }
 /////////////////////////////////////////////////////
 
@@ -329,7 +330,7 @@ var arCodeP = new Array();
 
 
 $(".mkp-clp-btn").click(function() {
-   
+   console.log(titleA);
    jQuery.ajaxSettings.traditional = true;
   
    

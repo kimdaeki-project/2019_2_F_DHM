@@ -22,16 +22,19 @@ function wish(t, firstimage, addr1, arCode, e) {
 
 		$(this).children().addClass("wish-active");
 
-			titleA.push(t);
+/*			titleA.push(t);
 			firstimageA.push(firstimage);
 			addr1A.push(addr1);
-			arCodeA.push(arCode);
+			arCodeA.push(arCode);*/
+		
 		
 		}
-	parent.saveSch(titleA, firstimageA, addr1A, arCodeA);
-		alert(firstimageA.length);
-		alert(firstimageA);
+	/*parent.saveSch(titleA, firstimageA, addr1A, arCodeA);*/
+	parent.saveSch(t,firstimage,addr1,arCode);
+
 	event.stopImmediatePropagation();
 	
 }
+
+
 
