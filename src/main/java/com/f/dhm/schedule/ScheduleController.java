@@ -56,20 +56,19 @@ public class ScheduleController {
 		plannerService.typeUpdate(type,session, plNum);
 	}
 	
-	@PostMapping("schedulePage")
-	public ModelAndView plannerPage(String scName, int cost, int start, String title) throws Exception{
+	@GetMapping("addSchedule")
+	public ModelAndView plannerPage(String scName, Integer cost, Integer start, String title, Integer plNum, Integer arCode) throws Exception{
 		System.out.println(scName);
 		//int plNum = plannerService.getPlnum();
 		ModelAndView mv = new ModelAndView();
 		//System.out.println("pldfsdfsdf:"+plNum);
 		ScheduleVO scheduleVO = new ScheduleVO();
-		scheduleVO.setPlNum(27);
-		System.out.println("ㅇㅇㅇㅇㅇㅇ"+scheduleVO.getPlNum());
+		scheduleVO.setPlNum(plNum);
 		scheduleVO.setScName(scName);
 		scheduleVO.setCost(cost);
 		scheduleVO.setStart(start);
 		scheduleVO.setTour(title);
-		
+		scheduleVO.setArCode(arCode);
 		scheduleService.scheduleInsert(scheduleVO);
 		mv.setViewName("/schedule/schedulePage");
 		
@@ -85,8 +84,11 @@ public class ScheduleController {
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		
 		List<PlannerVO> plannerList= plannerService.plannerSelect(plNum,session);
-		List<ScheduleVO> ar = scheduleService.scheduleList();
+		List<ScheduleVO> scheduleList = scheduleService.scheduleList(plNum);
 		List<WishVO> wishlist = wishService.myWish(session, plNum);
+		
+		
+		//System.out.println("ddidididididid"+scheduleList.get(0).getScName());
 		String plannerTitle = plannerService.plannerTitle(plNum);
 		String plannerType = plannerService.plannerType(plNum);
 		int days= plannerService.days(plNum);
@@ -108,7 +110,7 @@ public class ScheduleController {
 		mv.addObject("planner", plannerList);
 		mv.addObject("plNum", plNum);
 		mv.addObject("dDate", deDate);
-		mv.addObject("list", ar);
+		mv.addObject("schedule", scheduleList);
 		mv.addObject("days", days);
 		mv.setViewName("/schedule/schedulePage");
 		return mv;

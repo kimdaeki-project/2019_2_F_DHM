@@ -210,7 +210,7 @@ public class PlannerController {
 		         System.out.println();
 		         System.out.println();
 		      }
-		      wishService.wishAdd(wishlist);
+		      wishService.wishAdd(wishlist, plNum, title);
 		      
 		      return pList.get(0).getPlNum();
 		   }

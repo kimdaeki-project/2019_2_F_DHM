@@ -284,20 +284,19 @@ function setNumber(move) {
 
 /////////////////////////////////////////////////////
 //헤현
-/*var titleA = new Array();
+
+var titleA = new Array();
 var firstimageA = new Array();
 var addr1A = new Array();
-var arCodeA = new Array();*/
+var arCodeA = new Array();
 
 function saveSch(t, f, a, c) {
-	   
-	   for (var i = 0; i < t.length; i++) {
-	      titleA.push(t[i]);
-	      firstimageA.push(f[i]);
-	      addr1A.push(a[i]);
-	      arCodeA.push(c[i]);      
-	   }
-	}
+	
+		titleA=t;
+		firstimageA=f;
+		addr1A=a;
+		arCodeA=c;
+}
 /////////////////////////////////////////////////////
 
 
@@ -315,8 +314,6 @@ function openComplete() {
 }
 
 
-
-
 function closeComplete() {
    $(".mkp-complete").slideUp("fast");
    $(".city-btn").css("visibility","visible");
@@ -330,15 +327,11 @@ var transfer = new Array();
 var polyIndex = new Array();
 var arCodeP = new Array();
 
-var titleA = new Array();
-var firstimageA = new Array();
-var addr1A = new Array();
-var arCodeA = new Array();
 
 $(".mkp-clp-btn").click(function() {
    
    jQuery.ajaxSettings.traditional = true;
-   
+  
    
    if (confirm("저장하시겠습니까?")) {
       var id = $("#member-id").val();

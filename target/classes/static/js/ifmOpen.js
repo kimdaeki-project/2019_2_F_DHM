@@ -4,8 +4,8 @@ var firstimageA = new Array();
 var addr1A = new Array();
 var arCodeA = new Array();
 
-function wish(t, firstimage, addr1, arCode) {
-	
+function wish(t, firstimage, addr1, arCode, e) {
+	alert($(this));
 	if($(this).children().hasClass("wish-active")){
 
 		$(this).removeClass("wish-active");
@@ -27,9 +27,10 @@ function wish(t, firstimage, addr1, arCode) {
 			addr1A.push(addr1);
 			arCodeA.push(arCode);
 		
-			parent.saveSch(titleA, firstimageA, addr1A, arCodeA);
-	}
-		
+		}
+	parent.saveSch(titleA, firstimageA, addr1A, arCodeA);
+		alert(firstimageA.length);
+		alert(firstimageA);
 	event.stopImmediatePropagation();
 	
 }

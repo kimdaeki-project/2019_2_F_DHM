@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.criteria.CriteriaBuilder.In;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -32,9 +33,10 @@ public class ScheduleVO {
 	@NotEmpty
 	private String tour; //관광지이름
 
-	private int cost;
+	private Integer cost;
 	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "")
-	private int start;
+	private Integer start;
 	private Date end;
 	private String transfer;
+	private Integer arCode;
 }

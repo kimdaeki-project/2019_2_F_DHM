@@ -53,9 +53,12 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishdiv" onclick="wish('${sh.title}','${sh.firstimage}','${sh.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
-									
-									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${sh.firstimage}"></div>
+								 	<c:if test="${sh.title eq list[i.index].title}" > 
+										<div class="wishdiv" onclick="wish('${sh.title}','${sh.firstimage}','${sh.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
+									 </c:if>
+		                             <c:if test="${empty list[i.index].title}"> 
+										<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${sh.firstimage}"></div>
+									</c:if>
 								</div>
 								<div>
 									<div style="padding: 3px; width: 80%;float: left;">
@@ -234,7 +237,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishdiv" onclick="wish('${co.title}','${co.firstimage}','${co.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
+									<div class="wishdiv" onclick="wish('${co.title}','${co.firstimage}','${co.addr1}',${arCode},event)"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${co.firstimage}"></div>
 								</div>
@@ -273,72 +276,6 @@
 	
 	});
 
-
-// 	var titleA = new Array();
-// 	var firstimageA = new Array();
-// 	var addr1A = new Array();
-// 	var arCodeA = new Array();	
-// 	function wish(titleA, firstimage, addr1, arCode) {
-		
-// 		if($(this).children().hasClass("wish-active")){
-
-// 			$(this).removeClass("wish-active");
-
-// 				titleA.push(titleA);
-// 				firstimageA.push(firstimage);
-// 				addr1A.push(addr1);
-// 				arCodeA.push(arCode);
-				
-// 				$.ajax({
-// 		        	type:"POST",
-// 		        	url:"makePlanner",
-// 		        	data:{
-// 			        	titleA:titleA,
-// 			        	firstimage:firstimageA,
-// 			        	addr1:addr1A,
-// 			        	arCode:arCodeA
-// 		        	},
-// 		        	success : function(){
-// 		        	},
-// 		        	error: function() {
-// 		        		alert('로그인이 필요합니다.');
-// 						 location.href="member/login";
-// 					},
-					
-// 		    	}); 
-
-// 			}else{
-
-// 			$(this).children().addClass("wish-active");
-
-	
-// 				titleA.push(titleA);
-// 				firstimageA.push(firstimage);
-// 				addr1A.push(addr1);
-// 				arCodeA.push(arCode);
-				
-// 			 $.ajax({
-// 	        	type: "POST",
-// 	        	url:"../planner/makePlanner",
-// 	        	data:{
-// 	        		titleA:titleA,
-// 		        	firstimage:firstimageA,
-// 		        	addr1:addr1A,
-// 		        	arCode:arCodeA
-// 	        	},
-// 	        	success : function(){ 
-
-// 		        },
-// 	        	error: function() {
-// 				  alert('로그인이 필요합니다.');
-// 				   location.href="member/login"; 
-// 				},
-				
-// 	    	});   
-// 		}
-			
-// 		event.stopImmediatePropagation();
-// 	} 
  
 </script>
 <script src="../js/ifmOpen.js"></script>
