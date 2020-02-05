@@ -19,15 +19,11 @@ public class WishService {
 	@Autowired
 	private WishRepository repository;
 
-	public void wishAdd(List<WishVO> wishlist, int plNum, String title) throws Exception{
+	public void wishAdd(List<WishVO> wishlist) throws Exception{
 		 
-		 if(repository.findByPlNumAndTitle(plNum, title)==null) {
-			 
-			 repository.saveAll(wishlist);
-			 boolean check = repository.existsById(wishlist.get(0).getNum());
-			 System.out.println("test"+check);
-			 
-		 }
+		 repository.saveAll(wishlist);
+		 boolean check = repository.existsById(wishlist.get(0).getNum());
+		 System.out.println("test"+check);
 	}
 	
 	public List<WishVO> myWish(HttpSession session, int plNum) throws Exception{

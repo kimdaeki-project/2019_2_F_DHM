@@ -8,5 +8,5 @@ public interface WishRepository extends JpaRepository<WishVO, Integer> {
 
 	List<WishVO> findByPlNum(int plNum);
 
-	String findByPlNumAndTitle(int plNum, String title);
+	
 }
