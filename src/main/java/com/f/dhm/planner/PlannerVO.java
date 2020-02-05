@@ -26,6 +26,7 @@ public class PlannerVO {
 	private String id;
 	private String title;
 	private String type;
+	private String email;
 	private int people;
 	private Date deDate;
 	private Date arDate;

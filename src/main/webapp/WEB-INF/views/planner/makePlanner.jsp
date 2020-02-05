@@ -255,7 +255,7 @@
 					</tbody>
 				</table>
 				<button class="mkp-clp-btn">저장하기</button>
-				<p style="font-size: 11px; text-align: center; margin-top: 10px;">GUEST 플래너는 누구나 접근 가능하며 임의로 수정 될 수 있습니다.</p>
+				<p style="font-size: 11px; text-align: center; margin-top: 10px; color: red;">GUEST 플래너는 생성 후 수정이 불가능 합니다.</p>
 			</c:otherwise>
 		</c:choose>
 		
