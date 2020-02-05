@@ -22,6 +22,12 @@ public class NoticeService {
 	@Autowired
 	private NoticeRepository noticeRepository;
 	
+	public void noticeUpdate(NoticeVO noticeVO, List<MultipartFile> files)throws Exception{
+		System.out.println("@@@@@@@@@@@@@@");
+		
+		System.out.println("@@@@@@@@@@@@@@");
+	}
+	
 	public void increaseHit(int num)throws Exception{
 		NoticeVO noticeVO=noticeRepository.findById(num).get();
 		int hit=noticeVO.getHit();

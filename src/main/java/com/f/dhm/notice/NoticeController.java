@@ -33,11 +33,40 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	@PostMapping("noticeUpdate")
-	public String noticeUpdate(NoticeVO noticeVO)throws Exception{
-		noticeService.noticeUpdate(noticeVO);
+	public String noticeUpdate(NoticeVO noticeVO, List<MultipartFile> files)throws Exception{
+		files.remove(0);
+		System.out.println("7777777777777777777777777");
+		System.out.println("7777777777777777777777777");
+		System.out.println(files.size());
+//		System.out.println("noticeVO.getNoticeFilesVOs().get(0).getFnum() : "+noticeVO.getNoticeFilesVOs().get(0).getFnum());
+//		System.out.println("noticeVO.getNoticeFilesVOs().get(1).getFnum() : "+noticeVO.getNoticeFilesVOs().get(1).getFnum());
+		//err
+		System.out.println("noticeVO.getNum() : "+noticeVO.getNum());
+		System.out.println("7777777777777777777777777");
+		System.out.println("7777777777777777777777777");
+		if(files.size()>0) {
+			for(int i=0;i<files.size();i++) {
+				System.out.println("files.get("+i+").getOriginalFilename() : "+files.get(i).getOriginalFilename());
+				files.get(i).getOriginalFilename();
+			}
+		}
+		noticeService.noticeUpdate(noticeVO, files);
+		
 		return "redirect:./noticeList";
 	}
-	
+	@GetMapping("notice_file_delete")
+	public void notice_file_delete(String fileName)throws Exception{
+		System.out.println("======================");
+		System.out.println("======================");
+		System.out.println("======================");
+		System.out.println("======================");
+		System.out.println(fileName);
+		System.out.println("======================");
+		System.out.println("======================");
+		System.out.println("======================");
+		System.out.println("======================");
+		
+	}
 	@GetMapping("noticeUpdate")
 	public String noticeUpdate(int num, Model model)throws Exception{
 		NoticeVO noticeVO=noticeService.selectById(num);
@@ -83,10 +112,10 @@ public class NoticeController {
 	}
 	
 	@GetMapping("noticeList")
-	public ModelAndView noticeList(ModelAndView mv, @PageableDefault (size = 20, sort = {"num"},direction = Direction.DESC,page = 0)Pageable pageable,  @RequestParam(name = "searchingFor", defaultValue = "") String searchingFor) throws Exception{
-//		if (searchingFor==null) {
-//			searchingFor="";
-//		}
+	public ModelAndView noticeList(ModelAndView mv, 
+			@PageableDefault (size = 20, sort = {"num"},direction = Direction.DESC,page = 0)Pageable pageable,  
+			@RequestParam(name = "searchingFor", defaultValue = "") String searchingFor) throws Exception{
+
 		Page<NoticeVO> noticePage=noticeService.noticeListPage(pageable,searchingFor);		
 		mv.addObject("noticePage", noticePage);
 		mv.setViewName("notice/noticeList");

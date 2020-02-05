@@ -32,7 +32,6 @@ public class ScheduleController {
 
 	@Autowired
 	private ScheduleService scheduleService;
-	@Autowired
 	private PlannerService plannerService;
 	@Autowired 
 	private XmlService xmlService;
