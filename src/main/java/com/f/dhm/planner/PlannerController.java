@@ -175,7 +175,9 @@ public class PlannerController {
 			date = new Date(c.getTimeInMillis());
 			
 			vo.setArDate(date);
-			
+			if (bak[i].equals("무")) {
+				bak[i] = "0";
+			}
 			vo.setBak(Integer.valueOf(bak[i]));
 			vo.setRegion(region[i]);
 			if (i > 0 && deDate.length > 1) {				

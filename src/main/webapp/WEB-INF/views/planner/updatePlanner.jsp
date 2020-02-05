@@ -9,7 +9,7 @@
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
-<title>viewPage</title>
+<title>경로 수정</title>
 </head>
 <body>
 <c:import url="../template/boot.jsp"/>
@@ -125,8 +125,7 @@
 										<div>
 											<div class="mkp-city-one" title="${pVO.arCode }" >
 													<a class="click-sleep" title="c${p.index }" id="${pVO.region}" >
-													<font style="color:#696969;font-size:10pt;font-weight:bold" class="nights"> <span class="nights-day">${pVO.bak }</span>박  
-														<i class="fa fa-angle-down"></i>
+													<font style="color:#696969;font-size:10pt;font-weight:bold" class="nights"> <span class="nights-day"><c:choose><c:when test="${pVO.bak eq 0}">무</c:when><c:otherwise>${pVO.bak }</c:otherwise></c:choose></span>박<i class="fa fa-angle-down"></i>
 													</font>
 												</a>
 											</div> 

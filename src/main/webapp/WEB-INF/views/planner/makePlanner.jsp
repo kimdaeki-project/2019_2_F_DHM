@@ -9,7 +9,7 @@
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
-<title>Make Planner</title>
+<title>새로운 일정 짜기</title>
 </head>
 <body>
 <c:import url="../template/boot.jsp"/>
@@ -18,10 +18,10 @@
 <div class="mkp-left">
 	<div class="mkp-left-menu">
 		<div id="topControllerLeft" style="padding-top:5px;width:75%;float:left;">
-			<div style="padding-left:10px;">
-				<a href="/"><img src="/imgs/logos/logo_white.png" height="35px"></a>
+			<div style="padding-left:15px;">
+				<a href="/"><img src="/imgs/logos/logo-white.png" height="35px" width="150px"></a>
 			</div>
-			<div style="height:40px;padding-top:2px;padding-left:4px;">
+			<div style="height:40px;padding-top:-5px;padding-left:4px;">
 				<div style="text-align:left;padding-top:5px;padding-left:5px;">
 					<div style="padding-right:20px;padding-left:5px;padding-top:1px;">
 						<div style="border-radius:2;border:1px solid #efefef;padding-left:10px;background:#fff;width: 60%; ">

@@ -119,11 +119,14 @@ function setId() {
    uptDate();
 }
 
+var zindex = 1;
 $(".mkp-right").on("click",".city-selOne", function() {
    $(".city-btn-info-sel").prop("class","city-btn-info");
    $(this).next().prop("class","city-btn-info-sel");
    $(".city-btn-info").slideUp("fast");
    $(this).next().slideToggle("fast");
+   $(this).parent().parent().css("z-index",zindex);
+   zindex++;
 });
 
 /////////도시추가 스크립트
@@ -181,7 +184,7 @@ function uptDate() {
    for (var i = 1; i < count; i++) {
       $("#c"+i+" .sDate").text(setDay2);
       var bak = $("#c"+i+"  .nights-day").text()*1;
-      if ($("#c"+i+"  .nights-day").text() == "무") {
+      if ($("#c"+i+"  .nights-day").text().trim() == "무") {
          bak = 0;
       }
       totalBak+=bak;

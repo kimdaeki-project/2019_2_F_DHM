@@ -24,17 +24,19 @@ class ScheduleTest {
 	
 	@Test
 	void test() throws Exception{
-		String date = "2020-01-25";
+//		String date = "2020-01-25";
+//		
+//		int y = Integer.parseInt(date.substring(0, 4));
+//		int m = Integer.parseInt(date.substring(5, 7));
+//		int d = Integer.parseInt(date.substring(8));
+//		
+//		Calendar.getInstance().set(y, m, d);
+//		
+//		Date s = new Date(Calendar.getInstance().getTimeInMillis());
+//		
+//		System.out.println(s);
 		
-		int y = Integer.parseInt(date.substring(0, 4));
-		int m = Integer.parseInt(date.substring(5, 7));
-		int d = Integer.parseInt(date.substring(8));
-		
-		Calendar.getInstance().set(y, m, d);
-		
-		Date s = new Date(Calendar.getInstance().getTimeInMillis());
-		
-		System.out.println(s);
+		System.out.println(5%4);
 		
 		
 	}

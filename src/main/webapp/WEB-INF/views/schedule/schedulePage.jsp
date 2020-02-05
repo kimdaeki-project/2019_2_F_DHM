@@ -15,6 +15,9 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 <link rel="stylesheet"  href="../css/basic.css">
+<link rel="stylesheet" href="../css/calendar/fullCalendar.css">
+<link rel="stylesheet" href="../css/calendar/daygrid.css">
+<link rel="stylesheet" href="../css/calendar/timegrid.css">
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 
@@ -188,7 +191,7 @@
 					</div>
 				</div>
 				<div class="calendar-wrapper">
-					<div class="calendar">
+					<div id="calendar">
 					</div>
 						
 				</div>
@@ -367,7 +370,7 @@
 					</div>
 					<div style="float:left; width: 70%;">
 						<select class="form-control" style="height: 30pt; font-size: 12pt; font-weight: 600;">
-							<c:forEach items="${ planner}" var="vo">
+							<c:forEach items="${planner }" var="vo">
 								<option>${vo.region}</option>
 							</c:forEach>
 						</select>
@@ -400,6 +403,7 @@
 <div style="display: none;">
 	<c:forEach items="${planner }" var="plan">
 		<p class="pp-index" >${plan.polyPath }</p>
+		<input id="${plan.region }" title="${plan.deDate }" value="${plan.arDate }" class="sch-eventList"  type="hidden" >
 	</c:forEach>
 </div>
 	<script type="text/javascript">
@@ -498,10 +502,72 @@
 					
 					}
 			}
-		
+
+	
 		
 	</script>
 	<script src="../js/cityList.js"></script>
 	<script src="../js/kakaoMap.js" ></script>
+	<script src="../js/calendar/fullCalendar.js" ></script>
+	<script src="../js/calendar/daygrid.js" ></script>
+	<script src="../js/calendar/interaction.js" ></script>
+	<script src="../js/calendar/timegrid.js" ></script>
+	<script type="text/javascript">
+
+///////////////////////////////////////////////////////////달력
+
+	var color = ['#AFF8D8','#FFABAB', '#A79AFF', '#FF9CEE', '#6EB5FF'];
+	
+
+	var dd = "${dDate}";
+	dd = dd.substr(0,10);
+
+	var sch = {};
+	sch.title = '출발';
+	sch.start=dd;
+	var schedule = [];
+	schedule.push(sch);
+
+	var i = 0;
+	$(".sch-eventList").each(function() {
+		sch = {};
+		sch.title = $(this).prop("id");
+		dd = $(this).prop("title");
+		dd = dd.substr(0,10);
+		sch.start = dd+"T02:00:00";
+		dd = $(this).val();
+		dd = dd.substr(0,10);
+		sch.end = dd+"T12:00:00";
+		sch.color = color[i%4];
+		schedule.push(sch);
+		i++;
+	});
+
+	
+	
+	document.addEventListener('DOMContentLoaded', function() {
+		  var calendarEl = document.getElementById('calendar');
+		  
+		  var calendar = new FullCalendar.Calendar(calendarEl, {
+			  locale:'ko',
+		    plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
+		    defaultView: 'dayGridMonth',
+		    defaultDate: '${dDate}',
+		    header: {
+		      left: 'prev,today',
+		      center: 'title',
+		      right: 'next'
+		    },
+		    eventColor: 'sky',
+		    height:450,
+		    displayEventTime: false,
+		    events : schedule,
+		  });
+		  calendar.render();
+		});
+
+	</script>
+
+	
 </body>
 </html>

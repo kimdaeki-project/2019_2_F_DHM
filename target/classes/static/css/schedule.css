@@ -142,9 +142,16 @@ a:hover{
 .calendar-wrapper{
 
 	float: left;
-	padding: 20px;
+	padding: 10px;
 	width: 40%;
+	height: 465px;
 }
+
+.calendar-wrapper button{
+	background-color: #3ad195;
+	border-color: #eaeaea;
+}
+
 .cal-table{
 	border: 1px solid lightgray;
 	table-layout: auto;

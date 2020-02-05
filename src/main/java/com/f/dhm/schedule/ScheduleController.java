@@ -61,7 +61,7 @@ public class ScheduleController {
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		
 		List<PlannerVO> plannerList= plannerService.plannerSelect(plNum,session);
-		List<ScheduleVO> ar = scheduleService.scheduleList();
+		//List<ScheduleVO> ar = scheduleService.scheduleList();
 		List<WishVO> wishlist = wishService.myWish(session, plNum);
 		String plannerTitle = plannerService.plannerTitle(plNum);
 		String plannerType = plannerService.plannerType(plNum);
@@ -85,7 +85,7 @@ public class ScheduleController {
 		mv.addObject("planner", plannerList);
 		mv.addObject("plNum", plNum);
 		mv.addObject("dDate", deDate);
-		mv.addObject("list", ar);
+		//mv.addObject("list", ar);
 		mv.addObject("days", days);
 		mv.setViewName("/schedule/schedulePage");
 		return mv;
