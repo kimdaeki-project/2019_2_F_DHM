@@ -23,7 +23,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "\"funding\"")
+@Table(name = "funding")
 public class FundingVO {
 	
 	@Id
@@ -34,7 +34,7 @@ public class FundingVO {
 	@NotEmpty
 	@Column(name = "fName")
 	private String name;
-	@NotEmpty
+	@NotEmpty(message = "내용을 입력해주세요.")
 	private String contents;
 	@NotNull
 	private BigInteger goal;
@@ -47,7 +47,9 @@ public class FundingVO {
 	@NotNull
 	private BigInteger price;
 	private BigInteger participationPeople;
-
+	private int restTime;
+	private int gage;
+	
 	@OneToMany(mappedBy = "fundingVO", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<FundingJoinVO> fundingJoinVOs;
 	

@@ -32,24 +32,32 @@ public class MemberVO {
 	//@NotNull
 	@CreationTimestamp
 	private Date birth;	
-	private int gender;
-	
+	private int gender;	
 	private int mailCheck;
 	private int grade;
 	private int social;
-	//img는 MemberFilesVO에 입력
+	private String mymsg;
+	private String introduce;
+	private String live;
+	private String language;
+	private String tour;
+	private String tema;
+	private String helpcity;
+		
+
+	//img, subimg는 MemberFilesVO에 입력 해야함
 	
 //	@OneToOne(mappedBy = "memberVO", cascade = CascadeType.ALL)
 //	private MemberFilesVO memberFilesVO;
 
-		private String img;
-	public String getImg() {
-			return img;
-		}
 
-		public void setImg(String img) {
-			this.img = img;
-		}
+//	public String getImg() {
+//			return img;
+//		}
+//
+//		public void setImg(String img) {
+//			this.img = img;
+//		}
 
 	public String getId() {
 		return id;
@@ -130,6 +138,62 @@ public class MemberVO {
 
 	public void setSocial(int social) {
 		this.social = social;
+	}
+
+	public String getMymsg() {
+		return mymsg;
+	}
+
+	public void setMymsg(String mymsg) {
+		this.mymsg = mymsg;
+	}
+
+	public String getIntroduce() {
+		return introduce;
+	}
+
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
+	}
+
+	public String getLive() {
+		return live;
+	}
+
+	public void setLive(String live) {
+		this.live = live;
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+
+	public String getTour() {
+		return tour;
+	}
+
+	public void setTour(String tour) {
+		this.tour = tour;
+	}
+
+	public String getTema() {
+		return tema;
+	}
+
+	public void setTema(String tema) {
+		this.tema = tema;
+	}
+
+	public String getHelpcity() {
+		return helpcity;
+	}
+
+	public void setHelpcity(String helpcity) {
+		this.helpcity = helpcity;
 	}
 
 //	public MemberFilesVO getMemberFilesVO() {

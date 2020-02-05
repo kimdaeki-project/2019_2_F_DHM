@@ -85,11 +85,16 @@
 <script type="text/javascript">
 
 	$(".btn1").click(function() {
-        document.getElementById('frm').submit();
-        
+        document.getElementById('frm').submit();        
         return false;
-});
+	});
 
+	//아이디 비밀번호 입력시 enter를 눌렀을 경우 넘어가게 설정 (enter 코드 = 13)
+	$("#pw").keyup(function(e){
+	 if(e.keyCode == 13){
+		 $(".btn1").click();
+	    }
+	 });
 
 </script>
 </body>

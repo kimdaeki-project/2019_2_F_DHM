@@ -38,7 +38,6 @@ public class DHMTest {
 		memberVO.setMailCheck(1);
 		memberVO.setSocial(1);
 		memberVO.setGrade(1);
-		memberVO.setImg("img1");
 		memberVO = memberRepository.save(memberVO);
 		System.out.println(memberVO.getEmail());
 		//Optional<MemberVO> mv = memberRepository.findById("test");
