@@ -41,7 +41,10 @@ public class PlannerService {
 	public List<MyPlannerVO> plannerList(PlannerVO plannerVO, HttpSession session) throws Exception {
 
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
-		
+		if (memberVO == null) {
+			memberVO = new MemberVO();
+			memberVO.setId("guest");
+		}
 		return repository.plannerList(memberVO.getId());
 	}
 	

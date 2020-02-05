@@ -7,7 +7,7 @@
 <head>
 <c:import url="./member/membercss.jsp"/>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DHM Planner</title>
 <c:import url="./template/boot.jsp"/>
 <link rel="stylesheet"  href="../css/basic.css">
  <link rel="stylesheet" href="../package/css/swiper.min.css">

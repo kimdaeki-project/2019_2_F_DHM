@@ -223,7 +223,7 @@ public class PlannerController {
 			wishlist.add(wishVO);
 
 		}
-		wishService.wishAdd(wishlist);
+		wishService.wishAdd(wishlist,plNum,titleA[0]);
 		
 		return pList.get(0).getPlNum();
 	}
