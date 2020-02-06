@@ -19,15 +19,7 @@ class DhmApplicationTests {
 	@Test
 	void contextLoads() {
 	
-		PlannerCommentVO pc=new PlannerCommentVO();
-		pc.setCNum(0);
-		pc.setTitle("comment title");
-		pc.setContents("contents");
-		pc.setId("testID");
-		pc.setPlNum(7);
 		
-		plannerCommentRepository.save(pc);
-		plannerCommentRepository.flush();
 	}
 
 }
