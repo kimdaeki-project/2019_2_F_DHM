@@ -31,7 +31,7 @@ public interface PlannerRepository extends JpaRepository<PlannerVO, Integer>{
 	@Query(nativeQuery = true, value = "select distinct type from planner where plNum= ?")
 	String plannerType(int plNum) throws Exception;
 	
-	@Query(nativeQuery = true, value = "select count(bak) from planner where plNum= ?")
+	@Query(nativeQuery = true, value = "select sum(bak) from planner where plNum= ?")
 	int days(int plNum) throws Exception;
 	
 
