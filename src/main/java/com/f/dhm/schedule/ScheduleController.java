@@ -34,16 +34,7 @@ public class ScheduleController {
 	private XmlService xmlService;
 	@Autowired
 	private WishService wishService;
-	
 
-	
-	@PostMapping("scheduleComment")
-	public void scheduleComment(@ModelAttribute("plannerCommentVO") PlannerCommentVO	 plannerCommentVO, int plNum)throws Exception{
-		System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-		System.out.println("plNum : "+plNum);
-		System.out.println("plannerCommentVO.getTitle() : "+plannerCommentVO.getContents());
-	}
-	
 	@GetMapping("tour")
 	public void addSC(String title, String firstimage) throws Exception{
 		

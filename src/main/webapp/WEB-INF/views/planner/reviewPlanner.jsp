@@ -44,7 +44,7 @@
 					<!-- reviewBox -->
 					
 					
-					<form action="../schedule/scheduleComment" method="post">
+					<form action="./scheduleComment" method="post">
 					<div class="reviewBox" >
 						<div class="reviewMemberImg"><img alt="members_img" src="../images/user.jpg" class="reviewMemberImg_img"></div>
 						<div class="reviewCommentsWrapper">
@@ -54,8 +54,8 @@
 					</div>
 					<!-- reviewBox -->
 					<button class="button" style="margin-left: 50px;">답글입력</button>
+					<input type="text" name="plNum" value="52">
 					</form>
-					
 					
 					
 					
