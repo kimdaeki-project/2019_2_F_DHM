@@ -203,7 +203,7 @@
 				</div>
 				<div class="middle-wrapper" style="height: 300px; padding: 0px 15px;">
 					
-<!-- 수정 ㅡ 교통수단 추가 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->	
+<!-- 수정 ㅡ 교통수단 추가ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->	
 					<div class="swiper-container" style="margin-top: 20px; height: 250px;">	
 							<div class="nolist swiper-wrapper">
 								<c:forEach items="${planner}" var="vo" varStatus="p">

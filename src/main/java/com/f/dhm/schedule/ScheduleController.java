@@ -54,6 +54,10 @@ public class ScheduleController {
 		plannerService.typeUpdate(type,session, plNum);
 	}
 	
+	
+	   
+	
+	
 	@GetMapping("schedulePage")
 	public ModelAndView plannerPage( PlannerVO plannerVO, ScheduleVO scheduleVO,HttpSession session,int plNum) throws Exception{
 		ModelAndView mv = new ModelAndView();

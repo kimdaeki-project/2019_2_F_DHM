@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>${days }일 동안의 ${plannerType }가는 국내 여행</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet"  href="../css/schedule.css">
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
@@ -15,6 +15,9 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 <link rel="stylesheet"  href="../css/basic.css">
+<link rel="stylesheet" href="../css/calendar/fullCalendar.css">
+<link rel="stylesheet" href="../css/calendar/daygrid.css">
+<link rel="stylesheet" href="../css/calendar/timegrid.css">
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 
@@ -190,14 +193,9 @@
 					</div>
 				</div>
 				<div class="calendar-wrapper">
-					<div class="calendar">
-						<h3 style="text-align: center;">2020년 1월</h3>
-						<div class="cal-event">부산</div>
-						<input type="text" id="testDatepicker">  
-
-						
-						
+					<div id="calendar">
 					</div>
+						
 				</div>
 			</div>
 			
@@ -205,7 +203,7 @@
 				<div class="middle-title">
 					<h3 class="contents-title">여행루트</h3>
 				</div>
-				<div class="middle-wrapper" style="height: 300px;">
+				<div class="middle-wrapper" style="height: 300px; padding: 0px 15px;">
 					
 		<!-- 수정 ㅡ 교통수단 추가 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->   
                <div class="swiper-container" style="margin-top: 20px; height: 250px;">   
