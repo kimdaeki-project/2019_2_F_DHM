@@ -39,5 +39,4 @@ public class PlannerVO {
 	
 	private Integer arCode;
 	private Integer polyPath;
-	private String email;
 }
