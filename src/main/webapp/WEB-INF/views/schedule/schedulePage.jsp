@@ -279,10 +279,11 @@
 										  <div class="tour-img">
 												<img src="${vo.firstimage}">
 													<div class="tour-name">
-														<font>${vo.title}</font>
+														<font >${vo.title}</font>
+														<input id="votitle" type="hidden" value="${vo.title}">
 													</div>
 										  </div>
-										<a data-toggle="modal" data-target="#myModal">
+										<a data-toggle="modal" class="md" data-target="#myModal" title="${vo.arCode}">
 											<div class="tour-add">
 												<font><i class="fa fa-plus"></i>일정추가</font>
 											</div>
@@ -496,30 +497,56 @@
 	</c:forEach>
 </div>
 	<script type="text/javascript">
+		
+	var tt;
+	$(".md").click(
+			function(){
+				
+				 tt = $(this).attr("title");
 
+				$(".b").each(function(){
+					if($(this).attr("title") == tt){
+							$(this).prop("selected",true);
+					}
+				});
+			}
+	);
+		
+		function addSchedule(scName, cost, start, title, plNum, arCode){
 
-	
-		function tour() {
+			var title = $("#votitle").val();
+			var scName = $("#scName").val();
+			var cost = $("#cost").val();
+			var start = $("#start").val();
+			var arCode = tt;
+
+			var a =$("#a").val(arCode);
 			
-			 $.ajax({
-			 	type: "GET",
-			 	url:"./addSC",
-			 	data:{
-			 			title:response.title,
-			 			firstimage: response.firstimage
-			 	},
-			 	success : function(result)
-			 	{
-			 	  		alert(response.title);    
-			 	},
-			 	error: function(result) {
-					
+			alert(a);
+			
+			$.ajax({
+				type: "GET",
+				url:"./addSchedule",
+				data:{
+					scName:scName,
+					cost:cost,
+					start:start,
+					title:title,
+					plNum:plNum,
+					arCode:arCode
 				},
-				complete : function() {
-				  		location.href="../";
-				}	
-			 });  
-		}  
+				success: function(result){
+					alert("일정이 추가되었습니다.");
+				},
+				error: function(){
+					alert("fail");
+				},
+				complete: function(){
+					
+				}
+			});
+	
+		}
 
 		/* type 바꾸기 */
 		function type(type,plNum){

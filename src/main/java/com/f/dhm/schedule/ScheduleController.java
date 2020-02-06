@@ -53,7 +53,26 @@ public class ScheduleController {
 	public void type(String type, int plNum, HttpSession session) throws Exception{
 		plannerService.typeUpdate(type,session, plNum);
 	}
-	
+
+	@GetMapping("addSchedule")
+	public ModelAndView plannerPage(String scName, Integer cost, Integer start, String title, Integer plNum, Integer arCode) throws Exception{
+		System.out.println(scName);
+		//int plNum = plannerService.getPlnum();
+		ModelAndView mv = new ModelAndView();
+		//System.out.println("pldfsdfsdf:"+plNum);
+		ScheduleVO scheduleVO = new ScheduleVO();
+		scheduleVO.setPlNum(plNum);
+		scheduleVO.setScName(scName);
+		scheduleVO.setCost(cost);
+		scheduleVO.setStart(start);
+		scheduleVO.setTour(title);
+		scheduleVO.setArCode(arCode);
+		scheduleService.scheduleInsert(scheduleVO);
+		mv.setViewName("/schedule/schedulePage2");
+		
+		return mv;
+	}
+
 	@GetMapping("schedulePage")
 	public ModelAndView plannerPage( PlannerVO plannerVO, ScheduleVO scheduleVO,HttpSession session,int plNum) throws Exception{
 		ModelAndView mv = new ModelAndView();
