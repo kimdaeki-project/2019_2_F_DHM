@@ -126,7 +126,7 @@ public class PlannerController {
 	@ResponseBody
 	public int makePlanner(String id, String title, String type, String people, String[] deDate, String[] arDate,
 		      String[] bak, String[] region, String[] transfer, String[] titleA, String[] firstimage, 
-		      String[] addr1, int[] arCode,HttpSession session, int[] pp, int[] arCodeP, Integer plNum) throws Exception{
+		      String[] addr1, int[] arCode,HttpSession session, int[] pp, int[] arCodeP, Integer plNum, String email) throws Exception{
 		      List<PlannerVO> pList = new ArrayList<PlannerVO>();
 		      
 		      
@@ -141,6 +141,7 @@ public class PlannerController {
 		      for (int i = 0; i < deDate.length; i++) {
 
 		         PlannerVO vo = new PlannerVO();
+		         vo.setEmail(email);
 		         vo.setPlNum(plNum);
 		         vo.setId(id);
 		         vo.setTitle(title);
@@ -167,7 +168,9 @@ public class PlannerController {
 		         date = new Date(c.getTimeInMillis());
 		         
 		         vo.setArDate(date);
-		         
+		         if (bak[i].equals("무")) {
+		            bak[i] = "0";
+		         }
 		         vo.setBak(Integer.valueOf(bak[i]));
 		         vo.setRegion(region[i]);
 		         if (i > 0 && deDate.length > 1) {            
@@ -202,13 +205,6 @@ public class PlannerController {
 		         wishVO.setArCode(arCode[i]);
 		         wishlist.add(wishVO);
 
-		         System.out.println();
-		         System.out.println();
-		         
-		         System.out.println(wishlist.size());
-		         
-		         System.out.println();
-		         System.out.println();
 		      }
 		      wishService.wishAdd(wishlist, plNum, title);
 		      

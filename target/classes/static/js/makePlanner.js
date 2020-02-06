@@ -330,7 +330,6 @@ var arCodeP = new Array();
 
 
 $(".mkp-clp-btn").click(function() {
-   console.log(titleA);
    jQuery.ajaxSettings.traditional = true;
   
    
@@ -339,6 +338,8 @@ $(".mkp-clp-btn").click(function() {
       var title=$("#mkp-title").val();
       var type=$("#tripwith_txt").text();
       var people=$("#mkp-people").val();
+      var email=$("#mkp-email").val();
+
       for (var i = 0; i < count-1; i++) {
          deDate.push($(".sDate")[i].innerText);
          arDate.push($(".eDate")[i].innerText);
@@ -380,7 +381,8 @@ $(".mkp-clp-btn").click(function() {
            addr1:addr1A,
            arCode:arCodeA,
            pp : polyIndex,
-           arCodeP: arCodeP
+           arCodeP: arCodeP,
+           email:email
          },
          success   : function(d) {
                alert("저장되었습니다.");

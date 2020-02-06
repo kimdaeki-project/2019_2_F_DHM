@@ -88,7 +88,6 @@ public class ScheduleController {
 		List<WishVO> wishlist = wishService.myWish(session, plNum);
 		
 		
-		//System.out.println("ddidididididid"+scheduleList.get(0).getScName());
 		String plannerTitle = plannerService.plannerTitle(plNum);
 		String plannerType = plannerService.plannerType(plNum);
 		int days= plannerService.days(plNum);
@@ -112,7 +111,7 @@ public class ScheduleController {
 		mv.addObject("dDate", deDate);
 		mv.addObject("schedule", scheduleList);
 		mv.addObject("days", days);
-		mv.setViewName("/schedule/schedulePage");
+		mv.setViewName("/schedule/schedulePage2");
 		return mv;
 	}
 	

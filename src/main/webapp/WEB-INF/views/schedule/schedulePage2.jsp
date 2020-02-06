@@ -207,40 +207,65 @@
 				</div>
 				<div class="middle-wrapper" style="height: 300px;">
 					
-		
-					<div class="swiper-container" style="margin-top: 20px; height: 250px;">	
-							<div class="nolist swiper-wrapper">
-								<c:forEach items="${planner}" var="vo">
-									<div class="swiper-slide">
-					
-										<div class="nolist-dot"></div>
-										<div class="nolist-line"></div>
-										<div class="nolist-dot2"></div>
-										<div class="nolist-region">${vo.region}</div>
-										<div class="nolist-transfer-comment"><fmt:formatDate value="${vo.deDate}" pattern="MM월dd일"/> 이동<fmt:formatDate value="${vo.deDate}" pattern="(E)"/></div>
-										<div class="nolist-transfer">
-											<i class="fa fa-train"></i>
-											
-										</div>
-										
-										<div class="notlist-ballon"></div>
-										<div class="notlist-ballon2"> 
-											<div class="ballon2-title">
-												<div>버스로 이동</div>
-											</div>
-											<div class="ballon2-contents">
-												<div><input type="text"></div>
-											</div>
-										</div>
-									</div>
-								</c:forEach>
-							</div>
-					
-						</div>
-						
-					</div>
-				</div>
-			</div>
+		<!-- 수정 ㅡ 교통수단 추가 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->   
+               <div class="swiper-container" style="margin-top: 20px; height: 250px;">   
+                     <div class="nolist swiper-wrapper">
+                        <c:forEach items="${planner}" var="vo" varStatus="p">
+                           <div class="swiper-slide">
+                              <div class="nolist-dot"></div>
+                              <div class="nolist-region">${vo.region}</div>
+                              <c:if test="${planner.size() gt 1 and p.index lt planner.size()-1}"> 
+                                 <div class="nolist-line"></div>
+                                 <div class="nolist-transfer-comment"><fmt:formatDate value="${planner.get(p.count).deDate}" pattern="MM월dd일"/> 이동<fmt:formatDate value="${planner.get(p.count).deDate}" pattern="(E)"/></div>
+                                 <div class="nolist-transfer">
+                                    <c:choose>
+                                       <c:when test="${planner.get(p.count).transfer eq '기차' }">
+                                          <i class="fa fa-train"></i>                                    
+                                       </c:when>
+                                       <c:when test="${planner.get(p.count).transfer eq '버스' }">
+                                          <i class="fa fa-bus"></i>                                    
+                                       </c:when>
+                                       <c:when test="${planner.get(p.count).transfer eq '자차' }">
+                                          <i class="fa fa-car"></i>
+                                       </c:when>
+                                       <c:when test="${planner.get(p.count).transfer eq '항공' }">
+                                          <i class="fa fa-plane"></i>
+                                       </c:when>
+                                       <c:when test="${planner.get(p.count).transfer eq '택시' }">
+                                          <i class="fa fa-taxi"></i>
+                                       </c:when>
+                                       <c:otherwise>
+                                          <font style="font-size: 12px; font-weight: bold; line-height: 36px;"> 미정</font>
+                                       </c:otherwise>
+                                    </c:choose>
+                                 </div>
+                              </c:if>               
+                              
+<!-- 수정ㅡ 인풋창 디스플레이 none ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->                              
+                              <div class="notlist-ballon" style="display: none"></div>
+                              <div class="notlist-ballon2" style="display: none"> 
+                                 <div class="ballon2-title">
+                                    <div>버스로 이동</div>
+                                 </div>
+                                 <div class="ballon2-contents">
+                                    <div><input type="text"></div>
+                                 </div>
+                              </div>
+<!-- 수정ㅡ 몇밤 자는지 추가 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+                              <div class ="notlist-showSleep"> ${vo.bak }박 </div>
+                              <div class="notlist-cityImg">
+                                 <img alt="${vo.region }" src="../city/${vo.polyPath }.jpg">
+                              </div>
+                           </div>
+                        </c:forEach>
+                     </div>
+               
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+
 			<!-- 여행루트 끝 -->
 			<!-- 세부일정표 시작 -->
 			<div class="middle-contents2">
@@ -266,7 +291,6 @@
 										<a data-toggle="modal" class="md" data-target="#myModal" title="${vo.arCode}">
 											<div class="tour-add">
 												<font><i class="fa fa-plus"></i>일정추가</font>
-												<input type="hidden" name="arCode" value="${vo.arCode}" id="arCode"> 
 											</div>
 										</a>
 										</div>
@@ -280,144 +304,134 @@
 						<div class="swiper-container">
 							<ul class="swiper-wrapper nolist" >
 								<c:forEach items="${planner}" var="vo">
-								
-								<!-- li 하나 -->
-								<li class="swiper-slide schedule-li" style="height: 560px;">
-									<div class="schedule-top">
-										<div class="schedule-top2">
-											<a>
-												<div class="schedule-map">
-													<img src="https://www.stubbyplanner.com/img_v15/icon_map.png">
-													<div class="schedule-map-title">지도</div>
-												</div>
-											</a>
-										</div>
-										<div class="sbold">
-										<fmt:formatDate value="${vo.deDate}" pattern="MM/dd"/> 								
-											<span style="font-size: 10pt; color: #c0c0c0"><fmt:formatDate value="${vo.deDate}" pattern="E"/> </span>
-										</div>
-										<div class="sarea">
-											<div style="line-height: 110%; height: 32px;">${vo.region}</div>
-										</div>
-									</div>
-									<c:choose>
-										<c:when test="${not empty schedule}">
-											<div class="schedule-body">
-											<c:forEach var="j" step="1" begin="8" end="20">
-												<c:forEach items="${schedule}" var="sc">
-													<div class="schedule-body-row">${j}
-														<div class="schedule-body-content">
-															<p><c:if test="${sc.start eq j && sc.arCode eq vo.arCode}">${sc.scName}</c:if> 
-														</div>
-													</div>
-												</c:forEach>
-											</c:forEach>
-											</div>
-										</c:when>
-										<c:otherwise>
-											<div class="schedule-body">
-												<div class="schedule-body-row">0~9
-													<div class="schedule-body-content">
-														
-													</div>
-												</div>
-												<c:forEach var="j" step="1" begin="9" end="20">
-													<div class="schedule-body-row">${j}
-														<div class="schedule-body-content"></div>
-													</div>
-												</c:forEach>
-											
-												<div class="schedule-body-row">숙소
-													<div class="schedule-body-content"></div>
-												</div>
-											</div>	
-										</c:otherwise>
-									</c:choose>
+									<!-- li 하나 -->
+					                        <li class="swiper-slide schedule-li" style="height: 560px;">
+					                           <div class="schedule-top">
+					                              <div class="schedule-top2">
+					                                 <a>
+					                                    <div class="schedule-map">
+					                                       <img src="https://www.stubbyplanner.com/img_v15/icon_map.png">
+					                                       <div class="schedule-map-title">지도</div>
+					                                    </div>
+					                                 </a>
+					                              </div>
+					                              <div class="sbold">
+					                              <fmt:formatDate value="${vo.deDate}" pattern="MM/dd"/>                         
+					                                 <span style="font-size: 10pt; color: #c0c0c0"><fmt:formatDate value="${vo.deDate}" pattern="E"/> </span>
+					                              </div>
+					                              <div class="sarea">
+					                                 <div style="line-height: 110%; height: 32px;">${vo.region}</div>
+					                              </div>
+					                           </div>
+					                           <div class="schedule-body">
+					                              <div class="schedule-body-row">0~9
+					                                 <div class="schedule-body-content">
+					                                 <c:forEach items="${schedule}" var="sc">
+														<p><c:if test="${sc.start eq 8 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+													 </c:forEach>
+					                                 </div>
+					                              </div>
+					                              <div class="schedule-body-row">9
+					                                 <div class="schedule-body-content">
+					                                  <c:forEach items="${schedule}" var="sc">
+														<p><c:if test="${sc.start eq 9 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+													 </c:forEach>
+					                                 </div>
+					                              </div>
+					                              <div class="schedule-body-row">10
+					                                 <div class="schedule-body-content">
+					                                  <c:forEach items="${schedule}" var="sc">
+														<p><c:if test="${sc.start eq 10 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+													 </c:forEach>
+					                                 </div>
+					                              </div>
+					                              <div class="schedule-body-row">11
+					                                 <div class="schedule-body-content">
+					                                  <c:forEach items="${schedule}" var="sc">
+														<p><c:if test="${sc.start eq 11 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+													 </c:forEach>
+					                                 </div>
+					                              </div>
+					                              <div class="schedule-body-row">12
+					                                 <div class="schedule-body-content">
+					                                  <c:forEach items="${schedule}" var="sc">
+														<p><c:if test="${sc.start eq 12 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+													 </c:forEach>
+					                                 </div>
+					                              </div>
+					                              <div class="schedule-body-row">13
+					                                 <div class="schedule-body-content">
+					                                  <c:forEach items="${schedule}" var="sc">
+														<p><c:if test="${sc.start eq 13 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+													 </c:forEach>
+					                                 </div>
+					                              </div>
+					                              <div class="schedule-body-row">14
+					                                 <div class="schedule-body-content">
+					                                  <c:forEach items="${schedule}" var="sc">
+														<p><c:if test="${sc.start eq 14 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+													 </c:forEach>
+					                                 </div>
+					                              </div>
+					                              <div class="schedule-body-row">15
+					                                 <div class="schedule-body-content">
+					                                  <c:forEach items="${schedule}" var="sc">
+														<p><c:if test="${sc.start eq 15 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+													 </c:forEach>
+					                                 </div>
+					                              </div>
+					                              <div class="schedule-body-row">16
+					                                 <div class="schedule-body-content">
+					                                  <c:forEach items="${schedule}" var="sc">
+														<p><c:if test="${sc.start eq 16 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+													 </c:forEach>
+					                                 </div>
+					                              </div>
+					                              <div class="schedule-body-row">17
+					                                 <div class="schedule-body-content">
+					                                  <c:forEach items="${schedule}" var="sc">
+														<p><c:if test="${sc.start eq 17 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+													 </c:forEach>
+					                                 </div>
+					                              </div>
+					                              <div class="schedule-body-row">18
+					                                 <div class="schedule-body-content">
+					                                  <c:forEach items="${schedule}" var="sc">
+														<p><c:if test="${sc.start eq 18 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+													 </c:forEach>
+					                                 </div>
+					                              </div>
+					                              <div class="schedule-body-row">19
+					                                 <div class="schedule-body-content">
+					                                  <c:forEach items="${schedule}" var="sc">
+														<p><c:if test="${sc.start eq 19 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+													 </c:forEach>
+					                                 </div>
+					                              </div>
+					                              <div class="schedule-body-row">20
+					                                 <div class="schedule-body-content">
+					                                  <c:forEach items="${schedule}" var="sc">
+														<p><c:if test="${sc.start eq 20 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+													 </c:forEach>
+					                                 </div>
+					                              </div>
+					                              <div class="schedule-body-row">20-24
+					                                 <div class="schedule-body-content">
+					                                  <c:forEach items="${schedule}" var="sc">
+														<p><c:if test="${sc.start eq 21 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+													 </c:forEach>
+					                                 </div>
+					                              </div>
+					                              <div class="schedule-body-row">숙소
+					                                 <div class="schedule-body-content">
+					                                  <c:forEach items="${schedule}" var="sc">
+														<p><c:if test="${sc.start eq 8 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+													 </c:forEach>
+					                                 </div>
+					                              </div>
+					                           </div>
+					                        </li>
 									
-									
-									
-						<!--////////////// ////////////////////////////////////////////////////////////////////////////////// -->
-									
-									
-									
-									
-						
-									
-									
-									
-								</li>
-								
-								
-								<!-- li 하나 -->
-                        <li class="swiper-slide schedule-li" style="height: 560px;">
-                           <div class="schedule-top">
-                              <div class="schedule-top2">
-                                 <a>
-                                    <div class="schedule-map">
-                                       <img src="https://www.stubbyplanner.com/img_v15/icon_map.png">
-                                       <div class="schedule-map-title">지도</div>
-                                    </div>
-                                 </a>
-                              </div>
-                              <div class="sbold">
-                              <fmt:formatDate value="${vo.deDate}" pattern="MM/dd"/>                         
-                                 <span style="font-size: 10pt; color: #c0c0c0"><fmt:formatDate value="${vo.deDate}" pattern="E"/> </span>
-                              </div>
-                              <div class="sarea">
-                                 <div style="line-height: 110%; height: 32px;">${vo.region}</div>
-                              </div>
-                           </div>
-                           <div class="schedule-body">
-                              <div class="schedule-body-row">0~9
-                                 <div class="schedule-body-content"></div>
-                              </div>
-                              <div class="schedule-body-row">9
-                                 <div class="schedule-body-content"></div>
-                              </div>
-                              <div class="schedule-body-row">10
-                                 <div class="schedule-body-content"></div>
-                              </div>
-                              <div class="schedule-body-row">11
-                                 <div class="schedule-body-content"></div>
-                              </div>
-                              <div class="schedule-body-row">12
-                                 <div class="schedule-body-content"></div>
-                              </div>
-                              <div class="schedule-body-row">13
-                                 <div class="schedule-body-content"></div>
-                              </div>
-                              <div class="schedule-body-row">14
-                                 <div class="schedule-body-content"></div>
-                              </div>
-                              <div class="schedule-body-row">15
-                                 <div class="schedule-body-content"></div>
-                              </div>
-                              <div class="schedule-body-row">16
-                                 <div class="schedule-body-content"></div>
-                              </div>
-                              <div class="schedule-body-row">17
-                                 <div class="schedule-body-content"></div>
-                              </div>
-                              <div class="schedule-body-row">18
-                                 <div class="schedule-body-content"></div>
-                              </div>
-                              <div class="schedule-body-row">19
-                                 <div class="schedule-body-content"></div>
-                              </div>
-                              <div class="schedule-body-row">20
-                                 <div class="schedule-body-content"></div>
-                              </div>
-                              <div class="schedule-body-row">20-24
-                                 <div class="schedule-body-content"></div>
-                              </div>
-                              <div class="schedule-body-row">숙소
-                                 <div class="schedule-body-content"></div>
-                              </div>
-                           </div>
-                        </li>
-								
-								
-								
 								
 								</c:forEach>
 								
@@ -468,8 +482,8 @@
 						<input type="hidden" name="title" id="vot" value="${vo.title}" title="${vo.title}">
 					</div>
 					<div style="margin-top: 30px; width: 100%;">
-						<button type="button" onclick="addSchedule('a',cost,start,'d',${plNum},0);">일정표추가</button>
-						<a style=" width: 100%; background:#3ad195;border-radius:5px;border:0px solid #c0c0c0;color:#fff;">일정표에 추가</a>
+						<button type="button" onclick="addSchedule('a',cost,start,'d',${plNum},0);"  style=" width: 100%; background:#3ad195;border-radius:5px;border:0px solid #c0c0c0;color:#fff;">일정표추가</button>
+						
 					</div>
 				</div>
 			</div>
@@ -478,11 +492,12 @@
 	</div>
 	<!-- </form> -->
 	<script type="text/javascript">
-		
+
+	var tt;
 	$(".md").click(
 			function(){
 				
-				var tt = $(this).attr("title");
+				 tt = $(this).attr("title");
 
 				$(".b").each(function(){
 					if($(this).attr("title") == tt){
@@ -498,11 +513,12 @@
 			var scName = $("#scName").val();
 			var cost = $("#cost").val();
 			var start = $("#start").val();
-			var arCode = $("#arCode").val();
+			var arCode = tt;
 
 			var a =$("#a").val(arCode);
 			
 			alert(a);
+			
 			$.ajax({
 				type: "GET",
 				url:"./addSchedule",
@@ -605,14 +621,78 @@
 			    });
 		///////////////////////////////////////////////////////////루트수정
 		
-		function uptPlanner(a){
-				if(confirm("루트를 수정하시겠습니까?")){
+		  function uptPlanner(a){
+            if(confirm("루트를 수정하시겠습니까?")){
 
-					location.href="../planner/updatePlanner?plNum="+a;
-					
-					}
-			}
-		
+               location.href="../planner/updatePlanner?plNum="+a;
+               
+               }
+         }
+
+   
+      
+   </script>
+   <script src="../js/cityList.js"></script>
+   <script src="../js/kakaoMap.js" ></script>
+   <script src="../js/calendar/fullCalendar.js" ></script>
+   <script src="../js/calendar/daygrid.js" ></script>
+   <script src="../js/calendar/interaction.js" ></script>
+   <script src="../js/calendar/timegrid.js" ></script>
+   <script type="text/javascript">
+
+///////////////////////////////////////////////////////////달력
+
+   var color = ['#FFABAB','#A79AFF', '#AFF8D8', '#FF9CEE', '#6EB5FF'];
+   
+
+   var dd = "${dDate}";
+   dd = dd.substr(0,10);
+
+   var sch = {};
+   sch.title = '출발';
+   sch.start=dd;
+   var schedule = [];
+   schedule.push(sch);
+
+   var i = 0;
+   $(".sch-eventList").each(function() {
+      sch = {};
+      sch.title = $(this).prop("id");
+      dd = $(this).prop("title");
+      dd = dd.substr(0,10);
+      sch.start = dd+"T02:00:00";
+      dd = $(this).val();
+      dd = dd.substr(0,10);
+      sch.end = dd+"T12:00:00";
+      sch.color = color[i%4];
+      schedule.push(sch);
+      i++;
+   });
+
+   
+   
+   document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+           locale:'ko',
+          plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
+          defaultView: 'dayGridMonth',
+          defaultDate: '${dDate}',
+          header: {
+            left: 'prev,today',
+            center: 'title',
+            right: 'next'
+          },
+          eventColor: 'sky',
+          height:450,
+          displayEventTime: false,
+          events : schedule,
+        });
+        calendar.render();
+      });
+
+
 		
 	</script>
 </body>
