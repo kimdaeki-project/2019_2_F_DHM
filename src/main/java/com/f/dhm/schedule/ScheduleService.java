@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.f.dhm.planner.PlannerRepository;
 import com.f.dhm.planner.PlannerVO;
+import com.f.dhm.wishlist.WishVO;
 
 import net.bytebuddy.agent.builder.AgentBuilder.RedefinitionStrategy.Listener.Yielding;
 
@@ -20,8 +21,8 @@ public class ScheduleService {
 	private ScheduleRepository repository;
 	
 	
-	public List<ScheduleVO> scheduleList(int plNum) throws Exception{
-		return repository.findByPlNum(plNum);
+	public List<ScheduleVO> scheduleList(List<WishVO> wishlist,int plNum, String title) throws Exception{
+		return repository.findByPlNum(wishlist,plNum, title);
 	}
 
 
