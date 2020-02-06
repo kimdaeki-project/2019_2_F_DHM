@@ -21,8 +21,8 @@ public class ScheduleService {
 	private ScheduleRepository repository;
 	
 	
-	public List<ScheduleVO> scheduleList(List<WishVO> wishlist,int plNum, String title) throws Exception{
-		return repository.findByPlNum(wishlist,plNum, title);
+	public List<ScheduleVO> scheduleList(int plNum) throws Exception{
+		return repository.findByPlNum(plNum);
 	}
 
 
