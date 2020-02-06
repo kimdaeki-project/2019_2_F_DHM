@@ -40,7 +40,7 @@
 						<ul class="boardSelectFiles_ul">
 							<li class="boardSelectFiles_li boardSelectFiles_title">첨부파일</li>
 						<c:forEach items="${noticeVO.noticeFilesVOs}" var="files">
-							<li class="boardSelectFiles_li paddingLeft20px"><span class="x"><b>x</b> <a href="#" class="fileLink">${files.oname}</a><b class="fileNum" hidden="hidden">${files.fnum}</b></span></li>
+							<li class="boardSelectFiles_li paddingLeft20px"><a href="#" class="fileLink">${files.oname}</a><b class="fileNum" hidden="hidden">${files.fnum}</b></li>
 						</c:forEach>
 						</ul>
 							 <br>
@@ -67,25 +67,6 @@
 	});
 	
 
-
-// $.ajax({
-//  	type: "GET",
-//  	url:"./addSC",
-//  	data:{
-//  			title:response.title,
-//  			firstimage: response.firstimage
-//  	},
-//  	success : function(result)
-//  	{
-//  	  		alert(response.title);    
-//  	},
-//  	error: function(result) {
-		
-// 	},
-// 	complete : function() {
-// 	  		location.href="../";
-// 	}	
-//  });  
 </script>
 </body>
 </html>

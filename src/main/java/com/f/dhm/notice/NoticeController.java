@@ -38,10 +38,8 @@ public class NoticeController {
 		System.out.println("7777777777777777777777777");
 		System.out.println("7777777777777777777777777");
 		System.out.println(files.size());
-//		System.out.println("noticeVO.getNoticeFilesVOs().get(0).getFnum() : "+noticeVO.getNoticeFilesVOs().get(0).getFnum());
-//		System.out.println("noticeVO.getNoticeFilesVOs().get(1).getFnum() : "+noticeVO.getNoticeFilesVOs().get(1).getFnum());
-		//err
 		System.out.println("noticeVO.getNum() : "+noticeVO.getNum());
+		System.out.println("date : "+noticeVO.getRegDate());
 		System.out.println("7777777777777777777777777");
 		System.out.println("7777777777777777777777777");
 		if(files.size()>0) {
@@ -55,21 +53,13 @@ public class NoticeController {
 		return "redirect:./noticeList";
 	}
 	@GetMapping("notice_file_delete")
-	public void notice_file_delete(String fileName)throws Exception{
-		System.out.println("======================");
-		System.out.println("======================");
-		System.out.println("======================");
-		System.out.println("======================");
-		System.out.println(fileName);
-		System.out.println("======================");
-		System.out.println("======================");
-		System.out.println("======================");
-		System.out.println("======================");
-		
+	public void notice_file_delete(int fileNum)throws Exception{
+		noticeService.notice_file_delete(fileNum);		
 	}
 	@GetMapping("noticeUpdate")
 	public String noticeUpdate(int num, Model model)throws Exception{
 		NoticeVO noticeVO=noticeService.selectById(num);
+		
 		model.addAttribute("noticeVO", noticeVO);
 		
 		return "notice/noticeUpdate";
@@ -129,13 +119,13 @@ public class NoticeController {
 	
 	@GetMapping("noticeSelect")
 	public String noticeSelect(int num,Model model,HttpServletRequest request, HttpServletResponse response)throws Exception{
+		System.out.println("request.getLocalPort() : "+request.getLocalPort());
+		System.out.println("request.getRemoteAddr() : "+request.getRemoteAddr());
 		System.out.println("TEST : NOTICECONTROLLER.noticeSelect.num : "+num);		
 		NoticeVO notice=noticeService.selectById(num);
-		
 		Cookie[] cookies=request.getCookies();
-		
 		Cookie viewCookie=null;	//비교하기 위해 새로운 쿠키
-		
+	
 		if(cookies!=null&&cookies.length>0) {	//쿠키가 있을 경우
 			for(int i=0;i<cookies.length;i++) {
 				if(cookies[i].getName().equals("cookie"+num)) {	//cookie의 name이 cookie+num과 일치하는 쿠키를 viewCookie에 넣어줌.

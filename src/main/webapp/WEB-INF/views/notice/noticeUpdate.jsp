@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,7 +62,7 @@ $('.contents').summernote({
     height: 500
   });
 
-var count=0;
+var count=${fn:length(noticeVO.noticeFilesVOs) };
 
 $('#filePlus').click(function(){
 	if(count==5){
@@ -73,21 +74,24 @@ $('#filePlus').click(function(){
 });
 
 $('.x').click(function(){
-	var fileName=$(this).find('.fileNum').text();
+	var fileNum=$(this).find('.fileNum').text();
+	var fileName=$(this).find('.fileLink').text();
+	var conf=confirm(fileName+" 파일을 정말 삭제 하시겠습니까?");
 
-	alert(fileName);
+	if(conf){
 	//ajax
 	$.ajax({
 		url : "./notice_file_delete",
 		type : "GET",
 		data:{
-			fileName: fileName
+			fileNum: fileNum
 			},
-		success:function(){
-			alert(fileName+'success!!')
-
+		success:function(result){
+			alert(result+'success!!');
+			console.log(result);
 			}
 		});
+		}
 });
   </script>
 </body>

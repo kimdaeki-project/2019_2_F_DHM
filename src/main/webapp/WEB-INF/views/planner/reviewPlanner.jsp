@@ -11,6 +11,7 @@
 <body>
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
+	
 		<h1 style="color: #c9c9c9; border-bottom: 1px solid #c9c9c9; padding-bottom: 10px;">review</h1>
 		<div class="section" style="background: gold;">
 			<div class="reviewFlexWrapper">
@@ -41,14 +42,24 @@
 					<div class="aaaa"></div>
 					<!-- reviewBox -->
 					<!-- reviewBox -->
+					
+					
+					<form action="../schedule/scheduleComment" method="post">
 					<div class="reviewBox" >
 						<div class="reviewMemberImg"><img alt="members_img" src="../images/user.jpg" class="reviewMemberImg_img"></div>
 						<div class="reviewCommentsWrapper">
-							<div class="contents"></div>
+<!-- 							<form:textarea path="contents" class="contents"/> -->
+							<textarea class="contents" name="contents"></textarea>
 						</div>
 					</div>
 					<!-- reviewBox -->
 					<button class="button" style="margin-left: 50px;">답글입력</button>
+					</form>
+					
+					
+					
+					
+					
 				</div>
 				<div class="reviewWrapper_rightSide">
 					<div class="reviewWrapper_rightSide_rel">
@@ -57,13 +68,20 @@
 				</div>
 			</div>
 		</div>
-	</div>
+		
+		
+		
+	</div><!-- container -->
 <script type="text/javascript">
 	$('.contents').summernote({
 		placeholder : 'write contents!',
 		tabsize : 2,
 		height : 150
 	});
+
+// 	$('.button').click(function(){
+// 		location.href=""
+// 		});
 </script>
 </body>
 </html>

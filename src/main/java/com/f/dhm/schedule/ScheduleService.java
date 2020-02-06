@@ -20,8 +20,8 @@ public class ScheduleService {
 	private ScheduleRepository repository;
 	
 	
-	public List<ScheduleVO> scheduleList() throws Exception{
-		return repository.findAll();
+	public List<ScheduleVO> scheduleList(int plNum) throws Exception{
+		return repository.findByPlNum(plNum);
 	}
 	
 //	public String findDay(Date deDate) throws Exception{

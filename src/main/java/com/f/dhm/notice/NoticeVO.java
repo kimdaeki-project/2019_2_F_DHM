@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Data;
 
@@ -29,7 +30,8 @@ public class NoticeVO  {
 	private String title;
 	private String contents;
 	private String id;
-	@CreationTimestamp
+
+	@UpdateTimestamp
 	private Date regDate;
 
 	private int hit;
