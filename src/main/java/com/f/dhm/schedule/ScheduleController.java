@@ -70,7 +70,7 @@ public class ScheduleController {
 		scheduleVO.setTour(title);
 		scheduleVO.setArCode(arCode);
 		scheduleService.scheduleInsert(scheduleVO);
-		mv.setViewName("/schedule/schedulePage");
+		mv.setViewName("/schedule/schedulePage2");
 		
 		return mv;
 	}

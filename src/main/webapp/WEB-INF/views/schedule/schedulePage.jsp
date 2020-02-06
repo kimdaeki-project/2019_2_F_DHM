@@ -479,18 +479,18 @@
 	<!-- </form> -->
 	<script type="text/javascript">
 		
-	$(".md").click(
-			function(){
-				
-				var tt = $(this).attr("title");
-
-				$(".b").each(function(){
-					if($(this).attr("title") == tt){
-							$(this).prop("selected",true);
-					}
-				});
-			}
-	);
+		$(".md").click(
+				function(){
+					
+					var tt = $(this).attr("title");
+	
+					$(".b").each(function(){
+						if($(this).attr("title") == tt){
+								$(this).prop("selected",true);
+						}
+					});
+				}
+		);
 		
 		function addSchedule(scName, cost, start, title, plNum, arCode){
 
