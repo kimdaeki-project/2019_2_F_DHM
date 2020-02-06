@@ -445,9 +445,10 @@
   		<div class="modal-dialog">
 		<div class="m-wrapper"></div>
 		<div class="m-box">
-			<a style="color: black; font-size: 27px;" class="full-right close" >
+			<!-- <a style="color: black; font-size: 27px;" class="full-right close" >
 				<i class="fa fa-times-circle" aria-hidden="true"></i>
-			</a>
+			</a> -->
+			<button type="button" class="close" data-dismiss="modal">X</button>
 			<div style="width: 600px; clear:both;display: inline-block;">
 				<div class="form-group">
 					<div style="font-weight: bold; font-size: 12pt;">여행 일정 추가하기</div>
