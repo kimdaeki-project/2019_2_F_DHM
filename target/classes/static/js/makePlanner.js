@@ -448,7 +448,7 @@ for (var i = 0; i < positions.length; i++) {
 //       overlay.setMap(map);
 //   });
 
-   // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
+
    function closeOverlay() {
        overlay.setMap(null);     
    }
