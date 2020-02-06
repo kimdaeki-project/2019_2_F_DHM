@@ -629,68 +629,68 @@
    
       
    </script>
-   <script src="../js/cityList.js"></script>
-   <script src="../js/kakaoMap.js" ></script>
-   <script src="../js/calendar/fullCalendar.js" ></script>
-   <script src="../js/calendar/daygrid.js" ></script>
-   <script src="../js/calendar/interaction.js" ></script>
-   <script src="../js/calendar/timegrid.js" ></script>
-   <script type="text/javascript">
+	<script src="../js/cityList.js"></script>
+	<script src="../js/kakaoMap.js" ></script>
+	<script src="../js/calendar/fullCalendar.js" ></script>
+	<script src="../js/calendar/daygrid.js" ></script>
+	<script src="../js/calendar/interaction.js" ></script>
+	<script src="../js/calendar/timegrid.js" ></script>
+	<script type="text/javascript">
 
 ///////////////////////////////////////////////////////////달력
 
-   var color = ['#FFABAB','#A79AFF', '#AFF8D8', '#FF9CEE', '#6EB5FF'];
-   
+	var color = ['#FFABAB','#A79AFF', '#AFF8D8', '#FF9CEE', '#6EB5FF'];
+	
 
-   var dd = "${dDate}";
-   dd = dd.substr(0,10);
+	var dd = "${dDate}";
+	dd = dd.substr(0,10);
 
-   var sch = {};
-   sch.title = '출발';
-   sch.start=dd;
-   var schedule = [];
-   schedule.push(sch);
+	var sch = {};
+	sch.title = '출발';
+	sch.start=dd;
+	var schedule = [];
+	schedule.push(sch);
 
-   var i = 0;
-   $(".sch-eventList").each(function() {
-      sch = {};
-      sch.title = $(this).prop("id");
-      dd = $(this).prop("title");
-      dd = dd.substr(0,10);
-      sch.start = dd+"T02:00:00";
-      dd = $(this).val();
-      dd = dd.substr(0,10);
-      sch.end = dd+"T12:00:00";
-      sch.color = color[i%4];
-      schedule.push(sch);
-      i++;
-   });
+	var i = 0;
+	$(".sch-eventList").each(function() {
+		sch = {};
+		sch.title = $(this).prop("id");
+		dd = $(this).prop("title");
+		dd = dd.substr(0,10);
+		sch.start = dd+"T02:00:00";
+		dd = $(this).val();
+		dd = dd.substr(0,10);
+		sch.end = dd+"T12:00:00";
+		sch.color = color[i%4];
+		schedule.push(sch);
+		i++;
+	});
 
-   
-   
-   document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-           locale:'ko',
-          plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
-          defaultView: 'dayGridMonth',
-          defaultDate: '${dDate}',
-          header: {
-            left: 'prev,today',
-            center: 'title',
-            right: 'next'
-          },
-          eventColor: 'sky',
-          height:450,
-          displayEventTime: false,
-          events : schedule,
-        });
-        calendar.render();
-      });
+	
+	
+	document.addEventListener('DOMContentLoaded', function() {
+		  var calendarEl = document.getElementById('calendar');
+		  
+		  var calendar = new FullCalendar.Calendar(calendarEl, {
+			  locale:'ko',
+		    plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
+		    defaultView: 'dayGridMonth',
+		    defaultDate: '${dDate}',
+		    header: {
+		      left: 'prev,today',
+		      center: 'title',
+		      right: 'next'
+		    },
+		    eventColor: 'sky',
+		    height:450,
+		    displayEventTime: false,
+		    events : schedule,
+		  });
+		  calendar.render();
+		});
 
-
-		
 	</script>
+
+	
 </body>
 </html>
