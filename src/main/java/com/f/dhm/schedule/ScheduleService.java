@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.f.dhm.planner.PlannerRepository;
 import com.f.dhm.planner.PlannerVO;
 
-import lombok.val;
 import net.bytebuddy.agent.builder.AgentBuilder.RedefinitionStrategy.Listener.Yielding;
 
 @Service
@@ -27,9 +26,15 @@ public class ScheduleService {
 
 
 	//스케줄 추가
-	public void scheduleInsert(ScheduleVO scheduleVO) throws Exception{
+	public boolean scheduleInsert(List<ScheduleVO> list) throws Exception{
+		int beforeSize = list.size();
+		list = repository.saveAll(list);
 		
-		scheduleVO = repository.save(scheduleVO);
+		if (beforeSize == list.size()) {
+			return true;
+		}else {
+			return false;
+		}
 		
 	}
 	

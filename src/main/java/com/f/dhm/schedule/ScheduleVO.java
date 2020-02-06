@@ -31,8 +31,7 @@ public class ScheduleVO {
 
 	private int cost;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "")
-	private Integer start;
+	private Date start;
 	private Date end;
 	private String transfer;
-	private Integer arCode;
 }
