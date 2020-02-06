@@ -226,7 +226,7 @@
 
 //1. 아이디 : 6~12자   + 중복 메세지										ok!!!
 //2. pw : 4~12자    												ok!!!
-//3. 이메일 : @포함(naver.com / daum.net / gmail.com) + 중복 메세지		X
+//3. 이메일 : @포함(naver.com / daum.net / gmail.com) + 중복 메세지		ok!!!
 //4. 각종 특수문자 제외 : (1234567890/a-z/A-z 사용 가능)  					ok!!!
 
 

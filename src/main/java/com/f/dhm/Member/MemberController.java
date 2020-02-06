@@ -142,32 +142,31 @@ public class MemberController {
 	//마이페이지 프로필 사진 변경-----------------------------------------------------------------------
 	@GetMapping("memberMypageImg")
 	public String memberMypageImg(HttpSession session, Model model)throws Exception{
-		
+		System.out.println("");
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		System.out.println("");
 		model.addAttribute("memberVO", memberVO);	
-		
+		System.out.println("");
 		return "member/memberMypage";
 	}
 	
 	@PostMapping("memberMypageImg")
 	public ModelAndView memberMypageImg(@Valid MemberVO memberVO, BindingResult bindingResult, HttpSession session, MultipartFile files)throws Exception{
-		ModelAndView mv = new ModelAndView();
+	
+		ModelAndView mv = new ModelAndView();	
 		mv.setViewName("member/memberMypage");
 		String message = "프로필 사진 변경 실패";
-
-		if (memberService.memberMypageImg(memberVO, session, files)) {
+		System.out.println();
+		if (memberService.memberMypageImg(memberVO, session, files)) {			
 			memberVO = memberService.memberLogin(memberVO);
-			message = "프로필 사진 변경 완료";
-		}
-		
+			message = "프로필 사진 변경 완료";			
+		}		
 		session.setAttribute("member", memberVO);	
-		String path = "./memberMypage";
-		
+		String path = "./memberMypage";	
 		
 		mv.setViewName("common/result");
 		mv.addObject("message", message);
-		mv.addObject("path", path);
-		
+		mv.addObject("path", path);		
 		
 		return mv;	
 	}
@@ -190,8 +189,16 @@ public class MemberController {
 		
 		return "planner/myPlanner";
 	}
-	//-----------------------------------------------------------------------
-	
-	//-----------------------------------------------------------------------
-	
+	//회원 정보 업데이트-----------------------------------------------------------------------
+	@GetMapping("memberUpdate")
+	public String memberUpdatePage()throws Exception{
+		
+		return "member/memberUpdate";
+	}	
+	//회원 탈퇴-----------------------------------------------------------------------
+	@GetMapping("memberGetout")
+	public String memberGetoutPage()throws Exception{
+		
+		return "member/memberGetout";
+	}	
 }

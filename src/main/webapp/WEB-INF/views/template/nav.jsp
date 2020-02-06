@@ -23,6 +23,7 @@
 							<c:if test= "${not empty member}">
 								<li class="gnb_li"><a href="${pageContext.request.contextPath}/member/memberLogout">로그아웃</a></li>
 								<li class="gnb_li"><a href="${pageContext.request.contextPath}/member/memberMypage">마이페이지</a></li>
+								<li class="gnb_li"><a href="${pageContext.request.contextPath}/member/memberUpdate">내 정보 수정</a></li>
 							</c:if>
 							</ul>
 						<div class="service_dropDown">

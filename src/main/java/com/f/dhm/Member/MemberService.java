@@ -79,36 +79,35 @@ public class MemberService {
 		
 		return memberRepository.findByEmail(email);
 	}
-	//프로필 사진 불러오기----------------------------------------
-	public MemberFilesVO getImg(MemberVO memberVO)throws Exception{
-		
-		memberVO = memberRepository.findById(memberVO.getId()).get();
-		
-		return memberVO.getMemberFilesVO();
-	}
 	//프로필 사진 변경----------------------------------------
 	public boolean memberMypageImg(MemberVO memberVO,HttpSession session, MultipartFile files)throws Exception{
+
 		MemberFilesVO memberFilesVO = new MemberFilesVO();
-		
-		String realPath=session.getServletContext().getRealPath("/imgs");
+		String realPath=session.getServletContext().getRealPath("/imgs/member");
 	
 		memberFilesVO.setMemberVO(memberVO);
 		memberFilesVO.setFname(fileSaver.save2(realPath, files));
 		memberFilesVO.setOname(files.getOriginalFilename());
-	
+
 		memberFilesRepository.save(memberFilesVO);
-		
-		 memberVO =  memberRepository.findById(memberVO.getId()).get();
-			
+		memberVO =  memberRepository.findById(memberVO.getId()).get();
+
 		return memberFilesRepository.existsById(memberVO.getMemberFilesVO().getFnum());	
 	}
 	
-	
-	
-	
+	//회원 정보 변경----------------------------------------
+	public void memberUpdatePage(MemberVO memberVO)throws Exception{
+		
+		memberRepository.save(memberVO);
+	}
+	//회원 탈퇴----------------------------------------
+	public void memberGetoutPage(MemberVO memberVO)throws Exception{
+		
+		memberRepository.delete(memberVO);
+	}
 	
 	
 
 	
 	
-}
+}//main

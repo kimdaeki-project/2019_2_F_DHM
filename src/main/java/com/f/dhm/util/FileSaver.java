@@ -31,7 +31,7 @@ public class FileSaver {
 	      //*공통적으로 쓰임.
 	      File file = new File(realPath);
 	      //System.out.println(file.exists());//파일이존재합니까? 트루면 존재 펄스면 존재x
-	      
+	      System.out.println("realPath : "+ realPath);
 	      //파일이 존재하지않는다면 파일의 경로대로 폴더를 만든다.
 	      if(!file.exists()){
 	      file.mkdirs();

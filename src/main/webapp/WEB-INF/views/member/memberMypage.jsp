@@ -10,19 +10,23 @@
 <!-- 버튼 bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   
   
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet"  href="../css/membercss.css">
+<link rel="stylesheet"  href="../css/basic.css">
+<link rel="stylesheet" href="../package/css/swiper.min.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+
+	<c:import url="../template/nav.jsp"/>
 	
-	<div style="height: 100px; background-color:#ff9c9c; width: 100%; height: 54px; position: fixed; top: 0;"></div>
+<!-- 	<div style="height: 100px; background-color:#ff9c9c; width: 100%; height: 54px; position: fixed; top: 0;"></div> -->
 
 	<!-- B ->> M ->> S boss grade-->
 	<form action="./memberMypage"  method="POST">
@@ -40,8 +44,13 @@
 			</div>
 			
 			<div class="my2" id="my2">
-			<a><img alt="" src="../imgs/${member.memberFilesVO.fname}" class="mypage1-1-1"></a>
-			<a><img src="../imgs/dog.jpg" class="mypage1-1-1"></a>
+				<a><img alt="" src="../imgs/member/${member.memberFilesVO.fname}" class="mypage1-1-1"></a>
+				<a><img src="../imgs/dog.jpg" class="mypage1-1-1"></a>
+				
+				
+			
+			
+			
 			</div>
 			
 			<div class="my3" id="my3">
@@ -134,8 +143,16 @@
 		
 			<div class="mypage1"><!-- s-1 boss -->
 				<div class="mypage1-1">
-
-					<a><img src="../imgs/dog.jpg" class="mypage1-1-1"></a>
+				<!-- 사진 유-무에 따른 사진 변경 -->
+				<c:choose>
+					<c:when test="${member.memberFilesVO.fname eq null}">
+						<a><img src="../imgs/dog.jpg" class="mypage1-1-1"></a>					
+					</c:when>
+					<c:otherwise>
+						<a><img src="../imgs/member/${member.memberFilesVO.fname}" class="mypage1-1-1"></a>
+					</c:otherwise>
+				
+				</c:choose>
 				</div>
 				<div class="mypage1-2">
 					<div class="mypage1-2-1">
@@ -153,10 +170,10 @@
 				</div>
 				<div class="mypage2-2">
 					<button class="mypage2-2-1">
-					<strong>0 </strong> Mentees
+						<strong>0 </strong> Mentees
 					</button>					
 					<button class="mypage2-2-2">
-					<strong>0 </strong> Mentors
+						<strong>0 </strong> Mentors
 					</button>
 				</div>
 				<div class="mypage2-3">					
@@ -394,18 +411,28 @@
 				<input type="hidden" value="${member.email}" name="email">
 				<input type="hidden" value="${member.gender}" name="gender">
 				<input type="hidden" value="${member.birth}" name="birth">
+				
 			<div class="changeimg2-3">
 				<div class="changeimg2-3-1">
 					<!-- 이미지 미리보기 창  -->
-					<div class="img_wrap" style="width: 500px; height: 568px;">
-						<img id="img" style="width: 498px; height: 568px;">
+						<div class="img_wrap" style="width: 500px; height: 568px;">
+							<c:choose>
+								<c:when test="${member.memberFilesVO.fname eq null}">
+									<a><img id="img" src="../imgs/dog.jpg" class="mypage1-1-1-1" style="width: 498px; height: 568px;"></a>					
+								</c:when>								
+								<c:otherwise>
+									<img id="img" style="width: 498px; height: 568px;" src="../imgs/member/${member.memberFilesVO.fname}">
+								</c:otherwise>			
+							</c:choose>							
 					</div>
 				</div>
 			</div>
+			
 			<div class="introducebox">
-			<div class="changeimg2-5">저장</div>
-			<div class="changeimg2-4">창닫기</div>
+				<div class="changeimg2-5">저장</div>
+				<div class="changeimg2-4">창닫기</div>
 			</div>
+			
 		</div>
 	</div>
 	</spring:form>
@@ -413,13 +440,15 @@
 	
 
 <script type="text/javascript">
-
+//-----------------------------------------------------------------------
+	//프로필 사진 변경 BOX 사진 미리보기
 	var sel_file;
+	
 
 	$(document).ready(function(){
 		$("#input_img").on("change",handleImgFileSelect);
 	});
-
+	
 	function handleImgFileSelect(e){
 		var files = e.target.files;
 		var filesArr = Array.prototype.slice.call(files);
@@ -435,15 +464,14 @@
 			var reader = new FileReader();
 			reader.onload = function(e){
 				$("#img").attr("src", e.target.result);
+				$("#img").attr("class", "");
 				}
 			reader.readAsDataURL(f);
 			
 			});
 		}
 
-
-
-
+//-----------------------------------------------------------------------
 	//등급 출력 변경
 	$(function(){
  		if(${member.grade} == 0){
@@ -587,7 +615,15 @@ $('.msgbing4').hide();
 	$(".myintroduce-7-2").click(function(){
 		$('.asdzxc').slideUp();
 		$('.asdzxc2').slideUp();
-	});     
+	});  
+	   
+	$(window).keyup(function(e){
+		 if(e.keyCode == 27){
+			$('.asdzxc').slideUp();
+			$('.asdzxc2').slideUp();
+		 }
+	});
+	
 //------------------------------------------------------------------------	
 //프로필 사진 화면창 띄우기
  		$('.changeimg').hide();
@@ -612,6 +648,23 @@ $('.msgbing4').hide();
  			$('.changeimg').slideDown();
 			$('.changeimg2').slideDown();
 		});
+
+		//esc누르면 slidedown (esc 코드 = 59)
+		$(window).keyup(function(e){
+			 if(e.keyCode == 27){
+				$('.changeimg2').slideUp();
+				$('.changeimg').slideUp();
+			 }
+		});
+
+		$(window).keyup(function(e){
+			 if(e.keyCode == 27){
+				$('.changeimg2').slideUp();
+				$('.changeimg').slideUp();
+			 }
+		});
+
+		
 	
 //------------------------------------------------------------------------
 //프로필 관리 
