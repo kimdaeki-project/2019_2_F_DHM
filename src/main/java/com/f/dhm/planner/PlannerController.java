@@ -43,27 +43,45 @@ public class PlannerController {
 	}
 	
 	//혜현
-	@GetMapping("myPlanner")
-	public ModelAndView myPlanner(PlannerVO plannerVO, HttpSession session) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		
-		
-		List<MyPlannerVO> ar = service.plannerList(plannerVO, session);
-		
-		List<Integer> days= new ArrayList<Integer>();
-		
+	   @GetMapping("myPlanner")
+	   public ModelAndView myPlanner(PlannerVO plannerVO, HttpSession session) throws Exception{
+	      ModelAndView mv = new ModelAndView();
+	      
+	      List<Integer> days= new ArrayList<Integer>();
+	      
+	      List<MyPlannerVO> ar = service.plannerList(plannerVO, session);
+	      
+	      List<String> ar2 = new ArrayList<String>();
+	      
+	      for (int i = 0; i < ar.size(); i++) {
+	         List<PlannerVO> list = service.plannerSelect(ar.get(i).getPlNum(), session);
+	         
+	         String path = "";
+	         for (int j = 0; j < list.size(); j++) {
+	            
+	            if (j == 0) {
+	               path = list.get(j).getPolyPath().toString();
+	            }else {
+	               path = path + ", " + list.get(j).getPolyPath();
+	            }
+	         }
+	         
+	         path = "["+path+"]";
+	         ar2.add(path);
+	      }
 
-		for (int i = 0; i < ar.size(); i++) {
-			int d= service.days(ar.get(i).getPlNum());
-			days.add(d);
-		}
-	
-		mv.addObject("list", ar);
-		mv.addObject("days", days);
-		mv.setViewName("planner/myPlanner");
-		
-		return mv;
-	}
+	      for (int i = 0; i < ar.size(); i++) {
+	         int d= service.days(ar.get(i).getPlNum());
+	         days.add(d);
+	      }
+	      
+	      mv.addObject("path", ar2);
+	      mv.addObject("list", ar);
+	      mv.addObject("days", days);
+	      mv.setViewName("planner/myPlanner");
+	      
+	      return mv;
+	   }
 	
 	@GetMapping("addPlanner")
 	public ModelAndView addSch(String cityName, String startDate, String endDate, String count,String arCode,String index) throws Exception {
@@ -212,21 +230,21 @@ public class PlannerController {
 		   }
 	
 	
-	@GetMapping("mapTest")
-	public ModelAndView mapTest(HttpSession session) throws Exception{
-		
-		ModelAndView mv = new ModelAndView();
-		
-		List<PlannerVO> list = service.plannerSelect(3, session);
-		List<Integer> polyPath = new ArrayList<Integer>();
-		for (PlannerVO plannerVO : list) {
-			polyPath.add(plannerVO.getPolyPath());
-		}
-		mv.addObject("pp", polyPath);
-		
-		return mv;
-		
-	}
+	  @GetMapping("mapTest")
+	   public ModelAndView mapTest(int plNum, HttpSession session) throws Exception{
+	      
+	      ModelAndView mv = new ModelAndView();
+	      
+	      List<PlannerVO> list = service.plannerSelect(plNum, session);
+	      List<Integer> polyPath = new ArrayList<Integer>();
+	      for (PlannerVO plannerVO : list) {
+	         polyPath.add(plannerVO.getPolyPath());
+	      }
+	      mv.addObject("pp", polyPath);
+	      
+	      return mv;
+	      
+	   }
 	
 	@GetMapping("updatePlanner")
 	public ModelAndView updatePlanner(int plNum, HttpSession session) throws Exception{

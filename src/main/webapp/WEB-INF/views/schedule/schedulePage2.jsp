@@ -249,7 +249,7 @@
 <!-- 수정ㅡ 몇밤 자는지 추가 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
                               <div class ="notlist-showSleep"> ${vo.bak }박 </div>
                               <div class="notlist-cityImg">
-                                 <img alt="${vo.region }" src="../city/${vo.polyPath }.jpg">
+                                 <img alt="${vo.region }" src="../city/${vo.polyPath}.jpg">
                               </div>
                            </div>
                         </c:forEach>
@@ -486,6 +486,12 @@
 		</div>
 	</div>
 	<!-- </form> -->
+	<div style="display: none;">
+   <c:forEach items="${planner }" var="plan">
+      <p class="pp-index" >${plan.polyPath }</p>
+      <input id="${plan.region }" title="${plan.deDate }" value="${plan.arDate }" class="sch-eventList"  type="hidden" >
+   </c:forEach>
+</div>
 	<script type="text/javascript">
 
 	var tt;

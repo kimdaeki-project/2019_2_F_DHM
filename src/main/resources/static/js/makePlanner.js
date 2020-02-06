@@ -67,9 +67,9 @@ $(".mkp-city-list").on("click",".ifm-closer", function() {
 
 $(".mkp-city-list").on("click",".city-del", function() {
    if (confirm("일정을 취소하시겠습니까?")) {
-	   
-	   displayMarker();
-	   
+      
+      displayMarker();
+      
       map.setLevel(14);
       map.setCenter(new kakao.maps.LatLng(35.954638908843044, 128.6525083125467));
       var chn = $(this).parent().parent().parent().prop("id").substr(1);
@@ -119,11 +119,14 @@ function setId() {
    uptDate();
 }
 
+var zindex = 1;
 $(".mkp-right").on("click",".city-selOne", function() {
    $(".city-btn-info-sel").prop("class","city-btn-info");
    $(this).next().prop("class","city-btn-info-sel");
    $(".city-btn-info").slideUp("fast");
    $(this).next().slideToggle("fast");
+   $(this).parent().parent().css("z-index",zindex);
+   zindex++;
 });
 
 /////////도시추가 스크립트
@@ -181,7 +184,7 @@ function uptDate() {
    for (var i = 1; i < count; i++) {
       $("#c"+i+" .sDate").text(setDay2);
       var bak = $("#c"+i+"  .nights-day").text()*1;
-      if ($("#c"+i+"  .nights-day").text() == "무") {
+      if ($("#c"+i+"  .nights-day").text().trim() == "무") {
          bak = 0;
       }
       totalBak+=bak;
@@ -250,10 +253,10 @@ function addTsel() {
 
 
 function setNumber(move) {
-	mapCenter = map.getCenter();
-	mapLevel = map.getLevel();
-	map.setMaxLevel(14);
-	map.setLevel(14);
+   mapCenter = map.getCenter();
+   mapLevel = map.getLevel();
+   map.setMaxLevel(14);
+   map.setLevel(14);
    var cn = 1;
    $(".city-sel-name").each(function() {
       var comp = $(this).text();
@@ -272,7 +275,7 @@ function setNumber(move) {
    map.setMaxLevel(13);
    
    if (move) {
-	   map.panTo(positions[$("#c"+(cn-1)).prop("title")].latlng);	
+      map.panTo(positions[$("#c"+(cn-1)).prop("title")].latlng);   
 }
    
 }
@@ -291,12 +294,12 @@ var addr1A = new Array();
 var arCodeA = new Array();
 
 function saveSch(t, f, a, c) {
-	
-		titleA.push(t);
-		firstimageA.push(f);
-		addr1A.push(a);
-		arCodeA.push(c);
-	
+   for (var i = 0; i < t.length; i++) {
+      titleA.push(t[i]);
+      firstimageA.push(f[i]);
+      addr1A.push(a[i]);
+      arCodeA.push(c[i]);      
+   }
 }
 /////////////////////////////////////////////////////
 
@@ -339,7 +342,6 @@ $(".mkp-clp-btn").click(function() {
       var type=$("#tripwith_txt").text();
       var people=$("#mkp-people").val();
       var email=$("#mkp-email").val();
-
       for (var i = 0; i < count-1; i++) {
          deDate.push($(".sDate")[i].innerText);
          arDate.push($(".eDate")[i].innerText);
@@ -351,22 +353,22 @@ $(".mkp-clp-btn").click(function() {
       }
       
       $(".mkp-city-info").each(function() {
-		polyIndex.push($(this).prop("title"));
+      polyIndex.push($(this).prop("title"));
       });
       
       $(".mkp-city-one").each(function() {
-		arCodeP.push($(this).prop("title"));
+      arCodeP.push($(this).prop("title"));
       });
        var plNum = null;
       if ($(".mkp-clp-btn").prop("name")=="update") {
-    	  plNum= $("#update-plNum").val();
+         plNum= $("#update-plNum").val();
       }
       
       $.ajax({
          type   : "POST",
          url      : "makePlanner",
          data   : {
-        	plNum : plNum,
+           plNum : plNum,
             id       : id,
             title    : title,
             type   : type,
@@ -382,7 +384,7 @@ $(".mkp-clp-btn").click(function() {
            arCode:arCodeA,
            pp : polyIndex,
            arCodeP: arCodeP,
-           email:email
+           email : email
          },
          success   : function(d) {
                alert("저장되었습니다.");
@@ -423,12 +425,12 @@ for (var i = 0; i < positions.length; i++) {
      
     
     // 마커를 생성합니다
-    var marker = new kakao.maps.Marker({
-        //map: map, // 마커를 표시할 지도
-        position: positions[i].latlng, // 마커를 표시할 위치
-        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-     
-    });
+//    var marker = new kakao.maps.Marker({
+//        //map: map, // 마커를 표시할 지도
+//        position: positions[i].latlng, // 마커를 표시할 위치
+//        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+//     
+//    });
     
     var overlay = new kakao.maps.CustomOverlay({
        clickable: true,
@@ -442,9 +444,9 @@ for (var i = 0; i < positions.length; i++) {
 
 
    // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-   kakao.maps.event.addListener(marker, 'click', function() {
-       overlay.setMap(map);
-   });
+//   kakao.maps.event.addListener(marker, 'click', function() {
+//       overlay.setMap(map);
+//   });
 
    // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
    function closeOverlay() {
@@ -464,7 +466,7 @@ var polyline = new kakao.maps.Polyline({
 var pp;
    
 function makePoly(ps) {
-	
+   
     pp = new Array();
    for (var i = 0; i < ps.length; i++) {
       pp.push(positions[ps[i]].latlng);
@@ -542,13 +544,12 @@ function displayMarker() {
 ///////////////////////////////////////////카카오맵//////////////////////////////////////
 
 $(".mkp-city-list").on("click",".ifm-info", function() {
-	var arC = $(this).prop("title");
-	
-	if ($(this).next().children("iframe").prop("src") == "http://localhost/planner/waitAminute") {
-		$(this).next().children("iframe").prop("src","http://localhost/planner/ifmOpen?arCode="+arC);
-	}
+   var arC = $(this).prop("title");
+   
+   if ($(this).next().children("iframe").prop("src") == "http://localhost/planner/waitAminute") {
+      $(this).next().children("iframe").prop("src","http://localhost/planner/ifmOpen?arCode="+arC);
+   }
 });
-
 
 
 
