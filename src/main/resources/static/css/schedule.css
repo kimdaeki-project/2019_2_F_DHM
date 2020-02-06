@@ -634,11 +634,14 @@ a:hover{
 	width:100%;
 	padding-top:10px;
 	text-align:center;
-	padding-right:20%;
+	padding:20px;
 	background-color: white;
+	border-radius: 5px;
 }
 
-
+.full-right{
+	float: right !important;
+}
 
 
 /* 몇밤자는지 추가 */

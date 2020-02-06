@@ -445,39 +445,40 @@
   		<div class="modal-dialog">
 		<div class="m-wrapper"></div>
 		<div class="m-box">
-			<div style="width: 600px; clear:both;display: inline-block; ">
-				<div>
+			<a style="color: black; font-size: 27px;" class="full-right close" >
+				<i class="fa fa-times-circle" aria-hidden="true"></i>
+			</a>
+			<div style="width: 600px; clear:both;display: inline-block;">
+				<div class="form-group">
+					<div style="font-weight: bold; font-size: 12pt;">여행 일정 추가하기</div>
 					
-					여행 일정 추가하기
-					
-					<div>
-					일정표에 추가 할 날짜/시간	
+					<div style="font-size: 10pt;">
+						일정표에 추가 할 날짜와 시간을 선택해주세요!
 					</div>
-					<div style="float:left; width: 70%;">
-						<select class="form-control" style="height: 30pt; font-size: 12pt; font-weight: 600;">
+					<div style="float:left; width: 50%;margin-right: 10px;">
+						<select class="form-control  col-xs-2" style="height: 30pt; font-size: 12pt; font-weight: 600;">
 							<c:forEach items="${planner}" var="vo">
 								<option value="" id="a" class="b" title="${vo.arCode}">${vo.region}</option>
 							</c:forEach>
 						</select>
 					</div>
-					<div style="float:left; width: 30%;">
+					<div style="float:left; width: 20%;">
 						<select name="start" title="start" id="start" class="form-control" style="height: 30pt; font-size: 12pt; font-weight: 600;">
 							<option value="8">0~9시</option>
 							<c:forEach  var="i" step="1" begin="9" end="20">
 								<option value="${i}">${i}시</option>
 							</c:forEach>
-				
 						</select>
 					</div>
-					<div>
-						일정 코멘트
-						<input type="text" name="scName" id = "scName">
-						예상비용
-						<input type="text" name="cost" id="cost">
+					<div style="clear: both;">
+						<font>일정의 이름을 달아주세요!</font>
+						<input type="text" name="scName" id = "scName" style="float: left;">
+						<font>예상비용</font>
+						<input type="text" name="cost" id="cost" style="float: left;">
 						<input type="hidden" name="title" id="vot" value="${vo.title}" title="${vo.title}">
 					</div>
-					<div style="margin-top: 30px; width: 100%;">
-						<button type="button" onclick="addSchedule('a',cost,start,'d',${plNum},0);"  style=" width: 100%; background:#3ad195;border-radius:5px;border:0px solid #c0c0c0;color:#fff;">일정표추가</button>
+					<div style="margin-left:150px; margin-top: 30px; margin-bottom:20px; width: 50%; height: 20px;">
+						<button type="button" onclick="addSchedule('a',cost,start,'d',${plNum},0);"  style=" width: 100%; height:30px; background:#3ad195;border-radius:5px;border:0px solid #c0c0c0;color:#fff;">일정표추가</button>
 						
 					</div>
 				</div>
@@ -494,6 +495,10 @@
 </div>
 	<script type="text/javascript">
 
+	function closeModal(){
+		
+	}
+	
 	var tt;
 	$(".md").click(
 			function(){
