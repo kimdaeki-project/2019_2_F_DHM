@@ -143,91 +143,92 @@ public class PlannerController {
 	@PostMapping("makePlanner")
 	@ResponseBody
 	public int makePlanner(String id, String title, String type, String people, String[] deDate, String[] arDate,
-		String[] bak, String[] region, String[] transfer, String[] titleA, String[] firstimage, 
-		String[] addr1, int[] arCode,HttpSession session, int[] pp, int[] arCodeP, Integer plNum, String email) throws Exception{
-		List<PlannerVO> pList = new ArrayList<PlannerVO>();
-		
-		
-		if (plNum != null) {			
-			service.plannerDel(id, plNum);
-		}
-		
-		plNum = service.getPlnum();
-		
-		System.out.println("plNum = " + plNum);
-		
-		for (int i = 0; i < deDate.length; i++) {
 
-			PlannerVO vo = new PlannerVO();
-			vo.setEmail(email);
-			vo.setPlNum(plNum);
-			vo.setId(id);
-			vo.setTitle(title);
-			vo.setType(type);
-			people = people.replaceAll("명", "");
-			vo.setPeople(Integer.valueOf(people));
-			
-			int y = Integer.parseInt(deDate[i].substring(0, 4));
-			int m = Integer.parseInt(deDate[i].substring(5, 7));
-			int d = Integer.parseInt(deDate[i].substring(8));
-			
-			Calendar c = Calendar.getInstance();
-			c.set(y, m-1, d);
-			
-			Date date = new Date(c.getTimeInMillis());
-			
-			vo.setDeDate(date);
-			
-			y = Integer.parseInt(arDate[i].substring(0, 4));
-			m = Integer.parseInt(arDate[i].substring(5, 7));
-			d = Integer.parseInt(arDate[i].substring(8));
-			
-			c.set(y, m-1, d);
-			date = new Date(c.getTimeInMillis());
-			
-			vo.setArDate(date);
-			if (bak[i].equals("무")) {
-				bak[i] = "0";
-			}
-			vo.setBak(Integer.valueOf(bak[i]));
-			vo.setRegion(region[i]);
-			if (i > 0 && deDate.length > 1) {				
-				vo.setTransfer(transfer[i-1]);
-			}
-			
-			vo.setPolyPath(pp[i]);
-			vo.setArCode(arCodeP[i]);
-			
-			pList.add(vo);
-		}
-		
-		for (PlannerVO plannerVO : pList) {
-			System.out.println(plannerVO);
-		}
-		service.saveList(pList);
-		
-		//////////////////////////////////////////
-		
-		//MemberVO memberVO = (MemberVO)session.getAttribute("member");
-		List<WishVO> wishlist = new ArrayList<WishVO>();
-		
-		//id= memberVO.getId();
-		
-		for(int i=0; i< titleA.length; i++) {
-			WishVO wishVO = new WishVO();
-			wishVO.setId(id);
-			wishVO.setTitle(titleA[i]);
-			wishVO.setFirstimage(firstimage[i]);
-			wishVO.setAddr1(addr1[i]);
-			wishVO.setPlNum(plNum);
-			wishVO.setArCode(arCode[i]);
-			wishlist.add(wishVO);
+		      String[] bak, String[] region, String[] transfer, String[] titleA, String[] firstimage, 
+		      String[] addr1, int[] arCode,HttpSession session, int[] pp, int[] arCodeP, Integer plNum, String email) throws Exception{
+		      List<PlannerVO> pList = new ArrayList<PlannerVO>();
+		      
+		      
+		      if (plNum != null) {         
+		         service.plannerDel(id, plNum);
+		      }
+		      
+		      plNum = service.getPlnum();
+		      
+		      System.out.println("plNum = " + plNum);
+		      
+		      for (int i = 0; i < deDate.length; i++) {
 
-		}
-		wishService.wishAdd(wishlist);
-		
-		return pList.get(0).getPlNum();
-	}
+		         PlannerVO vo = new PlannerVO();
+		         vo.setEmail(email);
+		         vo.setPlNum(plNum);
+		         vo.setId(id);
+		         vo.setTitle(title);
+		         vo.setType(type);
+		         people = people.replaceAll("명", "");
+		         vo.setPeople(Integer.valueOf(people));
+		         
+		         int y = Integer.parseInt(deDate[i].substring(0, 4));
+		         int m = Integer.parseInt(deDate[i].substring(5, 7));
+		         int d = Integer.parseInt(deDate[i].substring(8));
+		         
+		         Calendar c = Calendar.getInstance();
+		         c.set(y, m-1, d);
+		         
+		         Date date = new Date(c.getTimeInMillis());
+		         
+		         vo.setDeDate(date);
+		         
+		         y = Integer.parseInt(arDate[i].substring(0, 4));
+		         m = Integer.parseInt(arDate[i].substring(5, 7));
+		         d = Integer.parseInt(arDate[i].substring(8));
+		         
+		         c.set(y, m-1, d);
+		         date = new Date(c.getTimeInMillis());
+		         
+		         vo.setArDate(date);
+		         if (bak[i].equals("무")) {
+		            bak[i] = "0";
+		         }
+		         vo.setBak(Integer.valueOf(bak[i]));
+		         vo.setRegion(region[i]);
+		         if (i > 0 && deDate.length > 1) {            
+		            vo.setTransfer(transfer[i-1]);
+		         }
+		         
+		         vo.setPolyPath(pp[i]);
+		         vo.setArCode(arCodeP[i]);
+		         
+		         pList.add(vo);
+		      }
+		      
+		      for (PlannerVO plannerVO : pList) {
+		         System.out.println(plannerVO);
+		      }
+		      service.saveList(pList);
+		      
+		      //////////////////////////////////////////
+		      
+		      //MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		      List<WishVO> wishlist = new ArrayList<WishVO>();
+		      
+		      //id= memberVO.getId();
+		      
+		      for(int i=0; i< titleA.length; i++) {
+		         WishVO wishVO = new WishVO();
+		         wishVO.setId(id);
+		         wishVO.setTitle(titleA[i]);
+		         wishVO.setFirstimage(firstimage[i]);
+		         wishVO.setAddr1(addr1[i]);
+		         wishVO.setPlNum(plNum);
+		         wishVO.setArCode(arCode[i]);
+		         wishlist.add(wishVO);
+
+		      }
+		      wishService.wishAdd(wishlist, plNum, title);
+		      
+		      return pList.get(0).getPlNum();
+		   }
 
 	
 	

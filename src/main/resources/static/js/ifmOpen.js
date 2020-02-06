@@ -4,8 +4,8 @@ var firstimageA = new Array();
 var addr1A = new Array();
 var arCodeA = new Array();
 
-function wish(t, firstimage, addr1, arCode) {
-	
+
+function wish(t, firstimage, addr1, arCode, e) {
 	if($(this).children().hasClass("wish-active")){
 
 		$(this).removeClass("wish-active");

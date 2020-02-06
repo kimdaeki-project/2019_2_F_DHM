@@ -681,7 +681,30 @@ a:hover{
 }
 
 
+/* 몇밤자는지 추가 */
+.notlist-showSleep{
+   position: absolute;
+   top : 50px;
+   left: 32px;
+   font-size: 12px;
+   color: #6e6e6e;
+   font-weight: bold;
+}
+/* 몇밤자는지 추가 */
 
+/* 도시 사진 추가 */
+.notlist-cityImg{
+   position: absolute;
+   top : 70px;
+   left: 0px;
+}
+
+.notlist-cityImg img{
+   width: 120px;
+   height: 165px;
+   border-radius: 10px;
+}
+/* 도시 사진 추가 */
 
 
 

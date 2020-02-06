@@ -333,7 +333,6 @@ var arCodeP = new Array();
 
 
 $(".mkp-clp-btn").click(function() {
-   console.log(titleA);
    jQuery.ajaxSettings.traditional = true;
   
    
