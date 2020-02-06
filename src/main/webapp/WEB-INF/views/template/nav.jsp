@@ -7,7 +7,7 @@
 				<div class="container">
 					<div class="nav-logo">
 						<div class="nav_logo">
-							<a href="${pageContext.request.contextPath}/" class="nav_log_img"><img src="../imgs/logos/logo-green" class="nav_log_img"></a>
+							<a href="${pageContext.request.contextPath}/" class="nav_log_img"><img src="../imgs/logos/logo-green.png" class="nav_log_img"></a>
 						</div>
 						<div class="nav_gnb_menu">
 							<ul class="gnb_ul">
