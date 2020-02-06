@@ -4,8 +4,8 @@ var firstimageA = new Array();
 var addr1A = new Array();
 var arCodeA = new Array();
 
-function wish(t, firstimage, addr1, arCode) {
-	
+function wish(t, firstimage, addr1, arCode, e) {
+
 	if($(this).children().hasClass("wish-active")){
 
 		$(this).removeClass("wish-active");
@@ -22,16 +22,19 @@ function wish(t, firstimage, addr1, arCode) {
 
 		$(this).children().addClass("wish-active");
 
-
-			titleA.push(t);
+/*			titleA.push(t);
 			firstimageA.push(firstimage);
 			addr1A.push(addr1);
-			arCodeA.push(arCode);
+			arCodeA.push(arCode);*/
 		
-			parent.saveSch(titleA, firstimageA, addr1A, arCodeA);
-	}
 		
+		}
+	/*parent.saveSch(titleA, firstimageA, addr1A, arCodeA);*/
+	parent.saveSch(t,firstimage,addr1,arCode);
+
 	event.stopImmediatePropagation();
 	
 }
+
+
 

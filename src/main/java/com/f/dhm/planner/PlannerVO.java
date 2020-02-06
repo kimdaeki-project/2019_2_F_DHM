@@ -41,6 +41,12 @@ public class PlannerVO {
 	@Transient
 	private int days;
 	
+
 	@OneToMany(mappedBy = "plannerVO", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	private List<PlannerCommentVO> plannerCommentVOs;
+
+	private Integer arCode;
+	private Integer polyPath;
+	private String email;
+
 }

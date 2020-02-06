@@ -20,7 +20,7 @@ public class WishVO {
 	@Column(name = "num")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int num;
-	private int plNum;
+	private Integer plNum;
 	private String id;
 	private String title;
 	private String firstimage;

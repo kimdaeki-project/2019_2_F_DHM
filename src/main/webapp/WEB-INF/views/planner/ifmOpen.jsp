@@ -10,30 +10,22 @@
 <c:import url="../template/boot.jsp"/>
 </head>
 <body>
-<form action="">
 	<div class="ifm-wrapper">
 		<div class="row"> 
 			<h3 class="ifm-title">금강산도 식후경</h3>
 			<div class="content-wrap" >
 				<ul class="nolist ifmopen">
-					<c:forEach items="${food}" var="fo">
+					<c:forEach items="${food}" var="fo" varStatus="i">
 						<li>
 							<div class="card2">
-								<div style="position: relative;">
-									
-								   <%-- <c:choose>
-		                              <c:when test="${vo.wish eq 1}"> --%>
-		                              <%-- <div class="good-card-wish-btn onclick-cursor-pointer good-card-wish-btn-whis" title="${vo.goods_num}"></div> --%>
-		                              		<%-- <div class="wishlist wish-active" onclick="wish('${fo.title}','${fo.firstimage}','${fo.addr1}',${arCode})"><i class="fa fa-check-circle"></i></div> --%> 
-		                            <%--   </c:when>
-		                              <c:when test="${vo.wish eq 0}"> --%>
-		                            <%--   <div class="good-card-wish-btn onclick-cursor-pointer" title="${vo.goods_num}"></div> --%>
-		                              		<div class="wishdiv" onclick="wish('${fo.title}','${fo.firstimage}','${fo.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
-		                         <%--      </c:when>
-		                           </c:choose> --%>
-									
-									
-									
+								<div style="position: relative;">					    
+		                             <c:if test="${fo.title eq list[i.index].title}" > 
+		                            	 <div class="wishdiv wish-active" onclick="wish('${fo.title}','${fo.firstimage}','${fo.addr1}',${arCode})"><i class="fa fa-check-circle"></i></div> 
+		                             </c:if>
+		                             <c:if test="${empty list[i.index].title}"> 
+		                              	<div class="wishdiv" onclick="wish('${fo.title}','${fo.firstimage}','${fo.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
+		                             </c:if>
+		                            									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${fo.firstimage}"></div>
 								</div>
 								<div>
@@ -57,13 +49,16 @@
 			<h3 class="ifm-title">쇼핑</h3>
 			<div class="content-wrap">
 				<ul class="nolist ifmopen">
-					<c:forEach items="${shopping }" var="sh">
+					<c:forEach items="${shopping}" var="sh">
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishdiv"><i class="fa fa-check-circle wishlist"></i></div> 
-									
-									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${sh.firstimage}"></div>
+								 	<c:if test="${sh.title eq list[i.index].title}" > 
+										<div class="wishdiv" onclick="wish('${sh.title}','${sh.firstimage}','${sh.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
+									 </c:if>
+		                             <c:if test="${empty list[i.index].title}"> 
+										<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${sh.firstimage}"></div>
+									</c:if>
 								</div>
 								<div>
 									<div style="padding: 3px; width: 80%;float: left;">
@@ -90,7 +85,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishdiv"><i class="fa fa-check-circle wishlist"></i></div> 
+									<div class="wishdiv" onclick="wish('${tu.title}','${tu.firstimage}','${tu.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${tu.firstimage}"></div>
 								</div>
@@ -121,7 +116,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishdiv"><i class="fa fa-check-circle wishlist"></i></div> 
+									<div class="wishdiv" onclick="wish('${cu.title}','${cu.firstimage}','${cu.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${cu.firstimage}"></div>
 								</div>
@@ -148,11 +143,11 @@
 			<h3 class="ifm-title">축제</h3>
 			<div class="content-wrap">
 				<ul class="nolist ifmopen">
-					<c:forEach items="${festival }" var="fe">
+					<c:forEach items="${festival}" var="fe">
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishdiv"><i class="fa fa-check-circle wishlist"></i></div> 
+									<div class="wishdiv" onclick="wish('${fe.title}','${fe.firstimage}','${fe.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
 								</div>
@@ -182,7 +177,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishdiv"><i class="fa fa-check-circle wishlist"></i></div> 
+									<div class="wishdiv" onclick="wish('${re.title}','${re.firstimage}','${re.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${re.firstimage}"></div>
 								</div>
@@ -212,7 +207,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishdiv"><i class="fa fa-check-circle wishlist"></i></div> 
+									<div class="wishdiv" onclick="wish('${ho.title}','${ho.firstimage}','${ho.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${ho.firstimage}"></div>
 								</div>
@@ -242,7 +237,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishdiv"><i class="fa fa-check-circle wishlist"></i></div> 
+									<div class="wishdiv" onclick="wish('${co.title}','${co.firstimage}','${co.addr1}',${arCode},event)"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${co.firstimage}"></div>
 								</div>
@@ -266,7 +261,7 @@
 		
 		
 	</div>
-</form>
+
 
 <script type="text/javascript">
 
@@ -281,72 +276,6 @@
 	
 	});
 
-
-// 	var titleA = new Array();
-// 	var firstimageA = new Array();
-// 	var addr1A = new Array();
-// 	var arCodeA = new Array();	
-// 	function wish(titleA, firstimage, addr1, arCode) {
-		
-// 		if($(this).children().hasClass("wish-active")){
-
-// 			$(this).removeClass("wish-active");
-
-// 				titleA.push(titleA);
-// 				firstimageA.push(firstimage);
-// 				addr1A.push(addr1);
-// 				arCodeA.push(arCode);
-				
-// 				$.ajax({
-// 		        	type:"POST",
-// 		        	url:"makePlanner",
-// 		        	data:{
-// 			        	titleA:titleA,
-// 			        	firstimage:firstimageA,
-// 			        	addr1:addr1A,
-// 			        	arCode:arCodeA
-// 		        	},
-// 		        	success : function(){
-// 		        	},
-// 		        	error: function() {
-// 		        		alert('로그인이 필요합니다.');
-// 						 location.href="member/login";
-// 					},
-					
-// 		    	}); 
-
-// 			}else{
-
-// 			$(this).children().addClass("wish-active");
-
-	
-// 				titleA.push(titleA);
-// 				firstimageA.push(firstimage);
-// 				addr1A.push(addr1);
-// 				arCodeA.push(arCode);
-				
-// 			 $.ajax({
-// 	        	type: "POST",
-// 	        	url:"../planner/makePlanner",
-// 	        	data:{
-// 	        		titleA:titleA,
-// 		        	firstimage:firstimageA,
-// 		        	addr1:addr1A,
-// 		        	arCode:arCodeA
-// 	        	},
-// 	        	success : function(){ 
-
-// 		        },
-// 	        	error: function() {
-// 				  alert('로그인이 필요합니다.');
-// 				   location.href="member/login"; 
-// 				},
-				
-// 	    	});   
-// 		}
-			
-// 		event.stopImmediatePropagation();
-// 	} 
  
 </script>
 <script src="../js/ifmOpen.js"></script>
