@@ -201,32 +201,56 @@
 				<div class="middle-title">
 					<h3 class="contents-title">여행루트</h3>
 				</div>
-				<div class="middle-wrapper" style="height: 300px;">
+				<div class="middle-wrapper" style="height: 300px; padding: 0px 15px;">
 					
-		
+<!-- 수정 ㅡ 교통수단 추가 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->	
 					<div class="swiper-container" style="margin-top: 20px; height: 250px;">	
 							<div class="nolist swiper-wrapper">
-								<c:forEach items="${planner}" var="vo">
+								<c:forEach items="${planner}" var="vo" varStatus="p">
 									<div class="swiper-slide">
-					
 										<div class="nolist-dot"></div>
-										<div class="nolist-line"></div>
-										<div class="nolist-dot2"></div>
 										<div class="nolist-region">${vo.region}</div>
-										<div class="nolist-transfer-comment"><fmt:formatDate value="${vo.deDate}" pattern="MM월dd일"/> 이동<fmt:formatDate value="${vo.deDate}" pattern="(E)"/></div>
-										<div class="nolist-transfer">
-											<i class="fa fa-train"></i>
-											
-										</div>
+										<c:if test="${planner.size() gt 1 and p.index lt planner.size()-1}"> 
+											<div class="nolist-line"></div>
+											<div class="nolist-transfer-comment"><fmt:formatDate value="${planner.get(p.count).deDate}" pattern="MM월dd일"/> 이동<fmt:formatDate value="${planner.get(p.count).deDate}" pattern="(E)"/></div>
+											<div class="nolist-transfer">
+												<c:choose>
+													<c:when test="${planner.get(p.count).transfer eq '기차' }">
+														<i class="fa fa-train"></i>												
+													</c:when>
+													<c:when test="${planner.get(p.count).transfer eq '버스' }">
+														<i class="fa fa-bus"></i>												
+													</c:when>
+													<c:when test="${planner.get(p.count).transfer eq '자차' }">
+														<i class="fa fa-car"></i>
+													</c:when>
+													<c:when test="${planner.get(p.count).transfer eq '항공' }">
+														<i class="fa fa-plane"></i>
+													</c:when>
+													<c:when test="${planner.get(p.count).transfer eq '택시' }">
+														<i class="fa fa-taxi"></i>
+													</c:when>
+													<c:otherwise>
+														<font style="font-size: 12px; font-weight: bold; line-height: 36px;"> 미정</font>
+													</c:otherwise>
+												</c:choose>
+											</div>
+										</c:if>					
 										
-										<div class="notlist-ballon"></div>
-										<div class="notlist-ballon2"> 
+<!-- 수정ㅡ 인풋창 디스플레이 none ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->										
+										<div class="notlist-ballon" style="display: none"></div>
+										<div class="notlist-ballon2" style="display: none"> 
 											<div class="ballon2-title">
 												<div>버스로 이동</div>
 											</div>
 											<div class="ballon2-contents">
 												<div><input type="text"></div>
 											</div>
+										</div>
+<!-- 수정ㅡ 몇밤 자는지 추가 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+										<div class ="notlist-showSleep"> ${vo.bak }박 </div>
+										<div class="notlist-cityImg">
+											<img alt="${vo.region }" src="../city/${vo.polyPath }.jpg">
 										</div>
 									</div>
 								</c:forEach>
@@ -516,7 +540,7 @@
 
 ///////////////////////////////////////////////////////////달력
 
-	var color = ['#AFF8D8','#FFABAB', '#A79AFF', '#FF9CEE', '#6EB5FF'];
+	var color = ['#FFABAB','#A79AFF', '#AFF8D8', '#FF9CEE', '#6EB5FF'];
 	
 
 	var dd = "${dDate}";

@@ -5,7 +5,7 @@ var pp = new Array();
 	
 	var container = document.getElementById('map'); 
 	var options = { //지도를 생성할 때 필요한 기본 옵션
-			center: new kakao.maps.LatLng(35.604638908843044, 128.0525083125467),
+			center: new kakao.maps.LatLng(36.604638908843044, 128.0525083125467),
 			level: 14 //지도의 레벨(확대, 축소 정도)
 	};
 	

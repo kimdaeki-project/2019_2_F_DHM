@@ -249,7 +249,7 @@
 							<p> 이메일 </p>
 						</td>
 						<td>
-							<input type="email" id="mkp-emial">
+							<input type="email" id="mkp-email">
 						</td>
 					</tr>
 					</tbody>
