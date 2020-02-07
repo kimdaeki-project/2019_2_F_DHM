@@ -20,5 +20,10 @@ public class HomeController {
 	public String serviceCenter() {
 		return "gnb/serviceCenter";
 	}
+	
+	
+	@GetMapping("/admin/administer")
+	public void viewAdmin() {
+	}
 }
 	
