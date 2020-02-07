@@ -40,10 +40,6 @@ public class PlannerVO {
 	private int totalCost;
 	@Transient
 	private int days;
-	
-
-	@OneToMany(mappedBy = "plannerVO", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	private List<PlannerCommentVO> plannerCommentVOs;
 
 	private Integer arCode;
 	private Integer polyPath;

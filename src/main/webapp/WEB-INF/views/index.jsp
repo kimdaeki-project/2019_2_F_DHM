@@ -7,17 +7,44 @@
 <head>
 <c:import url="./member/membercss.jsp"/>
 <meta charset="UTF-8">
-<title>DHM Planner</title>
+<title>Insert title here</title>
 <c:import url="./template/boot.jsp"/>
 <link rel="stylesheet"  href="../css/basic.css">
  <link rel="stylesheet" href="../package/css/swiper.min.css">
 
 </head>
 <body>
+
+<div class="container" style="height: 100px;"></div>
+
+<h1 style="text-align: center;">DHM 홈페이지</h1>
+
+<div style="padding-left: 780px;">
+	<a href="#"><img src="./imgs/5.png"></a>
+</div>
+
+<div class="container" style="height: 200px;"></div>
+
+<div style="padding-left: 840px;">
+	<c:if test= "${not empty member}"> 
+	<a href="${pageContext.request.contextPath}/member/memberLogout"><button>로그아웃</button></a>
+	<a href="${pageContext.request.contextPath}/member/memberMypage"><button>마이 페이지</button></a>
+	</c:if>
+	<c:if test= "${ empty member}"> 
+	<a href="${pageContext.request.contextPath}/member/memberLogin"><button>로그인</button></a>
+	<a href="${pageContext.request.contextPath}/member/memberJoin"><button>회원가입</button></a>	
+	<a href="${pageContext.request.contextPath}/member/memberFacebookLogin"><button>페이스북 로그인</button></a>
+	</c:if>
+	<a href="${pageContext.request.contextPath}/planner/makePlanner"><button>플래너만들기</button></a>
+	<a href="${pageContext.request.contextPath}/planner/myPlanner"><button>내 플래너</button></a>
+</div>
+
+
+
 <c:import url="./template/nav.jsp"/>
 	<div class="container" style=" padding-bottom: 200px;">
 		<div class="jumbotron marginTop50px">
-			<h3>DHM플래너로 상상속 유럽여행을 현실로 만들어 보세요.</h3>
+			<h3>스투비플래너로 상상속 유럽여행을 현실로 만들어 보세요.</h3>
 			<p>855,014명의 유럽계획 데이터를 활용한 추천과 시뮬레이션 기능을 활용해 여행 아이디어를 실제 여행으로 만들어 예상 비용과 소요시간을 계산해 보세요.</p>
 			<div class="main_planner_btn_div">
 				<input type="button" class="main_planner_btn_diy" value="DIY">

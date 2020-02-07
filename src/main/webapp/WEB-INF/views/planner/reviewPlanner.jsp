@@ -35,6 +35,8 @@
 							<h5 class="reviewComments_header_info">
 								<span>ims330k</span>
 								<span class="reviewComments_header_date">2020-02-03</span>
+								<span style="float: right;"><a style="font-weight: normal;" href="./reviewUpdate?cNum=4">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;<b>x</b></span>
+								
 							</h5>
 							<div class="reviewComments_comments">네 가능합니다. 다만 카카오송금 혹은 토스송금 시도 시, 해외유심을 사용하고 계실 경우에는 해당앱의 인증문제로 인해 일시적으로 한국유심으로 바꿔서 끼워야 합니다. 은행앱을 이용해 송금하실 경우에는 은행에 따라 해외유심으로도 송금이 가능합니다. 단, 한국 시간으로 밤 12시~12시 30분 사이에는 은행전산망 점검으로 인해 송금이 불가할 수 있으므로 12시 30분 이후에 다시 시도해주시기 바랍니다.</div>
 						</div>

@@ -25,7 +25,7 @@
 		<div class="section">
 		<c:set var="now" value="<%=new Date() %>"/>
 		<fmt:formatDate value="${now }" type="date" pattern="yyyy-MM-dd" var="nowFormatDate"/>
-		<fmt:formatDate value="${now }" type="date" pattern="hhmm" var="nowFormatTime"/>		
+		<fmt:formatDate value="${now }" type="date" pattern="HHmm" var="nowFormatTime"/>		
 			<table class="board_table">
 				<tr>
 					<th class="board_no_th">NO</th>
@@ -46,7 +46,7 @@
 					<td>${list.writer }</td>
 					<td>
 						<fmt:formatDate value="${list.regDate }" type="date" pattern="yyyy-MM-dd" var="regdFormatDate"/>	
-							<fmt:formatDate value="${list.regDate }" type="date" pattern="hhmm" var="regdFormatTime"/>	
+							<fmt:formatDate value="${list.regDate }" type="date" pattern="HHmm" var="regdFormatTime"/>	
 							<c:if test="${regdFormatDate eq nowFormatDate }">
 								<c:if test="${nowFormatTime-regdFormatTime lt 60}">
 									<c:if test="${nowFormatTime-regdFormatTime ne 0}">${nowFormatTime-regdFormatTime }분 전</c:if>

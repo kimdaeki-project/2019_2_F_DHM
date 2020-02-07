@@ -29,13 +29,13 @@
 			
 			<c:set var="now" value="<%=new Date() %>"/>
 			<fmt:formatDate value="${now}"  type="date" pattern="yyyy-MM-dd" var="nowFormatDate"/>
-			<fmt:formatDate value="${now}"  type="date" pattern="hhmm" var="nowFormatTime"/>
+			<fmt:formatDate value="${now}"  type="date" pattern="HHmm" var="nowFormatTime"/>
 			<table class="board_table">
 				<tr>
 					<th class="board_no_th" >NO</th>
 					<th class="board_title_th">TITLE</th>
 					<th class="board_writer_th">WRITER</th>
-					<th class="board_date_th">DATE</th>
+					<th class="board_date_th">DATE </th>
 					<th class="board_hit_th">HIT</th>
 				</tr>
 					<c:forEach items="${noticePage.content}" var="list">
@@ -48,10 +48,10 @@
 						<td>
 							<%-- ${list.regDate} --%>
 							<fmt:formatDate value="${list.regDate }" type="date" pattern="yyyy-MM-dd" var="regdFormatDate"/>	
-							<fmt:formatDate value="${list.regDate }" type="date" pattern="hhmm" var="regdFormatTime"/>	
+							<fmt:formatDate value="${list.regDate }" type="date" pattern="HHmm" var="regdFormatTime"/>	
 							<c:if test="${regdFormatDate eq nowFormatDate }">
 								<c:if test="${nowFormatTime-regdFormatTime lt 60}">
-									<c:if test="${nowFormatTime-regdFormatTime ne 0}">${nowFormatTime-regdFormatTime }분 전</c:if>
+									<c:if test="${nowFormatTime-regdFormatTime ne 0}">${nowFormatTime - regdFormatTime}분 전</c:if>
 									<c:if test="${nowFormatTime-regdFormatTime eq 0}">방금</c:if>
 								</c:if>
 								<c:if test="${nowFormatTime-regdFormatTime gt 60}">

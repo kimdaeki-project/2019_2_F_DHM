@@ -606,9 +606,7 @@ th{
 .reviewBox{
 	clear:both;
 }
-.reviewBox:last-child{
-	border-bottom: 1px solid green;
-}
+
 .aaaa{
 	clear: both;
 }
