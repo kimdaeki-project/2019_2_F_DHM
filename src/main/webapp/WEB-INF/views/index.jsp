@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<c:import url="./member/membercss.jsp"/>
+<link rel="stylesheet"  href="../css/membercss.css">
 <meta charset="UTF-8">
 <title>DHM Planner</title>
 <c:import url="./template/boot.jsp"/>
@@ -30,113 +30,113 @@
 <!--     <div class="swiper-wrapper"> -->
 <!--       <div class="swiper-slide">Slide 1</div> -->
 <!--       <div class="swiper-slide">Slide 2</div> -->
-			<div class="index_buttons swiper-container swiper-container-horizontal swiper-container-free-mode">
-				<ul class="index_buttons_ul swiper-wrapper">
-					<li class="index_buttons_li swiper-slide index_buttons_li swiper-slide_active ">최신</li>
-					<li class="index_buttons_li swiper-slide"><a>최신</a></li>
-					<li class="index_buttons_li swiper-slide"><a>아이들과</a></li>
-					<li class="index_buttons_li swiper-slide"><a>커플/신혼</a></li>
-					<li class="index_buttons_li swiper-slide"><a>부모님과</a></li>
-					<li class="index_buttons_li swiper-slide">남자혼자</li>
-					<li class="index_buttons_li swiper-slide">여자혼자</li>
-					<li class="index_buttons_li swiper-slide">여자끼리</li>
-					<li class="index_buttons_li swiper-slide">남자끼리</li>
-					<li class="index_buttons_li swiper-slide">남녀그룹</li>
-							<!--밑에는 지우는거 -->
-					<li class="index_buttons_li swiper-slide">남자혼자</li>
-					<li class="index_buttons_li swiper-slide">여자혼자</li>
-					<li class="index_buttons_li swiper-slide">여자끼리</li>
-					<li class="index_buttons_li swiper-slide">남자끼리</li>
-					<li class="index_buttons_li swiper-slide">남녀그룹</li>
-				</ul>
-			</div>
-			<div class="index_samplePlanner">
-				<div class="samplePlannerCard">
-					<div class="samplePlannerCard_map">map</div>
-					<div class="samplePlannerCard_info">map info</div>
-				</div>
-				<div class="samplePlannerCard">
-					<div class="samplePlannerCard_map">map</div>
-					<div class="samplePlannerCard_info">map info</div>
-				</div>
-				<div class="samplePlannerCard">
-					<div class="samplePlannerCard_map">map</div>
-					<div class="samplePlannerCard_info">map info</div>
-				</div>
-				<div class="samplePlannerCard">
-					<div class="samplePlannerCard_map">map</div>
-					<div class="samplePlannerCard_info">map info</div>
-				</div>
-			</div>
-		</div>
-		<div class="marginTop50px">
-			<h3>유럽 현지투어 얼리버드 & 결합 SALE</h3>
-			<div class="indexImgCard">
-				<div class="indexImgCard_img">
-					<div class="indexImgCard_img_title">title</div>
-					<div class="indexImgCard_img_text">text text text text text text text</div>
-				</div>
-			</div>
-			<div class="indexImgCard">
-				<div class="indexImgCard_img">
-					<div class="indexImgCard_img_title">title</div>
-					<div class="indexImgCard_img_text">text text text text text text text</div>
-				</div>
-			</div>
-			<div class="indexImgCard">
-				<div class="indexImgCard_img">
-					<div class="indexImgCard_img_title">title</div>
-					<div class="indexImgCard_img_text">text text text text text text text</div>
-				</div>
-			</div>
-			<div class="indexImgCard">
-				<div class="indexImgCard_img">
-					<div class="indexImgCard_img_title">title</div>
-					<div class="indexImgCard_img_text">text text text text text text text</div>
-				</div>
-			</div>
-			<div class="indexImgCard">
-				<div class="indexImgCard_img">
-					<div class="indexImgCard_img_title">title</div>
-					<div class="indexImgCard_img_text">text text text text text text text</div>
-				</div>
-			</div>
-			<div class="indexImgCard">
-				<div class="indexImgCard_img">
-					<div class="indexImgCard_img_title">title</div>
-					<div class="indexImgCard_img_text">text text text text text text text</div>
-				</div>
-			</div>
-			<div class="indexImgCard">
-				<div class="indexImgCard_img">
-					<div class="indexImgCard_img_title">title</div>
-					<div class="indexImgCard_img_text">text text text text text text text</div>
-				</div>
-			</div>
-			<div class="indexImgCard">
-				<div class="indexImgCard_img">
-					<div class="indexImgCard_img_title">title</div>
-					<div class="indexImgCard_img_text">text text text text text text text</div>
-				</div>
-			</div>
-			<div class="indexImgCard">
-				<div class="indexImgCard_img">
-					<div class="indexImgCard_img_title">title</div>
-					<div class="indexImgCard_img_text">text text text text text text text</div>
-				</div>
-			</div>
-			<div class="indexImgCard">
-				<div class="indexImgCard_img">
-					<div class="indexImgCard_img_title">title</div>
-					<div class="indexImgCard_img_text">text text text text text text text</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div style="height: 100px;">ㄴㅁㅇㄹㅇㅁㄹㄹㄴㅇㅇㄹㄴㅁㅁㄹㅇㄴ</div>
-	
-	 <script src="../package/js/swiper.min.js"></script>
-	 <script>
+         <div class="index_buttons swiper-container swiper-container-horizontal swiper-container-free-mode">
+            <ul class="index_buttons_ul swiper-wrapper">
+               <li class="index_buttons_li swiper-slide index_buttons_li swiper-slide_active ">최신</li>
+               <li class="index_buttons_li swiper-slide"><a>최신</a></li>
+               <li class="index_buttons_li swiper-slide"><a>아이들과</a></li>
+               <li class="index_buttons_li swiper-slide"><a>커플/신혼</a></li>
+               <li class="index_buttons_li swiper-slide"><a>부모님과</a></li>
+               <li class="index_buttons_li swiper-slide">남자혼자</li>
+               <li class="index_buttons_li swiper-slide">여자혼자</li>
+               <li class="index_buttons_li swiper-slide">여자끼리</li>
+               <li class="index_buttons_li swiper-slide">남자끼리</li>
+               <li class="index_buttons_li swiper-slide">남녀그룹</li>
+                     <!--밑에는 지우는거 -->
+               <li class="index_buttons_li swiper-slide">남자혼자</li>
+               <li class="index_buttons_li swiper-slide">여자혼자</li>
+               <li class="index_buttons_li swiper-slide">여자끼리</li>
+               <li class="index_buttons_li swiper-slide">남자끼리</li>
+               <li class="index_buttons_li swiper-slide">남녀그룹</li>
+            </ul>
+         </div>
+         <div class="index_samplePlanner">
+            <div class="samplePlannerCard">
+               <div class="samplePlannerCard_map">map</div>
+               <div class="samplePlannerCard_info">map info</div>
+            </div>
+            <div class="samplePlannerCard">
+               <div class="samplePlannerCard_map">map</div>
+               <div class="samplePlannerCard_info">map info</div>
+            </div>
+            <div class="samplePlannerCard">
+               <div class="samplePlannerCard_map">map</div>
+               <div class="samplePlannerCard_info">map info</div>
+            </div>
+            <div class="samplePlannerCard">
+               <div class="samplePlannerCard_map">map</div>
+               <div class="samplePlannerCard_info">map info</div>
+            </div>
+         </div>
+      </div>
+      <div class="marginTop50px">
+         <h3>유럽 현지투어 얼리버드 & 결합 SALE</h3>
+         <div class="indexImgCard">
+            <div class="indexImgCard_img">
+               <div class="indexImgCard_img_title">title</div>
+               <div class="indexImgCard_img_text">text text text text text text text</div>
+            </div>
+         </div>
+         <div class="indexImgCard">
+            <div class="indexImgCard_img">
+               <div class="indexImgCard_img_title">title</div>
+               <div class="indexImgCard_img_text">text text text text text text text</div>
+            </div>
+         </div>
+         <div class="indexImgCard">
+            <div class="indexImgCard_img">
+               <div class="indexImgCard_img_title">title</div>
+               <div class="indexImgCard_img_text">text text text text text text text</div>
+            </div>
+         </div>
+         <div class="indexImgCard">
+            <div class="indexImgCard_img">
+               <div class="indexImgCard_img_title">title</div>
+               <div class="indexImgCard_img_text">text text text text text text text</div>
+            </div>
+         </div>
+         <div class="indexImgCard">
+            <div class="indexImgCard_img">
+               <div class="indexImgCard_img_title">title</div>
+               <div class="indexImgCard_img_text">text text text text text text text</div>
+            </div>
+         </div>
+         <div class="indexImgCard">
+            <div class="indexImgCard_img">
+               <div class="indexImgCard_img_title">title</div>
+               <div class="indexImgCard_img_text">text text text text text text text</div>
+            </div>
+         </div>
+         <div class="indexImgCard">
+            <div class="indexImgCard_img">
+               <div class="indexImgCard_img_title">title</div>
+               <div class="indexImgCard_img_text">text text text text text text text</div>
+            </div>
+         </div>
+         <div class="indexImgCard">
+            <div class="indexImgCard_img">
+               <div class="indexImgCard_img_title">title</div>
+               <div class="indexImgCard_img_text">text text text text text text text</div>
+            </div>
+         </div>
+         <div class="indexImgCard">
+            <div class="indexImgCard_img">
+               <div class="indexImgCard_img_title">title</div>
+               <div class="indexImgCard_img_text">text text text text text text text</div>
+            </div>
+         </div>
+         <div class="indexImgCard">
+            <div class="indexImgCard_img">
+               <div class="indexImgCard_img_title">title</div>
+               <div class="indexImgCard_img_text">text text text text text text text</div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div style="height: 100px;"></div>
+   
+    <script src="../package/js/swiper.min.js"></script>
+    <script>
     var swiper = new Swiper('.swiper-container');
   </script>
   

@@ -9,11 +9,16 @@
 <!-- boot.jsp jquery만 가져옴 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<c:import url="./membercss.jsp"/>
+<link rel="stylesheet"  href="../css/membercss.css">
+<link rel="stylesheet"  href="../css/basic.css">
+ <link rel="stylesheet" href="../package/css/swiper.min.css">
 <meta charset="UTF-8">
 <title>member Join</title>
 </head>
 <body>
+
+	<c:import url="../template/nav.jsp"/>
+
 	<div class="Joinmain">
 		<div class="JoinMainPage">
 			<div class="Join1">
@@ -43,10 +48,12 @@
 						<spring:input path="id" class="Join4-3" placeholder="영문/숫자만 사용가능, 6~12자" id="id10"/>
 					</div>
 					<span class="input-group-btn">
-						<button
-						class="btn-u btn-u-red btn_check" type="button"
-						id="input_id">중복확인						
-						</button>
+<!-- 						<button -->
+<!-- 						class="btn-u btn-u-red btn_check" type="button" -->
+<!-- 						id="input_id">중복확인						 -->
+<!-- 						</button> -->
+							<input type="button" id="input_id" class="btn-u btn-u-red btn_check" value="중복확인">
+
 					</span>
 				</div>
 				
@@ -74,10 +81,11 @@
 						<label for="email"></label><spring:input  path="email" class="Join4-4" id="email10" placeholder="이메일 주소만 등록 가능."/>		
 					</div>
 					<span class="input-group-btn">
-						<button
-						class="btn-u btn-u-red" type="button"									
-						id="pid_btn">중복확인			
-						</button>
+						<input type="button" id="pid_btn" class="btn-u btn-u-red" value="중복확인">
+<!-- 						<button -->
+<!-- 						class="btn-u btn-u-red" type="button"									 -->
+<!-- 						id="pid_btn">중복확인			 -->
+<!-- 						</button> -->
 					</span>
 				</div>
 				
@@ -94,7 +102,8 @@
 				<div class="Join4-1-b">
 					<div class="Join4-1-1">생년월일</div>
 					<div class="Join-text">
-						<input type="date" name="birth">						
+						<input type="date" name="birth">		
+										
 					</div>				
 				</div>	
 				
@@ -221,7 +230,7 @@
 
 //1. 아이디 : 6~12자   + 중복 메세지										ok!!!
 //2. pw : 4~12자    												ok!!!
-//3. 이메일 : @포함(naver.com / daum.net / gmail.com) + 중복 메세지		X
+//3. 이메일 : @포함(naver.com / daum.net / gmail.com) + 중복 메세지		ok!!!
 //4. 각종 특수문자 제외 : (1234567890/a-z/A-z 사용 가능)  					ok!!!
 
 
@@ -405,9 +414,9 @@ var email = $("#email10").val();
 var spe2 = email.match(/[@]/ig);
 var spe3 = email.match(/[.]/ig);
 
-	$("#Xid2").hide(); //중복 입력 상자 숨기
-	$('#Xid3').hide(); //입력 성공 상자 숨기
-	$('#Xid5').hide();  //입력 오류 상자 숨기
+	$("#Xid2").hide(); //오류 입력 상자 숨기
+	$('#Xid3').hide(); //정확 성공 상자 숨기
+	$('#Xid5').hide();  //중복 오류 상자 숨기
 
 $("#pid_btn").click(function(){
 	email = $("#email10").val();

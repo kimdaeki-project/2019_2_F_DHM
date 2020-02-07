@@ -8,14 +8,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.Data;
+
+@Data
 @Entity
-@Table(name = "memberfiles")
+@Table(name = "memberFiles")
 public class MemberFilesVO {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int fnum;
-	//memberVO id
 	private String fname;
 	private String oname;
 	
@@ -24,48 +26,5 @@ public class MemberFilesVO {
 	@JoinColumn(name = "id")
 	private MemberVO memberVO;
 
-
-	public int getFnum() {
-		return fnum;
-	}
-
-
-	public void setFnum(int fnum) {
-		this.fnum = fnum;
-	}
-
-
-	public String getFname() {
-		return fname;
-	}
-
-
-	public void setFname(String fname) {
-		this.fname = fname;
-	}
-
-
-	public String getOname() {
-		return oname;
-	}
-
-
-	public void setOname(String oname) {
-		this.oname = oname;
-	}
-
-
-	public MemberVO getMemberVO() {
-		return memberVO;
-	}
-
-
-	public void setMemberVO(MemberVO memberVO) {
-		this.memberVO = memberVO;
-	}
-	
-	
-	
-	
 	
 }
