@@ -326,7 +326,7 @@ $("#pemail_btn").click(function(){
 	check4 = $('#pemail_btn').is(':checked');
 });
 
-
+ 
 var email = $("#email10").val();
 var spe2 = email.match(/[@]/ig);
 var spe3 = email.match(/[.]/ig);
