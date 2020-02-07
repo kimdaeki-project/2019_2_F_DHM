@@ -321,10 +321,10 @@
 					                           <div class="schedule-body">
 					                              <div class="schedule-body-row">0~9
 					                                 <div class="schedule-body-content">
-					                                  <a data-toggle="modal" class="md" data-target="#mySc">
-					                                 <c:forEach items="${schedule}" var="sc">
-														<p><c:if test="${sc.start eq 8 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
-													 </c:forEach>
+					                                  <a data-toggle="modal" class="md2" data-target="#mySc">
+						                                 <c:forEach items="${schedule}" var="sc">
+															<p title="${sc.scName}"><c:if test="${sc.start eq 8 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+														 </c:forEach>
 													 </a>
 					                                 </div>
 					                              </div>
@@ -507,16 +507,15 @@
   			<div class="m-box row">
 				<button type="button" class="close" data-dismiss="modal">X</button>
 	  			<div>
-	  				<p>일정명 : ㅇㅇ</p>
-	  				예상비용 : ㅇㅇ 원
-	  				주소 :
-	  				관광이름 :
-	  				시간 : 
+	  				
 	  				<c:forEach items="${scInfo}" var="vo">
-	  					<c:if test=""></c:if>
-	  					일정명 : ${vo.title}
-	  					예상비용 : ${vo.cost}
-	  					
+	  					<c:if test="">
+		  					일정명 : ${vo.scName}<br>
+		  					예상비용 : ${vo.cost}<br>
+		  					주소 : ${vo.addr1 }<br>
+		  					관광명: ${vo.title }<br>
+		  					시간 : ${vo.start }
+	  					</c:if>
 	  				</c:forEach>
 	  				
 	  			</div>
@@ -534,11 +533,13 @@
 	<script type="text/javascript">
 
 		var scname; 
+		var scNum;
 
 		$(".md2").click(
 			function(){
 				scname = $(this).attr("title");
-				alert(scname);
+				scNum = $(this).chidren("p").val();
+				alert(scName);
 			}
 		);
 		
