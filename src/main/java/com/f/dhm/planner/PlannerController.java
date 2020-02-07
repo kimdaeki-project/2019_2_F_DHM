@@ -102,9 +102,24 @@ public class PlannerController {
 	      
 	      List<String> ar2 = new ArrayList<String>();
 	      
+	      //D-day 계산
+	      List<String> leftDay = new ArrayList<>();
+	      
+	      long today = Calendar.getInstance().getTimeInMillis();
+	      
 	      for (int i = 0; i < ar.size(); i++) {
 	         List<PlannerVO> list = service.plannerSelect(ar.get(i).getPlNum(), session);
 	         
+	         long minus = list.get(0).getDeDate().getTime();
+	         long cal = today - minus;
+	         cal = cal/1000/60/60/24;
+	         if (cal < 0) {
+	        	 leftDay.add("<font style=\"color:blue;\">"+"D"+cal+"일전"+"</font>");
+				}else if (cal == 0) {
+					leftDay.add("<font style=\"color:green; font-weight: bold;\">"+"D-DAY"+"</font>");
+				}else {
+					 leftDay.add("<font style=\"color:red;\">"+cal+"일 지난 플래너"+"</font>");
+				}
 	         String path = "";
 	         for (int j = 0; j < list.size(); j++) {
 	            
@@ -123,7 +138,7 @@ public class PlannerController {
 	         int d= service.days(ar.get(i).getPlNum());
 	         days.add(d);
 	      }
-	      
+	      mv.addObject("Dday", leftDay);
 	      mv.addObject("path", ar2);
 	      mv.addObject("list", ar);
 	      mv.addObject("days", days);
