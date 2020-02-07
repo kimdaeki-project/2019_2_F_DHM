@@ -73,6 +73,8 @@
 					<label for="pw"></label>
 					<spring:password path="pw" class="pwup" placeholder="특수/영문 대소문자/숫자만 사용가능, 6~12자" id="pwup"/>
 				</div>
+				<input type="button" id="ppw_btn" class="btn-u btn-u-red" value="중복확인"
+				style="margin-left: 20px; margin-top: 19px; width: 80px; height: 35px;">
 			</div>
 		
 			
@@ -89,6 +91,8 @@
 				<div class="update5-1">이메일</div>
 				<label for="email">
 				</label><spring:input  path="email" class="emailup" id="email10" placeholder="이메일 주소만 등록 가능."/>
+				<input type="button" id="pemail_btn" class="btn-u btn-u-red" value="중복확인"
+				style="margin-left:-5px; margin-top: 15px; width: 80px; height: 35px;">
 			</div>
 			
 			<div class="update6">
@@ -138,6 +142,98 @@
 
 
 </body>
+
+<!-- <!-- PW 중복확인 DIV ---------------------------------------------------------------------------------------------------------------------------> -->
+<!-- 	<!--오류사항 ------------------------------------------------------------------------------------------------------------------------------------> -->
+<!-- 	<div id="Xpw" style=""> -->
+<!-- 		<div id="pwsame" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;"> -->
+<!-- 			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;"> -->
+<!-- 				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">특수/영문 대소문자/숫자만 사용가능, 6~12자.</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+	
+<!-- 		<div class="Xpwsame1" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;">  -->
+<!-- 			<div class="Xpwsame2" style="background-color: #64db99; height: 40px; width: 40px;  -->
+<!--  				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div>   -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+	
+<!-- 	<!--정상사항 ------------------------------------------------------------------------------------------------------------------------------------> -->
+<!-- 	<div id="Xpw1" style=""> -->
+<!-- 		<div id="pwsame1" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;"> -->
+<!-- 			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;"> -->
+<!-- 				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">사용 가능한 비밀번호입니다.</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+	
+<!-- 		<div class="Xpwsame3" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;">  -->
+<!-- 			<div class="Xpwsame4" style="background-color: #64db99; height: 40px; width: 40px;  -->
+<!--   				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div>  -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+	
+<!-- 	<!--중복사항 ------------------------------------------------------------------------------------------------------------------------------------> -->
+<!-- 	<div id="Xpw2" style=""> -->
+<!-- 		<div id="pwsame2" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;"> -->
+<!-- 			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;"> -->
+<!-- 				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">비밀번호 중복입니다.</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+	
+<!-- 		<div class="Xidsame10" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;">  -->
+<!-- 			<div class="Xidsame11" style="background-color: #64db99; height: 40px; width: 40px;  -->
+<!--   				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div>  -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+	
+	
+	
+	
+	
+	
+	<!-- EMAIL 중복확인 DIV ------------------------------------------------------------------------------------------------------------------------->
+	<!--오류사항 ------------------------------------------------------------------------------------------------------------------------------------>
+	<div id="Xid2" style="">
+		<div id="emailsame" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
+			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
+				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">잘못된 이메일 주소입니다.</div>
+			</div>
+		</div>
+	
+		<div class="Xidsame5" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
+			<div class="Xidsame4" style="background-color: #64db99; height: 40px; width: 40px; 
+				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div> 
+		</div>
+	</div>
+	
+	<!--정상사항 ------------------------------------------------------------------------------------------------------------------------------------>
+	<div id="Xid3" style="">
+		<div id="emailsame2" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
+			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
+				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">사용 가능한 이메일입니다.</div>
+			</div>
+		</div>
+	
+		<div class="Xidsame9" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
+			<div class="Xidsame8" style="background-color: #64db99; height: 40px; width: 40px; 
+ 				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div> 
+		</div>
+	</div>
+	
+	<!--중복사항 ------------------------------------------------------------------------------------------------------------------------------------>
+	<div id="Xid5" style="">
+		<div id="emailsame3" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
+			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
+				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">이메일 중복입니다.</div>
+			</div>
+		</div>
+	
+		<div class="Xidsame12" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
+			<div class="Xidsame13" style="background-color: #64db99; height: 40px; width: 40px; 
+  				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div> 
+		</div>
+	</div>
+	
 <script type="text/javascript">
 //-----------------------------------------------------------------------
 	//프로필 사진 변경 BOX 사진 미리보기
@@ -214,32 +310,102 @@
 $(".updatelast1").click(function(){
 
 
-
-
-
-
-
-
-
-
-
-	
-
-
-
-
-
-	
 	document.getElementById('memberUpdate').submit();
+});
+
+
+//-----------------------------------------------------------------------
+//EMAIL중복 확인	
+
+//약관 및 조합 변수 설정
+var check2=false;
+var check3=false;
+var check4=false;
+
+$("#pemail_btn").click(function(){	
+	check4 = $('#pemail_btn').is(':checked');
+});
+
+
+var email = $("#email10").val();
+var spe2 = email.match(/[@]/ig);
+var spe3 = email.match(/[.]/ig);
+
+	$("#Xid2").hide(); //오류 입력 상자 숨기
+	$('#Xid3').hide(); //정확 성공 상자 숨기
+	$('#Xid5').hide();  //중복 오류 상자 숨기
+
+$("#pemail_btn").click(function(){
+	email = $("#email10").val();
+	spe2 = email.match(/[@]/ig);
+	spe3 = email.match(/[.]/ig);
+
+	if(spe2 == null || spe3 == null){
+		
+		$("#pemail_btn").css("background","#95a5a6");	
+		$("#Xid2").show();
+		
+		}else{
+
+		$.ajax({
+		
+			type : "POST",
+			url  : "memberEMAILCheck",
+			data : {
+				email : email
+				},
+			success : function(c){
+		
+				if(c){
+					
+					 $("#pemail_btn").css("background","#95a5a6");	
+					 check4 = false;
+					 $("#Xid5").show();			
+		
+				}else {
+		 
+					$("#pemail_btn").css("background","#95a5a6");
+					check4 = true;
+					$("#Xid3").show();
+		
+				}	
+			}//success문
+		});	//ajax문
+	}//spe2, spe3 제약 true 일때 시작문
+
+});//function문
+
+
+//입력 성공 상자 닫기 버튼	
+$(".Xidsame4").click(function(){
+
+	$("#Xid2").hide();
+	
+	$("#pemail_btn").css("background","#e74c3c");
+
+});
+
+//입력 오류 상자 닫기 버튼	
+$(".Xidsame8").click(function(){
+
+	$("#Xid3").hide();
+
+	$("#pemail_btn").css("background","#e74c3c");
+
+});
+
+//중복입력 상자 닫기 버튼
+$(".Xidsame13").click(function(){
+
+	$("#Xid5").hide();
+
+	$("#pemail_btn").css("background","#e74c3c");
+
 });
 
 
 
 
 
-
-
-
-//-----------------------------------------------------------------------
 </script>
 </html>

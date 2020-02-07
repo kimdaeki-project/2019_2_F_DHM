@@ -414,9 +414,9 @@ var email = $("#email10").val();
 var spe2 = email.match(/[@]/ig);
 var spe3 = email.match(/[.]/ig);
 
-	$("#Xid2").hide(); //중복 입력 상자 숨기
-	$('#Xid3').hide(); //입력 성공 상자 숨기
-	$('#Xid5').hide();  //입력 오류 상자 숨기
+	$("#Xid2").hide(); //오류 입력 상자 숨기
+	$('#Xid3').hide(); //정확 성공 상자 숨기
+	$('#Xid5').hide();  //중복 오류 상자 숨기
 
 $("#pid_btn").click(function(){
 	email = $("#email10").val();
