@@ -20,7 +20,14 @@ public class PlannerService {
 
 	@Autowired
 	private PlannerRepository repository;
+	@Autowired
+	private PlannerCommentRepository commentRepository;
 
+	public void pcomment(PlannerCommentVO	 plannerCommentVO, int plNum)throws Exception{
+		PlannerVO plannerVO =repository.findByPlNum(plNum);
+		
+		
+	}
 	
 	//hyehyeon
 	public List<PlannerVO> plannerSelect(int plNum, HttpSession session) throws Exception {

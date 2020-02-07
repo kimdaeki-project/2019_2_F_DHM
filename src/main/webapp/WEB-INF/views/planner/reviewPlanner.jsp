@@ -42,8 +42,6 @@
 					<div class="aaaa"></div>
 					<!-- reviewBox -->
 					<!-- reviewBox -->
-					
-					
 					<form action="./scheduleComment" method="post">
 					<div class="reviewBox" >
 						<div class="reviewMemberImg"><img alt="members_img" src="../images/user.jpg" class="reviewMemberImg_img"></div>
