@@ -323,7 +323,9 @@
 					                                 <div class="schedule-body-content">
 					                                  <a data-toggle="modal" class="md2" data-target="#mySc">
 						                                 <c:forEach items="${schedule}" var="sc">
-															<p title="${sc.scName}"><c:if test="${sc.start eq 8 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+															<div title="${sc.scName}">
+																<c:if test="${sc.start eq 8 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+															</div>
 														 </c:forEach>
 													 </a>
 					                                 </div>
@@ -509,13 +511,13 @@
 	  			<div>
 	  				
 	  				<c:forEach items="${scInfo}" var="vo">
-	  					<c:if test="">
+	  					<%-- <c:if test=""> --%>
 		  					일정명 : ${vo.scName}<br>
 		  					예상비용 : ${vo.cost}<br>
 		  					주소 : ${vo.addr1 }<br>
 		  					관광명: ${vo.title }<br>
 		  					시간 : ${vo.start }
-	  					</c:if>
+	  					<%-- </c:if> --%>
 	  				</c:forEach>
 	  				
 	  			</div>
@@ -538,7 +540,7 @@
 		$(".md2").click(
 			function(){
 				scname = $(this).attr("title");
-				scNum = $(this).chidren("p").val();
+				scName = $(this).children("div").val();
 				alert(scName);
 			}
 		);
