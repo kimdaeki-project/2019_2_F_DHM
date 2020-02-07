@@ -33,33 +33,14 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	@PostMapping("noticeUpdate")
-	public String noticeUpdate(NoticeVO noticeVO, List<MultipartFile> files)throws Exception{
-		files.remove(0);
-		System.out.println("7777777777777777777777777");
-		System.out.println("7777777777777777777777777");
-		System.out.println(files.size());
-		System.out.println("noticeVO.getNum() : "+noticeVO.getNum());
-		System.out.println("date : "+noticeVO.getRegDate());
-		System.out.println("7777777777777777777777777");
-		System.out.println("7777777777777777777777777");
-		if(files.size()>0) {
-			for(int i=0;i<files.size();i++) {
-				System.out.println("files.get("+i+").getOriginalFilename() : "+files.get(i).getOriginalFilename());
-				files.get(i).getOriginalFilename();
-			}
-		}
-		noticeService.noticeUpdate(noticeVO, files);
-		
+	public String noticeUpdate(NoticeVO noticeVO)throws Exception{
+		noticeService.noticeUpdate(noticeVO);
 		return "redirect:./noticeList";
 	}
-	@GetMapping("notice_file_delete")
-	public void notice_file_delete(int fileNum)throws Exception{
-		noticeService.notice_file_delete(fileNum);		
-	}
+	
 	@GetMapping("noticeUpdate")
 	public String noticeUpdate(int num, Model model)throws Exception{
 		NoticeVO noticeVO=noticeService.selectById(num);
-		
 		model.addAttribute("noticeVO", noticeVO);
 		
 		return "notice/noticeUpdate";
@@ -102,10 +83,10 @@ public class NoticeController {
 	}
 	
 	@GetMapping("noticeList")
-	public ModelAndView noticeList(ModelAndView mv, 
-			@PageableDefault (size = 20, sort = {"num"},direction = Direction.DESC,page = 0)Pageable pageable,  
-			@RequestParam(name = "searchingFor", defaultValue = "") String searchingFor) throws Exception{
-
+	public ModelAndView noticeList(ModelAndView mv, @PageableDefault (size = 20, sort = {"num"},direction = Direction.DESC,page = 0)Pageable pageable,  @RequestParam(name = "searchingFor", defaultValue = "") String searchingFor) throws Exception{
+//		if (searchingFor==null) {
+//			searchingFor="";
+//		}
 		Page<NoticeVO> noticePage=noticeService.noticeListPage(pageable,searchingFor);		
 		mv.addObject("noticePage", noticePage);
 		mv.setViewName("notice/noticeList");
@@ -119,13 +100,13 @@ public class NoticeController {
 	
 	@GetMapping("noticeSelect")
 	public String noticeSelect(int num,Model model,HttpServletRequest request, HttpServletResponse response)throws Exception{
-		System.out.println("request.getLocalPort() : "+request.getLocalPort());
-		System.out.println("request.getRemoteAddr() : "+request.getRemoteAddr());
 		System.out.println("TEST : NOTICECONTROLLER.noticeSelect.num : "+num);		
 		NoticeVO notice=noticeService.selectById(num);
+		
 		Cookie[] cookies=request.getCookies();
+		
 		Cookie viewCookie=null;	//비교하기 위해 새로운 쿠키
-	
+		
 		if(cookies!=null&&cookies.length>0) {	//쿠키가 있을 경우
 			for(int i=0;i<cookies.length;i++) {
 				if(cookies[i].getName().equals("cookie"+num)) {	//cookie의 name이 cookie+num과 일치하는 쿠키를 viewCookie에 넣어줌.
