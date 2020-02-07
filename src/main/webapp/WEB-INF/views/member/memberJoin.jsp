@@ -48,10 +48,12 @@
 						<spring:input path="id" class="Join4-3" placeholder="영문/숫자만 사용가능, 6~12자" id="id10"/>
 					</div>
 					<span class="input-group-btn">
-						<button
-						class="btn-u btn-u-red btn_check" type="button"
-						id="input_id">중복확인						
-						</button>
+<!-- 						<button -->
+<!-- 						class="btn-u btn-u-red btn_check" type="button" -->
+<!-- 						id="input_id">중복확인						 -->
+<!-- 						</button> -->
+							<input type="button" id="input_id" class="btn-u btn-u-red btn_check" value="중복확인">
+
 					</span>
 				</div>
 				
@@ -79,10 +81,11 @@
 						<label for="email"></label><spring:input  path="email" class="Join4-4" id="email10" placeholder="이메일 주소만 등록 가능."/>		
 					</div>
 					<span class="input-group-btn">
-						<button
-						class="btn-u btn-u-red" type="button"									
-						id="pid_btn">중복확인			
-						</button>
+						<input type="button" id="pid_btn" class="btn-u btn-u-red" value="중복확인">
+<!-- 						<button -->
+<!-- 						class="btn-u btn-u-red" type="button"									 -->
+<!-- 						id="pid_btn">중복확인			 -->
+<!-- 						</button> -->
 					</span>
 				</div>
 				
@@ -99,7 +102,8 @@
 				<div class="Join4-1-b">
 					<div class="Join4-1-1">생년월일</div>
 					<div class="Join-text">
-						<input type="date" name="birth">						
+						<input type="date" name="birth">		
+										
 					</div>				
 				</div>	
 				

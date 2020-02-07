@@ -45,16 +45,17 @@
 					</c:otherwise>			
 				</c:choose>
 				</div>	
-			<spring:form action="memberUpdateImg" id="frm5" method="post" modelAttribute="memberVO" enctype="multipart/form-data">	
+			<spring:form action="memberUpdateImg" id="memberUpdateImg" method="post" modelAttribute="memberVO" enctype="multipart/form-data">	
 				<input class="updatemain3-2-img" type="file" id="input_img"name="files">
 			</spring:form>			
 			</div>
 			
-			<spring:form action="memberUpdatetext" id="frm6" method="post" modelAttribute="memberVO" >						
+			<spring:form action="memberUpdate" id="memberUpdate" method="post" modelAttribute="memberVO" >						
 			<div class="update1">
 				<div class="update1-1"> 이름</div>
 				<div class="update1-2">
 					<div class="nameup">${member.name}</div>
+					<input type="hidden" value="${member.name}" name="name">
 				</div>
 			</div>
 			
@@ -62,6 +63,7 @@
 				<div class="update2-1">아이디</div>
 				<div class="update2-2">
 					<div class="idup">${member.id}</div>
+					<input type="hidden" value="${member.id}" name="id">
 				</div>
 			</div>
 			
@@ -92,6 +94,7 @@
 			<div class="update6">
 				<div class="update6-1">성별</div>
 				<div class="update6-2"><p class="update6-3">${member.gender}</p></div>
+				<input type="hidden" value="${member.gender}" name="gender">
 			</div>
 			
 			<div class="update7">
@@ -102,12 +105,24 @@
 				<fmt:formatDate value="${member.birth}" pattern="dd" var="birthD"/>
 				${birthY}년 ${birthM}월 ${birthD}일 
 				</p></div>
+				<input type="hidden" value="${member.birth}" name="birth">
 			</div>
 			
 			<div class="update8-1">
 				<label class="checkbox" style="font-size:11pt; color: gray;">
 					<input type="checkbox" id="mailok1" value="0" name="mailCheck">
-					<b>여행(계획)중일때에 해당 여행과 관련된 회원특가 광고메일을 받겠습니다.</b>								
+					<b>여행(계획)중일때에 해당 여행과 관련된 회원특가 광고메일을 받겠습니다.</b>	
+					
+					<input type="hidden" value="${member.grade}" name="grade">
+					<input type="hidden" value="${member.mymsg}" name="mymsg">		
+					<input type="hidden" value="${member.introduce}" name="introduce">
+					<input type="hidden" value="${member.live}" name="live">
+					<input type="hidden" value="${member.language}" name="language">
+					<input type="hidden" value="${member.tour}" name="tour">
+					<input type="hidden" value="${member.tema}" name="tema">
+					<input type="hidden" value="${member.helpcity}" name="helpcity">
+					<input type="hidden" value="${member.social}" name="social">
+
 				</label>
 			</div>			
 			</spring:form>		
@@ -194,6 +209,13 @@
         	alert("광고 메일 수신 동의 하셨습니다.")
             }
 	    });
+//-----------------------------------------------------------------------
+//저장
+$(".updatelast1").click(function(){
+	
+	document.getElementById('memberUpdate').submit();
+});
+
 //-----------------------------------------------------------------------
 </script>
 </html>

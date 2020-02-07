@@ -1,8 +1,7 @@
 package com.f.dhm.Member;
 
 
-
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -14,6 +13,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.lang.Nullable;
 
 import lombok.Data;
@@ -34,7 +34,6 @@ public class MemberVO {
 	private String name;
 	@NotEmpty
 	private String email;
-	//@NotNull
 	@CreationTimestamp
 	private Date birth;	
 	private int gender;	

@@ -1,5 +1,8 @@
 package com.f.dhm.Member;
 
+import java.util.Enumeration;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +34,16 @@ public class MemberController {
 	
 	
 	@PostMapping("memberJoin")
-	public ModelAndView memberJoin(@Valid MemberVO memberVO, BindingResult bindingResult)throws Exception{
+	public ModelAndView memberJoin( MemberVO memberVO, BindingResult bindingResult, HttpServletRequest httpServletRequest)throws Exception{
+		
+	System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+	Enumeration<String> at = httpServletRequest.getParameterNames();
+	while(at.hasMoreElements()) {
+		System.out.println(at.nextElement());
+	}
 	
+	System.out.println(httpServletRequest.getParameter("birth"));
+	System.out.println("memberVO.getBirth() : "+memberVO.getBirth());
 		ModelAndView mv = new ModelAndView();
 										
 		if(memberService.memberJoinValidate(memberVO, bindingResult)) {
@@ -194,6 +205,28 @@ public class MemberController {
 	public String memberUpdatePage()throws Exception{
 		
 		return "member/memberUpdate";
+	}
+	
+	@PostMapping("memberUpdate")
+	public ModelAndView memberUpdatePage(@Valid MemberVO memberVO, BindingResult bindingResult, HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/memberUpdate");
+		
+		memberService.memberMypage(memberVO);
+			
+		//session.invalidate();
+		session.setAttribute("member",memberVO);
+		
+		String path = "./memberUpdate";
+
+		String message = "프로필 변경 되었습니다.";
+
+		mv.setViewName("common/result");
+		mv.addObject("message", message);											
+		mv.addObject("path", path);
+		
+		return mv;
 	}	
 	//회원 탈퇴-----------------------------------------------------------------------
 	@GetMapping("memberGetout")
