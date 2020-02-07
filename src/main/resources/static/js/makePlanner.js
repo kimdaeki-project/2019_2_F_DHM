@@ -293,14 +293,13 @@ var firstimageA = new Array();
 var addr1A = new Array();
 var arCodeA = new Array();
 
+
 function saveSch(t, f, a, c) {
-   for (var i = 0; i < t.length; i++) {
-      titleA.push(t[i]);
-      firstimageA.push(f[i]);
-      addr1A.push(a[i]);
-      arCodeA.push(c[i]);      
-   }
-}
+	      titleA.push(t);
+	      firstimageA.push(f);
+	      addr1A.push(a);
+	      arCodeA.push(c); 
+	}
 /////////////////////////////////////////////////////
 
 
