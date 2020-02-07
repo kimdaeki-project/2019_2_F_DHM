@@ -30,7 +30,6 @@
 									<li class="service_li" id="nav_fnq"><a href="${pageContext.request.contextPath }/gnb/serviceCenter">faq</a></li>
 								</ul>
 							</li>
-							<li class="gnb_li"><a href="">예약내역</a></li>
 							</ul>
 						<div class="service_dropDown">
 							<ul class="service_dropDown_ul">
