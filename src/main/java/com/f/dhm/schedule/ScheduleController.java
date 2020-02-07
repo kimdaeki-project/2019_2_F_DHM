@@ -8,10 +8,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.f.dhm.Member.MemberVO;
+import com.f.dhm.planner.PlannerCommentVO;
 import com.f.dhm.planner.PlannerService;
 import com.f.dhm.planner.PlannerVO;
 import com.f.dhm.schedule.test.Items;
@@ -26,16 +29,12 @@ public class ScheduleController {
 
 	@Autowired
 	private ScheduleService scheduleService;
-	@Autowired
 	private PlannerService plannerService;
 	@Autowired 
 	private XmlService xmlService;
 	@Autowired
 	private WishService wishService;
-	
 
-	
-	
 	@GetMapping("tour")
 	public void addSC(String title, String firstimage) throws Exception{
 		
@@ -48,6 +47,7 @@ public class ScheduleController {
 		plannerService.typeUpdate(type,session, plNum);
 	}
 	
+
 	@GetMapping("addSchedule")
 	public ModelAndView plannerPage(String scName, Integer cost, Integer start, String title, Integer plNum, Integer arCode) throws Exception{
 		System.out.println(scName);

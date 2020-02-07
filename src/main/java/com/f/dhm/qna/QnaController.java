@@ -32,7 +32,13 @@ public class QnaController {
 	@Autowired
 	private QnaService qnaService;
 	
-
+	@GetMapping("qnaUpdate")
+	public String qnaUpdate(Model model, int num)throws Exception{
+		QnaVO qnaVO=qnaService.getQnaUpdate(num);
+		model.addAttribute("qnaVO", qnaVO);
+		return "qna/qnaUpdate";
+	}
+	
 	@GetMapping("qnaDeleteAll")
 	public String qnaDeleteAll()throws Exception{
 		qnaService.qnaDeleteAll();
