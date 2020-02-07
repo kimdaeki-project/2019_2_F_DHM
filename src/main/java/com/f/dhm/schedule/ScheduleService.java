@@ -31,5 +31,7 @@ public class ScheduleService {
 		repository.save(scheduleVO);
 	}
 	
-	
+	public ScheduleInfoVO scheduleInfo(String tour, Integer plNum) throws Exception{
+		return repository.scheduleInfo(tour, plNum);
+	}
 }

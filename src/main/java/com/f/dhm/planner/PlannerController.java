@@ -145,7 +145,8 @@ public class PlannerController {
 	public int makePlanner(String id, String title, String type, String people, String[] deDate, String[] arDate,
 		      String[] bak, String[] region, String[] transfer, String[] titleA, String[] firstimage, 
 		      String[] addr1, int[] arCode,HttpSession session, int[] pp, int[] arCodeP, Integer plNum, String email) throws Exception{
-		      List<PlannerVO> pList = new ArrayList<PlannerVO>();
+		      
+			List<PlannerVO> pList = new ArrayList<PlannerVO>();
 		      
 		      
 		      if (plNum != null) {         

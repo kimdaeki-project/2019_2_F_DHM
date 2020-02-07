@@ -631,7 +631,7 @@ a:hover{
 	top:0px;
 	left:0px;
 	z-index:1999;
-	width:100%;
+	width:70%;
 	padding-top:10px;
 	text-align:center;
 	padding:20px;
@@ -642,7 +642,11 @@ a:hover{
 .full-right{
 	float: right !important;
 }
-
+.int{
+	text-align: right;
+	padding: 5px;
+	color: lightgray;
+}
 
 /* 몇밤자는지 추가 */
 .notlist-showSleep{

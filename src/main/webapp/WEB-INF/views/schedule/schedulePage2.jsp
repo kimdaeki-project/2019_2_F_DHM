@@ -303,7 +303,7 @@
 					                        <li class="swiper-slide schedule-li" style="height: 560px;">
 					                           <div class="schedule-top">
 					                              <div class="schedule-top2">
-					                                 <a>
+					                                 <a data-toggle="modal" class="md2" data-target="#mySc">
 					                                    <div class="schedule-map">
 					                                       <img src="https://www.stubbyplanner.com/img_v15/icon_map.png">
 					                                       <div class="schedule-map-title">지도</div>
@@ -335,9 +335,15 @@
 					                              </div>
 					                              <div class="schedule-body-row">10
 					                                 <div class="schedule-body-content">
+					                                  <a data-toggle="modal" class="md" data-target="#mySc">
 					                                  <c:forEach items="${schedule}" var="sc">
 														<p><c:if test="${sc.start eq 10 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
-													 </c:forEach>
+														<input type="hidden" class="cost" title="${sc.cost}">
+														<input type="hidden" class="start" title="${sc.start}">
+														<input type="hidden" class="scname" title="${sc.scName}">
+														
+													  </c:forEach>
+													  </a>
 					                                 </div>
 					                              </div>
 					                              <div class="schedule-body-row">11
@@ -426,8 +432,6 @@
 					                              </div>
 					                           </div>
 					                        </li>
-									
-								
 								</c:forEach>
 								
 							</ul>
@@ -444,38 +448,44 @@
 	<div id="myModal" class="modal fade" role="dialog">
   		<div class="modal-dialog">
 		<div class="m-wrapper"></div>
-		<div class="m-box">
-			<!-- <a style="color: black; font-size: 27px;" class="full-right close" >
-				<i class="fa fa-times-circle" aria-hidden="true"></i>
-			</a> -->
+		<div class="m-box row">
 			<button type="button" class="close" data-dismiss="modal">X</button>
-			<div style="width: 600px; clear:both;display: inline-block;">
+			<div style="clear:both;display: inline-block; margin-left: 20px;">
 				<div class="form-group">
-					<div style="font-weight: bold; font-size: 12pt;">여행 일정 추가하기</div>
+					<div style="font-weight: bold; font-size: 14pt; margin: 20px 0 20px 0;">여행 일정 추가하기</div>
 					
 					<div style="font-size: 10pt;">
 						일정표에 추가 할 날짜와 시간을 선택해주세요!
 					</div>
-					<div style="float:left; width: 50%;margin-right: 10px;">
-						<select class="form-control  col-xs-2" style="height: 30pt; font-size: 12pt; font-weight: 600;">
-							<c:forEach items="${planner}" var="vo">
-								<option value="" id="a" class="b" title="${vo.arCode}">${vo.region}</option>
-							</c:forEach>
-						</select>
+					<div style="margin-left: 20px; margin-bottom: 20px;">
+						<div style="float:left; width: 50%;margin-right: 10px; ">
+							<select class="form-control  col-xs-2" style="height: 30pt; font-size: 12pt; font-weight: 600;">
+								<c:forEach items="${planner}" var="vo">
+									<option value="" id="a" class="b" title="${vo.arCode}">${vo.region}</option>
+								</c:forEach>
+							</select>
+						</div>
+						<div style="float:left; width: 35%;">
+							<select name="start" title="start" id="start" class="form-control" style="height: 30pt; font-size: 12pt; font-weight: 600;">
+								<option value="8">0~9시</option>
+								<c:forEach  var="i" step="1" begin="9" end="20">
+									<option value="${i}">${i}시</option>
+								</c:forEach>
+							</select>
+						
+						</div>
 					</div>
-					<div style="float:left; width: 20%;">
-						<select name="start" title="start" id="start" class="form-control" style="height: 30pt; font-size: 12pt; font-weight: 600;">
-							<option value="8">0~9시</option>
-							<c:forEach  var="i" step="1" begin="9" end="20">
-								<option value="${i}">${i}시</option>
-							</c:forEach>
-						</select>
-					</div>
-					<div style="clear: both;">
-						<font>일정의 이름을 달아주세요!</font>
-						<input type="text" name="scName" id = "scName" style="float: left;">
-						<font>예상비용</font>
-						<input type="text" name="cost" id="cost" style="float: left;">
+					<div style="margin-top: 20px;">
+						<div class="form-group" >
+						   <label style="margin-top: 20px;">일정의 이름을 달아주세요!</label>
+						   <input type="text" name="scName" id = "scName" placeholder="ex) 밥먹기" class="int form-control">
+						 </div>
+												
+						<div class="form-group">
+						   <label>일정의 예상비용은 얼마인가요?</label>
+						   <input type="text" name="cost" id="cost" placeholder="ex) 5000(원)" class="int form-control">
+						 </div>
+
 						<input type="hidden" name="title" id="vot" value="${vo.title}" title="${vo.title}">
 					</div>
 					<div style="margin-left:150px; margin-top: 30px; margin-bottom:20px; width: 50%; height: 20px;">
@@ -487,6 +497,25 @@
 		</div>
 		</div>
 	</div>
+	
+	<!-- 스케줄 모달 -->
+	<div id="mySc" class="modal fade" role="dialog">
+  		<div class="modal-dialog">
+  		<div class="m-wrapper"></div>
+  			<div class="m-box row">
+				<button type="button" class="close" data-dismiss="modal">X</button>
+	  			<div>
+	  				<p>일정명 : ㅇㅇ</p>
+	  				예상비용 : ㅇㅇ 원
+	  				주소 :
+	  				관광이름 :
+	  				시간 : 
+	  			
+	  			</div>
+  			</div>
+  		</div>
+  	</div>
+	
 	<!-- </form> -->
 	<div style="display: none;">
    <c:forEach items="${planner }" var="plan">
@@ -496,23 +525,30 @@
 </div>
 	<script type="text/javascript">
 
-	function closeModal(){
-		
-	}
-	
-	var tt;
-	$(".md").click(
-			function(){
-				
-				 tt = $(this).attr("title");
+		var scname; 
 
-				$(".b").each(function(){
-					if($(this).attr("title") == tt){
-							$(this).prop("selected",true);
-					}
-				});
+		$(".md2").click{
+			function(){
+				scname = $(this).attr("title");
+				alert(scname);
+
 			}
-	);
+		}
+
+		
+		var tt;
+		$(".md").click(
+				function(){
+					
+					 tt = $(this).attr("title");
+	
+					$(".b").each(function(){
+						if($(this).attr("title") == tt){
+								$(this).prop("selected",true);
+						}
+					});
+				}
+		);
 		
 		function addSchedule(scName, cost, start, title, plNum, arCode){
 
@@ -550,11 +586,6 @@
 	
 		}
 
-	/* 
-		var title = $("#votitle").val();
-		$("#vot").outerText="title"; */
-	
-
 
 		/* type 바꾸기 */
 		function type(type,plNum){
@@ -574,8 +605,7 @@
 			event.stopImmediatePropagation();
 		}
 
-		
-
+	
 	
 		function transfer(){
 			alert('dd');

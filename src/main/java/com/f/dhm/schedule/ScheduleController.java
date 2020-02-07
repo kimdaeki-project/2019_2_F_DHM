@@ -79,6 +79,13 @@ public class ScheduleController {
 		List<ScheduleVO> scheduleList = scheduleService.scheduleList(plNum);
 		List<WishVO> wishlist = wishService.myWish(session, plNum);
 		
+		for(int i=0; i<scheduleList.size();i++) {
+			
+			String tour = scheduleList.get(i).getTour();
+			
+			ScheduleInfoVO scInfo = scheduleService.scheduleInfo(tour, plNum);
+			mv.addObject("scInfo",scInfo);
+		}
 		
 		String plannerTitle = plannerService.plannerTitle(plNum);
 		String plannerType = plannerService.plannerType(plNum);
