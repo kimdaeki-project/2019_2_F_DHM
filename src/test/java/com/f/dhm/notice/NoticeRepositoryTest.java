@@ -3,6 +3,7 @@ package com.f.dhm.notice;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -23,55 +24,28 @@ class NoticeRepositoryTest {
 	private NoticeRepository noticeRepository;
 	@Autowired
 	private NoticeService noticeService;
-	
-	//@Test
-	void test() {
-		List<NoticeVO> list=noticeRepository.findAll();
-		for(NoticeVO noticeVO:list) {
-			System.out.println("TEST : noticeVO"+list);
-			System.out.println(noticeVO.getNum());
-			System.out.println(noticeVO.getTitle());
-			System.out.println(noticeVO.getId());
-			System.out.println(noticeVO.getRegDate());
-		}
-	}
-	
-	//@Test
-	void writeNotice() {
-		for(int i=50;i<100;i++) {
-			NoticeVO noticeVO=new NoticeVO();
-			noticeVO.setId("wirter"+i);
-			noticeVO.setTitle("test Write title : "+i);
-			noticeVO.setContents("test contents"+i);
-			noticeRepository.save(noticeVO);
-		}
-	}
-	
-	//@Test
-	void calendarGetTime(){
-		Calendar calendar= Calendar.getInstance();
-		SimpleDateFormat format = new SimpleDateFormat();
-		format.applyPattern("yyyy-MM-dd");
-
-		System.out.println("calendar.getTime() : "+format.format(calendar.getTime()));
-	}
-	
-	//@Test
-	void increaseHit() {
-		try {
-			noticeService.increaseHit(140);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	@Autowired
+	private NoticeFilesRepository noticeFilesRepository;
 	
 	@Test
-	public void searchtest() throws Exception{
-		Page<NoticeVO> noticePage=noticeRepository.findByTitleContains("f",PageRequest.of(0, 10));
-		System.out.println("@@@@@@@@@@@@@@@@  test  @@@@@@@@@@@@@@@@");
-		noticePage.forEach(System.out::println);
-		//System.out.println(noticePage.getSize());
+	public void deletefile() throws Exception{
+
+		NoticeVO noticeVO=new NoticeVO();
+		List<NoticeFilesVO> noticeFilesVOs=new ArrayList<NoticeFilesVO>();
+		noticeVO.setTitle("test title2");
+		noticeVO.setContents("test contents2");
+		for(int i=0;i<3;i++) {
+			NoticeFilesVO files=new NoticeFilesVO();
+			files.setFname("fname"+i);
+			files.setOname("oname"+i);
+			files.setNoticeVO(noticeVO);
+			noticeFilesVOs.add(files);
+		}
+		 noticeVO.setNoticeFilesVOs(noticeFilesVOs);
+		 
+		 noticeRepository.save(noticeVO);
+		 noticeRepository.flush();
 	}
+	
 
 }

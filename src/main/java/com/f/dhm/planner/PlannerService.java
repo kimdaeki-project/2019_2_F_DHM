@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,35 @@ public class PlannerService {
 
 	@Autowired
 	private PlannerRepository repository;
+	@Autowired
+	private PlannerCommentRepository commentRepository;
 
+	public PlannerCommentVO getComment(int cNum)throws Exception{
+		PlannerCommentVO commentVO=commentRepository.findById(cNum).get();
+		return commentVO;
+	}
+	
+	public List<PlannerCommentVO> getCommentList(int plNum)throws Exception{
+		return commentRepository.findByPlNum(plNum);
+	}
+	
+	public boolean pcomment(PlannerCommentVO  plannerCommentVO, int plNum, HttpSession session)throws Exception{
+		MemberVO memberVO=(MemberVO) session.getAttribute("member");
+		plannerCommentVO.setId(memberVO.getId());
+		boolean check=false;
+		plannerCommentVO.setPlNum(plNum);
+		commentRepository.save(plannerCommentVO);
+		PlannerCommentVO exist=commentRepository.findById(plannerCommentVO.getCNum()).get();
+		if(exist != null) {
+			//exist!!
+			check=true;
+		}
+		else {
+			//not exist!!
+			check=false;
+		}
+		return check;
+	}
 	
 	//hyehyeon
 	public List<PlannerVO> plannerSelect(int plNum, HttpSession session) throws Exception {
@@ -76,6 +105,13 @@ public class PlannerService {
 	
 	public PlannerVO saveOne(PlannerVO plannerVO) throws Exception{
 		return repository.save(plannerVO);
+	}
+	
+	public void plannerDel(String id, int plNum) throws Exception{
+		List<PlannerVO> delList =repository.findByIdAndPlNum(id, plNum);
+		
+		repository.deleteAll(delList);
+		
 	}
 
 }
