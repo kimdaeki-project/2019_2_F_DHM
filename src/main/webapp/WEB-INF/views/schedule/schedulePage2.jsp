@@ -539,7 +539,7 @@
 
 		$(".md2").click(
 			function(){
-				scname = $(this).attr("title");
+			
 				scName = $(this).children("div").val();
 				alert(scName);
 			}
