@@ -1,8 +1,9 @@
 package com.f.dhm.schedule;
 
-
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,38 +23,35 @@ import com.f.dhm.wishlist.WishVO;
 @Controller
 @RequestMapping("/schedule/**")
 public class ScheduleController {
-	
 
 	@Autowired
 	private ScheduleService scheduleService;
 	@Autowired
 	private PlannerService plannerService;
-	@Autowired 
+	@Autowired
 	private XmlService xmlService;
 	@Autowired
 	private WishService wishService;
-	
 
-	
-	
 	@GetMapping("tour")
-	public void addSC(String title, String firstimage) throws Exception{
-		
+	public void addSC(String title, String firstimage) throws Exception {
+
 		System.out.println(title);
-	
+
 	}
-	
+
 	@GetMapping("type")
-	public void type(String type, int plNum, HttpSession session) throws Exception{
-		plannerService.typeUpdate(type,session, plNum);
+	public void type(String type, int plNum, HttpSession session) throws Exception {
+		plannerService.typeUpdate(type, session, plNum);
 	}
-	
+
 	@GetMapping("addSchedule")
-	public ModelAndView plannerPage(String scName, Integer cost, Integer start, String title, Integer plNum, Integer arCode) throws Exception{
+	public ModelAndView plannerPage(String scName, Integer cost, Integer start, String title, Integer plNum,
+			Integer arCode) throws Exception {
 		System.out.println(scName);
-		//int plNum = plannerService.getPlnum();
+		// int plNum = plannerService.getPlnum();
 		ModelAndView mv = new ModelAndView();
-		//System.out.println("pldfsdfsdf:"+plNum);
+		// System.out.println("pldfsdfsdf:"+plNum);
 		ScheduleVO scheduleVO = new ScheduleVO();
 		scheduleVO.setPlNum(plNum);
 		scheduleVO.setScName(scName);
@@ -63,45 +61,58 @@ public class ScheduleController {
 		scheduleVO.setArCode(arCode);
 		scheduleService.scheduleInsert(scheduleVO);
 		mv.setViewName("/schedule/schedulePage2");
-		
+
 		return mv;
 	}
-	
-	
+
+	public void sc() throws Exception{
+		
+	}
 	
 	@GetMapping("schedulePage")
-	public ModelAndView plannerPage( PlannerVO plannerVO, ScheduleVO scheduleVO,HttpSession session,int plNum) throws Exception{
+	public ModelAndView plannerPage(PlannerVO plannerVO, ScheduleVO scheduleVO, HttpSession session, int plNum)
+			throws Exception {
 		ModelAndView mv = new ModelAndView();
-		
-		MemberVO memberVO = (MemberVO)session.getAttribute("member");
-		
-		List<PlannerVO> plannerList= plannerService.plannerSelect(plNum,session);
+
+		MemberVO memberVO = (MemberVO) session.getAttribute("member");
+
+		List<PlannerVO> plannerList = plannerService.plannerSelect(plNum, session);
 		List<ScheduleVO> scheduleList = scheduleService.scheduleList(plNum);
 		List<WishVO> wishlist = wishService.myWish(session, plNum);
+
+		List<ScheduleInfoVO> scheduleInfoVOs = new ArrayList<ScheduleInfoVO>();
 		
-		for(int i=0; i<scheduleList.size();i++) {
-			
-			String tour = scheduleList.get(i).getTour();
-			
-			ScheduleInfoVO scInfo = scheduleService.scheduleInfo(tour, plNum);
-			mv.addObject("scInfo",scInfo);
-		}
-		
+		 for(int i=0; i<scheduleList.size();i++) {
+			 
+			 String tour = scheduleList.get(i).getTour();
+			 Map<String, Object> scInfo = scheduleService.scheduleInfo(tour, plNum);
+			 ScheduleInfoVO scheduleInfoVO = new ScheduleInfoVO();
+			 scheduleInfoVO.setTitle((String)scInfo.get("title"));
+			 scheduleInfoVO.setAddr1((String)scInfo.get("addr1"));
+			 scheduleInfoVO.setCost((Integer)scInfo.get("cost"));
+			 scheduleInfoVO.setFirstimage((String)scInfo.get("firstimage"));
+			 scheduleInfoVO.setStart((Integer)scInfo.get("start"));
+			 scheduleInfoVO.setTour((String)scInfo.get("tour"));
+			 scheduleInfoVO.setScName((String)scInfo.get("scName"));
+			 scheduleInfoVOs.add(scheduleInfoVO);
+		 
+		 }
+		 mv.addObject("scInfo",scheduleInfoVOs); 
+
 		String plannerTitle = plannerService.plannerTitle(plNum);
 		String plannerType = plannerService.plannerType(plNum);
-		int days= plannerService.days(plNum);
+		int days = plannerService.days(plNum);
 		Date deDate = plannerList.get(0).getDeDate();
-		//scheduleService.findDay(deDate);
-		//Items ar2=xmlService.parseTour();
-		Items ar2=xmlService.searchTour(1, 39, "P", 1);;
-		
-		if(wishlist!=null) {
-			mv.addObject("wishlist",wishlist);
+		// scheduleService.findDay(deDate);
+		// Items ar2=xmlService.parseTour();
+		Items ar2 = xmlService.searchTour(1, 39, "P", 1);
+		;
+
+		if (wishlist != null) {
+			mv.addObject("wishlist", wishlist);
 		}
-		
-		
-		
-		//음식점
+
+		// 음식점
 		mv.addObject("food", xmlService.searchTour(1, 39, "P", 1).getItem());
 		mv.addObject("plannerTitle", plannerTitle);
 		mv.addObject("plannerType", plannerType);
@@ -113,13 +124,12 @@ public class ScheduleController {
 		mv.setViewName("/schedule/schedulePage2");
 		return mv;
 	}
-	
+
 	@GetMapping("showList")
-	public ModelAndView viewApi() throws Exception{
+	public ModelAndView viewApi() throws Exception {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/schedule/showList");
 		return mv;
 	}
 
-	
 }

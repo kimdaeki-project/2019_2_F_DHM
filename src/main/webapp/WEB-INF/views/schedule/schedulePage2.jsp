@@ -321,9 +321,11 @@
 					                           <div class="schedule-body">
 					                              <div class="schedule-body-row">0~9
 					                                 <div class="schedule-body-content">
+					                                  <a data-toggle="modal" class="md" data-target="#mySc">
 					                                 <c:forEach items="${schedule}" var="sc">
 														<p><c:if test="${sc.start eq 8 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
 													 </c:forEach>
+													 </a>
 					                                 </div>
 					                              </div>
 					                              <div class="schedule-body-row">9
@@ -510,7 +512,12 @@
 	  				주소 :
 	  				관광이름 :
 	  				시간 : 
-	  			
+	  				<c:forEach items="${scInfo}" var="vo">
+	  					일정명 : ${vo.title}
+	  					예상비용 : ${vo.cost}
+	  					
+	  				</c:forEach>
+	  				
 	  			</div>
   			</div>
   		</div>
@@ -527,21 +534,23 @@
 
 		var scname; 
 
-		$(".md2").click{
+		$(".md2").click(
 			function(){
 				scname = $(this).attr("title");
 				alert(scname);
-
 			}
-		}
-
+		);
 		
 		var tt;
+		var title2;
+		
 		$(".md").click(
 				function(){
 					
-					 tt = $(this).attr("title");
-	
+					tt = $(this).attr("title");
+					title2 = $(this).prev().children().children("input").val();
+
+					
 					$(".b").each(function(){
 						if($(this).attr("title") == tt){
 								$(this).prop("selected",true);
@@ -552,12 +561,12 @@
 		
 		function addSchedule(scName, cost, start, title, plNum, arCode){
 
-			var title = $("#votitle").val();
+			
 			var scName = $("#scName").val();
 			var cost = $("#cost").val();
 			var start = $("#start").val();
 			var arCode = tt;
-
+			var title = title2;
 			var a =$("#a").val(arCode);
 			
 			alert(a);

@@ -1,6 +1,7 @@
 package com.f.dhm.schedule;
 
-import javax.validation.constraints.NotEmpty;
+
+import javax.persistence.Entity;
 
 import lombok.Getter;
 import lombok.Setter;

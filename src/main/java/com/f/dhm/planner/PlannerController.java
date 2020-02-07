@@ -1,8 +1,7 @@
 package com.f.dhm.planner;
 
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.f.dhm.Member.MemberVO;
 import com.f.dhm.schedule.test.XmlService;
 import com.f.dhm.wishlist.WishService;
 import com.f.dhm.wishlist.WishVO;
@@ -155,7 +153,7 @@ public class PlannerController {
 		      
 		      plNum = service.getPlnum();
 		      
-		      System.out.println("plNum = " + plNum);
+		      System.out.println("plNum = " + deDate.length);
 		      
 		      for (int i = 0; i < deDate.length; i++) {
 
@@ -222,6 +220,7 @@ public class PlannerController {
 		         wishVO.setAddr1(addr1[i]);
 		         wishVO.setPlNum(plNum);
 		         wishVO.setArCode(arCode[i]);
+		         System.out.println(i+"   +    "+wishVO.getTitle());
 		         wishlist.add(wishVO);
 
 		      }
