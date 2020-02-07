@@ -513,6 +513,7 @@
 	  				관광이름 :
 	  				시간 : 
 	  				<c:forEach items="${scInfo}" var="vo">
+	  					<c:if test=""></c:if>
 	  					일정명 : ${vo.title}
 	  					예상비용 : ${vo.cost}
 	  					
