@@ -19,7 +19,6 @@ public class ScheduleService {
 	@Autowired
 	private ScheduleRepository repository;
 	
-	
 	public List<ScheduleVO> scheduleList(int plNum) throws Exception{
 		return repository.findByPlNum(plNum);
 	}

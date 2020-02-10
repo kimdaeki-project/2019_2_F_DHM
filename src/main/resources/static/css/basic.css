@@ -462,6 +462,7 @@ th{
    line-height:30px;
    list-style:none;
 }
+
 .boardSelectFiles_title{
    font-size: 16px;
    letter-spacing: 1px;
@@ -576,6 +577,84 @@ th{
    margin:0 2.5px;
 }
 .page_title{
+	text-align: center;
+	letter-spacing: 0.5px;
+	font-family: 'Montserrat', sans-serif;
+/* 	border-bottom: 2px solid #cdcdcd; */
+/* 	padding-bottom: 3px; */
+	color: #656565;
+}
+.reviewFlexWrapper{
+	display: block;
+}
+.reviewWrapper_leftSide{
+	width: 912px;
+	float: left;
+	padding: 15px 10px;
+}
+.reviewWrapper_rightSide{
+	width: 228px;
+	float: left;
+	padding: 15px;
+}
+.reviewWrapper_rightSide_rel{
+	border: 1px solid #c9c9c9;
+	border-radius: 5px;
+	padding: 10px;
+	height: 100px;
+}
+.reviewBox{
+	clear:both;
+}
+
+.aaaa{
+	clear: both;
+}
+.reviewMemberImg{
+	float: left;
+}
+.reviewMemberImg_img{
+	width: 30px;
+	height: 30px;
+	border-radius: 100px;
+	border:2px solid #b4b4b4;
+	background:white;
+}
+.reviewCommentsWrapper{
+	background: white;
+	float: left;
+	margin-left: 20px;
+	width: 840px;
+	border:1px solid #e0e0e0;
+	border-radius:4px;
+	padding: 15px;
+	margin-bottom: 15px;
+	color: #6b6b6b;
+}
+.reviewComments_header_info{
+	margin: 10px;
+	font-weight: bold;
+	color: #606060;
+}
+.reviewComments_header_date{
+	font-weight: normal;
+	margin-left: 10px;
+}
+.reviewComments_comments{
+	margin:10px;
+	border: 1px solid #c9c9c9;
+	border-radius:1px;
+	padding: 6px; 
+	color: #333;
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px;
+	color: #606060;
+}
+.x{
+	color: #999;
+}
+.fileLink{
+	margin:0 10px;
    text-align: center;
    letter-spacing: 0.5px;
    font-family: 'Montserrat', sans-serif;
