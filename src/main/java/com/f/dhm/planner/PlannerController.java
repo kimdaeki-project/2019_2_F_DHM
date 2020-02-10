@@ -11,7 +11,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -33,6 +35,53 @@ public class PlannerController {
 	
 	@Autowired
 	private WishService wishService;
+	
+	@GetMapping("reviewUpdate")
+	public String reviewUpdate(int cNum,Model model)throws Exception{
+		System.out.println("////////////////////////////////////////////////////////////////");
+		System.out.println("cnum : "+cNum);
+		PlannerCommentVO commentVO=service.getComment(cNum);
+		model.addAttribute("commentVO", commentVO);
+		return "planner/reviewUpdate";
+	}
+	
+	@PostMapping("reviewUpdate")
+	public void reviewUpdate(PlannerCommentVO plannerCommentVO) throws Exception{
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		System.out.println(plannerCommentVO.getCNum());
+	}
+	
+	@GetMapping("scheduleComment")
+	public void scheduleComment()throws Exception{
+		/////////////////////////////////////
+		//getMapping function/////////////
+		/////////////////////////////////////
+	}
+	
+	@PostMapping("scheduleComment")
+	public ModelAndView scheduleComment(@ModelAttribute("plannerCommentVO") PlannerCommentVO	 plannerCommentVO, int plNum, HttpSession session)throws Exception{
+		ModelAndView mv=new ModelAndView();
+		String path="../member/memberLogin";
+		String message="로그인이 필요합니다.";
+		if(session.getAttribute("member") != null) {			
+			System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+			System.out.println("plNum : "+plNum);
+			System.out.println("plannerCommentVO.getTitle() : "+plannerCommentVO.getContents());
+			boolean check=service.pcomment(plannerCommentVO, plNum, session);
+			path= "../planner/reviewPlanner";
+			message="작성되었습니다.";
+			mv.addObject("path", path);
+			mv.addObject("message", message);
+			mv.setViewName("common/result");
+		}else {
+			mv.setViewName("common/result");
+			mv.addObject("path", path);
+			mv.addObject("message", message);
+		}
+		
+		return mv;
+		
+	}
 	
 	@GetMapping("makePlanner")
 	public ModelAndView makePlanner() throws Exception{
@@ -274,4 +323,10 @@ public class PlannerController {
 		
 	}
 	
+
+	@GetMapping("reviewPlanner")
+	public void reviewPlanner()throws Exception{
+		
+	}
+
 }

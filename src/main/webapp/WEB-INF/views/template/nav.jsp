@@ -8,7 +8,7 @@
 				<div class="container">
 					<div class="nav-logo">
 						<div class="nav_logo">
-							<a href="${pageContext.request.contextPath}/" class="nav_log_img"><img src="../imgs/logos/logo-green.png" class="nav_log_img"></a>
+							<a href="${pageContext.request.contextPath}/" class="nav_log_img"><img src="../images/logo.png" class="nav_log_img"></a>
 						</div>
 						<div class="nav_gnb_menu">
 							<ul class="gnb_ul">
@@ -23,7 +23,7 @@
 								<li class="gnb_li"><a href="${pageContext.request.contextPath}/member/memberUpdate">내 정보 수정</a></li>
 								</c:if>
 							<li class="gnb_li">
-																	<a style="cursor: pointer;" id="service"  >고객센터</a>
+																	<a style="cursor: pointer;" id="service"  >고객센터zz</a>
 								<ul class="service_ul">
 									<li class="service_li" id="nav_notice"><a href="${pageContext.request.contextPath }/notice/noticeList">notice</a></li>
 									<li class="service_li" id="nav_qna" ><a href="${pageContext.request.contextPath}/qna/qnaList">qna</a></li>

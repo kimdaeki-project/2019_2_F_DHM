@@ -7,4 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface NoticeRepository extends JpaRepository<NoticeVO, Integer> {
 
 	public Page<NoticeVO> findByTitleContains(String title,Pageable pageable)throws Exception;
+	
+	
+	
 }

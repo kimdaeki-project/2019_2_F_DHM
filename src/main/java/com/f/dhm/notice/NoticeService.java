@@ -3,8 +3,8 @@ package com.f.dhm.notice;
 
 
 import java.io.File;
-import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -21,6 +21,28 @@ public class NoticeService {
 
 	@Autowired
 	private NoticeRepository noticeRepository;
+	@Autowired
+	private NoticeFilesRepository noticeFilesRepository;
+	
+	public void notice_file_delete(int num)throws Exception{
+		noticeFilesRepository.deleteById(num);
+	}
+	
+	public void noticeUpdate(NoticeVO noticeVO, List<MultipartFile> files)throws Exception{
+		List<NoticeFilesVO> noticeFilesVOs=new ArrayList<NoticeFilesVO>();
+		if(files.size()>0) {
+			for(int i=0;i<files.size();i++) {
+				NoticeFilesVO noticeFilesVO=new NoticeFilesVO();
+				noticeFilesVO.setFname(files.get(i).getName());
+				noticeFilesVO.setOname(files.get(i).getOriginalFilename());
+				noticeFilesVO.setNoticeVO(noticeVO);
+				noticeFilesVOs.add(noticeFilesVO);
+			}
+			noticeVO.setNoticeFilesVOs(noticeFilesVOs);
+			noticeVO.setRegDate(null);
+		}
+		noticeRepository.save(noticeVO);
+	}
 	
 	public void increaseHit(int num)throws Exception{
 		NoticeVO noticeVO=noticeRepository.findById(num).get();
@@ -31,16 +53,8 @@ public class NoticeService {
 	}
 	
 	public void noticeUpdate(NoticeVO noticeVO)throws Exception{
-		System.out.println("11111111111111111111111");
-		System.out.println("noticeVO.getNum() : "+noticeVO.getNum());
-		System.out.println("noticeVO.gettitle : "+noticeVO.getTitle());
-		System.out.println("noticeVO.getContents() : "+noticeVO.getContents());
-		System.out.println("noticeVO.getId() : "+noticeVO.getId());
-		System.out.println("NOTICEvo.DATE() : "+noticeVO.getRegDate());
-
 		NoticeVO ntc=noticeRepository.findById(noticeVO.getNum()).get();
 		noticeVO.setRegDate(ntc.getRegDate());
-		
 		noticeRepository.save(noticeVO);
 	}
 	
@@ -50,9 +64,7 @@ public class NoticeService {
 	
 	public NoticeVO selectById(int num)throws Exception{
 		NoticeVO noticeVO=noticeRepository.findById(num).get();
-		System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: service print : selectById(int num) ");
 		List<NoticeFilesVO> files=noticeVO.getNoticeFilesVOs();
-		System.out.println("**get ** ** ok**");
 		for(int i=0;i<files.size();i++) {
 			System.out.println("files.get(i).getFnum() : "+files.get(i).getFnum());
 			System.out.println("files.get(i).getFname() : "+files.get(i).getOname());
@@ -81,8 +93,6 @@ public class NoticeService {
 			for(MultipartFile multipartFile:files) {
 				if(multipartFile.getSize()>0) {
 					NoticeFilesVO noticeFilesVO=new NoticeFilesVO();
-//					File file = filePathGenerator.getUseClassPathResource("upload");
-//					String fileName = fileSaver.save(file, multipartFile);
 					noticeFilesVO.setFname("filename");
 					noticeFilesVO.setOname(multipartFile.getOriginalFilename());
 					noticeFilesVOs.add(noticeFilesVO);
@@ -91,7 +101,6 @@ public class NoticeService {
 				noticeVO.setNoticeFilesVOs(noticeFilesVOs);
 			}
 		}
-
 		noticeRepository.save(noticeVO);
 	}
 	
