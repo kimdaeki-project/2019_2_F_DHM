@@ -198,7 +198,7 @@ a:hover{
 	display: inline-block;
 	text-align: center;
 	overflow: hidden;
-	background: white;
+	/* background: white; */
 	font-size: 18px;
 }
 .nolist-dot{
@@ -684,6 +684,19 @@ a:hover{
    line-height: 16px;
 }
 
+.btn-u{
+	border: 0;
+	color: #fff;
+	font-size: 14px;
+	cursor: pointer;
+	font-weight: 400;
+	padding: 6px 13px;
+	white-space: nowrap;
+	display: inline-block;
+	text-decoration: none;
+}
+.btn-group{
+	margin-left: 10px;
 
-
+}
 

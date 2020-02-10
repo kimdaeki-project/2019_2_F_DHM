@@ -16,6 +16,8 @@ public interface ScheduleRepository extends JpaRepository<ScheduleVO, Integer> {
 	Map<String, Object> scheduleInfo (@Param("title") String title, @Param("plNum") Integer plNum) throws Exception;
 
 	ScheduleInfoVO findByScNameAndPlNum(String scName, Integer plNum);
+
+	List<ScheduleVO> findByPlNumAndTour(Integer plNum, String title);
 		 
 
 }

@@ -29,7 +29,9 @@ public class PlannerService {
 		
 		return repository.findByIdAndPlNum(memberVO.getId(),plNum);
 	}
+	
 
+	
 	public String plannerTitle(int plNum) throws Exception{
 		return	repository.plannerTitle(plNum);
 	}
@@ -79,6 +81,7 @@ public class PlannerService {
 	}
 	
 	public void plannerDel(String id, int plNum) throws Exception{
+		
 		List<PlannerVO> delList =repository.findByIdAndPlNum(id, plNum);
 		
 		repository.deleteAll(delList);

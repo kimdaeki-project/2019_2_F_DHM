@@ -27,7 +27,7 @@
                   <div class="swiper-container">
                      <ul class="swiper-wrapper nolist" style=" clear: both; overflow: hidden;">
                         <c:forEach items="${list}" var="vo" varStatus="i">
-                           <li class="swiper-slide mp-li" style="height: 300px; overflow: hidden; float: left;">
+                           <li class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
                            <a href="../schedule/schedulePage?plNum=${vo.plNum}">
                               <div class="mp-li-wrap">
                                  <div class="mp-card">

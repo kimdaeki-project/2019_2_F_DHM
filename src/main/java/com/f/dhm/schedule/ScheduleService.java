@@ -22,11 +22,16 @@ public class ScheduleService {
 		return repository.findByPlNum(plNum);
 	}
 
-
+	public List<ScheduleVO> scheduleCheck(Integer plNum, String title) throws Exception{
+		return repository.findByPlNumAndTour(plNum, title);
+	}
 	//스케줄 추가
-	public void scheduleInsert(ScheduleVO scheduleVO) throws Exception{
-		
+	public boolean scheduleInsert(ScheduleVO scheduleVO) throws Exception{
+		boolean check = false;
 		repository.save(scheduleVO);
+		check = repository.existsById(scheduleVO.getScNum());
+		
+		return check;
 	}
 	
 	public Map<String, Object> scheduleInfo(String tour, Integer plNum) throws Exception{

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.f.dhm.Member.MemberVO;
@@ -33,12 +34,15 @@ public class ScheduleController {
 	@Autowired
 	private WishService wishService;
 
-	@GetMapping("tour")
-	public void addSC(String title, String firstimage) throws Exception {
+	@GetMapping("scDelete")
+	public void scDelete(Integer plNum, HttpSession session) throws Exception{
+		MemberVO memberVO=(MemberVO) session.getAttribute("member");
+		System.out.println("밥바바보바보바ㅗ");
 
-		System.out.println(title);
+		plannerService.plannerDel(memberVO.getId(), plNum);
 
 	}
+	
 
 	@GetMapping("type")
 	public void type(String type, int plNum, HttpSession session) throws Exception {
@@ -69,23 +73,41 @@ public class ScheduleController {
 	
 
 	@GetMapping("addSchedule")
-	public ModelAndView plannerPage(String scName, Integer cost, Integer start, String title, Integer plNum,
+	@ResponseBody
+	public Integer plannerPage(String scName, Integer cost, Integer start, String title, Integer plNum,
 			Integer arCode) throws Exception {
-		System.out.println(scName);
-		// int plNum = plannerService.getPlnum();
+		
+		boolean check=false;
+		int flag=0;
+		String msg="";
 		ModelAndView mv = new ModelAndView();
-		// System.out.println("pldfsdfsdf:"+plNum);
-		ScheduleVO scheduleVO = new ScheduleVO();
-		scheduleVO.setPlNum(plNum);
-		scheduleVO.setScName(scName);
-		scheduleVO.setCost(cost);
-		scheduleVO.setStart(start);
-		scheduleVO.setTour(title);
-		scheduleVO.setArCode(arCode);
-		scheduleService.scheduleInsert(scheduleVO);
-		mv.setViewName("/schedule/schedulePage2");
+		List<ScheduleVO> ar = scheduleService.scheduleCheck(plNum, title);
+		System.out.println("sinsnsndklfsdlkjfkls    :    "+ar.size());
+	
+			
+			if(ar.size()==0) {
+	
+				ScheduleVO scheduleVO = new ScheduleVO();
+				scheduleVO.setPlNum(plNum);
+				scheduleVO.setScName(scName);
+				scheduleVO.setCost(cost);
+				scheduleVO.setStart(start);
+				scheduleVO.setTour(title);
+				scheduleVO.setArCode(arCode);
+				
+				check = scheduleService.scheduleInsert(scheduleVO);
+			
+				if(check==true) {
+					flag=1;
+				}
+			}
+	
+			
+			mv.setViewName("schedulePage2");
+		
+		
 
-		return mv;
+		return flag;
 	}
 
 	public void sc() throws Exception{

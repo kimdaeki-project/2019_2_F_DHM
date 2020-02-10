@@ -38,10 +38,16 @@
 		<div class="main-container">
 			
 			<div >
-				<h3 class="contents-title">${plannerTitle}</h3>
+				<h3 class="contents-title" style="float: left;">${plannerTitle}</h3>
+				<div class="btn-group">
+					<button type="button" class="btn-u btn-u-dark" onclick="scDelete(${plNum});"  style="border-radius: 25px; background: gray;" data-toggle="dropdown" aria-expanded="false">
+						<span class="fa fa-cog" >삭제</span>
+						<span class="fa fa-angle-down"> </span>
+					</button>
+				</div>
 				<input type="hidden" id="plNum" value="${plNum}" name ="plNum">
 			</div>
-			<div class="main-contents">
+			<div class="main-contents" style="clear: both;">
 				<div class="map-wrapper">
 					<div class="map" id="map">
 						<div class="map-peopleType">
@@ -715,6 +721,32 @@
 </div>
 	<script type="text/javascript">
 
+		function scDelete(plNum){
+			
+					if (confirm("정말 삭제하시겠습니까?")) {
+						$.ajax({
+							type: "GET",
+							url:"./scDelete",
+							data:{
+								plNum:plNum
+							},
+							success: function(result){
+								alert("삭제되었습니다.");
+								
+							},
+							error: function(){
+								alert("삭제되었습니다.");
+							},
+							complete: function(){
+								location.href="../planner/myPlanner";
+							}
+						});
+						} else {
+						 
+						}
+
+				
+		}
 	
 		var scname; 
 		var scNum;
@@ -778,9 +810,13 @@
 					arCode:arCode
 				},
 				success: function(result){
-					alert("일정이 추가되었습니다.");
-				
-					
+					if(result==1){
+						alert("일정이 추가되었습니다.");
+						location.reload();
+					}else{
+						alert("이미 추가 한 일정입니다.");
+						location.reload();
+					}
 				},
 				error: function(){
 					alert("fail");
