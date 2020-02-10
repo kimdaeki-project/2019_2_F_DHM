@@ -73,9 +73,13 @@ class QnaRepositoryTest {
 	}
 	
 	@Test
-	public void deleteAll()throws Exception{
-		qnaRepository.deleteAll();
-		qnaRepository.flush();
+	@Rollback(false)
+	public void searchWidth() throws Exception{
+		Page<QnaVO> qnaQage=qnaRepository.findByTitleContains("9", PageRequest.of(0, 10));
+		System.out.println("@@@@@@@@@@@@@@@@  test  @@@@@@@@@@@@@@@@");
+		qnaQage.forEach(System.out::println);		
+		
+		assertNotNull(qnaQage);
 	}
 	
 	
