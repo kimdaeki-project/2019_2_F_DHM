@@ -25,7 +25,7 @@
 			</div>
 		</div>
 		<div class="marginTop50px">
-			<h3>다른 여행자들의 플래너 855,014개</h3>
+			<h3>다른 여행자들의 플래너 855,014asdf개</h3>
 <!-- 			 <div class="swiper-container"> -->
 <!--     <div class="swiper-wrapper"> -->
 <!--       <div class="swiper-slide">Slide 1</div> -->
