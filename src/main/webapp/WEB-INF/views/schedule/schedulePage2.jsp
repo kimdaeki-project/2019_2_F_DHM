@@ -303,7 +303,7 @@
 					                        <li class="swiper-slide schedule-li" style="height: 560px;">
 					                           <div class="schedule-top">
 					                              <div class="schedule-top2">
-					                                 <a data-toggle="modal" class="md2" data-target="#mySc">
+					                                 <a data-toggle="modal" data-target="#mySc">
 					                                    <div class="schedule-map">
 					                                       <img src="https://www.stubbyplanner.com/img_v15/icon_map.png">
 					                                       <div class="schedule-map-title">지도</div>
@@ -321,13 +321,22 @@
 					                           <div class="schedule-body">
 					                              <div class="schedule-body-row">0~9
 					                                 <div class="schedule-body-content">
-					                                  <a data-toggle="modal" class="md2" data-target="#mySc">
-						                                 <c:forEach items="${schedule}" var="sc">
+						                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 8 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
+																<c:if test="${sc.start eq 8 && sc.arCode eq vo.arCode}">
+																	
+					                                			  <a class="md2">
+																		<div>${sc.scName}</div>
+																		<div class="md2-child" style="display: none;">
+																			<div>일정명   : ${sc.scName}</div>
+																			<div>일정	   : ${sc.tour}</div>
+																			<div>예상가격 : ${sc.cost}</div>
+																		</div>
+																 </a>
+																</c:if>
 															</div>
 														 </c:forEach>
-													 </a>
+													
 					                                 </div>
 					                              </div>
 					                              <div class="schedule-body-row">9
@@ -339,99 +348,275 @@
 					                              </div>
 					                              <div class="schedule-body-row">10
 					                                 <div class="schedule-body-content">
-					                                  <a data-toggle="modal" class="md" data-target="#mySc">
-					                                  <c:forEach items="${schedule}" var="sc">
-														<p><c:if test="${sc.start eq 10 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
-														<input type="hidden" class="cost" title="${sc.cost}">
-														<input type="hidden" class="start" title="${sc.start}">
-														<input type="hidden" class="scname" title="${sc.scName}">
-														
-													  </c:forEach>
-													  </a>
+						                                  <c:forEach items="${scheduleInfo}" var="sc">
+															<div title="${sc.scName}">
+																<c:if test="${sc.start eq 10 && sc.arCode eq vo.arCode}">
+					                                			  <a class="md2">
+																		<div>${sc.scName}</div>
+																		<div class="md2-child" style="display: none;">
+																			<div>일정명   : ${sc.scName}</div>
+																			<div>일정	   : ${sc.tour}</div>
+																			<div>예상가격 : ${sc.cost}</div>
+																			<div>주소 	: ${sc.addr1}</div>
+																			<div>일정시간	: ${sc.start} 시</div>
+																			<div><img src="${sc.firstimage}"></div>
+																		</div>
+																 </a>
+																</c:if>
+															</div>
+														 </c:forEach>
 					                                 </div>
 					                              </div>
 					                              <div class="schedule-body-row">11
 					                                 <div class="schedule-body-content">
-					                                  <c:forEach items="${schedule}" var="sc">
-														<p><c:if test="${sc.start eq 11 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
-													 </c:forEach>
+					                                 <c:forEach items="${scheduleInfo}" var="sc">
+															<div title="${sc.scName}">
+																<c:if test="${sc.start eq 11 && sc.arCode eq vo.arCode}">
+					                                			  <a class="md2">
+																		<div>${sc.scName}</div>
+																		<div class="md2-child" style="display: none;">
+																			<div>일정명   : ${sc.scName}</div>
+																			<div>일정	   : ${sc.tour}</div>
+																			<div>예상가격 : ${sc.cost}</div>
+																			<div>주소 	: ${sc.addr1}</div>
+																			<div>일정시간	: ${sc.start} 시</div>
+																			<div><img src="${sc.firstimage}"></div>
+																		</div>
+																 </a>
+																</c:if>
+															</div>
+														 </c:forEach>
 					                                 </div>
 					                              </div>
 					                              <div class="schedule-body-row">12
 					                                 <div class="schedule-body-content">
-					                                  <c:forEach items="${schedule}" var="sc">
-														<p><c:if test="${sc.start eq 12 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
-													 </c:forEach>
+					                                  <c:forEach items="${scheduleInfo}" var="sc">
+															<div title="${sc.scName}">
+																<c:if test="${sc.start eq 12 && sc.arCode eq vo.arCode}">
+					                                			  <a class="md2">
+																		<div>${sc.scName}</div>
+																		<div class="md2-child" style="display: none;">
+																			<div>일정명   : ${sc.scName}</div>
+																			<div>일정	   : ${sc.tour}</div>
+																			<div>예상가격 : ${sc.cost}</div>
+																			<div>주소 	: ${sc.addr1}</div>
+																			<div>일정시간	: ${sc.start} 시</div>
+																			<div><img src="${sc.firstimage}"></div>
+																		</div>
+																 </a>
+																</c:if>
+															</div>
+														 </c:forEach>
 					                                 </div>
 					                              </div>
 					                              <div class="schedule-body-row">13
 					                                 <div class="schedule-body-content">
-					                                  <c:forEach items="${schedule}" var="sc">
-														<p><c:if test="${sc.start eq 13 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
-													 </c:forEach>
+					                                 <c:forEach items="${scheduleInfo}" var="sc">
+															<div title="${sc.scName}">
+																<c:if test="${sc.start eq 13 && sc.arCode eq vo.arCode}">
+					                                			  <a class="md2">
+																		<div>${sc.scName}</div>
+																		<div class="md2-child" style="display: none;">
+																			<div>일정명   : ${sc.scName}</div>
+																			<div>일정	   : ${sc.tour}</div>
+																			<div>예상가격 : ${sc.cost}</div>
+																			<div>주소 	: ${sc.addr1}</div>
+																			<div>일정시간	: ${sc.start} 시</div>
+																			<div><img src="${sc.firstimage}"></div>
+																		</div>
+																 </a>
+																</c:if>
+															</div>
+														 </c:forEach>
 					                                 </div>
 					                              </div>
 					                              <div class="schedule-body-row">14
 					                                 <div class="schedule-body-content">
-					                                  <c:forEach items="${schedule}" var="sc">
-														<p><c:if test="${sc.start eq 14 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
-													 </c:forEach>
+														<c:forEach items="${scheduleInfo}" var="sc">
+															<div title="${sc.scName}">
+																<c:if test="${sc.start eq 14 && sc.arCode eq vo.arCode}">
+					                                			  <a class="md2">
+																		<div>${sc.scName}</div>
+																		<div class="md2-child" style="display: none;">
+																			<div>일정명   : ${sc.scName}</div>
+																			<div>일정	   : ${sc.tour}</div>
+																			<div>예상가격 : ${sc.cost}</div>
+																			<div>주소 	: ${sc.addr1}</div>
+																			<div>일정시간	: ${sc.start} 시</div>
+																			<div><img src="${sc.firstimage}"></div>
+																		</div>
+																 </a>
+																</c:if>
+															</div>
+														 </c:forEach>
 					                                 </div>
 					                              </div>
 					                              <div class="schedule-body-row">15
 					                                 <div class="schedule-body-content">
-					                                  <c:forEach items="${schedule}" var="sc">
-														<p><c:if test="${sc.start eq 15 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
-													 </c:forEach>
+					                                 <c:forEach items="${scheduleInfo}" var="sc">
+															<div title="${sc.scName}">
+																<c:if test="${sc.start eq 15 && sc.arCode eq vo.arCode}">
+					                                			  <a class="md2">
+																		<div>${sc.scName}</div>
+																		<div class="md2-child" style="display: none;">
+																			<div>일정명   : ${sc.scName}</div>
+																			<div>일정	   : ${sc.tour}</div>
+																			<div>예상가격 : ${sc.cost}</div>
+																			<div>주소 	: ${sc.addr1}</div>
+																			<div>일정시간	: ${sc.start} 시</div>
+																			<div><img src="${sc.firstimage}"></div>
+																		</div>
+																 </a>
+																</c:if>
+															</div>
+														 </c:forEach>
 					                                 </div>
 					                              </div>
 					                              <div class="schedule-body-row">16
 					                                 <div class="schedule-body-content">
-					                                  <c:forEach items="${schedule}" var="sc">
-														<p><c:if test="${sc.start eq 16 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
-													 </c:forEach>
+					                                 <c:forEach items="${scheduleInfo}" var="sc">
+															<div title="${sc.scName}">
+																<c:if test="${sc.start eq 16 && sc.arCode eq vo.arCode}">
+					                                			  <a class="md2">
+																		<div>${sc.scName}</div>
+																		<div class="md2-child" style="display: none;">
+																			<div>일정명   : ${sc.scName}</div>
+																			<div>일정	   : ${sc.tour}</div>
+																			<div>예상가격 : ${sc.cost}</div>
+																			<div>주소 	: ${sc.addr1}</div>
+																			<div>일정시간	: ${sc.start} 시</div>
+																			<div><img src="${sc.firstimage}"></div>
+																		</div>
+																 </a>
+																</c:if>
+															</div>
+														 </c:forEach>
 					                                 </div>
 					                              </div>
 					                              <div class="schedule-body-row">17
 					                                 <div class="schedule-body-content">
-					                                  <c:forEach items="${schedule}" var="sc">
-														<p><c:if test="${sc.start eq 17 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
-													 </c:forEach>
+					                                 <c:forEach items="${scheduleInfo}" var="sc">
+															<div title="${sc.scName}">
+																<c:if test="${sc.start eq 17 && sc.arCode eq vo.arCode}">
+					                                			  <a class="md2">
+																		<div>${sc.scName}</div>
+																		<div class="md2-child" style="display: none;">
+																			<div>일정명   : ${sc.scName}</div>
+																			<div>일정	   : ${sc.tour}</div>
+																			<div>예상가격 : ${sc.cost}</div>
+																			<div>주소 	: ${sc.addr1}</div>
+																			<div>일정시간	: ${sc.start} 시</div>
+																			<div><img src="${sc.firstimage}"></div>
+																		</div>
+																 </a>
+																</c:if>
+															</div>
+														 </c:forEach>
 					                                 </div>
 					                              </div>
 					                              <div class="schedule-body-row">18
 					                                 <div class="schedule-body-content">
-					                                  <c:forEach items="${schedule}" var="sc">
-														<p><c:if test="${sc.start eq 18 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
-													 </c:forEach>
+					                                 <c:forEach items="${scheduleInfo}" var="sc">
+															<div title="${sc.scName}">
+																<c:if test="${sc.start eq 18 && sc.arCode eq vo.arCode}">
+					                                			  <a class="md2">
+																		<div>${sc.scName}</div>
+																		<div class="md2-child" style="display: none;">
+																			<div>일정명   : ${sc.scName}</div>
+																			<div>일정	   : ${sc.tour}</div>
+																			<div>예상가격 : ${sc.cost}</div>
+																			<div>주소 	: ${sc.addr1}</div>
+																			<div>일정시간	: ${sc.start} 시</div>
+																			<div><img src="${sc.firstimage}"></div>
+																		</div>
+																 </a>
+																</c:if>
+															</div>
+														 </c:forEach>
 					                                 </div>
 					                              </div>
 					                              <div class="schedule-body-row">19
 					                                 <div class="schedule-body-content">
-					                                  <c:forEach items="${schedule}" var="sc">
-														<p><c:if test="${sc.start eq 19 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
-													 </c:forEach>
+					                                  <c:forEach items="${scheduleInfo}" var="sc">
+															<div title="${sc.scName}">
+																<c:if test="${sc.start eq 19 && sc.arCode eq vo.arCode}">
+					                                			  <a class="md2">
+																		<div>${sc.scName}</div>
+																		<div class="md2-child" style="display: none;">
+																			<div>일정명   : ${sc.scName}</div>
+																			<div>일정	   : ${sc.tour}</div>
+																			<div>예상가격 : ${sc.cost}</div>
+																			<div>주소 	: ${sc.addr1}</div>
+																			<div>일정시간	: ${sc.start} 시</div>
+																			<div><img src="${sc.firstimage}"></div>
+																		</div>
+																 </a>
+																</c:if>
+															</div>
+														 </c:forEach>
 					                                 </div>
 					                              </div>
 					                              <div class="schedule-body-row">20
 					                                 <div class="schedule-body-content">
-					                                  <c:forEach items="${schedule}" var="sc">
-														<p><c:if test="${sc.start eq 20 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
-													 </c:forEach>
+					                                  <c:forEach items="${scheduleInfo}" var="sc">
+															<div title="${sc.scName}">
+																<c:if test="${sc.start eq 20 && sc.arCode eq vo.arCode}">
+					                                			  <a class="md2">
+																		<div>${sc.scName}</div>
+																		<div class="md2-child" style="display: none;">
+																			<div>일정명   : ${sc.scName}</div>
+																			<div>일정	   : ${sc.tour}</div>
+																			<div>예상가격 : ${sc.cost}</div>
+																			<div>주소 	: ${sc.addr1}</div>
+																			<div>일정시간	: ${sc.start} 시</div>
+																			<div><img src="${sc.firstimage}"></div>
+																		</div>
+																 </a>
+																</c:if>
+															</div>
+														 </c:forEach>
 					                                 </div>
 					                              </div>
 					                              <div class="schedule-body-row">20-24
 					                                 <div class="schedule-body-content">
-					                                  <c:forEach items="${schedule}" var="sc">
-														<p><c:if test="${sc.start eq 21 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
-													 </c:forEach>
+					                                  <c:forEach items="${scheduleInfo}" var="sc">
+															<div title="${sc.scName}">
+																<c:if test="${sc.start eq 21 && sc.arCode eq vo.arCode}">
+					                                			  <a class="md2">
+																		<div>${sc.scName}</div>
+																		<div class="md2-child" style="display: none;">
+																			<div>일정명   : ${sc.scName}</div>
+																			<div>일정	   : ${sc.tour}</div>
+																			<div>예상가격 : ${sc.cost}</div>
+																			<div>주소 	: ${sc.addr1}</div>
+																			<div>일정시간	: ${sc.start} 시</div>
+																			<div><img src="${sc.firstimage}"></div>
+																		</div>
+																 </a>
+																</c:if>
+															</div>
+														 </c:forEach>
 					                                 </div>
 					                              </div>
 					                              <div class="schedule-body-row">숙소
 					                                 <div class="schedule-body-content">
-					                                  <c:forEach items="${schedule}" var="sc">
-														<p><c:if test="${sc.start eq 8 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
-													 </c:forEach>
+					                                  <c:forEach items="${scheduleInfo}" var="sc">
+															<div title="${sc.scName}">
+																<c:if test="${sc.start eq 22 && sc.arCode eq vo.arCode}">
+					                                			  <a class="md2">
+																		<div>${sc.scName}</div>
+																		<div class="md2-child" style="display: none;">
+																			<div>일정명   : ${sc.scName}</div>
+																			<div>일정	   : ${sc.tour}</div>
+																			<div>예상가격 : ${sc.cost}</div>
+																			<div>주소 	: ${sc.addr1}</div>
+																			<div>일정시간	: ${sc.start} 시</div>
+																			<div><img src="${sc.firstimage}"></div>
+																		</div>
+																 </a>
+																</c:if>
+															</div>
+														 </c:forEach>
 					                                 </div>
 					                              </div>
 					                           </div>
@@ -503,23 +688,19 @@
 	</div>
 	
 	<!-- 스케줄 모달 -->
-	<div id="mySc" class="modal fade" role="dialog">
+	<div id="mySc" class="mySc" class="modal fade" role="dialog" style="display: none;">
   		<div class="modal-dialog">
   		<div class="m-wrapper"></div>
   			<div class="m-box row">
-				<button type="button" class="close" data-dismiss="modal">X</button>
-	  			<div>
+					<div class="close" onclick="hide();">X</div>
+	  			<div class="md2-child2">
 	  				
-	  				<c:forEach items="${scInfo}" var="vo">
-	  					<%-- <c:if test=""> --%>
-		  					일정명 : ${vo.scName}<br>
-		  					예상비용 : ${vo.cost}<br>
-		  					주소 : ${vo.addr1 }<br>
-		  					관광명: ${vo.title }<br>
-		  					시간 : ${vo.start }
-	  					<%-- </c:if> --%>
-	  				</c:forEach>
-	  				
+		  			<div>일정명 : ${scInfo.scName}</div>
+		  			<div>예상비용 : ${scInfo.cost}</div>
+		  			<div>주소 : ${scInfo.addr1 }</div>
+		  			<div>관광명: ${scInfo.title }</div>
+		  			<div>시간 : ${scInfo.start }</div>
+	  			
 	  			</div>
   			</div>
   		</div>
@@ -534,16 +715,27 @@
 </div>
 	<script type="text/javascript">
 
+	
 		var scname; 
 		var scNum;
 
+		$(".close").click(function(){	
+			$(".mySc").hide();	
+		});
+		
 		$(".md2").click(
 			function(){
-			
-				scName = $(this).children("div").val();
-				alert(scName);
+				
+				$(".mySc").css("display","inline");
+				var data;
+				data = $(this).children(".md2-child").html(); 
+				data.trim();
+			 	$(".md2-child2").html(data);
+			 	
 			}
-		);
+		); 
+		
+
 		
 		var tt;
 		var title2;
@@ -572,8 +764,7 @@
 			var arCode = tt;
 			var title = title2;
 			var a =$("#a").val(arCode);
-			
-			alert(a);
+		
 			
 			$.ajax({
 				type: "GET",
@@ -588,6 +779,8 @@
 				},
 				success: function(result){
 					alert("일정이 추가되었습니다.");
+				
+					
 				},
 				error: function(){
 					alert("fail");

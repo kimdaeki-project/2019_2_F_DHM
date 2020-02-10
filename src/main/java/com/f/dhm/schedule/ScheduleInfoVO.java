@@ -15,8 +15,12 @@ public class ScheduleInfoVO {
 	private String tour; //관광지이름
 	private Integer cost;
 	private Integer start;
+	private Integer arCode;
 	//wishVO
 	private String title;
 	private String firstimage;
 	private String addr1;
 }
+
+
+

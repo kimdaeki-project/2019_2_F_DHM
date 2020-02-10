@@ -30,8 +30,11 @@ public class ScheduleService {
 	}
 	
 	public Map<String, Object> scheduleInfo(String tour, Integer plNum) throws Exception{
-		System.out.println("t  : "+tour);
-		System.out.println("p  : "+plNum);
+
 		return repository.scheduleInfo(tour, plNum);
+	}
+
+	public ScheduleInfoVO mySc(String scName, Integer plNum) throws Exception{
+		return repository.findByScNameAndPlNum(scName,plNum);
 	}
 }

@@ -44,6 +44,29 @@ public class ScheduleController {
 	public void type(String type, int plNum, HttpSession session) throws Exception {
 		plannerService.typeUpdate(type, session, plNum);
 	}
+	
+	@GetMapping("mySc")
+	public ModelAndView mySc(String scName,Integer plNum,ScheduleInfoVO scheduleInfoVO) throws Exception{
+		 ModelAndView mv = new ModelAndView();
+		for(int i=0; i<scheduleInfoVO.getScName().length() ;i++) {
+			String sn = scheduleInfoVO.getScName();
+			if(scName==sn) {
+				
+				scheduleInfoVO.getScName();
+				scheduleInfoVO.getAddr1();
+				scheduleInfoVO.getFirstimage();
+				scheduleInfoVO.getCost();
+		//		scheduleInfoVO.getStart();
+				scheduleInfoVO.getTitle();
+				 mv.addObject("scInfo",scheduleInfoVO); 
+			}
+		}
+		
+		
+		mv.setViewName("schedule/schedulePage2");
+		return mv;
+	}
+	
 
 	@GetMapping("addSchedule")
 	public ModelAndView plannerPage(String scName, Integer cost, Integer start, String title, Integer plNum,
@@ -70,7 +93,7 @@ public class ScheduleController {
 	}
 	
 	@GetMapping("schedulePage")
-	public ModelAndView plannerPage(PlannerVO plannerVO, ScheduleVO scheduleVO, HttpSession session, int plNum)
+	public ModelAndView plannerPage(PlannerVO plannerVO, ScheduleVO scheduleVO, HttpSession session, int plNum, String scName)
 			throws Exception {
 		ModelAndView mv = new ModelAndView();
 
@@ -81,23 +104,29 @@ public class ScheduleController {
 		List<WishVO> wishlist = wishService.myWish(session, plNum);
 
 		List<ScheduleInfoVO> scheduleInfoVOs = new ArrayList<ScheduleInfoVO>();
+		ScheduleInfoVO scheduleInfoVO =null;
 		
 		 for(int i=0; i<scheduleList.size();i++) {
 			 
 			 String tour = scheduleList.get(i).getTour();
+			 System.out.println("tour    :    " +tour);
 			 Map<String, Object> scInfo = scheduleService.scheduleInfo(tour, plNum);
-			 ScheduleInfoVO scheduleInfoVO = new ScheduleInfoVO();
+			 scheduleInfoVO = new ScheduleInfoVO();
 			 scheduleInfoVO.setTitle((String)scInfo.get("title"));
 			 scheduleInfoVO.setAddr1((String)scInfo.get("addr1"));
 			 scheduleInfoVO.setCost((Integer)scInfo.get("cost"));
 			 scheduleInfoVO.setFirstimage((String)scInfo.get("firstimage"));
 			 scheduleInfoVO.setStart((Integer)scInfo.get("start"));
 			 scheduleInfoVO.setTour((String)scInfo.get("tour"));
+			 scheduleInfoVO.setArCode((Integer)scInfo.get("arCode"));
 			 scheduleInfoVO.setScName((String)scInfo.get("scName"));
 			 scheduleInfoVOs.add(scheduleInfoVO);
-		 
+			 System.out.println("arCodeTest    :   "+scheduleInfoVO.getArCode());
 		 }
-		 mv.addObject("scInfo",scheduleInfoVOs); 
+		
+		 mv.addObject("scheduleInfo", scheduleInfoVOs);
+		 
+		
 
 		String plannerTitle = plannerService.plannerTitle(plNum);
 		String plannerType = plannerService.plannerType(plNum);

@@ -629,14 +629,15 @@ a:hover{
 .m-box{
 	position:fixed;
 	top:0px;
-	left:0px;
+	left:auto;
 	z-index:1999;
-	width:70%;
+	width:550px;
 	padding-top:10px;
 	text-align:center;
 	padding:20px;
 	background-color: white;
 	border-radius: 5px;
+	
 }
 
 .full-right{
