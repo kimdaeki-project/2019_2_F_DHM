@@ -38,7 +38,6 @@
 			</article>
 			<div class="board_select_row"><br>
 				<input type="button" class="button2" value="댓글쓰기" id="comment">
-				<input type="button" class="button" value="update" id="update">
 				<input type="button" class="button" value="delete" id="delete">
 			</div>	
 		</div>
@@ -53,10 +52,6 @@
 
 	$('#delete').click(function(){
 		location.href="qnaDelete?num=${qnaVO.num}";
-		});
-
-	$('#update').click(function(){
-		location.href="qnaUpdate?num=${qnaVO.num}";
 		});
 	</script>
 </body>
