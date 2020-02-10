@@ -649,6 +649,11 @@ th{
 	border-bottom-left-radius: 5px;
 	border-top-right-radius: 5px;
 	color: #606060;
+	width: 774px;
+	white-space: nowrap; 
+	overflow: auto; 
+	text-overflow: clip;
+
 }
 .x{
 	color: #999;

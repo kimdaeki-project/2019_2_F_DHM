@@ -1,5 +1,6 @@
 package com.f.dhm.notice;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +36,7 @@ public class NoticeController {
 	
 	@PostMapping("noticeUpdate")
 	public String noticeUpdate(NoticeVO noticeVO, List<MultipartFile> files)throws Exception{
+
 		files.remove(0);
 		System.out.println("7777777777777777777777777");
 		System.out.println("7777777777777777777777777");

@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -36,19 +37,75 @@ public class PlannerController {
 	@Autowired
 	private WishService wishService;
 	
+	@GetMapping("reviewDelete")
+	public ModelAndView reviewDelete(int cNum)throws Exception{
+		ModelAndView mv=new ModelAndView();
+		boolean exist=service.reviewDelete(cNum);		//must be false
+		String msg="삭제 실패";
+		String path="reviewPlanner";
+		if(!exist) {
+			//delete success
+			msg="삭제 성공";
+		}
+		mv.setViewName("common/result");
+		mv.addObject("message", msg);
+		mv.addObject("path", path);
+		return mv;
+	}
+	
+	@GetMapping("reviewPlanner")
+	public void reviewPlanner(Model model)throws Exception{
+		int plNum=52;
+		List<PlannerCommentVO> commentVOs=service.getCommentList(plNum);	
+		
+		
+		////////////////////////////////////////////////////////////////////////////
+//		 for(int i=0; i<scheduleList.size();i++) {
+//	          
+//	          String tour = scheduleList.get(i).getTour();
+//	          System.out.println("tour    :    " +tour);
+//	          Map<String, Object> scInfo = scheduleService.scheduleInfo(tour, plNum);
+//	          scheduleInfoVO = new ScheduleInfoVO();
+//	          scheduleInfoVO.setTitle((String)scInfo.get("title"));
+//	          scheduleInfoVO.setAddr1((String)scInfo.get("addr1"));
+//	          scheduleInfoVO.setCost((Integer)scInfo.get("cost"));
+//	          scheduleInfoVO.setFirstimage((String)scInfo.get("firstimage"));
+//	          scheduleInfoVO.setStart((Integer)scInfo.get("start"));
+//	          scheduleInfoVO.setTour((String)scInfo.get("tour"));
+//	          scheduleInfoVO.setArCode((Integer)scInfo.get("arCode"));
+//	          scheduleInfoVO.setScName((String)scInfo.get("scName"));
+//	          scheduleInfoVOs.add(scheduleInfoVO);
+//	          System.out.println("arCodeTest    :   "+scheduleInfoVO.getArCode());
+//	       }
+//	      
+//	       mv.addObject("scheduleInfo", scheduleInfoVOs);
+		////////////////////////////////////////////////////////////////////////////
+		model.addAttribute("commentVOs", commentVOs);
+	} 
+	
 	@GetMapping("reviewUpdate")
 	public String reviewUpdate(int cNum,Model model)throws Exception{
 		System.out.println("////////////////////////////////////////////////////////////////");
 		System.out.println("cnum : "+cNum);
-		PlannerCommentVO2 commentVO=service.getComment(cNum);
+		PlannerCommentVO commentVO=service.getComment(cNum);
 		model.addAttribute("commentVO", commentVO);
 		return "planner/reviewUpdate";
 	}
 	
 	@PostMapping("reviewUpdate")
-	public void reviewUpdate(PlannerCommentVO2 plannerCommentVO) throws Exception{
+	public ModelAndView reviewUpdate(PlannerCommentVO plannerCommentVO) throws Exception{
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		System.out.println(plannerCommentVO.getCNum());
+		System.out.println(plannerCommentVO.getId());
+		System.out.println(plannerCommentVO.getPlNum());
+		service.pcomment(plannerCommentVO);
+		ModelAndView mv =new ModelAndView();
+		String path="./reviewPlanner";
+		String message="수정 되었습니다.";
+		mv.setViewName("common/result");
+		mv.addObject("path", path);
+		mv.addObject("message", message);
+		return mv;
 	}
 	
 	@GetMapping("scheduleComment")
@@ -59,7 +116,7 @@ public class PlannerController {
 	}
 	
 	@PostMapping("scheduleComment")
-	public ModelAndView scheduleComment(@ModelAttribute("plannerCommentVO") PlannerCommentVO2	 plannerCommentVO, int plNum, HttpSession session)throws Exception{
+	public ModelAndView scheduleComment(@ModelAttribute("plannerCommentVO") PlannerCommentVO	 plannerCommentVO, int plNum, HttpSession session)throws Exception{
 		ModelAndView mv=new ModelAndView();
 		String path="../member/memberLogin";
 		String message="로그인이 필요합니다.";
@@ -82,6 +139,10 @@ public class PlannerController {
 		return mv;
 		
 	}
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	@GetMapping("makePlanner")
 	public ModelAndView makePlanner() throws Exception{
@@ -309,9 +370,6 @@ public class PlannerController {
 	}
 	
 
-	@GetMapping("reviewPlanner")
-	public void reviewPlanner()throws Exception{
-		
-	}
+	
 
 }

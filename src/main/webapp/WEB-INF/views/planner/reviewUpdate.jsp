@@ -14,6 +14,9 @@
 		<h1>review update</h1>
 		
 			<form action="reviewUpdate" method="post">
+			<input type="text" name="CNum" value="${commentVO.CNum }" class="displayNone">
+			<input type="text" name="plNum" value="${commentVO.plNum }" class="displayNone">
+			<input type="text" name="id" value="${commentVO.id }" class="displayNone">
 				<div class="reviewBox">				
 						<div class="reviewMemberImg">
 							<!-- /////////////////////////////////////////////////////////////////////// -->
@@ -28,6 +31,7 @@
 							<textarea class="contents" name="contents">${commentVO.contents }</textarea>
 						</div>
 					</div>
+					
 		<div class="reviewBox">	<button class="button2">submit</button></div>
 			</form>
 		

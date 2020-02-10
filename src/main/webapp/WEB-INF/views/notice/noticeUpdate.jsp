@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,6 +43,9 @@
 				</c:if>
 			<form:input path="num" class="displayNone"/>
 			<form:input path="id" class="displayNone"/>
+			<form:input path="regDate" class="displayNone"/>
+<%-- 			<fmt:formatDate value="${noticeVO.regDate }" pattern="yyyy-MM-dd hh:mm:ss" var="regd"/> --%>
+<%-- 			<input type="date" value="${regd }"  class="displayNone"> --%>
 			<div class="fileDiv">
 				<div>
 						

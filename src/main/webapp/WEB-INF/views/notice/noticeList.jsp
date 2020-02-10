@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,9 +25,7 @@
 		</div>
 		</form>
 		<!-- search -->
-		<div class="section">
-
-			
+		<div class="section">			
 			<c:set var="now" value="<%=new Date() %>"/>
 			<fmt:formatDate value="${now}"  type="date" pattern="yyyy-MM-dd" var="nowFormatDate"/>
 			<fmt:formatDate value="${now}"  type="date" pattern="HHmm" var="nowFormatTime"/>
@@ -42,13 +41,14 @@
 					<tr>
 						<td>${list.num }</td>
 						<td class="board_title">
-							<a href="./noticeSelect?num=${list.num}">${list.title }</a>
+							<a href="./noticeSelect?num=${list.num}">${list.title } </a>
 						</td>
 						<td>${list.id }</td>
 						<td>
 							<%-- ${list.regDate} --%>
 							<fmt:formatDate value="${list.regDate }" type="date" pattern="yyyy-MM-dd" var="regdFormatDate"/>	
 							<fmt:formatDate value="${list.regDate }" type="date" pattern="HHmm" var="regdFormatTime"/>	
+							
 							<c:if test="${regdFormatDate eq nowFormatDate }">
 								<c:if test="${nowFormatTime-regdFormatTime lt 60}">
 									<c:if test="${nowFormatTime-regdFormatTime ne 0}">${nowFormatTime - regdFormatTime}분 전</c:if>

@@ -7,22 +7,17 @@
 <head>
 <!-- boot.jsp jquery만 가져옴 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<c:import url="./membercss.jsp"/>
+<link rel="stylesheet"  href="../css/membercss.css">
+<link rel="stylesheet"  href="../css/basic.css">
+ <link rel="stylesheet" href="../package/css/swiper.min.css">
 <meta charset="UTF-8">
 <title>member Login</title>
 </head>
 <body>
 
-	<div class="header">
-		<c:if test= "${not empty member}"> 
-			<a href="${pageContext.request.contextPath}/member/memberJoin"><button>Member Join</button></a>
-			<a href="${pageContext.request.contextPath}/member/memberLogin"><button>Member Login</button></a>
-			<a href="${pageContext.request.contextPath}/member/memberFacebookLogin"><button>Member FacebookJoin</button></a>
-			<button>Logout</button>
-		</c:if>
-	</div>
-
-	<div class="container container1"></div>
+	<c:import url="../template/nav.jsp"/>
+	
+	<div class="container" style="height: 50px;"></div>
 	
 	<div class="mainbox">
 		<div class="loginbox">

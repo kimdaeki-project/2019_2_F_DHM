@@ -3,6 +3,7 @@ package com.f.dhm.planner;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -16,7 +17,7 @@ import org.springframework.test.annotation.Rollback;
 class PlannerCommentTest {
 
 	@Autowired
-	private PlannerCommentRepository2 plannerCommentRepository;
+	private PlannerCommentRepository plannerCommentRepository;
 	@Autowired
 	private PlannerRepository plannerRepository;
 	
@@ -25,7 +26,7 @@ class PlannerCommentTest {
 	@Rollback(false)
 	void test() throws Exception{
 
-		PlannerCommentVO2 plannerCommentVO=new PlannerCommentVO2();
+		PlannerCommentVO plannerCommentVO=new PlannerCommentVO();
 		plannerCommentVO.setContents("Caused by: java.sql.SQLException: Field");
 		plannerCommentVO.setId("iso-8859-1");
 		plannerCommentVO.setPlNum(52);
@@ -34,11 +35,22 @@ class PlannerCommentTest {
 		plannerCommentRepository.flush();
 	}
 	
-	@Test
+	//@Test
 	void test2()throws Exception{
-		List<PlannerCommentVO2> commentVOs=plannerCommentRepository.findByPlNum(52);
+		List<PlannerCommentVO> commentVOs=plannerCommentRepository.findByPlNum(52);
 		commentVOs.forEach(System.out::println);
 	}
 
+	@Test
+	@Rollback(false)
+	void test3()throws Exception{
+		//List<PlannerCommentVO> pCommentVO=plannerCommentRepository.findwithimages();
+		
+		System.out.println("///////////////////////////////////////////////////////////////////////");
+		//pCommentVO.forEach(System.out::println);
+		
+	}
+	
+	
 	
 }
