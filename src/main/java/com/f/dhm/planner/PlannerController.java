@@ -93,7 +93,7 @@ public class PlannerController {
 	
 	//혜현
 	   @GetMapping("myPlanner")
-	   public ModelAndView myPlanner(PlannerVO plannerVO, HttpSession session) throws Exception{
+	   public ModelAndView myPlanner(PlannerVO2 plannerVO, HttpSession session) throws Exception{
 	      ModelAndView mv = new ModelAndView();
 	      
 	      List<Integer> days= new ArrayList<Integer>();
@@ -103,7 +103,7 @@ public class PlannerController {
 	      List<String> ar2 = new ArrayList<String>();
 	      
 	      for (int i = 0; i < ar.size(); i++) {
-	         List<PlannerVO> list = service.plannerSelect(ar.get(i).getPlNum(), session);
+	         List<PlannerVO2> list = service.plannerSelect(ar.get(i).getPlNum(), session);
 	         
 	         String path = "";
 	         for (int j = 0; j < list.size(); j++) {
@@ -149,7 +149,7 @@ public class PlannerController {
 	
 	@GetMapping("ifmOpen")
 	@ResponseBody
-	public ModelAndView ifmOpen(String arCode, HttpSession session, PlannerVO plannerVO) throws Exception{
+	public ModelAndView ifmOpen(String arCode, HttpSession session, PlannerVO2 plannerVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		List<MyPlannerVO> ar = service.plannerList(plannerVO, session);
@@ -194,7 +194,7 @@ public class PlannerController {
 	public int makePlanner(String id, String title, String type, String people, String[] deDate, String[] arDate,
 		      String[] bak, String[] region, String[] transfer, String[] titleA, String[] firstimage, 
 		      String[] addr1, int[] arCode,HttpSession session, int[] pp, int[] arCodeP, Integer plNum, String email) throws Exception{
-		      List<PlannerVO> pList = new ArrayList<PlannerVO>();
+		      List<PlannerVO2> pList = new ArrayList<PlannerVO2>();
 		      
 		      
 		      if (plNum != null) {         
@@ -207,7 +207,7 @@ public class PlannerController {
 		      
 		      for (int i = 0; i < deDate.length; i++) {
 
-		         PlannerVO vo = new PlannerVO();
+		         PlannerVO2 vo = new PlannerVO2();
 		         vo.setEmail(email);
 		         vo.setPlNum(plNum);
 		         vo.setId(id);
@@ -250,7 +250,7 @@ public class PlannerController {
 		         pList.add(vo);
 		      }
 		      
-		      for (PlannerVO plannerVO : pList) {
+		      for (PlannerVO2 plannerVO : pList) {
 		         System.out.println(plannerVO);
 		      }
 		      service.saveList(pList);
@@ -284,9 +284,9 @@ public class PlannerController {
 	      
 	      ModelAndView mv = new ModelAndView();
 	      
-	      List<PlannerVO> list = service.plannerSelect(plNum, session);
+	      List<PlannerVO2> list = service.plannerSelect(plNum, session);
 	      List<Integer> polyPath = new ArrayList<Integer>();
-	      for (PlannerVO plannerVO : list) {
+	      for (PlannerVO2 plannerVO : list) {
 	         polyPath.add(plannerVO.getPolyPath());
 	      }
 	      mv.addObject("pp", polyPath);
@@ -298,7 +298,7 @@ public class PlannerController {
 	@GetMapping("updatePlanner")
 	public ModelAndView updatePlanner(int plNum, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		List<PlannerVO> list = service.plannerSelect(plNum, session);
+		List<PlannerVO2> list = service.plannerSelect(plNum, session);
 		mv.addObject("list", list);
 		return mv;
 	}

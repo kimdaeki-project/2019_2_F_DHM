@@ -52,7 +52,7 @@ public class PlannerService {
 	}
 	
 	//hyehyeon
-	public List<PlannerVO> plannerSelect(int plNum, HttpSession session) throws Exception {
+	public List<PlannerVO2> plannerSelect(int plNum, HttpSession session) throws Exception {
 
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		
@@ -67,7 +67,7 @@ public class PlannerService {
 		return repository.plannerType(plNum);
 	}
 	
-	public List<MyPlannerVO> plannerList(PlannerVO plannerVO, HttpSession session) throws Exception {
+	public List<MyPlannerVO> plannerList(PlannerVO2 plannerVO, HttpSession session) throws Exception {
 
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		
@@ -79,7 +79,7 @@ public class PlannerService {
 	}
 	
 	/////////////////////////////////////////////////
-	public void bakTotal(PlannerVO plannerVO) throws Exception{
+	public void bakTotal(PlannerVO2 plannerVO) throws Exception{
 	  
 	  
 	
@@ -93,22 +93,22 @@ public class PlannerService {
 		
 	}
 	public int getPlnum() throws Exception{
-		List<PlannerVO> list = repository.findAllByOrderByPlStepDesc();
+		List<PlannerVO2> list = repository.findAllByOrderByPlStepDesc();
 		return	list.get(0).getPlNum()+1;
 	}
 	
-	public int saveList(List<PlannerVO> list) throws Exception{
+	public int saveList(List<PlannerVO2> list) throws Exception{
 		list = repository.saveAll(list);
 		
 		return list.get(0).getPlNum();
 	}
 	
-	public PlannerVO saveOne(PlannerVO plannerVO) throws Exception{
+	public PlannerVO2 saveOne(PlannerVO2 plannerVO) throws Exception{
 		return repository.save(plannerVO);
 	}
 	
 	public void plannerDel(String id, int plNum) throws Exception{
-		List<PlannerVO> delList =repository.findByIdAndPlNum(id, plNum);
+		List<PlannerVO2> delList =repository.findByIdAndPlNum(id, plNum);
 		
 		repository.deleteAll(delList);
 		

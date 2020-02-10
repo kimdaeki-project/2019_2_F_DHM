@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.f.dhm.Member.MemberVO;
 import com.f.dhm.planner.PlannerCommentVO;
 import com.f.dhm.planner.PlannerService;
-import com.f.dhm.planner.PlannerVO;
+import com.f.dhm.planner.PlannerVO2;
 import com.f.dhm.schedule.test.Items;
 import com.f.dhm.schedule.test.XmlService;
 import com.f.dhm.wishlist.WishService;
@@ -70,12 +70,12 @@ public class ScheduleController {
 	
 	
 	@GetMapping("schedulePage")
-	public ModelAndView plannerPage( PlannerVO plannerVO, ScheduleVO scheduleVO,HttpSession session,int plNum) throws Exception{
+	public ModelAndView plannerPage( PlannerVO2 plannerVO, ScheduleVO scheduleVO,HttpSession session,int plNum) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		
-		List<PlannerVO> plannerList= plannerService.plannerSelect(plNum,session);
+		List<PlannerVO2> plannerList= plannerService.plannerSelect(plNum,session);
 		List<ScheduleVO> scheduleList = scheduleService.scheduleList(plNum);
 		List<WishVO> wishlist = wishService.myWish(session, plNum);
 		

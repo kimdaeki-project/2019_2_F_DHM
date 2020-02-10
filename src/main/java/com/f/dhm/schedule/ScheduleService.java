@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.f.dhm.planner.PlannerRepository;
-import com.f.dhm.planner.PlannerVO;
+import com.f.dhm.planner.PlannerVO2;
 
 import net.bytebuddy.agent.builder.AgentBuilder.RedefinitionStrategy.Listener.Yielding;
 

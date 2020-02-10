@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.f.dhm.planner.PlannerRepository;
 import com.f.dhm.planner.PlannerService;
-import com.f.dhm.planner.PlannerVO;
+import com.f.dhm.planner.PlannerVO2;
 @SpringBootTest
 class ScheduleTest {
 	

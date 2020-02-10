@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.f.dhm.Member.MemberVO;
 import com.f.dhm.planner.PlannerService;
-import com.f.dhm.planner.PlannerVO;
+import com.f.dhm.planner.PlannerVO2;
 
 @Service
 public class WishService {
