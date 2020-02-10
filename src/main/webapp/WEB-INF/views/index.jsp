@@ -16,8 +16,8 @@
 <body>
 <c:import url="./template/nav.jsp"/>
    <div class="container" style=" padding-bottom: 200px;">
-      	<img class="mainimage" src="../images/mainimage.jpg">
-      <div class="jumbotron marginTop50px" style="width: 50%; float: left; margin-left: 20px;">
+      	<img class="mainimage" src="../images/mainimage2.jpg">
+      <div class="jumbotron marginTop50px" style="width: 55%; float: left; margin-left: 20px;">
          <h3>DHM플래너로 대한민국 곳곳을 여행해보세요.</h3>
          <p>맞춤 여행 추천과 플래너 작성을 통해 보다 효율적인 여행을 계획해보세요!</p>
          <div class="main_planner_btn_div">
