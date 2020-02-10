@@ -16,15 +16,16 @@
 <body>
 <c:import url="./template/nav.jsp"/>
    <div class="container" style=" padding-bottom: 200px;">
-      <div class="jumbotron marginTop50px">
-         <h3>DHM플래너로 상상속 유럽여행을 현실로 만들어 보세요.</h3>
-         <p>855,014명의 유럽계획 데이터를 활용한 추천과 시뮬레이션 기능을 활용해 여행 아이디어를 실제 여행으로 만들어 예상 비용과 소요시간을 계산해 보세요.</p>
+      	<img class="mainimage" src="../images/mainimage.jpg">
+      <div class="jumbotron marginTop50px" style="width: 50%; float: left; margin-left: 20px;">
+         <h3>DHM플래너로 대한민국 곳곳을 여행해보세요.</h3>
+         <p>맞춤 여행 추천과 플래너 작성을 통해 보다 효율적인 여행을 계획해보세요!</p>
          <div class="main_planner_btn_div">
             <input type="button" class="main_planner_btn_diy" value="DIY">
             <input type="button" class="main_planner_btn_request" value="request">
          </div>
       </div>
-      <div class="marginTop50px">
+      <div class="marginTop50px" style="clear: both;">
          <h3>다른 여행자들의 플래너 855,014개</h3>
 <!--           <div class="swiper-container"> -->
 <!--     <div class="swiper-wrapper"> -->
