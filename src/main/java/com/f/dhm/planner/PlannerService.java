@@ -51,7 +51,7 @@ public class PlannerService {
 	}
 	
 	public int days(int plNum) throws Exception{
-		return repository.days(plNum);
+		return repository.days(plNum)+1;
 	}
 	
 	/////////////////////////////////////////////////

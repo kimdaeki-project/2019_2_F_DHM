@@ -56,6 +56,9 @@
 							</c:choose>
 							<li class="nav_menu_li"><a href="${pageContext.request.contextPath}/planner/makePlanner">플래너만들기</a></li>
 							<li class="nav_menu_li nav_menu_li_active"><a href="">템플릿</a></li>
+							<c:if test="${member.grade eq 9 }">
+									<li class="nav_menu_li"><a href="${pageContext.request.contextPath}/admin/administer">관리 페이지</a></li>
+							</c:if>
 						</ul>
 					</div>
 				</div>

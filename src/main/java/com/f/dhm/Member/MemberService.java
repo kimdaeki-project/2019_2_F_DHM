@@ -1,6 +1,7 @@
 package com.f.dhm.Member;
 
 import java.io.File;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
@@ -106,7 +107,9 @@ public class MemberService {
 		memberRepository.delete(memberVO);
 	}
 	
-	
+	public List<MemberVO> allMember() throws Exception{
+		return memberRepository.findAll();
+	}
 
 	
 	

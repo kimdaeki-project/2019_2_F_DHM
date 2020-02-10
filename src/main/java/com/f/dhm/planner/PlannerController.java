@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.f.dhm.Member.MemberVO;
+import com.f.dhm.location.LocationService;
 import com.f.dhm.schedule.test.XmlService;
 import com.f.dhm.wishlist.WishService;
 import com.f.dhm.wishlist.WishVO;
@@ -33,6 +34,9 @@ public class PlannerController {
 	
 	@Autowired
 	private WishService wishService;
+	
+	@Autowired
+	private LocationService LoService;
 	
 	@GetMapping("makePlanner")
 	public ModelAndView makePlanner() throws Exception{
@@ -206,9 +210,15 @@ public class PlannerController {
 		         }
 		         vo.setBak(Integer.valueOf(bak[i]));
 		         vo.setRegion(region[i]);
+		         
+		         //도시 정보 추가
 		         if (i > 0 && deDate.length > 1) {            
 		            vo.setTransfer(transfer[i-1]);
+		            LoService.updateLoc(arCodeP[i], Integer.parseInt(bak[i]), transfer[i-1]);
+		         }else {
+		        	LoService.updateLoc(arCodeP[i], Integer.parseInt(bak[i]), "선택"); 
 		         }
+		         //도시정보추가
 		         
 		         vo.setPolyPath(pp[i]);
 		         vo.setArCode(arCodeP[i]);

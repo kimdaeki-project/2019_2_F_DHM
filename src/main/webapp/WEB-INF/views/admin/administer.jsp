@@ -8,9 +8,77 @@
 <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
+<c:import url="../template/boot.jsp"/>
 <c:choose>
-	<c:when test=""></c:when>
+<%-- 	<c:when test="${member.grade eq 9 }"> --%>
+	<c:when test="${member eq null }">
+	<div class="adm-body">
+		<div class="adm-left">
+			<a href="/"> <img alt="홈" src="../imgs/logos/logo-white.png" width="100%" height="80px"> </a>
+			<p class="adm-left-p"><a class="adm-left-menu" id="" style="font-size: 30px;">관리 페이지 홈</a></p>
+			<p class="adm-left-p"><a class="adm-left-menu" id="City">도시 정보</a></p>
+			<p class="adm-left-p"><a class="adm-left-menu" id="Member" >멤버 관리</a></p>
+			<p class="adm-left-p"><a class="adm-left-menu" id="Funding" >펀딩 정보</a></p>
+			<p class="adm-left-p"><a class="adm-left-menu" id="Planner" >플래너 관리</a></p>
+			</div>
+		<div class="adm-right">
+<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ인기도시 -->
+			<div class="popular-city">
+				<h1>BEST CITY</h1>
+				<ul>
+					<c:forEach items="${Lolist }" var="lo" varStatus="l" begin="0" end="3">
+						<li>
+							<div class="li-city">
+								<div class="li-city-A" >
+									<h3 style="text-align: center; font-weight: bold;">${lo.arName }</h3>
+									<img alt="${lo.arName }" src="../city/${lo.arImg }" width="100%" height="150px" style="border-radius: 10%;">
+									<p style="text-align: center;"><b style="font-size: 20px;">${lo.added }</b>명이 추가한 도시</p>
+								</div>
+								<div class="li-city-B"  >
+									<div class="pie-chart-bak" id="A${l.index }"></div>
+									<div style="display: none">
+										<input id="arName${l.index }" value="${lo.arName }">
+										<input class="pie-bak${l.index }" type="hidden" value="${lo.bak0 }" id="무박">
+										<input class="pie-bak${l.index }" type="hidden" value="${lo.bak1 }" id="1박">
+										<input class="pie-bak${l.index }" type="hidden" value="${lo.bak2 }" id="2박">
+										<input class="pie-bak${l.index }" type="hidden" value="${lo.bak3 }" id="3박">
+										<input class="pie-bak${l.index }" type="hidden" value="${lo.bak4 }" id="4박">
+										<input class="pie-bak${l.index }" type="hidden" value="${lo.bak5 }" id="5박">
+										<input class="pie-bak${l.index }" type="hidden" value="${lo.bak6 }" id="6박">
+										<input class="pie-bak${l.index }" type="hidden" value="${lo.bak7 }" id="7박">
+										<input class="pie-bak${l.index }" type="hidden" value="${lo.bak8 }" id="8박">
+										<input class="pie-bak${l.index }" type="hidden" value="${lo.bak9 }" id="9박">
+									</div>
+									<div class="pie-chart-transfer" id="B${l.index }"></div>
+									<div style="display: none">
+										<input class="pie-transfer${l.index }" type="hidden" value="${lo.subway }" id="기차">
+										<input class="pie-transfer${l.index }" type="hidden" value="${lo.taxi }" id="택시">
+										<input class="pie-transfer${l.index }" type="hidden" value="${lo.bus }" id="버스">
+										<input class="pie-transfer${l.index }" type="hidden" value="${lo.mycar }" id="자차">
+										<input class="pie-transfer${l.index }" type="hidden" value="${lo.airplane }" id="항공">
+									</div>
+								</div>
+							</div>
+						</li>					
+					</c:forEach>
+				</ul>
+			</div>
+<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ인기도시 -->
+		</div>
+	</div>
+	
+	
+	
+	
+	</c:when>
+	<c:otherwise>
+		<script type="text/javascript">
+			alert("권한이 없는 접근입니다!");
+			location.href="/";
+		</script>
+	</c:otherwise>
 </c:choose>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="../js/admin.js"></script>
 </body>
 </html>

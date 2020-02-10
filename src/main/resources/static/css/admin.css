@@ -7,4 +7,157 @@
 
 a:hover{
 	text-decoration: none;
+	color: red;
 }
+
+/* 모바일 css */
+@media( max-width: 1200px){
+	.adm-body{
+	width: 100%;
+	height: 1705px;
+	font-size:50px;
+	background-color: black;
+	}
+
+	.adm-left{
+		width: 25%;
+		height: 100%;
+		background-color: blue;
+		float: left;
+		color: white;
+		text-align: center;
+	}
+	.adm-right{
+		float: left;
+		width: 75%;
+		height: 100%;
+		background-color: red;
+	}
+	#close{
+		display:block;
+		cursor: pointer;
+	}
+}
+
+.adm-body{
+	width: 100%;
+	height: 969px;
+	background-color: black;
+	font-size: 15px;
+}
+
+.adm-left{
+	width: 15%;
+	height: 100%;
+	background-color: #3ad195;
+	float: left;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+}
+.adm-right{
+	float: left;
+	width: 85%;
+	height: 100%;
+	background-color: white;
+	color: black;
+	overflow: auto;
+}
+#open{
+display: none;
+}
+#close{
+display: none;
+}
+
+.adm-right > div{
+	margin: 20px;
+}
+
+.popular-city li{
+	float: left;
+	width: 48%;
+	height: 200px;
+	margin-left: 1%;
+	margin-bottom: 70px;
+}
+
+.li-city{
+	width: 100%;
+	position: relative;
+	height: 250px;
+}
+
+.li-city-A{
+	float:left;
+	width: 30%;
+}
+
+.li-city-B{
+	float:left;
+	width: 70%;
+}
+
+.pie-chart-bak{
+	float:right;
+	width: 48%;
+	height: 240px;
+	margin: 5px 1% 5px 0;
+}
+
+.pie-chart-transfer{
+	float:right;
+	width: 48%;
+	height: 240px;
+	margin: 5px 1% 5px 0;
+}
+
+.member-table{
+	width: 100%;
+	background-color: #eaeaea;
+	height: 600px;
+}
+
+.member-table-head{
+	background-color: #3ad195;
+	color: white;
+	font-weight: bold;
+}
+
+.member-th{
+	border: 2px solid white;
+	width: calc(95%/8);
+	text-align: center;
+}
+
+.member-update{
+	background-color: white;
+	color: black;
+	font-weight: bold;
+	border: 2px solid blue;
+}
+
+.member-exclude{
+	background-color: white;
+	color: black;
+	font-weight: bold;
+	border: 2px solid red;
+}
+
+.adm-left-menu{
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.adm-left-menu:hover{
+	text-decoration: none;
+	color:white;
+	font-size: 30px;
+	cursor: pointer; 
+}
+
+.adm-left-p{
+	margin-top: 60px;
+}
+
