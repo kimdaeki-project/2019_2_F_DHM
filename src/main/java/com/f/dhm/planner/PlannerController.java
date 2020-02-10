@@ -40,13 +40,13 @@ public class PlannerController {
 	public String reviewUpdate(int cNum,Model model)throws Exception{
 		System.out.println("////////////////////////////////////////////////////////////////");
 		System.out.println("cnum : "+cNum);
-		PlannerCommentVO commentVO=service.getComment(cNum);
+		PlannerCommentVO2 commentVO=service.getComment(cNum);
 		model.addAttribute("commentVO", commentVO);
 		return "planner/reviewUpdate";
 	}
 	
 	@PostMapping("reviewUpdate")
-	public void reviewUpdate(PlannerCommentVO plannerCommentVO) throws Exception{
+	public void reviewUpdate(PlannerCommentVO2 plannerCommentVO) throws Exception{
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		System.out.println(plannerCommentVO.getCNum());
 	}
@@ -59,7 +59,7 @@ public class PlannerController {
 	}
 	
 	@PostMapping("scheduleComment")
-	public ModelAndView scheduleComment(@ModelAttribute("plannerCommentVO") PlannerCommentVO	 plannerCommentVO, int plNum, HttpSession session)throws Exception{
+	public ModelAndView scheduleComment(@ModelAttribute("plannerCommentVO") PlannerCommentVO2	 plannerCommentVO, int plNum, HttpSession session)throws Exception{
 		ModelAndView mv=new ModelAndView();
 		String path="../member/memberLogin";
 		String message="로그인이 필요합니다.";
@@ -93,7 +93,7 @@ public class PlannerController {
 	
 	//혜현
 	   @GetMapping("myPlanner")
-	   public ModelAndView myPlanner(PlannerVO2 plannerVO, HttpSession session) throws Exception{
+	   public ModelAndView myPlanner(PlannerVO plannerVO, HttpSession session) throws Exception{
 	      ModelAndView mv = new ModelAndView();
 	      
 	      List<Integer> days= new ArrayList<Integer>();
@@ -103,7 +103,7 @@ public class PlannerController {
 	      List<String> ar2 = new ArrayList<String>();
 	      
 	      for (int i = 0; i < ar.size(); i++) {
-	         List<PlannerVO2> list = service.plannerSelect(ar.get(i).getPlNum(), session);
+	         List<PlannerVO> list = service.plannerSelect(ar.get(i).getPlNum(), session);
 	         
 	         String path = "";
 	         for (int j = 0; j < list.size(); j++) {
@@ -149,7 +149,7 @@ public class PlannerController {
 	
 	@GetMapping("ifmOpen")
 	@ResponseBody
-	public ModelAndView ifmOpen(String arCode, HttpSession session, PlannerVO2 plannerVO) throws Exception{
+	public ModelAndView ifmOpen(String arCode, HttpSession session, PlannerVO plannerVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		List<MyPlannerVO> ar = service.plannerList(plannerVO, session);
@@ -194,7 +194,7 @@ public class PlannerController {
 	public int makePlanner(String id, String title, String type, String people, String[] deDate, String[] arDate,
 		      String[] bak, String[] region, String[] transfer, String[] titleA, String[] firstimage, 
 		      String[] addr1, int[] arCode,HttpSession session, int[] pp, int[] arCodeP, Integer plNum, String email) throws Exception{
-		      List<PlannerVO2> pList = new ArrayList<PlannerVO2>();
+		      List<PlannerVO> pList = new ArrayList<PlannerVO>();
 		      
 		      
 		      if (plNum != null) {         
@@ -207,7 +207,7 @@ public class PlannerController {
 		      
 		      for (int i = 0; i < deDate.length; i++) {
 
-		         PlannerVO2 vo = new PlannerVO2();
+		         PlannerVO vo = new PlannerVO();
 		         vo.setEmail(email);
 		         vo.setPlNum(plNum);
 		         vo.setId(id);
@@ -250,7 +250,7 @@ public class PlannerController {
 		         pList.add(vo);
 		      }
 		      
-		      for (PlannerVO2 plannerVO : pList) {
+		      for (PlannerVO plannerVO : pList) {
 		         System.out.println(plannerVO);
 		      }
 		      service.saveList(pList);
@@ -284,9 +284,9 @@ public class PlannerController {
 	      
 	      ModelAndView mv = new ModelAndView();
 	      
-	      List<PlannerVO2> list = service.plannerSelect(plNum, session);
+	      List<PlannerVO> list = service.plannerSelect(plNum, session);
 	      List<Integer> polyPath = new ArrayList<Integer>();
-	      for (PlannerVO2 plannerVO : list) {
+	      for (PlannerVO plannerVO : list) {
 	         polyPath.add(plannerVO.getPolyPath());
 	      }
 	      mv.addObject("pp", polyPath);
@@ -298,7 +298,7 @@ public class PlannerController {
 	@GetMapping("updatePlanner")
 	public ModelAndView updatePlanner(int plNum, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		List<PlannerVO2> list = service.plannerSelect(plNum, session);
+		List<PlannerVO> list = service.plannerSelect(plNum, session);
 		mv.addObject("list", list);
 		return mv;
 	}

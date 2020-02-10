@@ -22,24 +22,24 @@ public class PlannerService {
 	@Autowired
 	private PlannerRepository repository;
 	@Autowired
-	private PlannerCommentRepository commentRepository;
+	private PlannerCommentRepository2 commentRepository;
 
-	public PlannerCommentVO getComment(int cNum)throws Exception{
-		PlannerCommentVO commentVO=commentRepository.findById(cNum).get();
+	public PlannerCommentVO2 getComment(int cNum)throws Exception{
+		PlannerCommentVO2 commentVO=commentRepository.findById(cNum).get();
 		return commentVO;
 	}
 	
-	public List<PlannerCommentVO> getCommentList(int plNum)throws Exception{
+	public List<PlannerCommentVO2> getCommentList(int plNum)throws Exception{
 		return commentRepository.findByPlNum(plNum);
 	}
 	
-	public boolean pcomment(PlannerCommentVO  plannerCommentVO, int plNum, HttpSession session)throws Exception{
+	public boolean pcomment(PlannerCommentVO2  plannerCommentVO, int plNum, HttpSession session)throws Exception{
 		MemberVO memberVO=(MemberVO) session.getAttribute("member");
 		plannerCommentVO.setId(memberVO.getId());
 		boolean check=false;
 		plannerCommentVO.setPlNum(plNum);
 		commentRepository.save(plannerCommentVO);
-		PlannerCommentVO exist=commentRepository.findById(plannerCommentVO.getCNum()).get();
+		PlannerCommentVO2 exist=commentRepository.findById(plannerCommentVO.getCNum()).get();
 		if(exist != null) {
 			//exist!!
 			check=true;
@@ -52,7 +52,7 @@ public class PlannerService {
 	}
 	
 	//hyehyeon
-	public List<PlannerVO2> plannerSelect(int plNum, HttpSession session) throws Exception {
+	public List<PlannerVO> plannerSelect(int plNum, HttpSession session) throws Exception {
 
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		
@@ -67,7 +67,7 @@ public class PlannerService {
 		return repository.plannerType(plNum);
 	}
 	
-	public List<MyPlannerVO> plannerList(PlannerVO2 plannerVO, HttpSession session) throws Exception {
+	public List<MyPlannerVO> plannerList(PlannerVO plannerVO, HttpSession session) throws Exception {
 
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		
@@ -79,7 +79,7 @@ public class PlannerService {
 	}
 	
 	/////////////////////////////////////////////////
-	public void bakTotal(PlannerVO2 plannerVO) throws Exception{
+	public void bakTotal(PlannerVO plannerVO) throws Exception{
 	  
 	  
 	
@@ -93,22 +93,22 @@ public class PlannerService {
 		
 	}
 	public int getPlnum() throws Exception{
-		List<PlannerVO2> list = repository.findAllByOrderByPlStepDesc();
+		List<PlannerVO> list = repository.findAllByOrderByPlStepDesc();
 		return	list.get(0).getPlNum()+1;
 	}
 	
-	public int saveList(List<PlannerVO2> list) throws Exception{
+	public int saveList(List<PlannerVO> list) throws Exception{
 		list = repository.saveAll(list);
 		
 		return list.get(0).getPlNum();
 	}
 	
-	public PlannerVO2 saveOne(PlannerVO2 plannerVO) throws Exception{
+	public PlannerVO saveOne(PlannerVO plannerVO) throws Exception{
 		return repository.save(plannerVO);
 	}
 	
 	public void plannerDel(String id, int plNum) throws Exception{
-		List<PlannerVO2> delList =repository.findByIdAndPlNum(id, plNum);
+		List<PlannerVO> delList =repository.findByIdAndPlNum(id, plNum);
 		
 		repository.deleteAll(delList);
 		

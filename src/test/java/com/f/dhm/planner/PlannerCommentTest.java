@@ -16,7 +16,7 @@ import org.springframework.test.annotation.Rollback;
 class PlannerCommentTest {
 
 	@Autowired
-	private PlannerCommentRepository plannerCommentRepository;
+	private PlannerCommentRepository2 plannerCommentRepository;
 	@Autowired
 	private PlannerRepository plannerRepository;
 	
@@ -25,7 +25,7 @@ class PlannerCommentTest {
 	@Rollback(false)
 	void test() throws Exception{
 
-		PlannerCommentVO plannerCommentVO=new PlannerCommentVO();
+		PlannerCommentVO2 plannerCommentVO=new PlannerCommentVO2();
 		plannerCommentVO.setContents("Caused by: java.sql.SQLException: Field");
 		plannerCommentVO.setId("iso-8859-1");
 		plannerCommentVO.setPlNum(52);
@@ -36,7 +36,7 @@ class PlannerCommentTest {
 	
 	@Test
 	void test2()throws Exception{
-		List<PlannerCommentVO> commentVOs=plannerCommentRepository.findByPlNum(52);
+		List<PlannerCommentVO2> commentVOs=plannerCommentRepository.findByPlNum(52);
 		commentVOs.forEach(System.out::println);
 	}
 

@@ -17,7 +17,7 @@ import lombok.Data;
 @Entity
 @Table(name = "pComment")
 @Data
-public class PlannerCommentVO {
+public class PlannerCommentVO2 {
 	
 	@Id
 	@GeneratedValue(generator = "cNum", strategy = GenerationType.IDENTITY)
