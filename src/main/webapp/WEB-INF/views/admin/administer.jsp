@@ -1,12 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ADMINISTER</title>
+<link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
-	<h1>어어어어어뜨뜨뜨ㅡ미므미</h1>
+<c:choose>
+	<c:when test=""></c:when>
+</c:choose>
+<script src="../js/admin.js"></script>
 </body>
 </html>

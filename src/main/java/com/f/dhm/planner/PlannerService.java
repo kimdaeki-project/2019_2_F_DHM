@@ -42,6 +42,11 @@ public class PlannerService {
 
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		
+		if (memberVO == null) {
+			memberVO = new MemberVO();
+			memberVO.setId("guest");
+		}
+		
 		return repository.plannerList(memberVO.getId());
 	}
 	
