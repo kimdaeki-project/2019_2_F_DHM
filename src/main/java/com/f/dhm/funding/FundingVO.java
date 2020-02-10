@@ -46,7 +46,7 @@ public class FundingVO {
 	private int people;
 	@NotNull
 	private BigInteger price;
-	private BigInteger participationPeople;
+	private int participationPeople;
 	private int restTime;
 	private int gage;
 	

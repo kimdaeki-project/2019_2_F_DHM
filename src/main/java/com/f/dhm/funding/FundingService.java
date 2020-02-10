@@ -9,7 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import com.f.dhm.util.Pager;
 
-//@Transactional
+@Transactional
 @Service
 public class FundingService {
 	
@@ -51,13 +51,11 @@ public class FundingService {
 	}//delete
 
 	//fundingJoin//
-	public FundingVO fundingJoinList(FundingVO fundingVO) throws Exception{
+	public FundingJoinVO fundingJoinList(FundingJoinVO fundingJoinVO) throws Exception{
 //		List<FundingVO> list = fundingRepository.fundingJoinList(num);
+		fundingJoinVO = fundingJoinRepository.findById(fundingJoinVO.getFundingVO().getNum()).get();
 		
-		fundingVO = fundingRepository.findById(fundingVO.getNum()).get();
-		fundingVO.getFundingJoinVOs();
-		
-		return fundingVO;
+		return fundingJoinVO;
 	}//select
 	
 	
@@ -72,7 +70,8 @@ public class FundingService {
 	public void fundingJoinWrite(FundingJoinVO fundingJoinVO) throws Exception{
 		System.out.println(fundingJoinVO.getFundingVO().getGage()+": gage/service");
 		System.out.println(fundingJoinVO.getFundingVO().getStatus()+": status/service");
-		fundingRepository.fundingUpdate(fundingJoinVO.getFundingVO().getStatus(), fundingJoinVO.getFundingVO().getGage(), fundingJoinVO.getFundingVO().getNum());
+		System.out.println(fundingJoinVO.getFundingVO().getParticipationPeople()+": partPeople/service");
+		fundingRepository.fundingUpdate(fundingJoinVO.getFundingVO().getStatus(), fundingJoinVO.getFundingVO().getGage(), fundingJoinVO.getFundingVO().getParticipationPeople(), fundingJoinVO.getFundingVO().getNum());
 		fundingJoinRepository.save(fundingJoinVO);
 	}
 	

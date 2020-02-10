@@ -60,8 +60,9 @@ font-size: 22px;
 font-family: 'Noto Sans', sans-serif;
 position: relative;
 color: #222;
-margin: 0 0 3px;
+margin: 0 auto;
 font-weight: 300;
+text-align: center;
 }
 /* 보류 */
 .funding_title_font{
@@ -261,7 +262,7 @@ margin: 0;
 margin-bottom:1em;
 padding: 0;
 box-sizing: border-box;
-font-family: 'Noto Sans', sans-serif;
+font-family: 'Noto Sans', sans-z`serif;
 
 top: 5px;
 left: 10px;
@@ -289,3 +290,18 @@ border-radius: .28571429rem;
 font-size: .85714286rem;
 }
 
+container{
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+margin-right: auto;
+margin-left: auto;
+max-width: 1140px;	
+}
+
+.fs_name{
+text-align: center;
+}
+.fs_contents{
+text-align: center;
+}

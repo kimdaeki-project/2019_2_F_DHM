@@ -7,12 +7,13 @@
 <meta charset="UTF-8">
 <title>대동여행지도</title>
 <c:import url="./template/fundingBoot.jsp" />
+<link rel="stylesheet"  href="../css/basic.css">
 
 </head>
 <body>
+<c:import url="../template/nav.jsp"/>
 	<div class="container">
-		<h1>Funding Participation Form</h1>
-		
+
 		<c:import url="./template/fundingJoinWriteForm.jsp" />	
 		
 	

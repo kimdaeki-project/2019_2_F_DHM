@@ -46,14 +46,15 @@
 		        <input type="time" class="form-control" name="time2" id="time2"/>
 		    </div>
 		    
-		    <div class="form-group">
+		    <%-- <div class="form-group">
 		      <label for="people">Funding People : </label>
 		       <form:input class="form-control" path="people" value="${vo.people}"/>
 		       <form:errors path="people" cssClass="error"/>
-		    </div>
+		    </div> --%>
 			
-		     <div class="row" style="margin-top: 50px;">
-		    <input type="button" id="write" class="btn btn-success col-sm-2" value="Update">&nbsp;&nbsp;
-		    <input type="button" id="re" class="btn btn-primary col-sm-2" value="back">
+		     <div class="row" style="text-align: center; margin-bottom: 30px;">
+
+		    	<input type="button" id="re" class="btn btn-primary col-sm-2" value="back" style="padding-left: 15px; padding-right: 15px; float: right;">
+		    	<input type="button" id="write" class="btn btn-success col-sm-2" value="Update" style="padding-left: 15px; padding-right: 15px; float: right;">
 		   	</div> 
 		</form:form>

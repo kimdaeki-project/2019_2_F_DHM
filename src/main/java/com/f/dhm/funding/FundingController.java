@@ -69,7 +69,7 @@ public class FundingController {
 	@PostMapping("fundingWrite")
 	public String fundingWrite(@RequestParam String start, @RequestParam String time1,
 			@RequestParam String end, @RequestParam String time2,
-			FundingVO fundingVO) throws Exception{
+			@RequestParam int price, @RequestParam int goal, FundingVO fundingVO) throws Exception{
 		//날짜+시간 합쳐서 집어넣기
 		String startTime = start +" "+ time1;
 		String endTime = end +" "+ time2;
@@ -89,6 +89,10 @@ public class FundingController {
 		fundingVO.setStartTime(startTime2);
 		fundingVO.setEndTime(endTime2);
 		fundingVO.setRestTime((int)restTime+1);
+		
+		int people = goal/price;
+		fundingVO.setPeople(people);
+		
 		fundingService.fundingWrite(fundingVO);
 
 		return "redirect:./fundingList";
@@ -112,7 +116,8 @@ public class FundingController {
 	@PostMapping("fundingUpdate")
 	public String fundingUpdate(FundingVO fundingVO,
 			@RequestParam String start, @RequestParam String time1,
-			@RequestParam String end, @RequestParam String time2
+			@RequestParam String end, @RequestParam String time2,
+			@RequestParam int price, @RequestParam int goal
 			) throws Exception{
 		//		fundingService.fundingUpdate(fName, contents, goal, startTime, endTime, people, fundingVO.getFNum());
 		//날짜+시간 합쳐서 집어넣기
@@ -134,6 +139,10 @@ public class FundingController {
 		fundingVO.setStartTime(startTime2);
 		fundingVO.setEndTime(endTime2);
 		fundingVO.setRestTime((int)restTime+1);
+		//목표 금액과 금액을 이용해 제한 인원 구하기
+		int people = goal/price;
+		fundingVO.setPeople(people);
+		
 		fundingService.fundingUpdate(fundingVO);
 
 		return "redirect:./fundingList";
@@ -149,15 +158,18 @@ public class FundingController {
 
 	//fundingJoin//
 	@GetMapping("fundingJoinList")
-	public ModelAndView fundingJoinList(FundingVO fundingVO) throws Exception{
+	public ModelAndView fundingJoinList(FundingJoinVO fundingJoinVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		//		List<FundingVO> list = fundingService.fundingJoinList(num);
-		fundingVO = fundingService.fundingJoinList(fundingVO);
-		
-		mv.addObject("vo", fundingVO);
+		fundingJoinVO = fundingService.fundingJoinList(fundingJoinVO);
+		System.out.println(fundingJoinVO.getId());
+		System.out.println(fundingJoinVO.getPrice());
+		System.out.println(fundingJoinVO.getParticipationPeople());
+		System.out.println(fundingJoinVO.getNum());
+		mv.addObject("vo", fundingJoinVO);
 		//		mv.addObject("list", list);
 		mv.setViewName("funding/fundingJoinList");
-		System.out.println("123");
+//		System.out.println("123");
 		return mv;
 	}
 //	@GetMapping("fundingJoinUpdate")
@@ -222,6 +234,8 @@ public class FundingController {
 		fundingVO.setStatus(status2+status);
 		fundingVO.setGage(gage2+gage);
 		fundingVO.setNum(fNum);
+//		System.out.println(participationPeople+"gage2/controller");
+		fundingVO.setParticipationPeople(participationPeople);
 		fundingJoinVO.setFundingVO(fundingVO);
 		fundingService.fundingJoinWrite(fundingJoinVO);
 		return "redirect:./fundingList";

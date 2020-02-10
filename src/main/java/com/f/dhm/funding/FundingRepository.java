@@ -26,20 +26,22 @@ public interface FundingRepository extends JpaRepository<FundingVO, Integer> {
 	
 	@Transactional
 	@Modifying
-	@Query("UPDATE FundingVO f SET status = ?1, gage = ?2 WHERE fNum = ?3")
-	void fundingUpdate(int status, int gage, int fNum) throws Exception;
-	//fundingJoin
-	//펀딩한 사람이 확인
-//	@Query(value = "SELECT f.fNum, j.participationPeople, (j.price * j.participationPeople) total, j.id FROM funding f "
-//			+ "RIGHT JOIN fundingJoin j ON f.fNum = j.fNum"
-//			+ " WHERE f.fNum = ?1", nativeQuery = true)
-//	List<FundingVO> fundingJoinList(int num) throws Exception;
-
+	@Query("UPDATE FundingVO f SET status = ?1, gage = ?2, participationPeople = ?3 WHERE fNum = ?4")
+	void fundingUpdate(int status, int gage, int participationPeople, int fNum) throws Exception;
 	
+//	//fundingJoin
+//	//펀딩한 사람이 확인
+////	@Query(value = "SELECT f.fNum, j.participationPeople, j.price, j.id FROM funding f "
+////			+ "RIGHT JOIN fundingJoin j ON f.fNum = j.fNum"
+////			+ " WHERE f.fNum = ?1", nativeQuery = true)
+//	@Query(value = "SELECT j FROM fundingJoin j WHERE fNum = ?1", nativeQuery = true)
+//	List<FundingJoinVO> fundingJoinList(int num) throws Exception;
+//
+
 //	//**member 추가 후에 테스트**/
 //	//펀딩 참여한 사람이 확인
 //	@Query("SELECT f.fNum, f.pNum, f.contents, m.name, m.email, j.price, j.participationPeople, j.participationPeople " + 
-//			"FROM funding RIGHT JOIN member ON f.fName = m.name JOIN fundingJoin ON f.fNum = j.fNum WHERE j.id = ?1")
+//			"FROM funding RIGHT JOIN member ON f.fName = m.name JOIN fundingJoin ON f.fNum = j.fNum WHERE j.id = ?1",  nativeQuery = true)
 //	Object[] fundingJoinSelect(String id) throws Exception;
 //	
 	

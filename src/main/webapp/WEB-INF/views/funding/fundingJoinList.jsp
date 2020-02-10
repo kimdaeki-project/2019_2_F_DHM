@@ -17,9 +17,9 @@
 			<td>참여 인원</td>
 		</tr>
 	
-	<c:forEach items="${vo.fundingJoinVOs}" var="list">
+	<c:forEach items="${vo}" var="list">
 			<tr>
-				<td>${list.num}</td>
+				<td>${list.fNum}</td>
 				<td>${list.id}</td>
 				<td>${list.price}</td>
 				<td>${list.participationPeople}</td>
