@@ -23,62 +23,75 @@ $(".adm-left-menu").click(function() {
 /////////////구글 차트
 
 
+
+
 var chart;
 var id;
 var arName;
-for (var i = 0; i < 4; i++) {
-	var baks = [];
-	baks.push('[ \'Task\', \'Hours per Day\']');
-	$(".pie-bak"+i).each(function() {
-		baks.push('['+$(this).prop("id")+', '+$(this).val()+']');
-	});
-	
-	arName = $("#arName"+i).val();
+var i =0;
+var j = 0;
+var datas=[];
+var option = [];
+var datas2=[];
+var option2 = [];
+var z = 0;
+var d = $("#rlfdl").val()*1;
+for (i = 0; i < d; i++) {
 	
 	google.charts.load('current', {'packages':['corechart']});
 	google.charts.setOnLoadCallback(drawChart);
+	
 	function drawChart() {
-
-		 var data = google.visualization.arrayToDataTable([
-	          ['Task', 'Hours per Day'],
-	          ['Work',     11],
-	          ['Eat',      2],
-	          ['Commute',  2],
-	          ['Watch TV', 2],
-	          ['Sleep',    7]
-	        ]);
-
-		  var options = {
-		    title: arName+"의 숙박"
+		arName = $("#arName"+z).val();
+		 var data1 = new google.visualization.DataTable();
+	        data1.addColumn('string', 'Topping');
+	        data1.addColumn('number', 'Slices');
+	        $(".pie-bak"+z).each(function() {
+	        	if ($(this).val() > 0) {					
+	        		data1.addRows([[$(this).prop("id"),$(this).val()*1]]);
+				}
+	    	});
+		 
+		 datas.push(data1);
+		 
+		 var data2 = new google.visualization.DataTable();
+	        data2.addColumn('string', 'Topping');
+	        data2.addColumn('number', 'Slices');
+	        $(".pie-transfer"+z).each(function() {
+	        	if ($(this).val() > 0) {					
+	        		data2.addRows([[$(this).prop("id"),$(this).val()*1]]);
+				}
+	    	});
+		 
+		 datas2.push(data2); 
+		 
+		 
+		 
+		  var options1 = {
+		    title: arName +"의 숙박",
+		    width: 310
 		  };
-		  chart = new google.visualization.PieChart(document.getElementById('A2'));
-		  chart.draw(data, options);
-		}
-	
-	
-	var transfer = [];
-	transfer.push('[ \'Task\', \'Hours per Day\']');
-	$(".pie-transfer"+i).each(function() {
-		transfer.push('['+$(this).prop("id")+', '+$(this).val()+']');
-	});
-	
-	google.charts.load('current', {'packages':['corechart']});	
-	google.charts.setOnLoadCallback(drawChart);
-	function drawChart() {
-
-		  var data = google.visualization.arrayToDataTable([transfer]);
-
-		  var options = {
-		    title: arName+"의 교통수단"
+		  
+		  option.push(options1);
+		  var options2 = {
+			title: arName+"의 교통수단",
+			width: 310
 		  };
-		  chart = new google.visualization.PieChart(document.getElementById('B3'));
-		  chart.draw(data, options);
+				  
+		  option2.push(options2);
+		  
+		  
+			  chart = new google.visualization.PieChart(document.getElementById('A'+z));
+			  chart.draw(datas[z], option[z]);
+			  chart = new google.visualization.PieChart(document.getElementById('B'+z));
+			  chart.draw(datas2[z], option2[z]);
+		
+		  
+		  
+			  z++;
 		}
-	
 
-	
 }
-
 
 
 
