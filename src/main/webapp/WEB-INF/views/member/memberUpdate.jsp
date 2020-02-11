@@ -239,7 +239,6 @@
 	//프로필 사진 변경 BOX 사진 미리보기
 	var sel_file;
 	
-
 	$(document).ready(function(){
 		$("#input_img").on("change",handleImgFileSelect);
 	});
@@ -247,15 +246,12 @@
 	function handleImgFileSelect(e){
 		var files = e.target.files;
 		var filesArr = Array.prototype.slice.call(files);
-
 		filesArr.forEach(function(f){
 			if(!f.type.match("image.*")){
 				alert("확장자는 이미지 확장자만 가능합니다.");
 				return;
 				}
-
 			sel_file = f;
-
 			var reader = new FileReader();
 			reader.onload = function(e){
 				$("#img").attr("src", e.target.result);
@@ -265,7 +261,6 @@
 			
 			});
 		}
-
 //-----------------------------------------------------------------------
 	//등급 출력 변경
 	$(function(){
@@ -288,7 +283,6 @@
 	//광고 메일 재동의 체크박스
 	$("#mailok1").click(function(){
 	    var check=$('#mailok1').is(':checked');
-
     		var checknum = 0;
     		
 	    if(check){
@@ -308,45 +302,34 @@
 //-----------------------------------------------------------------------
 //저장
 $(".updatelast1").click(function(){
-
-
 	document.getElementById('memberUpdate').submit();
 });
-
-
 //-----------------------------------------------------------------------
 //EMAIL중복 확인	
-
 //약관 및 조합 변수 설정
 var check2=false;
 var check3=false;
 var check4=false;
-
 $("#pemail_btn").click(function(){	
 	check4 = $('#pemail_btn').is(':checked');
 });
-
  
 var email = $("#email10").val();
 var spe2 = email.match(/[@]/ig);
 var spe3 = email.match(/[.]/ig);
-
 	$("#Xid2").hide(); //오류 입력 상자 숨기
 	$('#Xid3').hide(); //정확 성공 상자 숨기
 	$('#Xid5').hide();  //중복 오류 상자 숨기
-
 $("#pemail_btn").click(function(){
 	email = $("#email10").val();
 	spe2 = email.match(/[@]/ig);
 	spe3 = email.match(/[.]/ig);
-
 	if(spe2 == null || spe3 == null){
 		
 		$("#pemail_btn").css("background","#95a5a6");	
 		$("#Xid2").show();
 		
 		}else{
-
 		$.ajax({
 		
 			type : "POST",
@@ -372,40 +355,22 @@ $("#pemail_btn").click(function(){
 			}//success문
 		});	//ajax문
 	}//spe2, spe3 제약 true 일때 시작문
-
 });//function문
-
-
 //입력 성공 상자 닫기 버튼	
 $(".Xidsame4").click(function(){
-
 	$("#Xid2").hide();
 	
 	$("#pemail_btn").css("background","#e74c3c");
-
 });
-
 //입력 오류 상자 닫기 버튼	
 $(".Xidsame8").click(function(){
-
 	$("#Xid3").hide();
-
 	$("#pemail_btn").css("background","#e74c3c");
-
 });
-
 //중복입력 상자 닫기 버튼
 $(".Xidsame13").click(function(){
-
 	$("#Xid5").hide();
-
 	$("#pemail_btn").css("background","#e74c3c");
-
 });
-
-
-
-
-
 </script>
 </html>

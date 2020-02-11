@@ -444,7 +444,6 @@
 	//프로필 사진 변경 BOX 사진 미리보기
 	var sel_file;
 	
-
 	$(document).ready(function(){
 		$("#input_img").on("change",handleImgFileSelect);
 	});
@@ -452,15 +451,12 @@
 	function handleImgFileSelect(e){
 		var files = e.target.files;
 		var filesArr = Array.prototype.slice.call(files);
-
 		filesArr.forEach(function(f){
 			if(!f.type.match("image.*")){
 				alert("확장자는 이미지 확장자만 가능합니다.");
 				return;
 				}
-
 			sel_file = f;
-
 			var reader = new FileReader();
 			reader.onload = function(e){
 				$("#img").attr("src", e.target.result);
@@ -470,7 +466,6 @@
 			
 			});
 		}
-
 //-----------------------------------------------------------------------
 	//등급 출력 변경
 	$(function(){
@@ -628,7 +623,6 @@ $('.msgbing4').hide();
 //프로필 사진 화면창 띄우기
  		$('.changeimg').hide();
 		$('.changeimg2').hide();
-
 		$(".mypage1-1-1").click(function(){
  			$('.changeimg').slideDown();
 			$('.changeimg2').slideDown();
@@ -638,17 +632,14 @@ $('.msgbing4').hide();
 			$('.changeimg2').slideUp();
 			$('.changeimg').slideUp();
 		});  
-
 		$(".changeimg2-4").click(function(){
 			$('.changeimg2').slideUp();
 			$('.changeimg').slideUp();
 		});  
-
 		$(".mypage2-3-1").click(function(){
  			$('.changeimg').slideDown();
 			$('.changeimg2').slideDown();
 		});
-
 		//esc누르면 slidedown (esc 코드 = 59)
 		$(window).keyup(function(e){
 			 if(e.keyCode == 27){
@@ -656,14 +647,12 @@ $('.msgbing4').hide();
 				$('.changeimg').slideUp();
 			 }
 		});
-
 		$(window).keyup(function(e){
 			 if(e.keyCode == 27){
 				$('.changeimg2').slideUp();
 				$('.changeimg').slideUp();
 			 }
 		});
-
 		
 	
 //------------------------------------------------------------------------
@@ -672,13 +661,11 @@ $(".myintroduce-7-1").click(function(){
 	
 	document.getElementById('frm3').submit();
 });
-
 //프로필 사진 관리
 $(".changeimg2-5").click(function(){
 	
 	document.getElementById('frm4').submit();
 });
-
 </script>
 	
 </body>
