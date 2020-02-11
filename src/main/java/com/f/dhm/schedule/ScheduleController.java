@@ -120,7 +120,18 @@ public class ScheduleController {
 		ModelAndView mv = new ModelAndView();
 
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
-
+		if(memberVO==null) {
+			String msg="로그인이 필요합니다.";
+			mv.addObject("message",msg);
+			mv.addObject("path","../member/memberLogin");
+			mv.setViewName("common/result");
+			
+		}else if(memberVO.getId()!=session.getId()) {
+			String msg="다른사람의 플래너는 열람할 수 없습니다.";
+			mv.addObject("message",msg);
+			mv.addObject("path","../");
+			mv.setViewName("common/result");
+		}else {
 		List<PlannerVO> plannerList = plannerService.plannerSelect(plNum, session);
 		List<ScheduleVO> scheduleList = scheduleService.scheduleList(plNum);
 		List<WishVO> wishlist = wishService.myWish(session, plNum);
@@ -173,6 +184,7 @@ public class ScheduleController {
 		mv.addObject("schedule", scheduleList);
 		mv.addObject("days", days);
 		mv.setViewName("/schedule/schedulePage2");
+		}
 		return mv;
 	}
 

@@ -14,7 +14,18 @@
  <link rel="stylesheet"  href="../css/schedule.css">
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-
+<style type="text/css">
+	.active{
+		color: green;
+	}
+ 	a{
+		color:black;
+	} 
+	a:hover{
+		color:green;
+		font-weight: bold;
+	}
+</style>
 </head>
 <body>
 <c:import url="./template/nav.jsp"/>
@@ -34,15 +45,15 @@
          <h3>다른 여행자들의 플래너 ${plannerCount}개</h3>
 		  
 		  <ul class="nav nav-tabs">
-		      <li class="index_buttons_li index_buttons_li"><a  data-toggle="tab"  href="#home">최신</a></li>
-               <li class="index_buttons_li"><a data-toggle="tab"  href="#menu1">아이들과</a></li>
-               <li class="index_buttons_li"><a data-toggle="tab"  href="#menu2">커플/신혼</a></li>
-               <li class="index_buttons_li"><a data-toggle="tab"  href="#menu3">부모님과</a></li>
-               <li class="index_buttons_li"><a data-toggle="tab"  href="#menu4">남자혼자</a></li>
-               <li class="index_buttons_li"><a data-toggle="tab"  href="#menu5">여자혼자</a></li>
-               <li class="index_buttons_li"><a data-toggle="tab"  href="#menu6">여자끼리</a></li>
-               <li class="index_buttons_li"><a data-toggle="tab"  href="#menu7">남자끼리</a></li>
-               <li class="index_buttons_li"><a data-toggle="tab"  href="#menu8">남녀그룹</a></li>
+		      <li class="index_buttons_li index_buttons_li"><a class="ac" data-toggle="tab"  href="#home">최신</a></li>
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu1">아이들과</a></li>
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu2">커플/신혼</a></li>
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu3">부모님과</a></li>
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu4">남자혼자</a></li>
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu5">여자혼자</a></li>
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu6">여자끼리</a></li>
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu7">남자끼리</a></li>
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu8">남녀그룹</a></li>
 		  </ul>
 		
 		  <div class="tab-content">
@@ -412,6 +423,21 @@
           clickable: true,
         },
       });
+
+
+    $(".index_buttons_li").click(function(){
+        
+			$(this).children(".ac").addClass("active2");
+			$(this).children(".ac").removeClass("active2");
+     });
+    
+    $(".con").click(function() {
+		$(".continent-item").removeClass("active-continent");
+		$(".continent-text").removeClass("active2");
+		$(this).parent().parent().addClass("active-continent");
+		$(this).parent().addClass("active2");
+	});
+
   </script>
   
 </body>
