@@ -531,7 +531,7 @@ a:hover{
 }
 .mp-li{
 	background: rgb(245,245,245);
-	flex-basis: 22.5%;
+	flex-basis: 22.5%; 
 	float: left;
 }
 .mp-li-wrap{

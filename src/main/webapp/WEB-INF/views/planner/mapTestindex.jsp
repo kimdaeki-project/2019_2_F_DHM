@@ -32,7 +32,7 @@
 <script src="../js/cityList.js"></script>
 <script src="../js/kakaoMap.js"></script>
 <script type="text/javascript">
-   map.setCenter(positions[${pp[pp.size()-1]}].latlng);
+/*    map.setCenter(positions[${pp[pp.size()-1]}].latlng); */
    map.setDraggable(false);
    map.setZoomable(false); 
 </script>

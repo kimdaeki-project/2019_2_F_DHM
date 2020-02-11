@@ -34,20 +34,50 @@
          <h3>다른 여행자들의 플래너 ${plannerCount}개</h3>
 		  
 		  <ul class="nav nav-tabs">
-		      <li class="index_buttons_li swiper-slide index_buttons_li swiper-slide_active "><a  data-toggle="tab"  href="#home">최신</a></li>
-               <li class="index_buttons_li swiper-slide"><a data-toggle="tab"  href="#menu1">아이들과</a></li>
-               <li class="index_buttons_li swiper-slide"><a data-toggle="tab"  href="#menu2">커플/신혼</a></li>
-               <li class="index_buttons_li swiper-slide"><a data-toggle="tab"  href="#menu3">부모님과</a></li>
-               <li class="index_buttons_li swiper-slide"><a data-toggle="tab"  href="#menu4">남자혼자</a></li>
-               <li class="index_buttons_li swiper-slide"><a data-toggle="tab"  href="#menu5">여자혼자</a></li>
-               <li class="index_buttons_li swiper-slide"><a data-toggle="tab"  href="#menu6">여자끼리</a></li>
-               <li class="index_buttons_li swiper-slide"><a data-toggle="tab"  href="#menu7">남자끼리</a></li>
-               <li class="index_buttons_li swiper-slide"><a data-toggle="tab"  href="#menu8">남녀그룹</a></li>
+		      <li class="index_buttons_li index_buttons_li"><a  data-toggle="tab"  href="#home">최신</a></li>
+               <li class="index_buttons_li"><a data-toggle="tab"  href="#menu1">아이들과</a></li>
+               <li class="index_buttons_li"><a data-toggle="tab"  href="#menu2">커플/신혼</a></li>
+               <li class="index_buttons_li"><a data-toggle="tab"  href="#menu3">부모님과</a></li>
+               <li class="index_buttons_li"><a data-toggle="tab"  href="#menu4">남자혼자</a></li>
+               <li class="index_buttons_li"><a data-toggle="tab"  href="#menu5">여자혼자</a></li>
+               <li class="index_buttons_li"><a data-toggle="tab"  href="#menu6">여자끼리</a></li>
+               <li class="index_buttons_li"><a data-toggle="tab"  href="#menu7">남자끼리</a></li>
+               <li class="index_buttons_li"><a data-toggle="tab"  href="#menu8">남녀그룹</a></li>
 		  </ul>
 		
 		  <div class="tab-content">
 		    <div id="home" class="tab-pane fade in active">
-		    
+		    	<div class="swiper-container">
+                     <ul class="swiper-wrapper nolist" style=" clear: both; overflow: hidden;">
+                        <c:forEach items="${typelist}" var="vo" varStatus="i">
+                           <li class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
+                           <a href="../schedule/schedulePage?plNum=${vo.plNum}">
+                              <div class="mp-li-wrap">
+                                 <div class="mp-card">
+                                    <div class="mp-p">
+                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
+									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+                                       <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
+                                    </div>
+                                    <div class="mp-f">
+                                       <div class="mp">${vo.title}</div>
+                                       <div class="mp-f1"> ${days[i.index]} 일간</div>
+                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
+                                       <div class="mp-f3">D-16</div>
+                                    </div>
+                                 </div>
+                              
+                              </div>
+                           </a>
+                           </li>
+                             <!-- Add Pagination -->
+						    <div class="swiper-pagination"></div>
+						    <!-- Add Arrows -->
+						    <div class="swiper-button-next"></div>
+						    <div class="swiper-button-prev"></div>
+                           </c:forEach>
+                     </ul>
+                  </div>
 		    </div>
 		    <div id="menu1" class="tab-pane fade">
 		       <div class="swiper-container">
@@ -59,7 +89,7 @@
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
                                     <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
+                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
                                     </div>
@@ -89,7 +119,7 @@
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
                                     <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
+                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
                                     </div>
@@ -119,7 +149,7 @@
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
                                     <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
+                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
                                     </div>
@@ -151,7 +181,7 @@
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
                                     <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
+                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
                                     </div>
@@ -183,7 +213,7 @@
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
                                     <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
+                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
                                     </div>
@@ -215,7 +245,7 @@
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
                                     <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
+                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
                                     </div>
@@ -247,7 +277,7 @@
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
                                     <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
+                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
                                     </div>
@@ -274,7 +304,7 @@
                      <ul class="swiper-wrapper nolist" style=" clear: both; overflow: hidden;">
                         <c:forEach items="${typelist}" var="vo" varStatus="i">
                            <c:if test="${vo.type eq '남녀함께' }">
-                           <li class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; margin-left:10px; float: left;">
+                           <li class="swiper-slide mp-li" style="height: 300px;  overflow: hidden;float: left;">
                            <a href="../schedule/schedulePage?plNum=${vo.plNum}">
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
@@ -306,44 +336,8 @@
 		</div>
 		
 
-
-
-<!-- 
-         <div class="index_buttons swiper-container swiper-container-horizontal swiper-container-free-mode">
-            <ul class="index_buttons_ul swiper-wrapper">
-               <li class="index_buttons_li swiper-slide index_buttons_li swiper-slide_active ">최신</li>
-               <li class="index_buttons_li swiper-slide"><a href="./?type=아이들과">아이들과</a></li>
-               <li class="index_buttons_li swiper-slide"><a href="./?type=커플/신혼">커플/신혼</a></li>
-               <li class="index_buttons_li swiper-slide"><a href="./?type=부모님과">부모님과</a></li>
-               <li class="index_buttons_li swiper-slide"><a href="./?type=남자혼자">남자혼자</a></li>
-               <li class="index_buttons_li swiper-slide"><a href="./?type=여자혼자">여자혼자</a></li>
-               <li class="index_buttons_li swiper-slide"><a href="./?type=여자끼리">여자끼리</a></li>
-               <li class="index_buttons_li swiper-slide"><a href="./?type=남자끼리">남자끼리</a></li>
-               <li class="index_buttons_li swiper-slide"><a href="./?type=남녀함께">남녀그룹</a></li>
-            
-            </ul>
-         </div>
-         <div class="index_samplePlanner">
-            <div class="samplePlannerCard">
-               <div class="samplePlannerCard_map">map</div>
-               <div class="samplePlannerCard_info">map info</div>
-            </div>
-            <div class="samplePlannerCard">
-               <div class="samplePlannerCard_map">map</div>
-               <div class="samplePlannerCard_info">map info</div>
-            </div>
-            <div class="samplePlannerCard">
-               <div class="samplePlannerCard_map">map</div>
-               <div class="samplePlannerCard_info">map info</div>
-            </div>
-            <div class="samplePlannerCard">
-               <div class="samplePlannerCard_map">map</div>
-               <div class="samplePlannerCard_info">map info</div>
-            </div>
-         </div>
-      </div> -->
       <div class="marginTop50px">
-         <h3>유럽 현지투어 얼리버드 & 결합 SALE</h3>
+         <h3>모집중인 국내여행 펀딩</h3>
          <div class="indexImgCard">
             <div class="indexImgCard_img">
                <div class="indexImgCard_img_title">title</div>
@@ -406,13 +400,13 @@
          </div>
       </div>
    </div>
-   <div style="height: 100px;">ㄴㅁㅇㄹㅇㅁㄹㄹㄴㅇㅇㄹㄴㅁㅁㄹㅇㄴ</div>
+
    
 
-    <script>
+  <script>
     var swiper = new Swiper('.swiper-container', {
         slidesPerView: 5,
-        spaceBetween: 0,
+        spaceBetween: 1,
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
