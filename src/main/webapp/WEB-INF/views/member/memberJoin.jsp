@@ -240,6 +240,7 @@ $("#mailok").click(function(){
     if(check){
 		//true일경우 1넘겨주기
 		$("#mailok").prop("value",1);
+		alert("광고 메일 수신 동의 하셨습니다.");
         }	
     else{
         //false	0넘겨주기

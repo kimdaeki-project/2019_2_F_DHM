@@ -182,8 +182,21 @@ $(".getoutmain1-4").click(function(){
     location.href = "memberMypage";
      	 
 	});
+//----------------------------------------------------------------------
+var pw = $("#pw10").val();
+var pw2 = '${member.pw}';
+$(".getoutmain1-3").click(function(){
+var id = '${member.id}';
 
+	if(pw != pw2){
+		alert("[password] 비밀번호가 일치하지 않습니다.");
+	}else{
 
+		location.href = "./memberGetout?id="+id;
+	
+		}
+
+	});
 
 
 

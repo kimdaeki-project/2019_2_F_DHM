@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Data
@@ -23,6 +25,7 @@ public class MemberFilesVO {
 	
 	
 	@OneToOne
+	@JsonIgnore
 	@JoinColumn(name = "id")
 	private MemberVO memberVO;
 
