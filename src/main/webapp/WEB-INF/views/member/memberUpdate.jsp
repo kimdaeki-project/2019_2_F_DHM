@@ -132,7 +132,7 @@
 			
 			<div class="updatelast">
 				<div class="updatelast1">저장</div>
-				<div class="updatelast2"><a href="${pageContext.request.contextPath}/">취소</a></div>
+				<div class="updatelast2">취소</div>
 			</div>
 			
 		</div>
@@ -175,7 +175,7 @@
 	<div id="Xid4" style="">
 		<div id="idsame3" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
 			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
-				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">비밀번호 중복입니다.</div>
+				<div style="color: white; font-size: 12pt; width: 190px; padding-left: 15px; padding-top: 10px;">기존 비밀번호 입력하셨습니다. 재입력하십시오.</div>
 			</div>
 		</div>
 	
@@ -437,6 +437,13 @@
 		
 	    location.href = "memberGetout";
 	     	 
+		});
+
+	//회원 정보 변경 취소-> 마이페이지로 이동
+	$(".updatelast2").click(function(){
+	
+    	location.href = "memberMypage";
+     	 
 		});
 //-----------------------------------------------------------------------
 	//광고 메일 재동의 체크박스

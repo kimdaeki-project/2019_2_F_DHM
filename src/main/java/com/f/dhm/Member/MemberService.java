@@ -109,12 +109,16 @@ public class MemberService {
 		memberRepository.save(memberVO);
 	}
 	//회원 탈퇴----------------------------------------
-	public boolean memberGetoutPage(String id)throws Exception{
-		String getID=id;
-		memberRepository.deleteById(id);
+//	public boolean memberGetoutPage(String id)throws Exception{
+//		String getID=id;
+//		memberRepository.deleteById(id);
+//		
+//		boolean check=memberRepository.existsById(getID);
+//		return check;
+//	}
+	public void memberGetout(String id)throws Exception{
 		
-		boolean check=memberRepository.existsById(getID);
-		return check;
+		memberRepository.deleteById(id);;
 	}
 	
 	

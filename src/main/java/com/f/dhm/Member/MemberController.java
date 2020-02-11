@@ -235,22 +235,32 @@ public class MemberController {
 		return mv;
 	}	
 	//회원 탈퇴-----------------------------------------------------------------------
+//	@GetMapping("memberGetout")
+//	public String memberGetoutPage(String id,HttpSession session)throws Exception{
+//		boolean check=memberService.memberGetoutPage(id);
+//		ModelAndView mv=new ModelAndView();
+//		if(check) {
+//			//delete fail
+//			String msg = "회원 탈퇴 실패";
+//			
+//		}
+//		else {
+//			//delete success!!
+//			String msg = "회원 탈퇴 성공";
+////			mv.addObject("message", message);											
+////			mv.addObject("path", path);			
+//			mv.setViewName("common/result");
+//		}
+//		return null;
+//	}	
 	@GetMapping("memberGetout")
-	public String memberGetoutPage(String id,HttpSession session)throws Exception{
-		boolean check=memberService.memberGetoutPage(id);
-		ModelAndView mv=new ModelAndView();
-		if(check) {
-			//delete fail
-			String msg = "회원 탈퇴 실패";
-			
-		}
-		else {
-			//delete success!!
-			String msg = "회원 탈퇴 성공";
-//			mv.addObject("message", message);											
-//			mv.addObject("path", path);			
-			mv.setViewName("common/result");
-		}
-		return null;
-	}	
+	public String memberGetout(String id)throws Exception{
+		System.out.println("memberDelete id : "+id);
+		
+		memberService.memberGetout(id);
+		return "redirect:../index";
+	}
+	
+	
+	
 }

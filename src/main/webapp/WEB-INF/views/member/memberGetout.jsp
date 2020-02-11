@@ -148,7 +148,7 @@ margin-left: 130px;
 	<spring:form action="memberGetout" id="Getout" method="post" modelAttribute="memberVO" >
 	<div class="getoutmain1">
 		<div class="getoutmain1-1">
-			비밀번호 : <label for="pw"></label><spring:input path="pw" class="getoutmain1-2" id="pw10"/>
+			비밀번호 : <label for="pw"></label><spring:password path="pw" class="getoutmain1-2" id="pw10"/>
 					<input type="hidden" value="${member.id}" name="id">
 					<input type="hidden" value="${member.name}" name="name">
 					<input type="hidden" value="${member.email}" name="email">
@@ -185,7 +185,9 @@ $(".getoutmain1-4").click(function(){
 //----------------------------------------------------------------------
 var pw = $("#pw10").val();
 var pw2 = '${member.pw}';
+
 $(".getoutmain1-3").click(function(){
+	
 var id = '${member.id}';
 
 	if(pw != pw2){
