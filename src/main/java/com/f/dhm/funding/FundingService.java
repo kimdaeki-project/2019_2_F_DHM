@@ -1,6 +1,7 @@
 package com.f.dhm.funding;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
@@ -51,11 +52,11 @@ public class FundingService {
 	}//delete
 
 	//fundingJoin//
-	public FundingJoinVO fundingJoinList(FundingJoinVO fundingJoinVO) throws Exception{
-//		List<FundingVO> list = fundingRepository.fundingJoinList(num);
-		fundingJoinVO = fundingJoinRepository.findById(fundingJoinVO.getFundingVO().getNum()).get();
+	public Optional<FundingVO> fundingJoinList(int fNum) throws Exception{
+//		List<FundingVO> list = fundingRepository.findByFNum(fundingJoinVO.getFundingVO().getNum());
+		Optional<FundingVO> ar = fundingRepository.findById(fNum);
 		
-		return fundingJoinVO;
+		return ar;
 	}//select
 	
 	

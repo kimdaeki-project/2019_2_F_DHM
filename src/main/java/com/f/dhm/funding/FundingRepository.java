@@ -35,9 +35,10 @@ public interface FundingRepository extends JpaRepository<FundingVO, Integer> {
 ////			+ "RIGHT JOIN fundingJoin j ON f.fNum = j.fNum"
 ////			+ " WHERE f.fNum = ?1", nativeQuery = true)
 //	@Query(value = "SELECT j FROM fundingJoin j WHERE fNum = ?1", nativeQuery = true)
-//	List<FundingJoinVO> fundingJoinList(int num) throws Exception;
+//	List<FundingVO> fundingJoinList(int num) throws Exception;
 //
-
+//	@Query(value = "SELECT f.fNum, j.participationPeople, j.price, j.id FROM funding f RIGHT JOIN fundingJoin j ON f.fNum = j.fNum WHERE fNum = ?1", nativeQuery = true)
+//	List<FundingVO> findTop1ByFNum(int fNum) throws Exception;
 //	//**member 추가 후에 테스트**/
 //	//펀딩 참여한 사람이 확인
 //	@Query("SELECT f.fNum, f.pNum, f.contents, m.name, m.email, j.price, j.participationPeople, j.participationPeople " + 

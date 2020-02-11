@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.annotation.Resource;
@@ -158,15 +159,13 @@ public class FundingController {
 
 	//fundingJoin//
 	@GetMapping("fundingJoinList")
-	public ModelAndView fundingJoinList(FundingJoinVO fundingJoinVO) throws Exception{
+	public ModelAndView fundingJoinList(int fNum, FundingVO fundingVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		//		List<FundingVO> list = fundingService.fundingJoinList(num);
-		fundingJoinVO = fundingService.fundingJoinList(fundingJoinVO);
-		System.out.println(fundingJoinVO.getId());
-		System.out.println(fundingJoinVO.getPrice());
-		System.out.println(fundingJoinVO.getParticipationPeople());
-		System.out.println(fundingJoinVO.getNum());
-		mv.addObject("vo", fundingJoinVO);
+//		fundingVO.setNum(fundingVO.getNum());
+		Optional<FundingVO> ar = fundingService.fundingJoinList(fNum);
+		fundingVO = ar.get();
+		mv.addObject("vo", fundingVO);
 		//		mv.addObject("list", list);
 		mv.setViewName("funding/fundingJoinList");
 //		System.out.println("123");
@@ -244,6 +243,12 @@ public class FundingController {
 	@GetMapping("fundingJoinDelete")
 	public String fundingJoinDelete(int num) throws Exception{
 			fundingService.fundingJoinDelete(num);
+//			FundingVO fundingVO = new FundingVO();
+//			fundingVO.setNum(fundingVO.getNum());
+//			fundingVO.setStatus(fundingVO.getStatus()-(price * participationPeople));
+//			int goal = fundingVO.getGoal().intValue();
+//			fundingVO.setGage(fundingVO.getGage() - (price * participationPeople*100/goal));
+//			fundingService.fundingUpdate(fundingVO);
 		return "redirect:./fundingList";
 	}
 

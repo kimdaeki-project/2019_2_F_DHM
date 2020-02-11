@@ -55,6 +55,7 @@
 			<a href="./fundingUpdate?num=${vo.num }" class="btn btn-success" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">수정</a>
 			<a href="./fundingDelete?num=${vo.num }" class="btn btn-danger" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">삭제</a>
 		<%-- </c:if> --%>
+		<a href="./fundingJoinList?fNum=${vo.num}" class="btn btn-info" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">참여자 확인</a>
 			<a href="./fundingList" class="btn btn-info" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">목록</a>
 		</div>
 	</div>

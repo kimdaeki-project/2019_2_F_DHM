@@ -6,23 +6,32 @@
 <head>
 <meta charset="UTF-8">
 <title>대동여행지도</title>
+<link rel="stylesheet"  href="../css/funding.css">
+<c:import url="./template/fundingBoot.jsp" />
+<link rel="stylesheet"  href="../css/basic.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="contents">
-	<table class="table table-hover">
+<c:import url="../template/nav.jsp"/>
+<div class="container">
+	<table class="table ">
 		<tr>
-			<td>번호</td>
-			<td>아이디</td>
-			<td colspan="6">가격</td>
-			<td>참여 인원</td>
+			
+			<th>참여 아이디</th>
+			<th colspan="6">가격</th>
+			<th>참여 인원</th>
+			<th>예약 취소</th>
 		</tr>
 	
-	<c:forEach items="${vo}" var="list">
+	<c:forEach items="${vo.fundingJoinVOs}" var="list">
+	<input type="hidden" value="${list.price}" name="price" id="price">
+	<input type="hidden" value="${list.participationPeople}" name="participationPeople" id="participationPeople">
 			<tr>
-				<td>${list.fNum}</td>
-				<td>${list.id}</td>
-				<td>${list.price}</td>
+			<%-- <td>${param.fNum}</td>  --%>
+				<td>${list.participationId}</td>
+				<td colspan="6"><span id="price">${list.price}</span>원</td>
 				<td>${list.participationPeople}</td>
+				<td><a class="btn btn-danger" href="./fundingJoinDelete?num=${list.num}">취소</a></td>
 			</tr>
 			</c:forEach>
 	</table>

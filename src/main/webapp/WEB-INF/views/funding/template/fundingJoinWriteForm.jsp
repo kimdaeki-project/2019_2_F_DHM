@@ -18,12 +18,13 @@ font-size: 30px;
 			</span>
 			</div>
 		
-		       <input type="hidden" class="form-control" name="id" value="${vo.id}">
-<%-- 		    <div class="form-group">
+			<input type="hidden" class="form-control" name="id" value="${vo.id}">
+			<input type="hidden" class="form-control" name="participationId" value="${member.id}">
+		   <%--  <div class="form-group">
 		      <label for="id">펀딩하는 아이디 : </label>
 		       ${vo.id}
-		    </div>
- --%>
+		    </div> --%>
+
 		    <div class="form-group">
 		      <input type="hidden" name="price" value="${vo.price}">
 		      <label for="price">금액 : </label>

@@ -12,13 +12,19 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.transaction.annotation.Transactional;
+
 
 @SpringBootTest
+@Transactional
 class FundingTest {
 	
 	
 	@Resource(name = "fundingRepository")
 	private FundingRepository fundingRepository;
+	
+	@Resource(name = "fundingJoinRepository")
+	private FundingJoinRepository fundingJoinRepository;
 	
 	@Resource(name = "fundingService")
 	private FundingService fundingService;
@@ -55,9 +61,18 @@ class FundingTest {
 		fundingService.fundingDelete(1);
 	}
 	
-	@Test
+//	@Test
 	void listTest() throws Exception{
 		List<FundingVO> ar = fundingRepository.fundingList();
 //		Page<FundingVO> ar2 = fundingService.fundingList(pager);
+	}
+	@Test
+	void listTest2() throws Exception{
+//		List<FundingJoinVO> ar = fundingJoinRepository.findByFNum(18);
+		FundingVO fundingVO = new FundingVO();
+		fundingVO.setNum(18);
+		Optional<FundingVO> ar = fundingRepository.findById(18);
+		fundingVO = ar.get();
+		System.out.println(fundingVO.getFundingJoinVOs().size());
 	}
 }
