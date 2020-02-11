@@ -43,9 +43,7 @@
 				</c:if>
 			<form:input path="num" class="displayNone"/>
 			<form:input path="id" class="displayNone"/>
-			<form:input path="regDate" class="displayNone"/>
-<%-- 			<fmt:formatDate value="${noticeVO.regDate }" pattern="yyyy-MM-dd hh:mm:ss" var="regd"/> --%>
-<%-- 			<input type="date" value="${regd }"  class="displayNone"> --%>
+			<form:input path="hit" class="displayNone"/>
 			<div class="fileDiv">
 				<div>
 						

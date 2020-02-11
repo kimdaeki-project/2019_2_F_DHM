@@ -13,8 +13,11 @@
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
 		<article>
-	<h1>q Update</h1>
+
 			<form:form action="qnaUpdate" modelAttribute="qnaVO" method="post">
+			
+			
+			
 				<div class="form-group">
 				<label for="usr">title:</label> 
 				<form:input	class="form-control" path="title"/>
@@ -25,8 +28,15 @@
 <%-- 				 <form:errors path="contents" /> --%>
 			</div>
 			
-			<form:input path="num" class="displayNone"/>
 			<div class="float_right"><button class="button2">submit</button></div>
+			<form:input path="num" class="displayNone"/>
+			<form:input path="writer" class="displayNone"/>
+			<form:input path="depth" class="displayNone"/>
+			<form:input path="hit" class="displayNone"/>
+			<form:input path="ref" class="displayNone"/>
+			<form:input path="step" class="displayNone"/>
+			
+			
 			</form:form>
 		</article>
 	</div>

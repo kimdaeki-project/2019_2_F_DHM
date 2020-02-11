@@ -29,7 +29,8 @@ public class NoticeService {
 	}
 	
 	public void noticeUpdate(NoticeVO noticeVO, List<MultipartFile> files)throws Exception{
-		
+		NoticeVO getDate=noticeRepository.findById(noticeVO.getNum()).get();
+		noticeVO.setRegDate(getDate.getRegDate());
 		List<NoticeFilesVO> noticeFilesVOs=new ArrayList<NoticeFilesVO>();
 		if(files.size()>0) {
 			for(int i=0;i<files.size();i++) {
@@ -40,7 +41,6 @@ public class NoticeService {
 				noticeFilesVOs.add(noticeFilesVO);
 			}
 			noticeVO.setNoticeFilesVOs(noticeFilesVOs);
-			noticeVO.setRegDate(null);
 		}
 		noticeRepository.save(noticeVO);
 	}
@@ -76,7 +76,7 @@ public class NoticeService {
 		
 		List<NoticeVO> list= noticeRepository.findAll();
 		for (int i = 0; i < list.size(); i++) {
-			list.get(i).setRegDate((java.util.Date)list.get(i).getRegDate());
+			list.get(i).setRegDate(list.get(i).getRegDate());
 		}
 		return list;
 	}

@@ -650,10 +650,8 @@ th{
 	border-top-right-radius: 5px;
 	color: #606060;
 	width: 774px;
-	white-space: nowrap; 
-	overflow: auto; 
 	text-overflow: clip;
-
+	word-break:break-all;	/* div 밖으로 글이 넘칠때 사용 */
 }
 .x{
 	color: #999;

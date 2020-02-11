@@ -45,13 +45,11 @@
 						</td>
 						<td>${list.id }</td>
 						<td>
-							<%-- ${list.regDate} --%>
-							<fmt:formatDate value="${list.regDate }" type="date" pattern="yyyy-MM-dd" var="regdFormatDate"/>	
+						<fmt:formatDate value="${list.regDate }" type="date" pattern="yyyy-MM-dd" var="regdFormatDate"/>	
 							<fmt:formatDate value="${list.regDate }" type="date" pattern="HHmm" var="regdFormatTime"/>	
-							
 							<c:if test="${regdFormatDate eq nowFormatDate }">
 								<c:if test="${nowFormatTime-regdFormatTime lt 60}">
-									<c:if test="${nowFormatTime-regdFormatTime ne 0}">${nowFormatTime - regdFormatTime}분 전</c:if>
+									<c:if test="${nowFormatTime-regdFormatTime ne 0}">${nowFormatTime-regdFormatTime }분 전</c:if>
 									<c:if test="${nowFormatTime-regdFormatTime eq 0}">방금</c:if>
 								</c:if>
 								<c:if test="${nowFormatTime-regdFormatTime gt 60}">
@@ -59,7 +57,7 @@
 								</c:if>
 							</c:if>
 							<c:if test="${regdFormatDate ne nowFormatDate }">${regdFormatDate}</c:if>
-						</td>
+					</td>
 						<td>${list.hit }</td>
 					</tr>
 					 </c:forEach>

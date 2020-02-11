@@ -57,6 +57,7 @@
 								</c:if>
 							</c:if>
 							<c:if test="${regdFormatDate ne nowFormatDate }">${regdFormatDate}</c:if>
+					</td>
 					<td>${list.hit }</td>
 				</tr>
 				 </c:forEach>
