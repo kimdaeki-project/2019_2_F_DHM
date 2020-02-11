@@ -27,12 +27,12 @@
                   <div class="swiper-container">
                      <ul class="swiper-wrapper nolist" style=" clear: both; overflow: hidden;">
                         <c:forEach items="${list}" var="vo" varStatus="i">
-                           <li class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
+                           <li class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left; ">
                            <a href="../schedule/schedulePage?plNum=${vo.plNum}">
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
                                     <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
+                                       <iframe src="http://localhost/planner/mapTest?plNum=${vo.plNum}" width="226px" height="207px" style="border: none;"></iframe>
 <%--                                        <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
                                     </div>

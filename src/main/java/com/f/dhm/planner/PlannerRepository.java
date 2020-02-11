@@ -34,12 +34,11 @@ public interface PlannerRepository extends JpaRepository<PlannerVO, Integer>{
 	@Query(nativeQuery = true, value = "select count(bak) from planner where plNum= ?")
 	int days(int plNum) throws Exception;
 	
-//	//ㅎㅎ
-//	@Modifying
-//	@Query(nativeQuery = true, value = "delete from planner where plNum=?")
-//	void deleteByPlNum(Integer plNum);
-//
-//	void delete(Integer plNum) throws Exception;
+	@Query(nativeQuery = true, value = "select count(distinct plNum) from planner")
+	int plannerCount() throws Exception;
 
+	@Query(nativeQuery = true, value = "select distinct p.plNum,p.id,p.type,p.title from planner p, planner p2 where p.plNum=p2.plNum")
+	List<MyPlannerVO> plannerTypeList(Integer plNum) throws Exception;
+	
 	
 }

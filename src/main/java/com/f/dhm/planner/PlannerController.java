@@ -245,6 +245,22 @@ public class PlannerController {
 	      return mv;
 	      
 	   }
+	  
+	  @GetMapping("mapTestindex")
+	   public ModelAndView mapTestindex(int plNum) throws Exception{
+	      
+	      ModelAndView mv = new ModelAndView();
+	      
+	      List<MyPlannerVO> list = service.plannerTypeList(plNum);
+	      List<Integer> polyPath = new ArrayList<Integer>();
+	      for (MyPlannerVO plannerVO : list) {
+	         polyPath.add(plannerVO.getPolyPath());
+	      }
+	      mv.addObject("pp", polyPath);
+	      
+	      return mv;
+	      
+	   }
 	
 	@GetMapping("updatePlanner")
 	public ModelAndView updatePlanner(int plNum, HttpSession session) throws Exception{

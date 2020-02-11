@@ -6,6 +6,7 @@ public interface MyPlannerVO {
 	String getTitle();
 	String getId();
 	String getType();
+	Integer getPolyPath();
 
 }
 

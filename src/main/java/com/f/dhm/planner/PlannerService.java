@@ -22,6 +22,8 @@ public class PlannerService {
 	private PlannerRepository repository;
 
 	
+	
+	
 	//hyehyeon
 	public List<PlannerVO> plannerSelect(int plNum, HttpSession session) throws Exception {
 
@@ -30,7 +32,13 @@ public class PlannerService {
 		return repository.findByIdAndPlNum(memberVO.getId(),plNum);
 	}
 	
-
+	public int plannerCount() throws Exception{
+		return repository.plannerCount();
+	}
+	
+	public List<MyPlannerVO> plannerTypeList(Integer plNum) throws Exception{
+		return repository.plannerTypeList(plNum);
+	}
 	
 	public String plannerTitle(int plNum) throws Exception{
 		return	repository.plannerTitle(plNum);
