@@ -207,6 +207,8 @@ margin-left: 130px;
 	</div>
 
 </body>
+
+<%-- 			<c:import url="../template/footer.jsp"/> --%>
 <script type="text/javascript">
 //-----------------------------------------------------------------------
 //회원 탈퇴 취소 -> 마이페이지로 이동

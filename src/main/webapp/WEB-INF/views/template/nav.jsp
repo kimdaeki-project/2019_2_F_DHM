@@ -11,26 +11,29 @@
 							<a href="${pageContext.request.contextPath}/" class="nav_log_img"><img src="../imgs/logos/logo-green.png" class="nav_log_img"></a>
 						</div>
 						<div class="nav_gnb_menu">
-							<ul class="gnb_ul">
+						<ul class="gnb_ul">							
 							<c:if test= "${empty member}">
 								<li class="gnb_li gnb_login"><a href="${pageContext.request.contextPath}/member/memberLogin" 
 								style="color: #68a26c; font-weight: bold;">로그인</a></li>
 								<li class="gnb_li"><a href="${pageContext.request.contextPath}/member/memberJoin">회원가입</a></li>
-								</c:if>
-								<c:if test= "${not empty member}"> 
+							</c:if>
+							
+							<c:if test= "${not empty member}"> 
 								<li class="gnb_li"><a href="${pageContext.request.contextPath}/member/memberLogout" style="cursor: pointer;" id="service">로그아웃</a></li>
 								<li class="gnb_li"><a href="${pageContext.request.contextPath}/member/memberMypage" style="cursor: pointer;" id="service">마이페이지</a></li>
 								<li class="gnb_li"><a href="${pageContext.request.contextPath}/member/memberUpdate">내 정보 수정</a></li>
-								</c:if>
+							</c:if>
+								
 							<li class="gnb_li">
-																	<a style="cursor: pointer;" id="service"  >고객센터</a>
+								<a style="cursor: pointer;" id="service"  >고객센터</a>
 								<ul class="service_ul">
 									<li class="service_li" id="nav_notice"><a href="${pageContext.request.contextPath }/notice/noticeList">notice</a></li>
 									<li class="service_li" id="nav_qna" ><a href="${pageContext.request.contextPath}/qna/qnaList">qna</a></li>
 									<li class="service_li" id="nav_fnq"><a href="${pageContext.request.contextPath }/gnb/serviceCenter">faq</a></li>
 								</ul>
 							</li>
-							</ul>
+						</ul>
+							
 						<div class="service_dropDown">
 							<ul class="service_dropDown_ul">
 								<li class="service_dropDown_li"><a href="${pageContext.request.contextPath}/gnb/serviceCenter">FAQ</a></li>
@@ -38,6 +41,7 @@
 								<li class="service_dropDown_li"><a href="${pageContext.request.contextPath}/qna/qnaList">QNA</a></li>
 							</ul>
 						</div>
+						
 					</div>
 					</div>
 				</div>

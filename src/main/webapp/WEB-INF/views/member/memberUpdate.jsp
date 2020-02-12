@@ -228,6 +228,8 @@
 		</div>
 	</div>
 	<input type="text" value="${member.pw}" id="getPW" style="display: none;">
+	
+			<c:import url="../template/footer.jsp"/>
 <script type="text/javascript">
 //-----------------------------------------------------------------------------
 	$("#Xid2").hide(); //오류 입력 상자 숨기

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<c:import url="../membercss.jsp"/>
+<link rel="stylesheet"  href="../css/membercss.css">
 <style type="text/css">
 *{
 margin-left: 5px;

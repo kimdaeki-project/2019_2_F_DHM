@@ -22,11 +22,13 @@
 	<div class="Joinmain">
 		<div class="JoinMainPage">
 			<div class="Join1">
-				<div class="Join1-1">회원가입 with FACEBOOK</div>
+				<div class="Join1-1">GUEST 계정으로 입장</div>
 			</div>
 			
 			<div class="Join2">
-				<a href="#"><img class="Join2img" src="../imgs/facebooklogin.png"></a>
+				<a href="${pageContext.request.contextPath}/planner/makePlanner">
+				<img class="Join2img" src="../imgs/logos/logo-green.png"></a>
+				<div class="GuestJoin">☜ Guest Click</div>
 			</div>
 			
 			<div class="Join3">
@@ -225,6 +227,8 @@
 		</div>
 	</div>
 	
+	
+	<c:import url="../template/footer.jsp"/>
 <script type="text/javascript">
 //-----------------------------------------------------------------------	
 //회원가입 제약조건 
