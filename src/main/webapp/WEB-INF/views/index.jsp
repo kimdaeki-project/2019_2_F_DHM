@@ -7,6 +7,7 @@
 <head>
 <link rel="stylesheet"  href="../css/membercss.css">
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DHM Planner</title>
 <c:import url="./template/boot.jsp"/>
 <link rel="stylesheet"  href="../css/basic.css">
