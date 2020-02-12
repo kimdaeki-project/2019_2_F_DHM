@@ -60,33 +60,7 @@
 		    <div id="home" class="tab-pane fade in active">
 		    	<div class="swiper-container">
                      <ul class="swiper-wrapper nolist" style=" clear: both; overflow: hidden;">
-                        <c:forEach items="${typelist}" var="vo" varStatus="i">
-                           <li class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
-                           <a href="./schedule/schedulePage?plNum=${vo.plNum}">
-                              <div class="mp-li-wrap">
-                                 <div class="mp-card">
-                                    <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
-                                       <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
-                                    </div>
-                                    <div class="mp-f">
-                                       <div class="mp">${vo.title}</div>
-                                       <div class="mp-f1"> ${days[i.index]} 일간</div>
-                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
-                                       <div class="mp-f3">D-16</div>
-                                    </div>
-                                 </div>
-                              
-                              </div>
-                           </a>
-                           </li>
-                             <!-- Add Pagination -->
-						    <div class="swiper-pagination"></div>
-						    <!-- Add Arrows -->
-						    <div class="swiper-button-next"></div>
-						    <div class="swiper-button-prev"></div>
-                           </c:forEach>
+                        
                      </ul>
                   </div>
 		    </div>
@@ -349,6 +323,10 @@
 
       <div class="marginTop50px">
          <h3>모집중인 국내여행 펀딩</h3>
+         <c:forEach items="${pager }" var="vo">
+         <div>${vo.name }</div>
+         
+         </c:forEach>
          <div class="indexImgCard">
             <div class="indexImgCard_img">
                <div class="indexImgCard_img_title">title</div>

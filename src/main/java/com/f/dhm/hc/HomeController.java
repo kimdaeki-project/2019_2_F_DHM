@@ -10,15 +10,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.f.dhm.funding.FundingService;
 import com.f.dhm.planner.MyPlannerVO;
 import com.f.dhm.planner.PlannerService;
 import com.f.dhm.planner.PlannerVO;
+import com.f.dhm.util.Pager;
 
 @Controller
 public class HomeController {
 
 	@Autowired
 	private PlannerService plannerService;
+	@Autowired 
+	private FundingService fundingService;
 	
 	  @GetMapping("mapTest")
 	   public ModelAndView mapTest(int plNum, HttpSession session) throws Exception{
@@ -37,14 +41,14 @@ public class HomeController {
 	   }
 	
 	@GetMapping("/")
-	public ModelAndView index(Integer plNum) throws Exception{
+	public ModelAndView index(Integer plNum, Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int plannerCount = plannerService.plannerCount();
 		
 		List<MyPlannerVO> ar = plannerService.plannerTypeList(plNum);
+		pager=fundingService.fundingList(pager);
 		
-		
-		
+		mv.addObject("pager",pager);
 		mv.addObject("plannerCount", plannerCount);
 		mv.addObject("typelist", ar);
 		mv.setViewName("index");
