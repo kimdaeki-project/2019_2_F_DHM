@@ -1,11 +1,14 @@
 package com.f.dhm.hc;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.f.dhm.Member.MemberService;
@@ -56,6 +59,7 @@ public class HomeController {
 		int newMember = 0;
 		int newPlanner = 0;
 		int newFunding = 0;
+		List<Integer> howMany = new ArrayList<Integer>();
 		
 		List<LocationVO> loList = LoService.selectList();
 		List<MemberVO> memList = memberService.allMember();
@@ -66,6 +70,9 @@ public class HomeController {
 			if (dd - memberVO.getJoinDay().getTime() <= 0) {
 				newMember++;
 			}
+			
+			howMany.add(plService.plannerEq(memberVO.getId()).size());
+			
 		}
 		
 		List<MyPlannerVO> plList = plService.plannerAll();
@@ -75,6 +82,8 @@ public class HomeController {
 				newPlanner++;
 			}
 		}
+		
+		
 		List<FundingVO> fuList = fuService.allList();
 		
 		for (FundingVO fundingVO : fuList) {
@@ -88,6 +97,7 @@ public class HomeController {
 		mv.addObject("memList", memList);
 		mv.addObject("plList", plList);
 		mv.addObject("fuList", fuList);
+		mv.addObject("howMany", howMany);
 		
 		mv.addObject("newM", newMember);
 		mv.addObject("newP", newPlanner);
@@ -95,5 +105,12 @@ public class HomeController {
 		
 		return mv;
 	}
+	
+	@PostMapping("/admin/memberDel")
+	@ResponseBody
+	public boolean memberDel(String id) throws Exception{
+		return memberService.memberDel(id);
+	}
+	
 }
 	

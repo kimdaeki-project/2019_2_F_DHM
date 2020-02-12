@@ -112,5 +112,10 @@ public class MemberService {
 	}
 
 	
-	
+	//관리자 추가---------------------------------------------
+	public boolean memberDel(String id) throws Exception{
+		memberRepository.deleteById(id);
+		Thread.sleep(100);
+		return memberRepository.existsById(id);
+	}
 }//main
