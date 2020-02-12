@@ -590,3 +590,48 @@ th{
 	float: left;
 	margin-top: 50px;
 }
+
+
+.image {
+	width: 100%;
+	height: 600px;
+	z-index: 0;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-size: cover; 
+/* 	background-position: 50%; */
+/* background-position: center; */
+	position: absolute;
+/* 	top: 0; */
+}
+
+.zoom{
+	
+	 transform: scale(1.5);
+	 transition: transform .35s; 
+}
+#back-image1 {
+	background-image: url('../image/main1.jpg');
+
+	z-index: 5;
+}
+
+#back-image2 {
+	
+	z-index: 4;
+}
+
+#back-image3 {
+
+	z-index: 3;
+}
+
+#back-image4 {
+	
+	z-index: 2;
+}
+
+#back-image5 {
+	
+	z-index: 1;
+}

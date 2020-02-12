@@ -30,6 +30,14 @@
 </head>
 <body>
 <c:import url="./template/nav.jsp"/>
+   <div class="" style="margin-bottom: 20px; height: 600px;">
+ 
+      <div id="back-image1" class="image zoom"></div>
+      <div id="back-image2" class="image zoom"></div>
+      <div id="back-image3" class="image zoom"></div>
+      <div id="back-image4" class="image zoom"></div>
+      <div id="back-image5" class="image zoom"></div>
+   </div>
    <div class="container" style=" padding-bottom: 200px;">
       	<img class="mainimage" src="../images/mainimage2.jpg">
       <div class="jumbotron marginTop50px" style="width: 55%; float: left; margin-left: 20px;">
@@ -42,7 +50,7 @@
       </div>
       <div class="marginTop50px" style="clear: both;">
 
-		<div class="container">
+		<div class="row">
          <h3>다른 여행자들의 플래너 ${plannerCount}개</h3>
 		  
 		  <ul class="nav nav-tabs">
@@ -59,18 +67,39 @@
 		
 		  <div class="tab-content">
 		    <div id="home" class="tab-pane fade in active">
-		    	<div class="swiper-container">
-                     <ul class="swiper-wrapper nolist" style=" clear: both; overflow: hidden;">
-                        
-                     </ul>
+		    	<div class="swiper-container" style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper nolist" >
+                        <c:forEach items="${newPlanner}" var="vo" varStatus="i">
+                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
+                           <a href="./schedule/schedulePage?plNum=${vo.plNum}">
+                              <div class="mp-li-wrap">
+                                 <div class="mp-card">
+                                    <div class="mp-p">
+                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
+									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+                                       <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
+                                    </div>
+                                    <div class="mp-f">
+                                       <div class="mp">${vo.title}</div>
+                                       <div class="mp-f1"> ${days[i.index]} 일간</div>
+                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
+                                       <div class="mp-f3">D-16</div>
+                                    </div>
+                                 </div>
+                              
+                              </div>
+                           </a>
+                           </div>
+                         </c:forEach>
+                     </div>
                   </div>
 		    </div>
 		    <div id="menu1" class="tab-pane fade">
-		       <div class="swiper-container">
-                     <ul class="swiper-wrapper nolist" style=" clear: both; overflow: hidden;">
+		       <div class="swiper-container"  style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper nolist">
                         <c:forEach items="${typelist}" var="vo" varStatus="i">
                            <c:if test="${vo.type eq '아이들과' }">
-                           <li class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
+                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
                            <a href="./schedule/schedulePage?plNum=${vo.plNum}">
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
@@ -89,18 +118,18 @@
                               
                               </div>
                            </a>
-                           </li>
+                           </div>
                            </c:if>
                          </c:forEach>
-                     </ul>
+                     </div>
                   </div>
 		    </div>
 		    <div id="menu2" class="tab-pane fade">
-		       <div class="swiper-container">
-                     <ul class="swiper-wrapper nolist" style=" clear: both; overflow: hidden;">
+		       <div class="swiper-container"  style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper nolist">
                         <c:forEach items="${typelist}" var="vo" varStatus="i">
                            <c:if test="${vo.type eq '커플/신혼' }">
-                           <li class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
+                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
                            <a href="./schedule/schedulePage?plNum=${vo.plNum}">
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
@@ -119,18 +148,18 @@
                               
                               </div>
                            </a>
-                           </li>
+                           </div>
                            </c:if>
                            </c:forEach>
-                     </ul>
+                     </div>
                   </div>
 		    </div>
 		    <div id="menu3" class="tab-pane fade">
-		      <div class="swiper-container">
-                     <ul class="swiper-wrapper nolist" style=" clear: both; overflow: hidden;">
+		      <div class="swiper-container" style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper nolist" >
                         <c:forEach items="${typelist}" var="vo" varStatus="i">
                            <c:if test="${vo.type eq '부모님과' }">
-                           <li class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
+                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
                            <a href="./schedule/schedulePage?plNum=${vo.plNum}">
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
@@ -149,20 +178,20 @@
                               
                               </div>
                            </a>
-                           </li>
+                           </div>
                            </c:if>
                            </c:forEach>
-                     </ul>
+                     </div>
                   </div>
 		    </div>
 		    
 		    
 		    <div id="menu4" class="tab-pane fade">
-		      <div class="swiper-container">
-                     <ul class="swiper-wrapper nolist" style=" clear: both; overflow: hidden;">
+		      <div class="swiper-container" style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper nolist" >
                         <c:forEach items="${typelist}" var="vo" varStatus="i">
                            <c:if test="${vo.type eq '남자혼자' }">
-                           <li class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
+                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
                            <a href="./schedule/schedulePage?plNum=${vo.plNum}">
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
@@ -181,20 +210,20 @@
                               
                               </div>
                            </a>
-                           </li>
+                           </div>
                            </c:if>
                            </c:forEach>
-                     </ul>
+                     </div>
                   </div>
 		    </div>
 		    
 		    
 		    <div id="menu5" class="tab-pane fade">
-		      <div class="swiper-container">
-                     <ul class="swiper-wrapper nolist" style=" clear: both; overflow: hidden;">
+		      <div class="swiper-container" style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper nolist">
                         <c:forEach items="${typelist}" var="vo" varStatus="i">
                            <c:if test="${vo.type eq '여자혼자' }">
-                           <li class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
+                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
                            <a href="./schedule/schedulePage?plNum=${vo.plNum}">
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
@@ -213,20 +242,20 @@
                               
                               </div>
                            </a>
-                           </li>
+                           </div>
                            </c:if>
                            </c:forEach>
-                     </ul>
+                     </div>
                   </div>
 		    </div>
 		    
 		    
 		    <div id="menu6" class="tab-pane fade">
-		      <div class="swiper-container">
-                     <ul class="swiper-wrapper nolist" style=" clear: both; overflow: hidden;">
+		      <div class="swiper-container" style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper nolist" >
                         <c:forEach items="${typelist}" var="vo" varStatus="i">
                            <c:if test="${vo.type eq '여자끼리' }">
-                           <li class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
+                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
                            <a href="./schedule/schedulePage?plNum=${vo.plNum}">
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
@@ -245,20 +274,20 @@
                               
                               </div>
                            </a>
-                           </li>
+                           </div>
                            </c:if>
                            </c:forEach>
-                     </ul>
+                     </div>
                   </div>
 		    </div>
 		    
 		    
 		    <div id="menu7" class="tab-pane fade">
-		      <div class="swiper-container">
-                     <ul class="swiper-wrapper nolist" style=" clear: both; overflow: hidden;">
+		      <div class="swiper-container"  style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper nolist">
                         <c:forEach items="${typelist}" var="vo" varStatus="i">
                            <c:if test="${vo.type eq '남자끼리' }">
-                           <li class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
+                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
                            <a href="./schedule/schedulePage?plNum=${vo.plNum}">
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
@@ -277,20 +306,20 @@
                               
                               </div>
                            </a>
-                           </li>
+                           </div>
                            </c:if>
                            </c:forEach>
-                     </ul>
+                     </div>
                   </div>
 		    </div>
 		    
 		    
 		    <div id="menu8" class="tab-pane fade">
-		      <div class="swiper-container">
-                     <ul class="swiper-wrapper nolist" style=" clear: both; overflow: hidden;">
+		      <div class="swiper-container" style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper nolist" >
                         <c:forEach items="${typelist}" var="vo" varStatus="i">
                            <c:if test="${vo.type eq '남녀함께' }">
-                           <li class="swiper-slide mp-li" style="height: 300px;  overflow: hidden;float: left;">
+                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden;float: left;">
                            <a href="./schedule/schedulePage?plNum=${vo.plNum}">
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
@@ -309,10 +338,10 @@
                               
                               </div>
                            </a>
-                           </li>
+                           </div>
                            </c:if>
                            </c:forEach>
-                     </ul>
+                     </div>
                   </div>
 		    </div>
 		    
@@ -436,9 +465,48 @@
       </div>
    </div>
 
-   
+   </div>
 
   <script>
+
+  var images = new Array();
+
+  images[0] = "main1";
+  images[1] = "main2";
+  images[2] = "main3";
+  images[3] = "main4";
+  images[4] = "main5";
+
+  var div = new Array();
+
+  div[0] = "#back-image1";
+  div[1] = "#back-image2";
+  div[2] = "#back-image3";
+  div[3] = "#back-image4";
+  div[4] = "#back-image5";
+
+  var i = 0;
+
+  /* 배경화면 전환 jquery */
+  setInterval(function() {
+
+     $(div[i]).fadeOut(1500, function() {
+     });
+
+     i = i + 1;
+     if (i > 4) {
+        i = 0;
+     };
+
+     $(div[i]).fadeIn(1500,function() {
+
+        $(this).css("background-image","url(../image/"+ images[i] + ".jpg)");
+           });
+
+     }, 5000);
+
+
+  
     var swiper = new Swiper('.swiper-container', {
         slidesPerView: 5,
         spaceBetween: 1,

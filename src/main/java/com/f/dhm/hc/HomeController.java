@@ -68,8 +68,25 @@ public class HomeController {
 		ModelAndView mv = new ModelAndView();
 		int plannerCount = plannerService.plannerCount();
 		
+
+		List<MyPlannerVO> plList = plService.plannerAll();
+		
+		Date d = new Date();
+		long dd = d.getTime()-1000*60*60*24;
+		
+		
+		for (MyPlannerVO myPlannerVO : plList) {
+			if (dd - myPlannerVO.getMakeDay().getTime() <=0) {
+				mv.addObject("newPlanner", plList);
+			}
+		}
+		
+		
 		List<MyPlannerVO> ar = plannerService.plannerTypeList(plNum);
 		List<FundingVO> ar2= fundingService.fundingIndexList();
+		
+		
+		
 		
 		mv.addObject("fundinglist",ar2);
 		mv.addObject("plannerCount", plannerCount);
