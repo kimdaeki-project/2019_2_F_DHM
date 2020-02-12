@@ -28,6 +28,11 @@ public class FundingService {
 		return fundingRepository.findById(num);
 	}//select
 	
+	//헤현추가
+	public List<FundingVO> fundingIndexList() throws Exception{
+		return fundingRepository.fundingList();
+	}
+	
 	public Pager fundingList(Pager pager) throws Exception{
 		pager.makePageRequest(Sort.by("num").descending());
 		

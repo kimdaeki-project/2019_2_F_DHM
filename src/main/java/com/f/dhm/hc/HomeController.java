@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.f.dhm.funding.FundingService;
+import com.f.dhm.funding.FundingVO;
 import com.f.dhm.planner.MyPlannerVO;
 import com.f.dhm.planner.PlannerService;
 import com.f.dhm.planner.PlannerVO;
@@ -41,14 +42,14 @@ public class HomeController {
 	   }
 	
 	@GetMapping("/")
-	public ModelAndView index(Integer plNum, Pager pager) throws Exception{
+	public ModelAndView index(Integer plNum) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int plannerCount = plannerService.plannerCount();
 		
 		List<MyPlannerVO> ar = plannerService.plannerTypeList(plNum);
-		pager=fundingService.fundingList(pager);
+		List<FundingVO> ar2= fundingService.fundingIndexList();
 		
-		mv.addObject("pager",pager);
+		mv.addObject("fundinglist",ar2);
 		mv.addObject("plannerCount", plannerCount);
 		mv.addObject("typelist", ar);
 		mv.setViewName("index");

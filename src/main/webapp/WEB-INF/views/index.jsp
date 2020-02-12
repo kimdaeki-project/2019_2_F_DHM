@@ -12,6 +12,7 @@
 <c:import url="./template/boot.jsp"/>
 <link rel="stylesheet"  href="../css/basic.css">
  <link rel="stylesheet"  href="../css/schedule.css">
+  <link rel="stylesheet"  href="../css/funding.css">
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <style type="text/css">
@@ -90,7 +91,7 @@
                            </a>
                            </li>
                            </c:if>
-                           </c:forEach>
+                         </c:forEach>
                      </ul>
                   </div>
 		    </div>
@@ -323,70 +324,115 @@
 
       <div class="marginTop50px">
          <h3>모집중인 국내여행 펀딩</h3>
-         <c:forEach items="${pager }" var="vo">
-         <div>${vo.name }</div>
-         
-         </c:forEach>
-         <div class="indexImgCard">
-            <div class="indexImgCard_img">
-               <div class="indexImgCard_img_title">title</div>
-               <div class="indexImgCard_img_text">text text text text text text text</div>
-            </div>
+       	<div class="swiper-container2 row" style="overflow: hidden;">
+        	<div class="funding_block swiper-wrapper">
+        		 <c:forEach items="${fundinglist }" var="vo">
+				<div class="funding_block2 swiper-slide">
+					<div class="funding_block3">
+						<div class="funding_inner_area">
+						<a href="./funding/fundingSelect?num=${vo.num}">
+				
+						  <div class="mp-li-wrap">
+                                 <div class="mp-card">
+                                    <div class="mp-p">
+                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum}" width="226px" height="207px" style="border: none;"></iframe>
+									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+								<%-- <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div> --%>
+                                    </div>
+                                    <div class="mp-f">
+                                       <div class="mp">${vo.name}</div>
+								<%-- <div class="mp-f1"> ${days[i.index]} 일간</div> --%>
+                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
+                                       <div class="mp-f3">D-16</div>
+                                    </div>
+                                 </div>
+                              
+                              </div>
+				
+				
+				
+<%-- 				<img class="funding_img" src="../test_img/test${i.index}.jpg"></a> --%>
+						</div>
+					</div>
+					<div class="funding_inner_area2">
+						<div class="funding_start">
+							<span class="glyphicon glyphicon-calendar"></span>
+							${vo.restTime} 일 남았어요!
+						</div>
+						<div class="funding_bar">
+							<div class="funding_bar2" style="width: ${vo.gage}%;min-width: 0%;background: rgb(250, 100, 98);transition-duration: 200ms;height: 2px;"></div>
+						</div>
+						<div class="funding_start" style="float: right; padding-right: 1em">
+							${vo.gage}%
+						</div>
+						<div  class="funding_start" style="float: left; padding-right: 1em">
+							현재 모인 금액 : ${vo.status}원
+						</div>
+					</div>
+				</div>
+         			</c:forEach>
+			</div>
          </div>
-         <div class="indexImgCard">
-            <div class="indexImgCard_img">
-               <div class="indexImgCard_img_title">title</div>
-               <div class="indexImgCard_img_text">text text text text text text text</div>
-            </div>
-         </div>
-         <div class="indexImgCard">
-            <div class="indexImgCard_img">
-               <div class="indexImgCard_img_title">title</div>
-               <div class="indexImgCard_img_text">text text text text text text text</div>
-            </div>
-         </div>
-         <div class="indexImgCard">
-            <div class="indexImgCard_img">
-               <div class="indexImgCard_img_title">title</div>
-               <div class="indexImgCard_img_text">text text text text text text text</div>
-            </div>
-         </div>
-         <div class="indexImgCard">
-            <div class="indexImgCard_img">
-               <div class="indexImgCard_img_title">title</div>
-               <div class="indexImgCard_img_text">text text text text text text text</div>
-            </div>
-         </div>
-         <div class="indexImgCard">
-            <div class="indexImgCard_img">
-               <div class="indexImgCard_img_title">title</div>
-               <div class="indexImgCard_img_text">text text text text text text text</div>
-            </div>
-         </div>
-         <div class="indexImgCard">
-            <div class="indexImgCard_img">
-               <div class="indexImgCard_img_title">title</div>
-               <div class="indexImgCard_img_text">text text text text text text text</div>
-            </div>
-         </div>
-         <div class="indexImgCard">
-            <div class="indexImgCard_img">
-               <div class="indexImgCard_img_title">title</div>
-               <div class="indexImgCard_img_text">text text text text text text text</div>
-            </div>
-         </div>
-         <div class="indexImgCard">
-            <div class="indexImgCard_img">
-               <div class="indexImgCard_img_title">title</div>
-               <div class="indexImgCard_img_text">text text text text text text text</div>
-            </div>
-         </div>
-         <div class="indexImgCard">
-            <div class="indexImgCard_img">
-               <div class="indexImgCard_img_title">title</div>
-               <div class="indexImgCard_img_text">text text text text text text text</div>
-            </div>
-         </div>
+<!--         <div class="indexImgCard"> -->
+<!--             <div class="indexImgCard_img"> -->
+<!--                <div class="indexImgCard_img_title">title</div> -->
+<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
+<!--             </div> -->
+<!--          </div> -->
+<!--          <div class="indexImgCard"> -->
+<!--             <div class="indexImgCard_img"> -->
+<!--                <div class="indexImgCard_img_title">title</div> -->
+<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
+<!--             </div> -->
+<!--          </div> -->
+<!--          <div class="indexImgCard"> -->
+<!--             <div class="indexImgCard_img"> -->
+<!--                <div class="indexImgCard_img_title">title</div> -->
+<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
+<!--             </div> -->
+<!--          </div> -->
+<!--          <div class="indexImgCard"> -->
+<!--             <div class="indexImgCard_img"> -->
+<!--                <div class="indexImgCard_img_title">title</div> -->
+<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
+<!--             </div> -->
+<!--          </div> -->
+<!--          <div class="indexImgCard"> -->
+<!--             <div class="indexImgCard_img"> -->
+<!--                <div class="indexImgCard_img_title">title</div> -->
+<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
+<!--             </div> -->
+<!--          </div> -->
+<!--          <div class="indexImgCard"> -->
+<!--             <div class="indexImgCard_img"> -->
+<!--                <div class="indexImgCard_img_title">title</div> -->
+<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
+<!--             </div> -->
+<!--          </div> -->
+<!--          <div class="indexImgCard"> -->
+<!--             <div class="indexImgCard_img"> -->
+<!--                <div class="indexImgCard_img_title">title</div> -->
+<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
+<!--             </div> -->
+<!--          </div> -->
+<!--          <div class="indexImgCard"> -->
+<!--             <div class="indexImgCard_img"> -->
+<!--                <div class="indexImgCard_img_title">title</div> -->
+<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
+<!--             </div> -->
+<!--          </div> -->
+<!--          <div class="indexImgCard"> -->
+<!--             <div class="indexImgCard_img"> -->
+<!--                <div class="indexImgCard_img_title">title</div> -->
+<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
+<!--             </div> -->
+<!--          </div> -->
+<!--          <div class="indexImgCard"> -->
+<!--             <div class="indexImgCard_img"> -->
+<!--                <div class="indexImgCard_img_title">title</div> -->
+<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
+<!--             </div> -->
+<!--          </div>/ -->
       </div>
    </div>
 
@@ -402,6 +448,15 @@
         },
       });
 
+    var swiper = new Swiper('.swiper-container2', {
+        slidesPerView: 5,
+        spaceBetween: 1,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+    
 
     $(".index_buttons_li").click(function(){
         

@@ -30,7 +30,7 @@ public class FundingVO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "fNum")
 	private int num;
-	private int pNum;
+	private int plNum;
 	@NotEmpty
 	@Column(name = "fName")
 	private String name;
