@@ -248,7 +248,7 @@ public class MemberController {
 		boolean check = memberService.memberGetout(mbm);
 		System.out.println("@@@@@@@ id: ");
 		
-		String msg = "회원 탈퇴 실패";
+		String msg = "[system] 회원 탈퇴 실패";
 		String path="member/memberGetout";
 		
 		if(check) {
@@ -257,7 +257,7 @@ public class MemberController {
 			mv.setViewName("common/result");
 			
 		}else {
-			msg = "회원 탈퇴 성공";
+			msg = "[system] 회원 탈퇴 성공";
 			path="../";
 			mv.addObject("message", msg);
 			mv.addObject("path", path);

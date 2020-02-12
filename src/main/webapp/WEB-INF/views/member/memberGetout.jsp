@@ -148,9 +148,9 @@ margin-left: 130px;
 	<spring:form action="memberGetout" id="Getout" method="post" modelAttribute="memberVO" >
 	<div class="getoutmain1">
 		<div class="getoutmain1-1">
-			비밀번호 : <label for="pw"></label><spring:password path="pw" class="getoutmain1-2" id="pw10"/>
-					<input type="button" id="ppw_btn" class="btn-u btn-u-red" value="확인"
-				style="margin-left: -5px; margin-top: 19px; width: 70px; height: 27px; background-color: #e74c3c; color: white;">
+			비밀번호 : <input type="password" class="getoutmain1-2" id="pw10" name="pw">			
+					<button type="button" id="ppw_btn" class="btn-u btn-u-red"
+				style="margin-left: -5px; margin-top: 19px; width: 70px; height: 27px; background-color: #e74c3c; color: white;">확인</button>
 					
 					<input type="hidden" value="${member.id}" name="id">
 					<input type="hidden" value="${member.name}" name="name">
@@ -262,21 +262,8 @@ $(".getoutmain1-4").click(function(){
 			
 		}else{
 
-				$.ajax({
-					type: "POST",
-					url	: "memberGetout",
-					success : function(d){
-						
-							if(d){
-								
-								location.href = "../";
-						}else{
-							
-							alert("[error]탈퇴 실패하셨습니다.")
-							
-							}						
-						}
-				});		
+		        document.getElementById('Getout').submit();        
+		    		
 			}
 	});
 
@@ -301,8 +288,20 @@ $(".getoutmain1-4").click(function(){
 			}	
 	}); //function문
 //----------------------------------------------------------------------
+//enter키 막기
+//방법1
+document.addEventListener('keydown', function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+  };
+}, true);
 
-
+//방법0(예시)
+// $('input[type="text"]').keydown(function() {
+// 	  if (event.keyCode === 13) {
+// 	    event.preventDefault();
+// 	  };
+// 	});
 	
 </script>
 </html>
