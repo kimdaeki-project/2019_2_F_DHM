@@ -29,15 +29,16 @@
 </style>
 </head>
 <body>
-<c:import url="./template/nav.jsp"/>
-   <div class="" style="margin-bottom: 20px; height: 600px;">
- 
-      <div id="back-image1" class="image zoom"></div>
-      <div id="back-image2" class="image zoom"></div>
-      <div id="back-image3" class="image zoom"></div>
-      <div id="back-image4" class="image zoom"></div>
-      <div id="back-image5" class="image zoom"></div>
+   <div class="swiper-container3" style="margin-bottom: 20px; height: 600px;">
+ 	  <div class="swiper-wrapper">
+      		<div id="back-image1" class="image swiper-slide"></div>
+     		<div id="back-image2" class="image swiper-slide"></div>
+      		<div id="back-image3" class="image swiper-slide"></div>
+      		<div id="back-image4" class="image swiper-slide"></div>
+      		<div id="back-image5" class="image swiper-slide"></div>
+      </div>
    </div>
+<c:import url="./template/nav.jsp"/>
    <div class="container" style=" padding-bottom: 200px;">
       	<img class="mainimage" src="../images/mainimage2.jpg">
       <div class="jumbotron marginTop50px" style="width: 55%; float: left; margin-left: 20px;">
@@ -469,41 +470,41 @@
 
   <script>
 
-  var images = new Array();
+//   var images = new Array();
 
-  images[0] = "main1";
-  images[1] = "main2";
-  images[2] = "main3";
-  images[3] = "main4";
-  images[4] = "main5";
+//   images[0] = "main1";
+//   images[1] = "main2";
+//   images[2] = "main3";
+//   images[3] = "main4";
+//   images[4] = "main5";
 
-  var div = new Array();
+//   var div = new Array();
 
-  div[0] = "#back-image1";
-  div[1] = "#back-image2";
-  div[2] = "#back-image3";
-  div[3] = "#back-image4";
-  div[4] = "#back-image5";
+//   div[0] = "#back-image1";
+//   div[1] = "#back-image2";
+//   div[2] = "#back-image3";
+//   div[3] = "#back-image4";
+//   div[4] = "#back-image5";
 
-  var i = 0;
+//   var i = 0;
 
-  /* 배경화면 전환 jquery */
-  setInterval(function() {
+//   /* 배경화면 전환 jquery */
+//   setInterval(function() {
 
-     $(div[i]).fadeOut(1500, function() {
-     });
+//      $(div[i]).fadeOut(1500, function() {
+//      });
 
-     i = i + 1;
-     if (i > 4) {
-        i = 0;
-     };
+//      i = i + 1;
+//      if (i > 4) {
+//         i = 0;
+//      };
 
-     $(div[i]).fadeIn(1500,function() {
+//      $(div[i]).fadeIn(1500,function() {
 
-        $(this).css("background-image","url(../image/"+ images[i] + ".jpg)");
-           });
+//         $(this).css("background-image","url(../image/"+ images[i] + ".jpg)");
+//            });
 
-     }, 5000);
+//      }, 5000);
 
 
   
@@ -523,6 +524,28 @@
           el: '.swiper-pagination',
           clickable: true,
         },
+      });
+
+    var swiper = new Swiper('.swiper-container3', {
+    	
+    	      spaceBetween: 30,
+    	      centeredSlides: true,
+    	      autoplay: {
+    	        delay: 3500,
+    	        disableOnInteraction: false,
+    	      },
+    	      pagination: {
+    	        el: '.swiper-pagination',
+    	        clickable: true,
+    	      },
+    	      navigation: {
+    	        nextEl: '.swiper-button-next',
+    	        prevEl: '.swiper-button-prev',
+    	      },
+    	      zoom: {
+    	    	    maxRatio: 5,
+    	      },
+    	  
       });
     
 
