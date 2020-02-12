@@ -26,10 +26,6 @@ public class PlannerService {
 	public List<PlannerVO> plannerSelect(int plNum, HttpSession session) throws Exception {
 
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
-		if (memberVO == null) {
-			memberVO = new MemberVO();
-			memberVO.setId("guest");
-		}
 		
 		return repository.findByIdAndPlNum(memberVO.getId(),plNum);
 	}
@@ -93,10 +89,5 @@ public class PlannerService {
 		repository.deleteAll(delList);
 		
 	}
-	
-	public List<MyPlannerVO> plannerAll() throws Exception{
-		return repository.plannerAll();
-	}
-	
 
 }

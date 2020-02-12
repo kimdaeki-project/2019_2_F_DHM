@@ -30,7 +30,7 @@ public class FundingVO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "fNum")
 	private int num;
-	private int plNum;
+	private int pNum;
 	@NotEmpty
 	@Column(name = "fName")
 	private String name;
@@ -49,7 +49,6 @@ public class FundingVO {
 	private BigInteger participationPeople;
 	private int restTime;
 	private int gage;
-	private java.util.Date regDate;
 	
 	@OneToMany(mappedBy = "fundingVO", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<FundingJoinVO> fundingJoinVOs;

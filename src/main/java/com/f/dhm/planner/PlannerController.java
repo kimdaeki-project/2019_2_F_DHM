@@ -223,7 +223,6 @@ public class PlannerController {
 		         vo.setPolyPath(pp[i]);
 		         vo.setArCode(arCodeP[i]);
 		         
-		         
 		         pList.add(vo);
 		      }
 		      

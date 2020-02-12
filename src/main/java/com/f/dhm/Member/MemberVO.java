@@ -48,8 +48,6 @@ public class MemberVO {
 	private String tema;
 	private String helpcity;
 	private int num;
-	@CreationTimestamp
-	private java.util.Date joinDay;
 		
 	@Nullable
 	@OneToOne(mappedBy = "memberVO", cascade = CascadeType.ALL)
