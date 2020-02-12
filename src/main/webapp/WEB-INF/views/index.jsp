@@ -66,14 +66,14 @@
 	         <p>맞춤 여행 추천과 플래너 작성을 통해 보다 효율적인 여행을 계획해보세요!</p>
 	         <div class="main_planner_btn_div">
 	            <input type="button" class="main_planner_btn_diy" value="DIY">
-	            <input type="button" class="main_planner_btn_request" value="request">
+	            <input type="button" class="main_planner_btn_request" value="FUNDING">
 	         </div>
 	      </div>
       </div>
       <div class="marginTop50px" style="clear: both;">
 
 		<div class="row">
-         <h3>다른 여행자들의 플래너 ${plannerCount}개</h3>
+         <h3 class="contitle">다른 여행자들의 플래너 ${plannerCount}개</h3>
 		  
 		  <ul class="nav nav-tabs">
 		      <li class="index_buttons_li index_buttons_li"><a class="ac" data-toggle="tab"  href="#home">최신</a></li>
@@ -372,10 +372,10 @@
 		  </div>
 		</div>
 		
-
+	<div class="row">
       <div class="marginTop50px">
-         <h3>모집중인 국내여행 펀딩</h3>
-       	<div class="swiper-container2 row" style="overflow: hidden;">
+         <h3 class="contitle">모집중인 펀딩여행</h3>
+       	<div class="swiper-container2" style="overflow: hidden;">
         	<div class="funding_block swiper-wrapper">
         		 <c:forEach items="${fundinglist }" var="vo">
 				<div class="funding_block2 swiper-slide">
@@ -424,69 +424,9 @@
          			</c:forEach>
 			</div>
          </div>
-<!--         <div class="indexImgCard"> -->
-<!--             <div class="indexImgCard_img"> -->
-<!--                <div class="indexImgCard_img_title">title</div> -->
-<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
-<!--             </div> -->
-<!--          </div> -->
-<!--          <div class="indexImgCard"> -->
-<!--             <div class="indexImgCard_img"> -->
-<!--                <div class="indexImgCard_img_title">title</div> -->
-<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
-<!--             </div> -->
-<!--          </div> -->
-<!--          <div class="indexImgCard"> -->
-<!--             <div class="indexImgCard_img"> -->
-<!--                <div class="indexImgCard_img_title">title</div> -->
-<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
-<!--             </div> -->
-<!--          </div> -->
-<!--          <div class="indexImgCard"> -->
-<!--             <div class="indexImgCard_img"> -->
-<!--                <div class="indexImgCard_img_title">title</div> -->
-<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
-<!--             </div> -->
-<!--          </div> -->
-<!--          <div class="indexImgCard"> -->
-<!--             <div class="indexImgCard_img"> -->
-<!--                <div class="indexImgCard_img_title">title</div> -->
-<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
-<!--             </div> -->
-<!--          </div> -->
-<!--          <div class="indexImgCard"> -->
-<!--             <div class="indexImgCard_img"> -->
-<!--                <div class="indexImgCard_img_title">title</div> -->
-<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
-<!--             </div> -->
-<!--          </div> -->
-<!--          <div class="indexImgCard"> -->
-<!--             <div class="indexImgCard_img"> -->
-<!--                <div class="indexImgCard_img_title">title</div> -->
-<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
-<!--             </div> -->
-<!--          </div> -->
-<!--          <div class="indexImgCard"> -->
-<!--             <div class="indexImgCard_img"> -->
-<!--                <div class="indexImgCard_img_title">title</div> -->
-<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
-<!--             </div> -->
-<!--          </div> -->
-<!--          <div class="indexImgCard"> -->
-<!--             <div class="indexImgCard_img"> -->
-<!--                <div class="indexImgCard_img_title">title</div> -->
-<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
-<!--             </div> -->
-<!--          </div> -->
-<!--          <div class="indexImgCard"> -->
-<!--             <div class="indexImgCard_img"> -->
-<!--                <div class="indexImgCard_img_title">title</div> -->
-<!--                <div class="indexImgCard_img_text">text text text text text text text</div> -->
-<!--             </div> -->
-<!--          </div>/ -->
       </div>
    </div>
-
+</div>
    </div>
 
   <script>

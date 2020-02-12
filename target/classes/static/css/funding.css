@@ -125,7 +125,7 @@ position: relative;
 transition-property: transform, -webkit-transform;
 text-align: center;
 font-size: 18px;
-background: #fff;
+/* background: #fff; */
 float: left;
 display: inline-block;
 padding: 0 4px 14px;
