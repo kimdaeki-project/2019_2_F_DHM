@@ -39,15 +39,17 @@
       </div>
    </div>
 <c:import url="./template/nav.jsp"/>
-   <div class="container" style=" padding-bottom: 200px;">
+   <div class="container" style=" padding-top: 100px;">
       	<img class="mainimage" src="../images/mainimage2.jpg">
-      <div class="jumbotron marginTop50px" style="width: 55%; float: left; margin-left: 20px;">
-         <h3>DHM플래너로 대한민국 곳곳을 여행해보세요.</h3>
-         <p>맞춤 여행 추천과 플래너 작성을 통해 보다 효율적인 여행을 계획해보세요!</p>
-         <div class="main_planner_btn_div">
-            <input type="button" class="main_planner_btn_diy" value="DIY">
-            <input type="button" class="main_planner_btn_request" value="request">
-         </div>
+      <div class="row">
+	      <div class="jumbotron marginTop50px" style="width: 743px; float: left; margin-left: 20px;">
+	         <h3>DHM플래너로 대한민국 곳곳을 여행해보세요.</h3>
+	         <p>맞춤 여행 추천과 플래너 작성을 통해 보다 효율적인 여행을 계획해보세요!</p>
+	         <div class="main_planner_btn_div">
+	            <input type="button" class="main_planner_btn_diy" value="DIY">
+	            <input type="button" class="main_planner_btn_request" value="request">
+	         </div>
+	      </div>
       </div>
       <div class="marginTop50px" style="clear: both;">
 
@@ -528,7 +530,7 @@
 
     var swiper = new Swiper('.swiper-container3', {
     	
-    	      spaceBetween: 30,
+    	      spaceBetween: 50,
     	      centeredSlides: true,
     	      autoplay: {
     	        delay: 3500,
@@ -542,10 +544,7 @@
     	        nextEl: '.swiper-button-next',
     	        prevEl: '.swiper-button-prev',
     	      },
-    	      zoom: {
-    	    	    maxRatio: 5,
-    	      },
-    	  
+    	    
       });
     
 
