@@ -6,28 +6,32 @@
 <meta charset="UTF-8">
 <title>ADMINISTER</title>
 <link rel="stylesheet" href="../css/admin.css">
+<style type="text/css">
+html {
+  scroll-behavior: smooth;
+}
+</style>
 </head>
 <body>
 <c:import url="../template/boot.jsp"/>
 <c:choose>
-<%-- 	<c:when test="${member.grade eq 9 }"> --%>
-	<c:when test="${member eq null }">
+	<c:when test="${member.grade eq 9 }">
 	<div class="adm-body">
 		<div class="adm-left">
 			<a href="/"> <img alt="홈" src="../imgs/logos/logo-white.png" width="100%" height="80px"> </a>
-			<p class="adm-left-p"><a class="adm-left-menu" id="" style="font-size: 30px;">관리 페이지 홈</a></p>
-			<p class="adm-left-p"><a class="adm-left-menu" id="City">도시 정보</a></p>
-			<p class="adm-left-p"><a class="adm-left-menu" id="Member" >멤버 관리</a></p>
-			<p class="adm-left-p"><a class="adm-left-menu" id="Funding" >펀딩 정보</a></p>
-			<p class="adm-left-p"><a class="adm-left-menu" id="Planner" >플래너 관리</a></p>
+			<p class="adm-left-p"><a class="adm-left-menu" id="City" href="#adm-city">도시 정보</a></p>
+			<p class="adm-left-p"><a class="adm-left-menu" id="Member" href="#adm-member">멤버 관리</a></p>
+			<p class="adm-left-p"><a class="adm-left-menu" id="Planner" href="#adm-planner">플래너 정보</a></p>
+			<p class="adm-left-p"><a class="adm-left-menu" id="Funding" href="#adm-funding">펀딩 정보</a></p>
+			<p class="adm-left-p"><a class="adm-left-menu" id="review" href="#adm-review">리뷰 관리</a></p>
 			</div>
 		<div class="adm-right">
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ인기도시 -->
-			<div class="popular-city">
+			<div class="popular-city" id="adm-city" >
 				<h1>BEST CITY</h1>
-						<input type="hidden" value="4" id="rlfdl">
+						<input type="hidden" value="17" id="rlfdl">
 				<ul>
-					<c:forEach items="${Lolist }" var="lo" varStatus="l" begin="0" end="3">
+					<c:forEach items="${Lolist }" var="lo" varStatus="l" begin="0" end="17">
 						<li>
 							<div class="li-city">
 								<div class="li-city-A" >
@@ -66,8 +70,8 @@
 			</div>
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ인기도시 -->
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ멤버 -->
-			<div style="clear: both; width: 97%;">
-				<h1>MEMBERS</h1>
+			<div style="clear: both; width: 97%;" class="adm-member"  id="adm-member">
+				<h1>MEMBERS - 새로 가입한 멤버 : ${newM }명</h1>
 				<table class="member-table">
 					<thead class="member-table-head">
 						<tr>
@@ -136,11 +140,40 @@
 			</div>
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ멤버 -->
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ플래너-->
-			<div class="adm-planner">
+			<div class="adm-planner"  id="adm-planner">
+				<h1>PLANNER - 새로 추가된 플래너 : ${newP }개</h1>
+				<ul>
+					<c:forEach items="${plList }" var="pl" varStatus="p">
+						<li>
+							<div class="adm-planner-div">
+								<p style="background-color: #3ad195; color: white;">플래너 번호 : ${pl.plNum }</p>
+								<p>플래너 제목 : ${pl.title }</p>
+								<p>플래너 타입 : ${pl.type }</p>
+								<p>플래너 ID : ${pl.id }</p>
+							</div>	
+						</li>
+					</c:forEach>
+				</ul>
 			</div>		
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ플래너-->
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ펀딩-->
-			<div class="adm-funding"></div>
+			<div class="adm-funding"  id="adm-funding">
+				<h1>FUNDING - 새로 추가된 펀딩 : ${newF }개</h1>
+				<ul>
+					<c:forEach items="${fuList }" var="fu" varStatus="f">
+						<li>
+							<div class="adm-funding-div">
+								<p style="background-color: #3ad195; color: white;">${fu.name }</p>
+								<p>펀딩 목표 금액 : ${fu.goal }</p>
+								<p>현재 펀딩 금액 : ${fu.price }</p>
+								<p>펀딩 참여 인원 : ${fu.participationPeople }</p>
+								<p>펀딩 모집자 : ${fu.id }</p>
+								<p></p>
+							</div>
+						</li>
+					</c:forEach>
+				</ul>
+			</div>
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ펀딩-->	
 		</div>
 		
