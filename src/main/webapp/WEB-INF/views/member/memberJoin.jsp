@@ -70,7 +70,8 @@
 					<div class="Join4-1-2">비밀번호 확인</div>
 					<div class="Join-text2">
 						<label for="pw2"></label>
-						<spring:password path="pw2" class="FJoin4-2-j" placeholder="특수/영문 대소문자/숫자만 사용가능, 6~12자"  id="pw11"/>
+						<spring:password path="pw2" class="FJoin4-2-j" placeholder="특수/영문 대소문자/숫자만 사용가능, 6~12자"  id="pw11" 
+						cssStyle="width: 273px; height: 27px; margin-left: 30px;"/>
 					</div>
 						<spring:errors path="pw2" cssStyle="font-size: 12px; color:red; text-align: center; margin-left: 210px;"></spring:errors>
 				</div>
@@ -292,8 +293,9 @@ $(".Join5-btn1").click(function(){
 	 spe = pw.match(/[`~!@@#$%^&*|₩₩₩'₩';:₩/?]/ig);
 
      if(check2 == false){
- 		alert("[check] 약관과 개인정보 수집 및 이용방침에 동의 체크 확인 부탁드립니다.");	
-			
+ 		//alert("[check] 약관과 개인정보 수집 및 이용방침에 동의 체크 확인 부탁드립니다.");	
+
+ 	//	location.href = "memberJoin";
 	}else {
 // 	    	 if(kor.length == null){
 // 				alert("[name] 이름을 정확히 입력하십시오.");
@@ -319,7 +321,12 @@ $(".Join5-btn1").click(function(){
 								if(check4 == false){
 									alert("[oberlap] 이메일 중복 확인 해주시기 바랍니다.");
 								}else{
+										if(check2 == false){
+											alert("[check] 약관과 개인정보 수집 및 이용방침에 동의 체크 확인 부탁드립니다.");	
+											}else{
+
 					    			document.getElementById('frm2').submit(); 									
+									}
 						}//else문
 					}	
 	   		 }//if else문 (check2 == false)
