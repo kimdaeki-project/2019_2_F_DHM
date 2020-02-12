@@ -49,6 +49,7 @@ public class FundingVO {
 	private BigInteger participationPeople;
 	private int restTime;
 	private int gage;
+	private java.util.Date regDate;
 	
 	@OneToMany(mappedBy = "fundingVO", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<FundingJoinVO> fundingJoinVOs;

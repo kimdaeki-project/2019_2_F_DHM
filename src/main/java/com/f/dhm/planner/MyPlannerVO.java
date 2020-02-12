@@ -1,5 +1,7 @@
 package com.f.dhm.planner;
 
+import java.util.Date;
+
 public interface MyPlannerVO {
 
 	int getPlNum();
@@ -7,6 +9,10 @@ public interface MyPlannerVO {
 	String getId();
 	String getType();
 	Integer getPolyPath();
+
+	//추가
+	Date getMakeDay();
+
 
 }
 

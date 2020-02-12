@@ -1,18 +1,18 @@
 package com.f.dhm.Member;
 
 import java.io.File;
-import java.sql.Date;
+import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.web.servlet.MultipartProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.f.dhm.util.FilePathGenerator;
 import com.f.dhm.util.FileSaver;
+import com.f.dhm.Member.MemberVO;
 
 @Service
 @Transactional(rollbackOn = Exception.class)
@@ -70,18 +70,47 @@ public class MemberService {
 		
 		memberRepository.save(memberVO);
 	}
-
 	//ID 체크----------------------------------------
 	public boolean memberIdCheck(String id)throws Exception{
+		
 		return memberRepository.existsById(id);
 	}
 	//EMAIL 체크----------------------------------------
 	public MemberVO memberEMAILCheck(String email)throws Exception{
+		
 		return memberRepository.findByEmail(email);
 	}
-	//----------------------------------------
-	//----------------------------------------
+	//프로필 사진 변경----------------------------------------
+	public boolean memberMypageImg(MemberVO memberVO,HttpSession session, MultipartFile files)throws Exception{
+
+		MemberFilesVO memberFilesVO = new MemberFilesVO();
+		String realPath=session.getServletContext().getRealPath("/imgs/member");
+	
+		memberFilesVO.setMemberVO(memberVO);
+		memberFilesVO.setFname(fileSaver.save2(realPath, files));
+		memberFilesVO.setOname(files.getOriginalFilename());
+
+		memberFilesRepository.save(memberFilesVO);
+		memberVO =  memberRepository.findById(memberVO.getId()).get();
+
+		return memberFilesRepository.existsById(memberVO.getMemberFilesVO().getFnum());	
+	}
+	
+	//회원 정보 변경----------------------------------------
+	public void memberUpdatePage(MemberVO memberVO)throws Exception{
+		
+		memberRepository.save(memberVO);
+	}
+	//회원 탈퇴----------------------------------------
+	public void memberGetoutPage(MemberVO memberVO)throws Exception{
+		
+		memberRepository.delete(memberVO);
+	}
+	
+	public List<MemberVO> allMember() throws Exception{
+		return memberRepository.findAll();
+	}
 
 	
 	
-}
+}//main

@@ -84,4 +84,8 @@ public class FundingService {
 	public void fundingJoinDelete(int num) throws Exception{
 		fundingJoinRepository.deleteById(num);
 	}
+	
+	public List<FundingVO> allList() throws Exception{
+		return fundingRepository.findAll();
+	}
 }
