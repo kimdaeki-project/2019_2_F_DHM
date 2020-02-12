@@ -171,6 +171,26 @@ public class FundingController {
 //		System.out.println("123");
 		return mv;
 	}
+	
+	@GetMapping("fundingJoinSelect")
+	public ModelAndView fundingJoinSelect(String participationId) throws Exception{
+		ModelAndView mv = new ModelAndView();
+//		Optional<FundingVO> opt = fundingService.fundingJoinSelect(participationId);
+//		Map<String, Object> ar = fundingService.fundingJoinSelect(participationId);
+//		FundingVO fundingVO = ar.get();
+//		List<FundingVO> ar = fundingService.fundingJoinSelect(participationId);
+//		FundingVO fundingVO = ar.get(0);
+		
+		List<FundingJoinVO> ar = fundingService.fundingJoinSelect(participationId);
+		FundingJoinVO fundingJoinVO = ar.get(0);
+		
+		mv.addObject("vo", fundingJoinVO);
+//		mv.addObject("vos", fundingVO.getFundingJoinVOs());
+		mv.setViewName("funding/fundingJoinSelect");
+		return mv;
+	}
+	
+	
 //	@GetMapping("fundingJoinUpdate")
 //	public ModelAndView fundingJoinUpdate(@ModelAttribute FundingJoinVO fundingJoinVO, String id) throws Exception{
 //		ModelAndView mv = new ModelAndView();

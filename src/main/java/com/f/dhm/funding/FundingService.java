@@ -57,7 +57,14 @@ public class FundingService {
 		Optional<FundingVO> ar = fundingRepository.findById(fNum);
 		
 		return ar;
-	}//select
+	}//list
+	
+	public List<FundingJoinVO> fundingJoinSelect(String participationId) throws Exception{
+		
+//		return fundingRepository.findByFundingJoinVOsParticipationId(participationId);
+		return fundingJoinRepository.findByParticipationId(participationId);
+		
+	}
 	
 	
 //	public void fundingJoinSelect2(String id) throws Exception{

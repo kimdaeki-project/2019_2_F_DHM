@@ -27,5 +27,5 @@ public interface FundingJoinRepository extends JpaRepository<FundingJoinVO, Inte
 //			"FROM funding RIGHT JOIN member ON f.fName = m.name JOIN fundingJoin ON f.fNum = j.fNum WHERE j.id = ?1")
 //	Object[] fundingJoinSelect(String id) throws Exception;
 //	
-	
+	List<FundingJoinVO> findByParticipationId(String participationId) throws Exception;
 }

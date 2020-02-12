@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.annotation.Resource;
@@ -66,7 +67,7 @@ class FundingTest {
 		List<FundingVO> ar = fundingRepository.fundingList();
 //		Page<FundingVO> ar2 = fundingService.fundingList(pager);
 	}
-	@Test
+//	@Test
 	void listTest2() throws Exception{
 //		List<FundingJoinVO> ar = fundingJoinRepository.findByFNum(18);
 		FundingVO fundingVO = new FundingVO();
@@ -74,5 +75,22 @@ class FundingTest {
 		Optional<FundingVO> ar = fundingRepository.findById(18);
 		fundingVO = ar.get();
 		System.out.println(fundingVO.getFundingJoinVOs().size());
+	}
+	
+	@Test
+	void joinSelectTest() throws Exception{
+//		FundingVO fundingVO = new FundingVO();
+//		List<FundingVO> ar = fundingRepository.fundingJoinSelect("ttt18");
+//		fundingVO = ar.get(0);
+//		System.out.println(fundingVO.getFundingJoinVOs().size());
+		FundingVO fundingVO = new FundingVO();
+		List<FundingVO> ar = fundingRepository.findByFundingJoinVOsParticipationId("ttt16");
+		System.out.println(ar.get(0).getFundingJoinVOs().size());
+		for (int i = 0; i < ar.size(); i++) {
+			System.out.println(ar.get(i).getId());
+			System.out.println(ar.get(i).getFundingJoinVOs().get(0).getNum());
+			System.out.println(ar.get(i).getFundingJoinVOs().get(0).getParticipationPeople());
+		}
+		
 	}
 }
