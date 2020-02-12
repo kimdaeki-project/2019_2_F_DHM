@@ -616,6 +616,14 @@ th{
 	position: absolute;
 	top: 120px; 
 }
+.backTitle{
+	color: white;
+	position: absolute;
+	text-align: right;
+	bottom: 10px;
+	right: 10px;
+	font-size: 13px;
+}
 
 .zoom{
 	
@@ -667,5 +675,29 @@ background-repeat: no-repeat;
 	z-index: 1;
 	width: 100%;
 	height: 600px;
-		background-size: cover; 
+	background-size: cover; 
+}
+#back-image6 {
+	background-image: url('../image/main6.jpg');
+	background-repeat: no-repeat;
+	z-index: 1;
+	width: 100%;
+	height: 600px;
+	background-size: cover; 
+}
+#back-image7 {
+	background-image: url('../image/main7.jpg');
+	background-repeat: no-repeat;
+	z-index: 1;
+	width: 100%;
+	height: 600px;
+	background-size: cover; 
+}
+#back-image8 {
+	background-image: url('../image/main8.jpg');
+	background-repeat: no-repeat;
+	z-index: 1;
+	width: 100%;
+	height: 600px;
+	background-size: cover; 
 }

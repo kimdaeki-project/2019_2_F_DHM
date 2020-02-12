@@ -31,11 +31,30 @@
 <body>
    <div class="swiper-container3" style="margin-bottom: 20px; height: 600px;">
  	  <div class="swiper-wrapper">
-      		<div id="back-image1" class="image swiper-slide"></div>
-     		<div id="back-image2" class="image swiper-slide"></div>
-      		<div id="back-image3" class="image swiper-slide"></div>
-      		<div id="back-image4" class="image swiper-slide"></div>
-      		<div id="back-image5" class="image swiper-slide"></div>
+      		<div id="back-image1" class="image swiper-slide">
+      			<div class="backTitle">경상북도 경주 동궁과월지</div>
+      		</div>
+     		<div id="back-image2" class="image swiper-slide">
+     			<div class="backTitle">부산광역시 광안리해수욕장</div>
+     		</div>
+      		<div id="back-image3" class="image swiper-slide">
+      			<div class="backTitle">경상남도 진해 군항제</div>
+      		</div>
+      		<div id="back-image4" class="image swiper-slide">
+      			<div class="backTitle">서울특별시 광화문광장</div>
+      		</div>
+      		<div id="back-image5" class="image swiper-slide">
+      			<div class="backTitle">서울특별시 강남</div>
+      		</div>
+      		<div id="back-image6" class="image swiper-slide">
+      			<div class="backTitle">전라북도 전주 한옥마을</div>
+      		</div>
+      		<div id="back-image7" class="image swiper-slide">
+      			<div class="backTitle">전라남도 담양 메타세콰이어길</div>
+      		</div>
+      		<div id="back-image8" class="image swiper-slide">
+      			<div class="backTitle">충청북도 단양 패러글라이딩</div>
+      		</div>
       </div>
    </div>
 <c:import url="./template/nav.jsp"/>
