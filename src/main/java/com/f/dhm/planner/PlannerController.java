@@ -280,7 +280,6 @@ public class PlannerController {
 		      
 			List<PlannerVO> pList = new ArrayList<PlannerVO>();
 		      
-		      
 		      if (plNum != null) {         
 		         service.plannerDel(id, plNum);
 		      }

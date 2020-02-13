@@ -16,7 +16,14 @@
             </c:if>
             <c:if test="${not empty sessionScope.member}">
                <a class="nav-li nav-li-login" draggable="false"  href="${pageContext.request.contextPath}/member/memberLogout">로그아웃</a>
-               <a class="nav-li nav-li-login" draggable="false"  href="${pageContext.request.contextPath}/member/memberMypage">마이페이지</a>
+               <c:choose>
+               	<c:when test="${member.grade gt 1 }">
+               		<a class="nav-li nav-li-login" draggable="false"  href="${pageContext.request.contextPath}/admin/administer">관리 페이지</a>		
+               	</c:when>
+               	<c:otherwise>
+	               <a class="nav-li nav-li-login" draggable="false"  href="${pageContext.request.contextPath}/member/memberMypage">마이페이지</a>               	
+               	</c:otherwise>
+               </c:choose>
             </c:if>
             <div class="nav-service-div">서비스 
                <a class="nav-service-div-a"  href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>

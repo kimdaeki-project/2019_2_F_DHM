@@ -16,8 +16,9 @@
 </head>
 <body>
 <c:import url="../template/nav.jsp"/>
+<c:choose>
+<c:when test="${member ne null }">
 <div style="background-color: #f5f5f5;">
-
 	<div class="header">
 	</div>
 	<div class="container container2">
@@ -93,5 +94,12 @@
 	      },
 	    });
 </script>
+</c:when>
+	<c:otherwise>
+		<script type="text/javascript">
+			location.href ="../member/memberLogin?goBack=../planner/myPlanner";
+		</script>
+	</c:otherwise>
+</c:choose>
 </body>
 </html>

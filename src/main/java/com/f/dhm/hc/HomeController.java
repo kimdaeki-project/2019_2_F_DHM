@@ -2,7 +2,7 @@ package com.f.dhm.hc;
 
 
 import java.util.ArrayList;
-
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -78,17 +78,30 @@ public class HomeController {
 		List<MyPlannerVO> plList = plService.plannerAll();
 		
 		Date d = new Date();
-		long dd = d.getTime()-1000*60*60*24;
+		//이틀전추가된 플래너까지
+		long dd = d.getTime()-1000*60*60*24*2;
+		List<MyPlannerVO> newPlanner = new ArrayList<MyPlannerVO>();
 		
-		
+
+		List<Date> deDate = new ArrayList<Date>();
+		List<Integer> bak = new ArrayList<Integer>();
+		List<Integer> dDay = new ArrayList<Integer>();
+		long cd = new Date().getTime();
 		for (MyPlannerVO myPlannerVO : plList) {
 			if (dd - myPlannerVO.getMakeDay().getTime() <=0) {
-				mv.addObject("newPlanner", plList);
+				newPlanner.add(myPlannerVO);
+				Date ddd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+				deDate.add(ddd);
+				bak.add(plService.days(myPlannerVO.getPlNum()));
+				dDay.add((int)((cd - ddd.getTime()) / 1000/60/60/24));
 			}
 		}
+
+		mv.addObject("dDay", dDay);
+		mv.addObject("deDate", deDate);
+		mv.addObject("bak", bak);
+		mv.addObject("newPlanner", newPlanner);
 		
-		
-		List<MyPlannerVO> ar = plannerService.plannerTypeList(plNum);
 		List<FundingVO> ar2= fundingService.fundingIndexList();
 		
 	
@@ -103,7 +116,6 @@ public class HomeController {
 		
 		mv.addObject("fundinglist",ar2);
 		mv.addObject("plannerCount", plannerCount);
-		mv.addObject("typelist", ar);
 		mv.setViewName("index");
 
 		return mv;
@@ -179,6 +191,143 @@ public class HomeController {
 	public boolean memberDel(String id) throws Exception{
 		return memberService.memberDel(id);
 	}
+	
+	@PostMapping("typeList")
+		public ModelAndView typeList(int type) throws Exception{
+		
+		
+			ModelAndView mv = new ModelAndView();
+			List<MyPlannerVO> typeList = new ArrayList<MyPlannerVO>();
+			List<MyPlannerVO> list = plService.plannerAll();
+			List<Date> deDate = new ArrayList<Date>();
+			List<Integer> bak = new ArrayList<Integer>();
+			List<Integer> dDay = new ArrayList<Integer>();
+			long d = new Date().getTime();
+			
+			
+				switch (type) {
+				case 1:
+					for (MyPlannerVO myPlannerVO : list) {
+						if (myPlannerVO.getType().equals("아이들과")) {
+							typeList.add(myPlannerVO);
+							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
+							deDate.add(dd);
+							bak.add(plService.days(myPlannerVO.getPlNum()));
+						}
+					}
+					break;
+				case 2:
+					for (MyPlannerVO myPlannerVO : list) {
+						if (myPlannerVO.getType().equals("커플/신혼")) {
+							typeList.add(myPlannerVO);
+							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
+							deDate.add(dd);
+							bak.add(plService.days(myPlannerVO.getPlNum()));
+							
+						}
+					}			
+					break;
+				case 3:
+					for (MyPlannerVO myPlannerVO : list) {
+						if (myPlannerVO.getType().equals("부모님과")) {
+							typeList.add(myPlannerVO);
+							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
+							deDate.add(dd);
+							bak.add(plService.days(myPlannerVO.getPlNum()));
+						}
+					}
+					break;
+				case 4:
+					for (MyPlannerVO myPlannerVO : list) {
+						if (myPlannerVO.getType().equals("남자혼자")) {
+							typeList.add(myPlannerVO);
+							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
+							deDate.add(dd);
+							bak.add(plService.days(myPlannerVO.getPlNum()));
+						}
+					}
+					break;
+				case 5:
+					for (MyPlannerVO myPlannerVO : list) {
+						if (myPlannerVO.getType().equals("여자혼자")) {
+							typeList.add(myPlannerVO);
+							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
+							deDate.add(dd);
+							bak.add(plService.days(myPlannerVO.getPlNum()));
+						}
+					}
+					break;
+				case 6:
+					for (MyPlannerVO myPlannerVO : list) {
+						if (myPlannerVO.getType().equals("여자끼리")) {
+							typeList.add(myPlannerVO);
+							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
+							deDate.add(dd);
+							bak.add(plService.days(myPlannerVO.getPlNum()));
+						}
+					}
+					break;
+				case 7:
+					for (MyPlannerVO myPlannerVO : list) {
+						if (myPlannerVO.getType().equals("남자끼리")) {
+							typeList.add(myPlannerVO);
+							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
+							deDate.add(dd);
+							bak.add(plService.days(myPlannerVO.getPlNum()));
+						}
+					}
+					break;
+				case 8:
+					for (MyPlannerVO myPlannerVO : list) {
+						if (myPlannerVO.getType().equals("남녀함께")) {
+							typeList.add(myPlannerVO);
+							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
+							deDate.add(dd);
+							bak.add(plService.days(myPlannerVO.getPlNum()));
+						}
+					}
+					break;
+				case 9:
+					for (MyPlannerVO myPlannerVO : list) {
+						if (myPlannerVO.getType().equals("부모님끼리")) {
+							typeList.add(myPlannerVO);
+							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
+							deDate.add(dd);
+							bak.add(plService.days(myPlannerVO.getPlNum()));
+						}
+					}
+					break;
+				default:
+					for (MyPlannerVO myPlannerVO : list) {
+						if (myPlannerVO.getType().equals("타입선택")) {
+							typeList.add(myPlannerVO);
+							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
+							deDate.add(dd);
+							bak.add(plService.days(myPlannerVO.getPlNum()));
+						}
+					}
+					break;
+				}
+				mv.addObject("typeList", typeList);
+				mv.addObject("cat", type);
+				mv.addObject("dDay", dDay);
+				mv.addObject("deDate", deDate);
+				mv.addObject("bak", bak);
+				mv.setViewName("planner/plannerAjax");
+			
+			return mv;
+			
+		}
 	
 }
 	

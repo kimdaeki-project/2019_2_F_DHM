@@ -16,7 +16,7 @@
 <c:choose>
 	<c:when test="${member eq null }">
 		<script type="text/javascript">
-			location.href = "/member/memberLogin";
+			location.href = "/member/memberLogin?goBack=../funding/fundingPlanner";
 		</script>
 	</c:when>
 	<c:otherwise>

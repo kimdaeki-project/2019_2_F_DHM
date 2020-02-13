@@ -66,7 +66,8 @@ public class MemberService {
 	}
 	//프로필 변경----------------------------------------
 	public MemberVO memberMypage(MemberVO memberVO)throws Exception{		
-		
+		MemberVO setDay = memberRepository.findById(memberVO.getId()).get();
+		memberVO.setJoinDay(setDay.getJoinDay());
 		memberVO = memberRepository.save(memberVO);
 		
 		memberVO.getMemberFilesVO();
@@ -93,7 +94,8 @@ public class MemberService {
 
 		MemberFilesVO memberFilesVO = new MemberFilesVO();
 		String realPath=session.getServletContext().getRealPath("/imgs/member");
-	
+		MemberVO setDay = memberRepository.findById(memberVO.getId()).get();
+		memberVO.setJoinDay(setDay.getJoinDay());
 		memberFilesVO.setMemberVO(memberVO);
 		memberFilesVO.setFname(fileSaver.save2(realPath, files));
 		memberFilesVO.setOname(files.getOriginalFilename());
@@ -106,7 +108,8 @@ public class MemberService {
 	
 	//회원 정보 변경----------------------------------------
 	public void memberUpdatePage(MemberVO memberVO)throws Exception{
-		
+		MemberVO setDay = memberRepository.findById(memberVO.getId()).get();
+		memberVO.setJoinDay(setDay.getJoinDay());
 		memberRepository.save(memberVO);
 	}
 	//회원 탈퇴----------------------------------------

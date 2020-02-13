@@ -59,6 +59,7 @@
 								<input type="checkbox" name="saveid" value="ON" checked>로그인 유지					
 							</label>
 						</div>
+						<input type="hidden" name="goBack" value="${goBack }">
 					</div>
 				</form>	
 				</div>
