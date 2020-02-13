@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet"  href="../css/funding.css">
 <link rel="stylesheet"  href="../css/basic.css">
-<title>대동여행지도</title>
+<title>DHM Planner</title>
 <c:import url="./template/fundingBoot.jsp"></c:import>
 
 </head>
@@ -53,17 +53,18 @@
 		<div style="text-align: center; margin-bottom: 50px;">
 		<%-- <c:if test="${member.id eq vo.id }"> --%>
 			<a href="./fundingUpdate?num=${vo.num }" class="btn btn-success" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">수정</a>
-			<a href="./fundingDelete?num=${vo.num }" class="btn btn-danger" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">삭제</a>
+			<button class="btn btn-danger" id="del" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">삭제</button>
 		<%-- </c:if> --%>
 		<a href="./fundingJoinList?fNum=${vo.num}" class="btn btn-info" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">참여자 확인</a>
 			<a href="./fundingList" class="btn btn-info" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">목록</a>
 		</div>
 	</div>
+	${vo.plNum}
+	<c:import url="../schedule/schedulePage?plNum=${vo.plNum}" />
 <script type="text/javascript">
 	var goal = ${vo.goal};
 	var status = ${vo.status};
 	var price = ${vo.price};
-	var save_price = ${vo.status};
 	/* 펀딩 성공시 펀딩 버튼 막기 */
 	var dif = goal - status;
 
@@ -75,7 +76,7 @@
 	
 	document.getElementById('price').innerHTML = price;
 	document.getElementById('goal').innerHTML = goal;
-	document.getElementById('save_price').innerHTML = save_price;
+	document.getElementById('save_price').innerHTML = status;
 	
 	var startTime = '${vo.startTime}';
 	var endTime = '${vo.endTime}';
@@ -109,6 +110,10 @@
 
 	var dif3 = dif2/cDay;
 
+	console.log(to);
+	console.log(st);
+	console.log(dif3);
+	
 	if(dif <= 0){
 		document.getElementById('btn').innerHTML = "펀딩 성공";
 		$("#btn").attr('disabled', true);
@@ -121,6 +126,16 @@
 	
 	$("#btn").click(function(){
 		location.href = "./fundingJoinWrite?num=${vo.num }";
+		});
+
+	$("#del").click(function() {
+		if (confirm("삭제하시겠습니까?") == true){    //확인
+
+		     location.href="./fundingDelete?num=${vo.num}";
+
+		 }else{   //취소
+		     return false;
+		 }
 		});
 	
 </script>

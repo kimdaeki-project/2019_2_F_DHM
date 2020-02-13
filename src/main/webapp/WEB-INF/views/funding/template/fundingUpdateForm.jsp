@@ -8,6 +8,8 @@
 			<input type="hidden" value="${vo.id}" name="id">
 			<input type="hidden" value="${vo.gage}" name="gage">
 			<input type="hidden" value="${vo.status}" name="status">
+			<input type="hidden" value="${vo.participationPeople}" name="participationPeople">
+			
 		      <label for="name">Funding Name :</label>
 		      <form:input  class="form-control" path="name" value="${vo.name}"/>
 		      <form:errors path="name"></form:errors>
@@ -35,26 +37,27 @@
 			<div class="form-group">
 		      <label for="startTime">Funding StartTime : </label>
 		      <input type="hidden" class="form-control" name="sTime" value="${vo.startTime}"/>
-		      <input type="date" class="form-control" min="2020-01-15" name="start" id="start"/>
+		      <input type="date" class="form-control" min="2020-02-17" name="start" id="start"/>
 		      <input type="time" class="form-control" name="time1" id="time1"/>
 		    </div>
 		    
 		    <div class="form-group">
 		      <label for="endTime">Funding EndTime : </label>
 		     <input type="hidden" class="form-control" name="eTime" value="${vo.endTime}"/>
-		      <input type="date" class="form-control" min="2020-01-16" name="end" id="end"/>
+		      <input type="date" class="form-control" min="2020-02-18" name="end" id="end"/>
 		        <input type="time" class="form-control" name="time2" id="time2"/>
 		    </div>
-		    
+		     <input type="hidden" class="form-control" name="rDate" id="rDate" value="${vo.regDate}"/>
+		  <%--  <div>펀딩 등록 날짜 : ${vo.regDate}</div> --%>
 		    <%-- <div class="form-group">
 		      <label for="people">Funding People : </label>
 		       <form:input class="form-control" path="people" value="${vo.people}"/>
 		       <form:errors path="people" cssClass="error"/>
 		    </div> --%>
 			
-		     <div class="row" style="text-align: center; margin-bottom: 30px;">
+		     <div style="margin: 50px auto; text-align: center;">
 
-		    	<input type="button" id="re" class="btn btn-primary col-sm-2" value="back" style="padding-left: 15px; padding-right: 15px; float: right;">
-		    	<input type="button" id="write" class="btn btn-success col-sm-2" value="Update" style="padding-left: 15px; padding-right: 15px; float: right;">
+		    	<input type="button" id="write" class="btn btn-success" value="수정하기" style="font-size:30px; margin: 15px; padding-left: 30px; padding-right: 30px;">
+		    	<input type="button" id="re" class="btn btn-primary" value="취소" style="font-size:30px; margin: 15px; padding-left: 30px; padding-right: 30px;">
 		   	</div> 
 		</form:form>

@@ -44,6 +44,7 @@ public class FundingService {
 	public void fundingUpdate(FundingVO fundingVO) throws Exception{
 //		fundingRepository.fundingUpdate(fundingVO.getName(), fundingVO.getContents(), fundingVO.getPrice(),
 //				fundingVO.getGoal(), fundingVO.getStartTime(), fundingVO.getEndTime(), fundingVO.getPeople(), fundingVO.getNum());
+//		System.out.println(fundingVO.getRegDate()+" : service");
 		fundingRepository.save(fundingVO);
 	}
 

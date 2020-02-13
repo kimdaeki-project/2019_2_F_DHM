@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>대동여지도</title>
+<title>DHM Planner</title>
  
 <c:import url="./template/fundingBoot.jsp" />
 <c:import url="./template/summernote.jsp" />

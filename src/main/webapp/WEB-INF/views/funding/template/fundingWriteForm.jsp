@@ -3,6 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 		<form:form id="frm" modelAttribute="fundingVO">
+		<input type="hidden" name="plNum" id="plNum" value="${param.plNum}">
 			<div class="form-group">
 		      <label for="name">Funding Name :</label>
 		      <form:input placeholder="Enter name" class="form-control" path="name" id="name"/>
@@ -45,9 +46,9 @@
 		      <input type="time" class="form-control" name="time2" id="time2"/>
 		    </div>
 
-		     <div class="row" style="margin-top: 50px;">
+		    <div style="margin: 50px auto; text-align: center;">
 		 	<!-- <input type="submit" id="write" class="btn btn-success col-sm-3" value="Write"> -->
-			<input type="button" id="write" class="btn btn-success col-sm-3" value="Write">
-		   	<input type="button" id="re" class="btn btn-primary col-sm-3" value="back">
+			<input type="button" id="write" class="btn btn-success" value="작성하기" style="font-size:30px; margin: 15px; padding-left: 30px; padding-right: 30px;">
+		   	<input type="button" id="re" class="btn btn-primary" value="취소" style="font-size:30px; margin: 15px; padding-left: 30px; padding-right: 30px;">
 		   	</div> 
 		</form:form>

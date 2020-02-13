@@ -39,6 +39,7 @@ public interface FundingRepository extends JpaRepository<FundingVO, Integer> {
 //	Map<String, Object> fundingJoinSelect(String participationId) throws Exception;
 	List<FundingVO> fundingJoinSelect(String participationId) throws Exception;
 	
-	
+//	Page<FundingVO> findByNum(int num, Pageable pageable) throws Exception;
+//	
 	List<FundingVO> findByFundingJoinVOsParticipationId(String participationId) throws Exception;
 }

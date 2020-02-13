@@ -52,13 +52,14 @@ font-size: 30px;
 		       <form:input class="form-control" path="participationPeople" id="participationPeople" placeholder="펀딩에 참여할 인원을 입력해주세요."/>
 		       <form:errors path="participationPeople" cssClass="error"/>
 		    </div>
+		    <input type="hidden" name="pp" value="${vo.participationPeople}">
 			<input type="hidden" name="goal" value="${vo.goal}">
 			<input type="hidden" name="status" value="${vo.status}">
 			<input type="hidden" name="gage" value="${vo.gage}">
-		     <div class="row" style="margin-top: 50px;">
-		    <input type="button" id="participation" class="btn btn-success col-sm-3" value="participation">
+		     <div style="margin: 50px auto; text-align: center;">
+		    <input type="button" id="participation" class="btn btn-success" value="참여하기" style="font-size:30px; margin: 15px; padding-left: 30px; padding-right: 30px;">
 		    <!-- <button type="submit" class="btn btn-success col-sm-3">Participation</button> -->
-		    <input type="button" id="re" class="btn btn-primary col-sm-3" value="Back">
+		    <input type="button" id="re" class="btn btn-primary" value="뒤로 가기" style="font-size:30px; margin: 15px; padding-left: 30px; padding-right: 30px;">
 		   	</div> 
 		</form:form>
 <script type="text/javascript">

@@ -8,7 +8,7 @@
 <c:import url="./template/fundingBoot.jsp" />
 <meta charset="UTF-8">
 <link rel="stylesheet"  href="../css/basic.css">
-<title>대동여행지도</title>
+<title>DHM Planner</title>
 </head>
 <body>
 <c:import url="../template/nav.jsp"/>
@@ -31,10 +31,14 @@
 			<div class="funding_block">
 				<div class="funding_block2">
 					<div class="funding_block3">
-						<div class="funding_inner_area">
+					<div class="funding_inner_area">
+					
 				<a href="./fundingSelect?num=${vo.num}">
 				<img class="funding_img" src="../test_img/test${i.index}.jpg"></a>
 						</div>
+					</div>
+					<div style="height: 50px; font-size: 15px; font-weight: bold; padding: 5px;">
+						${vo.name}
 					</div>
 					<div class="funding_inner_area2">
 						<%-- <div class="funding_end" style="font-size: 1em;">
