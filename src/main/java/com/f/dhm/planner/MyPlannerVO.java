@@ -9,6 +9,7 @@ public interface MyPlannerVO {
 	String getId();
 	String getType();
 	Integer getPolyPath();
+	Date getDeDate();
 
 	//추가
 	Date getMakeDay();

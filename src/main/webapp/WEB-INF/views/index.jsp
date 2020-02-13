@@ -77,7 +77,9 @@
 	         <h3>DHM플래너로 대한민국 곳곳을 여행해보세요.</h3>
 	         <p>맞춤 여행 추천과 플래너 작성을 통해 보다 효율적인 여행을 계획해보세요!</p>
 	         <div class="main_planner_btn_div">
+	         	<a href="${pageContext.request.contextPath}/planner/makePlanner">
 	            <input type="button" class="main_planner_btn_diy" value="DIY">
+	            </a>
 	            <input type="button" class="main_planner_btn_request" value="FUNDING">
 	         </div>
 	      </div>
@@ -668,6 +670,7 @@
 </div>
    </div>
 </div>
+<c:import url="./template/footer.jsp"/>
   <script>
 
 

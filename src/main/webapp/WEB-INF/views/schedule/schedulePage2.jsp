@@ -814,6 +814,7 @@
 				success: function(result){
 					if(result==1){
 						alert("일정이 추가되었습니다.");
+						$(".tour-add").css("pointer-events" ,"none");
 						location.reload();
 					}else{
 						alert("이미 추가 한 일정입니다.");
