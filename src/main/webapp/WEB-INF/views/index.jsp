@@ -35,7 +35,7 @@
 </head>
 <body>
 <c:import url="./template/nav.jsp"/>
-   <div class="swiper-container3" style="margin-bottom: 20px; height: 600px; width: 100%;">
+   <div class="swiper-container3" style="margin-bottom: 20px; height: 600px; width: 100%; overflow: hidden;">
  	  <div class="swiper-wrapper" style="width: 100%;">
       		<div id="back-image1" class="image swiper-slide">
       			<div class="backTitle">경상북도 경주 동궁과월지</div>

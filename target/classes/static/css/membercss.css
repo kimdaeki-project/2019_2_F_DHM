@@ -44,6 +44,7 @@ background-color: #95a5a6;
 background-color: white;
 height: 600px;
 width: 1885px;
+
 }
 .container1{
 height: 100px;
@@ -186,7 +187,7 @@ padding-top: 20px;
 }
 .btn1{
 position: relative;
-background: #72c02c;
+background: #18A8F1;
 white-space: nowrap;
 display: inline-block;
 text-decoration: none;
@@ -779,7 +780,7 @@ background-color: white;
 height: 880px;
 width: 1165px;
 margin-left: 370px;
-margin-top: 90px;
+padding-top: 90px;
 border-bottom: 1px solid #e8e8e8;
 }
 

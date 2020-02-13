@@ -19,8 +19,8 @@
 <body>
 
 	<c:import url="../template/nav.jsp"/>
-
-	<div class="Joinmain">
+	
+	<div class="Joinmain" style="padding-top: 100px;">
 		<div class="JoinMainPage">
 			<div class="Join1">
 				<div class="Join1-1">GUEST 계정으로 입장</div>
