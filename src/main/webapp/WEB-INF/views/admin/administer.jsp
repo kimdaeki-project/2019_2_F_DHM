@@ -4,13 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ADMINISTER</title>
+<title >관리메뉴</title>
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 <link rel="stylesheet" href="../css/admin.css">
-<style type="text/css">
-html {
-  scroll-behavior: smooth;
-}
-</style>
 </head>
 <body>
 <c:import url="../template/boot.jsp"/>
@@ -163,7 +159,7 @@ html {
 					<c:forEach items="${plList }" var="pl" varStatus="p">
 						<li>
 							<div class="adm-planner-div">
-								<p style="background-color: #336600; color: white;">플래너 번호 : ${pl.plNum }</p>
+								<p style="background-color: #18A8F1; color: white;">플래너 번호 : ${pl.plNum }</p>
 								<p>플래너 제목 : ${pl.title }</p>
 								<p>플래너 타입 : ${pl.type }</p>
 								<p>플래너 ID : ${pl.id }</p>
@@ -180,7 +176,7 @@ html {
 					<c:forEach items="${fuList }" var="fu" varStatus="f">
 						<li>
 							<div class="adm-funding-div">
-								<p style="background-color: #336600; color: white;">${fu.name }</p>
+								<p style="background-color: #18A8F1; color: white;">${fu.name }</p>
 								<p>펀딩 목표 금액 : ${fu.goal }</p>
 								<p>현재 펀딩 금액 : ${fu.price }</p>
 								<p>펀딩 참여 인원 : ${fu.participationPeople }</p>

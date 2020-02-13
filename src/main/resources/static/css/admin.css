@@ -49,7 +49,7 @@ a:hover{
 .adm-left{
 	width: 15%;
 	height: 100%;
-	background-color: #336600;
+	background-color: #18A8F1;
 	float: left;
 	color: white;
 	font-weight: bold;
@@ -124,7 +124,7 @@ display: none;
 }
 
 .member-table-head{
-	background-color: #336600;
+	background-color: #18A8F1;
 	color: white;
 	font-weight: bold;
 }
@@ -189,6 +189,8 @@ display: none;
 
 .adm-planner-div p{
 	font-size: 13px;
+	height: 18px;
+	overflow: auto;
 }
 
 
@@ -212,6 +214,8 @@ display: none;
 
 .adm-funding-div p{
 	font-size: 13px;
+	height: 18px;
+	overflow: auto;
 }
 
 
@@ -239,7 +243,7 @@ html{
 }
 
 .today-info-top{
-	background-color: #336600;
+	background-color: #18A8F1;
 	color: white;
 	border-top-left-radius: 20px;
 	border-top-right-radius: 20px;

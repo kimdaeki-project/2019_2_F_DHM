@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ifmOpen</title>
+<title>스케줄 추가하기</title>
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 <link rel="stylesheet"  href="../css/schedule.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <c:import url="../template/boot.jsp"/>

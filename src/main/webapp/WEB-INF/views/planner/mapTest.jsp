@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>카카오맵</title>
 <style type="text/css">
 	.roundNumber{
 	width: 20px;
