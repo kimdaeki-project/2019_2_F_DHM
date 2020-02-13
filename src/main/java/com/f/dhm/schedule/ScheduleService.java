@@ -1,17 +1,15 @@
 package com.f.dhm.schedule;
 
-import java.sql.Date;
+
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.f.dhm.planner.PlannerRepository;
-import com.f.dhm.planner.PlannerVO;
 
-import net.bytebuddy.agent.builder.AgentBuilder.RedefinitionStrategy.Listener.Yielding;
 
 @Service
 @Transactional
@@ -24,12 +22,24 @@ public class ScheduleService {
 		return repository.findByPlNum(plNum);
 	}
 
-
+	public List<ScheduleVO> scheduleCheck(Integer plNum, String title) throws Exception{
+		return repository.findByPlNumAndTour(plNum, title);
+	}
 	//스케줄 추가
-	public void scheduleInsert(ScheduleVO scheduleVO) throws Exception{
-		
+	public boolean scheduleInsert(ScheduleVO scheduleVO) throws Exception{
+		boolean check = false;
 		repository.save(scheduleVO);
+		check = repository.existsById(scheduleVO.getScNum());
+		
+		return check;
 	}
 	
-	
+	public Map<String, Object> scheduleInfo(String tour, Integer plNum) throws Exception{
+
+		return repository.scheduleInfo(tour, plNum);
+	}
+
+	public ScheduleInfoVO mySc(String scName, Integer plNum) throws Exception{
+		return repository.findByScNameAndPlNum(scName,plNum);
+	}
 }

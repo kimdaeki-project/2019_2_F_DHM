@@ -78,7 +78,7 @@ $(".mkp-city-list").on("click",".city-del", function() {
          if (chn == $(this).text().trim()) {
          var ctx = '&nbsp;'+$(this).val()+'&nbsp;';
          $(this).html(ctx);
-         $(this).css("background-color","#3ad195");
+         $(this).css("background-color","#18A8F1");
          $(this).prop("name","");
       }
    });
@@ -200,6 +200,24 @@ function uptDate() {
 
 
 $("body").on("click",".click-sleep", function() {
+	var arCode = $(this).parent().prop("title")*1;
+	$.ajax({
+		type : "GET",
+		url : "getPercent",
+		data : {
+			arCode : arCode 
+		},
+		success : function(d) {
+			var pc = 0;
+			
+			$(".chos-sleep-per").each(function() {
+				$(this).text(d[pc]+"%");
+				console.log(pc);
+				pc++;
+			});
+		}
+	});
+	
    $(".chos-cityName").text($(this).prop("id"));
    $("#save-sleep").prop("title",$(this).prop("title"));
    $(".chos-sleep").css("display","block");
@@ -295,11 +313,16 @@ var arCodeA = new Array();
 
 
 function saveSch(t, f, a, c) {
-	      titleA.push(t);
-	      firstimageA.push(f);
-	      addr1A.push(a);
-	      arCodeA.push(c); 
-	}
+
+	
+      titleA.push(t);
+      firstimageA.push(f);
+      addr1A.push(a);
+      arCodeA.push(c);      
+
+   
+}
+
 /////////////////////////////////////////////////////
 
 

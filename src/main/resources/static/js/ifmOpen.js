@@ -6,9 +6,9 @@ var arCodeA = new Array();
 
 function wish(t, firstimage, addr1, arCode, e) {
 
-	if($(this).children().hasClass("wish-active")){
+	/*if($(this).children().hasClass("wish-active")){*/
 
-		$(this).removeClass("wish-active");
+		/*$(this).removeClass("wish-active");
 			console("왜 안돼");
 			titleA.slice(titleA.findIndex(t),1);
 			firstimageA.slice(firstimageA.findIndex(firstimage),1);
@@ -19,7 +19,7 @@ function wish(t, firstimage, addr1, arCode, e) {
 			
 
 		}else{
-
+*/
 		$(this).children().addClass("wish-active");
 
 /*			titleA.push(t);
@@ -28,7 +28,7 @@ function wish(t, firstimage, addr1, arCode, e) {
 			arCodeA.push(arCode);*/
 		
 		
-		}
+	/*	}*/
 	/*parent.saveSch(titleA, firstimageA, addr1A, arCodeA);*/
 	parent.saveSch(t,firstimage,addr1,arCode);
 

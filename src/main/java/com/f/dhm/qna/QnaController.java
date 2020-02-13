@@ -33,6 +33,34 @@ public class QnaController {
 	private QnaService qnaService;
 	
 
+	@GetMapping("qnaUpdate")
+	public String qnaUpdate(Model model, int num)throws Exception{
+		QnaVO qnaVO=qnaService.getQnaUpdate(num);
+		model.addAttribute("qnaVO", qnaVO);
+		return "qna/qnaUpdate";
+	}
+	
+	@PostMapping("qnaUpdate")
+	public ModelAndView qnaUpdate(QnaVO qnaVO)throws Exception{
+		ModelAndView mv=new ModelAndView();
+		System.out.println("출력 테스트 출력 테스트 출력 테스트 출력 테스트 출력 테스트 출력 테스트");
+		System.out.println("출력 테스트 출력 테스트 출력 테스트 출력 테스트 출력 테스트 출력 테스트");
+		System.out.println(qnaVO.getContents());
+		System.out.println(qnaVO.getDepth());	//0
+		System.out.println(qnaVO.getWriter());	
+		System.out.println(qnaVO.getNum());
+		System.out.println("qnaVO.getReDate() : "+qnaVO.getReDate());	//null
+		System.out.println("qnaVO.getHit() : "+qnaVO.getHit());		//0
+		System.out.println("qnaVO.getRef() : "+qnaVO.getRef());	//0
+		System.out.println("qnaVO.getStep() : "+qnaVO.getStep());	//0
+		qnaService.qnaUpdate(qnaVO);
+		String path="./qnaSelect?num="+qnaVO.getNum();
+		mv.setViewName("common/result");
+		mv.addObject("path", path);
+		mv.addObject("message", "수정되었습니다.");
+		return mv;
+	}
+
 	@GetMapping("qnaDeleteAll")
 	public String qnaDeleteAll()throws Exception{
 		qnaService.qnaDeleteAll();

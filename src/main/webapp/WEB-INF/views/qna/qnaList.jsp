@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"/>
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 <link rel="stylesheet"  href="../css/basic.css">
 </head>
 <body>
@@ -39,7 +40,24 @@
 						</a>
 					</td>
 					<td>${list.writer }</td>
+
 					<td>${list.regDate }</td>
+
+					<td>
+						<fmt:formatDate value="${list.regDate }" type="date" pattern="yyyy-MM-dd" var="regdFormatDate"/>	
+							<fmt:formatDate value="${list.regDate }" type="date" pattern="HHmm" var="regdFormatTime"/>	
+							<c:if test="${regdFormatDate eq nowFormatDate }">
+								<c:if test="${nowFormatTime-regdFormatTime lt 60}">
+									<c:if test="${nowFormatTime-regdFormatTime ne 0}">${nowFormatTime-regdFormatTime }분 전</c:if>
+									<c:if test="${nowFormatTime-regdFormatTime eq 0}">방금</c:if>
+								</c:if>
+								<c:if test="${nowFormatTime-regdFormatTime gt 60}">
+									<fmt:parseNumber  value="${(nowFormatTime-regdFormatTime) / 60}" integerOnly="true"/>시간 전
+								</c:if>
+							</c:if>
+							<c:if test="${regdFormatDate ne nowFormatDate }">${regdFormatDate}</c:if>
+					</td>
+
 					<td>${list.hit }</td>
 				</tr>
 				 </c:forEach>

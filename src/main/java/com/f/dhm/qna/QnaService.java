@@ -3,6 +3,7 @@ package com.f.dhm.qna;
 import java.sql.Date;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -20,6 +21,20 @@ public class QnaService {
 	@Autowired
 	private QnaRepository qnaRepository;
 	
+
+	public void qnaUpdate(QnaVO qnaVO)throws Exception{
+		QnaVO forGetDate=qnaRepository.findById(qnaVO.getNum()).get();
+		qnaVO.setRegDate(forGetDate.getRegDate());
+		qnaRepository.save(qnaVO);
+	}
+	
+	public QnaVO getQnaUpdate(int num)throws Exception{
+		Optional<QnaVO> opt=qnaRepository.findById(num);
+		QnaVO qnaVO=opt.get();
+		return qnaVO;
+	}
+	
+
 	public void increaseHit(int num) {
 		QnaVO qnaVO=qnaRepository.findById(num).get();
 		int hit=qnaVO.getHit();

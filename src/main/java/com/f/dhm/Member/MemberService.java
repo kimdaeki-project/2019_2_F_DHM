@@ -1,6 +1,7 @@
 package com.f.dhm.Member;
 
 import java.io.File;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
@@ -109,18 +110,26 @@ public class MemberService {
 		memberRepository.save(memberVO);
 	}
 	//회원 탈퇴----------------------------------------
-//	public boolean memberGetoutPage(String id)throws Exception{
-//		String getID=id;
-//		memberRepository.deleteById(id);
-//		
-//		boolean check=memberRepository.existsById(getID);
-//		return check;
-//	}
-	public void memberGetout(String id)throws Exception{
+	public boolean memberGetout(MemberVO memberVO)throws Exception{
 		
-		memberRepository.deleteById(id);;
+		memberRepository.deleteById(memberVO.getId());
+		boolean exist=memberRepository.existsById(memberVO.getId());	
+		//삭제되면 false / 삭제x : true
+		
+		return exist;
 	}
 	
+
+	public List<MemberVO> allMember() throws Exception{
+		return memberRepository.findAll();
+	}
+
 	
-	
+	//관리자 추가---------------------------------------------
+	public boolean memberDel(String id) throws Exception{
+		memberRepository.deleteById(id);
+		Thread.sleep(100);
+		return memberRepository.existsById(id);
+	}
+
 }//main

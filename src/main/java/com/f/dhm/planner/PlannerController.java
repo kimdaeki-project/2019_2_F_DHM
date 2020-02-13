@@ -1,23 +1,32 @@
 package com.f.dhm.planner;
 
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import javax.persistence.criteria.CriteriaBuilder.In;
+
+import java.util.Map;
+
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import com.f.dhm.Member.MemberVO;
+import com.f.dhm.location.LocationService;
+import com.f.dhm.location.LocationVO;
 import com.f.dhm.schedule.test.XmlService;
 import com.f.dhm.wishlist.WishService;
 import com.f.dhm.wishlist.WishVO;
@@ -34,6 +43,115 @@ public class PlannerController {
 	@Autowired
 	private WishService wishService;
 	
+
+	@Autowired
+	private LocationService LoService;
+
+	@GetMapping("reviewDelete")
+	public ModelAndView reviewDelete(int cNum)throws Exception{
+		ModelAndView mv=new ModelAndView();
+		boolean exist=service.reviewDelete(cNum);		//must be false
+		String msg="삭제 실패";
+		String path="reviewPlanner";
+		if(!exist) {
+			//delete success
+			msg="삭제 성공";
+		}
+		mv.setViewName("common/result");
+		mv.addObject("message", msg);
+		mv.addObject("path", path);
+		return mv;
+	}
+	
+	@GetMapping("reviewPlanner")
+	public void reviewPlanner(Model model)throws Exception{
+		int plNum=52;
+		List<PlannerCommentVO> commentVOs=service.getCommentList(plNum);	
+		
+		
+		////////////////////////////////////////////////////////////////////////////
+//		 for(int i=0; i<scheduleList.size();i++) {
+//	          
+//	          String tour = scheduleList.get(i).getTour();
+//	          System.out.println("tour    :    " +tour);
+//	          Map<String, Object> scInfo = scheduleService.scheduleInfo(tour, plNum);
+//	          scheduleInfoVO = new ScheduleInfoVO();
+//	          scheduleInfoVO.setTitle((String)scInfo.get("title"));
+//	          scheduleInfoVO.setAddr1((String)scInfo.get("addr1"));
+//	          scheduleInfoVO.setCost((Integer)scInfo.get("cost"));
+//	          scheduleInfoVO.setFirstimage((String)scInfo.get("firstimage"));
+//	          scheduleInfoVO.setStart((Integer)scInfo.get("start"));
+//	          scheduleInfoVO.setTour((String)scInfo.get("tour"));
+//	          scheduleInfoVO.setArCode((Integer)scInfo.get("arCode"));
+//	          scheduleInfoVO.setScName((String)scInfo.get("scName"));
+//	          scheduleInfoVOs.add(scheduleInfoVO);
+//	          System.out.println("arCodeTest    :   "+scheduleInfoVO.getArCode());
+//	       }
+//	      
+//	       mv.addObject("scheduleInfo", scheduleInfoVOs);
+		////////////////////////////////////////////////////////////////////////////
+		model.addAttribute("commentVOs", commentVOs);
+	} 
+	
+	@GetMapping("reviewUpdate")
+	public String reviewUpdate(int cNum,Model model)throws Exception{
+		System.out.println("////////////////////////////////////////////////////////////////");
+		System.out.println("cnum : "+cNum);
+		PlannerCommentVO commentVO=service.getComment(cNum);
+		model.addAttribute("commentVO", commentVO);
+		return "planner/reviewUpdate";
+	}
+	
+	@PostMapping("reviewUpdate")
+	public ModelAndView reviewUpdate(PlannerCommentVO plannerCommentVO) throws Exception{
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		System.out.println(plannerCommentVO.getCNum());
+		System.out.println(plannerCommentVO.getId());
+		System.out.println(plannerCommentVO.getPlNum());
+		service.pcomment(plannerCommentVO);
+		ModelAndView mv =new ModelAndView();
+		String path="./reviewPlanner";
+		String message="수정 되었습니다.";
+		mv.setViewName("common/result");
+		mv.addObject("path", path);
+		mv.addObject("message", message);
+		return mv;
+	}
+	
+	@GetMapping("scheduleComment")
+	public void scheduleComment()throws Exception{
+		/////////////////////////////////////
+		//getMapping function/////////////
+		/////////////////////////////////////
+	}
+	
+	@PostMapping("scheduleComment")
+	public ModelAndView scheduleComment(@ModelAttribute("plannerCommentVO") PlannerCommentVO	 plannerCommentVO, int plNum, HttpSession session)throws Exception{
+		ModelAndView mv=new ModelAndView();
+		String path="../member/memberLogin";
+		String message="로그인이 필요합니다.";
+		if(session.getAttribute("member") != null) {			
+			System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+			System.out.println("plNum : "+plNum);
+			System.out.println("plannerCommentVO.getTitle() : "+plannerCommentVO.getContents());
+			boolean check=service.pcomment(plannerCommentVO, plNum, session);
+			path= "../planner/reviewPlanner";
+			message="작성되었습니다.";
+			mv.addObject("path", path);
+			mv.addObject("message", message);
+			mv.setViewName("common/result");
+		}else {
+			mv.setViewName("common/result");
+			mv.addObject("path", path);
+			mv.addObject("message", message);
+		}
+		
+		return mv;
+		
+	}
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	@GetMapping("makePlanner")
 	public ModelAndView makePlanner() throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -160,7 +278,8 @@ public class PlannerController {
 	public int makePlanner(String id, String title, String type, String people, String[] deDate, String[] arDate,
 		      String[] bak, String[] region, String[] transfer, String[] titleA, String[] firstimage, 
 		      String[] addr1, int[] arCode,HttpSession session, int[] pp, int[] arCodeP, Integer plNum, String email) throws Exception{
-		      List<PlannerVO> pList = new ArrayList<PlannerVO>();
+		      
+			List<PlannerVO> pList = new ArrayList<PlannerVO>();
 		      
 		      
 		      if (plNum != null) {         
@@ -169,7 +288,7 @@ public class PlannerController {
 		      
 		      plNum = service.getPlnum();
 		      
-		      System.out.println("plNum = " + plNum);
+		      System.out.println("plNum = " + deDate.length);
 		      
 		      for (int i = 0; i < deDate.length; i++) {
 
@@ -206,12 +325,19 @@ public class PlannerController {
 		         }
 		         vo.setBak(Integer.valueOf(bak[i]));
 		         vo.setRegion(region[i]);
+		         
+		         //도시 정보 추가
 		         if (i > 0 && deDate.length > 1) {            
 		            vo.setTransfer(transfer[i-1]);
+		            LoService.updateLoc(arCodeP[i], Integer.parseInt(bak[i]), transfer[i-1]);
+		         }else {
+		        	LoService.updateLoc(arCodeP[i], Integer.parseInt(bak[i]), "선택"); 
 		         }
+		         //도시정보추가
 		         
 		         vo.setPolyPath(pp[i]);
 		         vo.setArCode(arCodeP[i]);
+		         
 		         
 		         pList.add(vo);
 		      }
@@ -236,6 +362,7 @@ public class PlannerController {
 		         wishVO.setAddr1(addr1[i]);
 		         wishVO.setPlNum(plNum);
 		         wishVO.setArCode(arCode[i]);
+		         System.out.println(i+"   +    "+wishVO.getTitle());
 		         wishlist.add(wishVO);
 
 		      }
@@ -260,6 +387,23 @@ public class PlannerController {
 	      return mv;
 	      
 	   }
+	  
+	  @GetMapping("mapTestindex")
+	   public ModelAndView mapTestindex(int plNum) throws Exception{
+	      
+	      ModelAndView mv = new ModelAndView();
+	      
+	      List<PlannerVO> list = service.plannerSelectIndex(plNum);
+	      List<Integer> polyPath = new ArrayList<Integer>();
+	      
+	      for (PlannerVO plannerVO : list) {
+	         polyPath.add(plannerVO.getPolyPath());
+	      }
+	      mv.addObject("pp", polyPath);
+	      mv.setViewName("planner/mapTestindex");
+	      return mv;
+	      
+	   }
 	
 	@GetMapping("updatePlanner")
 	public ModelAndView updatePlanner(int plNum, HttpSession session) throws Exception{
@@ -274,4 +418,28 @@ public class PlannerController {
 		
 	}
 	
+
+	
+	@GetMapping("getPercent")
+	@ResponseBody
+	public List<Integer> getPercent(int arCode) throws Exception{
+		List<Integer> pec = new ArrayList<Integer>();
+		
+		LocationVO lvo = LoService.selectOne(arCode);
+		
+		pec.add(lvo.getBak0()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak1()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak2()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak3()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak4()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak5()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak6()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak7()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak8()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak9()*100/lvo.getTotalBak());
+		
+		return pec;
+	}
+	
+
 }

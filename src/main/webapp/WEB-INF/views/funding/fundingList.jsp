@@ -4,33 +4,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 <link rel="stylesheet"  href="../css/funding.css">
 <c:import url="./template/fundingBoot.jsp" />
 <meta charset="UTF-8">
-<title>대동여행지도</title>
+<link rel="stylesheet"  href="../css/basic.css">
+<title>DHM Planner</title>
 </head>
 <body>
-<div class="contents">
-	
-		<a href="./fundingWrite" class="btn btn-danger">Write</a>
+<c:import url="../template/nav.jsp"/>
+<div class="container">
+		
 	
 	<div class="funding_main">
 		<div class="funding_inner_wrap">
 		<div class="funding_titarea">
 			<h3 class="funding_title">
-				모든 펀딩 리스트
+				펀딩 리스트
 			</h3>
 		</div>
-	<div class="funding_area">
+	<div style="text-align: right; margin: 15px;">
+		<a href="./fundingWrite" class="btn btn-danger">Write</a>
+	</div>
 	
+	<div class="funding_area">
 		<c:forEach items="${list.pageList.content}" var="vo" varStatus="i">
 			<div class="funding_block">
 				<div class="funding_block2">
 					<div class="funding_block3">
-						<div class="funding_inner_area">
+					<div class="funding_inner_area">
+					
 				<a href="./fundingSelect?num=${vo.num}">
 				<img class="funding_img" src="../test_img/test${i.index}.jpg"></a>
 						</div>
+					</div>
+					<div style="height: 50px; font-size: 15px; font-weight: bold; padding: 5px;">
+						${vo.name}
 					</div>
 					<div class="funding_inner_area2">
 						<%-- <div class="funding_end" style="font-size: 1em;">
@@ -54,22 +63,22 @@
 			</div>
 		</c:forEach>
 	
-	</div>
+			</div>
 		</div>
 	</div>
-	<div>
+	<div style="margin: 0 auto; text-align: center;">
+	<ul class="pagination" style="margin:50px 0;">
 		<c:if test="${pager.curBlock > 1}">
-			<a href="./fundingList?curPage=${pager.startNum-1}">[이전]</a>
+			<li><a href="./fundingList?curPage=${pager.startNum-1}">[이전]</a></li>
 		</c:if>
 		<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-			<a href="./fundingList?curPage=${i}">${i}</a>
+			<li><a href="./fundingList?curPage=${i}">${i}</a></li>
 		</c:forEach>
 		<c:if test="${pager.curBlock < pager.totalBlock}">
-			<a href="./fundingList?curPage=${pager.startNum-1}">[다음]</a>
+			<li><a href="./fundingList?curPage=${pager.startNum-1}">[다음]</a></li>
 		</c:if>
-	
+	</ul>
 	</div>
-
 </div>
 
 </body>

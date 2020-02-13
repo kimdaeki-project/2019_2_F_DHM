@@ -10,6 +10,9 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+
 import lombok.Data;
 
 
@@ -39,4 +42,6 @@ public class PlannerVO {
 	private Integer arCode;
 	private Integer polyPath;
 	private String email;
+	@CreationTimestamp
+	private Date makeDay;
 }

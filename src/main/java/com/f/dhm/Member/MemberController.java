@@ -235,32 +235,39 @@ public class MemberController {
 		return mv;
 	}	
 	//회원 탈퇴-----------------------------------------------------------------------
-//	@GetMapping("memberGetout")
-//	public String memberGetoutPage(String id,HttpSession session)throws Exception{
-//		boolean check=memberService.memberGetoutPage(id);
-//		ModelAndView mv=new ModelAndView();
-//		if(check) {
-//			//delete fail
-//			String msg = "회원 탈퇴 실패";
-//			
-//		}
-//		else {
-//			//delete success!!
-//			String msg = "회원 탈퇴 성공";
-////			mv.addObject("message", message);											
-////			mv.addObject("path", path);			
-//			mv.setViewName("common/result");
-//		}
-//		return null;
-//	}	
 	@GetMapping("memberGetout")
-	public String memberGetout(String id)throws Exception{
-		System.out.println("memberDelete id : "+id);
+	public String memberGetout()throws Exception{
 		
-		memberService.memberGetout(id);
-		return "redirect:../index";
+		return "member/memberGetout";
 	}
 	
-	
+	@PostMapping("memberGetout")
+	public ModelAndView memberGetout(HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		MemberVO mbm=(MemberVO)session.getAttribute("member");
+		boolean check = memberService.memberGetout(mbm);
+		System.out.println("@@@@@@@ id: ");
+		
+		String msg = "[system] 회원 탈퇴 실패";
+		String path="member/memberGetout";
+		
+		if(check) {
+			mv.addObject("message", msg);
+			mv.addObject("path", path);
+			mv.setViewName("common/result");
+			
+		}else {
+			msg = "[system] 회원 탈퇴 성공";
+			path="../";
+			mv.addObject("message", msg);
+			mv.addObject("path", path);
+			
+			mv.setViewName("common/result");
+			session.invalidate();
+		}
+		
+		
+		return mv;
+	}
 	
 }

@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"/>
 <link rel="stylesheet"  href="../css/basic.css">
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 </head>
 <body>
 <c:import url="../template/nav.jsp"/>

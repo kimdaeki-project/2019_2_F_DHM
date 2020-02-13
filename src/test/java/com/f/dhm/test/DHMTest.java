@@ -1,5 +1,7 @@
 package com.f.dhm.test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.sql.Date;
 import java.util.Calendar;
 import java.util.List;
@@ -26,7 +28,7 @@ public class DHMTest {
 	
 
 	
-	@Test
+	//@Test
 	void memberTest()throws Exception{
 		MemberVO memberVO = new MemberVO();
 		memberVO.setId("test1");
@@ -43,6 +45,14 @@ public class DHMTest {
 		//Optional<MemberVO> mv = memberRepository.findById("test");
 		//System.out.println(mv.get().getEmail());
 		
+	}
+	
+	@Test
+	void test2() throws Exception{
+		memberRepository.deleteById("springcom123");
+		boolean exist=memberRepository.existsById("springcom123");
+		System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+		System.out.println("exist : "+exist);
 	}
 	
 	

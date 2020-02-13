@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 <!-- 버튼 bootstrap -->
@@ -228,6 +229,8 @@
 		</div>
 	</div>
 	<input type="text" value="${member.pw}" id="getPW" style="display: none;">
+	
+			<c:import url="../template/footer.jsp"/>
 <script type="text/javascript">
 //-----------------------------------------------------------------------------
 	$("#Xid2").hide(); //오류 입력 상자 숨기

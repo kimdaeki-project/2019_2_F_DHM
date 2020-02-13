@@ -2,6 +2,7 @@ package com.f.dhm.planner;
 
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
@@ -20,16 +21,79 @@ public class PlannerService {
 
 	@Autowired
 	private PlannerRepository repository;
+	@Autowired
+	private PlannerCommentRepository commentRepository;
 
+	//pcomment delete one
+	public boolean reviewDelete(int cNum)throws Exception{
+		commentRepository.deleteById(cNum);
+		boolean exist=commentRepository.existsById(cNum);
+		return exist;
+	}
+	
+	//pcomment get one
+	public PlannerCommentVO getComment(int cNum)throws Exception{
+		PlannerCommentVO commentVO=commentRepository.findById(cNum).get();
+		return commentVO;
+	}
+	
+	//pcomment list
+	public List<PlannerCommentVO> getCommentList(int plNum)throws Exception{
+		return commentRepository.findByPlNum(plNum);
+	}
+	
+		
+	//pcomment update
+	public void pcomment(PlannerCommentVO  plannerCommentVO)throws Exception{
+		PlannerCommentVO commentVO=commentRepository.save(plannerCommentVO);
+	}
+	
+	//comment write
+	public boolean pcomment(PlannerCommentVO  plannerCommentVO, int plNum, HttpSession session)throws Exception{
+		MemberVO memberVO=(MemberVO) session.getAttribute("member");
+		plannerCommentVO.setId(memberVO.getId());
+		boolean check=false;
+		plannerCommentVO.setPlNum(plNum);
+		commentRepository.save(plannerCommentVO);
+		PlannerCommentVO exist=commentRepository.findById(plannerCommentVO.getCNum()).get();
+		if(exist != null) {
+			//exist!!
+			check=true;
+		}
+		else {
+			//not exist!!
+			check=false;
+		}
+		return check;
+	}
 	
 	//hyehyeon
 	public List<PlannerVO> plannerSelect(int plNum, HttpSession session) throws Exception {
 
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		if (memberVO == null) {
+			memberVO = new MemberVO();
+			memberVO.setId("guest");
+		}
 		
 		return repository.findByIdAndPlNum(memberVO.getId(),plNum);
 	}
+	
+	public List<PlannerVO> plannerSelectIndex(int plNum) throws Exception {
 
+		
+		return repository.findByPlNum(plNum);
+	}
+	
+	
+	public int plannerCount() throws Exception{
+		return repository.plannerCount();
+	}
+	
+	public List<MyPlannerVO> plannerTypeList(Integer plNum) throws Exception{
+		return repository.plannerTypeList(plNum);
+	}
+	
 	public String plannerTitle(int plNum) throws Exception{
 		return	repository.plannerTitle(plNum);
 	}
@@ -42,11 +106,16 @@ public class PlannerService {
 
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		
+		if (memberVO == null) {
+			memberVO = new MemberVO();
+			memberVO.setId("guest");
+		}
+		
 		return repository.plannerList(memberVO.getId());
 	}
 	
 	public int days(int plNum) throws Exception{
-		return repository.days(plNum);
+		return repository.days(plNum)+1;
 	}
 	
 	/////////////////////////////////////////////////
@@ -79,10 +148,19 @@ public class PlannerService {
 	}
 	
 	public void plannerDel(String id, int plNum) throws Exception{
+		
 		List<PlannerVO> delList =repository.findByIdAndPlNum(id, plNum);
 		
 		repository.deleteAll(delList);
 		
+	}
+	
+	public List<MyPlannerVO> plannerAll() throws Exception{
+		return repository.plannerAll();
+	}
+	
+	public List<MyPlannerVO> plannerEq(String id) throws Exception{
+		return repository.plannerList(id);
 	}
 
 }

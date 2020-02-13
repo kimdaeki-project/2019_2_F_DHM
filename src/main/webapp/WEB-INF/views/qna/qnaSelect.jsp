@@ -7,11 +7,12 @@
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"/>
 <link rel="stylesheet"  href="../css/basic.css">
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 </head>
 <body>
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
-		<h1>basic title</h1>
+		<h1>${qnaVO.title }</h1>
 		<div class="section">
 			<article>
 			<div class="board_select_row">
