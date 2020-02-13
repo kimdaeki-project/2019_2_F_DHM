@@ -43,7 +43,7 @@ background-color: #95a5a6;
 .mainbox{
 background-color: white;
 height: 600px;
-width: 1885px;
+
 
 }
 .container1{
@@ -53,7 +53,7 @@ height: 100px;
 width: 553px;
 height: 505px;
 position:absolute; 
-left: 675px;
+left: 33%;
 background-color: white;
 }
 .Login1{
@@ -241,7 +241,7 @@ height: 965px;
 width: 555px;
 background-color: white;
 position:absolute; 
-left: 675px;
+left: 33%;
 margin-top: 17px;
 }
 .Join1{

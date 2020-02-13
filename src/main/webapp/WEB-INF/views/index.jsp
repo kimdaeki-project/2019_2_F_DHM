@@ -35,7 +35,7 @@
 </head>
 <body>
 <c:import url="./template/nav.jsp"/>
-   <div class="swiper-container3" style="margin-bottom: 20px; height: 600px; width: 100%; overflow: hidden;">
+   <div class="swiper-container3" style="padding-top:60px; margin-bottom: 20px; height: 600px; width: 100%; overflow: hidden;">
  	  <div class="swiper-wrapper" style="width: 100%;">
       		<div id="back-image1" class="image swiper-slide">
       			<div class="backTitle">경상북도 경주 동궁과월지</div>
@@ -70,7 +70,7 @@
       </div>
    </div>
 
-   <div class="container">
+   <div class="container" style="margin-top: -60px;">
       	<img class="mainimage" src="../images/mainimage2.jpg">
       <div class="row">
 	      <div class="jumbotron marginTop50px" style="width: 743px; float: left; margin-left: 20px;">
@@ -82,6 +82,7 @@
 	         </div>
 	      </div>
       </div>
+ 
       <div class="marginTop50px" style="clear: both;">
 
 		<div class="row">
@@ -666,7 +667,7 @@
    
 </div>
    </div>
-
+</div>
   <script>
 
 
