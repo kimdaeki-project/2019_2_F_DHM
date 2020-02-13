@@ -304,8 +304,10 @@
    <div class="container" 
    style="background-color: white; width: 1903px; height: 50px; 
    text-align: center; line-height: 50px; font-size: 14px; margin-top: 50px;">
-   © DHM PLANNER 2020
+   <b>© DHM PLANNER 2020</b>
    </div>
+   
+   <div style="height: 50px;"></div>
    
 </form>
 

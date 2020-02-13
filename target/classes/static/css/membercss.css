@@ -854,7 +854,7 @@ margin-top: 2px;
 .mypage2{
 background-color: white;
 height: 200px;
-width: 263px;
+width: 260px;
 border: 1px solid #e8e8e8;
 border-radius: 5px;
 }
@@ -863,6 +863,7 @@ border-radius: 5px;
 background-color: white;
 height: 40px;
 width: 263px;
+border-right: 1px solid #e8e8e8;
 }
 
 .mypage2-1-1{
@@ -896,6 +897,7 @@ background-color: white;
 height: 80px;
 width: 263px;
 border-bottom: 1px solid #e8e8e8;
+border-right: 1px solid #e8e8e8;
 }
 
 .mypage2-2-1{
@@ -927,6 +929,7 @@ background-color: white;
 height: 80px;
 width: 263px;
 border-bottom: 1px solid #e8e8e8;
+border-right: 1px solid #e8e8e8;
 }
 
 .mypage3{
@@ -1075,7 +1078,7 @@ float: right;
 
 .my1-1{
 width:870px;
-height: 800px;
+height: 500px;
 background-color: white;
 border: 1.2px solid rgba(0,0,0,.1);
 border-radius: 5px;
@@ -1499,7 +1502,7 @@ font-size: 14px;
 /* 프로필 사진 변경 화면창 */
 .changeimg{
 width:100%;
-height: 1200px;
+height: 1270px;
 background-color:rgba(0,0,0,0.85);
 position: absolute;
 top:0px;
@@ -1622,7 +1625,7 @@ margin-left: 200px;
 /* 프로필 변경 화면창 */
 .asdzxc{
 width:100%;
-height: 1200px;
+height: 1250px;
 background-color:rgba(0,0,0,0.85);
 position: absolute;
 top:0px;
@@ -2547,7 +2550,7 @@ a:hover{
 }
 
 .getoutmain1-1{
-padding-top: 30px;
+padding-top: 20px;
 font-size: 13.5px;
 }
 
