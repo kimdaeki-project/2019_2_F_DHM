@@ -53,7 +53,7 @@
 					<input type="hidden" value="${member.gender}" name="gender">
 					<input type="hidden" value="${member.birth}" name="birth">
 		</div>
-		<div>
+		<div style="padding-top: 10px;">
 			<div class="getoutmain1-3">탈퇴하기</div>
 			<div class="getoutmain1-4">취소</div>
 		</div>
