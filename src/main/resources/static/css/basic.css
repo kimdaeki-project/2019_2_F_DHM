@@ -157,6 +157,37 @@ nav{
    color: rgba(111, 174, 205, 1);
    background: linear-gradient(to bottom, white 1%, #b9e4fa 200%);
 }
+/*  */
+.nav-member-div{
+   display: inline;
+   float: right;
+   line-height: 62px;
+   height: 62px;
+   width: 100px;
+   text-align: center;
+   cursor:pointer;
+   color: #333;
+   text-transform: uppercase;
+   font-family: san-serif;
+/*    background: background: linear-gradient(to bottom, #20B2AA 0%, #008B8B 150%); */
+}
+.nav-member-div:hover{
+   color: rgba(111, 174, 205, 1);
+   background: linear-gradient(to bottom, white 1%, #b9e4fa 200%);
+}
+.nav-member-div-a{
+   z-index:99;
+   box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.19);
+   color: #333;
+   display: block;
+   background: white;
+   position: relative;
+}
+.nav-member-div-a:hover{
+   color: rgba(111, 174, 205, 1);
+   background: linear-gradient(to bottom, white 1%, #b9e4fa 200%);
+}
+
 
 
 /*********************************************************************************************** end navigation */

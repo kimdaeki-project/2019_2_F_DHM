@@ -303,7 +303,7 @@
    
    <div class="container" 
    style="background-color: white; width: 1903px; height: 50px; 
-   text-align: center; line-height: 50px; font-size: 14px;">
+   text-align: center; line-height: 50px; font-size: 14px; margin-top: 50px;">
    © DHM PLANNER 2020
    </div>
    
@@ -690,7 +690,7 @@ $(".mypage2-2-2").click(function(){
 //리뷰
 $(".my3-1-3").click(function(){
    
-    location.href = "/";
+    location.href = "${pageContext.request.contextPath}/planner/reviewPlanner";
          
    });
 </script>

@@ -18,7 +18,7 @@
 
 	<c:import url="../template/nav.jsp"/>
 	
-	<div class="container" style="height: 150px;"></div>
+	<div class="container" style="height: 100px;"></div>
 	
 	<div class="mainbox">
 		<div class="loginbox">
@@ -71,7 +71,7 @@
 	</div>
 	
 	<div class="Login7">
-		<a href="#"><img class="Login7img" src="../imgs/funhan.png"></a>
+		<a href="${pageContext.request.contextPath}/planner/makePlanner"><img class="Login7img" src="../imgs/funhan.png"></a>
 	</div>
 
 	<div style="height: 30px;"></div>
@@ -93,6 +93,13 @@
 		 $(".btn1").click();
 	    }
 	 });
+
+
+// 	$(".updatelast2").click(function(){
+		
+//     	location.href = "memberMypage";
+     	 
+// 		});
 
 </script>
 </body>
