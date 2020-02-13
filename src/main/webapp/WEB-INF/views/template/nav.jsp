@@ -7,17 +7,19 @@
 <nav>
 	<div class="nav-contain">
 	<button class="m-title">dhm planner</button>
-		<div class="nav-logoWrapper"><img alt="logo" src="${pageContext.request.contextPath}/imgs/logos/logo-white.png" class="nav-logoWrapper-img" ></div>
+		<div class="nav-logoWrapper"><img alt="logo" src="${pageContext.request.contextPath}/imgs/logos/KakaoTalk_20200213_113935862.png" class="nav-logoWrapper-img" ></div>
 		<div class="nav-menuWrapper">
 			<div class="nav-menu-ul">
-				<a class="nav-li nav-li-login" draggable="false"  href="${pageContext.request.contextPath}/member/memberLogin">login</a>
-				<a class="nav-li"  href="${pageContext.request.contextPath}/member/memberJoin">join</a>
-				<a class="nav-li"  href="${pageContext.request.contextPath}/notice/noticeList">notice</a>
-				<a class="nav-li"  href="${pageContext.request.contextPath}/qna/qnaList">qna</a>
-				<a class="nav-li" href="${pageContext.request.contextPath}/gnb/serviceCenter">faq</a>
-				<a class="nav-li" href="${pageContext.request.contextPath}/member/memberLogin">funding</a>
-				<a class="nav-li" href="${pageContext.request.contextPath}/">my planner</a>
-				<a class="nav-li" href="${pageContext.request.contextPath}/">make planner</a>
+				<a class="nav-li nav-li-login" draggable="false"  href="${pageContext.request.contextPath}/member/memberLogin">로그인</a>
+				<a class="nav-li"  href="${pageContext.request.contextPath}/member/memberJoin">회원가입</a>
+				<div class="nav-service-div">서비스 
+					<a class="nav-service-div-a"  href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>
+					<a class="nav-service-div-a" href="${pageContext.request.contextPath}/qna/qnaList">qna</a>
+					<a class="nav-service-div-a" href="${pageContext.request.contextPath}/gnb/serviceCenter">faq</a>
+				</div>
+				<a class="nav-li" href="${pageContext.request.contextPath}/member/memberLogin">펀딩</a>
+				<a class="nav-li" href="${pageContext.request.contextPath}/">나의 플래너</a>
+				<a class="nav-li" href="${pageContext.request.contextPath}/">플래너</a>
 			</div>
 		</div>
 	</div>
@@ -31,5 +33,13 @@ $('#service').click(function(){
 var localhost='${pageContext.request.contextPath}';
 $('.nav-logoWrapper-img').click(function(){
 	location.href=localhost+"/";
+});
+
+$(document).ready(function(){
+	$('.nav-service-div-a').css("display", "none");
+});
+
+$('.nav-service-div').click(function(){
+	$('.nav-service-div-a').toggle();
 });
 </script>
