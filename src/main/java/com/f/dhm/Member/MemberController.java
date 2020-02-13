@@ -110,6 +110,12 @@ public class MemberController {
 	public boolean memberIdCheck(String id)throws Exception{
 		return memberService.memberIdCheck(id);
 	}
+	//PW 체크-----------------------------------------------------------------------
+	@PostMapping("memberPWCheck")
+	@ResponseBody
+	public boolean memberPWCheck(String Pw)throws Exception{
+		return memberService.memberPWCheck(Pw);
+	}
 	//EMAIL 체크-----------------------------------------------------------------------
 	@PostMapping("memberEMAILCheck")
 	@ResponseBody
@@ -208,12 +214,12 @@ public class MemberController {
 	}
 	
 	@PostMapping("memberUpdate")
-	public ModelAndView memberUpdatePage(@Valid MemberVO memberVO, BindingResult bindingResult, HttpSession session)throws Exception{
+	public ModelAndView memberUpdatePage(@Valid MemberVO memberVO, BindingResult bindingResult, HttpSession session, MemberFilesVO memberFilesVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("member/memberUpdate");
 		
-		memberService.memberMypage(memberVO);
+		memberService.memberUpdatePage(memberVO);
 			
 		//session.invalidate();
 		session.setAttribute("member",memberVO);
@@ -230,8 +236,38 @@ public class MemberController {
 	}	
 	//회원 탈퇴-----------------------------------------------------------------------
 	@GetMapping("memberGetout")
-	public String memberGetoutPage()throws Exception{
+	public String memberGetout()throws Exception{
 		
 		return "member/memberGetout";
-	}	
+	}
+	
+	@PostMapping("memberGetout")
+	public ModelAndView memberGetout(HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		MemberVO mbm=(MemberVO)session.getAttribute("member");
+		boolean check = memberService.memberGetout(mbm);
+		System.out.println("@@@@@@@ id: ");
+		
+		String msg = "[system] 회원 탈퇴 실패";
+		String path="member/memberGetout";
+		
+		if(check) {
+			mv.addObject("message", msg);
+			mv.addObject("path", path);
+			mv.setViewName("common/result");
+			
+		}else {
+			msg = "[system] 회원 탈퇴 성공";
+			path="../";
+			mv.addObject("message", msg);
+			mv.addObject("path", path);
+			
+			mv.setViewName("common/result");
+			session.invalidate();
+		}
+		
+		
+		return mv;
+	}
+	
 }

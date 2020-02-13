@@ -148,7 +148,10 @@ margin-left: 130px;
 	<spring:form action="memberGetout" id="Getout" method="post" modelAttribute="memberVO" >
 	<div class="getoutmain1">
 		<div class="getoutmain1-1">
-			비밀번호 : <label for="pw"></label><spring:input path="pw" class="getoutmain1-2" id="pw10"/>
+			비밀번호 : <input type="password" class="getoutmain1-2" id="pw10" name="pw">			
+					<button type="button" id="ppw_btn" class="btn-u btn-u-red"
+				style="margin-left: -5px; margin-top: 19px; width: 70px; height: 27px; background-color: #e74c3c; color: white;">확인</button>
+					
 					<input type="hidden" value="${member.id}" name="id">
 					<input type="hidden" value="${member.name}" name="name">
 					<input type="hidden" value="${member.email}" name="email">
@@ -173,7 +176,39 @@ margin-left: 130px;
 		</div>
 	</div>
 
+
+<!-- PW 중복확인 DIV --------------------------------------------------------------------------------------------------------------------------->
+	<!--오류사항 ------------------------------------------------------------------------------------------------------------------------------------>
+	<div id="Xid" style="">
+		<div id="idsame" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
+			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
+				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">비밀번호를 다시 입력하십시오.</div>
+			</div>
+		</div>
+	
+		<div class="Xidsame3" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
+			<div class="Xidsame2" style="background-color: #64db99; height: 40px; width: 40px; 
+  				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div>  
+		</div>
+	</div>
+	
+	<!--정상사항 ---------------------------------------------------------------------------------------------------------------------------------- -->
+	<div id="Xid1" style="">
+		<div id="idsame2" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
+			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
+				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">올바른 비밀번호입니다.</div>
+			</div>
+		</div>
+	
+		<div class="Xidsame7" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
+			<div class="Xidsame6" style="background-color: #64db99; height: 40px; width: 40px; 
+   				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div> 
+		</div>
+	</div>
+
 </body>
+
+<%-- 			<c:import url="../template/footer.jsp"/> --%>
 <script type="text/javascript">
 //-----------------------------------------------------------------------
 //회원 탈퇴 취소 -> 마이페이지로 이동
@@ -182,10 +217,93 @@ $(".getoutmain1-4").click(function(){
     location.href = "memberMypage";
      	 
 	});
+//----------------------------------------------------------------------
+
+// var pw = $("#pw10").val();   : 비밀번호 입력값
+// var pw2 = '${member.pw}';	: DB 비밀번호 불러오는 값
+//#ppw_btn 						: 확인 버튼 아이디
+//#pw10 						: 비밀번호 입력 아이디
+//#getoutmain1-3 				: 저장버튼
+
+//----------------------------------------------------------------------
+
+	$('#Xid1').hide(); //입력 성공 상자 숨기
+	$('#Xid').hide();  //입력 오류 상자 숨기
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++
+	var check3=false;
+	var pw = $("#pw10").val();
+	var pw2 = '${member.pw}';
+
+	//입력 성공 상자 닫기 버튼	
+	$(".Xidsame6").click(function(){
+		$("#Xid1").hide();	
+	 	$("#ppw_btn").css("background","#e74c3c");	
+	});
+	
+	//입력 오류 상자 닫기 버튼	
+	$(".Xidsame2").click(function(){	
+		$("#Xid").hide();	
+		$("#ppw_btn").css("background","#e74c3c");	
+	});
+
+	//클릭시 체크값
+	$("#ppw_btn").click(function(){	
+		check3 = $('#ppw_btn').is(':checked');
+	});
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++
+	$(".getoutmain1-3").click(function(){
+
+		pw = $("#pw10").val();
+		pw2 = '${member.pw}';
 
 
+		if(check3 == false){
+			alert("[oberlap] 비밀번호 확인 해주시기 바랍니다.");
+			
+		}else{
 
+		        document.getElementById('Getout').submit();        
+		    		
+			}
+	});
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++
 
+	$("#ppw_btn").click(function(){
+
+		pw = $("#pw10").val();
+		pw2 = '${member.pw}';
+		
+		 if(pw != pw2){	
+			 $("#ppw_btn").css("background","#95a5a6");	
+			 $("#Xid").show();		
+				 
+			}
+			if(pw == pw2){
+
+				$("#ppw_btn").css("background","#95a5a6");
+				check3 = true;
+				$("#Xid1").show();
+
+			}	
+	}); //function문
+//----------------------------------------------------------------------
+//enter키 막기
+//방법1
+document.addEventListener('keydown', function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+  };
+}, true);
+
+//방법0(예시)
+// $('input[type="text"]').keydown(function() {
+// 	  if (event.keyCode === 13) {
+// 	    event.preventDefault();
+// 	  };
+// 	});
+	
 </script>
 </html>

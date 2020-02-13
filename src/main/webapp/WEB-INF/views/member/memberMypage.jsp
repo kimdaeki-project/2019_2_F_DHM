@@ -18,7 +18,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet"  href="../css/membercss.css">
 <link rel="stylesheet"  href="../css/basic.css">
-<link rel="stylesheet" href="../package/css/swiper.min.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -35,7 +34,7 @@
 			<div class="my1" id="my1">
 				<div class="my1-1">
 					<div class="my1-1-1">
-						<button class="btn btn-warning" id="gomakePlanner"
+						<button class="btn btn-warning" id="gomakePlanner" type="button"
 						style="color: white; background-image: linear-gradient(to bottom,#f0ad4e 0,#eb9316 100%);
   						margin-top: 170px; margin-left: 25px; width: 200px; height: 35px; font-weight: 800; line-height: 0;">
   						<font style="font-size: 24px;">+</font>다녀온 여행 등록하기</button>
@@ -46,11 +45,6 @@
 			<div class="my2" id="my2">
 				<a><img alt="" src="../imgs/member/${member.memberFilesVO.fname}" class="mypage1-1-1"></a>
 				<a><img src="../imgs/dog.jpg" class="mypage1-1-1"></a>
-				
-				
-			
-			
-			
 			</div>
 			
 			<div class="my3" id="my3">
@@ -64,7 +58,7 @@
 						당신의 리뷰는 당신과 비슷한 지역을 가기위해 여행을 계획중인 사람들에게 노출됩니다.<br>
 						이때 당신이 다녀온 여행이 첨부되기 때문에, 광고리뷰가 넘쳐나는 블로그보다 더 신뢰를 얻게됩니다.
 					</div>
-					<button class="my3-1-3"><div class="my3-1-5">리뷰쓰기</div><div class="my3-1-4">+50마일</div></button>
+					<button type="button" class="my3-1-3"><div class="my3-1-5">리뷰쓰기</div><div class="my3-1-4">+50마일</div></button>
 				</div>
 			</div>
 			
@@ -169,11 +163,11 @@
 					<div class="mypage2-1-1"><p class="mypage2-1-1-1">${member.gender}</p><p class="mypage2-1-1-3">${member.birth}</p></div>
 				</div>
 				<div class="mypage2-2">
-					<button class="mypage2-2-1">
-						<strong>0 </strong> Mentees
+					<button type="button" class="mypage2-2-1">
+						<strong>회원 정보 변경</strong>
 					</button>					
-					<button class="mypage2-2-2">
-						<strong>0 </strong> Mentors
+					<button type="button" class="mypage2-2-2">
+						<strong>로그아웃</strong>
 					</button>
 				</div>
 				<div class="mypage2-3">					
@@ -331,6 +325,10 @@
 					<input type="hidden" value="${member.email}" name="email">
 					<input type="hidden" value="${member.gender}" name="gender">
 					<input type="hidden" value="${member.birth}" name="birth">
+					<input type="hidden" value="${member.memberFilesVO.fname}" name="fname">
+<%-- 					<input type="hidden" value="${member.memberFilesVO.fnum}" name="fnum"> --%>
+<%-- 					<input type="hidden" value="${member.memberFilesVO.oname}" name="oname"> --%>
+					
 				<div class="myintroduce-0">
 					<div class="myintroduce-1">
 						<div class="myintroduce1-1">자기 소개</div>					
@@ -394,10 +392,9 @@
 		</div>
 	</div>	
 	
-	
 	<!-- 프로필 사진변경 화면창 -->
-	<spring:form action="memberMypageImg" id="frm4" method="post" modelAttribute="memberVO" enctype="multipart/form-data">
-	<div class="changeimg">
+	<form action="memberMypageImg" id="frm4" method="post" enctype="multipart/form-data" >
+	<div class="changeimg" >
 		<div class="changeimg2">
 			<div class="changeimg2-1">
 				<div class="changeimg2-1-1">×</div>
@@ -411,7 +408,7 @@
 				<input type="hidden" value="${member.email}" name="email">
 				<input type="hidden" value="${member.gender}" name="gender">
 				<input type="hidden" value="${member.birth}" name="birth">
-				
+
 			<div class="changeimg2-3">
 				<div class="changeimg2-3-1">
 					<!-- 이미지 미리보기 창  -->
@@ -435,16 +432,15 @@
 			
 		</div>
 	</div>
-	</spring:form>
+	</form>
 			
-	
+			<c:import url="../template/footer.jsp"/>
 
 <script type="text/javascript">
 //-----------------------------------------------------------------------
 	//프로필 사진 변경 BOX 사진 미리보기
 	var sel_file;
 	
-
 	$(document).ready(function(){
 		$("#input_img").on("change",handleImgFileSelect);
 	});
@@ -452,15 +448,12 @@
 	function handleImgFileSelect(e){
 		var files = e.target.files;
 		var filesArr = Array.prototype.slice.call(files);
-
 		filesArr.forEach(function(f){
 			if(!f.type.match("image.*")){
 				alert("확장자는 이미지 확장자만 가능합니다.");
 				return;
 				}
-
 			sel_file = f;
-
 			var reader = new FileReader();
 			reader.onload = function(e){
 				$("#img").attr("src", e.target.result);
@@ -470,7 +463,6 @@
 			
 			});
 		}
-
 //-----------------------------------------------------------------------
 	//등급 출력 변경
 	$(function(){
@@ -628,7 +620,6 @@ $('.msgbing4').hide();
 //프로필 사진 화면창 띄우기
  		$('.changeimg').hide();
 		$('.changeimg2').hide();
-
 		$(".mypage1-1-1").click(function(){
  			$('.changeimg').slideDown();
 			$('.changeimg2').slideDown();
@@ -638,17 +629,14 @@ $('.msgbing4').hide();
 			$('.changeimg2').slideUp();
 			$('.changeimg').slideUp();
 		});  
-
 		$(".changeimg2-4").click(function(){
 			$('.changeimg2').slideUp();
 			$('.changeimg').slideUp();
 		});  
-
 		$(".mypage2-3-1").click(function(){
  			$('.changeimg').slideDown();
 			$('.changeimg2').slideDown();
 		});
-
 		//esc누르면 slidedown (esc 코드 = 59)
 		$(window).keyup(function(e){
 			 if(e.keyCode == 27){
@@ -656,14 +644,12 @@ $('.msgbing4').hide();
 				$('.changeimg').slideUp();
 			 }
 		});
-
 		$(window).keyup(function(e){
 			 if(e.keyCode == 27){
 				$('.changeimg2').slideUp();
 				$('.changeimg').slideUp();
 			 }
 		});
-
 		
 	
 //------------------------------------------------------------------------
@@ -672,13 +658,41 @@ $(".myintroduce-7-1").click(function(){
 	
 	document.getElementById('frm3').submit();
 });
-
 //프로필 사진 관리
 $(".changeimg2-5").click(function(){
 	
 	document.getElementById('frm4').submit();
 });
 
+
+//------------------------------------------------------------------------
+//플레너 이동
+$("#gomakePlanner").click(function(){
+	
+    location.href = "../planner/makePlanner";
+     	 
+	});
+
+//회원 정보 변경 이동
+$(".mypage2-2-1").click(function(){
+	
+    location.href = "${pageContext.request.contextPath}/member/memberUpdate";
+     	 
+	});
+	
+//로그아웃 
+$(".mypage2-2-2").click(function(){
+	
+    location.href = "${pageContext.request.contextPath}/member/memberLogout";
+     	 
+	});
+
+//리뷰
+$(".my3-1-3").click(function(){
+	
+    location.href = "/";
+     	 
+	});
 </script>
 	
 </body>

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav>
+
    <div class="nav-contain row">
    <button class="m-title">dhm planner</button>
       <div class="nav-logoWrapper"><a href="${pageContext.request.contextPath}/"><img alt="logo" src="${pageContext.request.contextPath}/imgs/logos/logo-blue.png" class="nav-logoWrapper-img" ></a></div>
@@ -20,6 +21,7 @@
          </div>
       </div>
    </div>
+
 </nav>
 
 <script type="text/javascript">

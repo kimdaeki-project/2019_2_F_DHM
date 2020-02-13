@@ -65,15 +65,23 @@ public class MemberService {
 		return check;
 	}
 	//프로필 변경----------------------------------------
-	public void memberMypage(MemberVO memberVO)throws Exception{		
+	public MemberVO memberMypage(MemberVO memberVO)throws Exception{		
 		
+		memberVO = memberRepository.save(memberVO);
 		
-		memberRepository.save(memberVO);
+		memberVO.getMemberFilesVO();
+		
+		return memberVO;
 	}
 	//ID 체크----------------------------------------
 	public boolean memberIdCheck(String id)throws Exception{
 		
 		return memberRepository.existsById(id);
+	}
+	//PW 체크----------------------------------------
+	public boolean memberPWCheck(String Pw)throws Exception{
+		
+		return memberRepository.existsById(Pw);
 	}
 	//EMAIL 체크----------------------------------------
 	public MemberVO memberEMAILCheck(String email)throws Exception{
@@ -102,11 +110,16 @@ public class MemberService {
 		memberRepository.save(memberVO);
 	}
 	//회원 탈퇴----------------------------------------
-	public void memberGetoutPage(MemberVO memberVO)throws Exception{
+	public boolean memberGetout(MemberVO memberVO)throws Exception{
 		
-		memberRepository.delete(memberVO);
+		memberRepository.deleteById(memberVO.getId());
+		boolean exist=memberRepository.existsById(memberVO.getId());	
+		//삭제되면 false / 삭제x : true
+		
+		return exist;
 	}
 	
+
 	public List<MemberVO> allMember() throws Exception{
 		return memberRepository.findAll();
 	}
@@ -118,4 +131,5 @@ public class MemberService {
 		Thread.sleep(100);
 		return memberRepository.existsById(id);
 	}
+
 }//main

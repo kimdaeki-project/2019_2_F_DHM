@@ -16,6 +16,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.lang.Nullable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 @Data
 @Entity
@@ -52,6 +54,7 @@ public class MemberVO {
 	private java.util.Date joinDay;
 		
 	@Nullable
+	@JsonIgnore
 	@OneToOne(mappedBy = "memberVO", cascade = CascadeType.ALL)
 	private MemberFilesVO memberFilesVO;
 
