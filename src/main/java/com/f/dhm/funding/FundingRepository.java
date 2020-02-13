@@ -1,6 +1,8 @@
 package com.f.dhm.funding;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,21 +28,18 @@ public interface FundingRepository extends JpaRepository<FundingVO, Integer> {
 	
 	@Transactional
 	@Modifying
-	@Query("UPDATE FundingVO f SET status = ?1, gage = ?2 WHERE fNum = ?3")
-	void fundingUpdate(int status, int gage, int fNum) throws Exception;
-	//fundingJoin
-	//펀딩한 사람이 확인
-//	@Query(value = "SELECT f.fNum, j.participationPeople, (j.price * j.participationPeople) total, j.id FROM funding f "
-//			+ "RIGHT JOIN fundingJoin j ON f.fNum = j.fNum"
-//			+ " WHERE f.fNum = ?1", nativeQuery = true)
-//	List<FundingVO> fundingJoinList(int num) throws Exception;
-
+	@Query("UPDATE FundingVO f SET status = ?1, gage = ?2, participationPeople = ?3 WHERE fNum = ?4")
+	void fundingUpdate(int status, int gage, int participationPeople, int fNum) throws Exception;
 	
-//	//**member 추가 후에 테스트**/
-//	//펀딩 참여한 사람이 확인
-//	@Query("SELECT f.fNum, f.pNum, f.contents, m.name, m.email, j.price, j.participationPeople, j.participationPeople " + 
-//			"FROM funding RIGHT JOIN member ON f.fName = m.name JOIN fundingJoin ON f.fNum = j.fNum WHERE j.id = ?1")
-//	Object[] fundingJoinSelect(String id) throws Exception;
+//	@Query("SELECT f FROM FundingVO f WHERE participationId = ?1")
+	@Query(value = "SELECT new list (f.name, f.id, f.startTime, f.endTime, j.price, j.participationPeople) "
+			+ "FROM FundingVO f RIGHT JOIN f.fundingJoinVOs j WHERE j.participationId = ?1")
+//	Object[] fundingJoinSelect(String participationId) throws Exception;
+//	Optional<FundingVO> fundingJoinSelect(String participationId) throws Exception;
+//	Map<String, Object> fundingJoinSelect(String participationId) throws Exception;
+	List<FundingVO> fundingJoinSelect(String participationId) throws Exception;
+	
+//	Page<FundingVO> findByNum(int num, Pageable pageable) throws Exception;
 //	
-	
+	List<FundingVO> findByFundingJoinVOsParticipationId(String participationId) throws Exception;
 }

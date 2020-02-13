@@ -22,8 +22,9 @@ public class FundingJoinVO {
 	private int num;
 //	private int fNum;
 	private String id;
-//	private String email;
+	private String participationId;
 	private BigInteger price;
+	private BigInteger total;
 	private int participationPeople;
 	
 	@ManyToOne

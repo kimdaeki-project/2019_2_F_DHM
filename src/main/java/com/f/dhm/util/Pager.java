@@ -32,7 +32,7 @@ public class Pager {
 	
 	public Pager() {
 		this.curPage=0;
-		this.perPage=4;
+		this.perPage=8;
 
 	}
 	

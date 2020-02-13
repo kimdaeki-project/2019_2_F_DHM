@@ -15,10 +15,7 @@
 <body>
 <c:import url="../template/nav.jsp"/>
 <div style="height: 100px;"></div>
-<c:forEach items="${vo.fundingJoinVOs}" var="list" varStatus="i">
-<div>
-	
-</div>
+<c:forEach items="${vo}" var="list" varStatus="i">
 <div class="fj_list">
 	<div>
 		<div>
@@ -35,12 +32,12 @@
 								<div class="fj_inner_area4_1">
 									<label class="fj_inner_area4_1_1">참여 완료</label>
 								</div>
-								<div class="fj_inner_area4_2">${list.fundingVO.name}</div>
-								<div class="fj_inner_area4_3">${list.fundingVO.startTime} ~ ${list.fundingVO.endTime}</div>
-								<div class="fj_inner_area4_3">펀딩 참여 아이디 : ${list.participationId}, 참여 인원 : ${list.participationPeople}명</div>
-								<div class="fj_inner_area4_4">${list.total}원을 후원하셨습니다.</div>
+								<div class="fj_inner_area4_2">${vo2[i.index].name}</div>
+								<div class="fj_inner_area4_3">아이디 : ${vo2[i.index].id}</div>
+								<div class="fj_inner_area4_3">여행 기간 : ${vo2[i.index].startTime} ~ ${vo2[i.index].endTime} </div>
+								<div class="fj_inner_area4_4">참여 인원 ${list.participationPeople}명, ${vo2[i.index].price}원을 후원하셨습니다.</div>
 							</div>
-							<a href="./fundingJoinDelete?num=${list.num}" id="del_${i.index}"><div class="fj_inner_area4_1_1" style="width: 50px; padding:10px; color: red; text-align: center; background-color: red;">취소</div></a>
+							<a href="./fundingJoinDelete?num=${list.num}"><div class="fj_inner_area4_1_1" style="width: 50px; padding:10px; color: red; text-align: center; background-color: red;">취소</div></a>
 
 						</div>
 					</div>
@@ -52,27 +49,13 @@
 </div>
 </c:forEach>
 <div style="text-align: center; width: 100%; height: 30px; margin-top : 50px;">
-	<button id="re" class="btn btn-primary" style="margin: 0 auto;, padding-left: 15px; padding-right: 15px; font-size: 2em;">뒤로 가기</button>
+	<button id="re" class="btn btn-primary" style="margin: 0 auto; padding-left: 15px; padding-right: 15px; font-size: 2em;">뒤로 가기</button>
 </div>
 <div style="height: 100px;"></div>
-
 <script type="text/javascript">
-	/* for(int i = 0; i < 100; i++){
-			$("#del_"+0).click(function {
-				if (confirm("취소하시겠습니까?") == true){    //확인
-
-				     location.href="./fundingJoinDelete?num=${list.num}";
-
-				 }else{   //취소
-				     return false;
-				 }
-				});
-		} */
-
-		$("#re").click(function(){
-				history.back();
-			});
-		
+$("#re").click(function(){
+	history.back();
+});
 </script>
 </body>
 </html>

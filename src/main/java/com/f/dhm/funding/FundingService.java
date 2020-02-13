@@ -1,6 +1,7 @@
 package com.f.dhm.funding;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
@@ -9,7 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import com.f.dhm.util.Pager;
 
-//@Transactional
+@Transactional
 @Service
 public class FundingService {
 	
@@ -48,6 +49,7 @@ public class FundingService {
 	public void fundingUpdate(FundingVO fundingVO) throws Exception{
 //		fundingRepository.fundingUpdate(fundingVO.getName(), fundingVO.getContents(), fundingVO.getPrice(),
 //				fundingVO.getGoal(), fundingVO.getStartTime(), fundingVO.getEndTime(), fundingVO.getPeople(), fundingVO.getNum());
+//		System.out.println(fundingVO.getRegDate()+" : service");
 		fundingRepository.save(fundingVO);
 	}
 
@@ -56,14 +58,19 @@ public class FundingService {
 	}//delete
 
 	//fundingJoin//
-	public FundingVO fundingJoinList(FundingVO fundingVO) throws Exception{
-//		List<FundingVO> list = fundingRepository.fundingJoinList(num);
+	public Optional<FundingVO> fundingJoinList(int fNum) throws Exception{
+//		List<FundingVO> list = fundingRepository.findByFNum(fundingJoinVO.getFundingVO().getNum());
+		Optional<FundingVO> ar = fundingRepository.findById(fNum);
 		
-		fundingVO = fundingRepository.findById(fundingVO.getNum()).get();
-		fundingVO.getFundingJoinVOs();
+		return ar;
+	}//list
+	
+	public List<FundingJoinVO> fundingJoinSelect(String participationId) throws Exception{
 		
-		return fundingVO;
-	}//select
+//		return fundingRepository.findByFundingJoinVOsParticipationId(participationId);
+		return fundingJoinRepository.findByParticipationId(participationId);
+		
+	}
 	
 	
 //	public void fundingJoinSelect2(String id) throws Exception{
@@ -77,7 +84,8 @@ public class FundingService {
 	public void fundingJoinWrite(FundingJoinVO fundingJoinVO) throws Exception{
 		System.out.println(fundingJoinVO.getFundingVO().getGage()+": gage/service");
 		System.out.println(fundingJoinVO.getFundingVO().getStatus()+": status/service");
-		fundingRepository.fundingUpdate(fundingJoinVO.getFundingVO().getStatus(), fundingJoinVO.getFundingVO().getGage(), fundingJoinVO.getFundingVO().getNum());
+		System.out.println(fundingJoinVO.getFundingVO().getParticipationPeople()+": partPeople/service");
+		fundingRepository.fundingUpdate(fundingJoinVO.getFundingVO().getStatus(), fundingJoinVO.getFundingVO().getGage(), fundingJoinVO.getFundingVO().getParticipationPeople(), fundingJoinVO.getFundingVO().getNum());
 		fundingJoinRepository.save(fundingJoinVO);
 	}
 	
