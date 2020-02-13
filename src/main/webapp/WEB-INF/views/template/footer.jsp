@@ -38,26 +38,21 @@
 
 	<div class="footermain2">
 		<div class="footermain2-1">
-			<div class="footermain2-1-1"><img src="../imgs/logos/plannerimg.png" class="plannerimg">
+			<div class="footermain2-1-1"><img src="../imgs/logos/hello.png" class="plannerimg">
 			</div>
 			
 			<div class="footermain2-1-2">
 				<div class="text1">
-					<div class="text1-1">(주)DHM플래너 </div>
-					<div class="text1-2">대표 : 흥선대원군</div>
-					<div class="text1-3">사업자등록번호 : 02-1577-1577</div>
+
 				</div>
 				
 				<div class="text2">
-					<div class="text2-1">고객센터 : 02-886-0982</div>
-					<div class="text2-2">이메일 : stubbyteam@gmail.com</div>
-					<div class="text2-3">운영시간(한국) : 11시~19시(주말/공휴일 휴무)</div>
+
 				
 				</div>
 				
 				<div class="text3">			
-					<div class="text3-2">대표 : 백주흠</div>
-					<div class="text3-3">사업자등록번호 : 635-81-01124</div>
+
 				</div>
 			</div>
 		

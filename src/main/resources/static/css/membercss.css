@@ -2322,7 +2322,10 @@ float: right;
 }
 
 .plannerimg{
-margin-top: 30px;	
+margin-top: 30px;
+z-index: 999;	
+width: 150px;
+height: 80px;
 }
 
 .footermain2-1-2{
@@ -2332,15 +2335,18 @@ background-color: #45454f;
 float: left;
 margin-top : -175px;
 margin-left: 180px;
+border: 1px solid #86868c;
 }
 
 .footermain2-1-3{
 width: 900px;
-height: 45px;	
+height: 55px;	
 background-color: #45454f;	
 float: left;	
 margin-top : -80px;
 margin-left: 180px;	
+font-size: 13.5px;
+color: #86868c;		
 }
 
 .text1{
@@ -2349,33 +2355,6 @@ width: 700px;
 font-size: 13.5px;
 color: #86868c;
 float: left;
-}
-
-.text1-1{
-height: 26.6px;
-width: 140px;	
-line-height: -10px;	
-}
-
-.text1-2{
-height: 26.6px;
-width: 110px;		
-margin-left: 170px;
-margin-top: -27px;
-line-height: -10px;	
-}
-
-.text1-3{
-height: 26.6px;
-width: 210px;	
-margin-top: -28px;	
-margin-left: 270px;
-line-height: -10px;	
-}
-
-.footermain2-1-3{
-font-size: 13.5px;
-color: #86868c;		
 }
 
 .text2{
