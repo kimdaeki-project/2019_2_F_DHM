@@ -93,7 +93,28 @@ for (i = 0; i < d; i++) {
 
 }
 
-
+$(".member-exclude").click(function() {
+	if (confirm("추방하시겠습니까?")) {
+		var id = $(this).val();
+		$.ajax({
+			type:"POST",
+			url:"memberDel",
+			data : {
+				id : id
+			},
+			success : function(b) {
+				if (!b) {
+					location.reload();
+				}else{
+					alert("이미 삭제하셨습니다");
+				}
+				
+			}
+			
+		});
+		
+	}
+});
 
 
 

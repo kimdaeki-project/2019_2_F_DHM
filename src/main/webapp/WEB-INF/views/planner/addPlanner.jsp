@@ -6,7 +6,7 @@
 <c:if test="${count ne 1 }">
 			<div class="mkp-trans-info" >
 				<div style="padding-top:0px;padding-bottom:0px">
-					<div style="float:left;width:29px;height:40px;border-right:3px solid #3ad195;">&nbsp;</div>
+					<div style="float:left;width:29px;height:40px;border-right:3px solid #18A8F1;">&nbsp;</div>
 					<div style="float:left;width:150px;height:40px;padding-top:10px;margin-left:-25px;">
 						<div class="mkp-trans-btn">
 							<font style="font-size:9pt;color:#fff"><span class="mkp-trans-chos">선택&nbsp;</span><i class="fa fa-chevron-circle-down"></i></font>
@@ -41,7 +41,7 @@
 </c:if>			
 			<div class="mkp-city-info" id="c${count}" title="${index }">
 				<div class="city-menu-left">
-					<div style="width:29px;border-right:3px solid #3ad195;height:7px;"> </div>
+					<div style="width:29px;border-right:3px solid #18A8F1;height:7px;"> </div>
 					<div>
 						<div class="mkp-city-one" title="${arCode }">
 								<a class="click-sleep" title="c${count }" id="${cityName}" >
@@ -51,7 +51,7 @@
 							</a>
 						</div> 
 					</div>
-					<div style="width:29px;border-right:3px solid #3ad195;height:7px;clear: both;"> </div>
+					<div style="width:29px;border-right:3px solid #18A8F1;height:7px;clear: both;"> </div>
 				</div>
 				<div class="city-menu-right">
 					<div class="mkp-city-name">

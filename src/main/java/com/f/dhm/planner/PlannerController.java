@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
+import javax.persistence.criteria.CriteriaBuilder.In;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.f.dhm.Member.MemberVO;
 import com.f.dhm.location.LocationService;
+import com.f.dhm.location.LocationVO;
 import com.f.dhm.schedule.test.XmlService;
 import com.f.dhm.wishlist.WishService;
 import com.f.dhm.wishlist.WishVO;
@@ -303,5 +304,28 @@ public class PlannerController {
 	public void waiting() {
 		
 	}
+	
+	
+	@GetMapping("getPercent")
+	@ResponseBody
+	public List<Integer> getPercent(int arCode) throws Exception{
+		List<Integer> pec = new ArrayList<Integer>();
+		
+		LocationVO lvo = LoService.selectOne(arCode);
+		
+		pec.add(lvo.getBak0()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak1()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak2()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak3()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak4()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak5()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak6()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak7()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak8()*100/lvo.getTotalBak());
+		pec.add(lvo.getBak9()*100/lvo.getTotalBak());
+		
+		return pec;
+	}
+	
 	
 }

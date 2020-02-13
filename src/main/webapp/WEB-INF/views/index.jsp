@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
@@ -7,6 +6,10 @@
 <html>
 <head>
 <c:import url="./member/membercss.jsp"/>
+
+<link rel="stylesheet"  href="../css/membercss.css">
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
+
 <meta charset="UTF-8">
 <title>DHM Planner</title>
 <c:import url="./template/boot.jsp"/>

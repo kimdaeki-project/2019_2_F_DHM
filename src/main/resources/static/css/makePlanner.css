@@ -15,7 +15,6 @@
 	width: 25%;
 	float: left;
 	height: 966px;
-	border-right: 1px solid #efefef;
 	overflow: auto;
 }
 
@@ -27,12 +26,12 @@
 
 .mkp-left-menu{
 	width: 100%;
-	height: 85px;
+	height: 9.45%;
 	padding-top: 5px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	line-height: 1.42857143;
 	color: #333;
-	background: #3ad195;
+	background: #18A8F1;
 }
 
 #mkp-left-tripwith{
@@ -49,7 +48,7 @@
 #tripwith{
 	margin-top:5px;
 	float:left;
-	width:22%;
+	width:20%;
 	cursor:pointer;
 	border:1px solid #efefef;
 	background:#fff;
@@ -58,7 +57,7 @@
 	padding-top:5px;
 	padding-bottom:5px;
 	margin-right: 10px;
-	height:70px; 
+	height:85%; 
 }
 
 .mkp-ifm-main{
@@ -93,7 +92,7 @@
 	background:#fff;
 	padding-top:13px;
 	border-radius:100px;
-	border:3px solid #3ad195;
+	border:3px solid #18A8F1;
 	cursor:pointer
 }
 
@@ -124,7 +123,7 @@
 	height: 52px;
 	border-radius: 8px;
 	text-align: center;
-	color: #3ad195;
+	color: #18A8F1;
 }
 
 .open-ifm-sel{
@@ -196,11 +195,12 @@
 }
 
 .city-selOne{
-	background-color: #3ad195;
+	background-color: #18A8F1;
 	border: none;
 	border-radius: 10px;
 	border: 2px solid white;
 	font-size: 14px;
+	outline: none;
 }
 
 .city-btn-p1{
@@ -229,6 +229,7 @@
 	position: relative;
 	bottom: -25px;
 	right: -10px;
+	outline: none;
 }
 
 .city-btn-info{
@@ -289,7 +290,7 @@
 	margin-right: 5px;
 	margin-top: 5px;
 	margin-bottom: 5px;
-	border: 5px solid #3ad195;
+	border: 5px solid #18A8F1;
 	color: #fff;
 	border-radius: 70px;
 	padding-top: 10px;
@@ -312,7 +313,7 @@
 
 .mkp-trans-picker{
 	width: 400px;
-	background-color: #3ad195;
+	background-color: #18A8F1;
 	display: none;
 	border-radius: 3px;
 	height: 35px;
@@ -345,7 +346,7 @@
 	padding-bottom:2px;
 	margin-right:3px;
 	width:50px;
-	background:#3ad195;
+	background:#18A8F1;
 	cursor:pointer;
 }
 
@@ -365,7 +366,7 @@
 	width: 50px;
 	height: 50px;
 	border-radius: 25px;
-	background-color: #3ad195;
+	background-color: #18A8F1;
 	color: white;
 	font-size: 19px;
 	line-height: 44px;
@@ -377,7 +378,7 @@
 }
 
 .mkp-member-btn{
-	background-color: #22acff;
+	background-color: #ff685a;
 	width: 200px;
 	height: 50px;
 	border-radius: 10px;
@@ -470,7 +471,7 @@
 .mkp-clp-btn{
 	width: 90%;
 	height: 30px;
-	background-color: #3ad195;
+	background-color: #18A8F1;
 	border-radius: 5px;
 	border: none;
 	font-size: 20px;
@@ -501,14 +502,14 @@
 	top:10px;
 	left: 26%;
 	z-index: 200;
-	background-color: #3ad195;
+	background-color: #18A8F1;
 	border-radius: 5px;
 	font-size: 12px;
 	color: white;
 }
 
 .map-sky-control .selected_btn{
-	color: #3ad195;
+	color: #18A8F1;
 	height: 34px;
 }
 
@@ -518,4 +519,9 @@
 
 .map-sky-control .btn:hover{
 	color: white;
+}
+
+.chos-sleep-per{
+	margin-top: 10px;
+	
 }

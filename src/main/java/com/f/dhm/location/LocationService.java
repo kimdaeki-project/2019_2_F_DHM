@@ -26,4 +26,9 @@ public class LocationService {
 	public List<LocationVO> selectList() throws Exception{
 		return LoRepository.findAllByOrderByAddedDesc();
 	}
+	
+	
+	public LocationVO selectOne(int arCode) throws Exception{
+		return LoRepository.findById(arCode).get();
+	}
 }

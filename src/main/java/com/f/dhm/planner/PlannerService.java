@@ -116,5 +116,8 @@ public class PlannerService {
 		return repository.plannerAll();
 	}
 	
+	public List<MyPlannerVO> plannerEq(String id) throws Exception{
+		return repository.plannerList(id);
+	}
 
 }

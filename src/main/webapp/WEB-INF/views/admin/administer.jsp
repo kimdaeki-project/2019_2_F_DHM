@@ -4,13 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ADMINISTER</title>
+<title >관리메뉴</title>
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 <link rel="stylesheet" href="../css/admin.css">
-<style type="text/css">
-html {
-  scroll-behavior: smooth;
-}
-</style>
 </head>
 <body>
 <c:import url="../template/boot.jsp"/>
@@ -23,12 +19,28 @@ html {
 			<p class="adm-left-p"><a class="adm-left-menu" id="Member" href="#adm-member">멤버 관리</a></p>
 			<p class="adm-left-p"><a class="adm-left-menu" id="Planner" href="#adm-planner">플래너 정보</a></p>
 			<p class="adm-left-p"><a class="adm-left-menu" id="Funding" href="#adm-funding">펀딩 정보</a></p>
-			<p class="adm-left-p"><a class="adm-left-menu" id="review" href="#adm-review">리뷰 관리</a></p>
+			<p class="adm-left-p"><a class="adm-left-menu" id="review" >리뷰 관리</a></p>
 			</div>
 		<div class="adm-right">
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ인기도시 -->
+			<div class="today-info">
+				<ul>
+					<li>
+						<p class="today-info-top">신규 회원가입</p>
+						<p class="today-info-bot"><font style="font-size: 30px; ">${newM }</font> 명</p>
+					</li>
+					<li>
+						<p class="today-info-top">오늘 생성된 플래너</p>
+						<p class="today-info-bot"><font style="font-size: 30px; ">${newP }</font> 개</p>
+					</li>
+					<li>
+						<p class="today-info-top">오늘 신청된 펀딩</p>
+						<p class="today-info-bot"><font style="font-size: 30px; ">${newF }</font> 개</p>
+					</li>
+				</ul>
+			</div>
 			<div class="popular-city" id="adm-city" >
-				<h1>BEST CITY</h1>
+				<h1 class="adm-info-h1">CITY INFO</h1>
 						<input type="hidden" value="17" id="rlfdl">
 				<ul>
 					<c:forEach items="${Lolist }" var="lo" varStatus="l" begin="0" end="17">
@@ -71,7 +83,7 @@ html {
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ인기도시 -->
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ멤버 -->
 			<div style="clear: both; width: 97%;" class="adm-member"  id="adm-member">
-				<h1>MEMBERS - 새로 가입한 멤버 : ${newM }명</h1>
+				<h1 class="adm-info-h1">MEMBERS - 새로 가입한 멤버 : ${newM } 명</h1>
 				<table class="member-table">
 					<thead class="member-table-head">
 						<tr>
@@ -81,9 +93,10 @@ html {
 							<th class="member-th member-birth">생일</th>
 							<th class="member-th member-gender">성별</th>
 							<th class="member-th member-grade">분류</th>
-							<th class="member-th member-sns">페북연동</th>
+							<th class="member-th member-sns">광고수신동의</th>
 							<th class="member-th member-city">대표도시</th>
-							<th class="member-th member-btn">수정/삭제</th>
+							<th class="member-th member-how">생성플래너</th>
+							<th class="member-th member-btn">추방</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -116,7 +129,7 @@ html {
 									</c:otherwise>
 								</c:choose>
 								<c:choose>
-									<c:when test="${mem.social gt 0 }">
+									<c:when test="${mem.mailCheck gt 0 }">
 										<td class="member-th member-sns">O</td>
 									</c:when>
 									<c:otherwise>
@@ -125,9 +138,9 @@ html {
 								</c:choose>
 								
 								<td class="member-th member-city">${mem.helpcity }</td>
+								<td class="member-th member-how">${howMany[m.index] } 개</td>
 								<td class="member-th member-btn">
-									<button class="member-update">수정</button>
-									<button class="member-exclude">추방</button>
+									<button class="member-exclude" value="${mem.id }">추방</button>
 								</td>
 							</tr>
 						</c:forEach>
@@ -141,12 +154,12 @@ html {
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ멤버 -->
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ플래너-->
 			<div class="adm-planner"  id="adm-planner">
-				<h1>PLANNER - 새로 추가된 플래너 : ${newP }개</h1>
+				<h1 class="adm-info-h1">PLANNER - 새로 추가된 플래너 : ${newP } 개</h1>
 				<ul>
 					<c:forEach items="${plList }" var="pl" varStatus="p">
 						<li>
 							<div class="adm-planner-div">
-								<p style="background-color: #3ad195; color: white;">플래너 번호 : ${pl.plNum }</p>
+								<p style="background-color: #18A8F1; color: white;">플래너 번호 : ${pl.plNum }</p>
 								<p>플래너 제목 : ${pl.title }</p>
 								<p>플래너 타입 : ${pl.type }</p>
 								<p>플래너 ID : ${pl.id }</p>
@@ -158,12 +171,12 @@ html {
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ플래너-->
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ펀딩-->
 			<div class="adm-funding"  id="adm-funding">
-				<h1>FUNDING - 새로 추가된 펀딩 : ${newF }개</h1>
+				<h1 class="adm-info-h1">FUNDING - 새로 추가된 펀딩 : ${newF } 개</h1>
 				<ul>
 					<c:forEach items="${fuList }" var="fu" varStatus="f">
 						<li>
 							<div class="adm-funding-div">
-								<p style="background-color: #3ad195; color: white;">${fu.name }</p>
+								<p style="background-color: #18A8F1; color: white;">${fu.name }</p>
 								<p>펀딩 목표 금액 : ${fu.goal }</p>
 								<p>현재 펀딩 금액 : ${fu.price }</p>
 								<p>펀딩 참여 인원 : ${fu.participationPeople }</p>

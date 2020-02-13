@@ -6,8 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>나의 플래너</title>
 <c:import url="../template/boot.jsp"/>
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 <link rel="stylesheet"  href="../css/basic.css">
 <link rel="stylesheet"  href="../css/schedule.css">
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
@@ -23,6 +24,13 @@
 		<div class="main-container">
 			<div class="inner-wrap">
 				<div class="container">
+				<c:choose>
+					<c:when test="${list.size() eq 0 }">
+						<a href="makePlanner">
+							<img width="60%" height="100%" src="../imgs/no-planner.png" style="left: 22%; position: relative;">
+						</a>
+					</c:when>
+					<c:otherwise>
 					<h2 class="mp-title">나의 국내여행</h2>
 					<div class="p-wrapper">
 						<div class="swiper-container">
@@ -54,6 +62,8 @@
 						</div>
 					
 					</div>
+					</c:otherwise>
+				</c:choose>
 				</div>
 			</div>
 		

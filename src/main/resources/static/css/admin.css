@@ -49,7 +49,7 @@ a:hover{
 .adm-left{
 	width: 15%;
 	height: 100%;
-	background-color: #3ad195;
+	background-color: #18A8F1;
 	float: left;
 	color: white;
 	font-weight: bold;
@@ -73,6 +73,11 @@ display: none;
 .adm-right > div{
 	margin: 20px;
 }
+
+.popular-city{
+	clear : both;
+}
+
 
 .popular-city li{
 	float: left;
@@ -119,14 +124,14 @@ display: none;
 }
 
 .member-table-head{
-	background-color: #3ad195;
+	background-color: #18A8F1;
 	color: white;
 	font-weight: bold;
 }
 
 .member-th{
 	border: 2px solid white;
-	width: calc(95%/8);
+	width: calc(95%/10);
 	text-align: center;
 }
 
@@ -138,10 +143,14 @@ display: none;
 }
 
 .member-exclude{
-	background-color: white;
-	color: black;
+	color: white;
 	font-weight: bold;
-	border: 2px solid red;
+	background-color:red;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	width: 50px;
+	
 }
 
 .adm-left-menu{
@@ -180,6 +189,8 @@ display: none;
 
 .adm-planner-div p{
 	font-size: 13px;
+	height: 18px;
+	overflow: auto;
 }
 
 
@@ -203,6 +214,8 @@ display: none;
 
 .adm-funding-div p{
 	font-size: 13px;
+	height: 18px;
+	overflow: auto;
 }
 
 
@@ -210,13 +223,41 @@ html{
 	scroll-behavior:smooth;
 }
 
+.today-info{
+	width: 97%;
+	margin-bottom: 30px;
+	height: 80px;
+}
 
+.today-info li{
+	border-radius:20px;
+	width: 30%;
+	margin-left: 2%;
+	height: 70px;
+	color: black;
+	font-weight: bold;
+	font-size: 20px;
+	float: left;
+	text-align: center;
+	background-color: #eaeaea;
+}
 
+.today-info-top{
+	background-color: #18A8F1;
+	color: white;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
 
+.today-info-bot{
+	margin-top : -10px;
+	color: black;
+}
 
-
-
-
+.adm-info-h1{
+	margin :20px 0 20px;
+	text-align: center;
+}
 
 
 

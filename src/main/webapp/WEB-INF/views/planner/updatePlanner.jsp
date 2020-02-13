@@ -4,12 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 <link rel="stylesheet" type="text/css" href="../css/makePlanner.css"> 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
-<title>viewPage</title>
+<title>경로 수정하기</title>
 </head>
 <body>
 <c:import url="../template/boot.jsp"/>
@@ -19,7 +20,7 @@
 	<div class="mkp-left-menu">
 		<div id="topControllerLeft" style="padding-top:5px;width:75%;float:left;">
 			<div style="padding-left:10px;">
-				<a href="/"><img src="/imgs/logos/logo_white.png" height="35px"></a>
+				<a href="/"><img src="/imgs/logos/logo-white.png" height="40px" width="50%"></a>
 			</div>
 			<div style="height:40px;padding-top:2px;padding-left:4px;">
 				<div style="text-align:left;padding-top:5px;padding-left:5px;">
@@ -86,7 +87,7 @@
 					<c:if test="${p.index ne 0 }">
 								<div class="mkp-trans-info" >
 									<div style="padding-top:0px;padding-bottom:0px">
-										<div style="float:left;width:29px;height:40px;border-right:3px solid #3ad195;">&nbsp;</div>
+										<div style="float:left;width:29px;height:40px;border-right:3px solid #18A8F1;">&nbsp;</div>
 										<div style="float:left;width:150px;height:40px;padding-top:10px;margin-left:-25px;">
 											<div class="mkp-trans-btn">
 												<font style="font-size:9pt;color:#fff"><span class="mkp-trans-chos">${pVO.transfer }&nbsp;</span><i class="fa fa-chevron-circle-down"></i></font>
@@ -121,7 +122,7 @@
 					</c:if>			
 								<div class="mkp-city-info" id="c${p.index }" title="${pVO.polyPath }" >
 									<div class="city-menu-left">
-										<div style="width:29px;border-right:3px solid #3ad195;height:7px;"> </div>
+										<div style="width:29px;border-right:3px solid #18A8F1;height:7px;"> </div>
 										<div>
 											<div class="mkp-city-one" title="${pVO.arCode }" >
 													<a class="click-sleep" title="c${p.index }" id="${pVO.region}" >
@@ -131,7 +132,7 @@
 												</a>
 											</div> 
 										</div>
-										<div style="width:29px;border-right:3px solid #3ad195;height:7px;clear: both;"> </div>
+										<div style="width:29px;border-right:3px solid #18A8F1;height:7px;clear: both;"> </div>
 									</div>
 									<div class="city-menu-right">
 										<div class="mkp-city-name">
@@ -196,24 +197,45 @@
 		<br>
 		<br>
 		<div class="chos-sleep-list">
-			<input type="hidden" id="save-sleep">
-			<div class="chos-sleep-opt" title="무"> <font style="font-size: 18px;">무박</font></div>
-			<div class="chos-sleep-opt" title="1"> <font style="font-size: 18px;">1박</font></div>
-			<div class="chos-sleep-opt" title="2"> <font style="font-size: 18px;">2박</font></div>
-			<div class="chos-sleep-opt" title="3"> <font style="font-size: 18px;">3박</font></div>
-			<div class="chos-sleep-opt" title="4"> <font style="font-size: 18px;">4박</font></div>
-			<div class="chos-sleep-opt" title="5"> <font style="font-size: 18px;">5박</font></div>
-			<div class="chos-sleep-opt" title="6"> <font style="font-size: 18px;">6박</font></div>
-			<div class="chos-sleep-opt" title="7"> <font style="font-size: 18px;">7박</font></div>
-			<div class="chos-sleep-opt" title="8"> <font style="font-size: 18px;">8박</font></div>
-			<div class="chos-sleep-opt" title="9"> <font style="font-size: 18px;">9박</font></div>
-		</div>
+         <input type="hidden" id="save-sleep">
+         <div class="chos-sleep-opt" title="무"> 
+         	<font style="font-size: 18px;">무박</font>
+         	<p class="chos-sleep-per"></p>
+         </div>
+         <div class="chos-sleep-opt" title="1"> <font style="font-size: 18px;">1박</font>
+         	<p class="chos-sleep-per"></p>
+         </div>
+         <div class="chos-sleep-opt" title="2"> <font style="font-size: 18px;">2박</font>
+         	<p class="chos-sleep-per"></p>
+         </div>
+         <div class="chos-sleep-opt" title="3"> <font style="font-size: 18px;">3박</font>
+         	<p class="chos-sleep-per"></p>
+         </div>
+         <div class="chos-sleep-opt" title="4"> <font style="font-size: 18px;">4박</font>
+         	<p class="chos-sleep-per"></p>
+         </div>
+         <div class="chos-sleep-opt" title="5"> <font style="font-size: 18px;">5박</font>
+         	<p class="chos-sleep-per"></p>
+         </div>
+         <div class="chos-sleep-opt" title="6"> <font style="font-size: 18px;">6박</font>
+         	<p class="chos-sleep-per"></p>
+         </div>
+         <div class="chos-sleep-opt" title="7"> <font style="font-size: 18px;">7박</font>
+         	<p class="chos-sleep-per"></p>
+         </div>
+         <div class="chos-sleep-opt" title="8"> <font style="font-size: 18px;">8박</font>
+         	<p class="chos-sleep-per"></p>
+         	</div>
+         <div class="chos-sleep-opt" title="9"> <font style="font-size: 18px;">9박</font>
+         	<p class="chos-sleep-per"></p>
+         </div>
+      </div>
 	</div>
 </div>
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 <div class="mkp-trans-info-ex">
 				<div style="padding-top:0px;padding-bottom:0px">
-					<div style="float:left;width:29px;height:40px;border-right:3px solid #3ad195;">&nbsp;</div>
+					<div style="float:left;width:29px;height:40px;border-right:3px solid #18A8F1;">&nbsp;</div>
 					<div style="float:left;width:150px;height:40px;padding-top:10px;margin-left:-25px;">
 						<div class="mkp-trans-btn">
 							<font style="font-size:9pt;color:#fff"><span class="mkp-trans-chos">선택&nbsp;</span><i class="fa fa-chevron-circle-down"></i></font>
