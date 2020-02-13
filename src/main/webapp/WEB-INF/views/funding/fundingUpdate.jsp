@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 <meta charset="UTF-8">
 <title>DHM Planner</title>
 <c:import url="./template/fundingBoot.jsp" />

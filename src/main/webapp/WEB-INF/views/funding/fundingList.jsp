@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 <link rel="stylesheet"  href="../css/funding.css">
 <c:import url="./template/fundingBoot.jsp" />
 <meta charset="UTF-8">

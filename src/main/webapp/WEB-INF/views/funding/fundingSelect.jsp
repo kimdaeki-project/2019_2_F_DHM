@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 <meta charset="UTF-8">
 <link rel="stylesheet"  href="../css/funding.css">
 <link rel="stylesheet"  href="../css/basic.css">
