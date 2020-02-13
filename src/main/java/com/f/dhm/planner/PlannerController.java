@@ -279,13 +279,14 @@ public class PlannerController {
 	      
 	      ModelAndView mv = new ModelAndView();
 	      
-	      List<MyPlannerVO> list = service.plannerTypeList(plNum);
+	      List<PlannerVO> list = service.plannerSelectIndex(plNum);
 	      List<Integer> polyPath = new ArrayList<Integer>();
-	      for (MyPlannerVO plannerVO : list) {
+	      
+	      for (PlannerVO plannerVO : list) {
 	         polyPath.add(plannerVO.getPolyPath());
 	      }
 	      mv.addObject("pp", polyPath);
-	      
+	      mv.setViewName("planner/mapTestindex");
 	      return mv;
 	      
 	   }

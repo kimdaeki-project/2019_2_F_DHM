@@ -36,6 +36,13 @@ public class PlannerService {
 		return repository.findByIdAndPlNum(memberVO.getId(),plNum);
 	}
 	
+	public List<PlannerVO> plannerSelectIndex(int plNum) throws Exception {
+
+		
+		return repository.findByPlNum(plNum);
+	}
+	
+	
 	public int plannerCount() throws Exception{
 		return repository.plannerCount();
 	}

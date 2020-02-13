@@ -29,7 +29,8 @@
 </style>
 </head>
 <body>
-   <div class="swiper-container3" style="margin-bottom: 20px; height: 600px;">
+<c:import url="./template/nav.jsp"/>
+   <div class="swiper-container3" style="margin-bottom: 20px; height: 600px; ">
  	  <div class="swiper-wrapper">
       		<div id="back-image1" class="image swiper-slide">
       			<div class="backTitle">경상북도 경주 동궁과월지</div>
@@ -54,11 +55,17 @@
       		</div>
       		<div id="back-image8" class="image swiper-slide">
       			<div class="backTitle">충청북도 단양 패러글라이딩</div>
+      		</div>\
+      		<div id="back-image9" class="image swiper-slide">
+      			<div class="backTitle">강원도 강릉시 안반데기</div>
+      		</div>
+      		<div id="back-image10" class="image swiper-slide">
+      			<div class="backTitle">제주특별자치시 광치기해변</div>
       		</div>
       </div>
    </div>
-<c:import url="./template/nav.jsp"/>
-   <div class="container" style=" padding-top: 100px;">
+
+   <div class="container">
       	<img class="mainimage" src="../images/mainimage2.jpg">
       <div class="row">
 	      <div class="jumbotron marginTop50px" style="width: 743px; float: left; margin-left: 20px;">
@@ -250,7 +257,7 @@
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
                                     <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
+                                      <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
                                     </div>
@@ -346,7 +353,7 @@
                               <div class="mp-li-wrap">
                                  <div class="mp-card">
                                     <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum}" width="226px" height="207px" style="border: none;"></iframe>
+                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
                                     </div>
@@ -426,47 +433,16 @@
          </div>
       </div>
    </div>
+   <div class="row">
+      <div class="marginTop50px">
+         <h3 class="contitle">여행자들의 베스트 리뷰</h3>
+      </div>
+   </div>
+   
 </div>
    </div>
 
   <script>
-
-//   var images = new Array();
-
-//   images[0] = "main1";
-//   images[1] = "main2";
-//   images[2] = "main3";
-//   images[3] = "main4";
-//   images[4] = "main5";
-
-//   var div = new Array();
-
-//   div[0] = "#back-image1";
-//   div[1] = "#back-image2";
-//   div[2] = "#back-image3";
-//   div[3] = "#back-image4";
-//   div[4] = "#back-image5";
-
-//   var i = 0;
-
-//   /* 배경화면 전환 jquery */
-//   setInterval(function() {
-
-//      $(div[i]).fadeOut(1500, function() {
-//      });
-
-//      i = i + 1;
-//      if (i > 4) {
-//         i = 0;
-//      };
-
-//      $(div[i]).fadeIn(1500,function() {
-
-//         $(this).css("background-image","url(../image/"+ images[i] + ".jpg)");
-//            });
-
-//      }, 5000);
-
 
   
     var swiper = new Swiper('.swiper-container', {
@@ -513,12 +489,7 @@
 			$(this).children(".ac").removeClass("active2");
      });
     
-    $(".con").click(function() {
-		$(".continent-item").removeClass("active-continent");
-		$(".continent-text").removeClass("active2");
-		$(this).parent().parent().addClass("active-continent");
-		$(this).parent().addClass("active2");
-	});
+
 
   </script>
   

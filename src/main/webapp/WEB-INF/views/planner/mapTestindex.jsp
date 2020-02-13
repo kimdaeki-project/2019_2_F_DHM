@@ -24,7 +24,7 @@
  <div class="map" id="map" style="width: 220px; height: 203px;">
 </div>
 <div style="display: none;">
-   <c:forEach items="${pp }" var="p">
+   <c:forEach items="${pp}" var="p">
       <p class="pp-index" title="" id="">${p }</p>
    
    </c:forEach>
@@ -32,8 +32,9 @@
 <script src="../js/cityList.js"></script>
 <script src="../js/kakaoMap.js"></script>
 <script type="text/javascript">
-/*    map.setCenter(positions[${pp[pp.size()-1]}].latlng); */
+   map.setCenter(positions[${pp[pp.size()-1]}].latlng); 
    map.setDraggable(false);
+   map.setLevel(15);
    map.setZoomable(false); 
 </script>
 </body>

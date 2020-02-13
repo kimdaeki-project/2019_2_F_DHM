@@ -41,7 +41,6 @@ public class ScheduleController {
 	@GetMapping("scDelete")
 	public void scDelete(Integer plNum, HttpSession session) throws Exception{
 		MemberVO memberVO=(MemberVO) session.getAttribute("member");
-		System.out.println("밥바바보바보바ㅗ");
 
 		plannerService.plannerDel(memberVO.getId(), plNum);
 
@@ -128,6 +127,33 @@ public class ScheduleController {
 		
 
 		List<PlannerVO> plannerList = plannerService.plannerSelect(plNum, session);
+
+		int bak=0;
+		Date d=new Date();
+		
+		List<Date> ddd= new ArrayList<Date>(); 
+	     
+		
+		for (int i = 0; i < plannerList.size(); i++) {
+			
+			bak = plannerList.get(i).getBak();
+			mv.addObject("bak", bak);
+			d = plannerList.get(i).getDeDate();
+			mv.addObject("deDate", d);
+			ddd.add(d);
+			if(bak>0) {
+				for(int j=0;j<bak;j++) {
+					
+					long dd = d.getTime()+1000*60*60*24;
+					d.setTime(dd);
+					 ddd.add(d);
+					 
+					 mv.addObject("deDate", ddd);
+				}
+			}
+		}
+		
+		
 		List<ScheduleVO> scheduleList = scheduleService.scheduleList(plNum);
 		List<WishVO> wishlist = wishService.myWish(session, plNum);
 		

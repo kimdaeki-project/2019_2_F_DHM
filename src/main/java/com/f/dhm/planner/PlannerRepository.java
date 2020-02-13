@@ -42,6 +42,8 @@ public interface PlannerRepository extends JpaRepository<PlannerVO, Integer>{
 
 	@Query(nativeQuery = true, value = "select distinct p.plNum,p.id,p.type,p.title from planner p, planner p2 where p.plNum=p2.plNum")
 	List<MyPlannerVO> plannerTypeList(Integer plNum) throws Exception;
+
+	List<PlannerVO> findByPlNum(int plNum);
 	
 	
 }

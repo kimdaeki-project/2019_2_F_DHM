@@ -47,12 +47,12 @@ public class HomeController {
 	@Autowired 
 	private FundingService fundingService;
 	
-	  @GetMapping("mapTest")
+	  @GetMapping("mapTestindex")
 	   public ModelAndView mapTest(int plNum, HttpSession session) throws Exception{
 	      
 	      ModelAndView mv = new ModelAndView();
 	      
-	      List<PlannerVO> list = plannerService.plannerSelect(plNum, session);
+	      List<PlannerVO> list = plannerService.plannerSelectIndex(plNum);
 	      List<Integer> polyPath = new ArrayList<Integer>();
 	      for (PlannerVO plannerVO : list) {
 	         polyPath.add(plannerVO.getPolyPath());
@@ -85,9 +85,7 @@ public class HomeController {
 		List<MyPlannerVO> ar = plannerService.plannerTypeList(plNum);
 		List<FundingVO> ar2= fundingService.fundingIndexList();
 		
-		
-		
-		
+	
 		mv.addObject("fundinglist",ar2);
 		mv.addObject("plannerCount", plannerCount);
 		mv.addObject("typelist", ar);

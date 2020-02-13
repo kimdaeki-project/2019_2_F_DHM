@@ -305,6 +305,7 @@
 						<div class="swiper-container">
 							<ul class="swiper-wrapper nolist" >
 								<c:forEach items="${planner}" var="vo">
+									<c:forEach begin="1" end="${bak}">
 									<!-- li 하나 -->
 					                        <li class="swiper-slide schedule-li" style="height: 560px;">
 					                           <div class="schedule-top">
@@ -317,7 +318,7 @@
 					                                 </a>
 					                              </div>
 					                              <div class="sbold">
-					                              <fmt:formatDate value="${vo.deDate}" pattern="MM/dd"/>                         
+					                              <fmt:formatDate value="${deDate}" pattern="MM/dd"/>                         
 					                                 <span style="font-size: 10pt; color: #c0c0c0"><fmt:formatDate value="${vo.deDate}" pattern="E"/> </span>
 					                              </div>
 					                              <div class="sarea">
@@ -627,6 +628,7 @@
 					                              </div>
 					                           </div>
 					                        </li>
+					                </c:forEach>
 								</c:forEach>
 								
 							</ul>
