@@ -200,6 +200,26 @@ public class MemberController {
 		return "member/memberUsePage/memberTermsAndConditions";
 	}
 	
+	@GetMapping("memberTravelReservation")
+	public String memberTravelReservation()throws Exception{
+		
+		return "member/memberUsePage/memberTravelReservation";
+	}
+	
+	@GetMapping("memberGuideTermsandConditions")
+	public String memberGuideTermsandConditions()throws Exception{
+		
+		return "member/memberUsePage/memberGuideTermsandConditions";
+	}
+	//ID PW 찾기-----------------------------------------------------------------------
+	@GetMapping("memberCheckIDandPW")
+	public String memberCheckIDandPW()throws Exception{
+		
+		return "member/memberUsePage/memberCheckIDandPW";
+	}
+	
+	
+	
 	//-----------------------------------------------------------------------
 	@PostMapping("myPlanner")
 	public String gomakePlanner()throws Exception{

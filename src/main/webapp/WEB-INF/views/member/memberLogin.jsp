@@ -52,7 +52,7 @@
 							<label for="pw"></label><input type="password" class=" login5-2-2 form-control" id="pw" name="pw" placeholder="Enter password">
 						</div>
 						
-						<div ><a href="#" id="login5-5">아이디/비밀번호 찾기</a></div>
+						<div ><a href="${pageContext.request.contextPath}/member/memberUsePage/memberCheckIDandPW" id="login5-5">아이디/비밀번호 찾기</a></div>
 					
 						<div class="col col-8">
 							<label class="checkbox" style="font-size:9pt">
@@ -94,12 +94,6 @@
 	    }
 	 });
 
-
-// 	$(".updatelast2").click(function(){
-		
-//     	location.href = "memberMypage";
-     	 
-// 		});
 
 </script>
 </body>

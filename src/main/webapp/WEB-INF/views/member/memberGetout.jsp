@@ -119,6 +119,7 @@ $(".getoutmain1-4").click(function(){
     location.href = "memberMypage";
      	 
 	});
+
 //----------------------------------------------------------------------
 
 // var pw = $("#pw10").val();   : 비밀번호 입력값
@@ -206,6 +207,8 @@ document.addEventListener('keydown', function(event) {
 // 	    event.preventDefault();
 // 	  };
 // 	});
+
+
 	
 </script>
 </html>

@@ -43,8 +43,16 @@
          </div>
          
          <div class="my2" id="my2">
-            <a><img alt="" src="../imgs/member/${member.memberFilesVO.fname}" class="mypage1-1-1"></a>
-            <a><img src="../imgs/dog.jpg" class="mypage1-1-1"></a>
+         	<div class="my2-1">
+				<h4>방명록</h4>
+
+
+
+
+
+
+
+			 </div>
          </div>
          
          <div class="my3" id="my3">

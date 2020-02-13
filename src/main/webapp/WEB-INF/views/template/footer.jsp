@@ -9,22 +9,22 @@
 	<div class="footermain1">
 		<div class="footermain1-1">
 			<div class="foot1">
-				<div class="textline">광고/제휴문의</div>
+				<div class="textline click1">광고/제휴문의</div>
 			</div>
 			<div class="foot2">
-				<div class="textline">서비스문의</div>
+				<div class="textline  click2">서비스문의</div>
 			</div>
 			<div class="foot3">
-				<div class="textline">개인정보 취급방침</div>
+				<div class="textline  click3">개인정보 취급방침</div>
 			</div>
 			<div class="foot4">
-				<div class="textline">이용약관</div>
+				<div class="textline  click4">이용약관</div>
 			</div>
 			<div class="foot5">
-				<div class="textline">여행자약관</div>
+				<div class="textline  click5">여행자약관</div>
 			</div>
 			<div class="foot6">
-				<div class="textline2">가이드약관</div>
+				<div class="textline2  click6">가이드약관</div>
 			</div>
 			<div class="foot7">				
 					<div class=""></div>
@@ -38,7 +38,7 @@
 
 	<div class="footermain2">
 		<div class="footermain2-1">
-			<div class="footermain2-1-1"><img src="../imgs/logos/hello.png" class="plannerimg">
+			<div class="footermain2-1-1"><img src="${pageContext.request.contextPath}/imgs/logos/hello.png" class="plannerimg">
 			</div>
 			
 			<div class="footermain2-1-2">
@@ -75,6 +75,34 @@
 	location.href = "/";
 	 
 	});
+//----------------------------------------------------------------------
+	//footer script
+	
+	$(".click2").click(function(){
+	    window.open('/', '_blank'); 
+	    	 
+		});
+	
+	
+	$(".click3").click(function(){
+	    window.open('memberUsePage/memberPrivacyPolicy', '_blank'); 
+	    	 
+		});
+
+	$(".click4").click(function(){
+		 window.open('memberUsePage/memberTermsAndConditions', '_blank'); 
+		 	     	 
+		});
+
+	$(".click5").click(function(){
+	    window.open('memberUsePage/memberTravelReservation', '_blank'); 
+	    	 
+		});
+
+	$(".click6").click(function(){
+		 window.open('memberUsePage/memberGuideTermsandConditions', '_blank'); 
+		 	     	 
+		});	
 
 
 </script>
