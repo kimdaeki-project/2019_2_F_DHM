@@ -25,6 +25,7 @@ import com.f.dhm.location.LocationVO;
 import com.f.dhm.planner.MyPlannerVO;
 import com.f.dhm.planner.PlannerService;
 import com.f.dhm.planner.PlannerVO;
+import com.f.dhm.schedule.test.XmlService;
 
 
 @Controller
@@ -46,6 +47,8 @@ public class HomeController {
 	private PlannerService plannerService;
 	@Autowired 
 	private FundingService fundingService;
+	@Autowired
+	private XmlService xmlService;
 	
 	  @GetMapping("mapTestindex")
 	   public ModelAndView mapTest(int plNum, HttpSession session) throws Exception{
@@ -64,7 +67,7 @@ public class HomeController {
 	   }
 	
 	@GetMapping("/")
-	public ModelAndView index(Integer plNum) throws Exception{
+	public ModelAndView index(Integer plNum, Integer acode) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int plannerCount = plannerService.plannerCount();
 		
@@ -86,6 +89,15 @@ public class HomeController {
 		List<FundingVO> ar2= fundingService.fundingIndexList();
 		
 	
+		mv.addObject("festival_seoul", xmlService.searchTour(1, 15, "P", 1).getItem());
+		mv.addObject("festival_incheon", xmlService.searchTour(2, 15, "P", 1).getItem());
+		mv.addObject("festival_daegu", xmlService.searchTour(4, 15, "P", 1).getItem());
+		mv.addObject("festival_gangwon", xmlService.searchTour(32, 15, "P", 1).getItem());
+		mv.addObject("festival_busan", xmlService.searchTour(6, 15, "P", 1).getItem());
+		mv.addObject("festival_kyungi", xmlService.searchTour(31, 15, "P", 1).getItem());
+		mv.addObject("festival_jeju", xmlService.searchTour(39, 15, "P", 1).getItem());
+		mv.addObject("festival_jrbd", xmlService.searchTour(37, 15, "P", 1).getItem());
+		
 		mv.addObject("fundinglist",ar2);
 		mv.addObject("plannerCount", plannerCount);
 		mv.addObject("typelist", ar);

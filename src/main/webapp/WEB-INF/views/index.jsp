@@ -13,6 +13,7 @@
 <link rel="stylesheet"  href="../css/basic.css">
  <link rel="stylesheet"  href="../css/schedule.css">
   <link rel="stylesheet"  href="../css/funding.css">
+  <link rel="icon" href="../imgs/logos/logo-fav.ico">
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <style type="text/css">
@@ -406,7 +407,7 @@
                                  </div>
                               
                               </div>
-				
+						</a>
 				
 				
 <%-- 				<img class="funding_img" src="../test_img/test${i.index}.jpg"></a> --%>
@@ -433,6 +434,226 @@
          </div>
       </div>
    </div>
+   
+   <div class="row">
+      <div class="marginTop50px">
+         <h3 class="contitle">2월, 축제속으로</h3>
+         	<ul class="nav nav-tabs">
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"   href="#f0">서울</a></li>
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#f1">인천</a></li>
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#f2">대구</a></li>
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#f3">강원도</a></li>
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#f4">부산</a></li>
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#f5">경기도</a></li>
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#f6">제주도</a></li>
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#f7">전라북도</a></li>
+		  </ul>
+         
+         <div class="tab-content">
+		    <div id="f0" class="tab-pane fade in active">
+		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper" >
+                        <c:forEach items="${festival_seoul}" var="fe" varStatus="i">
+               
+                           <div style="width: 200px;"class="swiper-slide">
+								<div style="position: relative; margin: 0 auto;">									
+									<div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
+								</div>
+								<div>
+									<div style="padding: 3px; width: 80%;float: left;">
+										<div class="i-card-title">${fe.title}</div>
+										<div class="addr">${fe.addr1 }</div>
+									</div>
+									<div style="width: 20%; float: left; padding-top: 10px">
+										<a onclick="clickinfo('${fe.title}')">
+											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+										</a>
+									</div>
+								</div>	 
+							</div>
+							
+                         </c:forEach>
+                     </div>
+                  </div>
+		    </div>
+        
+		    <div id="f1" class="tab-pane fade in">
+		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper" >
+                        <c:forEach items="${festival_incheon}" var="fe" varStatus="i">
+                           <div style="width: 200px;"class="swiper-slide">
+								<div style="position: relative; margin: 0 auto;">									
+									<div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
+								</div>
+								<div>
+									<div style="padding: 3px; width: 80%;float: left;">
+										<div class="i-card-title">${fe.title}</div>
+										<div class="addr">${fe.addr1 }</div>
+									</div>
+									<div style="width: 20%; float: left; padding-top: 10px">
+										<a onclick="clickinfo('${fe.title}')">
+											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+										</a>
+									</div>
+								</div>	 
+							</div>
+                         </c:forEach> 
+                     </div>
+                  </div>
+		     </div>
+		     
+		      <div id="f2" class="tab-pane fade in">
+		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper" >
+                        <c:forEach items="${festival_daegu}" var="fe" varStatus="i">
+                           <div style="width: 200px;"class="swiper-slide">
+								<div style="position: relative; margin: 0 auto;">									
+									<div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
+								</div>
+								<div>
+									<div style="padding: 3px; width: 80%;float: left;">
+										<div class="i-card-title">${fe.title}</div>
+										<div class="addr">${fe.addr1 }</div>
+									</div>
+									<div style="width: 20%; float: left; padding-top: 10px">
+										<a onclick="clickinfo('${fe.title}')">
+											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+										</a>
+									</div>
+								</div>	 
+							</div>
+                         </c:forEach> 
+                     </div>
+                  </div>
+		     </div>
+		     
+		      <div id="f3" class="tab-pane fade in">
+		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper" >
+                        <c:forEach items="${festival_gangwon}" var="fe" varStatus="i">
+                           <div style="width: 200px;"class="swiper-slide">
+								<div style="position: relative; margin: 0 auto;">									
+									<div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
+								</div>
+								<div>
+									<div style="padding: 3px; width: 80%;float: left;">
+										<div class="i-card-title">${fe.title}</div>
+										<div class="addr">${fe.addr1 }</div>
+									</div>
+									<div style="width: 20%; float: left; padding-top: 10px">
+										<a onclick="clickinfo('${fe.title}')">
+											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+										</a>
+									</div>
+								</div>	 
+							</div>
+                         </c:forEach> 
+                     </div>
+                  </div>
+		     </div>
+		     
+		      <div id="f4" class="tab-pane fade in">
+		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper" >
+                        <c:forEach items="${festival_busan}" var="fe" varStatus="i">
+                           <div style="width: 200px;"class="swiper-slide">
+								<div style="position: relative; margin: 0 auto;">									
+									<div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
+								</div>
+								<div>
+									<div style="padding: 3px; width: 80%;float: left;">
+										<div class="i-card-title">${fe.title}</div>
+										<div class="addr">${fe.addr1 }</div>
+									</div>
+									<div style="width: 20%; float: left; padding-top: 10px">
+										<a onclick="clickinfo('${fe.title}')">
+											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+										</a>
+									</div>
+								</div>	 
+							</div>
+                         </c:forEach> 
+                     </div>
+                  </div>
+		     </div>
+		     
+		      <div id="f5" class="tab-pane fade in">
+		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper" >
+                        <c:forEach items="${festival_kyungi}" var="fe" varStatus="i">
+                           <div style="width: 200px;"class="swiper-slide">
+								<div style="position: relative; margin: 0 auto;">									
+									<div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
+								</div>
+								<div>
+									<div style="padding: 3px; width: 80%;float: left;">
+										<div class="i-card-title">${fe.title}</div>
+										<div class="addr">${fe.addr1 }</div>
+									</div>
+									<div style="width: 20%; float: left; padding-top: 10px">
+										<a onclick="clickinfo('${fe.title}')">
+											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+										</a>
+									</div>
+								</div>	 
+							</div>
+                         </c:forEach> 
+                     </div>
+                  </div>
+		     </div>
+		     
+		      <div id="f6" class="tab-pane fade in">
+		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper" >
+                        <c:forEach items="${festival_jeju}" var="fe" varStatus="i">
+                           <div style="width: 200px;"class="swiper-slide">
+								<div style="position: relative; margin: 0 auto;">									
+									<div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
+								</div>
+								<div>
+									<div style="padding: 3px; width: 80%;float: left;">
+										<div class="i-card-title">${fe.title}</div>
+										<div class="addr">${fe.addr1 }</div>
+									</div>
+									<div style="width: 20%; float: left; padding-top: 10px">
+										<a onclick="clickinfo('${fe.title}')">
+											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+										</a>
+									</div>
+								</div>	 
+							</div>
+                         </c:forEach> 
+                     </div>
+                  </div>
+		     </div>
+		     
+		      <div id="f7" class="tab-pane fade in">
+		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+                     <div class="swiper-wrapper" >
+                        <c:forEach items="${festival_jrbd}" var="fe" varStatus="i">
+                           <div style="width: 200px;"class="swiper-slide">
+								<div style="position: relative; margin: 0 auto;">									
+									<div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
+								</div>
+								<div>
+									<div style="padding: 3px; width: 80%;float: left;">
+										<div class="i-card-title">${fe.title}</div>
+										<div class="addr">${fe.addr1 }</div>
+									</div>
+									<div style="width: 20%; float: left; padding-top: 10px">
+										<a onclick="clickinfo('${fe.title}')">
+											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+										</a>
+									</div>
+								</div>	 
+							</div>
+                         </c:forEach> 
+                     </div>
+                  </div>
+		     </div>
+         </div>
+   </div>
+   
    <div class="row">
       <div class="marginTop50px">
          <h3 class="contitle">여행자들의 베스트 리뷰</h3>
@@ -443,6 +664,7 @@
    </div>
 
   <script>
+
 
   
     var swiper = new Swiper('.swiper-container', {
@@ -481,7 +703,14 @@
     	      },
     	    
       });
-    
+    var swiper = new Swiper('.swiper-container4', {
+        slidesPerView: 6,
+        spaceBetween: 2,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
 
     $(".index_buttons_li").click(function(){
         

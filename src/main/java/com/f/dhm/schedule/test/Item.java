@@ -18,6 +18,10 @@ public class Item {
 			this.areacode=areacode;
 		}
 		
+		public Item(String title2, String addr, String firstImage2) {
+			// TODO Auto-generated constructor stub
+		}
+
 		@Override
 		public String toString() {
 			return "Item{"+
