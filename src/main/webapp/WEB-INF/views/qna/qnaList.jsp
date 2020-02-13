@@ -1,5 +1,7 @@
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +24,9 @@
 		</form>
 		<!-- search -->
 		<div class="section">
+		<c:set var="now" value="<%=new Date() %>"/>
+		<fmt:formatDate value="${now }" type="date" pattern="yyyy-MM-dd" var="nowFormatDate"/>
+		<fmt:formatDate value="${now }" type="date" pattern="HHmm" var="nowFormatTime"/>		
 			<table class="board_table">
 				<tr>
 					<th class="board_no_th">NO</th>
@@ -40,9 +45,6 @@
 						</a>
 					</td>
 					<td>${list.writer }</td>
-
-					<td>${list.regDate }</td>
-
 					<td>
 						<fmt:formatDate value="${list.regDate }" type="date" pattern="yyyy-MM-dd" var="regdFormatDate"/>	
 							<fmt:formatDate value="${list.regDate }" type="date" pattern="HHmm" var="regdFormatTime"/>	
@@ -57,14 +59,15 @@
 							</c:if>
 							<c:if test="${regdFormatDate ne nowFormatDate }">${regdFormatDate}</c:if>
 					</td>
-
 					<td>${list.hit }</td>
 				</tr>
 				 </c:forEach>
 			</table>
 		</div>
 		<div class="board_list_btn">
+		<c:if test="${not empty sessionScope.member }">
 			<input type="button" class="button" value="글쓰기" id="write">
+		</c:if>
 			<input type="button" class="button" value="전체 지우기" id="deleteAll">
 		</div>
 		
@@ -103,14 +106,7 @@ $('.board-search-btn').click(function(){
 		}
 });
 
-$(document).ready(function(){
-	$('.board-search-wrapper').hide();
-});
 
-$('#icon').click(function(){
-	$('.board-search-wrapper').slideToggle();
-	
-})
 </script>
 </body>
 </html>

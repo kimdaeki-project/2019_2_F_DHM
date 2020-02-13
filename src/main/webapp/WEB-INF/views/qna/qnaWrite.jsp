@@ -24,10 +24,10 @@
 				<label for="usr">title:</label> 
 				<form:input	class="form-control" path="title" />
 			</div>
-			<div class="form-group">
-				<label for="usr">writer:</label> 
-				<form:input	class="form-control" path="writer"/>
-			</div>
+<!-- 			<div class="form-group"> -->
+<!-- 				<label for="usr">writer:</label>  -->
+<%-- 				<form:input	class="form-control" path="writer"/> --%>
+<!-- 			</div> -->
 			<div class="form-group">
 				<label for="usr">contents:</label>
 				 <form:textarea path="contents" class="contents" id="content"/>

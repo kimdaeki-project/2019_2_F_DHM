@@ -13,8 +13,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  
-  
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet"  href="../css/membercss.css">
 <link rel="stylesheet"  href="../css/basic.css">
@@ -43,8 +42,15 @@
          </div>
          
          <div class="my2" id="my2">
-            <a><img alt="" src="../imgs/member/${member.memberFilesVO.fname}" class="mypage1-1-1"></a>
-            <a><img src="../imgs/dog.jpg" class="mypage1-1-1"></a>
+         	<div class="my2-1">
+         		<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+         			<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+         			<div class="megaCoffee">
+         				<textarea  id="summernote"></textarea >
+         			</div>
+         						
+         		</div>
+			</div>
          </div>
          
          <div class="my3" id="my3">

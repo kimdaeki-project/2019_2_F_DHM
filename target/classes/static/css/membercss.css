@@ -1094,10 +1094,21 @@ margin-left: 20px;
 .my2{ 
 width:870px;
 height: 850px;
-background-color: blue; 
+background-color: white; 
 float: right;
 } 
 
+.my2-1{
+width:870px;
+height:300px;
+background-color: white;
+border: 1.2px solid rgba(0,0,0,.1);
+border-radius: 5px;
+}
+.guestBookWrapper{
+	background: gold;
+	height: inherit;	
+}
 .my3{ 
 width:870px;
 height: 850px;

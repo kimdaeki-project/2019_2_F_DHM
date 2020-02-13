@@ -43,16 +43,6 @@ public class QnaController {
 	@PostMapping("qnaUpdate")
 	public ModelAndView qnaUpdate(QnaVO qnaVO)throws Exception{
 		ModelAndView mv=new ModelAndView();
-		System.out.println("출력 테스트 출력 테스트 출력 테스트 출력 테스트 출력 테스트 출력 테스트");
-		System.out.println("출력 테스트 출력 테스트 출력 테스트 출력 테스트 출력 테스트 출력 테스트");
-		System.out.println(qnaVO.getContents());
-		System.out.println(qnaVO.getDepth());	//0
-		System.out.println(qnaVO.getWriter());	
-		System.out.println(qnaVO.getNum());
-		System.out.println("qnaVO.getReDate() : "+qnaVO.getReDate());	//null
-		System.out.println("qnaVO.getHit() : "+qnaVO.getHit());		//0
-		System.out.println("qnaVO.getRef() : "+qnaVO.getRef());	//0
-		System.out.println("qnaVO.getStep() : "+qnaVO.getStep());	//0
 		qnaService.qnaUpdate(qnaVO);
 		String path="./qnaSelect?num="+qnaVO.getNum();
 		mv.setViewName("common/result");
@@ -73,21 +63,19 @@ public class QnaController {
 	}
 	
 	@PostMapping("qnaComment")
-	public String qnaComment(QnaVO qnaVO)throws Exception{
-		System.out.println("--------------------------test : qnaComment--------------------------");
-		System.out.println(qnaVO.getNum());
-		System.out.println(qnaVO.getTitle());
-		System.out.println(qnaVO.getContents());
-		System.out.println(qnaVO.getWriter());
-		System.out.println(qnaVO.getRegDate());
-		System.out.println(qnaVO.getReDate());
-		System.out.println("------------------------------------------------------------------------------");
+	public String qnaComment(QnaVO qnaVO, HttpSession session)throws Exception{
+		MemberVO mem=(MemberVO)session.getAttribute("member");
+		qnaVO.setWriter(mem.getId());
 		qnaService.qnaComment(qnaVO);
 		return "redirect:./qnaList";
 	}
 	
 	@GetMapping("qnaComment")
-	public String qnaComment(int num, Model model)throws Exception{
+	public String qnaComment(int num, Model model, HttpSession session)throws Exception{
+		MemberVO mem=(MemberVO)session.getAttribute("member");
+		if(mem==null) {
+			return "member/memberLogin";
+		}
 		QnaVO qnaVO=qnaService.qnaSelect(num);
 		qnaVO.setTitle("[re :"+qnaVO.getTitle()+"]");
 		model.addAttribute("qnaVO", qnaVO);
@@ -159,7 +147,9 @@ public class QnaController {
 	}
 	
 	@PostMapping("qnaWrite")
-	public String qnaWrite(QnaVO qnaVO)throws Exception {
+	public String qnaWrite(QnaVO qnaVO, HttpSession session)throws Exception {
+		MemberVO member=(MemberVO)session.getAttribute("member");
+		qnaVO.setWriter(member.getId());
 		qnaService.qnaWrite(qnaVO);
 
 		return "redirect:./qnaList";

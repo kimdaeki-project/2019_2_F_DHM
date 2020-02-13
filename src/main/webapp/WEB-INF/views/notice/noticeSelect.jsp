@@ -55,8 +55,8 @@
 			<c:set value="${sessionScope.member }" var="member"/>
 			<c:if test="${member.id eq noticeVO.id  }">
 				<input type="button" class="button2" value="update" id="update">
-			</c:if>
 				<input type="button" class="button" value="delete" id="delete">
+			</c:if>
 			</div>
 			
 			
