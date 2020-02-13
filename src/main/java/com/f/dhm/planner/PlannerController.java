@@ -170,6 +170,8 @@ public class PlannerController {
 	      
 	      List<String> ar2 = new ArrayList<String>();
 	      
+	      List<java.util.Date> deDate = new ArrayList<java.util.Date>();
+	      
 	      //D-day 계산
 	      List<String> leftDay = new ArrayList<>();
 	      
@@ -177,7 +179,7 @@ public class PlannerController {
 	      
 	      for (int i = 0; i < ar.size(); i++) {
 	         List<PlannerVO> list = service.plannerSelect(ar.get(i).getPlNum(), session);
-	         
+	         deDate.add(service.plannerSelectIndex(list.get(0).getPlNum()).get(0).getDeDate());
 	         long minus = list.get(0).getDeDate().getTime();
 	         long cal = today - minus;
 	         cal = cal/1000/60/60/24;
@@ -210,6 +212,7 @@ public class PlannerController {
 	      mv.addObject("path", ar2);
 	      mv.addObject("list", ar);
 	      mv.addObject("days", days);
+	      mv.addObject("deDate", deDate);
 	      mv.setViewName("planner/myPlanner");
 	      
 	      return mv;

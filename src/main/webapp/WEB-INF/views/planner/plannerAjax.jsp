@@ -4,6 +4,7 @@
 	   <div class="swiper-wrapper nolist">
 	      <c:forEach items="${typeList}" var="vo" varStatus="i">
 	         <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;" onclick="./schedule/schedulePage?plNum=${vo.plNum}">
+	            <a href="./schedule/schedulePage?plNum=${vo.plNum}">
 	             <div class="mp-li-wrap">
 	                <div class="mp-card">
 	                   <div class="mp-p">
@@ -30,6 +31,7 @@
 	                   </div>
 	                </div>
 	             </div>
+	             </a>
 	         </div>
 	       </c:forEach>
 	   </div>

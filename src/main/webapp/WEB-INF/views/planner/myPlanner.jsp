@@ -19,9 +19,7 @@
 <c:choose>
 <c:when test="${member ne null }">
 <div style="background-color: #f5f5f5;">
-	<div class="header">
-	</div>
-	<div class="container container2">
+	<div class="container container2" style="min-height: 804px;">
 		<div class="main-container">
 			<div class="inner-wrap">
 				<div class="container">
@@ -49,7 +47,7 @@
 												<div class="mp-f">
 													<div class="mp">${vo.title}</div>
 													<div class="mp-f1"> ${days[i.index]} 일간</div>
-													<div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
+													<div class="mp-f2"><fmt:formatDate value="${deDate[i.index]}" pattern="yy년MM월dd일"/></div>
 													<div class="mp-f3">${Dday[i.index]}</div>
 												</div>
 											</div>
@@ -94,6 +92,7 @@
 	      },
 	    });
 </script>
+<c:import url="../template/footer.jsp"/>
 </c:when>
 	<c:otherwise>
 		<script type="text/javascript">
