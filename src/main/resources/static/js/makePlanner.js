@@ -133,8 +133,16 @@ $(".mkp-right").on("click",".city-selOne", function() {
 var count = 1;
 var totalBak = 1;
 var pIndex = new Array(); //위도경도 인덱스 배열
+var pose = $("#purpose").val();
 
 $(".mkp-right").on("click",".mkp-ajax", function() {
+   
+   var url = "addPlanner";
+   if (pose > 8) {
+      url = "../planner/addPlanner";
+   }
+   
+   
    if (confirm("일정을 추가 하시겠습니까?")) {
       
       var cityName = $(this).parents().prev().val();
@@ -152,7 +160,7 @@ $(".mkp-right").on("click",".mkp-ajax", function() {
       
       $.ajax({
          type : "GET",
-         url      : "addPlanner",
+         url      : url,
          data   : {
             cityName : cityName,
             startDate : startDate,
@@ -174,7 +182,6 @@ $(".mkp-right").on("click",".mkp-ajax", function() {
       });
    }
 });
-
 
 
 function uptDate() {
@@ -200,24 +207,24 @@ function uptDate() {
 
 
 $("body").on("click",".click-sleep", function() {
-	var arCode = $(this).parent().prop("title")*1;
-	$.ajax({
-		type : "GET",
-		url : "getPercent",
-		data : {
-			arCode : arCode 
-		},
-		success : function(d) {
-			var pc = 0;
-			
-			$(".chos-sleep-per").each(function() {
-				$(this).text(d[pc]+"%");
-				console.log(pc);
-				pc++;
-			});
-		}
-	});
-	
+   var arCode = $(this).parent().prop("title")*1;
+   $.ajax({
+      type : "GET",
+      url : "getPercent",
+      data : {
+         arCode : arCode 
+      },
+      success : function(d) {
+         var pc = 0;
+         
+         $(".chos-sleep-per").each(function() {
+            $(this).text(d[pc]+"%");
+            console.log(pc);
+            pc++;
+         });
+      }
+   });
+   
    $(".chos-cityName").text($(this).prop("id"));
    $("#save-sleep").prop("title",$(this).prop("title"));
    $(".chos-sleep").css("display","block");
@@ -314,7 +321,7 @@ var arCodeA = new Array();
 
 function saveSch(t, f, a, c) {
 
-	
+   
       titleA.push(t);
       firstimageA.push(f);
       addr1A.push(a);
@@ -386,35 +393,88 @@ $(".mkp-clp-btn").click(function() {
          plNum= $("#update-plNum").val();
       }
       
-      $.ajax({
-         type   : "POST",
-         url      : "makePlanner",
-         data   : {
+      if (pose < 9) {
+      
+         $.ajax({
+            type   : "POST",
+            url      : "makePlanner",
+            data   : {
+               plNum : plNum,
+               id       : id,
+               title    : title,
+               type   : type,
+               people   : people,
+               deDate   : deDate,
+               arDate   : arDate,
+               bak      : bak,
+               region   : region,
+               transfer   : transfer,
+               titleA:titleA,
+               firstimage:firstimageA,
+               addr1:addr1A,
+               arCode:arCodeA,
+               pp : polyIndex,
+               arCodeP: arCodeP,
+               email : email
+            },
+            success   : function(d) {
+               alert("저장되었습니다.");
+               location.href = "../schedule/schedulePage?plNum="+d;
+            }
+            
+            
+         });
+   }else{
+   
+      var price = $("#mkp-price").val();
+      var goal = $("#mkp-goal").val();
+      var start = $("#mkp-start").val();
+      var end = $("#mkp-end").val();
+      var time1 = $("#mkp-time1").val();
+      var time2 = $("#mkp-time2").val();
+      var contents = $("#mkp-contents").val();
+      
+   
+       $.ajax({
+        type   : "POST",
+        url      : "fundingPlanner",
+        data   : {
            plNum : plNum,
-            id       : id,
-            title    : title,
-            type   : type,
-            people   : people,
-            deDate   : deDate,
-            arDate   : arDate,
-            bak      : bak,
-            region   : region,
-            transfer   : transfer,
-            titleA:titleA,
+           id       : id,
+           title    : title,
+           type   : type,
+           people   : people,
+           deDate   : deDate,
+           arDate   : arDate,
+           bak      : bak,
+           region   : region,
+           transfer   : transfer,
+           titleA:titleA,
            firstimage:firstimageA,
            addr1:addr1A,
            arCode:arCodeA,
            pp : polyIndex,
            arCodeP: arCodeP,
-           email : email
-         },
-         success   : function(d) {
-               alert("저장되었습니다.");
-               location.href = "../schedule/schedulePage?plNum="+d;
-            }
-         
-         
-      });
+           email : email,
+           price : price,
+           goal : goal,
+           start : start,
+           end : end,
+           time1 : time1,
+           time2 : time2,
+           contents : contents
+           
+        },
+        success   : function(d) {
+           alert("저장되었습니다.");
+           location.href = "../funding/myFundingList?plNum="+d;
+        }
+        
+        
+     });
+
+   }
+      
    }
 });
 
@@ -572,7 +632,6 @@ $(".mkp-city-list").on("click",".ifm-info", function() {
       $(this).next().children("iframe").prop("src","http://localhost/planner/ifmOpen?arCode="+arC);
    }
 });
-
 
 
 

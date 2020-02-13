@@ -11,6 +11,7 @@ import java.util.Optional;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +19,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.f.dhm.location.LocationService;
+import com.f.dhm.planner.PlannerService;
+import com.f.dhm.planner.PlannerVO;
 import com.f.dhm.util.Pager;
+import com.f.dhm.wishlist.WishService;
+import com.f.dhm.wishlist.WishVO;
 
 @Controller
 @RequestMapping("/funding/**")
@@ -28,7 +35,16 @@ public class FundingController {
 
 	@Resource(name = "fundingService")
 	private FundingService fundingService;
-
+	
+	@Resource(name = "plannerService")
+	private PlannerService plannerService;
+	
+	@Resource(name = "locationService")
+	private LocationService locationService;
+	
+	@Resource(name = "wishService")
+	private WishService wishService;
+	
 	//select
 	@GetMapping("fundingSelect")
 	public ModelAndView fundingSelect(int num) throws Exception{
@@ -57,6 +73,18 @@ public class FundingController {
 
 		return mv;
 	}
+	
+	@GetMapping("makeFundingList")
+	public ModelAndView makeFundingList(String id) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<FundingVO> list = fundingService.makeFundingList(id);
+		
+		mv.addObject("vo", list);
+		mv.setViewName("funding/makeFundingList");
+		
+		return mv;
+	}
+	
 	//write
 	@GetMapping("fundingWrite")
 	public ModelAndView fundingWrite() throws Exception{
@@ -70,7 +98,7 @@ public class FundingController {
 	@PostMapping("fundingWrite")
 	public String fundingWrite(@RequestParam String start, @RequestParam String time1,
 			@RequestParam String end, @RequestParam String time2,
-			@RequestParam int price, @RequestParam int goal, FundingVO fundingVO) throws Exception{
+			@RequestParam int price, @RequestParam int goal, FundingVO fundingVO, PlannerVO plannerVO) throws Exception{
 		//날짜+시간 합쳐서 집어넣기
 		String startTime = start +" "+ time1;
 		String endTime = end +" "+ time2;
@@ -93,6 +121,141 @@ public class FundingController {
 
 		return "redirect:./fundingList";
 	}
+	
+	//fundingPlanner
+	@GetMapping("fundingPlanner")
+	   public ModelAndView makeFunding() throws Exception{
+	      ModelAndView mv = new ModelAndView();
+	      
+	      mv.addObject("purpose", 9);
+	      return mv;
+	   }
+	
+	@PostMapping("fundingPlanner")
+	@ResponseBody
+	public int fundingPlanner(FundingVO fundingVO, @RequestParam String contents, String start, String time1, String end, String time2,
+			int price, int goal, String id, String title, String type, String people, String[] deDate, String[] arDate,
+		      String[] bak, String[] region, String[] transfer, String[] titleA, String[] firstimage, 
+		      String[] addr1, int[] arCode,HttpSession session, int[] pp, int[] arCodeP, Integer plNum, String email
+			) throws Exception{
+		  System.out.println("123456");
+		//planner Table
+		List<PlannerVO> pList = new ArrayList<PlannerVO>();
+	      
+	      
+	      if (plNum != null) {         
+	    	  plannerService.plannerDel(id, plNum);
+	      }
+	      
+	      plNum = plannerService.getPlnum();
+	      
+	      System.out.println("plNum = " + deDate.length);
+	      
+	      for (int i = 0; i < deDate.length; i++) {
+
+	         PlannerVO vo = new PlannerVO();
+	         vo.setEmail(email);
+	         vo.setPlNum(plNum);
+	         vo.setId(id);
+	         vo.setTitle(title);
+	         vo.setType(type);
+	         people = people.replaceAll("명", "");
+	         vo.setPeople(Integer.valueOf(people));
+	         
+	         int y = Integer.parseInt(deDate[i].substring(0, 4));
+	         int m = Integer.parseInt(deDate[i].substring(5, 7));
+	         int d = Integer.parseInt(deDate[i].substring(8));
+	         
+	         Calendar c = Calendar.getInstance();
+	         c.set(y, m-1, d);
+	         
+	         Date date = new Date(c.getTimeInMillis());
+	         
+	         vo.setDeDate(date);
+	         
+	         y = Integer.parseInt(arDate[i].substring(0, 4));
+	         m = Integer.parseInt(arDate[i].substring(5, 7));
+	         d = Integer.parseInt(arDate[i].substring(8));
+	         
+	         c.set(y, m-1, d);
+	         date = new Date(c.getTimeInMillis());
+	         
+	         vo.setArDate(date);
+	         if (bak[i].equals("무")) {
+	            bak[i] = "0";
+	         }
+	         vo.setBak(Integer.valueOf(bak[i]));
+	         vo.setRegion(region[i]);
+	         
+	         //도시 정보 추가
+	         if (i > 0 && deDate.length > 1) {            
+	            vo.setTransfer(transfer[i-1]);
+	            locationService.updateLoc(arCodeP[i], Integer.parseInt(bak[i]), transfer[i-1]);
+	         }else {
+	        	 locationService.updateLoc(arCodeP[i], Integer.parseInt(bak[i]), "선택"); 
+	         }
+	         //도시정보추가
+	         
+	         vo.setPolyPath(pp[i]);
+	         vo.setArCode(arCodeP[i]);
+	         
+	         
+	         pList.add(vo);
+	      }
+	      
+	      for (PlannerVO plannerVO : pList) {
+	         System.out.println(plannerVO);
+	      }
+	      plannerService.saveList(pList);
+	      
+	      //////////////////////////////////////////
+	      
+	      //MemberVO memberVO = (MemberVO)session.getAttribute("member");
+	      List<WishVO> wishlist = new ArrayList<WishVO>();
+	      
+	      //id= memberVO.getId();
+	      
+	      for(int i=0; i< titleA.length; i++) {
+	         WishVO wishVO = new WishVO();
+	         wishVO.setId(id);
+	         wishVO.setTitle(titleA[i]);
+	         wishVO.setFirstimage(firstimage[i]);
+	         wishVO.setAddr1(addr1[i]);
+	         wishVO.setPlNum(plNum);
+	         wishVO.setArCode(arCode[i]);
+	         System.out.println(i+"   +    "+wishVO.getTitle());
+	         wishlist.add(wishVO);
+
+	      }
+	      wishService.wishAdd(wishlist, plNum, title);
+	    
+		//funding Table
+		//날짜+시간 합쳐서 집어넣기
+		String startTime = start +" "+ time1;
+		String endTime = end +" "+ time2;
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date startTime2 = transFormat.parse(startTime);
+		Date endTime2 = transFormat.parse(endTime);
+		//날짜 차이 구해서 집어넣기
+		SimpleDateFormat transFormat2 = new SimpleDateFormat("yyyy-MM-dd");
+		Date start2 = transFormat2.parse(start);
+		Date end2 = transFormat2.parse(end);
+		long restTime  = (end2.getTime() - start2.getTime()) / (60*60*24*1000);
+		fundingVO.setStartTime(startTime2);
+		fundingVO.setEndTime(endTime2);
+		fundingVO.setRestTime((int)restTime+1);
+		//목표 금액과 금액을 이용해 제한 인원 구하기
+		int people2 = goal/price;
+		fundingVO.setPeople(people2);
+		fundingVO.setName(title);
+		fundingVO.setPlNum(plannerService.getPlnum()-1);
+		fundingVO.setContents(contents);
+		
+		fundingService.fundingWrite(fundingVO);
+		
+		return pList.get(0).getPlNum();
+	}
+	
 	//update
 	@GetMapping("fundingUpdate")
 	public ModelAndView fundingUpdate(@ModelAttribute FundingVO fundingVO, int num) throws Exception{
@@ -164,7 +327,7 @@ public class FundingController {
 		return mv;
 	}
 	//펀딩 참여한 사람이 보는 펀딩 참여 리스트
-	@GetMapping("fundingJoinSelect")
+	@GetMapping("myFundingList")
 	public ModelAndView fundingJoinSelect(String participationId) throws Exception{
 		ModelAndView mv = new ModelAndView();
 //		Optional<FundingVO> opt = fundingService.fundingJoinSelect(participationId);
@@ -173,7 +336,7 @@ public class FundingController {
 //		List<FundingVO> ar = fundingService.fundingJoinSelect(participationId);
 //		FundingVO fundingVO = ar.get(0);
 		
-		List<FundingJoinVO> ar = fundingService.fundingJoinSelect(participationId);
+		List<FundingJoinVO> ar = fundingService.myFundingList(participationId);
 		List<FundingVO> ar2= new ArrayList<FundingVO>();
 //		System.out.println(ar.size());
 		for (FundingJoinVO fundingJoinVO : ar) {
@@ -181,7 +344,7 @@ public class FundingController {
 		}
 		mv.addObject("vo2", ar2);
 		mv.addObject("vo", ar);
-		mv.setViewName("funding/fundingJoinSelect");
+		mv.setViewName("funding/myFundingList");
 		return mv;
 		
 	}
@@ -234,13 +397,13 @@ public class FundingController {
 		int status = price*participationPeople;
 //		System.out.println(status+"status/controller");
 		//DB에 넣을 gage
-		int gage = (status*100/goal);
+		double gage = (status*100/goal);
 //		System.out.println(gage+"gage/controller");
 		//DB에 저장되어 있던 status
 		int status2 = fundingVO.getStatus();
 //		System.out.println(status2+"status2/controller");
 		//DB에 저장되어 있던 gage
-		int gage2 = fundingVO.getGage();
+		double gage2 = fundingVO.getGage();
 //		System.out.println(gage2+"gage2/controller");
 		fundingVO.setStatus(status2+status);
 		fundingVO.setGage(gage2+gage);

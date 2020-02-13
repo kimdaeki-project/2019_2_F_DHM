@@ -30,11 +30,11 @@ public class FundingVO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "fNum")
 	private int num;
-	private int plNum;
+	private Integer plNum;
 	@NotEmpty
 	@Column(name = "fName")
 	private String name;
-	@NotEmpty(message = "내용을 입력해주세요.")
+	
 	private String contents;
 	@NotNull
 	private BigInteger goal;
@@ -48,7 +48,7 @@ public class FundingVO {
 	private BigInteger price;
 	private int participationPeople;
 	private int restTime;
-	private int gage;
+	private double gage;
 
 	@CreationTimestamp
 	private java.util.Date regDate;

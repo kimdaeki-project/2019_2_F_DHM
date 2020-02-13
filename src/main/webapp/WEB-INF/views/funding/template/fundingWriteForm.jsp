@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 		<form:form id="frm" modelAttribute="fundingVO">
-		<input type="hidden" name="plNum" id="plNum" value="${param.plNum}">
+		
 			<div class="form-group">
 		      <label for="name">Funding Name :</label>
 		      <form:input placeholder="Enter name" class="form-control" path="name" id="name"/>
