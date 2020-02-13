@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <c:import url="./member/membercss.jsp"/>
 
 <link rel="stylesheet"  href="../css/membercss.css">
@@ -721,6 +722,7 @@
 			$(this).children(".ac").removeClass("active2");
      });
     
+
 
 
   </script>

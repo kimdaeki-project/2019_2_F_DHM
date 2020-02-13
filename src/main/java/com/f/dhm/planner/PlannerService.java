@@ -2,6 +2,7 @@ package com.f.dhm.planner;
 
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
@@ -20,9 +21,51 @@ public class PlannerService {
 
 	@Autowired
 	private PlannerRepository repository;
+	@Autowired
+	private PlannerCommentRepository commentRepository;
 
+	//pcomment delete one
+	public boolean reviewDelete(int cNum)throws Exception{
+		commentRepository.deleteById(cNum);
+		boolean exist=commentRepository.existsById(cNum);
+		return exist;
+	}
 	
+	//pcomment get one
+	public PlannerCommentVO getComment(int cNum)throws Exception{
+		PlannerCommentVO commentVO=commentRepository.findById(cNum).get();
+		return commentVO;
+	}
 	
+	//pcomment list
+	public List<PlannerCommentVO> getCommentList(int plNum)throws Exception{
+		return commentRepository.findByPlNum(plNum);
+	}
+	
+		
+	//pcomment update
+	public void pcomment(PlannerCommentVO  plannerCommentVO)throws Exception{
+		PlannerCommentVO commentVO=commentRepository.save(plannerCommentVO);
+	}
+	
+	//comment write
+	public boolean pcomment(PlannerCommentVO  plannerCommentVO, int plNum, HttpSession session)throws Exception{
+		MemberVO memberVO=(MemberVO) session.getAttribute("member");
+		plannerCommentVO.setId(memberVO.getId());
+		boolean check=false;
+		plannerCommentVO.setPlNum(plNum);
+		commentRepository.save(plannerCommentVO);
+		PlannerCommentVO exist=commentRepository.findById(plannerCommentVO.getCNum()).get();
+		if(exist != null) {
+			//exist!!
+			check=true;
+		}
+		else {
+			//not exist!!
+			check=false;
+		}
+		return check;
+	}
 	
 	//hyehyeon
 	public List<PlannerVO> plannerSelect(int plNum, HttpSession session) throws Exception {
