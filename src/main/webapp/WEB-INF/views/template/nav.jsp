@@ -51,6 +51,7 @@ $(document).ready(function(){
 
 
 $('.nav-service-div').click(function(){
+	
 	$('.nav-service-div-a').toggle();
 });
 
