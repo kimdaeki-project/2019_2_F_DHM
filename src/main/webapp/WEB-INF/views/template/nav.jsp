@@ -18,9 +18,9 @@
 					<a class="nav-service-div-a" href="${pageContext.request.contextPath}/qna/qnaList">qna</a>
 					<a class="nav-service-div-a" href="${pageContext.request.contextPath}/gnb/serviceCenter">faq</a>
 				</div>
-				<a class="nav-li" href="${pageContext.request.contextPath}/member/memberLogin">펀딩</a>
-				<a class="nav-li" href="${pageContext.request.contextPath}/">나의 플래너</a>
-				<a class="nav-li" href="${pageContext.request.contextPath}/">플래너</a>
+				<a class="nav-li" href="${pageContext.request.contextPath}/funding/fundingList">펀딩</a>
+				<a class="nav-li" href="${pageContext.request.contextPath}/planner/myPlanner">나의 플래너</a>
+				<a class="nav-li" href="${pageContext.request.contextPath}/planner/makePlanner">플래너</a>
 			</div>
 		</div>
 	</div>
