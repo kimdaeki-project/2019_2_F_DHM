@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"/>
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 <link rel="stylesheet"  href="../css/basic.css">
 </head>
 <body>

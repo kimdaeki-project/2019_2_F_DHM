@@ -12,6 +12,7 @@
 <c:import url="../template/boot.jsp"/>
 <link rel="stylesheet"  href="../css/basic.css">
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 </head>
 <body>
 <c:import url="../template/nav.jsp"/>
