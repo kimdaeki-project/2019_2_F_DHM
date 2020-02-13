@@ -2468,22 +2468,119 @@ text-align: center;
 border-right: 1px solid #86868c;	
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* footer css End **********************************************************************/
 
+/* memberGetout css  Start **********************************************************************/
 
+.getoutmain{
+width: 1100px;
+height: 250px;
+margin-left: 400px;
+padding-top: 100px;
+background-color: white;
+	
+}
+
+.getoutmain1{
+width: 1100px;
+height: 150px;
+margin-left: 400px;
+padding-top : -20px;
+background-color: white;	
+}
+
+.getoutmain2{
+width: 1100px;
+height: 150px;
+margin-left: 400px;
+margin-top : 10px;
+background-color: #191919;	
+}
+
+.getoutmain2-1{
+color: white;
+font-size: 11.5px;
+padding-left: 15px;
+padding-top: 20px;
+
+
+}
+
+.maintext1{
+color: #bfbfbf;	
+margin-top: 5px;
+text-shadow: none;
+font-weight: normal;
+font-size: 24px;
+line-height: 33px;	
+}
+
+.maintext2{
+color: darkred;	
+font-family: 'NanumGothic';
+text-shadow: none;
+font-weight: normal;	
+font-size: 18px;
+margin-top: 20px;
+}
+
+.maintext3{
+font-size: 12px;
+color: darkred;		
+margin-top: 20px;
+}
+
+a{
+	text-decoration: none;
+	color: #18ba9b;
+}
+/* 호버 이벤트 삭제 */
+a:hover{
+	text-decoration: none;
+	font-weight: normal;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.getoutmain1-1{
+padding-top: 30px;
+font-size: 13.5px;
+}
+
+.getoutmain1-3{
+background: #555;
+color: #fff;
+text-decoration: none;
+font-size: 18px;
+padding: 10px 25px;
+cursor: pointer;
+width: 120px;
+height: 45px;
+text-align: center;
+font-size: 17.5px;
+margin-top: 10px;
+}
+
+.getoutmain1-4{
+background: #7f8c8d;
+color: #fff;
+text-decoration: none;
+font-size: 18px;
+padding: 10px 25px;
+cursor: pointer;
+width: 120px;
+height: 45px;
+text-align: center;
+font-size: 17.5px;
+margin-top: -45px;
+float: left;
+margin-left: 130px;
+}
+/* memberGetout css  End **********************************************************************/
 
 
 
