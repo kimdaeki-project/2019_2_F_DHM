@@ -18,7 +18,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet"  href="../css/membercss.css">
 <link rel="stylesheet"  href="../css/basic.css">
-<link rel="stylesheet" href="../package/css/swiper.min.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -331,6 +330,10 @@
 					<input type="hidden" value="${member.email}" name="email">
 					<input type="hidden" value="${member.gender}" name="gender">
 					<input type="hidden" value="${member.birth}" name="birth">
+					<input type="hidden" value="${member.memberFilesVO.fname}" name="fname">
+<%-- 					<input type="hidden" value="${member.memberFilesVO.fnum}" name="fnum"> --%>
+<%-- 					<input type="hidden" value="${member.memberFilesVO.oname}" name="oname"> --%>
+					
 				<div class="myintroduce-0">
 					<div class="myintroduce-1">
 						<div class="myintroduce1-1">자기 소개</div>					
@@ -396,7 +399,7 @@
 	
 	
 	<!-- 프로필 사진변경 화면창 -->
-	<spring:form action="memberMypageImg" id="frm4" method="post" modelAttribute="memberVO" enctype="multipart/form-data">
+	<form action="memberMypageImg" id="frm4" method="post" enctype="multipart/form-data" >
 	<div class="changeimg">
 		<div class="changeimg2">
 			<div class="changeimg2-1">
@@ -411,7 +414,7 @@
 				<input type="hidden" value="${member.email}" name="email">
 				<input type="hidden" value="${member.gender}" name="gender">
 				<input type="hidden" value="${member.birth}" name="birth">
-				
+
 			<div class="changeimg2-3">
 				<div class="changeimg2-3-1">
 					<!-- 이미지 미리보기 창  -->
@@ -435,7 +438,7 @@
 			
 		</div>
 	</div>
-	</spring:form>
+	</form>
 			
 	
 
@@ -444,7 +447,6 @@
 	//프로필 사진 변경 BOX 사진 미리보기
 	var sel_file;
 	
-
 	$(document).ready(function(){
 		$("#input_img").on("change",handleImgFileSelect);
 	});
@@ -452,15 +454,12 @@
 	function handleImgFileSelect(e){
 		var files = e.target.files;
 		var filesArr = Array.prototype.slice.call(files);
-
 		filesArr.forEach(function(f){
 			if(!f.type.match("image.*")){
 				alert("확장자는 이미지 확장자만 가능합니다.");
 				return;
 				}
-
 			sel_file = f;
-
 			var reader = new FileReader();
 			reader.onload = function(e){
 				$("#img").attr("src", e.target.result);
@@ -470,7 +469,6 @@
 			
 			});
 		}
-
 //-----------------------------------------------------------------------
 	//등급 출력 변경
 	$(function(){
@@ -628,7 +626,6 @@ $('.msgbing4').hide();
 //프로필 사진 화면창 띄우기
  		$('.changeimg').hide();
 		$('.changeimg2').hide();
-
 		$(".mypage1-1-1").click(function(){
  			$('.changeimg').slideDown();
 			$('.changeimg2').slideDown();
@@ -638,17 +635,14 @@ $('.msgbing4').hide();
 			$('.changeimg2').slideUp();
 			$('.changeimg').slideUp();
 		});  
-
 		$(".changeimg2-4").click(function(){
 			$('.changeimg2').slideUp();
 			$('.changeimg').slideUp();
 		});  
-
 		$(".mypage2-3-1").click(function(){
  			$('.changeimg').slideDown();
 			$('.changeimg2').slideDown();
 		});
-
 		//esc누르면 slidedown (esc 코드 = 59)
 		$(window).keyup(function(e){
 			 if(e.keyCode == 27){
@@ -656,14 +650,12 @@ $('.msgbing4').hide();
 				$('.changeimg').slideUp();
 			 }
 		});
-
 		$(window).keyup(function(e){
 			 if(e.keyCode == 27){
 				$('.changeimg2').slideUp();
 				$('.changeimg').slideUp();
 			 }
 		});
-
 		
 	
 //------------------------------------------------------------------------
@@ -672,13 +664,11 @@ $(".myintroduce-7-1").click(function(){
 	
 	document.getElementById('frm3').submit();
 });
-
 //프로필 사진 관리
 $(".changeimg2-5").click(function(){
 	
 	document.getElementById('frm4').submit();
 });
-
 </script>
 	
 </body>
