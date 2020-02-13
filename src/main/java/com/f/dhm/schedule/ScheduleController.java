@@ -129,28 +129,12 @@ public class ScheduleController {
 		List<PlannerVO> plannerList = plannerService.plannerSelect(plNum, session);
 
 		int bak=0;
-		Date d=new Date();
-		
-		List<Date> ddd= new ArrayList<Date>(); 
-	     
 		
 		for (int i = 0; i < plannerList.size(); i++) {
 			
 			bak = plannerList.get(i).getBak();
 			mv.addObject("bak", bak);
-			d = plannerList.get(i).getDeDate();
-			mv.addObject("deDate", d);
-			ddd.add(d);
-			if(bak>0) {
-				for(int j=0;j<bak;j++) {
-					
-					long dd = d.getTime()+1000*60*60*24;
-					d.setTime(dd);
-					 ddd.add(d);
-					 
-					 mv.addObject("deDate", ddd);
-				}
-			}
+			
 		}
 		
 		

@@ -17,21 +17,21 @@
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <style type="text/css">
 	.active{
-		color: green;
+		color: #18A8F1;
 	}
  	a{
 		color:black;
 	} 
 	a:hover{
-		color:green;
+		color:#18A8F1;
 		font-weight: bold;
 	}
 </style>
 </head>
 <body>
 <c:import url="./template/nav.jsp"/>
-   <div class="swiper-container3" style="margin-bottom: 20px; height: 600px; ">
- 	  <div class="swiper-wrapper">
+   <div class="swiper-container3" style="margin-bottom: 20px; height: 600px; width: 100%;">
+ 	  <div class="swiper-wrapper" style="width: 100%;">
       		<div id="back-image1" class="image swiper-slide">
       			<div class="backTitle">경상북도 경주 동궁과월지</div>
       		</div>
@@ -55,7 +55,7 @@
       		</div>
       		<div id="back-image8" class="image swiper-slide">
       			<div class="backTitle">충청북도 단양 패러글라이딩</div>
-      		</div>\
+      		</div>
       		<div id="back-image9" class="image swiper-slide">
       			<div class="backTitle">강원도 강릉시 안반데기</div>
       		</div>

@@ -80,13 +80,17 @@ article{
 nav{
    height: 62px;
    width:100%;
-   background: #003300;
+   background: #FFFFFF;
+   position: fixed;
+   z-index: 100;
+   box-shadow: 0px 2px 15px 0px rgba(51, 51, 51, 0.5);
 /*    background: linear-gradient(to bottom, #336600 0%, #003300 150%); */
 }
 .nav-contain{
    width: 1140px;   
    margin: 0 auto;
    height: 100%;
+
 }
 .nav-logoWrapper{
    width:200px;
@@ -121,7 +125,7 @@ nav{
    padding: 0 20px;
    line-height: 62px;
    border-left:1px solid #dcdcdc;
-   color: #E4F1F6;
+   color: black;
    text-transform: uppercase;
    font-family: san-serif;
    position: relative;
@@ -141,11 +145,11 @@ nav{
    background: linear-gradient(to bottom, #347B98 0%, #1A3E4C 150%);
 }
 .nav-li-login{
-   background:    #81C133;
+/*    background: #18A8F1; */
    border-left:1px solid #dcdcdc; 
 }
 .nav-li-login:hover{
-   background: linear-gradient(to bottom, #81C133 0%,    #689b28 200%); 
+   background: linear-gradient(to bottom, #18A8F1 0%,    #689b28 200%); 
 }
 .nav-li:before{
       content: '';
@@ -204,7 +208,7 @@ nav{
    text-transform: uppercase;
    font-family: san-serif;
    background: background: linear-gradient(to bottom, #20B2AA 0%, #008B8B 150%);
-/*    overflow: hidden; */
+   overflow: hidden; 
 	position: relative;
 	z-index: 100;
    
@@ -261,9 +265,9 @@ nav{
    width:198px;
    height: 53px;
    border-radius:30px;
-   border:1px solid #6f9c3b;
+   border:1px solid #18A8F1;
    float: left;
-   color: #6f9c3b;
+   color: #18A8F1;
    letter-spacing: 1px;
 }
 .tab{
@@ -543,8 +547,8 @@ th{
 	border-top:0px;
 	border-left:0px;
 	border-right:0px;
-	border-bottom: 4px solid green;
-	color: green;
+	border-bottom: 4px solid #18A8F1;
+	color: #18A8F1;
 }
 .index_buttons_li{
    float: left;

@@ -318,7 +318,7 @@
 					                                 </a>
 					                              </div>
 					                              <div class="sbold">
-					                              <fmt:formatDate value="${deDate}" pattern="MM/dd"/>                         
+					                              <fmt:formatDate value="${vo.deDate}" pattern="MM/dd"/>                         
 					                                 <span style="font-size: 10pt; color: #c0c0c0"><fmt:formatDate value="${vo.deDate}" pattern="E"/> </span>
 					                              </div>
 					                              <div class="sarea">

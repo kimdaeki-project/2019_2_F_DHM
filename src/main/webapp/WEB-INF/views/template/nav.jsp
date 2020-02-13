@@ -4,7 +4,7 @@
 <nav>
    <div class="nav-contain row">
    <button class="m-title">dhm planner</button>
-      <div class="nav-logoWrapper"><a href="${pageContext.request.contextPath}/"><img alt="logo" src="${pageContext.request.contextPath}/imgs/logos/logo-white.png" class="nav-logoWrapper-img" ></a></div>
+      <div class="nav-logoWrapper"><a href="${pageContext.request.contextPath}/"><img alt="logo" src="${pageContext.request.contextPath}/imgs/logos/logo-blue.png" class="nav-logoWrapper-img" ></a></div>
       <div class="nav-menuWrapper">
          <div class="nav-menu-ul">
             <a class="nav-li nav-li-login" draggable="false"  href="${pageContext.request.contextPath}/member/memberLogin">로그인</a>
