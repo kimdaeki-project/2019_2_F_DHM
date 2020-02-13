@@ -668,6 +668,7 @@
 </div>
    </div>
 </div>
+<c:import url="template/footer.jsp"/>
   <script>
 
 

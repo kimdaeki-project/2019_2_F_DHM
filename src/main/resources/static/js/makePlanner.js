@@ -133,8 +133,16 @@ $(".mkp-right").on("click",".city-selOne", function() {
 var count = 1;
 var totalBak = 1;
 var pIndex = new Array(); //위도경도 인덱스 배열
+var pose = $("#purpose").val();
 
 $(".mkp-right").on("click",".mkp-ajax", function() {
+	
+	var url = "addPlanner";
+	if (pose > 8) {
+		url = "../planner/addPlanner";
+	}
+	
+	
    if (confirm("일정을 추가 하시겠습니까?")) {
       
       var cityName = $(this).parents().prev().val();
@@ -152,7 +160,7 @@ $(".mkp-right").on("click",".mkp-ajax", function() {
       
       $.ajax({
          type : "GET",
-         url      : "addPlanner",
+         url      : url,
          data   : {
             cityName : cityName,
             startDate : startDate,
@@ -174,7 +182,6 @@ $(".mkp-right").on("click",".mkp-ajax", function() {
       });
    }
 });
-
 
 
 function uptDate() {
@@ -386,35 +393,86 @@ $(".mkp-clp-btn").click(function() {
          plNum= $("#update-plNum").val();
       }
       
-      $.ajax({
-         type   : "POST",
-         url      : "makePlanner",
-         data   : {
-           plNum : plNum,
-            id       : id,
-            title    : title,
-            type   : type,
-            people   : people,
-            deDate   : deDate,
-            arDate   : arDate,
-            bak      : bak,
-            region   : region,
-            transfer   : transfer,
-            titleA:titleA,
-           firstimage:firstimageA,
-           addr1:addr1A,
-           arCode:arCodeA,
-           pp : polyIndex,
-           arCodeP: arCodeP,
-           email : email
-         },
-         success   : function(d) {
-               alert("저장되었습니다.");
-               location.href = "../schedule/schedulePage?plNum="+d;
-            }
-         
-         
-      });
+      if (pose < 9) {
+		
+    	  $.ajax({
+    		  type   : "POST",
+    		  url      : "makePlanner",
+    		  data   : {
+    			  plNum : plNum,
+    			  id       : id,
+    			  title    : title,
+    			  type   : type,
+    			  people   : people,
+    			  deDate   : deDate,
+    			  arDate   : arDate,
+    			  bak      : bak,
+    			  region   : region,
+    			  transfer   : transfer,
+    			  titleA:titleA,
+    			  firstimage:firstimageA,
+    			  addr1:addr1A,
+    			  arCode:arCodeA,
+    			  pp : polyIndex,
+    			  arCodeP: arCodeP,
+    			  email : email
+    		  },
+    		  success   : function(d) {
+    			  alert("저장되었습니다.");
+    			  location.href = "../schedule/schedulePage?plNum="+d;
+    		  }
+    		  
+    		  
+    	  });
+	}else{
+	
+		var price = $("#mkp-price").val();
+		var goal = $("#mkp-goal").val();
+		var start = $("#mkp-start").val();
+		var end = $("#mkp-end").val();
+		var time1 = $("#mkp-time1").val();
+		var time2 = $("#mkp-time2").val();
+	
+		alert("펀딩");
+	
+  	  $.ajax({
+		  type   : "POST",
+		  url      : "fundingPlanner",
+		  data   : {
+			  plNum : plNum,
+			  id       : id,
+			  title    : title,
+			  type   : type,
+			  people   : people,
+			  deDate   : deDate,
+			  arDate   : arDate,
+			  bak      : bak,
+			  region   : region,
+			  transfer   : transfer,
+			  titleA:titleA,
+			  firstimage:firstimageA,
+			  addr1:addr1A,
+			  arCode:arCodeA,
+			  pp : polyIndex,
+			  arCodeP: arCodeP,
+			  email : email,
+			  price : price,
+			  goal : goal,
+			  start : start,
+			  end : end,
+			  time1 : time1,
+			  time2 : time2
+		  },
+		  success   : function(d) {
+			  alert("저장되었습니다.");
+			  location.href = "../schedule/schedulePage?plNum="+d;
+		  }
+		  
+		  
+	  });
+
+	}
+      
    }
 });
 

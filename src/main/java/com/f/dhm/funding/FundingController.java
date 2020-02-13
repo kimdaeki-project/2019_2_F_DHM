@@ -11,6 +11,7 @@ import java.util.Optional;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -269,5 +270,14 @@ public class FundingController {
 //			fundingService.fundingUpdate(fundingVO);
 		return "redirect:./fundingList";
 	}
-
+	
+	
+	
+	@GetMapping("fundingPlanner")
+	public ModelAndView makeFunding() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("purpose", 9);
+		return mv;
+	}
 }
