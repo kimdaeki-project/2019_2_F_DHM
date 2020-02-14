@@ -130,7 +130,7 @@ public class ScheduleController {
     	  mv.addObject("totalCost",totalCost);
       }
       
-      List<PlannerVO> plannerList = plannerService.plannerSelect(plNum, session);
+      List<PlannerVO> plannerList = plannerService.plannerSelectIndex(plNum);
 
       int totalBak=0;
       int mu = 0;
@@ -193,7 +193,7 @@ public class ScheduleController {
       List<WishVO> wishlist = wishService.myWish(session, plNum);
       
       
-      if(memberVO==null && !plannerList.get(0).getId().equals("guest")) {
+      if(memberVO==null) {
          String msg="로그인이 필요합니다.";
          mv.addObject("message",msg);
          mv.addObject("path","../member/memberLogin?goBack=../schedule/schedulePage?plNum="+plNum);
@@ -254,7 +254,7 @@ public class ScheduleController {
          mv.addObject("days", days);
          mv.setViewName("/schedule/schedulePage");
          
-      }else if(plannerList.size()==0){
+      }else {
          String msg="다른사람의 플래너는 열람할 수 없습니다.";
          mv.addObject("message",msg);
          mv.addObject("path","/");

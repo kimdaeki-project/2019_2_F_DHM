@@ -16,7 +16,7 @@
 					<a class="nav-li nav-li-login" draggable="false"   href="${pageContext.request.contextPath}/member/memberLogin">로그인</a>
 			</c:if>
 			<c:if test= "${not empty sessionScope.member}"> 
-				<div class="nav-member-div">
+				<div class="nav-member-div"  onmouseenter="memOn()" onmouseleave="memOff()">
 			 <c:choose>
                <c:when test="${member.memberFilesVO.fname eq null}">
                   <a><img src="../imgs/dog.jpg" style="width: 40px; height: 40px; border-radius: 50%;" ></a>               
@@ -30,7 +30,7 @@
 					<a  class="nav-member-div-a" href="${pageContext.request.contextPath}/member/memberLogout">로그아웃</a>
 				</div>	
 			</c:if>
-				<div class="nav-service-div">서비스 
+				<div class="nav-service-div" onmouseenter="serOn()" onmouseleave="serOff()">서비스 
 					<a class="nav-service-div-a"  href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>
 					<a class="nav-service-div-a" href="${pageContext.request.contextPath}/qna/qnaList">qna</a>
 					<a class="nav-service-div-a" href="${pageContext.request.contextPath}/gnb/serviceCenter">faq</a>
@@ -61,15 +61,26 @@ $(document).ready(function(){
    $('.nav-service-div-a').css("display", "none");
 });
 
+function serOn() {
+	$(".nav-service-div-a").css("display","block");
+}
+
+function serOff() {
+	$(".nav-service-div-a").css("display","none");
+}
 
 
-$('.nav-service-div').click(function(){
 
-   $('.nav-service-div-a').toggle();
-
-});
 
 $('.nav-member-div').click(function(){
 	$('.nav-member-div-a').toggle();
 });
+
+function memOn() {
+	$(".nav-member-div-a").css("display","block");
+}
+
+function memOff() {
+	$(".nav-member-div-a").css("display","none");
+}
 </script>

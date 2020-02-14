@@ -653,8 +653,3 @@ $(".mkp-city-list").on("click",".ifm-info", function() {
 
 
 
-
-
-
-
-
