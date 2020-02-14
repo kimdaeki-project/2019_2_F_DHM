@@ -122,7 +122,7 @@ public class MemberController {
 	public MemberVO memberEMAILCheck(String email)throws Exception{		
 		
 		return memberService.memberEMAILCheck(email);
-	}
+	}	
 	//-----------------------------------------------------------------------
 	@ModelAttribute("memberVO")
 	public MemberVO memberVO()throws Exception{

@@ -2658,9 +2658,9 @@ float: left;
 }
 
 .idpwmain4-2-2{
-color: gray;	
 padding-left: 40px;	
 padding-top: 60px;
+color: gray;	
 font-size: 17px;
 }
 
@@ -2674,8 +2674,7 @@ float: left;
 .idpwmain4-3-1{
 margin-top: 56px;	
 width: 200px;
-height: 30px;	
-	
+height: 30px;		
 }
 
 .idpwmain4-3-2{
@@ -2799,6 +2798,11 @@ border: 1px solid #b86464;
 
 
 
+
+
+
+
+
 .idpwmain5{
 margin-top:50px;
 margin-left: 160px;
@@ -2841,7 +2845,11 @@ padding-top: 15px;
 
 
 
-
+.idpwmainbox2{
+width: 100%;
+height: 100px;	
+background-color: #ececec;	
+}
 
 
 /* memberIDPW css  End **********************************************************************/
