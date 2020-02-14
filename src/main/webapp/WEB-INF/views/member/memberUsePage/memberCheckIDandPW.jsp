@@ -238,7 +238,6 @@ $(".idpwmain5-3-2").click(function(){
 			},
 		success : function(getpw){
 			//성공창
-//			alert(getpw);
 			if(getpw != ""){
  				$(".idpwmain5-3-2").css("background","#95a5a6");
  				$(".hellomother2").css("text-align","center");	

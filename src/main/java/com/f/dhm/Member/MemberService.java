@@ -77,7 +77,7 @@ public class MemberService {
 	//PW 불러오기----------------------------------------
 	public MemberVO memberEMAIL3Check(String id)throws Exception{
 		
-		return memberRepository.findByPw(id);
+		return memberRepository.findById(id).get();
 	}
 	//ID 불러오기----------------------------------------
 	public MemberVO memberEMAIL2Check(String email)throws Exception{
