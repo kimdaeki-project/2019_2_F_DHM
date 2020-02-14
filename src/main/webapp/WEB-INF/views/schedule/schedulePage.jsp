@@ -374,35 +374,35 @@
 					
 					<!-- 일정표 -->
 					<div class="schedule-wrapper">
-						<div class="swiper-container">
-							<ul class="swiper-wrapper nolist" >
-								<c:forEach items="${planner}" var="vo">
-									<c:forEach begin="1" end="${bak}">
-									<!-- li 하나 -->
-					                        <li class="swiper-slide schedule-li" style="height: 560px;">
-					                           <div class="schedule-top">
-					                              <div class="schedule-top2">
-					                                 <a data-toggle="modal" data-target="#mySc">
-					                                    <div class="schedule-map">
-					                                       <img src="https://www.stubbyplanner.com/img_v15/icon_map.png">
-					                                       <div class="schedule-map-title">지도</div>
-					                                    </div>
-					                                 </a>
-					                              </div>
-					                              <div class="sbold">
-					                              <fmt:formatDate value="${vo.deDate}" pattern="MM/dd"/>                         
-					                                 <span style="font-size: 10pt; color: #c0c0c0"><fmt:formatDate value="${vo.deDate}" pattern="E"/> </span>
-					                              </div>
-					                              <div class="sarea">
-					                                 <div style="line-height: 110%; height: 32px;">${vo.region}</div>
-					                              </div>
-					                           </div>
-					                           <div class="schedule-body">
-					                              <div class="schedule-body-row">0~9
-					                                 <div class="schedule-body-content">
-						                                 <c:forEach items="${scheduleInfo}" var="sc">
-															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 8 && sc.arCode eq vo.arCode}">	
+                  <div class="swiper-container">
+                     <ul class="swiper-wrapper nolist" >
+                           <c:forEach begin="0" end="${everyDay.size()-1}" varStatus="e">
+                           <!-- li 하나 -->
+                                       <li class="swiper-slide schedule-li" style="height: 560px;">
+                                          <div class="schedule-top">
+                                             <div class="schedule-top2">
+                                                <a data-toggle="modal" data-target="#mySc">
+                                                   <div class="schedule-map">
+                                                      <img src="https://www.stubbyplanner.com/img_v15/icon_map.png">
+                                                      <div class="schedule-map-title">지도</div>
+                                                   </div>
+                                                </a>
+                                             </div>
+                                             <div class="sbold">
+                                             <fmt:formatDate value="${everyDay[e.index] }" pattern="MM/dd"/>                         
+                                                <span style="font-size: 10pt; color: #c0c0c0"><fmt:formatDate value="${everyDay[e.index] }" pattern="E"/> </span>
+                                             </div>
+                                             <div class="sarea">
+                                                <div style="line-height: 110%; height: 32px;">${city[e.index] }</div>
+                                             </div>
+                                          </div>
+                                          <div class="schedule-body">
+                                             <div class="schedule-body-row">0~9
+                                                <div class="schedule-body-content">
+                                                   <c:forEach items="${scheduleInfo}" var="sc">
+                                             		<div title="${sc.scName}">
+                                               			<c:if test="${sc.start eq 8 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index]}">
+
 					                                			 	 <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -438,16 +438,46 @@
 					                              </div>
 					                              <div class="schedule-body-row">9
 					                                 <div class="schedule-body-content">
-					                                  <c:forEach items="${schedule}" var="sc">
-														<p><c:if test="${sc.start eq 9 && sc.arCode eq vo.arCode}">${sc.scName}</c:if>
-													 </c:forEach>
+					                                   <c:forEach items="${scheduleInfo}" var="sc">
+															<div title="${sc.scName}">
+																<c:if test="${sc.start eq 10 && sc.arCode eq arCode[e.index]}">
+					                                			 <a class="md2" style="text-align: center;">
+																		<div>${sc.scName}</div>
+																		<div class="md2-child" style="display: none;">
+																			<div class="img-sc"><img src="${sc.firstimage}"></div>
+																																					
+																			<div style="clear: both;"> 
+																				<div class="sc-title">일정명</div>
+																				<div class="sc-float">${sc.scName}</div>
+																			</div>															
+																			<div style="clear: both;"> 
+																				<div class="sc-title">일정</div>
+																				<div class="sc-float">${sc.tour}</div>
+																			</div>  																
+																			<div style="clear: both;"> 
+																				<div class="sc-title">예상가격</div>
+																				<div class="sc-float">${sc.cost} 원</div>
+																			</div>															
+																			<div style="clear: both;"> 
+																				<div class="sc-title">주소</div>
+																				<div class="sc-float">${sc.addr1}</div>
+																			</div> 																
+																			<div style="clear: both;"> 
+																				<div class="sc-title">일정 시간</div>
+																				<div class="sc-float">${sc.start}</div>
+																			</div>																
+																		</div>
+																	</a>
+																</c:if>
+															</div>
+														 </c:forEach>
 					                                 </div>
 					                              </div>
 					                              <div class="schedule-body-row">10
 					                                 <div class="schedule-body-content">
 						                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 10 && sc.arCode eq vo.arCode}">
+																<c:if test="${sc.start eq 10 && sc.arCode eq arCode[e.index]}">
 					                                			 <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -484,7 +514,7 @@
 					                                 <div class="schedule-body-content">
 					                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 11 && sc.arCode eq vo.arCode}">
+																<c:if test="${sc.start eq 11 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -521,7 +551,7 @@
 					                                 <div class="schedule-body-content">
 					                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 12 && sc.arCode eq vo.arCode}">
+																<c:if test="${sc.start eq 12 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -558,7 +588,7 @@
 					                                 <div class="schedule-body-content">
 					                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 13 && sc.arCode eq vo.arCode}">
+																<c:if test="${sc.start eq 13 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -595,7 +625,7 @@
 					                                 <div class="schedule-body-content">
 														<c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 14 && sc.arCode eq vo.arCode}">
+																<c:if test="${sc.start eq 14 && sc.arCode eq arCode[e.index]}">
 					                                			 <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -632,7 +662,7 @@
 					                                 <div class="schedule-body-content">
 					                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 15 && sc.arCode eq vo.arCode}">
+																<c:if test="${sc.start eq 15 && sc.arCode eq arCode[e.index]}">
 					                                			 <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -669,7 +699,7 @@
 					                                 <div class="schedule-body-content">
 					                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 16 && sc.arCode eq vo.arCode}">
+																<c:if test="${sc.start eq 16 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -706,7 +736,7 @@
 					                                 <div class="schedule-body-content">
 					                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 17 && sc.arCode eq vo.arCode}">
+																<c:if test="${sc.start eq 17 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -743,7 +773,7 @@
 					                                 <div class="schedule-body-content">
 					                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 18 && sc.arCode eq vo.arCode}">
+																<c:if test="${sc.start eq 18 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -780,7 +810,7 @@
 					                                 <div class="schedule-body-content">
 					                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 19 && sc.arCode eq vo.arCode}">
+																<c:if test="${sc.start eq 19 && sc.arCode eq arCode[e.index]}">
 					                                			 <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -817,7 +847,7 @@
 					                                 <div class="schedule-body-content">
 					                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 20 && sc.arCode eq vo.arCode}">
+																<c:if test="${sc.start eq 20 && sc.arCode eq arCode[e.index]}">
 					                                			 <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -854,7 +884,7 @@
 					                                 <div class="schedule-body-content">
 					                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 21 && sc.arCode eq vo.arCode}">
+																<c:if test="${sc.start eq 21 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -891,7 +921,7 @@
 					                                 <div class="schedule-body-content">
 					                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 22 && sc.arCode eq vo.arCode}">
+																<c:if test="${sc.start eq 22 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -919,16 +949,14 @@
 																			</div>																
 																		</div>
 																	</a>
-																</c:if>
-															</div>
-														 </c:forEach>
-					                                 </div>
-					                              </div>
-					                           </div>
-					                        </li>
-					                </c:forEach>
-								</c:forEach>
-								
+			                                                </c:if>
+			                                             </div>
+			                                           </c:forEach>
+			                                                </div>
+			                                             </div>
+			                                          </div>
+			                                       </li>
+			                               </c:forEach>
 							</ul>
 						</div>
 						
@@ -961,10 +989,9 @@
 							</select>
 						</div>
 						<div style="float: left; width: 28%; margin-right: 10px; ">
-							<select name="start" title="start" id="start" class="form-control" style="height: 30pt; font-size: 10pt; font-weight: 600;">
-								<option value="8">19일</option>
-								<c:forEach  var="i" step="1" begin="9" end="20">
-									<option value="${i}">${i}시</option>
+							<select name="day" title="day" id="day" class="form-control" style="height: 30pt; font-size: 10pt; font-weight: 600;">
+								<c:forEach begin="0" end="${everyDay.size()-1}" varStatus="e">
+									<option value="${everyDay[e.index] }"><fmt:formatDate value="${everyDay[e.index] }" pattern="MM/dd"/>  일</option>
 								</c:forEach>
 							</select>
 						</div>
@@ -991,7 +1018,7 @@
 						<input type="hidden" name="title" id="vot" value="${vo.title}" title="${vo.title}">
 					</div>
 					<div style="margin-left:150px; margin-top: 30px; margin-bottom:20px; width: 50%; height: 20px;">
-						<button type="button" onclick="addSchedule('a',cost,start,'d',${plNum},0);"  style=" width: 100%; height:30px; background:#18A8F1;border-radius:5px;border:0px solid #c0c0c0;color:#fff;">일정표추가</button>
+						<button type="button" onclick="addSchedule('a',cost,start,day,'d',${plNum},0);"  style=" width: 100%; height:30px; background:#18A8F1;border-radius:5px;border:0px solid #c0c0c0;color:#fff;">일정표추가</button>
 						
 					</div>
 				</div>
@@ -1088,12 +1115,13 @@
 				}
 		);
 		
-		function addSchedule(scName, cost, start, title, plNum, arCode){
+		function addSchedule(scName, cost, start,day, title, plNum, arCode){
 
 			
 			var scName = $("#scName").val();
 			var cost = $("#cost").val();
 			var start = $("#start").val();
+			var day = $("#day").val();
 			var arCode = tt;
 			var title = title2;
 			var a =$("#a").val(arCode);
@@ -1106,6 +1134,7 @@
 					scName:scName,
 					cost:cost,
 					start:start,
+					day:day,
 					title:title,
 					plNum:plNum,
 					arCode:arCode

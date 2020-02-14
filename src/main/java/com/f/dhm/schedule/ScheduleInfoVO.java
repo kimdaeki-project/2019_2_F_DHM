@@ -15,6 +15,7 @@ public class ScheduleInfoVO {
 	private String tour; //관광지이름
 	private Integer cost;
 	private Integer start;
+	private String day;
 	private Integer arCode;
 	//wishVO
 	private String title;
