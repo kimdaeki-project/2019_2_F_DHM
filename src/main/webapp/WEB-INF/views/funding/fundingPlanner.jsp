@@ -22,6 +22,7 @@
 	</c:when>
 	<c:otherwise>
 
+
 <c:import url="../template/boot.jsp"/>
 <c:import url="../template/dragJquery.jsp"/>
 <section>
@@ -314,6 +315,7 @@ $("#mkp-time1").timepicker({
 </script>
 <script src="../js/cityList.js"></script>
 <script src="../js/makePlanner.js"></script>
-
+</c:otherwise>
+</c:choose>
 </body>
 </html>
