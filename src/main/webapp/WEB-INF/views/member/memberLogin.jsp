@@ -52,7 +52,7 @@
 							<label for="pw"></label><input type="password" class=" login5-2-2 form-control" id="pw" name="pw" placeholder="Enter password">
 						</div>
 						
-						<div ><a href="${pageContext.request.contextPath}/member/memberUsePage/memberCheckIDandPW" id="login5-5">아이디/비밀번호 찾기</a></div>
+						<div><a href="${pageContext.request.contextPath}/member/memberUsePage/memberCheckIDandPW" id="login5-5">아이디/비밀번호 찾기</a></div>
 					
 						<div class="col col-8">
 							<label class="checkbox" style="font-size:9pt">
@@ -65,7 +65,7 @@
 			
 			<div class="Login6">
 				<div class="btn1">로그인</div>
-				<div class="btn2"><a href="${pageContext.request.contextPath}/member/memberJoin">회원가입</a></div>
+				<div class="btn2"><a style="color: white;" href="${pageContext.request.contextPath}/member/memberJoin">회원가입</a></div>
 			</div>
 		</div>
 	</div>
@@ -93,6 +93,43 @@
 		 $(".btn1").click();
 	    }
 	 });
+
+
+	//id pw찾기 마우스 이벤트
+	$(document).ready(function (){
+		
+    $('#login5-5').mouseover(function() {
+        $(this).css('color','#63caf8');
+        $(this).css('font-weight','bold');     
+    	});
+	
+    $('#login5-5').mouseout(function(){
+       	 $(this).css('color','black');
+       	$(this).css('font-weight','normal'); 
+   		});
+ 
+	});
+
+
+	//img 마우스 이벤트
+	$(document).ready(function (){
+		
+	    $('.login2img').mouseover(function() {
+	        $('.GuestJoin').css('color','#63caf8');
+	        $('.GuestJoin').css('font-weight','bold');     
+	    	});
+		
+	    $('.login2img').mouseout(function(){
+	       	 $('.GuestJoin').css('color','black');
+	       	$('.GuestJoin').css('font-weight','normal'); 
+	   		});
+	 
+	});
+
+
+
+
+	 
 
 
 </script>

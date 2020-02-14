@@ -53,7 +53,7 @@
 				</div>			
 			<!-- 아이디1 입력창 -->
 				<div class="idpwmain6-3">
-					<input type="text" class="idpwmain5-3-1">
+					<input type="text" class="idpwmain6-3-1">
 				</div>
 			<!-- 아이디1 입력창 -->	
 				<div class="idpwmain5-2">
@@ -69,27 +69,65 @@
 			<!-- 이메일2 입력창 -->	
 				
 				
-				
-				
-				
-				
-			
+	
 			
 			</div>
 			
 		</div>
 	</div>
 
-
-
-
-
-	
-	
-	
-	
-	
-	
 	<c:import url="../../template/footer.jsp"/>
 </body>
+<script type="text/javascript">
+//아이디 찾기----------------------------------------------------------------
+//email 입력창
+$(document).ready(function (){
+	
+    $('.idpwmain4-3-1').focus(function() {
+        $('.idpwmain4-2-2').css('color','#63caf8');
+        $('.idpwmain4-2-2').css('font-weight','bold');     
+    	});
+	
+    $('.idpwmain4-3-1').blur(function(){
+       	 $('.idpwmain4-2-2').css('color','gray');
+       	$('.idpwmain4-2-2').css('font-weight','normal'); 
+   		});
+ 
+});
+//비밀번호 재발급----------------------------------------------------------------
+//아이디 입력창
+$(document).ready(function (){
+	
+    $('.idpwmain6-3-1').focus(function() {
+        $('.idpwmain6-2-2').css('color','#63caf8');
+        $('.idpwmain6-2-2').css('font-weight','bold');     
+    	});
+	
+    $('.idpwmain6-3-1').blur(function(){
+       	 $('.idpwmain6-2-2').css('color','gray');
+       	$('.idpwmain6-2-2').css('font-weight','normal'); 
+   		});
+ 
+});
+//이메일 입력창
+$(document).ready(function (){
+	
+    $('.idpwmain5-3-1').focus(function() {
+        $('.idpwmain5-2-2').css('color','#63caf8');
+        $('.idpwmain5-2-2').css('font-weight','bold');     
+    	});
+	
+    $('.idpwmain5-3-1').blur(function(){
+       	$('.idpwmain5-2-2').css('color','gray');
+       	$('.idpwmain5-2-2').css('font-weight','normal'); 
+   		});
+ 
+});
+
+
+
+
+
+
+</script>
 </html>

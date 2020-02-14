@@ -112,7 +112,7 @@ width: 130px;
 height: 30px;
 color: gray;
 line-height: -30px;	
-margin-left: 400px;
+margin-left: 420px;
 margin-top: -65px;
 }
 
@@ -2718,8 +2718,16 @@ margin-top: 5px;
 .idpwmain5-3-1{
 margin-top: 20px;	
 width: 200px;
-height: 30px;	
-	
+height: 30px;		
+}
+
+.idpwmain6-3-1{
+margin-top: 20px;	
+width: 200px;
+height: 30px;
+top: 510px;
+z-index: 999;
+position: absolute;
 }
 
 .idpwmain5-3-2{
