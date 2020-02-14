@@ -27,6 +27,7 @@ import com.f.dhm.wishlist.WishVO;
 @RequestMapping("/schedule/**")
 public class ScheduleController {
 
+
    @Autowired
    private ScheduleService scheduleService;
    @Autowired

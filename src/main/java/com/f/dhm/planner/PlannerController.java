@@ -328,7 +328,7 @@ public class PlannerController {
 		         vo.setRegion(region[i]);
 		         
 		         //도시 정보 추가
-		         if (i > 0 && deDate.length > 1) {            
+		         if (i > 0 && deDate.length > 1 && transfer.length > 0) {            
 		            vo.setTransfer(transfer[i-1]);
 		            LoService.updateLoc(arCodeP[i], Integer.parseInt(bak[i]), transfer[i-1]);
 		         }else {
