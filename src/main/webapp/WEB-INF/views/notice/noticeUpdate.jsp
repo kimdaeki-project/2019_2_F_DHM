@@ -20,7 +20,7 @@
 <div class="container">
 	<article>
 	<h1>Notice Update</h1>
-			<form:form action="noticeUpdate" modelAttribute="noticeVO" method="post">
+			<form:form action="noticeUpdate" modelAttribute="noticeVO" method="post"  enctype="multipart/form-data">
 				<div class="form-group">
 				<label for="usr">title:</label> 
 				<form:input	class="form-control" path="title"/>
@@ -36,14 +36,15 @@
 			<form:input path="id" class="displayNone"/>
 
 			<form:input path="hit" class="displayNone"/>
+			
 			<div class="fileDiv">
 				<div>
 						
 				</div>
 			</div>
 			<input type="button" value="plus files" id="filePlus">
-
 			<div class="float_right"><button class="button2">submit</button></div>
+			
 			</form:form>
 		</article>
 </div>
@@ -56,6 +57,17 @@ $('.contents').summernote({
     tabsize: 2,
     height: 500
   });
+
+var count=0;
+
+$('#filePlus').click(function(){
+	if(count==5){
+		alert('더이상 파일을 추가할 수 없습니다.')}
+	else{
+	count++;
+	$('.fileDiv').append('<input type="file" class="inputFile" name="files"> ');
+		}
+});
   </script>
 </body>
 </html>

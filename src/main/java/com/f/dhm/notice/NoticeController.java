@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.hibernate.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -38,7 +39,13 @@ public class NoticeController {
    
    @PostMapping("noticeUpdate")
    public String noticeUpdate(NoticeVO noticeVO, List<MultipartFile> files)throws Exception{
-      files.remove(0);
+	   if(files!=null) {
+		   files.remove(0);
+	   }else {
+		   System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+
+		   files.forEach(System.out::println);
+	   }
       noticeService.noticeUpdate(noticeVO, files);   
       return "redirect:./noticeList";
    }

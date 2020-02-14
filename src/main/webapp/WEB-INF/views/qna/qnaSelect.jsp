@@ -38,8 +38,16 @@
 			</div>
 			</article>
 			<div class="board_select_row"><br>
+			
+			<c:if test="${not empty sessionScope.member }">
+			<c:set value="${ sessionScope.member.id }" var="sessionID"/>
+			<h1>session id : ${sessionID } / ${qnaVO.writer }</h1>
 				<input type="button" class="button2" value="댓글쓰기" id="comment">
-				<input type="button" class="button" value="delete" id="delete">
+				<c:if test="${sessionID eq qnaVO.writer  }">
+					<input type="button" class="button" value="delete" id="delete">
+					<input type="button" class="button" value="update" id="update">
+				</c:if>
+			</c:if>
 			</div>	
 		</div>
 	</div>
@@ -54,6 +62,11 @@
 	$('#delete').click(function(){
 		location.href="qnaDelete?num=${qnaVO.num}";
 		});
+
+	$('#update').click(function(){
+		location.href="qnaUpdate?num=${qnaVO.num}";
+		});
+
 	</script>
 </body>
 </html>

@@ -13,8 +13,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  
-  
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet"  href="../css/membercss.css">
 <link rel="stylesheet"  href="../css/basic.css">
@@ -44,6 +43,7 @@
          
          <div class="my2" id="my2">
          	<div class="my2-1">
+
 				<h4>방명록</h4>
 
 
@@ -53,6 +53,7 @@
 
 
 			 </div>
+
          </div>
          
          <div class="my3" id="my3">

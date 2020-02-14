@@ -399,6 +399,7 @@
                                           <div class="schedule-body">
                                              <div class="schedule-body-row">0~9 
                                                 <div class="schedule-body-content">
+
                                                    <c:forEach items="${scheduleInfo}" var="sc">
                                              		<div title="${sc.scName}">
                                                			<c:if test="${sc.start eq 8 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index] }">
@@ -1040,12 +1041,110 @@
   		</div>
   	</div>
 	
-	<!-- </form> -->
-	<div style="display: none;">
+
+
+   <!--=======================================================================================================================-->
+   <div class="container" style="margin-top: -50px;">
+		<h1 style="color: #c9c9c9; border-bottom: 1px solid #c9c9c9; padding-bottom: 10px;">review</h1>
+		<div class="section" style="background: gold;">
+			<div class="reviewFlexWrapper">
+				<div class="reviewWrapper_leftSide">
+					<c:forEach items="${comments }" var="comments">
+<!-- 					reviewBox -->
+					<div class="reviewBox ">
+						<div class="reviewMemberImg"><img alt="members_img" src="../images/pixel.jpg" class="reviewMemberImg_img"></div>
+						<div class="reviewCommentsWrapper">
+							<h5 class="reviewComments_header_info">
+								<span>${comments.id } </span>
+								<span class="reviewComments_header_date">${comments.regDate }</span>
+								<span style="float: right;">
+								<c:if test="${comments.id eq sessionScope.member.id}">
+									<a style="color: #999;" href="./reviewUpdate?cNum=${comments.CNum}">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;
+									<b><a style="color: #999;" href="reviewDelete?cNum=${comments.CNum}">x</a></b>
+								</c:if>
+								</span>
+							</h5>
+							<div class="reviewComments_comments">${comments.contents }</div>
+						</div>
+					</div>
+<!-- 					reviewBox -->
+					</c:forEach>			
+					<!-- summernote *****************************-->
+					<form action="./scheduleComment" method="post">
+					<div class="reviewBox" >
+						<div class="reviewMemberImg"><img alt="members_img" src="../images/user.jpg" class="reviewMemberImg_img"></div>
+						<div class="reviewCommentsWrapper">
+							<textarea class="contents" name="contents"></textarea>
+						</div>
+					</div>
+					<button class="button" style="margin-left: 50px;">답글입력</button>
+					<input type="text" name="plNum" value="${plNum }" class="displayNone">
+					</form>
+					<!-- summernote *****************************-->
+				</div>
+<!-- 				<div class="reviewWrapper_rightSide"> -->
+<!-- 					<div class="reviewWrapper_rightSide_rel"> -->
+<!-- 						연관정보 -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+			</div>
+		</div>
+	</div>
+   <!---=======================================================================================================================  -->
+   <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      <div class="m-wrapper"></div>
+      <div class="m-box">
+         <div style="width: 600px; clear:both;display: inline-block; ">
+            <div>
+               
+               여행 일정 추가하기
+               
+               <div>
+               일정표에 추가 할 날짜/시간   
+               </div>
+               <div style="float:left; width: 70%;">
+                  <select class="form-control" style="height: 30pt; font-size: 12pt; font-weight: 600;">
+                     <c:forEach items="${planner}" var="vo">
+                        <option value="" id="a" class="b" title="${vo.arCode}">${vo.region}</option>
+                     </c:forEach>
+                  </select>
+               </div>
+               <div style="float:left; width: 30%;">
+                  <select name="start" title="start" id="start" class="form-control" style="height: 30pt; font-size: 12pt; font-weight: 600;">
+                     <option value="8">0~9시</option>
+                     <c:forEach  var="i" step="1" begin="9" end="20">
+                        <option value="${i}">${i}시</option>
+                     </c:forEach>
+            
+                  </select>
+               </div>
+               <div>
+                  일정 코멘트
+                  <input type="text" name="scName" id = "scName">
+                  예상비용
+                  <input type="text" name="cost" id="cost">
+                  <input type="hidden" name="title" id="vot" value="${vo.title}" title="${vo.title}">
+               </div>
+               <div style="margin-top: 30px; width: 100%;">
+                  <button type="button" onclick="addSchedule('a',cost,start,'d',${plNum},0);"  style=" width: 100%; background:#3ad195;border-radius:5px;border:0px solid #c0c0c0;color:#fff;">일정표추가</button>
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+   </div>
+   <!-- </form> -->
+   <div style="display: none;">
+
    <c:forEach items="${planner }" var="plan">
       <p class="pp-index" >${plan.polyPath }</p>
       <input id="${plan.region }" title="${plan.deDate }" value="${plan.arDate }" class="sch-eventList"  type="hidden" >
    </c:forEach>
+   
+  
+
 </div>
 	<script type="text/javascript">
 
@@ -1303,7 +1402,16 @@
       });
 
 
+
 		
-	</script>
+
+   $('.contents').summernote({
+		placeholder : 'write contents!',
+		tabsize : 2,
+		height : 150
+	});
+      
+   </script>
+
 </body>
 </html>

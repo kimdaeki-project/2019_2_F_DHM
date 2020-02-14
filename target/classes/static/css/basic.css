@@ -868,62 +868,6 @@ th{
 
 /* 모바일버전 (세로) */
 @media (max-width: 575px) {
-	body{width:100%;}
-	nav{height:50px; width:100%;}
-.nav-contain{height: 50px; background: #092834; width: 100%; text-align: center;}
-.nav-menuWrapper{
-	width: 100%;
-	background: #1A3E4C; 
-}
-.nav-logoWrapper, .nav-logoWrapper-img{display: none;}
-.m-title{
-	display: block;
-	width:20%;
-	height:inherit;
-	text-align:center;
-	/* border:1px solid gold; */
-	 transform: translateX(100%);
-	color: gold;
-	/* margn:0 auto; */
-	background:none;
-	outline: none;
-	border: none;
-}
-.nav-menu-ul{}
-.nav-li-login:hover{
-	
-	display: inline;
-	list-style: none;
-	float: right;
-	height: 100%;
-	padding: 0 20px;
-	line-height: 62px;
-	border-left:1px solid #dcdcdc;
-	color: GhostWhite;
-	text-transform: uppercase;
-	font-family: san-serif;
-	background: linear-gradient(to bottom, #347B98 0%, #1A3E4C 150%);
-}
-.nav-li{
-	color: #E4F1F6;		
-	width:100%;
-	background: #1A3E4C;
-	clear:both;
-	display: block;
-	text-align: center;
-}
-.nav-logoWrapper{
-	width:200px;
-	height: 50px;
-	margin:0 auto;
-	padding: 0;
-}
-.nav-logoWrapper>img{
-	width: inherit;
-	height: inherit;
-	text-align: center;
-}
-
 
  }
  /* footer css  Start **********************************************************************/
