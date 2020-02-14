@@ -122,9 +122,9 @@ public class MemberController {
 	public String memberEMAIL3Check(String id)throws Exception{		
 		
 		if(memberService.memberEMAIL3Check(id) == null) {
-			return "일치하는 아이디가 없습니다.";
+			return "[error] 다시 입력하십시오.";
 		}else {			
-			return memberService.memberEMAIL3Check(id).getPw();
+			return "PW : "+memberService.memberEMAIL3Check(id).getPw();
 		}		
 	}	
 	//ID 불러오기-----------------------------------------------------------------------
@@ -133,9 +133,9 @@ public class MemberController {
 	public String memberEMAIL2Check(String email)throws Exception{		
 		
 		if(memberService.memberEMAIL2Check(email) == null) {
-			return "일치하는 이메일이 없습니다.";
+			return "[error] 다시 입력하십시오.";
 		}else {			
-			return memberService.memberEMAIL2Check(email).getId();
+			return "ID : "+memberService.memberEMAIL2Check(email).getId();
 		}		
 	}	
 	//ID 체크-----------------------------------------------------------------------
