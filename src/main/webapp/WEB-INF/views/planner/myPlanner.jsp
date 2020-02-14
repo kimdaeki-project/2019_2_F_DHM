@@ -19,10 +19,10 @@
 <c:choose>
 <c:when test="${member ne null }">
 <div style="background-color: #f5f5f5;">
-	<div class="container container2" style="min-height: 804px;">
-		<div class="main-container">
+	<div class="container">
+		<div class="main-container row">
 			<div class="inner-wrap">
-				<div class="container">
+				<div class="container" style=" margin-bottom: 50px;"">
 				<c:choose>
 					<c:when test="${list.size() eq 0 }">
 						<a href="makePlanner">
@@ -32,10 +32,10 @@
 					<c:otherwise>
 					<h2 class="mp-title">나의 국내여행</h2>
 					<div class="p-wrapper">
-						<div class="swiper-container">
-							<ul class="swiper-wrapper nolist" style=" clear: both; overflow: hidden;">
+						<div class="">
+							<ul class=" nolist" style=" clear: both;">
 								<c:forEach items="${list}" var="vo" varStatus="i">
-									<li class="swiper-slide mp-li" style="height: 300px; overflow: hidden; float: left;">
+									<li class=" mp-li" style="height: 300px; overflow: hidden; float: left;">
 									<a href="../schedule/schedulePage?plNum=${vo.plNum}">
 										<div class="mp-li-wrap">
 											<div class="mp-card">
@@ -69,8 +69,8 @@
 		</div>
 	</div>
 
-
 </div>
+<c:import url="../template/footer.jsp"/>
 <script type="text/javascript">
 /* swiper */
 	/* var swiper = new Swiper('.swiper-container', {
@@ -92,7 +92,7 @@
 	      },
 	    });
 </script>
-<c:import url="../template/footer.jsp"/>
+
 </c:when>
 	<c:otherwise>
 		<script type="text/javascript">
