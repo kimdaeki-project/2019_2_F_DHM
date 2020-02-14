@@ -260,8 +260,9 @@ public class ScheduleController {
          mv.addObject("path","/");
          mv.setViewName("common/result");
       }
+      List<PlannerCommentVO> commentVOs=plannerService.getCommentList(plNum);
+      mv.addObject("commentVOs", commentVOs);
       
-   
       return mv;
    }
 

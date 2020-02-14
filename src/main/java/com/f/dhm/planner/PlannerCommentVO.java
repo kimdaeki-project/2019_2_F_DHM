@@ -2,6 +2,7 @@ package com.f.dhm.planner;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,6 +18,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.f.dhm.Member.MemberFilesVO;
+import com.f.dhm.Member.MemberVO;
 
 import lombok.Data;
 
@@ -34,6 +36,5 @@ public class PlannerCommentVO {
 	private Date regDate;
 
 	private int plNum;
-	
 
 }

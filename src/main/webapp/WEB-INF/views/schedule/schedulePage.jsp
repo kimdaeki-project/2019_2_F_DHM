@@ -31,7 +31,7 @@
 <c:import url="../template/nav.jsp"/>
 	<!-- <form action="schedulePage" method="POST"> -->
 
-	<div style="background-color: #f5f5f5">
+	<div style="background-color: #f5f5f5; height: auto;">
 	<div class="header">
 	</div>
 	<div class="container container2" style="padding-top: 90px;">
@@ -1049,7 +1049,7 @@
 		<div class="section" style="background: gold;">
 			<div class="reviewFlexWrapper">
 				<div class="reviewWrapper_leftSide">
-					<c:forEach items="${comments }" var="comments">
+					<c:forEach items="${commentVOs }" var="comments">
 <!-- 					reviewBox -->
 					<div class="reviewBox ">
 						<div class="reviewMemberImg"><img alt="members_img" src="../images/pixel.jpg" class="reviewMemberImg_img"></div>
