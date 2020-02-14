@@ -113,104 +113,237 @@ public class ScheduleController {
 		return flag;
 	}
 
-	
-	
-	@GetMapping("schedulePage")
-	public ModelAndView plannerPage(PlannerVO plannerVO, ScheduleVO scheduleVO, HttpSession session, Integer plNum, String scName)
-			throws Exception {
-		ModelAndView mv = new ModelAndView();
+//	
+//	
+//	@GetMapping("schedulePage")
+//	public ModelAndView plannerPage(PlannerVO plannerVO, ScheduleVO scheduleVO, HttpSession session, Integer plNum, String scName)
+//			throws Exception {
+//		ModelAndView mv = new ModelAndView();
+//
+//		
+//		MemberVO memberVO = (MemberVO) session.getAttribute("member");
+//		
+//		List<PlannerVO> plannerList = plannerService.plannerSelect(plNum, session);
+//
+//		int bak=0;
+//		
+//		for (int i = 0; i < plannerList.size(); i++) {
+//			
+//			bak = plannerList.get(i).getBak();
+//			mv.addObject("bak", bak);
+//			
+//		}
+//		
+//		
+//		List<ScheduleVO> scheduleList = scheduleService.scheduleList(plNum);
+//		List<WishVO> wishlist = wishService.myWish(session, plNum);
+//		
+//		Integer totalCost=scheduleService.totalCost(plNum);
+//		
+//		if(totalCost!=null && totalCost>0) {
+//			
+//			mv.addObject("totalCost", totalCost);
+//		}
+//		
+//		if(memberVO==null) {
+//			String msg="로그인이 필요합니다.";
+//			mv.addObject("message",msg);
+//			mv.addObject("path","../member/memberLogin?goBack=../schedule/schedulePage?plNum="+plNum);
+//			mv.setViewName("common/result");
+//			
+//		}else if(plannerList.size() !=0 && plannerList.get(0).getId().equals(memberVO.getId())) {
+//			
+//			
+//			List<ScheduleInfoVO> scheduleInfoVOs = new ArrayList<ScheduleInfoVO>();
+//			ScheduleInfoVO scheduleInfoVO =null;
+//			
+//			for(int i=0; i<scheduleList.size();i++) {
+//				
+//				String tour = scheduleList.get(i).getTour();
+//				System.out.println("tour    :    " +tour);
+//				Map<String, Object> scInfo = scheduleService.scheduleInfo(tour, plNum);
+//				scheduleInfoVO = new ScheduleInfoVO();
+//				scheduleInfoVO.setTitle((String)scInfo.get("title"));
+//				scheduleInfoVO.setAddr1((String)scInfo.get("addr1"));
+//				scheduleInfoVO.setCost((Integer)scInfo.get("cost"));
+//				scheduleInfoVO.setFirstimage((String)scInfo.get("firstimage"));
+//				scheduleInfoVO.setStart((Integer)scInfo.get("start"));
+//				scheduleInfoVO.setTour((String)scInfo.get("tour"));
+//				scheduleInfoVO.setArCode((Integer)scInfo.get("arCode"));
+//				scheduleInfoVO.setScName((String)scInfo.get("scName"));
+//				scheduleInfoVOs.add(scheduleInfoVO);
+//				System.out.println("arCodeTest    :   "+scheduleInfoVO.getArCode());
+//			}
+//			
+//			mv.addObject("scheduleInfo", scheduleInfoVOs);
+//			
+//			String plannerTitle = plannerService.plannerTitle(plNum);
+//			String plannerType = plannerService.plannerType(plNum);
+//			int days = plannerService.days(plNum);
+//			Date deDate = plannerList.get(0).getDeDate();
+//			// scheduleService.findDay(deDate);
+//			// Items ar2=xmlService.parseTour();
+//			Items ar2 = xmlService.searchTour(1, 39, "P", 1);
+//			
+//			
+//			if (wishlist != null) {
+//				mv.addObject("wishlist", wishlist);
+//			}
+//			
+//			// 음식점
+//			mv.addObject("food", xmlService.searchTour(1, 39, "P", 1).getItem());
+//			mv.addObject("plannerTitle", plannerTitle);
+//			mv.addObject("plannerType", plannerType);
+//			mv.addObject("planner", plannerList);
+//			mv.addObject("plNum", plNum);
+//			mv.addObject("dDate", deDate);
+//			mv.addObject("schedule", scheduleList);
+//			mv.addObject("days", days);
+//			mv.setViewName("/schedule/schedulePage");
+//			
+//		}else if(plannerList.size()==0){
+//			String msg="다른사람의 플래너는 열람할 수 없습니다.";
+//			mv.addObject("message",msg);
+//			mv.addObject("path","/");
+//			mv.setViewName("common/result");
+//		}
+//		
+//	
+//		return mv;
+//	}
 
-		
-		MemberVO memberVO = (MemberVO) session.getAttribute("member");
-		
-		List<PlannerVO> plannerList = plannerService.plannerSelect(plNum, session);
-
-		int bak=0;
-		
-		for (int i = 0; i < plannerList.size(); i++) {
-			
-			bak = plannerList.get(i).getBak();
-			mv.addObject("bak", bak);
-			
-		}
-		
-		
-		List<ScheduleVO> scheduleList = scheduleService.scheduleList(plNum);
-		List<WishVO> wishlist = wishService.myWish(session, plNum);
-		
-		Integer totalCost=scheduleService.totalCost(plNum);
-		
-		if(totalCost!=null && totalCost>0) {
-			
-			mv.addObject("totalCost", totalCost);
-		}
-		
-		if(memberVO==null) {
-			String msg="로그인이 필요합니다.";
-			mv.addObject("message",msg);
-			mv.addObject("path","../member/memberLogin?goBack=../schedule/schedulePage?plNum="+plNum);
-			mv.setViewName("common/result");
-			
-		}else if(plannerList.size() !=0 && plannerList.get(0).getId().equals(memberVO.getId())) {
-			
-			
-			List<ScheduleInfoVO> scheduleInfoVOs = new ArrayList<ScheduleInfoVO>();
-			ScheduleInfoVO scheduleInfoVO =null;
-			
-			for(int i=0; i<scheduleList.size();i++) {
-				
-				String tour = scheduleList.get(i).getTour();
-				System.out.println("tour    :    " +tour);
-				Map<String, Object> scInfo = scheduleService.scheduleInfo(tour, plNum);
-				scheduleInfoVO = new ScheduleInfoVO();
-				scheduleInfoVO.setTitle((String)scInfo.get("title"));
-				scheduleInfoVO.setAddr1((String)scInfo.get("addr1"));
-				scheduleInfoVO.setCost((Integer)scInfo.get("cost"));
-				scheduleInfoVO.setFirstimage((String)scInfo.get("firstimage"));
-				scheduleInfoVO.setStart((Integer)scInfo.get("start"));
-				scheduleInfoVO.setTour((String)scInfo.get("tour"));
-				scheduleInfoVO.setArCode((Integer)scInfo.get("arCode"));
-				scheduleInfoVO.setScName((String)scInfo.get("scName"));
-				scheduleInfoVOs.add(scheduleInfoVO);
-				System.out.println("arCodeTest    :   "+scheduleInfoVO.getArCode());
-			}
-			
-			mv.addObject("scheduleInfo", scheduleInfoVOs);
-			
-			String plannerTitle = plannerService.plannerTitle(plNum);
-			String plannerType = plannerService.plannerType(plNum);
-			int days = plannerService.days(plNum);
-			Date deDate = plannerList.get(0).getDeDate();
-			// scheduleService.findDay(deDate);
-			// Items ar2=xmlService.parseTour();
-			Items ar2 = xmlService.searchTour(1, 39, "P", 1);
-			
-			
-			if (wishlist != null) {
-				mv.addObject("wishlist", wishlist);
-			}
-			
-			// 음식점
-			mv.addObject("food", xmlService.searchTour(1, 39, "P", 1).getItem());
-			mv.addObject("plannerTitle", plannerTitle);
-			mv.addObject("plannerType", plannerType);
-			mv.addObject("planner", plannerList);
-			mv.addObject("plNum", plNum);
-			mv.addObject("dDate", deDate);
-			mv.addObject("schedule", scheduleList);
-			mv.addObject("days", days);
-			mv.setViewName("/schedule/schedulePage");
-			
-		}else if(plannerList.size()==0){
-			String msg="다른사람의 플래너는 열람할 수 없습니다.";
-			mv.addObject("message",msg);
-			mv.addObject("path","/");
-			mv.setViewName("common/result");
-		}
-		
 	
-		return mv;
-	}
+
+	   @GetMapping("schedulePage")
+	   public ModelAndView plannerPage(PlannerVO plannerVO, ScheduleVO scheduleVO, HttpSession session, int plNum, String scName)
+	         throws Exception {
+	      ModelAndView mv = new ModelAndView();
+
+	      
+	      MemberVO memberVO = (MemberVO) session.getAttribute("member");
+	      
+
+	      List<PlannerVO> plannerList = plannerService.plannerSelect(plNum, session);
+
+	      int totalBak=0;
+	      
+	      List<Integer> bak = new ArrayList<Integer>();
+	      List<Date> everyDay = new ArrayList<Date>();
+	      List<String> region = new ArrayList<String>();
+	      List<Integer> arCode = new ArrayList<Integer>();
+	      
+	      System.out.println(plannerList.size());
+	      for (int i = 0; i < plannerList.size(); i++) {
+	         totalBak += plannerList.get(i).getBak();
+	         bak.add(totalBak);
+	      }
+	      
+	      long firstDay = plannerList.get(0).getDeDate().getTime() - 1000*60*60*24;
+	      long oneDay = 1000*60*60*24;
+	      everyDay.add(new Date(firstDay));
+	      int everyCheck = 0;
+	      int bakNum = 0;
+	      
+	      for (int i = 0; i <= totalBak; i++) {
+	         if (plannerList.get(everyCheck).getBak()==0) {
+	            everyDay.add(new Date(firstDay));
+	            everyCheck++;
+	            i=i-1;
+	         }else {            
+	            firstDay = firstDay + oneDay;
+	            everyDay.add(new Date(firstDay));
+	         }
+	      }
+	      for (int i = 0; i < everyDay.size(); i++) {
+	            
+	    	  if(everyDay.size()>0) {
+	    	  	if (i < bak.get(bakNum)) {
+	               region.add(plannerList.get(bakNum).getRegion());
+	               arCode.add(plannerList.get(bakNum).getArCode());
+	            }else {
+	               arCode.add(plannerList.get(bakNum).getArCode());
+	               region.add(plannerList.get(bakNum).getRegion());
+	               bakNum++;
+	            }   
+	      
+	    	  }
+	      }
+	      mv.addObject("everyDay", everyDay);
+	      mv.addObject("city", region);
+	      mv.addObject("arCode", arCode);
+	      
+	      
+	      mv.addObject("bak", bak);
+	      
+	      List<ScheduleVO> scheduleList = scheduleService.scheduleList(plNum);
+	      List<WishVO> wishlist = wishService.myWish(session, plNum);
+	      
+	      
+	      if(memberVO==null && !plannerList.get(0).getId().equals("guest")) {
+	         String msg="로그인이 필요합니다.";
+	         mv.addObject("message",msg);
+	         mv.addObject("path","../member/memberLogin?goBack=../schedule/schedulePage?plNum="+plNum);
+	         mv.setViewName("common/result");
+	         
+	      }else if(plannerList.size() !=0 && plannerList.get(0).getId().equals(memberVO.getId())) {
+	         
+	         
+	         List<ScheduleInfoVO> scheduleInfoVOs = new ArrayList<ScheduleInfoVO>();
+	         ScheduleInfoVO scheduleInfoVO =null;
+	         
+	         for(int i=0; i<scheduleList.size();i++) {
+	            
+	            String tour = scheduleList.get(i).getTour();
+	            System.out.println("tour    :    " +tour);
+	            Map<String, Object> scInfo = scheduleService.scheduleInfo(tour, plNum);
+	            scheduleInfoVO = new ScheduleInfoVO();
+	            scheduleInfoVO.setTitle((String)scInfo.get("title"));
+	            scheduleInfoVO.setAddr1((String)scInfo.get("addr1"));
+	            scheduleInfoVO.setCost((Integer)scInfo.get("cost"));
+	            scheduleInfoVO.setFirstimage((String)scInfo.get("firstimage"));
+	            scheduleInfoVO.setStart((Integer)scInfo.get("start"));
+	            scheduleInfoVO.setTour((String)scInfo.get("tour"));
+	            scheduleInfoVO.setArCode((Integer)scInfo.get("arCode"));
+	            scheduleInfoVO.setScName((String)scInfo.get("scName"));
+	            scheduleInfoVOs.add(scheduleInfoVO);
+	            System.out.println("arCodeTest    :   "+scheduleInfoVO.getArCode());
+	         }
+	         mv.addObject("scheduleInfo", scheduleInfoVOs);
+	         
+	         String plannerTitle = plannerService.plannerTitle(plNum);
+	         String plannerType = plannerService.plannerType(plNum);
+	         int days = plannerService.days(plNum);
+	         Date deDate = plannerList.get(0).getDeDate();
+	         // scheduleService.findDay(deDate);
+	         // Items ar2=xmlService.parseTour();
+	         Items ar2 = xmlService.searchTour(1, 39, "P", 1);
+	         
+	         
+	         if (wishlist != null) {
+	            mv.addObject("wishlist", wishlist);
+	         }
+	         
+	         // 음식점
+	         mv.addObject("food", xmlService.searchTour(1, 39, "P", 1).getItem());
+	         mv.addObject("plannerTitle", plannerTitle);
+	         mv.addObject("plannerType", plannerType);
+	         mv.addObject("planner", plannerList);
+	         mv.addObject("plNum", plNum);
+	         mv.addObject("dDate", deDate);
+	         mv.addObject("schedule", scheduleList);
+	         mv.addObject("days", days);
+	         mv.setViewName("/schedule/schedulePage");
+	         
+	      }else if(plannerList.size()==0){
+	         String msg="다른사람의 플래너는 열람할 수 없습니다.";
+	         mv.addObject("message",msg);
+	         mv.addObject("path","/");
+	         mv.setViewName("common/result");
+	      }
+	      
+	   
+	      return mv;
+	   }
 
 	@GetMapping("showList")
 	public ModelAndView viewApi() throws Exception {
