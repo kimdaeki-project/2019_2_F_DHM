@@ -37,6 +37,7 @@
 			
 			<div >
 				<h3 class="contents-title">${plannerTitle}</h3>
+				
 				<input type="hidden" id="plNum" value="${plNum}" name ="plNum">
 			</div>
 			<div class="main-contents">

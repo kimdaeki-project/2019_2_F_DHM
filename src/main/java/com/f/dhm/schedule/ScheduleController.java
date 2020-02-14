@@ -8,13 +8,17 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.f.dhm.Member.MemberService;
 import com.f.dhm.Member.MemberVO;
+import com.f.dhm.planner.PlannerCommentVO;
 import com.f.dhm.planner.PlannerService;
 import com.f.dhm.planner.PlannerVO;
 import com.f.dhm.schedule.test.Items;
@@ -37,7 +41,73 @@ public class ScheduleController {
 	@Autowired
 	private MemberService memberService;
 	
+	@GetMapping("reviewDelete")
+	public ModelAndView reviewDelete(int cNum)throws Exception{
+		ModelAndView mv=new ModelAndView();
+		//plnum 찾기
+		PlannerCommentVO commentVO=plannerService.findPlNum(cNum);
+		int plNum=commentVO.getPlNum();
+		boolean exist=plannerService.reviewDelete(cNum);		//must be false
+		String msg="삭제 실패";
+		String path="./schedulePage?plNum="+plNum;
+		if(!exist) {
+			msg="삭제 성공";
+		}
+		mv.setViewName("common/result");
+		mv.addObject("message", msg);
+		mv.addObject("path", path);
+		return mv;
+	}
 	
+	@PostMapping("reviewUpdate")
+	public ModelAndView reviewUpdate(PlannerCommentVO plannerCommentVO) throws Exception{
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		System.out.println(plannerCommentVO.getCNum());
+		System.out.println(plannerCommentVO.getId());
+		System.out.println(plannerCommentVO.getPlNum());
+		plannerService.pcomment(plannerCommentVO);
+		ModelAndView mv =new ModelAndView();
+		String path="./schedulePage?plNum="+plannerCommentVO.getPlNum();
+		String message="수정 되었습니다.";
+		mv.setViewName("common/result");
+		mv.addObject("path", path);
+		mv.addObject("message", message);
+		return mv;
+	}
+	
+	@GetMapping("reviewUpdate")
+	public String reviewUpdate(int cNum,Model model)throws Exception{
+		System.out.println("////////////////////////////////////////////////////////////////");
+		System.out.println("cnum : "+cNum);
+		PlannerCommentVO commentVO=plannerService.getComment(cNum);
+		model.addAttribute("commentVO", commentVO);
+		return "schedule/reviewUpdate";
+	}
+	
+	@PostMapping("scheduleComment")
+	public ModelAndView scheduleComment(@ModelAttribute("plannerCommentVO") PlannerCommentVO	 plannerCommentVO, int plNum, HttpSession session)throws Exception{
+		ModelAndView mv=new ModelAndView();
+		System.out.println("test : PlannerController : scheduleComment : plNum" +plNum);
+		String path="../member/memberLogin";
+		String message="로그인이 필요합니다.";
+		if(session.getAttribute("member") != null) {
+			System.out.println("plNum : "+plNum);
+			System.out.println("plannerCommentVO.getTitle() : "+plannerCommentVO.getContents());
+			boolean check=plannerService.pcomment(plannerCommentVO, plNum, session);
+			path= "../schedule/schedulePage?plNum="+plNum;
+			message="작성되었습니다.";
+			mv.addObject("path", path);
+			mv.addObject("message", message);
+			mv.setViewName("common/result");
+		}else {
+			mv.setViewName("common/result");
+			mv.addObject("path", path);
+			mv.addObject("message", message);
+		}
+		
+		return mv;
+		
+	}
 	@GetMapping("scDelete")
 	public void scDelete(Integer plNum, HttpSession session) throws Exception{
 		MemberVO memberVO=(MemberVO) session.getAttribute("member");
@@ -70,7 +140,7 @@ public class ScheduleController {
 		}
 		
 		
-		mv.setViewName("schedule/schedulePage2");
+		mv.setViewName("schedule/schedulePage");
 		return mv;
 	}
 	
@@ -106,7 +176,7 @@ public class ScheduleController {
 			}
 	
 			
-			mv.setViewName("schedulePage2");
+			mv.setViewName("schedulePage");
 		
 		
 
@@ -125,9 +195,7 @@ public class ScheduleController {
 		
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		
-
 		List<PlannerVO> plannerList = plannerService.plannerSelect(plNum, session);
-
 		int bak=0;
 		
 		for (int i = 0; i < plannerList.size(); i++) {
@@ -196,7 +264,7 @@ public class ScheduleController {
 			mv.addObject("dDate", deDate);
 			mv.addObject("schedule", scheduleList);
 			mv.addObject("days", days);
-			mv.setViewName("/schedule/schedulePage2");
+			mv.setViewName("/schedule/schedulePage");
 			
 		}else if(plannerList.size()==0){
 			String msg="다른사람의 플래너는 열람할 수 없습니다.";
@@ -204,7 +272,8 @@ public class ScheduleController {
 			mv.addObject("path","../");
 			mv.setViewName("common/result");
 		}
-		
+		List<PlannerCommentVO> commentVOs=plannerService.getCommentList(plNum);
+		mv.addObject("comments", commentVOs);
 	
 		return mv;
 	}

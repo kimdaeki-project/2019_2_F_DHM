@@ -437,10 +437,57 @@
             </div>
          
          </div>
-         
+          
       </div>
-      
    </div>
+   <!--=======================================================================================================================-->
+   <div class="container" style="margin-top: -50px;">
+		<h1 style="color: #c9c9c9; border-bottom: 1px solid #c9c9c9; padding-bottom: 10px;">review</h1>
+		<div class="section" style="background: gold;">
+			<div class="reviewFlexWrapper">
+				<div class="reviewWrapper_leftSide">
+					<c:forEach items="${comments }" var="comments">
+<!-- 					reviewBox -->
+					<div class="reviewBox ">
+						<div class="reviewMemberImg"><img alt="members_img" src="../images/pixel.jpg" class="reviewMemberImg_img"></div>
+						<div class="reviewCommentsWrapper">
+							<h5 class="reviewComments_header_info">
+								<span>${comments.id } </span>
+								<span class="reviewComments_header_date">${comments.regDate }</span>
+								<span style="float: right;">
+								<c:if test="${comments.id eq sessionScope.member.id}">
+									<a style="color: #999;" href="./reviewUpdate?cNum=${comments.CNum}">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;
+									<b><a style="color: #999;" href="reviewDelete?cNum=${comments.CNum}">x</a></b>
+								</c:if>
+								</span>
+							</h5>
+							<div class="reviewComments_comments">${comments.contents }</div>
+						</div>
+					</div>
+<!-- 					reviewBox -->
+					</c:forEach>			
+					<!-- summernote *****************************-->
+					<form action="./scheduleComment" method="post">
+					<div class="reviewBox" >
+						<div class="reviewMemberImg"><img alt="members_img" src="../images/user.jpg" class="reviewMemberImg_img"></div>
+						<div class="reviewCommentsWrapper">
+							<textarea class="contents" name="contents"></textarea>
+						</div>
+					</div>
+					<button class="button" style="margin-left: 50px;">답글입력</button>
+					<input type="text" name="plNum" value="${plNum }" class="displayNone">
+					</form>
+					<!-- summernote *****************************-->
+				</div>
+<!-- 				<div class="reviewWrapper_rightSide"> -->
+<!-- 					<div class="reviewWrapper_rightSide_rel"> -->
+<!-- 						연관정보 -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+			</div>
+		</div>
+	</div>
+   <!---=======================================================================================================================  -->
    <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
       <div class="m-wrapper"></div>
@@ -491,6 +538,9 @@
       <p class="pp-index" >${plan.polyPath }</p>
       <input id="${plan.region }" title="${plan.deDate }" value="${plan.arDate }" class="sch-eventList"  type="hidden" >
    </c:forEach>
+   
+  
+
 </div>
    <script type="text/javascript">
 
@@ -693,8 +743,13 @@
         calendar.render();
       });
 
-
+   $('.contents').summernote({
+		placeholder : 'write contents!',
+		tabsize : 2,
+		height : 150
+	});
       
    </script>
+
 </body>
 </html>
