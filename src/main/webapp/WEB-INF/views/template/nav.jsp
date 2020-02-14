@@ -23,6 +23,7 @@
                <a class="nav-service-div-a" href="${pageContext.request.contextPath}/qna/qnaList">qna</a>
                <a class="nav-service-div-a" href="${pageContext.request.contextPath}/gnb/serviceCenter">faq</a>
             </div>
+            <a class="nav-li" href="${pageContext.request.contextPath}/funding/makeFundingList?id=${member.id}">나의 펀딩</a>
             <a class="nav-li" href="${pageContext.request.contextPath}/funding/fundingList">펀딩</a>
             <c:if test="${not empty sessionScope.member}">
                <a class="nav-li" href="${pageContext.request.contextPath}/planner/myPlanner">나의 플래너</a>

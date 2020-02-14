@@ -14,6 +14,7 @@
 <body>
 <c:import url="../template/nav.jsp"/>
 <div class="container">
+
 <c:choose>
 <c:when test="${vo.size() eq 0 }">
 						<a href="fundingPlanner">
@@ -32,13 +33,17 @@
 
 	<div class="funding_area">
 		<c:forEach items="${vo}" var="list" varStatus="i">
+				<a href="./myFundingSelect?num=${list.num}">
 			<div class="funding_block">
 				<div class="funding_block2">
 					<div class="funding_block3">
 					<div class="funding_inner_area">
 					
-				<a href="./fundingSelect?num=${list.num}">
-				<img class="funding_img" src="../test_img/test${i.index}.jpg"></a>
+				 
+                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${list.plNum}" width="100%" height="100%" style="border: none;"></iframe>
+									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+								<%-- <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div> --%>
+                                  
 						</div>
 					</div>
 					<div style="height: 50px; font-size: 15px; font-weight: bold; padding: 5px;">
@@ -64,6 +69,7 @@
 					</div>
 				</div>
 			</div>
+				</a>
 		</c:forEach>
 	
 			</div>
@@ -71,6 +77,7 @@
 	</div>
 	</c:otherwise>
 </c:choose>
+
 </div>
 
 </body>

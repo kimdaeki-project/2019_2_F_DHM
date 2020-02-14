@@ -52,16 +52,15 @@
 			<button id="btn" class="btn btn-primary" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">참여하기</button>
 	</div>
 		<div style="text-align: center; margin-bottom: 50px;">
-		<%-- <c:if test="${member.id eq vo.id }"> --%>
+		<c:if test="${member.id eq vo.id }">
 			<a href="./fundingUpdate?num=${vo.num }" class="btn btn-success" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">수정</a>
 			<button class="btn btn-danger" id="del" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">삭제</button>
-		<%-- </c:if> --%>
 		<a href="./fundingJoinList?fNum=${vo.num}" class="btn btn-info" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">참여자 확인</a>
+		</c:if>
 			<a href="./fundingList" class="btn btn-info" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">목록</a>
 		</div>
 	</div>
-	${vo.plNum}
-	<c:import url="../schedule/schedulePage?plNum=${vo.plNum}" />
+	
 <script type="text/javascript">
 	var goal = ${vo.goal};
 	var status = ${vo.status};

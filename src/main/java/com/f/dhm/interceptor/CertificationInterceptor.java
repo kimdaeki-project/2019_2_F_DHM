@@ -24,6 +24,7 @@ public class CertificationInterceptor implements HandlerInterceptor {
             response.sendRedirect("/member/memberLogin");
             return false;
         }else{
+        	session.setAttribute("id", memberVO.getId());
             session.setMaxInactiveInterval(30*60);
             return true;
         }

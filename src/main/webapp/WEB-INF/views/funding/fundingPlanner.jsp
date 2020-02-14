@@ -10,18 +10,12 @@
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
-<script type="text/javascript" src="../js/summernote.js" ></script>
+<script type="../css/timepicker.css"></script>
+<c:import url="./template/summernote.jsp" />
 <title>펀딩 루트 짜기</title>
 </head>
 <body>
-<c:import url="./template/summernote.jsp" />
-<c:choose>
-   <c:when test="${member eq null }">
-      <script type="text/javascript">
-         location.href = "/member/memberLogin";
-      </script>
-   </c:when>
-   <c:otherwise>
+
 <c:import url="../template/boot.jsp"/>
 <c:import url="../template/dragJquery.jsp"/>
 <section>
@@ -224,7 +218,7 @@
                   <p>펀딩 내용</p>
                </td>
                <td>
-                  <input placeholder="펀딩 내용을 입력해주세요." id="mkp-contents">
+                  <textarea cols="51" rows="10" placeholder="펀딩 내용을 입력해주세요." id="mkp-contents" style="color: black; resize: none;"></textarea>
                </td>
             </tr>
             <tr>
@@ -271,7 +265,8 @@
                </td>
                <td>
                   <input id="mkp-start" type="date">
-                  <input id="mkp-time1" type="time">
+                  <input type="text" name="mkp-time1" value="" placeholder="시간선택"  id="mkp-time1" required size="8" maxlength="5">
+
                </td>
             </tr>
             <tr>
@@ -291,11 +286,18 @@
 </div>
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 <!--hide ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+<script type="../js/summomernote.js"></script>
 <input type="hidden" value="${purpose }" id="purpose">
 </section>
+<script src="../js/timepicker.js"></script>
+<script type="text/javascript">
+$("#mkp-time1").timepicker({
+	step: 5,            //시간간격 : 5분
+	timeFormat: "H:i"    //시간:분 으로표시
+
+});
+</script>
 <script src="../js/cityList.js"></script>
 <script src="../js/makePlanner.js"></script>
-   </c:otherwise>
-</c:choose>
 </body>
 </html>

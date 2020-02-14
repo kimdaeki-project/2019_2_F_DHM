@@ -14,6 +14,7 @@
 </head>
 <body>
 <c:import url="../template/nav.jsp"/>
+
 <c:choose>
 <c:when test="${vo.size() eq 0 }">
 						<a href="fundingList">
@@ -26,7 +27,7 @@
 <div class="fj_list">
 	<div>
 		<div>
-			<a href="./fundingSelect?num=${list.fundingVO.num}" class="fj_l">
+			<a href="./myFundingSelect?num=${list.fundingVO.num}" class="fj_l">
 				<div class="fj_block">
 					<div class="fj_inner_area">
 						${i.index+1}
@@ -57,6 +58,7 @@
 </c:forEach>
 </c:otherwise>
 </c:choose>
+
 <div style="text-align: center; width: 100%; height: 30px; margin-top : 50px;">
 	<button id="re" class="btn btn-primary" style="margin: 0 auto; padding-left: 15px; padding-right: 15px; font-size: 2em;">뒤로 가기</button>
 </div>
