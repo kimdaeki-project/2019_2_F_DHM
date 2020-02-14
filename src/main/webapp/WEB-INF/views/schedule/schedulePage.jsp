@@ -319,13 +319,13 @@
 								<c:if test="${not empty scheduleInfo}">
 									<div class="order-total-price" >
 										총
-									<span>￦ ${totalCost}</span>
+									<span>￦ ${totalCost} 원</span>
 									</div>
 								</c:if>	
 								<c:if test="${empty scheduleInfo}">
 									<div class="order-total-price" >
 										총
-									<span>￦ 0</span>
+									<span>￦ 0 원</span>
 								</div>
 								</c:if>	
 								
@@ -418,7 +418,7 @@
 																			</div>  																
 																			<div style="clear: both;"> 
 																				<div class="sc-title">예상가격</div>
-																				<div class="sc-float">${sc.cost}</div>
+																				<div class="sc-float">${sc.cost} 원</div>
 																			</div>															
 																			<div style="clear: both;"> 
 																				<div class="sc-title">주소</div>
@@ -463,7 +463,7 @@
 																			</div>  																
 																			<div style="clear: both;"> 
 																				<div class="sc-title">예상가격</div>
-																				<div class="sc-float">${sc.cost}</div>
+																				<div class="sc-float">${sc.cost} 원</div>
 																			</div>															
 																			<div style="clear: both;"> 
 																				<div class="sc-title">주소</div>
@@ -500,7 +500,7 @@
 																			</div>  																
 																			<div style="clear: both;"> 
 																				<div class="sc-title">예상가격</div>
-																				<div class="sc-float">${sc.cost}</div>
+																				<div class="sc-float">${sc.cost} 원</div>
 																			</div>															
 																			<div style="clear: both;"> 
 																				<div class="sc-title">주소</div>
@@ -537,7 +537,7 @@
 																			</div>  																
 																			<div style="clear: both;"> 
 																				<div class="sc-title">예상가격</div>
-																				<div class="sc-float">${sc.cost}</div>
+																				<div class="sc-float">${sc.cost} 원</div>
 																			</div>															
 																			<div style="clear: both;"> 
 																				<div class="sc-title">주소</div>
@@ -574,7 +574,7 @@
 																			</div>  																
 																			<div style="clear: both;"> 
 																				<div class="sc-title">예상가격</div>
-																				<div class="sc-float">${sc.cost}</div>
+																				<div class="sc-float">${sc.cost} 원</div>
 																			</div>															
 																			<div style="clear: both;"> 
 																				<div class="sc-title">주소</div>
@@ -611,7 +611,7 @@
 																			</div>  																
 																			<div style="clear: both;"> 
 																				<div class="sc-title">예상가격</div>
-																				<div class="sc-float">${sc.cost}</div>
+																				<div class="sc-float">${sc.cost} 원</div>
 																			</div>															
 																			<div style="clear: both;"> 
 																				<div class="sc-title">주소</div>
@@ -648,7 +648,7 @@
 																			</div>  																
 																			<div style="clear: both;"> 
 																				<div class="sc-title">예상가격</div>
-																				<div class="sc-float">${sc.cost}</div>
+																				<div class="sc-float">${sc.cost} 원</div>
 																			</div>															
 																			<div style="clear: both;"> 
 																				<div class="sc-title">주소</div>
@@ -685,7 +685,7 @@
 																			</div>  																
 																			<div style="clear: both;"> 
 																				<div class="sc-title">예상가격</div>
-																				<div class="sc-float">${sc.cost}</div>
+																				<div class="sc-float">${sc.cost} 원</div>
 																			</div>															
 																			<div style="clear: both;"> 
 																				<div class="sc-title">주소</div>
@@ -722,7 +722,7 @@
 																			</div>  																
 																			<div style="clear: both;"> 
 																				<div class="sc-title">예상가격</div>
-																				<div class="sc-float">${sc.cost}</div>
+																				<div class="sc-float">${sc.cost} 원</div>
 																			</div>															
 																			<div style="clear: both;"> 
 																				<div class="sc-title">주소</div>
@@ -759,7 +759,7 @@
 																			</div>  																
 																			<div style="clear: both;"> 
 																				<div class="sc-title">예상가격</div>
-																				<div class="sc-float">${sc.cost}</div>
+																				<div class="sc-float">${sc.cost} 원</div>
 																			</div>															
 																			<div style="clear: both;"> 
 																				<div class="sc-title">주소</div>
@@ -796,7 +796,7 @@
 																			</div>  																
 																			<div style="clear: both;"> 
 																				<div class="sc-title">예상가격</div>
-																				<div class="sc-float">${sc.cost}</div>
+																				<div class="sc-float">${sc.cost} 원</div>
 																			</div>															
 																			<div style="clear: both;"> 
 																				<div class="sc-title">주소</div>
@@ -833,7 +833,7 @@
 																			</div>  																
 																			<div style="clear: both;"> 
 																				<div class="sc-title">예상가격</div>
-																				<div class="sc-float">${sc.cost}</div>
+																				<div class="sc-float">${sc.cost} 원</div>
 																			</div>															
 																			<div style="clear: both;"> 
 																				<div class="sc-title">주소</div>
@@ -870,7 +870,7 @@
 																			</div>  																
 																			<div style="clear: both;"> 
 																				<div class="sc-title">예상가격</div>
-																				<div class="sc-float">${sc.cost}</div>
+																				<div class="sc-float">${sc.cost} 원</div>
 																			</div>															
 																			<div style="clear: both;"> 
 																				<div class="sc-title">주소</div>
@@ -907,7 +907,7 @@
 																			</div>  																
 																			<div style="clear: both;"> 
 																				<div class="sc-title">예상가격</div>
-																				<div class="sc-float">${sc.cost}</div>
+																				<div class="sc-float">${sc.cost} 원</div>
 																			</div>															
 																			<div style="clear: both;"> 
 																				<div class="sc-title">주소</div>
