@@ -105,6 +105,17 @@ public class MemberController {
 		
 		return "redirect:../";
 	}	
+	//PW 불러오기-----------------------------------------------------------------------
+	@PostMapping("memberEMAIL3Check")
+	@ResponseBody
+	public String memberEMAIL3Check(String id)throws Exception{		
+		
+		if(memberService.memberEMAIL3Check(id) == null) {
+			return "일치하는 아이디가 없습니다.";
+		}else {			
+			return memberService.memberEMAIL3Check(id).getPw();
+		}		
+	}	
 	//ID 불러오기-----------------------------------------------------------------------
 	@PostMapping("memberEMAIL2Check")
 	@ResponseBody

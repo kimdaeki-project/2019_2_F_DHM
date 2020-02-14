@@ -8,5 +8,5 @@ public interface MemberRepository extends JpaRepository<MemberVO, String>{
 
 	public MemberVO findByEmail(String email)throws Exception;
 	
-//	public MemberVO findId(String id)throws Exception;
+	public MemberVO findByPw(String id)throws Exception;
 }

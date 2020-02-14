@@ -69,7 +69,7 @@
 					<input type="text" class="idpwmain5-3-1">
 					<div class="idpwmain5-3-2">재발급</div>
 				</div>
-			<!-- 이메일2 입력창 -->	
+			<!-- 이메일2 입력창 -->
 				
 			</div>			
 		</div>
@@ -79,7 +79,7 @@
 	
 
 	<c:import url="../../template/footer.jsp"/>
-	<!--정상사항 ------------------------------------------------------------------------------------------------------------------------------------>
+	<!--ID 찾기 ------------------------------------------------------------------------------------------------------------------------------------>
 	<div id="Xid2" style="">
 		<div id="emailsame" style="position: fixed; top: 125px; left:780px; background-color: #fff; height: 80px; width: 270px;">
 			<div style="background-color: #63caf8; height: 70px; width: 260px; margin-left: 5px; margin-top: 5px;">
@@ -94,15 +94,16 @@
 		</div>
 	</div>
 	
-	<!--오류사항 (쓸모없으나 아까우니 냅두기로한다)------------------------------------------------------------------------------------------------------------------------------------>
+	<!--PW 찾기------------------------------------------------------------------------------------------------------------------------------------>
 	<div id="Xid3" style="">
-		<div id="emailsame2" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
-			<div style="background-color: #63caf8; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
-				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;"><span id="findID"></span></div>
+		<div id="emailsame2" style="position: fixed; top: 125px; left:780px; background-color: #fff; height: 80px; width: 270px;">
+			<div style="background-color: #63caf8; height: 70px; width: 260px; margin-left: 5px; margin-top: 5px;">
+				<div class="hellomother2" style="color: white; font-size: 13pt; width: 240px; padding-left: 15px; padding-top: 20px;">
+				<span id="findPW" style="margin-left: -15px;"></span></div>
 			</div>
 		</div>
 	
-		<div class="Xidsame9" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
+		<div class="Xidsame9" style= " position: fixed; background-color: #fff; top: 110px; left: 1030px; height: 50px; width: 50px;"> 
 			<div class="Xidsame8" style="background-color: #63caf8; height: 40px; width: 40px; 
  				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div> 
 		</div>
@@ -169,7 +170,7 @@ $(document).ready(function (){
  
 });
 
-//DB찾기----------------------------------------------------------------
+//ID 찾기  start----------------------------------------------------------------
 var email = $(".idpwmain4-3-1").val();
 var email2 = '${member.email}';
 
@@ -185,29 +186,21 @@ email2 = '${member.email}';
 		data : {
 			email : email
 			},
-		success : function(d){
+		success : function(getid){
 			//성공창
-			if(d != ""){
+			if(getid != ""){
  				$(".idpwmain4-3-2").css("background","#95a5a6");
  				$(".hellomother").css("text-align","center");	
-				$('#findID').text(d);
-				
+				$('#findID').text(getid);				
  				$('#Xid2').show(); 
-			}else{
-
-			//실패창
-			if(d == "" || d == null){
- 				$(".idpwmain4-3-2").css("background","#95a5a6");
- 				$('#findID').text(d);			
-				$('#Xid3').show(); 
-				}				
 			}
 		}//success문
 	});	//ajax문
 
 }); //function문
+//ID찾기  end----------------------------------------------------------------
 
-
+//click box----------------------------------------------------------------------
 $("#Xid2").hide(); //정상 상자 숨기
 $('#Xid3').hide(); //오류 상자 숨기
 
@@ -223,11 +216,39 @@ $(".Xidsame8").click(function(){
 
 	$("#Xid3").hide();
 
-	$(".idpwmain4-3-2").css("background","#e74c3c");
+	$(".idpwmain5-3-2").css("background","#e74c3c");
 
 });
+//----------------------------------------------------------------------
 
+//PW 찾기  start----------------------------------------------------------------
+var id = $(".idpwmain6-3-1").val();
+var id2 = '${member.id}';
 
+$(".idpwmain5-3-2").click(function(){
+	id = $(".idpwmain6-3-1").val();
+	id2 = '${member.id}';
+	
+	$.ajax({
 
+		type : "POST",
+		url  : "memberEMAIL3Check",
+		data : {
+			id : id
+			},
+		success : function(getpw){
+			//성공창
+//			alert(getpw);
+			if(getpw != ""){
+ 				$(".idpwmain5-3-2").css("background","#95a5a6");
+ 				$(".hellomother2").css("text-align","center");	
+ 				$('#findPW').text(getpw);					
+ 				$('#Xid3').show(); 
+			}
+		}//success문
+	});	//ajax문
+
+}); //function문
+//PW 찾기  end----------------------------------------------------------------
 </script>
 </html>
