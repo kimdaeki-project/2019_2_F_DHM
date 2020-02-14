@@ -206,7 +206,7 @@
 				<div class="middle-title">
 					<h3 class="contents-title">여행루트</h3>
 				</div>
-				<div class="middle-wrapper" style="height: 300px;">
+				<div class="middle-wrapper" style="height: 250px; margin-bottom: 80px;">
 					
 		<!-- 수정 ㅡ 교통수단 추가 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->   
                <div class="swiper-container" style="margin-top: 20px; height: 250px;">   
@@ -279,9 +279,9 @@
 					<table class="table-hover mypage-list">
 								<thead>
 									<tr>
-										<th class="col-xs-2">여행장소</th>
+										<th colspan="2">여행장소</th>
 										<th class="col-xs-2">일정명</th>
-										<th class="col-xs-2">날짜</th>
+										<th class="col-xs-2">날짜/시간</th>
 										<th class="col-xs-2">비용</th>
 									</tr>
 								
@@ -292,13 +292,15 @@
 									<c:forEach items="${scheduleInfo}" var="vo">
 									<tr>
 										
-										<td class="col-xs-2 text-center">
-												<div style="background-image:url('${vo.firstimage}'); width: 100px; height: 60px; background-size: cover; background-position: center;"></div>
+										<td class="col-xs-1 text-center">
+												<div style="background-image:url('${vo.firstimage}'); margin-left:20px;width: 100px; height: 60px; background-size: cover; background-position: center;"></div>
+										</td>
+										<td class="col-xs-1 text-center">
 												${vo.title}
 										</td>
 										<td class="text-center">${vo.scName}</td>
 										<td class="text-center">${vo.start}시</td>
-										<td class="text-center">\ ${vo.cost } 원</td>
+										<td class="text-center">￦ ${vo.cost }원</td>
 										
 									</tr>
 									</c:forEach>
@@ -313,10 +315,19 @@
 							</table>
 							<!-- 테이블 끝 -->
 							<div class="text-right">
-								<div class="order-total-price" >
-									총
+								
+								<c:if test="${not empty scheduleInfo}">
+									<div class="order-total-price" >
+										총
 									<span>￦ ${totalCost}</span>
+									</div>
+								</c:if>	
+								<c:if test="${empty scheduleInfo}">
+									<div class="order-total-price" >
+										총
+									<span>￦ 0</span>
 								</div>
+								</c:if>	
 								
 							</div>
 			</div>

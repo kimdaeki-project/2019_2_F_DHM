@@ -20,6 +20,6 @@ public interface ScheduleRepository extends JpaRepository<ScheduleVO, Integer> {
 	List<ScheduleVO> findByPlNumAndTour(Integer plNum, String title);
 	
 	@Query(nativeQuery = true, value="SELECT sum(cost) FROM schedule where plNum=?")
-	long totalCost(Integer plNum) throws Exception;
+	Integer totalCost(Integer plNum) throws Exception;
 
 }

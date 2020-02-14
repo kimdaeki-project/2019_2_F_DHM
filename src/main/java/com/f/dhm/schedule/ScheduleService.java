@@ -35,7 +35,7 @@ public class ScheduleService {
 	}
 	
 	//여행경비
-	public long totalCost(Integer plNum) throws Exception{
+	public Integer totalCost(Integer plNum) throws Exception{
 		return repository.totalCost(plNum);
 	}
 	

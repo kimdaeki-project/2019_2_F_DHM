@@ -116,7 +116,7 @@ public class ScheduleController {
 	
 	
 	@GetMapping("schedulePage")
-	public ModelAndView plannerPage(PlannerVO plannerVO, ScheduleVO scheduleVO, HttpSession session, int plNum, String scName)
+	public ModelAndView plannerPage(PlannerVO plannerVO, ScheduleVO scheduleVO, HttpSession session, Integer plNum, String scName)
 			throws Exception {
 		ModelAndView mv = new ModelAndView();
 
@@ -138,8 +138,12 @@ public class ScheduleController {
 		List<ScheduleVO> scheduleList = scheduleService.scheduleList(plNum);
 		List<WishVO> wishlist = wishService.myWish(session, plNum);
 		
-		long totalCost=scheduleService.totalCost(plNum);
-		mv.addObject("totalCost", totalCost);
+		Integer totalCost=scheduleService.totalCost(plNum);
+		
+		if(totalCost!=null && totalCost>0) {
+			
+			mv.addObject("totalCost", totalCost);
+		}
 		
 		if(memberVO==null) {
 			String msg="로그인이 필요합니다.";
