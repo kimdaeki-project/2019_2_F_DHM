@@ -19,7 +19,7 @@
 <link rel="stylesheet"  href="../css/membercss.css">
 <link rel="stylesheet"  href="../css/basic.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DHM Planner</title>
 </head>
 <body>
 

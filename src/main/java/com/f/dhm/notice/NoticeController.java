@@ -103,7 +103,7 @@ public class NoticeController {
       }
       else {
          mv.addObject("message", "로그인이 필요합니다.");
-         mv.addObject("path", "../member/memberLogin");
+         mv.addObject("path", "../member/memberLogin?goBack=../notice/noticeWrite");
          mv.setViewName("common/result");
       }
       return mv;

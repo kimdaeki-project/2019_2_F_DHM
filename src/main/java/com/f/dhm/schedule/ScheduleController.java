@@ -145,10 +145,10 @@ public class ScheduleController {
 		if(memberVO==null) {
 			String msg="로그인이 필요합니다.";
 			mv.addObject("message",msg);
-			mv.addObject("path","../member/memberLogin");
+			mv.addObject("path","../member/memberLogin?goBack=../schedule/schedulePage?plNum="+plNum);
 			mv.setViewName("common/result");
 			
-		}else if(plannerList.get(0).getId().equals(memberVO.getId())) {
+		}else if(plannerList.size() !=0 && plannerList.get(0).getId().equals(memberVO.getId())) {
 			
 			
 			List<ScheduleInfoVO> scheduleInfoVOs = new ArrayList<ScheduleInfoVO>();
@@ -201,7 +201,7 @@ public class ScheduleController {
 		}else if(plannerList.size()==0){
 			String msg="다른사람의 플래너는 열람할 수 없습니다.";
 			mv.addObject("message",msg);
-			mv.addObject("path","../");
+			mv.addObject("path","/");
 			mv.setViewName("common/result");
 		}
 		

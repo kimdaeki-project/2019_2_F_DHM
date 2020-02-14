@@ -142,7 +142,7 @@ public class QnaController {
 	public ModelAndView qnaWrite(HttpSession session) {
 		ModelAndView mv =new ModelAndView();
 		MemberVO memberVO=(MemberVO) session.getAttribute("member");
-		String path="../member/memberLogin";
+		String path="../member/memberLogin?goBack=../qna/qnaWrite";
 		String message="로그인이 필요합니다.";
 		if(memberVO==null) {
 			//need login, go forward

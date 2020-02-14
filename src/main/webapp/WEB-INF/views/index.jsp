@@ -92,14 +92,15 @@
 		  
 		  <ul class="nav nav-tabs">
 		      <li class="index_buttons_li index_buttons_li"><a class="ac" data-toggle="tab"  href="#home">최신</a></li>
-               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu1">아이들과</a></li>
-               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu2">커플/신혼</a></li>
-               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu3">부모님과</a></li>
-               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu4">남자혼자</a></li>
-               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu5">여자혼자</a></li>
-               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu6">여자끼리</a></li>
-               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu7">남자끼리</a></li>
-               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu8">남녀그룹</a></li>
+               <li class="index_buttons_li" id="2"><a class="ac" data-toggle="tab"  href="#menu2">커플/신혼</a></li>
+               <li class="index_buttons_li" id="8"><a class="ac" data-toggle="tab"  href="#menu8">남녀그룹</a></li>
+               <li class="index_buttons_li" id="3"><a class="ac" data-toggle="tab"  href="#menu3">부모님과</a></li>
+               <li class="index_buttons_li" id="1"><a class="ac" data-toggle="tab"  href="#menu1">아이들과</a></li>
+               <li class="index_buttons_li" id="5"><a class="ac" data-toggle="tab"  href="#menu5">여자혼자</a></li>
+               <li class="index_buttons_li" id="6"><a class="ac" data-toggle="tab"  href="#menu6">여자끼리</a></li>
+               <li class="index_buttons_li" id="4"><a class="ac" data-toggle="tab"  href="#menu4">남자혼자</a></li>
+               <li class="index_buttons_li" id="7"><a class="ac" data-toggle="tab"  href="#menu7">남자끼리</a></li>
+               <li class="index_buttons_li" id="9"><a class="ac" data-toggle="tab"  href="#menu9">부모님끼리</a></li>
 		  </ul>
 		
 		  <div class="tab-content">
@@ -118,9 +119,21 @@
                                     </div>
                                     <div class="mp-f">
                                        <div class="mp">${vo.title}</div>
-                                       <div class="mp-f1"> ${days[i.index]} 일간</div>
-                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
-                                       <div class="mp-f3">D-16</div>
+                                       <div class="mp-f1"> ${bak[i.index]} 일간</div>
+                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>${deDate[i.index] }</div>
+                                       <div class="mp-f3">
+	                                       <c:choose>
+					                      		<c:when test="${dDay[i.index] gt 0 }">
+					                      			<p style="color: blue;">D+${dDay[i.index] }</p>
+					                      		</c:when>
+					                      		<c:when test="${dDay[i.index] eq 0 }">
+					                      			<p style="color: green;">D-Day</p>
+					                      		</c:when>
+					                      		<c:otherwise>
+					                      			<p style="color: red;">D${dDay[i.index] }</p>
+					                      		</c:otherwise>
+					                      	</c:choose>
+										</div>
                                     </div>
                                  </div>
                               
@@ -131,259 +144,9 @@
                      </div>
                   </div>
 		    </div>
-		    <div id="menu1" class="tab-pane fade">
-		       <div class="swiper-container"  style=" clear: both; overflow: hidden;">
-                     <div class="swiper-wrapper nolist">
-                        <c:forEach items="${typelist}" var="vo" varStatus="i">
-                           <c:if test="${vo.type eq '아이들과' }">
-                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
-                           <a href="./schedule/schedulePage?plNum=${vo.plNum}">
-                              <div class="mp-li-wrap">
-                                 <div class="mp-card">
-                                    <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
-                                       <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
-                                    </div>
-                                    <div class="mp-f">
-                                       <div class="mp">${vo.title}</div>
-                                       <div class="mp-f1"> ${days[i.index]} 일간</div>
-                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
-                                       <div class="mp-f3">D-16</div>
-                                    </div>
-                                 </div>
-                              
-                              </div>
-                           </a>
-                           </div>
-                           </c:if>
-                         </c:forEach>
-                     </div>
-                  </div>
-		    </div>
-		    <div id="menu2" class="tab-pane fade">
-		       <div class="swiper-container"  style=" clear: both; overflow: hidden;">
-                     <div class="swiper-wrapper nolist">
-                        <c:forEach items="${typelist}" var="vo" varStatus="i">
-                           <c:if test="${vo.type eq '커플/신혼' }">
-                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
-                           <a href="./schedule/schedulePage?plNum=${vo.plNum}">
-                              <div class="mp-li-wrap">
-                                 <div class="mp-card">
-                                    <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
-                                       <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
-                                    </div>
-                                    <div class="mp-f">
-                                       <div class="mp">${vo.title}</div>
-                                       <div class="mp-f1"> ${days[i.index]} 일간</div>
-                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
-                                       <div class="mp-f3">D-16</div>
-                                    </div>
-                                 </div>
-                              
-                              </div>
-                           </a>
-                           </div>
-                           </c:if>
-                           </c:forEach>
-                     </div>
-                  </div>
-		    </div>
-		    <div id="menu3" class="tab-pane fade">
-		      <div class="swiper-container" style=" clear: both; overflow: hidden;">
-                     <div class="swiper-wrapper nolist" >
-                        <c:forEach items="${typelist}" var="vo" varStatus="i">
-                           <c:if test="${vo.type eq '부모님과' }">
-                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
-                           <a href="./schedule/schedulePage?plNum=${vo.plNum}">
-                              <div class="mp-li-wrap">
-                                 <div class="mp-card">
-                                    <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
-                                       <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
-                                    </div>
-                                    <div class="mp-f">
-                                       <div class="mp">${vo.title}</div>
-                                       <div class="mp-f1"> ${days[i.index]} 일간</div>
-                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
-                                       <div class="mp-f3">D-16</div>
-                                    </div>
-                                 </div>
-                              
-                              </div>
-                           </a>
-                           </div>
-                           </c:if>
-                           </c:forEach>
-                     </div>
-                  </div>
-		    </div>
-		    
-		    
-		    <div id="menu4" class="tab-pane fade">
-		      <div class="swiper-container" style=" clear: both; overflow: hidden;">
-                     <div class="swiper-wrapper nolist" >
-                        <c:forEach items="${typelist}" var="vo" varStatus="i">
-                           <c:if test="${vo.type eq '남자혼자' }">
-                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
-                           <a href="./schedule/schedulePage?plNum=${vo.plNum}">
-                              <div class="mp-li-wrap">
-                                 <div class="mp-card">
-                                    <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
-                                       <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
-                                    </div>
-                                    <div class="mp-f">
-                                       <div class="mp">${vo.title}</div>
-                                       <div class="mp-f1"> ${days[i.index]} 일간</div>
-                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
-                                       <div class="mp-f3">D-16</div>
-                                    </div>
-                                 </div>
-                              
-                              </div>
-                           </a>
-                           </div>
-                           </c:if>
-                           </c:forEach>
-                     </div>
-                  </div>
-		    </div>
-		    
-		    
-		    <div id="menu5" class="tab-pane fade">
-		      <div class="swiper-container" style=" clear: both; overflow: hidden;">
-                     <div class="swiper-wrapper nolist">
-                        <c:forEach items="${typelist}" var="vo" varStatus="i">
-                           <c:if test="${vo.type eq '여자혼자' }">
-                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
-                           <a href="./schedule/schedulePage?plNum=${vo.plNum}">
-                              <div class="mp-li-wrap">
-                                 <div class="mp-card">
-                                    <div class="mp-p">
-                                      <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
-                                       <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
-                                    </div>
-                                    <div class="mp-f">
-                                       <div class="mp">${vo.title}</div>
-                                       <div class="mp-f1"> ${days[i.index]} 일간</div>
-                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
-                                       <div class="mp-f3">D-16</div>
-                                    </div>
-                                 </div>
-                              
-                              </div>
-                           </a>
-                           </div>
-                           </c:if>
-                           </c:forEach>
-                     </div>
-                  </div>
-		    </div>
-		    
-		    
-		    <div id="menu6" class="tab-pane fade">
-		      <div class="swiper-container" style=" clear: both; overflow: hidden;">
-                     <div class="swiper-wrapper nolist" >
-                        <c:forEach items="${typelist}" var="vo" varStatus="i">
-                           <c:if test="${vo.type eq '여자끼리' }">
-                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
-                           <a href="./schedule/schedulePage?plNum=${vo.plNum}">
-                              <div class="mp-li-wrap">
-                                 <div class="mp-card">
-                                    <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
-                                       <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
-                                    </div>
-                                    <div class="mp-f">
-                                       <div class="mp">${vo.title}</div>
-                                       <div class="mp-f1"> ${days[i.index]} 일간</div>
-                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
-                                       <div class="mp-f3">D-16</div>
-                                    </div>
-                                 </div>
-                              
-                              </div>
-                           </a>
-                           </div>
-                           </c:if>
-                           </c:forEach>
-                     </div>
-                  </div>
-		    </div>
-		    
-		    
-		    <div id="menu7" class="tab-pane fade">
-		      <div class="swiper-container"  style=" clear: both; overflow: hidden;">
-                     <div class="swiper-wrapper nolist">
-                        <c:forEach items="${typelist}" var="vo" varStatus="i">
-                           <c:if test="${vo.type eq '남자끼리' }">
-                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden; float: left;">
-                           <a href="./schedule/schedulePage?plNum=${vo.plNum}">
-                              <div class="mp-li-wrap">
-                                 <div class="mp-card">
-                                    <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
-                                       <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
-                                    </div>
-                                    <div class="mp-f">
-                                       <div class="mp">${vo.title}</div>
-                                       <div class="mp-f1"> ${days[i.index]} 일간</div>
-                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
-                                       <div class="mp-f3">D-16</div>
-                                    </div>
-                                 </div>
-                              
-                              </div>
-                           </a>
-                           </div>
-                           </c:if>
-                           </c:forEach>
-                     </div>
-                  </div>
-		    </div>
-		    
-		    
-		    <div id="menu8" class="tab-pane fade">
-		      <div class="swiper-container" style=" clear: both; overflow: hidden;">
-                     <div class="swiper-wrapper nolist" >
-                        <c:forEach items="${typelist}" var="vo" varStatus="i">
-                           <c:if test="${vo.type eq '남녀함께' }">
-                           <div class="swiper-slide mp-li" style="height: 300px;  overflow: hidden;float: left;">
-                           <a href="./schedule/schedulePage?plNum=${vo.plNum}">
-                              <div class="mp-li-wrap">
-                                 <div class="mp-card">
-                                    <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
-                                       <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
-                                    </div>
-                                    <div class="mp-f">
-                                       <div class="mp">${vo.title}</div>
-                                       <div class="mp-f1"> ${days[i.index]} 일간</div>
-                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
-                                       <div class="mp-f3">D-16</div>
-                                    </div>
-                                 </div>
-                              
-                              </div>
-                           </a>
-                           </div>
-                           </c:if>
-                           </c:forEach>
-                     </div>
-                  </div>
-		    </div>
-		    
-		    
-		    
+		    <c:forEach begin="1" end="9" varStatus="m">
+			    <div id="menu${m.index }" class="tab-pane fade"></div>
+		    </c:forEach>
 		  </div>
 		</div>
 		
@@ -401,7 +164,7 @@
 						  <div class="mp-li-wrap">
                                  <div class="mp-card">
                                     <div class="mp-p">
-                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum}" width="226px" height="207px" style="border: none;"></iframe>
+<%--                                        <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum}" width="226px" height="207px" style="border: none;"></iframe> --%>
 									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
 								<%-- <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div> --%>
                                     </div>
@@ -670,7 +433,9 @@
 </div>
    </div>
 </div>
-<c:import url="./template/footer.jsp"/>
+
+<c:import url="template/footer.jsp"/>
+
   <script>
 
 
@@ -721,7 +486,25 @@
       });
 
     $(".index_buttons_li").click(function(){
-        
+        	var type = $(this).prop("id");
+
+			$.ajax({
+				type : "POST",
+				url : "typeList",
+				data : {
+					type : type
+				},
+				success : function(d){
+					d = d.trim();
+					
+					$("#menu"+type).html(d);
+					
+					} 
+					
+				});
+
+
+        	
 			$(this).children(".ac").addClass("active2");
 			$(this).children(".ac").removeClass("active2");
      });

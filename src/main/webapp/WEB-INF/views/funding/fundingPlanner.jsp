@@ -10,9 +10,16 @@
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
-<title>새로운 일정 짜기</title>
+<title>펀딩 루트 짜기</title>
 </head>
 <body>
+<c:choose>
+	<c:when test="${member eq null }">
+		<script type="text/javascript">
+			location.href = "/member/memberLogin?goBack=../funding/fundingPlanner";
+		</script>
+	</c:when>
+	<c:otherwise>
 <c:import url="../template/boot.jsp"/>
 <c:import url="../template/dragJquery.jsp"/>
 <section>
@@ -195,19 +202,16 @@
          </div>
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 <div class="mkp-complete"> 
-   <div class="mkp-compl-inner">
-   
-      <c:choose>
-         <c:when test="${member ne null }">
+   <div class="mkp-compl-inner" style="">
             <input type="hidden" value="${member.id }" id="member-id">
-            <p class="mkp-table-save">플래너 저장
+            <p class="mkp-table-save">펀딩 저장
                <a onclick="closeComplete()" style="color:#fff; font-size:27pt; float: right; cursor: pointer;"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
             </p>
-         <table class="mkp-table">
+         <table class="mkp-table" style="height: 700px;">
             <tbody>
             <tr>
                <td class="mkp-table-title">
-                  <p>여행명 </p>
+                  <p>펀딩명 </p>
                </td>
                <td>
                   <input id="mkp-title">
@@ -215,7 +219,7 @@
             </tr>
             <tr>
                <td class="mkp-table-pepp">
-                  <p>인원</p>
+                  <p>모집인원</p>
                </td>
                <td>
                   <select id="mkp-people">
@@ -234,53 +238,44 @@
                   <input value="${member.email }" id="mkp-email"> 
                </td>
             </tr>
-            </tbody>
+<!-- 병주형 수정목록ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+            <tr>
+               <td class="mkp-table-funding">
+                  <p>모집 목표 금액 </p>
+               </td>
+               <td>
+                  <input id="mkp-goal">
+               </td>
+            </tr>
+            <tr>
+               <td class="mkp-table-funding">
+                  <p>인당 모집 금액</p>
+               </td>
+               <td>
+                  <input id="mkp-price">
+               </td>
+            </tr>
+            <tr>
+               <td class="mkp-table-funding">
+                  <p>펀딩 시작 날짜</p>
+               </td>
+               <td>
+                  <input id="mkp-start" type="date">
+                  <input id="mkp-time1" type="time">
+               </td>
+            </tr>
+            <tr>
+               <td class="mkp-table-funding">
+                  <p>펀딩 마감 날짜</p>
+               </td>
+               <td>
+                  <input id="mkp-end" type="date">
+                  <input id="mkp-time2" type="time">
+               </td>
+            </tr>
          </table>
+<!-- 병주형 수정목록ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
          <button class="mkp-clp-btn" name="make" >저장하기</button>
-         </c:when>
-         <c:otherwise>
-            <input type="hidden" value="guest" id="member-id">
-               <p class="mkp-table-save">GUEST 플래너 저장
-                  <a onclick="closeComplete()" style="color:#fff; font-size:27pt; float: right; cursor: pointer;"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
-               </p>
-            <table class="mkp-table">
-               <tbody>
-               <tr>
-                  <td class="mkp-table-title">
-                     <p>여행명 </p>
-                  </td>
-                  <td>
-                     <input id="mkp-title">
-                  </td>
-               </tr>
-               <tr>
-                  <td class="mkp-table-pepp">
-                     <p>인원</p>
-                  </td>
-                  <td>
-                     <select id="mkp-people">
-                           <option>인원선택</option>
-                           <c:forEach begin="1" end="10" var="p">
-                           <option>${p }명</option>
-                           </c:forEach>
-                     </select>
-                  </td>
-               </tr>
-               <tr>
-                  <td class="mkp-table-mail">
-                     <p> 이메일 </p>
-                  </td>
-                  <td>
-                     <input type="email" id="mkp-email">
-                  </td>
-               </tr>
-               </tbody>
-            </table>
-            <button class="mkp-clp-btn">저장하기</button>
-            <p style="font-size: 11px; text-align: center; margin-top: 10px; color: red;">GUEST 플래너는 생성 후 수정이 불가능 합니다.</p>
-         </c:otherwise>
-      </c:choose>
-      
    </div>
 </div>
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
@@ -289,5 +284,7 @@
 </section>
 <script src="../js/cityList.js"></script>
 <script src="../js/makePlanner.js"></script>
+	</c:otherwise>
+</c:choose>
 </body>
 </html>

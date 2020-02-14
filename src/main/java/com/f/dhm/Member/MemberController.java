@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -67,13 +68,19 @@ public class MemberController {
 	}
 	//로그인-----------------------------------------------------------------------
 	@GetMapping("memberLogin")
-	public String memberLogin()throws Exception{
+	public ModelAndView memberLogin(@Nullable String goBack)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		if (goBack != null) {
+			mv.addObject("goBack", goBack );
+		}
 		
-		return "member/memberLogin";
+		mv.setViewName("member/memberLogin");
+		
+		return mv;
 	}
 	
 	@PostMapping("memberLogin")
-	public ModelAndView memberLogin(MemberVO memberVO, HttpSession session)throws Exception{
+	public ModelAndView memberLogin(MemberVO memberVO, String goBack,HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		memberVO = memberService.memberLogin(memberVO);
 		String message = "로그인 실패.";
@@ -81,7 +88,11 @@ public class MemberController {
 		
 		if(memberVO != null) {
 			message = "DHM에 오신 것을 환영합니다.";
-			path = "/";
+			if (goBack != "") {
+				path = goBack;
+			}else {				
+				path = "/";
+			}
 			session.setAttribute("member", memberVO);
 		}
 		mv.addObject("message", message);
