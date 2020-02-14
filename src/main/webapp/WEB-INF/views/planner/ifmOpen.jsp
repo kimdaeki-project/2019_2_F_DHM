@@ -20,8 +20,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-		                            	 <div class="wishdiv wish-active" onclick="wish('${fo.title}','${fo.firstimage}','${fo.addr1}',${arCode})"><i class="fa fa-check-circle"></i></div> 
-		                              	<div class="wishdiv" onclick="wish('${fo.title}','${fo.firstimage}','${fo.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div>								
+		                              <div class="wishdiv" onclick="wish(this,'${fo.title}','${fo.firstimage}','${fo.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div>								
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${fo.firstimage}"></div>
 								</div>
 								<div>
@@ -49,7 +48,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-										<div class="wishdiv" onclick="wish('${sh.title}','${sh.firstimage}','${sh.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
+										<div class="wishdiv" onclick="wish(this,'${sh.title}','${sh.firstimage}','${sh.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
 										<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${sh.firstimage}"></div>
 								</div>
 								<div>
@@ -77,7 +76,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishdiv" onclick="wish('${tu.title}','${tu.firstimage}','${tu.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
+									<div class="wishdiv" onclick="wish(this,'${tu.title}','${tu.firstimage}','${tu.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${tu.firstimage}"></div>
 								</div>
@@ -108,7 +107,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishdiv" onclick="wish('${cu.title}','${cu.firstimage}','${cu.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
+									<div class="wishdiv" onclick="wish(this,'${cu.title}','${cu.firstimage}','${cu.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${cu.firstimage}"></div>
 								</div>
@@ -139,7 +138,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishdiv" onclick="wish('${fe.title}','${fe.firstimage}','${fe.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
+									<div class="wishdiv" onclick="wish(this,'${fe.title}','${fe.firstimage}','${fe.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
 								</div>
@@ -169,7 +168,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishdiv" onclick="wish('${re.title}','${re.firstimage}','${re.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
+									<div class="wishdiv" onclick="wish(this,'${re.title}','${re.firstimage}','${re.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${re.firstimage}"></div>
 								</div>
@@ -199,7 +198,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishdiv" onclick="wish('${ho.title}','${ho.firstimage}','${ho.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
+									<div class="wishdiv" onclick="wish(this,'${ho.title}','${ho.firstimage}','${ho.addr1}',${arCode})"><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${ho.firstimage}"></div>
 								</div>
@@ -229,7 +228,7 @@
 						<li>
 							<div class="card2">
 								<div style="position: relative;">
-									<div class="wishdiv" onclick="wish('${co.title}','${co.firstimage}','${co.addr1}',${arCode},event)"><i class="fa fa-check-circle wishlist"></i></div> 
+									<div class="wishdiv"onclick="wish(this, '${co.title}','${co.firstimage}','${co.addr1}',${arCode})" ><i class="fa fa-check-circle wishlist"></i></div> 
 									
 									<div class="img-wrap"><img class="wish-img" alt="여행사진" src="${co.firstimage}"></div>
 								</div>
@@ -256,19 +255,11 @@
 
 
 <script type="text/javascript">
-
 	function clickinfo(title){
 		window.open("https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query="+title);
 	}
 
 
-	$(".wishlist").click(function(){
-		
-		 $(this).toggleClass("wish-active"); 
-	
-	});
-
- 
 </script>
 <script src="../js/ifmOpen.js"></script>
 </body>

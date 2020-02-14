@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -100,7 +101,6 @@
                <li class="index_buttons_li" id="6"><a class="ac" data-toggle="tab"  href="#menu6">여자끼리</a></li>
                <li class="index_buttons_li" id="4"><a class="ac" data-toggle="tab"  href="#menu4">남자혼자</a></li>
                <li class="index_buttons_li" id="7"><a class="ac" data-toggle="tab"  href="#menu7">남자끼리</a></li>
-               <li class="index_buttons_li" id="9"><a class="ac" data-toggle="tab"  href="#menu9">부모님끼리</a></li>
 		  </ul>
 		
 		  <div class="tab-content">
@@ -114,13 +114,12 @@
                                  <div class="mp-card">
                                     <div class="mp-p">
                                        <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
                                     </div>
                                     <div class="mp-f">
                                        <div class="mp">${vo.title}</div>
                                        <div class="mp-f1"> ${bak[i.index]} 일간</div>
-                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>${deDate[i.index] }</div>
+                                       <div class="mp-f2"><fmt:formatDate value="${deDate[i.index]}"  pattern="yy년MM월dd일"/> 출발</div>
                                        <div class="mp-f3">
 	                                       <c:choose>
 					                      		<c:when test="${dDay[i.index] gt 0 }">
@@ -144,8 +143,8 @@
                      </div>
                   </div>
 		    </div>
-		    <c:forEach begin="1" end="9" varStatus="m">
-			    <div id="menu${m.index }" class="tab-pane fade"></div>
+		    <c:forEach begin="1" end="8" varStatus="m">
+			    <div id="menu${m.index}" class="tab-pane fade"></div>
 		    </c:forEach>
 		  </div>
 		</div>

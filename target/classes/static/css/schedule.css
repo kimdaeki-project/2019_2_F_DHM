@@ -705,3 +705,8 @@ a:hover{
 	font-weight: bold;
 	color: green;
 }
+.sc-title{
+	font-weight: bold;
+	font-size: 12px;
+	color: gray;
+}

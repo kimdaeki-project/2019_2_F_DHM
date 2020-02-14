@@ -330,6 +330,15 @@ function saveSch(t, f, a, c) {
    
 }
 
+function spliceSch(t,f,a,c){
+	
+	titleA.splice(titleA.indexOf(t),1);
+	firstimageA.splice(firstimageA.indexOf(f),1);
+	addr1A.splice(addr1A.indexOf(a),1);
+	acCodeA.splice(arCodeA.indexOf(c),1);
+	
+}
+
 /////////////////////////////////////////////////////
 
 

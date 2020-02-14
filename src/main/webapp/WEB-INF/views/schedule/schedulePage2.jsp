@@ -702,13 +702,23 @@
   			<div class="m-box row">
 					<div class="close" onclick="hide();">X</div>
 	  			<div class="md2-child2">
-	  				
-		  			<div>일정명 : ${scInfo.scName}</div>
-		  			<div>예상비용 : ${scInfo.cost}</div>
-		  			<div>주소 : ${scInfo.addr1 }</div>
-		  			<div>관광명: ${scInfo.title }</div>
-		  			<div>시간 : ${scInfo.start }</div>
-	  			
+		  			<div>
+		  				<div class="sc-title"> <label class="sc-title">일정명 : </label> 
+		  						<div>${scInfo.scName}</div>
+		  				</div>
+		  			</div>
+		  			<div>	
+		  				<div>예상비용 : ${scInfo.cost}</div>
+		  			</div>
+		  			<div>
+		  				<div>주소 : ${scInfo.addr1 }</div>
+		  			</div>
+		  			<div>
+		  				<div>관광명: ${scInfo.title }</div>
+		  			</div>
+		  			<div>
+		  				<div>시간 : ${scInfo.start }</div>
+	  				</div>
 	  			</div>
   			</div>
   		</div>
