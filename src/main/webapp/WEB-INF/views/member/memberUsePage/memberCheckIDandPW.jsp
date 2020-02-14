@@ -29,6 +29,7 @@
 					<div class="idpwmain4-1-1">아이디 찾기</div>
 				</div>
 			<!-- 이메일1 입력창 -->
+			<form action="memberEMAIL2Check"  id="memberCheckPage" method="post">
 				<div class="idpwmain4-2">
 					<div class="idpwmain4-2-1">
 						<div class="idpwmain4-2-2">이메일 주소 : </div>
@@ -36,9 +37,10 @@
 				</div>
 			
 				<div class="idpwmain4-3">
-					<input type="text" class="idpwmain4-3-1">
+					<input type="text" class="idpwmain4-3-1" name="emailCheck">					
 					<div class="idpwmain4-3-2">찾기</div>
 				</div>
+			</form>
 			<!-- 이메일1 입력창----------- -->				
 			</div>
 			
@@ -79,23 +81,24 @@
 	<c:import url="../../template/footer.jsp"/>
 	<!--정상사항 ------------------------------------------------------------------------------------------------------------------------------------>
 	<div id="Xid2" style="">
-		<div id="emailsame" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
-			<div style="background-color: #63caf8; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
-				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">존재하는 이메일입니다.${member.id}</div>
+		<div id="emailsame" style="position: fixed; top: 125px; left:780px; background-color: #fff; height: 80px; width: 270px;">
+			<div style="background-color: #63caf8; height: 70px; width: 260px; margin-left: 5px; margin-top: 5px;">
+				<div class="hellomother" style="color: white; font-size: 13pt; width: 240px; padding-left: 15px; padding-top: 20px;">
+				<span id="findID" style="margin-left: -15px;"></span></div>
 			</div>
 		</div>
 	
-		<div class="Xidsame5" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
+		<div class="Xidsame5" style= " position: fixed; background-color: #fff; top: 110px; left: 1030px; height: 50px; width: 50px;"> 
 			<div class="Xidsame4" style="background-color: #63caf8; height: 40px; width: 40px; 
 				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div> 
 		</div>
 	</div>
 	
-	<!--오류사항 ------------------------------------------------------------------------------------------------------------------------------------>
+	<!--오류사항 (쓸모없으나 아까우니 냅두기로한다)------------------------------------------------------------------------------------------------------------------------------------>
 	<div id="Xid3" style="">
 		<div id="emailsame2" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
 			<div style="background-color: #63caf8; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
-				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">존재하지 않는 이메일입니다.</div>
+				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;"><span id="findID"></span></div>
 			</div>
 		</div>
 	
@@ -178,21 +181,27 @@ email2 = '${member.email}';
 	$.ajax({
 
 		type : "POST",
-		url  : "memberEMAILCheck",
+		url  : "memberEMAIL2Check",
 		data : {
 			email : email
 			},
 		success : function(d){
+			//성공창
+			if(d != ""){
+ 				$(".idpwmain4-3-2").css("background","#95a5a6");
+ 				$(".hellomother").css("text-align","center");	
+				$('#findID').text(d);
+				
+ 				$('#Xid2').show(); 
+			}else{
 
-			if(d){
-				$("#Xid2").show(); 
-				$(".idpwmain4-3-2").css("background","#95a5a6");	
-				
-			}else {
+			//실패창
+			if(d == "" || d == null){
+ 				$(".idpwmain4-3-2").css("background","#95a5a6");
+ 				$('#findID').text(d);			
 				$('#Xid3').show(); 
-				$(".idpwmain4-3-2").css("background","#95a5a6");		
-				
-			}				
+				}				
+			}
 		}//success문
 	});	//ajax문
 

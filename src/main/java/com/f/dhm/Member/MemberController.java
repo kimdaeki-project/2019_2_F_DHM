@@ -1,6 +1,7 @@
 package com.f.dhm.Member;
 
 import java.util.Enumeration;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -103,6 +104,17 @@ public class MemberController {
 		session.invalidate();
 		
 		return "redirect:../";
+	}	
+	//ID 불러오기-----------------------------------------------------------------------
+	@PostMapping("memberEMAIL2Check")
+	@ResponseBody
+	public String memberEMAIL2Check(String email)throws Exception{		
+		
+		if(memberService.memberEMAIL2Check(email) == null) {
+			return "일치하는 이메일이 없습니다.";
+		}else {			
+			return memberService.memberEMAIL2Check(email).getId();
+		}		
 	}	
 	//ID 체크-----------------------------------------------------------------------
 	@PostMapping("memberIdCheck")
