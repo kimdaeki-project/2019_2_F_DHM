@@ -304,7 +304,7 @@
 					<div class="schedule-wrapper">
 						<div class="swiper-container">
 							<ul class="swiper-wrapper nolist" >
-									<c:forEach begin="1" end="${everyDay.size()}" varStatus="e">
+									<c:forEach begin="0" end="${everyDay.size()-1}" varStatus="e">
 									<!-- li 하나 -->
 					                        <li class="swiper-slide schedule-li" style="height: 560px;">
 					                           <div class="schedule-top">
@@ -317,12 +317,7 @@
 					                                 </a>
 					                              </div>
 					                              <div class="sbold">
-					                              <c:if test="${e ne everyDay[e.last]}">
-					                              	<fmt:formatDate value="${everyDay[e.index]}" pattern="MM/dd"/> 
-					                              </c:if> 
-					                              <c:if test="${e eq everyDay[e.last]}">
-					                             	 <fmt:formatDate value="${everyDay[e.index]+1}" pattern="MM/dd"/> 
-					                              </c:if>                        
+					                              <fmt:formatDate value="${everyDay[e.index] }" pattern="MM/dd"/>                         
 					                                 <span style="font-size: 10pt; color: #c0c0c0"><fmt:formatDate value="${everyDay[e.index] }" pattern="E"/> </span>
 					                              </div>
 					                              <div class="sarea">
@@ -330,11 +325,11 @@
 					                              </div>
 					                           </div>
 					                           <div class="schedule-body">
-					                              <div class="schedule-body-row">0~9
+					                              <div class="schedule-body-row"  id="${arCode[e.index] }">0~9
 					                                 <div class="schedule-body-content">
 						                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 8 && sc.arCode eq arCode[i.index]}">
+																<c:if test="${sc.start eq 8 && sc.arCode eq arCode[e.index]}">
 																	
 					                                			  <a class="md2">
 																		<div>${sc.scName}</div>
@@ -353,7 +348,7 @@
 					                              <div class="schedule-body-row">9
 					                                 <div class="schedule-body-content">
 					                                  <c:forEach items="${schedule}" var="sc">
-														<p><c:if test="${sc.start eq 9 && sc.arCode eq arCode[i.index]}">${sc.scName}</c:if>
+														<p><c:if test="${sc.start eq 9 && sc.arCode eq arCode[e.index]}">${sc.scName}</c:if>
 													 </c:forEach>
 					                                 </div>
 					                              </div>
@@ -361,7 +356,7 @@
 					                                 <div class="schedule-body-content">
 						                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 10 && sc.arCode eq arCode[i.index]}">
+																<c:if test="${sc.start eq 10 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -382,7 +377,7 @@
 					                                 <div class="schedule-body-content">
 					                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 11 && sc.arCode eq arCode[i.index]}">
+																<c:if test="${sc.start eq 11 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -403,7 +398,7 @@
 					                                 <div class="schedule-body-content">
 					                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 12 && sc.arCode eq arCode[i.index]}">
+																<c:if test="${sc.start eq 12 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -466,7 +461,7 @@
 					                                 <div class="schedule-body-content">
 					                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 15 && sc.arCode eq arCode[i.index]}">
+																<c:if test="${sc.start eq 15 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -508,7 +503,7 @@
 					                                 <div class="schedule-body-content">
 					                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 17 && sc.arCode eq arCode[i.index]}">
+																<c:if test="${sc.start eq 17 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -529,7 +524,7 @@
 					                                 <div class="schedule-body-content">
 					                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 18 && sc.arCode eq arCode[i.index]}">
+																<c:if test="${sc.start eq 18 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -571,7 +566,7 @@
 					                                 <div class="schedule-body-content">
 					                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 20 && sc.arCode eq arCode[i.index]}">
+																<c:if test="${sc.start eq 20 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -592,7 +587,7 @@
 					                                 <div class="schedule-body-content">
 					                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 21 && sc.arCode eq arCode[i.index]}">
+																<c:if test="${sc.start eq 21 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -613,7 +608,7 @@
 					                                 <div class="schedule-body-content">
 					                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 22 && sc.arCode eq arCode[i.index]}">
+																<c:if test="${sc.start eq 22 && sc.arCode eq arCode[e.index]}">
 					                                			  <a class="md2">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">

@@ -127,6 +127,7 @@ public class ScheduleController {
 		List<PlannerVO> plannerList = plannerService.plannerSelect(plNum, session);
 
 		int totalBak=0;
+		int mu = 0;
 		
 		List<Integer> bak = new ArrayList<Integer>();
 		List<Date> everyDay = new ArrayList<Date>();
@@ -134,12 +135,14 @@ public class ScheduleController {
 		List<Integer> arCode = new ArrayList<Integer>();
 		
 		for (int i = 0; i < plannerList.size(); i++) {
-			
+			if (plannerList.get(i).getBak() == 0) {
+				mu = 1;
+			}
 			totalBak += plannerList.get(i).getBak();
 			bak.add(totalBak);
 		}
 		
-		long firstDay = plannerList.get(0).getDeDate().getTime() - 1000*60*60*24;
+		long firstDay = plannerList.get(0).getDeDate().getTime();
 		long oneDay = 1000*60*60*24;
 		everyDay.add(new Date(firstDay));
 		int everyCheck = 0;
@@ -156,10 +159,12 @@ public class ScheduleController {
 			}
 		}
 		
-		everyDay.add(plannerList.get(plannerList.size()-1).getArDate());
 		
-		for (int i = 0; i < everyDay.size(); i++) {
-				if (i < bak.get(bakNum)) {
+		if (mu == 1) {			
+			everyDay.add(plannerList.get(plannerList.size()-1).getArDate());
+		}
+		
+		for (int i = 0; i < everyDay.size(); i++) {if (i < bak.get(bakNum)) {
 					region.add(plannerList.get(bakNum).getRegion());
 					arCode.add(plannerList.get(bakNum).getArCode());
 				}else {
@@ -169,7 +174,7 @@ public class ScheduleController {
 				}
 				
 		}
-		
+		mv.addObject("mu", mu);
 		mv.addObject("everyDay", everyDay);
 		mv.addObject("city", region);
 		mv.addObject("arCode", arCode);
