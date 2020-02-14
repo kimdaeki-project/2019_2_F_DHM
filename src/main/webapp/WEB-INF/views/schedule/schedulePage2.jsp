@@ -317,7 +317,12 @@
 					                                 </a>
 					                              </div>
 					                              <div class="sbold">
-					                              <fmt:formatDate value="${everyDay[e.index] }" pattern="MM/dd"/>                         
+					                              <c:if test="${e ne everyDay[e.last]}">
+					                              	<fmt:formatDate value="${everyDay[e.index]}" pattern="MM/dd"/> 
+					                              </c:if> 
+					                              <c:if test="${e eq everyDay[e.last]}">
+					                             	 <fmt:formatDate value="${everyDay[e.index]+1}" pattern="MM/dd"/> 
+					                              </c:if>                        
 					                                 <span style="font-size: 10pt; color: #c0c0c0"><fmt:formatDate value="${everyDay[e.index] }" pattern="E"/> </span>
 					                              </div>
 					                              <div class="sarea">

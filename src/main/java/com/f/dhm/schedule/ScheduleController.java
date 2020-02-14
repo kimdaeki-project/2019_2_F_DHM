@@ -155,6 +155,9 @@ public class ScheduleController {
 				everyDay.add(new Date(firstDay));
 			}
 		}
+		
+		everyDay.add(plannerList.get(plannerList.size()-1).getArDate());
+		
 		for (int i = 0; i < everyDay.size(); i++) {
 				if (i < bak.get(bakNum)) {
 					region.add(plannerList.get(bakNum).getRegion());
