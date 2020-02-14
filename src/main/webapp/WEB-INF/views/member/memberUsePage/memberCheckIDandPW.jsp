@@ -224,17 +224,23 @@ $(".Xidsame8").click(function(){
 //PW 찾기  start----------------------------------------------------------------
 var id = $(".idpwmain6-3-1").val();
 var id2 = '${member.id}';
+var email2 = $(".idpwmain5-3-1").val();
+var email3 = '${member.id}';
+
 
 $(".idpwmain5-3-2").click(function(){
 	id = $(".idpwmain6-3-1").val();
 	id2 = '${member.id}';
+	email2 = $(".idpwmain5-3-1").val();
+	email3 = '${member.id}';
 	
 	$.ajax({
 
 		type : "POST",
 		url  : "memberEMAIL3Check",
 		data : {
-			id : id
+			id : id,
+			email : email
 			},
 		success : function(getpw){
 			//성공창
