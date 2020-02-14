@@ -1,6 +1,7 @@
 package com.f.dhm.Member;
 
 import java.util.Enumeration;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -115,6 +116,28 @@ public class MemberController {
 		
 		return "redirect:../";
 	}	
+	//PW 불러오기-----------------------------------------------------------------------
+	@PostMapping("memberEMAIL3Check")
+	@ResponseBody
+	public String memberEMAIL3Check(String id)throws Exception{		
+		
+		if(memberService.memberEMAIL3Check(id) == null) {
+			return "일치하는 아이디가 없습니다.";
+		}else {			
+			return memberService.memberEMAIL3Check(id).getPw();
+		}		
+	}	
+	//ID 불러오기-----------------------------------------------------------------------
+	@PostMapping("memberEMAIL2Check")
+	@ResponseBody
+	public String memberEMAIL2Check(String email)throws Exception{		
+		
+		if(memberService.memberEMAIL2Check(email) == null) {
+			return "일치하는 이메일이 없습니다.";
+		}else {			
+			return memberService.memberEMAIL2Check(email).getId();
+		}		
+	}	
 	//ID 체크-----------------------------------------------------------------------
 	@PostMapping("memberIdCheck")
 	@ResponseBody
@@ -133,7 +156,7 @@ public class MemberController {
 	public MemberVO memberEMAILCheck(String email)throws Exception{		
 		
 		return memberService.memberEMAILCheck(email);
-	}
+	}	
 	//-----------------------------------------------------------------------
 	@ModelAttribute("memberVO")
 	public MemberVO memberVO()throws Exception{
@@ -210,6 +233,26 @@ public class MemberController {
 		
 		return "member/memberUsePage/memberTermsAndConditions";
 	}
+	
+	@GetMapping("memberTravelReservation")
+	public String memberTravelReservation()throws Exception{
+		
+		return "member/memberUsePage/memberTravelReservation";
+	}
+	
+	@GetMapping("memberGuideTermsandConditions")
+	public String memberGuideTermsandConditions()throws Exception{
+		
+		return "member/memberUsePage/memberGuideTermsandConditions";
+	}
+	//ID PW 찾기-----------------------------------------------------------------------
+	@GetMapping("memberCheckIDandPW")
+	public String memberCheckIDandPW()throws Exception{
+		
+		return "member/memberUsePage/memberCheckIDandPW";
+	}
+	
+	
 	
 	//-----------------------------------------------------------------------
 	@PostMapping("myPlanner")

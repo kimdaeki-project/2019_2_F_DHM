@@ -53,7 +53,7 @@ height: 100px;
 width: 553px;
 height: 505px;
 position:absolute; 
-left: 33%;
+left: 36%;
 background-color: white;
 }
 .Login1{
@@ -112,7 +112,7 @@ width: 130px;
 height: 30px;
 color: gray;
 line-height: -30px;	
-margin-left: 400px;
+margin-left: 420px;
 margin-top: -65px;
 }
 
@@ -227,7 +227,7 @@ margin-right: 162px;
 background-color: 95a5a6;
 }
 .Login7{
-margin-left: 394px;
+margin-left: 22%;
 }
 /* MemberLogin Page Css End *********************************************************************/
 /* MemberJoin Page Css Start ********************************************************************/
@@ -241,7 +241,7 @@ height: 965px;
 width: 555px;
 background-color: white;
 position:absolute; 
-left: 33%;
+left: 34%;
 margin-top: 17px;
 }
 .Join1{
@@ -854,7 +854,7 @@ margin-top: 2px;
 .mypage2{
 background-color: white;
 height: 200px;
-width: 263px;
+width: 260px;
 border: 1px solid #e8e8e8;
 border-radius: 5px;
 }
@@ -863,6 +863,7 @@ border-radius: 5px;
 background-color: white;
 height: 40px;
 width: 263px;
+border-right: 1px solid #e8e8e8;
 }
 
 .mypage2-1-1{
@@ -896,6 +897,7 @@ background-color: white;
 height: 80px;
 width: 263px;
 border-bottom: 1px solid #e8e8e8;
+border-right: 1px solid #e8e8e8;
 }
 
 .mypage2-2-1{
@@ -927,6 +929,7 @@ background-color: white;
 height: 80px;
 width: 263px;
 border-bottom: 1px solid #e8e8e8;
+border-right: 1px solid #e8e8e8;
 }
 
 .mypage3{
@@ -1075,7 +1078,7 @@ float: right;
 
 .my1-1{
 width:870px;
-height: 800px;
+height: 500px;
 background-color: white;
 border: 1.2px solid rgba(0,0,0,.1);
 border-radius: 5px;
@@ -1094,9 +1097,18 @@ margin-left: 20px;
 .my2{ 
 width:870px;
 height: 850px;
-background-color: blue; 
+background-color: white; 
 float: right;
 } 
+
+.my2-1{
+width:870px;
+height: 500px;
+background-color: white;
+border: 1.2px solid rgba(0,0,0,.1);
+border-radius: 5px;
+}
+
 
 .my3{ 
 width:870px;
@@ -1499,7 +1511,7 @@ font-size: 14px;
 /* 프로필 사진 변경 화면창 */
 .changeimg{
 width:100%;
-height: 1200px;
+height: 1270px;
 background-color:rgba(0,0,0,0.85);
 position: absolute;
 top:0px;
@@ -1622,7 +1634,7 @@ margin-left: 200px;
 /* 프로필 변경 화면창 */
 .asdzxc{
 width:100%;
-height: 1200px;
+height: 1250px;
 background-color:rgba(0,0,0,0.85);
 position: absolute;
 top:0px;
@@ -1827,7 +1839,6 @@ margin-top: 20px;
 width: 1903px;
 height: 1100px;
 background-color: #ececec;
-margin-top: 100px;
 border: 1px solid transparent;
 }
 
@@ -2223,12 +2234,12 @@ height: 260px;
 .footermain1{
 background-color: #373741;
 width: 100%;
-height: 60px;
+height: 50px;
 }
 
 .footermain1-1{
 background-color: #373741;	
-height: 60px;
+height: 50px;
 width: 1100px;
 margin-left: 400px;
 color: #86868c;
@@ -2256,42 +2267,42 @@ width: 170px;
 }
 
 .foot1{
-height: 60px;
+height: 50px;
 width: 110px;	
 background-color: #373741;
 float: left;
 }
 
 .foot2{
-height: 60px;
+height: 50px;
 width: 100px;	
 background-color: #373741;
 float: left;
 }
 
 .foot3{
-height: 60px;
+height: 50px;
 width: 140px;	
 background-color: #373741;
 float: left;
 }
 
 .foot4{
-height: 60px;
+height: 50px;
 width: 90px;	
 background-color: #373741;
 float: left;
 }
 
 .foot5{
-height: 60px;
+height: 50px;
 width: 100px;	
 background-color: #373741;
 float: left;
 }
 
 .foot6{
-height: 60px;
+height: 50px;
 width: 100px;	
 background-color: #373741;
 float: left;
@@ -2299,44 +2310,45 @@ float: left;
 
 .textline{
 height: 20px;
-margin-top: 20px;
+margin-top: 15px;
 position: relative;
 width: 100%;
 text-align: center;
 border-right: 1px solid #86868c;
-
+cursor: pointer;
 }
 
 .textline2{
 height: 30px;
-margin-top: 20px;
+margin-top: 15px;
 position: relative;
 width: 100%;
 text-align: center;
+cursor: pointer;
 }
 
 .foot7{
-height: 60px;
+height: 50px;
 width: 200px;
-background-color: red;
+background-color: #373741;
 float: right;
 }
 
 .plannerimg{
 margin-top: 30px;
 z-index: 999;	
-width: 150px;
-height: 80px;
+width: 160px;
+height: 70px;
+cursor: pointer;
 }
 
 .footermain2-1-2{
-width: 700px;
-height: 75px;
+width: 800px;
+height: 90px;
 background-color: #45454f;
 float: left;
-margin-top : -175px;
+margin-top : -185px;
 margin-left: 180px;
-border: 1px solid #86868c;
 }
 
 .footermain2-1-3{
@@ -2345,30 +2357,434 @@ height: 55px;
 background-color: #45454f;	
 float: left;	
 margin-top : -80px;
-margin-left: 180px;	
+margin-left: 190px;	
 font-size: 13.5px;
 color: #86868c;		
 }
 
 .text1{
-height: 26.6px;
-width: 700px;	
+height: 30px;
+width: 800px;	
 font-size: 13.5px;
 color: #86868c;
 float: left;
+margin-left: 3px;
+}
+
+.text1-1{
+background-color: #45454f;
+width: 150px;	
+height: 20px;	
+float: left;	
+font-size: 13px;	
+color: #86868c;		
+margin-top: 5px;	
+text-align: center;
+border-right: 1px solid #86868c;
+}
+
+.text1-2{
+background-color: #45454f;
+width: 130px;	
+height: 20px;		
+float: left;	
+font-size: 13px;	
+color: #86868c;		
+margin-top: 5px;		
+text-align: center;	
+border-right: 1px solid #86868c;	
+}
+
+.text1-3{
+background-color: #45454f;	
+width: 210px;	
+height: 20px;		
+float: left;	
+font-size: 13px;	
+color: #86868c;		
+margin-top: 5px;		
+text-align: center;		
 }
 
 .text2{
-width: 700px;
-height: 25px;
-background-color: red;	
-margin-top: 25px;
+width: 800px;
+height: 30px;
+background-color: #45454f;	
+float: left;
+}
+
+.text2-1{
+background-color: #45454f;
+width: 170px;	
+height: 20px;	
+float: left;	
+font-size: 13px;	
+color: #86868c;		
+margin-top: 5px;	
+text-align: center;
+border-right: 1px solid #86868c;
+}
+
+.text2-2{
+background-color: #45454f;
+width: 130px;	
+height: 20px;		
+float: left;	
+font-size: 13px;	
+color: #86868c;		
+margin-top: 5px;		
+text-align: center;	
+border-right: 1px solid #86868c;	
+}
+
+.text2-3{
+background-color: #45454f;	
+width: 210px;	
+height: 20px;		
+float: left;	
+font-size: 13px;	
+color: #86868c;		
+margin-top: 5px;		
+text-align: center;		
 }
 
 .text3{
+width: 800px;
+height: 29px;
+background-color: #45454f;	
+float: left;
+}
+
+.text3-1{
+background-color: #45454f;
+width: 310px;	
+height: 20px;	
+float: left;	
+font-size: 13px;	
+color: #86868c;		
+margin-top: 5px;	
+text-align: center;
+border-right: 1px solid #86868c;
+margin-left: 5px;
+}
+
+.text3-2{
+background-color: #45454f;
+width: 240px;	
+height: 20px;		
+float: left;	
+font-size: 13px;	
+color: #86868c;		
+margin-top: 5px;		
+text-align: center;	
+border-right: 1px solid #86868c;	
+}
+
+/* footer css End **********************************************************************/
+
+/* memberGetout css  Start **********************************************************************/
+
+.getoutmain{
+width: 1100px;
+height: 250px;
+margin-left: 400px;
+padding-top: 100px;
+background-color: white;
+	
+}
+
+.getoutmain1{
+width: 1100px;
+height: 150px;
+margin-left: 400px;
+padding-top : -20px;
+background-color: white;	
+}
+
+.getoutmain2{
+width: 1100px;
+height: 150px;
+margin-left: 400px;
+margin-top : 10px;
+background-color: #191919;	
+}
+
+.getoutmain2-1{
+color: white;
+font-size: 11.5px;
+padding-left: 15px;
+padding-top: 20px;
+
+
+}
+
+.maintext1{
+color: #bfbfbf;	
+margin-top: 5px;
+text-shadow: none;
+font-weight: normal;
+font-size: 24px;
+line-height: 33px;	
+}
+
+.maintext2{
+color: darkred;	
+font-family: 'NanumGothic';
+text-shadow: none;
+font-weight: normal;	
+font-size: 18px;
+margin-top: 20px;
+}
+
+.maintext3{
+font-size: 12px;
+color: darkred;		
+margin-top: 20px;
+}
+
+a{
+	text-decoration: none;
+	color: #18ba9b;
+}
+/* 호버 이벤트 삭제 */
+a:hover{
+	text-decoration: none;
+	font-weight: normal;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.getoutmain1-1{
+padding-top: 20px;
+font-size: 13.5px;
+}
+
+.getoutmain1-3{
+background: #555;
+color: #fff;
+text-decoration: none;
+font-size: 18px;
+padding: 10px 25px;
+cursor: pointer;
+width: 120px;
+height: 45px;
+text-align: center;
+font-size: 17.5px;
+margin-top: 10px;
+}
+
+.getoutmain1-4{
+background: #7f8c8d;
+color: #fff;
+text-decoration: none;
+font-size: 18px;
+padding: 10px 25px;
+cursor: pointer;
+width: 120px;
+height: 45px;
+text-align: center;
+font-size: 17.5px;
+margin-top: -45px;
+float: left;
+margin-left: 130px;
+}
+/* memberGetout css  End **********************************************************************/
+
+
+
+/* memberIDPW css  Start **********************************************************************/
+
+.idpwmain{
+width: 100%%;
+height: 800px;
+background-color: #ececec;
+}
+
+.idpwmain2{
+width: 1000px;
+height: 600px;
+margin-left: 460px;
+padding-top: 200px;
+background-color: white;	
+}
+
+.idpwmain3{
+width: 1000px;
+height: 70px;		
+background-color: #f5f5f5;		
+margin-top: -135px;
+border-bottom: 1px solid #ddd;
+box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.idpwmain3-1{
+font-size: 27px;
+margin-left: 160px;
+color: #333;	
+font-weight: 500;
+padding-top: 15px;
+}
+
+.idpwmain4{
+margin-top:100px;
+margin-left: 160px;
 width: 700px;
-height: 25px;
-background-color: blue;	
+height: 200px;		
+background-color: white;
+}
+
+.idpwmain4-1{
+width: 700px;
+height: 50px;		
+background-color: white;	
+border-bottom: 1px solid #ddd;		
+}
+
+.idpwmain4-1-1{
+color: gray;	
+margin-left: 20px;
+padding-top: 15px;
+}
+
+.idpwmain4-2{
+width: 200px;
+height: 150px;
+background-color: white;	
+float: left;
+}
+
+.idpwmain4-2-2{
+padding-left: 40px;	
+padding-top: 60px;
+color: gray;	
+font-size: 17px;
+}
+
+.idpwmain4-3{
+width: 500px;
+height: 150px;
+background-color: white;		
+float: left;
+}
+
+.idpwmain4-3-1{
+margin-top: 56px;	
+width: 200px;
+height: 30px;	
+}
+
+.idpwmain4-3-2{
+width: 50px;
+height: 32px;	
+background: #e74c3c;
+color: #fff;
+font-weight: 400;
+font-size: 14px;
+margin-left: 210px;
+margin-top: -35px;
+text-align: center;
+line-height: 30px;
+cursor: pointer;
+border: 1px solid #b86464;		
+}
+
+.idpwmain5-2{
+width: 200px;
+height: 50px;
+background-color: white;	
+float: left;
+}
+
+.idpwmain5-2-2{
+color: gray;	
+padding-left: 40px;	
+padding-top: 30px;
+font-size: 17px;
+}
+
+.idpwmain5-3{
+width: 500px;
+height: 50px;
+background-color: white;		
+float: left;
+margin-top: 5px;
+}
+
+.idpwmain5-3-1{
+margin-top: 20px;	
+width: 200px;
+height: 30px;		
+}
+
+.idpwmain6-3-1{
+margin-top: 20px;	
+width: 200px;
+height: 30px;
+top: 510px;
+z-index: 999;
+position: absolute;
+}
+
+.idpwmain5-3-2{
+width: 70px;
+height: 32px;	
+background: #e74c3c;
+color: #fff;
+font-weight: 400;
+font-size: 14px;
+margin-left: 210px;
+margin-top: -35px;
+text-align: center;
+line-height: 30px;
+cursor: pointer;
+border: 1px solid #b86464;		
+}
+
+.idpwmain6-2{
+width: 200px;
+height: 50px;
+background-color: white;	
+float: left;
+}
+
+.idpwmain6-2-2{
+color: gray;	
+padding-left: 40px;	
+padding-top: 25px;
+font-size: 17px;
+}
+
+.idpwmain6-3{
+width: 500px;
+height: 50px;
+background-color: white;		
+float: left;
+}
+
+.idpwmain6-3-1{
+margin-top: 50px;	
+width: 200px;
+height: 30px;	
+	
+}
+
+.idpwmain6-3-2{
+width: 50px;
+height: 32px;	
+background: #e74c3c;
+color: #fff;
+font-weight: 400;
+font-size: 14px;
+margin-left: 210px;
+margin-top: -35px;
+text-align: center;
+line-height: 30px;
+cursor: pointer;
+border: 1px solid #b86464;		
 }
 
 
@@ -2386,7 +2802,40 @@ background-color: blue;
 
 
 
-/* footer css End **********************************************************************/
+
+.idpwmain5{
+margin-top:50px;
+margin-left: 160px;
+width: 700px;
+height: 200px;		
+background-color: white;		
+}
+
+.idpwmain5-1{
+width: 700px;
+height: 50px;		
+background-color: white;	
+border-bottom: 1px solid #ddd;		
+}
+
+.idpwmain5-1-1{
+color: gray;	
+margin-left: 20px;
+padding-top: 15px;	
+}
+
+.idpwmainbox2{
+width: 100%;
+height: 100px;	
+background-color: #ececec;	
+}
+
+
+/* memberIDPW css  End **********************************************************************/
+
+
+
+
 
 
 

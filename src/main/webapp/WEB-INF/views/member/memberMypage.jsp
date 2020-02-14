@@ -43,8 +43,16 @@
          </div>
          
          <div class="my2" id="my2">
-            <a><img alt="" src="../imgs/member/${member.memberFilesVO.fname}" class="mypage1-1-1"></a>
-            <a><img src="../imgs/dog.jpg" class="mypage1-1-1"></a>
+         	<div class="my2-1">
+				<h4>방명록</h4>
+
+
+
+
+
+
+
+			 </div>
          </div>
          
          <div class="my3" id="my3">
@@ -303,9 +311,11 @@
    
    <div class="container" 
    style="background-color: white; width: 1903px; height: 50px; 
-   text-align: center; line-height: 50px; font-size: 14px;">
-   © DHM PLANNER 2020
+   text-align: center; line-height: 50px; font-size: 14px; margin-top: 50px;">
+   <b>© DHM PLANNER 2020</b>
    </div>
+   
+   <div style="height: 50px;"></div>
    
 </form>
 
@@ -690,7 +700,7 @@ $(".mypage2-2-2").click(function(){
 //리뷰
 $(".my3-1-3").click(function(){
    
-    location.href = "/";
+    location.href = "${pageContext.request.contextPath}/planner/reviewPlanner";
          
    });
 </script>

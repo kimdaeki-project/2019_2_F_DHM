@@ -2,6 +2,7 @@ package com.f.dhm.Member;
 
 import java.io.File;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
@@ -73,6 +74,16 @@ public class MemberService {
 		memberVO.getMemberFilesVO();
 		
 		return memberVO;
+	}
+	//PW 불러오기----------------------------------------
+	public MemberVO memberEMAIL3Check(String id)throws Exception{
+		
+		return memberRepository.findById(id).get();
+	}
+	//ID 불러오기----------------------------------------
+	public MemberVO memberEMAIL2Check(String email)throws Exception{
+		
+		return memberRepository.findByEmail(email);
 	}
 	//ID 체크----------------------------------------
 	public boolean memberIdCheck(String id)throws Exception{

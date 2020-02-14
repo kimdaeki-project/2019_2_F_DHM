@@ -18,118 +18,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet"  href="../css/basic.css">
 <link rel="stylesheet" href="../package/css/swiper.min.css">
+<link rel="stylesheet"  href="../css/membercss.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-/* memberGetout css  Start **********************************************************************/
 
-.getoutmain{
-width: 1100px;
-height: 250px;
-margin-left: 400px;
-margin-top: 100px;
-background-color: white;
-border-bottom: 1px solid #e6e6e6;	
-}
-
-.getoutmain1{
-width: 1100px;
-height: 150px;
-margin-left: 400px;
-background-color: white;	
-}
-
-.getoutmain2{
-width: 1100px;
-height: 150px;
-margin-left: 400px;
-background-color: #191919;	
-}
-
-.getoutmain2-1{
-color: white;
-font-size: 11.5px;
-padding-left: 15px;
-padding-top: 20px;
-
-
-}
-
-.maintext1{
-color: #bfbfbf;	
-margin-top: 5px;
-text-shadow: none;
-font-weight: normal;
-font-size: 24px;
-line-height: 33px;	
-}
-
-.maintext2{
-color: darkred;	
-font-family: 'NanumGothic';
-text-shadow: none;
-font-weight: normal;	
-font-size: 18px;
-margin-top: 20px;
-}
-
-.maintext3{
-font-size: 12px;
-color: darkred;		
-margin-top: 20px;
-}
-
-a{
-	text-decoration: none;
-	color: #18ba9b;
-}
-/* 호버 이벤트 삭제 */
-a:hover{
-	text-decoration: none;
-	font-weight: normal;
-}
-
-*{
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.getoutmain1-1{
-padding-top: 30px;
-font-size: 13.5px;
-}
-
-.getoutmain1-3{
-background: #555;
-color: #fff;
-text-decoration: none;
-font-size: 18px;
-padding: 10px 25px;
-cursor: pointer;
-width: 120px;
-height: 45px;
-text-align: center;
-font-size: 17.5px;
-margin-top: 10px;
-}
-
-.getoutmain1-4{
-background: #7f8c8d;
-color: #fff;
-text-decoration: none;
-font-size: 18px;
-padding: 10px 25px;
-cursor: pointer;
-width: 120px;
-height: 45px;
-text-align: center;
-font-size: 17.5px;
-margin-top: -45px;
-float: left;
-margin-left: 130px;
-}
-/* memberGetout css  End **********************************************************************/
 </style>
 </head>
 <body>
@@ -145,12 +38,14 @@ margin-left: 130px;
 			4. 여행정보와 현지교통과 관련해 집필하신 지식글들은 자동으로 삭제되지 않습니다.</div>
 	</div>
 	
+	<div style="z-index: 9999; width: 800px; height: 2px; border-bottom: 1px solid rgba(0,0,0,.1);margin-left: 400px; margin-top: 110px;"></div>
+	
 	<spring:form action="memberGetout" id="Getout" method="post" modelAttribute="memberVO" >
 	<div class="getoutmain1">
 		<div class="getoutmain1-1">
 			비밀번호 : <input type="password" class="getoutmain1-2" id="pw10" name="pw">			
 					<button type="button" id="ppw_btn" class="btn-u btn-u-red"
-				style="margin-left: -5px; margin-top: 19px; width: 70px; height: 27px; background-color: #e74c3c; color: white;">확인</button>
+				style="margin-left: -5px; margin-top: 19px; width: 70px; height: 25px; background-color: #e74c3c; color: white; line-height: 3px;">확인</button>
 					
 					<input type="hidden" value="${member.id}" name="id">
 					<input type="hidden" value="${member.name}" name="name">
@@ -158,7 +53,7 @@ margin-left: 130px;
 					<input type="hidden" value="${member.gender}" name="gender">
 					<input type="hidden" value="${member.birth}" name="birth">
 		</div>
-		<div>
+		<div style="padding-top: 10px;">
 			<div class="getoutmain1-3">탈퇴하기</div>
 			<div class="getoutmain1-4">취소</div>
 		</div>
@@ -206,7 +101,14 @@ margin-left: 130px;
 		</div>
 	</div>
 
+	<div style="height: 100px;"></div>
 </body>
+
+
+<footer>
+   <c:import url="../template/footer.jsp"/>
+
+</footer>
 
 <%-- 			<c:import url="../template/footer.jsp"/> --%>
 <script type="text/javascript">
@@ -217,6 +119,7 @@ $(".getoutmain1-4").click(function(){
     location.href = "memberMypage";
      	 
 	});
+
 //----------------------------------------------------------------------
 
 // var pw = $("#pw10").val();   : 비밀번호 입력값
@@ -304,6 +207,8 @@ document.addEventListener('keydown', function(event) {
 // 	    event.preventDefault();
 // 	  };
 // 	});
+
+
 	
 </script>
 </html>
