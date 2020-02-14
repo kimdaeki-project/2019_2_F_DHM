@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 	<div class="swiper-container" style=" clear: both; overflow: hidden;">
 	   <div class="swiper-wrapper nolist">
 	      <c:forEach items="${typeList}" var="vo" varStatus="i">
@@ -14,7 +15,7 @@
 	                   <div class="mp-f">
 	                      <div class="mp">${vo.title}</div>
 	                      <div class="mp-f1"> ${bak[i.index]} 일간</div>
-	                      <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>${deDate[i.index] }</div>
+	                      <div class="mp-f2"><fmt:formatDate value="${deDate[i.index] }" pattern="yy년MM월dd일"/></div>
 	                      <div class="mp-f3">
 	                      	<c:choose>
 	                      		<c:when test="${dDay[i.index] gt 0 }">

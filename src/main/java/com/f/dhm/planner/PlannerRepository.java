@@ -23,7 +23,7 @@ public interface PlannerRepository extends JpaRepository<PlannerVO, Integer>{
 	@Query(nativeQuery = true, value = "select distinct p.plNum,p.id,p.type,p.title from planner p, planner p2 where p.id=? and p.plNum=p2.plNum order by plNum desc")
 	List<MyPlannerVO> plannerList(String id) throws Exception;
 	//성주 추가 pl넘 내림차순
-	@Query(nativeQuery = true, value = "select distinct p.plNum,p.id,p.type,p.title,p.makeDay from planner p, planner p2 where p.plNum=p2.plNum order by plNum desc")
+	@Query(nativeQuery = true, value = "select distinct p.plNum,p.id,p.type,p.title,p.makeDay,p.unlock from planner p, planner p2 where p.plNum=p2.plNum order by plNum desc")
 	List<MyPlannerVO> plannerAll() throws Exception;
 
 	List<PlannerVO> findByIdAndPlNum(String id,int plNum);
