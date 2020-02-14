@@ -67,7 +67,7 @@
 			<!-- 이메일2 입력창 -->	
 				<div class="idpwmain5-3">
 					<input type="text" class="idpwmain5-3-1">
-					<div class="idpwmain5-3-2">재발급</div>
+					<div class="idpwmain5-3-2">발급</div>
 				</div>
 			<!-- 이메일2 입력창 -->
 				
