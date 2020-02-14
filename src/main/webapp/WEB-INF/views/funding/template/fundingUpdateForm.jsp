@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 		<form:form id="frm" modelAttribute="fundingVO">
 			<div class="form-group">
@@ -61,3 +62,6 @@
 		    	<input type="button" id="re" class="btn btn-primary" value="취소" style="font-size:30px; margin: 15px; padding-left: 30px; padding-right: 30px;">
 		   	</div> 
 		</form:form>
+
+
+

@@ -198,6 +198,7 @@ padding-right: 0px;
 }
 
 .funding_block3{
+height:230px;
 font-size: 14px;
 letter-spacing: -1px;
 line-height: 1.4;
@@ -214,6 +215,7 @@ overflow: hidden;
 }
 
 .funding_inner_area{
+margin: 0 auto;
 height: 100%;
 font-size: 14px;
 letter-spacing: -1px;

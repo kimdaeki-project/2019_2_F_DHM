@@ -8,6 +8,9 @@ import javax.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import com.f.dhm.planner.PlannerRepository;
+import com.f.dhm.planner.PlannerVO;
 import com.f.dhm.util.Pager;
 
 @Transactional
@@ -20,8 +23,12 @@ public class FundingService {
 	@Resource(name = "fundingJoinRepository")
 	private FundingJoinRepository fundingJoinRepository;
 	
+	@Resource(name = "plannerRepository")
+	private PlannerRepository plannerRepository;
+	
 	//funding//
 	public void fundingWrite(FundingVO fundingVO) throws Exception{
+		
 		fundingRepository.save(fundingVO);
 	}//write
 	
@@ -45,11 +52,16 @@ public class FundingService {
 		
 		return pager;
 	}//list
-
+	
+	public List<FundingVO> makeFundingList(String id) throws Exception{
+		return fundingRepository.findById(id);
+	}
+	
 	public void fundingUpdate(FundingVO fundingVO) throws Exception{
 //		fundingRepository.fundingUpdate(fundingVO.getName(), fundingVO.getContents(), fundingVO.getPrice(),
 //				fundingVO.getGoal(), fundingVO.getStartTime(), fundingVO.getEndTime(), fundingVO.getPeople(), fundingVO.getNum());
 //		System.out.println(fundingVO.getRegDate()+" : service");
+		
 		fundingRepository.save(fundingVO);
 	}
 
@@ -65,7 +77,7 @@ public class FundingService {
 		return ar;
 	}//list
 	
-	public List<FundingJoinVO> fundingJoinSelect(String participationId) throws Exception{
+	public List<FundingJoinVO> myFundingList(String participationId) throws Exception{
 		
 //		return fundingRepository.findByFundingJoinVOsParticipationId(participationId);
 		return fundingJoinRepository.findByParticipationId(participationId);

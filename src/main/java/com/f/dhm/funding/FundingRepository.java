@@ -29,7 +29,7 @@ public interface FundingRepository extends JpaRepository<FundingVO, Integer> {
 	@Transactional
 	@Modifying
 	@Query("UPDATE FundingVO f SET status = ?1, gage = ?2, participationPeople = ?3 WHERE fNum = ?4")
-	void fundingUpdate(int status, int gage, int participationPeople, int fNum) throws Exception;
+	void fundingUpdate(int status, double gage, int participationPeople, int fNum) throws Exception;
 	
 //	@Query("SELECT f FROM FundingVO f WHERE participationId = ?1")
 	@Query(value = "SELECT new list (f.name, f.id, f.startTime, f.endTime, j.price, j.participationPeople) "
@@ -42,4 +42,7 @@ public interface FundingRepository extends JpaRepository<FundingVO, Integer> {
 //	Page<FundingVO> findByNum(int num, Pageable pageable) throws Exception;
 //	
 	List<FundingVO> findByFundingJoinVOsParticipationId(String participationId) throws Exception;
+
+	List<FundingVO> findById(String id) throws Exception;
+
 }

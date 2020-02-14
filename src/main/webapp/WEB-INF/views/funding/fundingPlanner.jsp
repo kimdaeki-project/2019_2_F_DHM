@@ -10,6 +10,7 @@
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
+
 <title>펀딩 루트 짜기</title>
 </head>
 <body>
@@ -20,6 +21,7 @@
 		</script>
 	</c:when>
 	<c:otherwise>
+
 <c:import url="../template/boot.jsp"/>
 <c:import url="../template/dragJquery.jsp"/>
 <section>
@@ -132,35 +134,37 @@
       <div class="chos-sleep-list">
          <input type="hidden" id="save-sleep">
          <div class="chos-sleep-opt" title="무"> 
-         	<font style="font-size: 18px;">무박</font>
-         	<p class="chos-sleep-per"></p>
+
+            <font style="font-size: 18px;">무박</font>
+            <p class="chos-sleep-per"></p>
          </div>
          <div class="chos-sleep-opt" title="1"> <font style="font-size: 18px;">1박</font>
-         	<p class="chos-sleep-per"></p>
+            <p class="chos-sleep-per"></p>
          </div>
          <div class="chos-sleep-opt" title="2"> <font style="font-size: 18px;">2박</font>
-         	<p class="chos-sleep-per"></p>
+            <p class="chos-sleep-per"></p>
          </div>
          <div class="chos-sleep-opt" title="3"> <font style="font-size: 18px;">3박</font>
-         	<p class="chos-sleep-per"></p>
+            <p class="chos-sleep-per"></p>
          </div>
          <div class="chos-sleep-opt" title="4"> <font style="font-size: 18px;">4박</font>
-         	<p class="chos-sleep-per"></p>
+            <p class="chos-sleep-per"></p>
          </div>
          <div class="chos-sleep-opt" title="5"> <font style="font-size: 18px;">5박</font>
-         	<p class="chos-sleep-per"></p>
+            <p class="chos-sleep-per"></p>
          </div>
          <div class="chos-sleep-opt" title="6"> <font style="font-size: 18px;">6박</font>
-         	<p class="chos-sleep-per"></p>
+            <p class="chos-sleep-per"></p>
          </div>
          <div class="chos-sleep-opt" title="7"> <font style="font-size: 18px;">7박</font>
-         	<p class="chos-sleep-per"></p>
+            <p class="chos-sleep-per"></p>
          </div>
          <div class="chos-sleep-opt" title="8"> <font style="font-size: 18px;">8박</font>
-         	<p class="chos-sleep-per"></p>
-         	</div>
+            <p class="chos-sleep-per"></p>
+            </div>
          <div class="chos-sleep-opt" title="9"> <font style="font-size: 18px;">9박</font>
-         	<p class="chos-sleep-per"></p>
+            <p class="chos-sleep-per"></p>
+
          </div>
       </div>
    </div>
@@ -218,6 +222,16 @@
                </td>
             </tr>
             <tr>
+
+               <td>
+                  <p>펀딩 내용</p>
+               </td>
+               <td>
+                  <textarea cols="51" rows="10" placeholder="펀딩 내용을 입력해주세요." id="mkp-contents" style="color: black; resize: none;"></textarea>
+               </td>
+            </tr>
+            <tr>
+
                <td class="mkp-table-pepp">
                   <p>모집인원</p>
                </td>
@@ -261,7 +275,12 @@
                </td>
                <td>
                   <input id="mkp-start" type="date">
+
                   <input id="mkp-time1" type="time">
+
+                  <input type="text" name="mkp-time1" value="" placeholder="시간선택"  id="mkp-time1" required size="8" maxlength="5">
+
+
                </td>
             </tr>
             <tr>
@@ -274,17 +293,27 @@
                </td>
             </tr>
          </table>
+
 <!-- 병주형 수정목록ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
          <button class="mkp-clp-btn" name="make" >저장하기</button>
    </div>
 </div>
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 <!--hide ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+
 <input type="hidden" value="${purpose }" id="purpose">
 </section>
+
+<script src="../js/timepicker.js"></script>
+<script type="text/javascript">
+$("#mkp-time1").timepicker({
+	step: 5,            //시간간격 : 5분
+	timeFormat: "H:i"    //시간:분 으로표시
+
+});
+</script>
 <script src="../js/cityList.js"></script>
 <script src="../js/makePlanner.js"></script>
-	</c:otherwise>
-</c:choose>
+
 </body>
 </html>
