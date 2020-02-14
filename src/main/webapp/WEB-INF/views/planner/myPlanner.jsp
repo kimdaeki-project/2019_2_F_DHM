@@ -47,7 +47,7 @@
 												<div class="mp-f">
 													<div class="mp">${vo.title}</div>
 													<div class="mp-f1"> ${days[i.index]} 일간</div>
-													<div class="mp-f2"><fmt:formatDate value="${deDate[i.index]}" pattern="yy년MM월dd일"/></div>
+													<div class="mp-f2">출발 : <fmt:formatDate value="${deDate[i.index]}" pattern="yy년MM월dd일"/></div>
 													<div class="mp-f3">${Dday[i.index]}</div>
 												</div>
 											</div>

@@ -85,8 +85,6 @@ public class ScheduleController {
 		String msg="";
 		ModelAndView mv = new ModelAndView();
 		List<ScheduleVO> ar = scheduleService.scheduleCheck(plNum, title);
-		System.out.println("sinsnsndklfsdlkjfkls    :    "+ar.size());
-	
 			
 			if(ar.size()==0) {
 	
@@ -128,21 +126,59 @@ public class ScheduleController {
 
 		List<PlannerVO> plannerList = plannerService.plannerSelect(plNum, session);
 
-		int bak=0;
+		int totalBak=0;
+		
+		List<Integer> bak = new ArrayList<Integer>();
+		List<Date> everyDay = new ArrayList<Date>();
+		List<String> region = new ArrayList<String>();
+		List<Integer> arCode = new ArrayList<Integer>();
 		
 		for (int i = 0; i < plannerList.size(); i++) {
 			
-			bak = plannerList.get(i).getBak();
-			mv.addObject("bak", bak);
-			
+			totalBak += plannerList.get(i).getBak();
+			bak.add(totalBak);
 		}
 		
+		long firstDay = plannerList.get(0).getDeDate().getTime() - 1000*60*60*24;
+		long oneDay = 1000*60*60*24;
+		everyDay.add(new Date(firstDay));
+		int everyCheck = 0;
+		int bakNum = 0;
+		
+		for (int i = 0; i < totalBak; i++) {
+			if (plannerList.get(everyCheck).getBak()==0) {
+				everyDay.add(new Date(firstDay));
+				everyCheck++;
+				i=i-1;
+			}else {				
+				firstDay = firstDay + oneDay;
+				everyDay.add(new Date(firstDay));
+			}
+		}
+		for (int i = 0; i < everyDay.size(); i++) {
+				if (i < bak.get(bakNum)) {
+					region.add(plannerList.get(bakNum).getRegion());
+					arCode.add(plannerList.get(bakNum).getArCode());
+				}else {
+					arCode.add(plannerList.get(bakNum).getArCode());
+					region.add(plannerList.get(bakNum).getRegion());
+					bakNum++;
+				}
+				
+		}
+		
+		mv.addObject("everyDay", everyDay);
+		mv.addObject("city", region);
+		mv.addObject("arCode", arCode);
+		
+		
+		mv.addObject("bak", bak);
 		
 		List<ScheduleVO> scheduleList = scheduleService.scheduleList(plNum);
 		List<WishVO> wishlist = wishService.myWish(session, plNum);
 		
 		
-		if(memberVO==null) {
+		if(memberVO==null && !plannerList.get(0).getId().equals("guest")) {
 			String msg="로그인이 필요합니다.";
 			mv.addObject("message",msg);
 			mv.addObject("path","../member/memberLogin?goBack=../schedule/schedulePage?plNum="+plNum);
