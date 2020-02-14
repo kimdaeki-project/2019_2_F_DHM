@@ -389,7 +389,7 @@
                                                 </a>
                                              </div>
                                              <div class="sbold">
-                                             <fmt:formatDate value="${everyDay[e.index] }" pattern="MM/dd"/>                         
+                                            <fmt:formatDate value="${everyDay[e.index] }" pattern="MM월 dd일"/>             
                                                 <span style="font-size: 10pt; color: #c0c0c0"><fmt:formatDate value="${everyDay[e.index] }" pattern="E"/> </span>
                                              </div>
                                              <div class="sarea">
@@ -397,12 +397,12 @@
                                              </div>
                                           </div>
                                           <div class="schedule-body">
-                                             <div class="schedule-body-row">0~9
+                                             <div class="schedule-body-row">0~9 
                                                 <div class="schedule-body-content">
                                                    <c:forEach items="${scheduleInfo}" var="sc">
                                              		<div title="${sc.scName}">
-                                               			<c:if test="${sc.start eq 8 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index]}">
-
+                                               			<c:if test="${sc.start eq 8 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index] }">
+																			
 					                                			 	 <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">

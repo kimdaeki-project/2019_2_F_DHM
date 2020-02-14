@@ -212,6 +212,10 @@ public class ScheduleController {
             
             String tour = scheduleList.get(i).getTour();
             System.out.println("tour    :    " +tour);
+            
+            String day = scheduleList.get(i).getDay();
+            System.out.println("day    :    " +day);
+            
             Map<String, Object> scInfo = scheduleService.scheduleInfo(tour, plNum);
             scheduleInfoVO = new ScheduleInfoVO();
             scheduleInfoVO.setTitle((String)scInfo.get("title"));
@@ -223,8 +227,8 @@ public class ScheduleController {
             scheduleInfoVO.setTour((String)scInfo.get("tour"));
             scheduleInfoVO.setArCode((Integer)scInfo.get("arCode"));
             scheduleInfoVO.setScName((String)scInfo.get("scName"));
+            System.out.println("sdfdsfsdfsfdfsdfdfs   :     "+scheduleInfoVO.getDay());
             scheduleInfoVOs.add(scheduleInfoVO);
-            System.out.println("arCodeTest    :   "+scheduleInfoVO.getDay());
          }
          
          mv.addObject("scheduleInfo", scheduleInfoVOs);
