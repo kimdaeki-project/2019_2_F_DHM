@@ -70,7 +70,7 @@ public class ScheduleController {
 		}
 		
 		
-		mv.setViewName("schedule/schedulePage2");
+		mv.setViewName("schedule/schedulePage");
 		return mv;
 	}
 	
@@ -106,16 +106,14 @@ public class ScheduleController {
 			}
 	
 			
-			mv.setViewName("schedulePage2");
+			mv.setViewName("schedulePage");
 		
 		
 
 		return flag;
 	}
 
-	public void sc() throws Exception{
-		
-	}
+	
 	
 	@GetMapping("schedulePage")
 	public ModelAndView plannerPage(PlannerVO plannerVO, ScheduleVO scheduleVO, HttpSession session, int plNum, String scName)
@@ -125,7 +123,6 @@ public class ScheduleController {
 		
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		
-
 		List<PlannerVO> plannerList = plannerService.plannerSelect(plNum, session);
 
 		int bak=0;
@@ -141,6 +138,8 @@ public class ScheduleController {
 		List<ScheduleVO> scheduleList = scheduleService.scheduleList(plNum);
 		List<WishVO> wishlist = wishService.myWish(session, plNum);
 		
+		long totalCost=scheduleService.totalCost(plNum);
+		mv.addObject("totalCost", totalCost);
 		
 		if(memberVO==null) {
 			String msg="로그인이 필요합니다.";
@@ -196,7 +195,7 @@ public class ScheduleController {
 			mv.addObject("dDate", deDate);
 			mv.addObject("schedule", scheduleList);
 			mv.addObject("days", days);
-			mv.setViewName("/schedule/schedulePage2");
+			mv.setViewName("/schedule/schedulePage");
 			
 		}else if(plannerList.size()==0){
 			String msg="다른사람의 플래너는 열람할 수 없습니다.";

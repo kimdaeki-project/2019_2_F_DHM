@@ -34,6 +34,11 @@ public class ScheduleService {
 		return check;
 	}
 	
+	//여행경비
+	public long totalCost(Integer plNum) throws Exception{
+		return repository.totalCost(plNum);
+	}
+	
 	public Map<String, Object> scheduleInfo(String tour, Integer plNum) throws Exception{
 
 		return repository.scheduleInfo(tour, plNum);

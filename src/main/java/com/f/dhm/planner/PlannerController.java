@@ -354,21 +354,22 @@ public class PlannerController {
 		      List<WishVO> wishlist = new ArrayList<WishVO>();
 		      
 		      //id= memberVO.getId();
-		      
-		      for(int i=0; i< titleA.length; i++) {
-		         WishVO wishVO = new WishVO();
-		         wishVO.setId(id);
-		         wishVO.setTitle(titleA[i]);
-		         wishVO.setFirstimage(firstimage[i]);
-		         wishVO.setAddr1(addr1[i]);
-		         wishVO.setPlNum(plNum);
-		         wishVO.setArCode(arCode[i]);
-		         System.out.println(i+"   +    "+wishVO.getTitle());
-		         wishlist.add(wishVO);
-
-		      }
-		      wishService.wishAdd(wishlist, plNum, title);
-		      
+		     if(titleA.length!=0) { 
+			      for(int i=0; i< titleA.length; i++) {
+			         WishVO wishVO = new WishVO();
+			         wishVO.setId(id);
+			         wishVO.setTitle(titleA[i]);
+			         wishVO.setFirstimage(firstimage[i]);
+			         wishVO.setAddr1(addr1[i]);
+			         wishVO.setPlNum(plNum);
+			         wishVO.setArCode(arCode[i]);
+			         System.out.println(i+"   +    "+wishVO.getTitle());
+			         wishlist.add(wishVO);
+	
+			      }
+			      
+			      wishService.wishAdd(wishlist, plNum, title);
+		     }
 		      return pList.get(0).getPlNum();
 		   }
 	

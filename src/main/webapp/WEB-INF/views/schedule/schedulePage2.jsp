@@ -832,7 +832,7 @@
 					}
 				},
 				error: function(){
-					alert("fail");
+					alert("이미 추가 한 일정입니다.");
 				},
 				complete: function(){
 					

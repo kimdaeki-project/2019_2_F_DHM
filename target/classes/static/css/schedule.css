@@ -633,7 +633,7 @@ a:hover{
 	top:0px;
 	left:auto;
 	z-index:1999;
-	width:550px;
+	width:400px;
 	padding-top:10px;
 	text-align:center;
 	padding:20px;
@@ -705,8 +705,123 @@ a:hover{
 	font-weight: bold;
 	color: green;
 }
+
 .sc-title{
+	margin: 0 auto;
 	font-weight: bold;
 	font-size: 12px;
-	color: gray;
+	color: white;
+	border-radius: 15px;
+	background-color: #18A8F1;
+	width: 60px;
+	height: 25px;
+	padding-top:5px;
+	float: left;
+ 	margin-left: 22px; 
+	margin-bottom: 10px;
+
+}
+.sc-float{
+	float: left;
+	padding-top:5px;
+	margin-left: 5px;
+
+	
+}
+
+.img-sc{
+ 	margin-top: 20px;
+	margin-bottom: 15px;
+}
+.img-sc img{
+	height: 200px;
+	width: 300px;
+}
+.md2-child{
+	vertical-align: middle;
+	margin: 0 auto;
+}
+
+.mypage-list {
+	width: 100%;
+	margin: 16px 0;
+	background-color: white;
+}
+.mypage-list th{
+	padding: 10px 4px;
+	text-align: center;
+	border-top: 1px solid rgba(0,0,0,0.1);
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.mypage-list td{
+	
+	border-bottom: 1px dotted rgba(0,0,0,0.07);
+	font-size: 13px;
+	padding: 16px 10px;
+	color: #666666;
+	
+}
+.select-all label{
+	color: #333;
+	font-size: 13px;
+	font-weight: 300;
+	
+}
+.order-total-price{
+	font-weight: bold;
+	padding: 15px 10px;
+	text-align: right;
+}
+.cart-check {
+	border: 1px solid rgba(0,0,0,0.13);
+	border-radius: 2px;
+	background-image: none;
+	padding: 6px 10px;
+	display: block; 
+	float:right;
+	margin-left: 5px; 
+	padding: 0px; 
+	background: rgb(255, 255, 255); 
+	border: 0px; 
+} 
+.icheckbox_flat-pink{
+	
+	display: inline-block;
+	vertical-align: middle;
+	width: 20px;
+	height: 20px;
+	background-image: url("../images/check_before.png");
+	background-size:100%;
+	cursor: pointer;
+	margin-right: 8px;
+	margin-left:4px;
+	float: left;
+}
+.check-img{
+	background-image: url("../images/check.png");
+}
+
+.form-button-wrapper{
+	text-align: right;"src/main/webapp/WEB-INF/views/mypage.css"
+	margin: 20px 0;
+}
+.form-button-wrapper button{
+	margin-left: 15px;
+}
+.btn-form-cancel, .btn-form-submit{
+	display: inline-block;
+	padding: 8px 22px;
+	font-weight: bold;
+	text-align: center;
+	background-color: #f5f5f5;
+	border-radius: 2px;
+	cursor: pointer;
+	border: none;
+}
+
+.btn-form-submit{
+	background-color: rgb(245,3,100);
+	background: linear-gradient(45deg, rgb(245, 3, 100) 1%, rgb(172, 66, 169) 100%);
+	color: white;
 }
