@@ -134,7 +134,7 @@
 		
 			<div class="Join5">
 				<div class="Join5-btn1">회원가입</div>
-				<div class="Join5-btn2"><a href="${pageContext.request.contextPath}/">취소</a></div>
+				<div class="Join5-btn2"><a style="color: white;" href="${pageContext.request.contextPath}/">취소</a></div>
 			</div>
 			
 		</div>
@@ -499,8 +499,21 @@ $(".Xidsame13").click(function(){
 
 });
 
+//img 마우스 이벤트
+$(document).ready(function (){
+	
+    $('.Join2img').mouseover(function() {
+        $('.GuestJoin').css('color','#63caf8');
+        $('.GuestJoin').css('font-weight','bold');     
+    	});
+	
+    $('.Join2img').mouseout(function(){
+       	 $('.GuestJoin').css('color','black');
+       	$('.GuestJoin').css('font-weight','normal'); 
+   		});
+ 
+});
 
-		
 
 
 </script>	

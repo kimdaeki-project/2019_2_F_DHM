@@ -90,7 +90,6 @@ public class XmlService {
 		//영재 인증키 : y6lTW%2Fe1nVt%2BwNPxKIPThO3llzEsDQDhLQAP%2B%2BUMAW%2BBCuZZLSXZiKKU0e966zEmm9vZCa84UyTdC1Y%2FA83LHQ%3D%3D
 		//재용 인증키 : NV9C%2BKH8hcVMH38UJiOUmUeoPzqVz0ZUo%2B23mVS3zgwfV%2FMICch%2Fz%2Bfs50NKfHXLYYkGB4Y5WDSGIVkopSIa7Q%3D%3D
 		String URL="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?"
-
 				+ "ServiceKey=5f%2Fbm26fN4EnlhTfrvyCPp0546ZP4TmM4rkpjz9XGPUpLaEHJcmmb2mJ7Gxl5UXrDIpBQ4%2BJ5ObMDF5nM22Qhg%3D%3D"
 				+ "&areaCode="+arCode+"&MobileOS=ETC&MobileApp=AppTest&numOfRows=14"
 				+ "&contentTypeId="+typeNum+"&arrange="+arr+"&pageNo="+pageNum;

@@ -32,16 +32,18 @@ public class NoticeService {
       NoticeVO getDate=noticeRepository.findById(noticeVO.getNum()).get();
       noticeVO.setRegDate(getDate.getRegDate());
       List<NoticeFilesVO> noticeFilesVOs=new ArrayList<NoticeFilesVO>();
-      if(files.size()>0) {
-         for(int i=0;i<files.size();i++) {
-            NoticeFilesVO noticeFilesVO=new NoticeFilesVO();
-            noticeFilesVO.setFname(files.get(i).getName());
-            noticeFilesVO.setOname(files.get(i).getOriginalFilename());
-            noticeFilesVO.setNoticeVO(noticeVO);
-            noticeFilesVOs.add(noticeFilesVO);
-         }
-         noticeVO.setNoticeFilesVOs(noticeFilesVOs);
-      }
+     if(files!=null) {
+    	 if(files.size()>0) {
+             for(int i=0;i<files.size();i++) {
+                NoticeFilesVO noticeFilesVO=new NoticeFilesVO();
+                noticeFilesVO.setFname(files.get(i).getName());
+                noticeFilesVO.setOname(files.get(i).getOriginalFilename());
+                noticeFilesVO.setNoticeVO(noticeVO);
+                noticeFilesVOs.add(noticeFilesVO);
+             }
+             noticeVO.setNoticeFilesVOs(noticeFilesVOs);
+          }
+     }
       noticeRepository.save(noticeVO);
    }
    

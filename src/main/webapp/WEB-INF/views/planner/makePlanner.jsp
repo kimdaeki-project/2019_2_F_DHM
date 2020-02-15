@@ -234,6 +234,17 @@
                   <input value="${member.email }" id="mkp-email"> 
                </td>
             </tr>
+            <tr>
+               <td class="mkp-table-mail">
+                  <p> 공개여부 </p>
+               </td>
+               <td>
+                 <select id="mkp-unlock">
+                 	<option value="0">전체 공개</option>
+                 	<option value="1">공개하지 않음</option>
+                 </select>
+               </td>
+            </tr>
             </tbody>
          </table>
          <button class="mkp-clp-btn" name="make" >저장하기</button>

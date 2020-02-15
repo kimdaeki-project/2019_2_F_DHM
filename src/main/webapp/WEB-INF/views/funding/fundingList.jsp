@@ -11,6 +11,12 @@
 <link rel="stylesheet"  href="../css/basic.css">
 <title>DHM Planner</title>
 </head>
+<style>
+#map{
+margion: 0 auto;
+width: 100%;
+}
+</style>
 <body>
 <c:import url="../template/nav.jsp"/>
 <div class="container">
@@ -29,13 +35,15 @@
 	
 	<div class="funding_area">
 		<c:forEach items="${list.pageList.content}" var="vo" varStatus="i">
+				<a href="./myFundingSelect?num=${vo.num}">
 			<div class="funding_block">
 				<div class="funding_block2">
 					<div class="funding_block3">
 					<div class="funding_inner_area">
 					
-				<a href="./fundingSelect?num=${vo.num}">
-				<img class="funding_img" src="../test_img/test${i.index}.jpg"></a>
+				 <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum}" width="100%" height="100%" style="border: none;"></iframe>
+									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+								<%-- <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div> --%>     
 						</div>
 					</div>
 					<div style="height: 50px; font-size: 15px; font-weight: bold; padding: 5px;">
@@ -61,8 +69,8 @@
 					</div>
 				</div>
 			</div>
+	</a>
 		</c:forEach>
-	
 			</div>
 		</div>
 	</div>

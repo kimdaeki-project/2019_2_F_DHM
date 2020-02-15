@@ -18,6 +18,8 @@ import org.springframework.test.annotation.Commit;
 import com.f.dhm.Member.MemberRepository;
 import com.f.dhm.Member.MemberService;
 import com.f.dhm.Member.MemberVO;
+import com.f.dhm.planner.PlannerCommentRepository;
+import com.f.dhm.planner.PlannerCommentVO;
 
 @SpringBootTest
 //@Transactional(rollbackOn = Exception.class)
@@ -26,7 +28,8 @@ public class DHMTest {
 	@Resource
 	private MemberRepository memberRepository;
 	
-
+	@Autowired
+	private PlannerCommentRepository commentRepository;
 	
 	//@Test
 	void memberTest()throws Exception{
@@ -47,7 +50,7 @@ public class DHMTest {
 		
 	}
 	
-	@Test
+	//@Test
 	void test2() throws Exception{
 		memberRepository.deleteById("springcom123");
 		boolean exist=memberRepository.existsById("springcom123");
@@ -55,6 +58,10 @@ public class DHMTest {
 		System.out.println("exist : "+exist);
 	}
 	
-	
+	@Test
+	void test3()throws Exception{
+		List<PlannerCommentVO> commentVOs=commentRepository.findByPlNum(52);
+		commentVOs.forEach(System.out::println);
+	}
 	
 }

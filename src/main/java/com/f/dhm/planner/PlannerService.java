@@ -24,6 +24,10 @@ public class PlannerService {
 	@Autowired
 	private PlannerCommentRepository commentRepository;
 
+	public PlannerCommentVO findPlNum(int cNum)throws Exception{
+		PlannerCommentVO commentVO=commentRepository.findById(cNum).get();
+		return commentVO;
+	}
 	//pcomment delete one
 	public boolean reviewDelete(int cNum)throws Exception{
 		commentRepository.deleteById(cNum);

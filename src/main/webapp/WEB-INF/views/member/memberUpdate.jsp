@@ -28,7 +28,9 @@
 
 <c:import url="../template/nav.jsp"/>
 
-	<div class="updatemain"><!-- nav (테블릿)밀려나는 것 떄문에 margin-top임시로 둠 -->
+	<div class="container" style="height: 60px;"></div>
+
+	<div class="updatemain" ><!-- nav (테블릿)밀려나는 것 떄문에 margin-top임시로 둠 -->
 		<div class="updatemain2">
 			<div class="updatemain2-1">
 				<div class="updatemain2-1-1"><h2>회원정보 변경</h2></div>
@@ -137,7 +139,8 @@
 			</div>
 			
 		</div>
-			<img alt="" src="../imgs/member/st.png" class="imgst">
+			<div class="imgst" style="height: 20px;"></div>
+<!-- 			<img alt="" src="../imgs/member/st.png" class="imgst"> -->
 	</div>
 
 
