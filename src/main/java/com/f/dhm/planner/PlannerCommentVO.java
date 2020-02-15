@@ -37,4 +37,5 @@ public class PlannerCommentVO {
 
 	private int plNum;
 
+
 }

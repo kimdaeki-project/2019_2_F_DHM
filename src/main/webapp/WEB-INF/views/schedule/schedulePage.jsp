@@ -269,7 +269,7 @@
 
 			<!-- 여행루트 끝 -->
 			<!-- 예상금액 시작-->
-			<div class="middle-contents2">
+			<div class="middle-contents">
 				<div class="midde-title">
 					<h3 class="contents-title">여행 예상비용</h3>
 				</div>
@@ -1044,7 +1044,7 @@
 
 
    <!--=======================================================================================================================-->
-   <div class="container" style="margin-top: -50px;">
+   <div class="container" style="margin-top: -50px; position: relative;">
 		<h1 style="color: #c9c9c9; border-bottom: 1px solid #c9c9c9; padding-bottom: 10px;">review</h1>
 		<div class="section" style="background: gold;">
 			<div class="reviewFlexWrapper">
