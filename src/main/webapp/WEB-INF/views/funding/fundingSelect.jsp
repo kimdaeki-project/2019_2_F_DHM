@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,46 +23,74 @@
 	<div class="form-group">
 		
 		
-		<h3 id="name" style="text-align: center;">${vo.name}</h3>
+		<h2 id="name" class="funding-name" >${vo.name}</h2>
 		
-		<p class="excert">${ vo.contents }</p>
-		<div style="margin: 0 0 15px 30px;">
-		<p style="text-align: right;">
-		<span style="font-size: 20px;">금액</span>
-		<span id="price" style="font-size: 20px; font-weight: bold;"></span>원
-		</p>
-		<p style="text-align: right;">
-		<span style="font-size: 20px;">모인 금액</span>
-		<span id="save_price" style="font-size: 20px; font-weight: bold;"></span>원
-		</p>
-		<p style="text-align: right;">
-		<span style="font-size: 20px;">펀딩 목표</span>
-		<span id="goal" style="font-size: 20px; font-weight: bold;"></span>원
-		</p>
-		</div>
-		<div style="text-align: right;">
-		<h3>여행 시작 시간</h3>
-		<span id="startTime" style="font-size: 20px; font-weight: bold;"></span>
-		<h3>여행 마침 시간</h3>
-		<span id="endTime" style="font-size: 20px; font-weight: bold;"></span>
-		<h3>현재 참여 인원수</h3>
-		<span id="people" style="font-size: 20px; font-weight: bold;">${vo.participationPeople}</span>
-		</div>
+		<div class="funding-title">${ vo.contents }</div>
+		
+			<div class="funding-select-info">
+				<div class="funding-select-info-partition">
+					<div class="funding-select-info-partition-title"><span class="funding-title-span">펀딩 목표 금액</span></div>
+					<div class="funding-select-info-partition-contents" id="goal">${vo.goal}</div>
+				</div>
+				<div class="funding-select-info-partition-middle">
+					<div class="funding-select-info-partition-title "><span class="funding-title-span">모인 금액</span></div>
+					<div class="funding-select-info-partition-contents" id="goal">${vo.status}</div>
+				</div>
+				<div class="funding-select-info-partition">
+					<div class="funding-select-info-partition-title"><span class="funding-title-span">금액</span></div>
+					<div class="funding-select-info-partition-contents" id="goal">${vo.price}</div>
+				</div>
+			</div>
+			
+			<div class="funding-select-info">
+				<div class="funding-select-info-partition">
+					<div class="funding-select-info-partition-title"><span class="funding-title-span">출발</span></div>
+					<div class="funding-select-info-partition-contents" id="startTime">
+						<fmt:formatDate value="${vo.startTime}" timeStyle="short" pattern="MM/dd"/>
+					</div>
+				</div>
+				<div class="funding-select-info-partition-middle">
+					<div class="funding-select-info-partition-title"><span class="funding-title-span">종료</span></div>
+					<div class="funding-select-info-partition-contents" id="endTime">
+						<fmt:formatDate value="${vo.endTime}" timeStyle="short" pattern="MM/dd"/>
+					</div>
+				</div>
+				<div class="funding-select-info-partition">
+					<div class="funding-select-info-partition-title"><span class="funding-title-span">참여 인원수</span></div>
+					<div class="funding-select-info-partition-contents" id="people">${vo.participationPeople}</div>
+				</div>
+			</div>
+			<div class="funding-select-info">
+				<div class="funding-select-info-wrapper">
+					<div class="funding-gage-bar-wrapper">
+						<div class="funding-gage-box">
+							<div class="funding-gage-bar">${vo.gage}</div>
+						</div>
+					</div>
+					<span class="gage_info">(진행률 %)</span>
+				</div>
+			</div>
+			
+		
 	</div>
 	<div style="text-align: center; margin-bottom: 50px;">
-			<button id="btn" class="btn btn-primary" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">참여하기</button>
+			<button id="btn" class="button4" style="font-size: 16px; padding-left: 15px; padding-right: 15px; margin: 10px">참여하기</button>
 	</div>
 		<div style="text-align: center; margin-bottom: 50px;">
 		<c:if test="${member.id eq vo.id }">
-			<a href="./fundingUpdate?num=${vo.num }" class="btn btn-success" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">수정</a>
-			<button class="btn btn-danger" id="del" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">삭제</button>
-		<a href="./fundingJoinList?fNum=${vo.num}" class="btn btn-info" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">참여자 확인</a>
+			<a href="./fundingUpdate?num=${vo.num }" class="button" style="font-size: 11px; padding-left: 15px; padding-right: 15px; margin: 10px">수정</a>
+			<button class="button" id="del" style="font-size: 11px; padding-left: 15px; padding-right: 15px; margin: 10px">삭제</button>
+		<a href="./fundingJoinList?fNum=${vo.num}" class="button" style="font-size: 11px; padding-left: 15px; padding-right: 15px; margin: 10px">참여자 확인</a>
 		</c:if>
-			<a href="./fundingList" class="btn btn-info" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">목록</a>
+			<a href="./fundingList" class="button" style="font-size: 11px; padding-left: 15px; padding-right: 15px; margin: 10px">목록</a>
 		</div>
 	</div>
 	
 <script type="text/javascript">
+$(document).ready(function(){
+var gage= ${vo.gage}+"%";
+	$('.funding-gage-bar').css("width", gage);
+});
 	var goal = ${vo.goal};
 	var status = ${vo.status};
 	var price = ${vo.price};

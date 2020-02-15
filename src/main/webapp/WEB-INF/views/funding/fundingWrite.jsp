@@ -16,8 +16,10 @@
 <body>
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
-		<h1>Funding Write Form</h1>
-		<c:import url="./template/fundingWriteForm.jsp" />	
+		<h1 class="h1-title">Funding Write Form</h1>
+		<div class="fundingForm-wrapper">
+			<c:import url="./template/fundingWriteForm.jsp" />	
+		</div>
 
 	</div>
 <script type="text/javascript" src="../js/summernote.js" ></script>

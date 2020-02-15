@@ -48,7 +48,7 @@
 
 		    <div style="margin: 50px auto; text-align: center;">
 		 	<!-- <input type="submit" id="write" class="btn btn-success col-sm-3" value="Write"> -->
-			<input type="button" id="write" class="btn btn-success" value="작성하기" style="font-size:30px; margin: 15px; padding-left: 30px; padding-right: 30px;">
-		   	<input type="button" id="re" class="btn btn-primary" value="취소" style="font-size:30px; margin: 15px; padding-left: 30px; padding-right: 30px;">
+			<input type="button" id="write" class="button2" value="작성하기" style="border:1px solid #18A8F1; background:#18A8F1; font-size:12px; margin: 15px; padding-left: 30px; padding-right: 30px;">
+		   	<input type="button" id="re" class="button" value="취소" style="border:1px solid #18A8F1; color:#18A8F1; font-size:12px; margin: 15px; padding-left: 30px; padding-right: 30px;">
 		   	</div> 
 		</form:form>

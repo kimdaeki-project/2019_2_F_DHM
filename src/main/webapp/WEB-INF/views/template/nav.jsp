@@ -7,7 +7,7 @@
 <nav>
 
 	<div class="nav-contain">
-	<button class="m-title">dhm planner</button>
+	<div class="m-title">dhm planner</div>
 		<div class="nav-logoWrapper"><img alt="logo" src="${pageContext.request.contextPath}/imgs/logos/KakaoTalk_20200213_113935862.png" class="nav-logoWrapper-img" ></div>
 		<div class="nav-menuWrapper">
 			<div class="nav-menu-ul">

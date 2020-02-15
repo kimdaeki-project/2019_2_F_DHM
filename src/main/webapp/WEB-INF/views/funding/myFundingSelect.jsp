@@ -435,11 +435,12 @@
                   </div>
                   
                </div>
-               <div class="container">
+ <!-- contents-========================================== -->
+<div class="container">
 	<div class="form-group">
-		
-		
-		<h3 id="name" style="text-align: center;">${vo.name}</h3>
+
+		<h3 style="text-align: center;">${vo.name}</h3>
+		<h3 style="text-align: center;">${vo.name}</h3>
 		
 		<p class="excert">${ vo.contents }</p>
 		<div style="margin: 0 0 15px 30px;">
@@ -466,15 +467,15 @@
 		</div>
 	</div>
 	<div style="text-align: center; margin-bottom: 50px;">
-			<button id="btn" class="btn btn-primary" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">참여하기</button>
+			<button id="btn" class="button3">참여하기</button>
 	</div>
 		<div style="text-align: center; margin-bottom: 50px;">
 		<c:if test="${member.id eq fund.id }">
-			<a href="./fundingUpdate?num=${fund.num }" class="btn btn-success" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">수정</a>
-			<button class="btn btn-danger" id="del" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">삭제</button>
-		<a href="./fundingJoinList?fNum=${fund.num}" class="btn btn-info" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">참여자 확인</a>
+			<a href="./fundingUpdate?num=${fund.num }" class="button" >수정</a>
+			<button class="button" id="del" >삭제</button>
+		<a href="./fundingJoinList?fNum=${fund.num}" class="button" >참여자 확인</a>
 		</c:if>
-			<a href="./fundingList" class="btn btn-info" style="font-size: 30px; padding-left: 15px; padding-right: 15px; margin: 10px">목록</a>
+			<a href="./fundingList" class="button" >목록</a>
 		</div>
 	</div>
             </div>

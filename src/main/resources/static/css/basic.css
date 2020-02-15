@@ -397,6 +397,20 @@ th{
    border-radius: 20px;
    color:white;
 }
+.button3{
+   background: white;
+   padding: 5px 10px;
+   border:1px solid #18A8F1;
+   border-radius: 20px;   
+   color: #18A8F1;
+}
+.button4{
+   background: #18A8F1;
+   padding: 5px 10px;
+   border:1px solid #18A8F1;
+   border-radius: 20px;
+   color:white;
+}
 .board_list_btn{
    width: 68px;
    height: 36px;
@@ -860,14 +874,6 @@ th{
    
 }
 
-/* ************************************************************media query************************************************************ */
-/* ************************************************************media query************************************************************ */
-/* ************************************************************media query************************************************************ */
-
-/* 모바일버전 (세로) */
-@media (max-width: 575px) {
-
- }
  /* footer css  Start **********************************************************************/
 
 footer{
@@ -1125,11 +1131,120 @@ text-align: center;
 border-right: 1px solid #86868c;	
 }
 
-
+/* funding */
+.h1-title{
+	display: block;
+	color: #999;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #999;
+	margin-bottom: 20px;
+}
+.fundingForm-wrapper{
+	padding:10px;
+}
+/* funding */
+.funding-select-info{
+	width: 100%;
+	margin:0 auto;
+	background:#f6f5f5;
+	padding-bottom: 20px;
+}
+.funding-select-info-partition{
+	width:33%;
+	float: left;
+	height: inherit;
+	background:#f6f5f5;
+}
+.funding-select-info-partition-middle{
+	width: 34%;
+	background:#f6f5f5;
+	float: left;
+	height: inherit;
+}
+.funding-select-info-partition-title{
+	text-align: center;
+	height: 60px;
+	line-height: 60px;
+	color: #999;
+	font-size: 16px;
+}
+.funding-select-info-partition-contents{
+	text-align: center;
+	height: 80px;
+	line-height: 80px;
+	color: #1386c0;
+	font-size: 30px;
+}
+.funding-title-span{
+	padding-bottom: 10px; border-bottom: 1px solid #999;
+}
+.funding-title{
+	width:100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #888;
+	font-size: 15px;
+}
+.funding-gage-bar-wrapper{
+	padding:20px 20px 5px 20px;
+	width: 100%
+}
+.funding-gage-box{
+	width:100%;
+	height: 20px;
+	border:1px solid #1386c0;
+	background:white;
+	border-radius: 20px;
+}
+.funding-gage-bar{
+	width: 20px;
+	height: inherit;
+	background: #1386c0;
+	float: left;
+	border-radius: 20px;
+	border: none;
+	padding-left: 20px;
+	color: white;
+	font-size: 10px;
+	line-height: 20px;
+	font-weight: bold;
+	text-shadow: 1px 1px #999;
+	border-top: none;
+}
+.funding-select-info-wrapper{
+	width:99%;	
+	clear: both;
+	margin:0 auto;
+}
+.gage_info{
+	float: right;
+	color: #999;
+	font-size: 10px;
+	margin-right: 25px;
+}
+.funding-name{
+	text-align: center; color: #333;  text-shadow: 1px 1px #999;
+	font-weight: normal;
+}
 /* footer css End **********************************************************************/
  
  
  
  
+/* ************************************************************media query************************************************************ */
+/* ************************************************************media query************************************************************ */
+/* ************************************************************media query************************************************************ */
+
+/* 모바일버전 (세로) */
+@media (max-width: 575px) {
+
+/* nav,.nav-contain{width:100%;height:62px; } */
+/* .m-title,.nav-menuWrapper{display: block;} */
+/* .nav-logoWrapper{display: none;} */
+/* .nav-menu-ul, .nav-li,.nav-service-div,.nav-service-div-a{width: 100%; display: block;} */
+
+
+ }
  
  

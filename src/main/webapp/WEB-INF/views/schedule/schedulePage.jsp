@@ -31,7 +31,7 @@
 <c:import url="../template/nav.jsp"/>
 	<!-- <form action="schedulePage" method="POST"> -->
 
-	<div style="background-color: #f5f5f5; height: auto;">
+	<div style="background-color: #f5f5f5; height: auto; max-height: 2600px;">
 	<div class="header">
 	</div>
 	<div class="container container2" style="padding-top: 90px;">
