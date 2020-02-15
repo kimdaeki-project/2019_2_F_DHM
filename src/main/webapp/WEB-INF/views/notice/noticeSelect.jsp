@@ -41,7 +41,7 @@
 						<ul class="boardSelectFiles_ul">
 							<li class="boardSelectFiles_li boardSelectFiles_title">첨부파일</li>
 						<c:forEach items="${noticeVO.noticeFilesVOs}" var="files">
-							<li class="boardSelectFiles_li paddingLeft20px"><a href="#">${files.oname}</a></li>
+							<li class="boardSelectFiles_li paddingLeft20px"><a href="./noticeFileDown?fnum=${files.fnum }">${files.oname}</a></li>
 						</c:forEach>
 						</ul>
 							 <br>

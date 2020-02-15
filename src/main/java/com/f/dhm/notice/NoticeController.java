@@ -15,6 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,6 +29,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.f.dhm.Member.MemberVO;
+import com.f.dhm.util.FileDown;
 import com.sun.istack.Nullable;
 
 @Controller
@@ -36,14 +38,16 @@ public class NoticeController {
 
    @Autowired
    private NoticeService noticeService;
+   private FileDown fileDown;
+   
+   
    
    @PostMapping("noticeUpdate")
    public String noticeUpdate(NoticeVO noticeVO, List<MultipartFile> files)throws Exception{
 	   if(files!=null) {
 		   files.remove(0);
 	   }else {
-		   System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-
+		   
 		   files.forEach(System.out::println);
 	   }
       noticeService.noticeUpdate(noticeVO, files);   
