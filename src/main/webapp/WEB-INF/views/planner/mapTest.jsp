@@ -23,8 +23,8 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
 <c:import url="../template/boot.jsp"/>
 <body>
-	<c:if test="${lock lt 1 }">
-		<i class="fa fa-lock" style="position: absolute; top: 5%; right: 7%; z-index: 999; color:gray;"></i>
+	<c:if test="${lock gt 0 }">
+		<i class="fa fa-lock" style="position: absolute; top: 5%; right: 7%; z-index: 999; color:black;"></i>
 	</c:if>
  <div class="map" id="map" style="width: 220px; height: 203px;">
 </div>

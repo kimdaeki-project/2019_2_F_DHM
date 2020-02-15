@@ -13,7 +13,7 @@ public interface MyPlannerVO {
 
 	//추가
 	Date getMakeDay();
-	Integer getUnlock();
+	Integer getplLock();
 
 
 }

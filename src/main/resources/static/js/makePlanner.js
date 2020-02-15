@@ -383,6 +383,7 @@ $(".mkp-clp-btn").click(function() {
       var type=$("#tripwith_txt").text();
       var people=$("#mkp-people").val();
       var email=$("#mkp-email").val();
+      var unlock = $("#mkp-unlock").val();
       for (var i = 0; i < count-1; i++) {
          deDate.push($(".sDate")[i].innerText);
          arDate.push($(".eDate")[i].innerText);
@@ -428,7 +429,8 @@ $(".mkp-clp-btn").click(function() {
                arCode:arCodeA,
                pp : polyIndex,
                arCodeP: arCodeP,
-               email : email
+               email : email,
+               plLock : unlock
             },
             success   : function(d) {
                alert("저장되었습니다.");

@@ -174,7 +174,7 @@ public class PlannerController {
 	@ResponseBody
 	public int makePlanner(String id, String title, String type, String people, String[] deDate, String[] arDate,
 		      String[] bak, String[] region, String[] transfer, String[] titleA, String[] firstimage, 
-		      String[] addr1, int[] arCode,HttpSession session, int[] pp, int[] arCodeP, Integer plNum, String email) throws Exception{
+		      String[] addr1, int[] arCode,HttpSession session, int[] pp, int[] arCodeP, Integer plNum, String email,Integer plLock) throws Exception{
 		      
 			List<PlannerVO> pList = new ArrayList<PlannerVO>();
 		      
@@ -189,6 +189,7 @@ public class PlannerController {
 		      for (int i = 0; i < deDate.length; i++) {
 
 		         PlannerVO vo = new PlannerVO();
+		         vo.setPlLock(plLock);
 		         vo.setEmail(email);
 		         vo.setPlNum(plNum);
 		         vo.setId(id);
@@ -279,7 +280,7 @@ public class PlannerController {
 	      for (PlannerVO plannerVO : list) {
 	         polyPath.add(plannerVO.getPolyPath());
 	      }
-	      mv.addObject("lock", list.get(0).getUnlock());
+	      mv.addObject("lock", list.get(0).getPlLock());
 	      mv.addObject("pp", polyPath);
 	      
 	      return mv;
@@ -298,7 +299,7 @@ public class PlannerController {
 	         polyPath.add(plannerVO.getPolyPath());
 	      }
 	      mv.addObject("pp", polyPath);
-	      mv.addObject("lock", list.get(0).getUnlock());
+	      mv.addObject("lock", list.get(0).getPlLock());
 	      mv.setViewName("planner/mapTestindex");
 	      return mv;
 	      
