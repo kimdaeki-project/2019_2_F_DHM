@@ -4,7 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>홈</title>
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <style type="text/css">
    .roundNumber{
    width: 20px;
@@ -21,6 +23,9 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91fb61305af50f444a07659b68d73d1f"></script>
 <c:import url="../template/boot.jsp"/>
 <body>
+<c:if test="${lock gt 0 }">
+		<i class="fa fa-lock" style="position: absolute; top: 5%; right: 7%; z-index: 999; color:black;" ></i>
+	</c:if>
  <div class="map" id="map" style="width: 220px; height: 203px;">
 </div>
 <div style="display: none;">

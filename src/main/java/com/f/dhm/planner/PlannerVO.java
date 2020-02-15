@@ -44,5 +44,5 @@ public class PlannerVO {
 	private String email;
 	@CreationTimestamp
 	private Date makeDay;
-	private int unlock;
+	private int plLock;
 }

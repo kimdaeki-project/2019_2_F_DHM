@@ -6,11 +6,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>DHM Planner</title>
+<title>대동여행지도</title>
 
 <link rel="stylesheet"  href="../css/membercss.css">
 <link rel="icon" href="../imgs/logos/logo-fav.ico">
-
 <meta charset="UTF-8">
 <c:import url="./template/boot.jsp"/>
 <link rel="stylesheet"  href="../css/basic.css">
