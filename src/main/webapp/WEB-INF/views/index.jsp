@@ -35,13 +35,13 @@
 <c:import url="./template/nav.jsp"/>
    <div class="swiper-container3" style="padding-top:60px; margin-bottom: 20px; height: 600px; width: 100%; overflow: hidden;">
  	  <div class="swiper-wrapper" style="width: 100%;">
-      		<div id="back-image1" class="image swiper-slide">
+      		<div id="back-image1" class="image swiper-slide" style="background-image: url('../image/main1.jpg');">
       			<div class="backTitle">경상북도 경주 동궁과월지</div>
       		</div>
-     		<div id="back-image2" class="image swiper-slide">
+     		<div id="back-image2" class="image swiper-slide" style="background-image: url('../image/main2.jpg');">
      			<div class="backTitle">부산광역시 광안리해수욕장</div>
      		</div>
-      		<div id="back-image3" class="image swiper-slide">
+      		<div id="back-image3" class="image swiper-slide" style="background-image: url('../image/main3.jpg');">
       			<div class="backTitle">경상남도 진해 군항제</div>
       		</div>
       		<div id="back-image4" class="image swiper-slide">

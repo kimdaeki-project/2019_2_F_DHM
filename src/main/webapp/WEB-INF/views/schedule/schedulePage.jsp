@@ -394,12 +394,19 @@
                                              </div>
                                              <div class="sarea">
                                                 <div style="line-height: 110%; height: 32px;">
-                                                	
                                                 	<c:choose>
-                                                		<c:when test="${ city[e.index] ne city[e.index+1] } "><div>${city[e.index]} </div>,<div>${city[e.index+1]}</div> </c:when>
-                                                		<c:otherwise>${city[e.index]}</c:otherwise>
+                                                		<c:when test="${city[e.index] eq city[e.index+1]}">
+                                                			${city[e.index]}
+                                                		</c:when>
+                                                		<c:otherwise>
+                                                			<div>
+                                                			${city[e.index]}                                                			
+                                                			</div>
+                                                			<div style="margin-top: 5px;">
+                                                			${city[e.index+1]}
+                                                			</div>
+                                                		</c:otherwise>
                                                 	</c:choose>
-                                                	
                                                 </div>
                                              </div>
                                           </div>

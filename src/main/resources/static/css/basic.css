@@ -784,11 +784,7 @@ th{
 	font-size: 13px;
 }
 
-.zoom{
-	
-	 transform: scale(1.5);
-	 transition: transform .35s; 
-}
+
 #back-image1 {
 	background-image: url('../image/main1.jpg');
 }
