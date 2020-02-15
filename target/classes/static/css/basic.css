@@ -1193,14 +1193,17 @@ border-right: 1px solid #86868c;
 .funding-gage-box{
 	width:100%;
 	height: 20px;
-	border:1px solid #1386c0;
+/* 	border:1px solid #1386c0; */
+	box-shadow: 0 0 0 1px #18a8f1;
+	font-family: sans-serif;
 	background:white;
 	border-radius: 20px;
 }
 .funding-gage-bar{
-	width: 20px;
+	width: 40px;
 	height: inherit;
-	background: #1386c0;
+	background: linear-gradient(to bottom, #18a8f1 0%, #1386c0 200%);
+/* 	background: #1386c0; */
 	float: left;
 	border-radius: 20px;
 	border: none;
@@ -1224,7 +1227,7 @@ border-right: 1px solid #86868c;
 	margin-right: 25px;
 }
 .funding-name{
-	text-align: center; color: #333;  text-shadow: 1px 1px #999;
+	text-align: center; color: #777; 
 	font-weight: normal;
 }
 /* footer css End **********************************************************************/
