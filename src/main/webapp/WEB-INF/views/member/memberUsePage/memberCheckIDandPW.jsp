@@ -257,5 +257,55 @@ document.addEventListener('keydown', function(event) {
     event.preventDefault();
   };
 }, true);
+
+
+//URL 막기 test---------------------------------------------------------------------------
+//<body onLoad="Frameset('http://your-url.co.kr')"></body>
+
+// function Frameset(page)
+// {
+//     framecode = "<frameset rows='1*'>"
+//     + "<frame name=main src='" + page + "'>"
+//     + "</frameset>";
+
+//     document.writｅ(framecode);
+//     document.close();
+// }
+//---------------------------------------------------------------------------
+// var URLString = top.location.href + "/";
+// tURLString = URLString.split("/");
+// iii = tURLString.length > 2 ? (tURLString[3].length > 0 ? false:true) : false
+// if(!iii){
+//     document.cookie = "UrlString=" + top.window.location.href + "; path=/;";
+//     top.window.location.href = "http://"+top.window.location.host;
+// }
+//---------------------------------------------------------------------------
+// <frameset rows="100%" border=0>
+// 	<frame name="frame" src="http://web_url_here">
+// </frameset>
+
+// function hidestatus(){
+// window.status=''
+// return true
+// }
+// if (document.layers)
+// document.captureEvents(Event.MOUSEOVER | Event.MOUSEOUT)
+// document.onmouseover=hidestatus
+// document.onmouseout=hidestatus
+//---------------------------------------------------------------------------
+
+var URLString = top.location.href + "/";
+tURLString = URLString.split("/");
+iii = tURLString.length > 2 ? (tURLString[3].length > 0 ? false:true) : false
+if(!iii){
+    document.cookie = "UrlString=" + top.window.location.href + "; path=/;";
+    top.window.location.href = "http://"+top.window.location.host;
+}
+
+
+
+
+
+
 </script>
 </html>

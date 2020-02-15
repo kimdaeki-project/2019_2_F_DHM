@@ -137,14 +137,14 @@ public class MemberController {
 		
 		System.out.println("@@@@@@@@@@@ Controller Check? : "+ memberService.memberEMAIL3Check(id, email));
 		number++;
-		System.out.println(number);
+		System.out.println(number);	
 		
 		 MemberVO member = memberService.memberEMAIL3Check(id, email);
 		if(member == null) {
 			//null일때
-			return "[error] 다시 입력하십시오.";
+			return "[error] 아이디 찾기 후 다시 입력하십시오.";
 		}else {			
-			return "PW : "+member.getId();
+			return "PW : "+member.getPw();
 		}	
 	}	
 	//ID 불러오기-----------------------------------------------------------------------
