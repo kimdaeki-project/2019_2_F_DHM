@@ -10,7 +10,7 @@ public interface MemberRepository extends JpaRepository<MemberVO, String>{
 	
 	public MemberVO findByIdAndEmail(String id, String email) throws Exception;
 
-	public MemberVO existsByIdAndEmail(String id, String email)throws Exception;
+	public boolean existsByIdAndEmail(String id, String email)throws Exception;
 	
 	
 }

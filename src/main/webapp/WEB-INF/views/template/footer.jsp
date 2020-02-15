@@ -39,7 +39,7 @@
 
    <div class="footermain2">
       <div class="footermain2-1">
-         <div class="footermain2-1-1"><img src="../imgs/logos/hello.png" class="plannerimg">
+         <div class="footermain2-1-1"><img src="${pageContext.request.contextPath}/imgs/logos/hello.png" class="plannerimg">
          </div>
          
          <div class="footermain2-1-2">

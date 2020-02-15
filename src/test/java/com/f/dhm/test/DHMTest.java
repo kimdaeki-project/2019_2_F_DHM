@@ -58,10 +58,15 @@ public class DHMTest {
 		System.out.println("exist : "+exist);
 	}
 	
-	@Test
+	//@Test
 	void test3()throws Exception{
 		List<PlannerCommentVO> commentVOs=commentRepository.findByPlNum(52);
 		commentVOs.forEach(System.out::println);
 	}
 	
+	@Test
+	void test4()throws Exception{
+		boolean check=memberRepository.existsByIdAndEmail("guest", "g@g.com");
+		System.out.println("test : test4 : check : "+check);
+	}
 }

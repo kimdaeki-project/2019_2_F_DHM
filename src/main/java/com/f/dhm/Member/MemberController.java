@@ -117,15 +117,35 @@ public class MemberController {
 		return "redirect:../";
 	}	
 	//PW 불러오기-----------------------------------------------------------------------
+//	@PostMapping("memberEMAIL3Check")
+//	@ResponseBody
+//	public String memberEMAIL3Check(String id)throws Exception{		
+//		
+//		if(memberService.memberEMAIL3Check(id) == null) {
+//			return "[error] 다시 입력하십시오.";
+//		}else {			
+//			return "PW : "+memberService.memberEMAIL3Check(id).getPw();
+//		}		
+//	}	
+	
+	//2개
+	int number = 0;
+	
 	@PostMapping("memberEMAIL3Check")
 	@ResponseBody
-	public String memberEMAIL3Check(String id)throws Exception{		
+	public String memberEMAIL3Check(String id, String email)throws Exception{		
 		
-		if(memberService.memberEMAIL3Check(id) == null) {
+		System.out.println("@@@@@@@@@@@ Controller Check? : "+ memberService.memberEMAIL3Check(id, email));
+		number++;
+		System.out.println(number);
+		
+		 MemberVO member = memberService.memberEMAIL3Check(id, email);
+		if(member == null) {
+			//null일때
 			return "[error] 다시 입력하십시오.";
 		}else {			
-			return "PW : "+memberService.memberEMAIL3Check(id).getPw();
-		}		
+			return "PW : "+member.getId();
+		}	
 	}	
 	//ID 불러오기-----------------------------------------------------------------------
 	@PostMapping("memberEMAIL2Check")

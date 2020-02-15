@@ -76,13 +76,29 @@ public class MemberService {
 		return memberVO;
 	}
 	//PW 불러오기----------------------------------------
-	public MemberVO memberEMAIL3Check(String id)throws Exception{
+//	public MemberVO memberEMAIL3Check(String id)throws Exception{
+//		
+//		if(memberRepository.existsById(id)) {
+//			return memberRepository.findById(id).get();
+//			
+//		}else {
+//			
+//			return null;
+//		}
+//	}
+	
+	//2개
+	public MemberVO memberEMAIL3Check(String id, String email)throws Exception{
+		System.out.println("@@@@@@@ Service Check? : "+memberRepository.existsByIdAndEmail(id, email));
 		
-		if(memberRepository.existsById(id)) {
+		boolean check=memberRepository.existsByIdAndEmail(id, email);
+		
+		if(check) {
+			//있을때
 			return memberRepository.findById(id).get();
 			
 		}else {
-			
+
 			return null;
 		}
 	}

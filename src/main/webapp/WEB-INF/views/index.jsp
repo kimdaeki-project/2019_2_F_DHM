@@ -8,8 +8,6 @@
 <head>
 <title>DHM Planner</title>
 
-<c:import url="./member/membercss.jsp"/>
-
 <link rel="stylesheet"  href="../css/membercss.css">
 <link rel="icon" href="../imgs/logos/logo-fav.ico">
 
