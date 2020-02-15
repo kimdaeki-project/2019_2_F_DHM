@@ -3,6 +3,7 @@ package com.f.dhm.schedule;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -140,6 +141,8 @@ public class ScheduleController {
       List<String> region = new ArrayList<String>();
       List<Integer> arCode = new ArrayList<Integer>();
       
+      
+      
       for (int i = 0; i < plannerList.size(); i++) {
          if (plannerList.get(i).getBak() == 0) {
             mu = 1;
@@ -164,7 +167,8 @@ public class ScheduleController {
             everyDay.add(new Date(firstDay));
          }
       }
-      
+
+      List<DayArCodeVO> codeVO = new ArrayList<DayArCodeVO>();
       
       if (mu == 1) {         
          everyDay.add(plannerList.get(plannerList.size()-1).getArDate());
@@ -177,10 +181,46 @@ public class ScheduleController {
             }else {
                arCode.add(plannerList.get(bakNum).getArCode());
                region.add(plannerList.get(bakNum).getRegion());
+               
                bakNum++;
             }
             
       }
+      
+
+      int duNum=0;
+      int duNum2 =0;
+      for(int i =0; i< everyDay.size();i++) {
+    	 
+    	  DayArCodeVO aa = new DayArCodeVO();
+    	  
+    	  
+    	  if (i < bak.get(duNum)) {
+    		  aa.setDu(0);
+    		  aa.setDu2(0);
+    	  }else if(i==everyDay.size()-1) {
+    		  aa.setDu(0);
+    		  aa.setDu2(0);
+    	  }
+    	  else {
+    		  aa.setDu(1);
+    		  duNum++;
+    		  duNum2+=aa.getDu();
+    		  aa.setDu2(duNum2);
+    	  }
+    	  
+    	  
+    	  aa.setArCode(arCode.get(i));
+    	  aa.setEveryDay(everyDay.get(i));
+    	  
+    	  codeVO.add(aa);
+    	 
+    	  System.out.println(i +"          :         "+codeVO.get(i).getArCode());
+    	  System.out.println(i +"          :         "+codeVO.get(i).getDu());
+    	  System.out.println(i +"          :         "+codeVO.get(i).getEveryDay());
+      }
+      
+      mv.addObject("codeVO",codeVO);
       mv.addObject("mu", mu);
       mv.addObject("everyDay", everyDay);
       mv.addObject("city", region);
@@ -261,7 +301,9 @@ public class ScheduleController {
          mv.setViewName("common/result");
       }
       
-   
+      List<PlannerCommentVO> commentVOs=plannerService.getCommentList(plNum);
+      mv.addObject("commentVOs", commentVOs);
+      
       return mv;
    }
 
