@@ -279,6 +279,7 @@ public class PlannerController {
 	      for (PlannerVO plannerVO : list) {
 	         polyPath.add(plannerVO.getPolyPath());
 	      }
+	      mv.addObject("lock", list.get(0).getUnlock());
 	      mv.addObject("pp", polyPath);
 	      
 	      return mv;
@@ -297,6 +298,7 @@ public class PlannerController {
 	         polyPath.add(plannerVO.getPolyPath());
 	      }
 	      mv.addObject("pp", polyPath);
+	      mv.addObject("lock", list.get(0).getUnlock());
 	      mv.setViewName("planner/mapTestindex");
 	      return mv;
 	      
