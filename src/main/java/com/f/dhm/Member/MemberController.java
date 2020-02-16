@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import com.f.dhm.Member.MemberVO;
+import com.f.dhm.commonnotice.CommonService;
+import com.f.dhm.commonnotice.CommonVO;
 
 @Controller
 @RequestMapping("/member/**")
@@ -26,6 +28,8 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private CommonService CommonService;
 
 	//회원가입-----------------------------------------------------------------------
 	@GetMapping("memberJoin")
@@ -213,11 +217,9 @@ public class MemberController {
 	//마이페이지 프로필 사진 변경-----------------------------------------------------------------------
 	@GetMapping("memberMypageImg")
 	public String memberMypageImg(HttpSession session, Model model)throws Exception{
-		System.out.println("");
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
-		System.out.println("");
 		model.addAttribute("memberVO", memberVO);	
-		System.out.println("");
+
 		return "member/memberMypage";
 	}
 	
@@ -242,6 +244,36 @@ public class MemberController {
 		return mv;	
 	}
 	//개인정보 및 이용약관 페이지-----------------------------------------------------------------------
+	@GetMapping("memberUsePage/memberCommonNotice")
+	public ModelAndView memberCommonNotice()throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/memberUsePage/memberCommonNotice");
+				
+		return mv;
+	}
+
+	@PostMapping("memberUsePage/memberCommonNotice")
+	public ModelAndView commonNotice(CommonVO commonVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		memberService.commonNotice(commonVO);
+		String message = "접수 실패.";
+		if(memberService.commonNoticeCheck(commonVO)) {
+			
+			 message = "접수 성공.";
+		}
+		
+		mv.addObject("message", message);
+		mv.addObject("path", "member/memberUsePage/memberCommonNotice");
+		mv.setViewName("common/result");
+		
+		return mv;
+	}
+	
+
+	
+	
 	@GetMapping("memberPrivacyPolicy")
 	public String memberPrivacyPolicy()throws Exception{
 		
@@ -271,9 +303,6 @@ public class MemberController {
 		
 		return "member/memberUsePage/memberCheckIDandPW";
 	}
-	
-	
-	
 	//-----------------------------------------------------------------------
 	@PostMapping("myPlanner")
 	public String gomakePlanner()throws Exception{

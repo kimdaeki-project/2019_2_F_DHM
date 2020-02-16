@@ -47,7 +47,7 @@
 			<!-- ------------------------------------------------------------ -->	
 			<div class="idpwmain5">
 				<div class="idpwmain5-1">
-					<div class="idpwmain5-1-1">비밀번호 재발급</div>
+					<div class="idpwmain5-1-1">비밀번호 찾기</div>
 				</div>
 				<div class="idpwmain6-2">
 					<div class="idpwmain6-2-1">
@@ -294,13 +294,13 @@ document.addEventListener('keydown', function(event) {
 // document.onmouseout=hidestatus
 //---------------------------------------------------------------------------
 
-var URLString = top.location.href + "/";
-tURLString = URLString.split("/");
-iii = tURLString.length > 2 ? (tURLString[3].length > 0 ? false:true) : false
-if(!iii){
-    document.cookie = "UrlString=" + top.window.location.href + "; path=/;";
-    top.window.location.href = "http://"+top.window.location.host;
-}
+// var URLString = top.location.href + "/";
+// tURLString = URLString.split("/");
+// iii = tURLString.length > 2 ? (tURLString[3].length > 0 ? false:true) : false
+// if(!iii){
+//     document.cookie = "UrlString=" + top.window.location.href + "; path=/;";
+//     top.window.location.href = "http://"+top.window.location.host;
+// }
 
 
 

@@ -14,6 +14,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.f.dhm.util.FilePathGenerator;
 import com.f.dhm.util.FileSaver;
 import com.f.dhm.Member.MemberVO;
+import com.f.dhm.commonnotice.CommonRepository;
+import com.f.dhm.commonnotice.CommonVO;
 
 @Service
 @Transactional(rollbackOn = Exception.class)
@@ -27,8 +29,20 @@ public class MemberService {
 	private FileSaver fileSaver;
 	@Autowired
 	private MemberFilesRepository memberFilesRepository;
+	@Autowired
+	private CommonRepository commonRepository;
 	
+	//광고 접수----------------------------------------
+	public void commonNotice(CommonVO commonVO)throws Exception{
+		
+
+		 commonRepository.save(commonVO);
+	}
 	
+	public boolean commonNoticeCheck(CommonVO commonVO)throws Exception{
+		
+		return commonRepository.existsById(commonVO.getCemail());
+	}
 	
 	//로그인----------------------------------------
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception{
@@ -75,17 +89,7 @@ public class MemberService {
 		
 		return memberVO;
 	}
-	//PW 불러오기----------------------------------------
-//	public MemberVO memberEMAIL3Check(String id)throws Exception{
-//		
-//		if(memberRepository.existsById(id)) {
-//			return memberRepository.findById(id).get();
-//			
-//		}else {
-//			
-//			return null;
-//		}
-//	}
+
 	
 	//2개
 	public MemberVO memberEMAIL3Check(String id, String email)throws Exception{

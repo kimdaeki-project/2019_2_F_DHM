@@ -2790,22 +2790,6 @@ cursor: pointer;
 border: 1px solid #b86464;		
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .idpwmain5{
 margin-top:50px;
 margin-left: 160px;
@@ -2836,10 +2820,256 @@ background-color: #ececec;
 
 /* memberIDPW css  End **********************************************************************/
 
+/* memberCommonNotice css  Start **********************************************************************/
+
+.commonMain{
+width: 100%;
+height: 1330px;
+background-color: white;	
+}
+
+.commonMain2{
+width: 900px;
+height: 1230px;
+margin-left: 510px;
+background-color: white;
+}
+
+.commonimg{
+width: 600px;
+height: 150px;	
+margin-left: 155px;
+border-radius: 10px;	
+}
+
+.commonbox0{
+background-color: #553D3D;
+width: 600px;
+height: 15px;	
+margin-left: 155px;
+border-top-right-radius : 10px;
+border-top-left-radius: 10px;
+}
+
+.commonbox{
+width: 600px;	
+height: 40px;
+background-color: white;
+margin-left: 145px;
+margin-top: 25px;
+}
+
+.commondppl{
+font-size: 25px;	
+font-weight:bold;
+margin-left: 130px;
+}
+
+.commonbox1{
+width: 600px;	
+height: 25px;	
+background-color: white;
+margin-left: 145px;
+}
+
+.commonppl2{
+font-size: 13px;
+margin-left: 130px;	
+}
+
+.commonbox2{
+color: red;	
+font-size: 15px;
+width: 150px;
+height: 25px;
+margin-left: 160px;
+margin-top: 5px;
+}
+
+.Ctextbox1{
+width: 600px;
+height: 150px;	
+margin-left: 155px;
+border-radius: 10px;
+border: 1px solid gray;	
+}
+
+.Ctextbox2{
+width: 600px;
+height: 150px;	
+margin-left: 155px;
+border-radius: 10px;	
+border: 1px solid gray;		
+margin-top: 15px;
+}
+
+.Ctextbox3{
+width: 600px;
+height: 150px;	
+margin-left: 155px;
+border-radius: 10px;
+border: 1px solid gray;	
+margin-top: 15px;	
+}
+
+.Ctextbox4{
+width: 600px;
+height: 150px;	
+margin-left: 155px;
+border-radius: 10px;	
+border: 1px solid gray;		
+margin-top: 15px;
+}
+
+.Ctextbox5{
+width: 600px;
+height: 150px;	
+margin-left: 155px;
+border-radius: 10px;	
+border: 1px solid gray;	
+margin-top: 15px;	
+}
+
+.Ctextbox6{
+width: 600px;
+height: 150px;	
+margin-left: 155px;
+border-radius: 10px;	
+border: 1px solid gray;	
+margin-top: 15px;	
+}
+
+.nextlevel1{
+width: 150px;
+height: 30px;
+color: gray;
+margin-top: 10px;
+margin-left: 20px;
+font-size: 17px;
+}
+
+.nextlevel2{
+width: 150px;
+height: 30px;
+color: gray;
+margin-top: 10px;
+margin-left: 20px;
+font-size: 17px;
+}
+
+.nextlevel3{
+width: 150px;
+height: 30px;
+color: gray;
+margin-top: 10px;
+margin-left: 20px;
+font-size: 17px;
+}
+
+.nextlevel4{
+width: 150px;
+height: 30px;
+color: gray;
+margin-top: 10px;
+margin-left: 20px;
+font-size: 17px;
+}
+
+.nextlevel5{
+width: 150px;
+height: 30px;
+color: gray;
+margin-top: 10px;
+margin-left: 20px;
+font-size: 17px;
+}
+
+.freetradeagreement1{
+width: 250px;
+height: 30px;
+border-bottom: 1px solid black;		
+border-top: 1px solid white;	
+border-left: 1px solid white;	
+border-right: 1px solid white;	
+margin-left: 20px;
+margin-top: 15px;	 
+}
+
+.freetradeagreement2{
+width: 250px;
+height: 30px;
+border-bottom: 1px solid black;		
+border-top: 1px solid white;	
+border-left: 1px solid white;	
+border-right: 1px solid white;	
+margin-left: 20px;
+margin-top: 15px;	
+}
+
+.freetradeagreement3{
+width: 250px;
+height: 30px;
+border-bottom: 1px solid black;		
+border-top: 1px solid white;	
+border-left: 1px solid white;	
+border-right: 1px solid white;	
+margin-left: 20px;
+margin-top: 15px;	
+}
+
+.freetradeagreement4{
+width: 250px;
+height: 30px;
+border-bottom: 1px solid black;		
+border-top: 1px solid white;	
+border-left: 1px solid white;	
+border-right: 1px solid white;	
+margin-left: 20px;
+margin-top: 15px;	
+}
+
+.freetradeagreement5{
+width: 250px;
+height: 30px;
+border-bottom: 1px solid black;		
+border-top: 1px solid white;	
+border-left: 1px solid white;	
+border-right: 1px solid white;	
+margin-left: 20px;
+margin-top: 15px;	
+}
+
+.warring1{
+color: red;
+font-size: 13px;
+font-weight: bold;
+margin-left: 5px;
+margin-top: 17px;
+width: 100px;
+float: left;
+}
+
+.commonimg1{
+margin-top: 15px;
+margin-left: 20px;
+float: left;
+}
+
+.submitbtn{
+background-color: #553D3D;
+width: 70px;
+height: 40px;
+color: white;
+margin-left: 155px;
+margin-top: 40px;
+border-radius: 7px;
+}
 
 
 
 
+
+/* membermemberCommonNotice css  End **********************************************************************/
 
 
 
