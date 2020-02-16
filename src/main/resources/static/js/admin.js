@@ -37,7 +37,6 @@ var option2 = [];
 var z = 0;
 var d = $("#rlfdl").val()*1;
 for (i = 0; i < d; i++) {
-	
 	google.charts.load('current', {'packages':['corechart']});
 	google.charts.setOnLoadCallback(drawChart);
 	
@@ -64,9 +63,7 @@ for (i = 0; i < d; i++) {
 	    	});
 		 
 		 datas2.push(data2); 
-		 
-		 
-		 
+		
 		  var options1 = {
 		    title: arName +"의 숙박",
 		    width: 310
@@ -79,15 +76,11 @@ for (i = 0; i < d; i++) {
 		  };
 				  
 		  option2.push(options2);
-		  
-		  
 			  chart = new google.visualization.PieChart(document.getElementById('A'+z));
 			  chart.draw(datas[z], option[z]);
 			  chart = new google.visualization.PieChart(document.getElementById('B'+z));
 			  chart.draw(datas2[z], option2[z]);
 		
-		  
-		  
 			  z++;
 		}
 

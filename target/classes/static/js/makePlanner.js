@@ -222,7 +222,6 @@ $("body").on("click",".click-sleep", function() {
          
          $(".chos-sleep-per").each(function() {
             $(this).text(d[pc]+"%");
-            console.log(pc);
             pc++;
          });
       }
