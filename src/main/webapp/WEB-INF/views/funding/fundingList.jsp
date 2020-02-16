@@ -30,8 +30,9 @@ width: 100%;
 			</h3>
 		</div>
 	<div style="text-align: right; margin: 15px;">
-		<a href="./fundingWrite" class="btn btn-danger">Write</a>
+		<a href="./fundingPlanner" class="btn btn-danger">Write</a>
 	</div>
+	
 	
 	<div class="funding_area">
 		<c:forEach items="${list.pageList.content}" var="vo" varStatus="i">

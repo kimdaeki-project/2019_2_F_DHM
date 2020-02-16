@@ -88,7 +88,7 @@
 		<div class="row">
          <h3 class="contitle">다른 여행자들의 플래너 ${plannerCount}개</h3>
 		  
-		  <ul class="nav nav-tabs">
+		  <ul class="nav nav-tabs" style="border-bottom: none;">
 		      <li class="index_buttons_li index_buttons_li"><a class="ac" data-toggle="tab"  href="#home">최신</a></li>
                <li class="index_buttons_li" id="2"><a class="ac" data-toggle="tab"  href="#menu2">커플/신혼</a></li>
                <li class="index_buttons_li" id="8"><a class="ac" data-toggle="tab"  href="#menu8">남녀그룹</a></li>
@@ -99,7 +99,7 @@
                <li class="index_buttons_li" id="4"><a class="ac" data-toggle="tab"  href="#menu4">남자혼자</a></li>
                <li class="index_buttons_li" id="7"><a class="ac" data-toggle="tab"  href="#menu7">남자끼리</a></li>
 		  </ul>
-		
+			<br>
 		  <div class="tab-content">
 		    <div id="home" class="tab-pane fade in active">
 		    	<div class="swiper-container" style=" clear: both; overflow: hidden;">

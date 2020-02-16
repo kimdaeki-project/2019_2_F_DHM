@@ -203,8 +203,12 @@ public class FundingController {
 			vo.setBak(Integer.valueOf(bak[i]));
 			vo.setRegion(region[i]);
 
-			//도시 정보 추가
-			if (i > 0 && deDate.length > 1) {            
+			int tLength = 0; 
+	         if (transfer != null) {
+	        	 tLength = transfer.length;
+			}
+	         //도시 정보 추가           
+	         if (i > 0 && deDate.length > 1 && tLength > 0) {          
 				vo.setTransfer(transfer[i-1]);
 				locationService.updateLoc(arCodeP[i], Integer.parseInt(bak[i]), transfer[i-1]);
 			}else {
@@ -230,7 +234,7 @@ public class FundingController {
 		List<WishVO> wishlist = new ArrayList<WishVO>();
 
 		//id= memberVO.getId();
-
+		if(titleA!=null) { 
 		for(int i=0; i< titleA.length; i++) {
 			WishVO wishVO = new WishVO();
 			wishVO.setId(id);
@@ -243,8 +247,9 @@ public class FundingController {
 			wishlist.add(wishVO);
 
 		}
+		
 		wishService.wishAdd(wishlist, plNum, title);
-
+		}
 		//funding Table
 		//날짜+시간 합쳐서 집어넣기
 		String startTime = start +" "+ time1;

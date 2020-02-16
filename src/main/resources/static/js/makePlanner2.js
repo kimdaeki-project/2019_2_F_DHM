@@ -495,39 +495,22 @@ $(".mkp-clp-btn").click(function() {
 
 ///////////////////////////////////////////카카오맵//////////////////////////////////////
 
-var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-var options = { //지도를 생성할 때 필요한 기본 옵션
-   center: new kakao.maps.LatLng(35.604638908843044, 128.0525083125467), //지도의 중심좌표.
-   level: 12 //지도의 레벨(확대, 축소 정도)
+var container = document.getElementById('map'); 
+var options = { 
+   center: new kakao.maps.LatLng(35.604638908843044, 128.0525083125467), 
+   level: 12 
 };
 
-var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+var map = new kakao.maps.Map(container, options); 
 map.setMaxLevel(13);
-//컨트롤러
 var control = new kakao.maps.ZoomControl();
 map.addControl(control, kakao.maps.ControlPosition.TOPRIGHT);
 
-
-
-
-// 마커 이미지의 이미지 주소입니다
 var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
     
 for (var i = 0; i < positions.length; i++) {
-    
-    // 마커 이미지의 이미지 크기 입니다
     var imageSize = new kakao.maps.Size(24, 35); 
-    
-    // 마커 이미지를 생성합니다    
-     
-    
-    // 마커를 생성합니다
-//    var marker = new kakao.maps.Marker({
-//        //map: map, // 마커를 표시할 지도
-//        position: positions[i].latlng, // 마커를 표시할 위치
-//        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-//     
-//    });
+
     
     var overlay = new kakao.maps.CustomOverlay({
        clickable: true,
@@ -537,14 +520,6 @@ for (var i = 0; i < positions.length; i++) {
        yAnchor:1,
     });
 
-   //marker.setMap(map);
-
-
-   // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-//   kakao.maps.event.addListener(marker, 'click', function() {
-//       overlay.setMap(map);
-//   });
-
 
    function closeOverlay() {
        overlay.setMap(null);     
@@ -552,19 +527,19 @@ for (var i = 0; i < positions.length; i++) {
 }
 
 var polyline = new kakao.maps.Polyline({
-   map: map, // 선을 표시할 지도 객체
-   endArrow: true, // 선의 끝을 화살표로 표시되도록 설정한다
-   strokeWeight: 4, // 선의 두께
-   strokeColor: 'green', // 선 색
-   strokeOpacity: 0.9, // 선 투명도
-   strokeStyle: 'solid' // 선 스타일
+   map: map,
+   endArrow: true, 
+   strokeWeight: 4, 
+   strokeColor: 'green', 
+   strokeOpacity: 0.9, 
+   strokeStyle: 'solid'
 });
 
 var pp;
    
 function makePoly(ps) {
    
-    pp = new Array();
+    pp = [];
    for (var i = 0; i < ps.length; i++) {
       pp.push(positions[ps[i]].latlng);
       
@@ -581,7 +556,7 @@ function makePoly(ps) {
 
 function uptPoly() {
    
-   pIndex = new Array();
+   pIndex = [];
    $(".mkp-city-info").each(function() {
       pIndex.push($(this).prop("title"));
    });
@@ -625,14 +600,10 @@ function setMapType(maptype) {
 }
    
 
-//kakao.maps.event.addListener(map, 'tilesloaded', displayMarker);
-
 var mapCenter;
 var mapLevel;
 
 function displayMarker() {
-    
-    // 마커의 위치를 지도중심으로 설정합니다 
   mapCenter = map.getCenter();
   mapLevel = map.getLevel();
   

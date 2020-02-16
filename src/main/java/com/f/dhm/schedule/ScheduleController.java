@@ -214,10 +214,6 @@ public class ScheduleController {
 	    	  aa.setEveryDay(everyDay.get(i));
 	    	  
 	    	  codeVO.add(aa);
-	    	 
-	    	  System.out.println(i +"          :         "+codeVO.get(i).getArCode());
-	    	  System.out.println(i +"          :         "+codeVO.get(i).getDu());
-	    	  System.out.println(i +"          :         "+codeVO.get(i).getEveryDay());
 	      }
 	      
 	      mv.addObject("codeVO",codeVO);
@@ -241,7 +237,7 @@ public class ScheduleController {
 		}
 	      
 	      
-	      if(memberVO==null) {
+	      if(memberVO==null && !plannerList.get(0).getId().equals("guest")) {
 	         String msg="로그인이 필요합니다.";
 	         mv.addObject("message",msg);
 	         mv.addObject("path","../member/memberLogin?goBack=../schedule/schedulePage?plNum="+plNum);
@@ -256,10 +252,8 @@ public class ScheduleController {
 	         for(int i=0; i<scheduleList.size();i++) {
 	            
 	            String tour = scheduleList.get(i).getTour();
-	            System.out.println("tour    :    " +tour);
 	            
 	            String day = scheduleList.get(i).getDay();
-	            System.out.println("day    :    " +day);
 	            
 	            Map<String, Object> scInfo = scheduleService.scheduleInfo(tour, plNum);
 	            
@@ -279,7 +273,6 @@ public class ScheduleController {
 	            scheduleInfoVO.setTour((String)scInfo.get("tour"));
 	            scheduleInfoVO.setArCode((Integer)scInfo.get("arCode"));
 	            scheduleInfoVO.setScName((String)scInfo.get("scName"));
-	            System.out.println("sdfdsfsdfsfdfsdfdfs   :     "+scheduleInfoVO.getDay());
 	            scheduleInfoVOs.add(scheduleInfoVO);
 	         }
 	         
@@ -365,10 +358,10 @@ public class ScheduleController {
 		
 		@PostMapping("reviewUpdate")
 		public ModelAndView reviewUpdate(PlannerCommentVO plannerCommentVO) throws Exception{
-			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-			System.out.println(plannerCommentVO.getCNum());
-			System.out.println(plannerCommentVO.getId());
-			System.out.println(plannerCommentVO.getPlNum());
+//			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+//			System.out.println(plannerCommentVO.getCNum());
+//			System.out.println(plannerCommentVO.getId());
+//			System.out.println(plannerCommentVO.getPlNum());
 			plannerService.pcomment(plannerCommentVO);
 			ModelAndView mv =new ModelAndView();
 			String path="./schedulePage?plNum="+plannerCommentVO.getPlNum();
@@ -381,8 +374,8 @@ public class ScheduleController {
 		
 		@GetMapping("reviewUpdate")
 		public String reviewUpdate(int cNum,Model model)throws Exception{
-			System.out.println("////////////////////////////////////////////////////////////////");
-			System.out.println("cnum : "+cNum);
+//			System.out.println("////////////////////////////////////////////////////////////////");
+//			System.out.println("cnum : "+cNum);
 			PlannerCommentVO commentVO=plannerService.getComment(cNum);
 			model.addAttribute("commentVO", commentVO);
 			return "schedule/reviewUpdate";
@@ -391,12 +384,12 @@ public class ScheduleController {
 		@PostMapping("scheduleComment")
 		public ModelAndView scheduleComment(@ModelAttribute("plannerCommentVO") PlannerCommentVO	 plannerCommentVO, int plNum, HttpSession session)throws Exception{
 			ModelAndView mv=new ModelAndView();
-			System.out.println("test : PlannerController : scheduleComment : plNum" +plNum);
+//			System.out.println("test : PlannerController : scheduleComment : plNum" +plNum);
 			String path="../member/memberLogin";
 			String message="로그인이 필요합니다.";
 			if(session.getAttribute("member") != null) {
-				System.out.println("plNum : "+plNum);
-				System.out.println("plannerCommentVO.getTitle() : "+plannerCommentVO.getContents());
+//				System.out.println("plNum : "+plNum);
+//				System.out.println("plannerCommentVO.getTitle() : "+plannerCommentVO.getContents());
 				boolean check=plannerService.pcomment(plannerCommentVO, plNum, session);
 				path= "../schedule/schedulePage?plNum="+plNum;
 				message="작성되었습니다.";
