@@ -127,19 +127,18 @@ public class MemberService {
 		return memberRepository.findByEmail(email);
 	}
 	//프로필 사진 변경----------------------------------------
-	public boolean memberMypageImg(MemberVO memberVO,HttpSession session, MultipartFile files)throws Exception{
-
+	public boolean memberMypageImg(HttpSession session, MultipartFile files)throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		MemberFilesVO memberFilesVO = new MemberFilesVO();
-		String realPath=session.getServletContext().getRealPath("/imgs/member");
-		MemberVO setDay = memberRepository.findById(memberVO.getId()).get();
-		memberVO.setJoinDay(setDay.getJoinDay());
+		String realPath=session.getServletContext().getRealPath("/imgs/member");;
 		memberFilesVO.setMemberVO(memberVO);
 		memberFilesVO.setFname(fileSaver.save2(realPath, files));
 		memberFilesVO.setOname(files.getOriginalFilename());
 
 		memberFilesRepository.save(memberFilesVO);
-		memberVO =  memberRepository.findById(memberVO.getId()).get();
-
+		Thread.sleep(100);
+		memberVO = memberRepository.findById(memberVO.getId()).get();
+		
 		return memberFilesRepository.existsById(memberVO.getMemberFilesVO().getFnum());	
 	}
 	

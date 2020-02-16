@@ -238,7 +238,7 @@ public class MemberController {
 		mv.setViewName("member/memberMypage");
 		String message = "프로필 사진 변경 실패";
 		System.out.println();
-		if (memberService.memberMypageImg(memberVO, session, files)) {			
+		if (memberService.memberMypageImg(session, files)) {			
 			memberVO = memberService.memberLogin(memberVO);
 			message = "프로필 사진 변경 완료";			
 		}		
