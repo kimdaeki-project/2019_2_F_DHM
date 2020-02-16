@@ -18,7 +18,7 @@
 <link rel="stylesheet"  href="../css/membercss.css">
 <link rel="stylesheet"  href="../css/basic.css">
 <meta charset="UTF-8">
-<title>DHM Planner</title>
+<title>마이페이지</title>
 </head>
 <body>
 

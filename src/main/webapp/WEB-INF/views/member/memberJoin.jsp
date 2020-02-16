@@ -14,11 +14,11 @@
 <link rel="stylesheet"  href="../css/basic.css">
  <link rel="stylesheet" href="../package/css/swiper.min.css">
 <meta charset="UTF-8">
-<title>member Join</title>
+<title>회원가입</title>
 </head>
 <body>
 
-	<c:import url="../template/nav.jsp"/>
+<%-- 	<c:import url="../template/nav.jsp"/> --%>
 	
 	<div class="Joinmain" style="padding-top: 100px;">
 		<div class="JoinMainPage">
@@ -229,7 +229,7 @@
 	</div>
 	
 	
-	<c:import url="../template/footer.jsp"/>
+<%-- 	<c:import url="../template/footer.jsp"/> --%>
 <script type="text/javascript">
 //-----------------------------------------------------------------------	
 //회원가입 제약조건 
@@ -371,10 +371,11 @@ $("#input_id").click(function(){
 							data : {
 								id : id
 								},
-							success : function(daa){
+							success : function(k){
+								alert(id);
 
-								if(daa){
-									alert(daa);
+								if(k){
+									alert(k);
 									 $("#input_id").css("background","#95a5a6");	
 									 $("#Xid4").show();	
 									 check3 = false;		
@@ -445,7 +446,7 @@ $("#pid_btn").click(function(){
 		$.ajax({
 		
 			type : "POST",
-			url  : "memberEMAILCheck",
+			url  : "memberEMAIL3Check",
 			data : {
 				email : email
 				},

@@ -43,7 +43,6 @@ public class MemberController {
 	public ModelAndView memberJoin( MemberVO memberVO, BindingResult bindingResult, HttpServletRequest httpServletRequest)throws Exception{
 		
 	System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-	
 	Enumeration<String> at = httpServletRequest.getParameterNames();
 	while(at.hasMoreElements()) {
 		System.out.println(at.nextElement());

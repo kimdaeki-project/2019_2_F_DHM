@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="../package/css/swiper.min.css">
 <link rel="stylesheet"  href="../css/membercss.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>탈퇴하기</title>
 <style type="text/css">
 
 </style>

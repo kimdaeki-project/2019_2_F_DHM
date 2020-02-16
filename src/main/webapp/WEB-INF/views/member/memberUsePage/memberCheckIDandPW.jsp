@@ -13,6 +13,7 @@
 <link rel="stylesheet"  href="../../css/basic.css">
  <link rel="stylesheet" href="../../package/css/swiper.min.css">
 <meta charset="UTF-8">
+<title>ID/PW 찾기</title>
 	<c:import url="../../template/nav.jsp"/>
 </head>
 <body>
