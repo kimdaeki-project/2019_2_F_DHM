@@ -253,7 +253,12 @@ public class ScheduleController {
             String day = scheduleList.get(i).getDay();
             System.out.println("day    :    " +day);
             
+            
             Map<String, Object> scInfo = scheduleService.scheduleInfo(tour, plNum);
+//            String Dday = (String)scInfo.get("day");
+//            SimpleDateFormat trans = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//            Date day2=trans.parse(Dday);
+            
             scheduleInfoVO = new ScheduleInfoVO();
             scheduleInfoVO.setTitle((String)scInfo.get("title"));
             scheduleInfoVO.setAddr1((String)scInfo.get("addr1"));
@@ -261,6 +266,8 @@ public class ScheduleController {
             scheduleInfoVO.setFirstimage((String)scInfo.get("firstimage"));
             scheduleInfoVO.setStart((Integer)scInfo.get("start"));
             scheduleInfoVO.setDay((String)scInfo.get("day"));
+            
+            
             scheduleInfoVO.setTour((String)scInfo.get("tour"));
             scheduleInfoVO.setArCode((Integer)scInfo.get("arCode"));
             scheduleInfoVO.setScName((String)scInfo.get("scName"));

@@ -1,6 +1,8 @@
 package com.f.dhm.schedule;
 
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 
 import lombok.Getter;

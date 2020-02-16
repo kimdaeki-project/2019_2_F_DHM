@@ -31,7 +31,7 @@
 <c:import url="../template/nav.jsp"/>
 	<!-- <form action="schedulePage" method="POST"> -->
 
-	<div style="background-color: #f5f5f5">
+	<div style="background-color: #f5f5f5" class="row">
 	<div class="header">
 	</div>
 	<div class="container container2" style="padding-top: 90px;">
@@ -299,7 +299,7 @@
 												${vo.title}
 										</td>
 										<td class="text-center">${vo.scName}</td>
-										<td class="text-center"> ${vo.day} / ${vo.start}시</td>
+										<td class="text-center">  ${vo.day} / ${vo.start}시</td>
 										<td class="text-center">￦ ${vo.cost }원</td>
 										
 									</tr>
@@ -1412,5 +1412,6 @@
 
 		
 	</script>
+	<c:import url="../template/footer.jsp"></c:import>
 </body>
 </html>
