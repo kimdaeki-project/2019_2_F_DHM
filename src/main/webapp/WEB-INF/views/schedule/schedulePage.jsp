@@ -365,7 +365,7 @@
 													</div>
 										  </div>
 										  <c:if test="${planner[0].id eq member.id }">
-											<a data-toggle="modal" class="md" id="${w.index }" data-target="#myModal" title="${vo.arCode}">
+											<a data-toggle="modal" class="md" id="${vo.arCount }" data-target="#myModal" title="${vo.arCode}">
 												<div class="tour-add">
 													<font><i class="fa fa-plus"></i>일정추가</font>
 												</div>
@@ -1337,7 +1337,7 @@
 								}
 
 						}else{
-							if($(this).attr("title") == tt || indexCheck - $(this).prop("id") == 1){
+							if($(this).attr("title") == tt || indexCheck - $(this).prop("id") == 0){
 
 								$(this).css("display","inline");
 

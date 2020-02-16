@@ -4,7 +4,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet"  href="../css/basic.css">
+
 <footer>
 
    <div class="footermain1">
