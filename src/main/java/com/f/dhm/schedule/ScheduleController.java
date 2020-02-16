@@ -1,9 +1,7 @@
 package com.f.dhm.schedule;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -303,7 +301,7 @@ public class ScheduleController {
          mv.setViewName("/schedule/schedulePage");
          
       }else {
-         String msg="잠겨있는 플래너는 볼 수 없습니다.";
+         String msg="비공개 플래너는 볼 수 없습니다.";
          mv.addObject("message",msg);
          mv.addObject("path","/");
          mv.setViewName("common/result");

@@ -1337,7 +1337,7 @@
 								}
 
 						}else{
-							if($(this).attr("title") == tt || indexCheck - $(this).prop("id") == 1){
+							if($(this).attr("title") == tt || indexCheck - $(this).prop("id") >= 1){
 
 								$(this).css("display","inline");
 
