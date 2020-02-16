@@ -31,7 +31,7 @@
 <c:import url="../template/nav.jsp"/>
 	<!-- <form action="schedulePage" method="POST"> -->
 
-	<div style="background-color: #f5f5f5">
+	<div style="background-color: #f5f5f5;">
 	<div class="header">
 	</div>
 	<div class="container container2" style="padding-top: 90px;">
@@ -39,12 +39,14 @@
 			
 			<div >
 				<h3 class="contents-title" style="float: left;">${plannerTitle}</h3>
-				<div class="btn-group">
-					<button type="button" class="btn-u btn-u-dark" onclick="scDelete(${plNum});"  style="border-radius: 25px; background: gray;" data-toggle="dropdown" aria-expanded="false">
-						<span class="fa fa-cog" >삭제</span>
-						<span class="fa fa-angle-down"> </span>
-					</button>
-				</div>
+				<c:if test="${planner[0].id eq member.id }">
+					<div class="btn-group">
+						<button type="button" class="btn-u btn-u-dark" onclick="scDelete(${plNum});"  style="border-radius: 25px; background: gray;" data-toggle="dropdown" aria-expanded="false">
+							<span class="fa fa-cog" >삭제</span>
+							<span class="fa fa-angle-down"> </span>
+						</button>
+					</div>
+				</c:if>
 				<input type="hidden" id="plNum" value="${plNum}" name ="plNum">
 			</div>
 			<div class="main-contents" style="clear: both;">
@@ -83,6 +85,7 @@
 								</div>
 								<div class="map-body">${plannerType}</div>
 							</div>
+							
 							<div class="swiper-modal swiper">
 								<div class="modal-head" style="text-align: center; padding-top: 20px;">
 									<font style="color: white; font-size: 13pt; font-weight: 700;">누구와 함께하는 여행인가요?</font>
@@ -172,13 +175,15 @@
 								</div>
 							</div>	
 						</div>
-						<div class="map-rootModify"  style="cursor: pointer;" onclick="uptPlanner(${plNum})">
-							<div class="map-header">
-								<i class="fa fa-cog fa-2x" style="color: #747474; margin-top: 9px;margin-bottom: 7px;"></i>
+						<c:if test="${member.id eq planner[0].id }">
+							<div class="map-rootModify"  style="cursor: pointer;" onclick="uptPlanner(${plNum})">
+								<div class="map-header">
+									<i class="fa fa-cog fa-2x" style="color: #747474; margin-top: 9px;margin-bottom: 7px;"></i>
+								</div>
+								<div class="map-body">루트수정</div>
+								
 							</div>
-							<div class="map-body">루트수정</div>
-							
-						</div>
+						</c:if>
 						<div class="map-startDate">
 							<div class="map-header">
 								<i class="fa fa-cog" aria-hidden="true" style="color: #747474; margin-top: 9px;margin-bottom: 7px;">
@@ -359,11 +364,13 @@
 														<input id="votitle" type="hidden" value="${vo.title}">
 													</div>
 										  </div>
-										<a data-toggle="modal" class="md" data-target="#myModal" title="${vo.arCode}">
-											<div class="tour-add">
-												<font><i class="fa fa-plus"></i>일정추가</font>
-											</div>
-										</a>
+										  <c:if test="${planner[0].id eq member.id }">
+											<a data-toggle="modal" class="md" data-target="#myModal" title="${vo.arCode}">
+												<div class="tour-add">
+													<font><i class="fa fa-plus"></i>일정추가</font>
+												</div>
+											</a>
+										</c:if>
 										</div>
 									</div>
 								</c:forEach>
@@ -1044,7 +1051,8 @@
 
 
    <!--=======================================================================================================================-->
-   <div class="container" style="margin-top: -50px;">
+   <div class="row" style="margin-top: 50px; position: relative; top:auto; display: block;">
+   	<div class="container">
 		<h1 style="color: #c9c9c9; border-bottom: 1px solid #c9c9c9; padding-bottom: 10px;">review</h1>
 		<div class="section" style="background: gold;">
 			<div class="reviewFlexWrapper">
@@ -1088,6 +1096,7 @@
 <!-- 					</div> -->
 <!-- 				</div> -->
 			</div>
+		</div>
 		</div>
 	</div>
    <!---=======================================================================================================================  -->
@@ -1146,6 +1155,20 @@
   
 
 </div>
+	<c:if test="${planner[0].id eq member.id }">
+		<script type="text/javascript">
+			$('.map-peopleType').click(function(){
+						
+						$('.map-peopleType').toggleClass("peopleTypeSwiper");
+						$('.swiper-before').toggleClass("swiper");
+						$('.swiper-modal').toggleClass("swiper");	
+					});
+			
+		</script>
+				
+	</c:if>
+
+
 	<script type="text/javascript">
 
 		function scDelete(plNum){
@@ -1294,12 +1317,7 @@
 
 		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
-		$('.map-peopleType').click(function(){
-			
-			$('.map-peopleType').toggleClass("peopleTypeSwiper");
-			$('.swiper-before').toggleClass("swiper");
-			$('.swiper-modal').toggleClass("swiper");	
-		});
+		
 
 		
 		$('.nolist-transfer').click(function(){
@@ -1410,6 +1428,8 @@
 		tabsize : 2,
 		height : 150
 	});
+
+
       
    </script>
 

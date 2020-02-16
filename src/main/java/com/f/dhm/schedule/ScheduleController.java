@@ -192,6 +192,14 @@ public class ScheduleController {
       List<ScheduleVO> scheduleList = scheduleService.scheduleList(plNum);
       List<WishVO> wishlist = wishService.myWish(session, plNum);
       
+      boolean plannerLock = true;
+      
+      if (plannerList.get(0).getPlLock() == 1 && memberVO != null) {
+		if (!plannerList.get(0).getId().equals(memberVO.getId())) {
+			plannerLock = false;
+		}
+	}
+      
       
       if(memberVO==null) {
          String msg="로그인이 필요합니다.";
@@ -199,7 +207,7 @@ public class ScheduleController {
          mv.addObject("path","../member/memberLogin?goBack=../schedule/schedulePage?plNum="+plNum);
          mv.setViewName("common/result");
          
-      }else if(plannerList.size() !=0 && plannerList.get(0).getId().equals(memberVO.getId())) {
+      }else if(plannerList.size() !=0 && plannerLock) {
          
          
          List<ScheduleInfoVO> scheduleInfoVOs = new ArrayList<ScheduleInfoVO>();
@@ -255,7 +263,7 @@ public class ScheduleController {
          mv.setViewName("/schedule/schedulePage");
          
       }else {
-         String msg="다른사람의 플래너는 열람할 수 없습니다.";
+         String msg="잠겨있는 플래너는 볼 수 없습니다.";
          mv.addObject("message",msg);
          mv.addObject("path","/");
          mv.setViewName("common/result");
