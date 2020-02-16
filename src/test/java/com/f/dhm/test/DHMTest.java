@@ -13,6 +13,7 @@ import javax.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.Commit;
 
 import com.f.dhm.Member.MemberRepository;
@@ -58,10 +59,21 @@ public class DHMTest {
 		System.out.println("exist : "+exist);
 	}
 	
-	@Test
+	//@Test
 	void test3()throws Exception{
 		List<PlannerCommentVO> commentVOs=commentRepository.findByPlNum(52);
 		commentVOs.forEach(System.out::println);
 	}
 	
+	@Test
+	void test5()throws Exception{
+		//List<PlannerCommentVO> commentVOs=commentRepository.findAll();
+		//commentVOs.forEach(System.out::println);
+		
+		//List<PlannerCommentVO> commentVOs=commentRepository.findAll();
+		System.out.println("^^^^^^^^^^^^^^^^^");
+		
+		List<PlannerCommentVO> commentVOs=commentRepository.findAllOrderByRegDateDesc();
+		commentVOs.forEach(System.out::println);
+	}
 }

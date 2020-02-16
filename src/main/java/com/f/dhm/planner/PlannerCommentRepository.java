@@ -3,6 +3,7 @@ package com.f.dhm.planner;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -22,6 +23,8 @@ public interface PlannerCommentRepository extends JpaRepository<PlannerCommentVO
 //	   Map<String, Object> scheduleInfo (@Param("title") String title, @Param("plNum") Integer plNum) throws Exception;
 //	레코드 1줄 리턴
 	 
-	  
-	  
+  //List<PlannerCommentVO> findAll(Sort sort)throws Exception;
+
+	//findByAgeOrderByLastnameDesc
+	List<PlannerCommentVO> findAllOrderByRegDateDesc()throws Exception;
 }

@@ -25,20 +25,20 @@
 		
 		<h2 id="name" class="funding-name" >${vo.name}</h2>
 		
-		<div class="funding-title">${ vo.contents }</div>
+		
 		
 			<div class="funding-select-info">
-				<div class="funding-select-info-partition">
-					<div class="funding-select-info-partition-title"><span class="funding-title-span">펀딩 목표 금액</span></div>
-					<div class="funding-select-info-partition-contents" id="goal">${vo.goal}</div>
+				<div class="funding-select-info-partition" >
+					<div class="funding-select-info-partition-title" ><span class="funding-title-span">펀딩 목표 금액</span></div>
+					<div class="funding-select-info-partition-contents" id="goal"><fmt:formatNumber value="${vo.goal}" pattern="#,###"/></div>
 				</div>
 				<div class="funding-select-info-partition-middle">
 					<div class="funding-select-info-partition-title "><span class="funding-title-span">모인 금액</span></div>
-					<div class="funding-select-info-partition-contents" id="goal">${vo.status}</div>
+					<div class="funding-select-info-partition-contents" id="goal"><fmt:formatNumber value="${vo.status}" pattern="#,###"/></div>
 				</div>
 				<div class="funding-select-info-partition">
 					<div class="funding-select-info-partition-title"><span class="funding-title-span">금액</span></div>
-					<div class="funding-select-info-partition-contents" id="goal">${vo.price}</div>
+					<div class="funding-select-info-partition-contents" id="goal"><fmt:formatNumber value="${vo.price}" pattern="#,###"/></div>
 				</div>
 			</div>
 			
@@ -57,7 +57,7 @@
 				</div>
 				<div class="funding-select-info-partition">
 					<div class="funding-select-info-partition-title"><span class="funding-title-span">참여 인원수</span></div>
-					<div class="funding-select-info-partition-contents" id="people">${vo.participationPeople}</div>
+					<div class="funding-select-info-partition-contents" id="people"><fmt:formatNumber value="${vo.participationPeople}" pattern="#,###"/></div>
 				</div>
 			</div>
 			<div class="funding-select-info">
@@ -71,6 +71,7 @@
 				</div>
 			</div>
 			
+			<div class="funding-title">${ vo.contents }</div>
 		
 	</div>
 	<div style="text-align: center; margin-bottom: 50px;">
