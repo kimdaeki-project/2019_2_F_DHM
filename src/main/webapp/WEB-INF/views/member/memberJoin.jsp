@@ -239,7 +239,6 @@
 //3. 이메일 : @포함(naver.com / daum.net / gmail.com) + 중복 메세지		ok!!!
 //4. 각종 특수문자 제외 : (1234567890/a-z/A-z 사용 가능)  					ok!!!
 
-
 //광고메일 동의
 $("#mailok").click(function(){
     var check=$('#mailok').is(':checked');
@@ -372,10 +371,10 @@ $("#input_id").click(function(){
 							data : {
 								id : id
 								},
-							success : function(d){
+							success : function(daa){
 
-								if(d){
-									
+								if(daa){
+									alert(daa);
 									 $("#input_id").css("background","#95a5a6");	
 									 $("#Xid4").show();	
 									 check3 = false;		
@@ -453,7 +452,7 @@ $("#pid_btn").click(function(){
 			success : function(c){
 		
 				if(c){
-					
+					alert(c);
 					 $("#pid_btn").css("background","#95a5a6");	
 					 check4 = false;
 					 $("#Xid5").show();			

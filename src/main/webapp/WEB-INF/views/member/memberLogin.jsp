@@ -12,7 +12,7 @@
 <link rel="stylesheet"  href="../css/basic.css">
  <link rel="stylesheet" href="../package/css/swiper.min.css">
 <meta charset="UTF-8">
-<title>member Login</title>
+<title>DHM Login</title>
 </head>
 <body>
 

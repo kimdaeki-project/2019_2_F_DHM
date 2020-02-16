@@ -43,6 +43,7 @@ public class MemberController {
 	public ModelAndView memberJoin( MemberVO memberVO, BindingResult bindingResult, HttpServletRequest httpServletRequest)throws Exception{
 		
 	System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+	
 	Enumeration<String> at = httpServletRequest.getParameterNames();
 	while(at.hasMoreElements()) {
 		System.out.println(at.nextElement());
@@ -163,10 +164,17 @@ public class MemberController {
 		}		
 	}	
 	//ID 체크-----------------------------------------------------------------------
+//	@PostMapping("memberIdCheck")
+//	@ResponseBody
+//	public boolean memberIdCheck(String id)throws Exception{
+//		return memberService.memberIdCheck(id);
+//	}
+	
 	@PostMapping("memberIdCheck")
-	@ResponseBody
 	public boolean memberIdCheck(String id)throws Exception{
-		return memberService.memberIdCheck(id);
+		boolean check= memberService.memberIdCheck(id);
+		System.out.println("있냐" +check);
+		return true;
 	}
 	//PW 체크-----------------------------------------------------------------------
 	@PostMapping("memberPWCheck")
