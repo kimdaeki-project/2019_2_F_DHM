@@ -1,5 +1,6 @@
 package com.f.dhm.Member;
 
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.Optional;
 
@@ -263,6 +264,8 @@ public class MemberController {
 	@PostMapping("memberUsePage/memberCommonNotice")
 	public ModelAndView commonNotice(CommonVO commonVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
+		Date d = new Date();
+		commonVO.setCoMakeDay(d);
 		
 		memberService.commonNotice(commonVO);
 		String message = "접수 실패.";

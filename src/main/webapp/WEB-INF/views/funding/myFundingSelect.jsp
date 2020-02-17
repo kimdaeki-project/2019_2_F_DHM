@@ -437,47 +437,72 @@
                </div>
  <!-- contents-========================================== -->
 <div class="container">
-	<div class="form-group">
-
-		<h3 style="text-align: center;">${vo.name}</h3>
-		<h3 style="text-align: center;">${vo.name}</h3>
-		
-		<p class="excert">${ vo.contents }</p>
-		<div style="margin: 0 0 15px 30px;">
-		<p style="text-align: right;">
-		<span style="font-size: 20px;">금액</span>
-		<span id="price" style="font-size: 20px; font-weight: bold;"></span>원
-		</p>
-		<p style="text-align: right;">
-		<span style="font-size: 20px;">모인 금액</span>
-		<span id="save_price" style="font-size: 20px; font-weight: bold;"></span>원
-		</p>
-		<p style="text-align: right;">
-		<span style="font-size: 20px;">펀딩 목표 금액</span>
-		<span id="goal" style="font-size: 20px; font-weight: bold;"></span>원
-		</p>
-		</div>
-		<div style="text-align: right;">
-		<h3>펀딩 시작 시간</h3>
-		<span id="startTime" style="font-size: 20px; font-weight: bold;"></span>
-		<h3>펀딩 마감 시간</h3>
-		<span id="endTime" style="font-size: 20px; font-weight: bold;"></span>
-		<h3>현재 참여 인원수</h3>
-		<span id="people" style="font-size: 20px; font-weight: bold;">${fund.participationPeople}</span>
-		</div>
-	</div>
-	<div style="text-align: center; margin-bottom: 50px;">
-			<button id="btn" class="button3">참여하기</button>
-	</div>
-		<div style="text-align: center; margin-bottom: 50px;">
-		<c:if test="${member.id eq fund.id }">
-			<a href="./fundingUpdate?num=${fund.num }" class="button" >수정</a>
-			<button class="button" id="del" >삭제</button>
-		<a href="./fundingJoinList?fNum=${fund.num}" class="button" >참여자 확인</a>
-		</c:if>
-			<a href="./fundingList" class="button" >목록</a>
-		</div>
-	</div>
+   <div class="form-group">
+      
+      
+      <h2 id="name" class="funding-name" >${fund.name}</h2>
+      
+      
+      
+         <div class="funding-select-info">
+            <div class="funding-select-info-partition" >
+               <div class="funding-select-info-partition-title" ><span class="funding-title-span">펀딩 목표 금액</span></div>
+               <div class="funding-select-info-partition-contents" id="goal"><fmt:formatNumber value="${fund.goal}" pattern="#,###"/></div>
+            </div>
+            <div class="funding-select-info-partition-middle">
+               <div class="funding-select-info-partition-title "><span class="funding-title-span">모인 금액</span></div>
+               <div class="funding-select-info-partition-contents" id="goal"><fmt:formatNumber value="${fund.status}" pattern="#,###"/></div>
+            </div>
+            <div class="funding-select-info-partition">
+               <div class="funding-select-info-partition-title"><span class="funding-title-span">금액</span></div>
+               <div class="funding-select-info-partition-contents" id="goal"><fmt:formatNumber value="${fund.price}" pattern="#,###"/></div>
+            </div>
+         </div>
+         
+         <div class="funding-select-info">
+            <div class="funding-select-info-partition">
+               <div class="funding-select-info-partition-title"><span class="funding-title-span">시작</span></div>
+               <div class="funding-select-info-partition-contents" id="startTime">
+                  <fmt:formatDate value="${fund.startTime}" timeStyle="short" pattern="MM/dd"/>
+               </div>
+            </div>
+            <div class="funding-select-info-partition-middle">
+               <div class="funding-select-info-partition-title"><span class="funding-title-span">종료</span></div>
+               <div class="funding-select-info-partition-contents" id="endTime">
+                  <fmt:formatDate value="${fund.endTime}" timeStyle="short" pattern="MM/dd"/>
+               </div>
+            </div>
+            <div class="funding-select-info-partition">
+               <div class="funding-select-info-partition-title"><span class="funding-title-span">참여 인원수</span></div>
+               <div class="funding-select-info-partition-contents" id="people"><fmt:formatNumber value="${fund.participationPeople}" pattern="#,###"/></div>
+            </div>
+         </div>
+         <div class="funding-select-info">
+            <div class="funding-select-info-wrapper">
+               <div class="funding-gage-bar-wrapper">
+                  <div class="funding-gage-box">
+                     <div class="funding-gage-bar">${fund.gage}</div>
+                  </div>
+               </div>
+               <span class="gage_info">(진행률 %)</span>
+            </div>
+         </div>
+         
+         <div class="funding-title">${ fund.contents }</div>
+      
+   </div>
+   <div style="text-align: center; margin-bottom: 50px;">
+         <button id="btn_pt" class="button4" style="font-size: 16px; padding-left: 15px; padding-right: 15px; margin: 10px">참여하기</button>
+   </div>
+      <div style="text-align: center; margin-bottom: 50px;">
+      <c:if test="${member.id eq fund.id }">
+         <a href="./fundingUpdate?num=${fund.num }" class="button" style="font-size: 11px; padding-left: 15px; padding-right: 15px; margin: 10px">수정</a>
+         <button class="button" id="del" style="font-size: 11px; padding-left: 15px; padding-right: 15px; margin: 10px">삭제</button>
+      <a href="./fundingJoinList?fNum=${fund.num}" class="button" style="font-size: 11px; padding-left: 15px; padding-right: 15px; margin: 10px">참여자 확인</a>
+      </c:if>
+         <a href="./fundingList" class="button" style="font-size: 11px; padding-left: 15px; padding-right: 15px; margin: 10px">목록</a>
+      </div>
+   </div>
             </div>
          
          </div>
@@ -525,7 +550,7 @@
                   
                </div>
  
-	
+   
 
             </div>
          </div>
@@ -541,77 +566,79 @@
 </div>
 
 <script type="text/javascript">
-	var goal = ${fund.goal};
-	var status = ${fund.status};
-	var price = ${fund.price};
-	/* 펀딩 성공시 펀딩 버튼 막기 */
-	var dif = goal - status;
+$(document).ready(function(){
+   var gage= ${fund.gage}+"%";
+      $('.funding-gage-bar').css("width", gage);
+   });
+      var goal = ${fund.goal};
+      var status = ${fund.status};
+      var price = ${fund.price};
+      /* 펀딩 성공시 펀딩 버튼 막기 */
+      var dif = goal - status;
 
-	
-	
-	goal = goal.toLocaleString();
-	price = price.toLocaleString();
-	save_price = save_price.toLocaleString();
-	
-	document.getElementById('price').innerHTML = price;
-	document.getElementById('goal').innerHTML = goal;
-	document.getElementById('save_price').innerHTML = status;
-	
-	var startTime = '${fund.startTime}';
-	var endTime = '${fund.endTime}';
+      
+      
+      goal = goal.toLocaleString();
+      price = price.toLocaleString();
+      
+      
+      
+      
+      
+      var startTime = '${fund.startTime}';
+      var endTime = '${fund.endTime}';
 
-	var start = startTime.substring(0, 16);
-	var end = endTime.substring(0, 16);
+      var start = startTime.substring(0, 16);
+      var end = endTime.substring(0, 16);
 
-	document.getElementById('startTime').innerHTML = start;
-	document.getElementById('endTime').innerHTML = end;
+      document.getElementById('startTime').innerHTML = start;
+      document.getElementById('endTime').innerHTML = end;
 
+   /* 현재 날짜와 여행 시작 날짜를 비교하여 날짜가 지나면 펀딩 막기 */
+   var today = new Date();
+   today = today.toLocaleString();
+   today = today.substring(0, 11);
+   var today_ar = today.split(". ");
+   console.log(today);
+   console.log(today_ar);
+   
+   /* 여행 시작시간에서 년 월 일만 추출 */
+   var end2 = endTime.substring(0, 10);
+   var end_ar = end2.split("-");
 
-	/* 현재 날짜와 여행 시작 날짜를 비교하여 날짜가 지나면 펀딩 막기 */
-	var today = new Date();
-	today = today.toLocaleString();
-	today = today.substring(0, 11);
-	var today_ar = today.split(". ");
-	console.log(today);
-	console.log(today_ar);
-	
-	/* 여행 시작시간에서 년 월 일만 추출 */
-	var end2 = endTime.substring(0, 10);
-	var end_ar = end2.split("-");
-
-	var to = new Date(today_ar[0], today_ar[1], today_ar[2]);
+   var to = new Date(today_ar[0], today_ar[1], today_ar[2]);
     var end = new Date(end_ar[0], end_ar[1], end_ar[2]);
-	
+   
     var dif2 = end - to;
     var cDay = 24 * 60 * 60 * 1000;// 시 * 분 * 초 * 밀리세컨
 
-	var dif3 = dif2/cDay;
+   var dif3 = dif2/cDay;
 
-	
-	if(dif <= 0){
-		document.getElementById('btn').innerHTML = "펀딩 성공";
-		$("#btn").attr('disabled', true);
-		} else {
-			if(dif3 <= 0){
-				document.getElementById('btn').innerHTML = "펀딩 마감";
-				$("#btn").attr('disabled', true);
-			}
-		}
-	
-	$("#btn").click(function(){
-		location.href = "./fundingJoinWrite?num=${fund.num }";
-		});
+   
+   if(dif <= 0){
+      document.getElementById('btn_pt').innerHTML = "펀딩 성공";
+      $("#btn_pt").attr('disabled', true);
+      } else {
+         if(dif3 <= 0){
+            document.getElementById('btn_pt').innerHTML = "펀딩 마감";
+            $("#btn_pt").attr('disabled', true);
+         }
+      }
+   
+   $("#btn_pt").click(function(){
+      location.href = "./fundingJoinWrite?num=${fund.num }";
+      });
 
-	$("#del").click(function() {
-		if (confirm("삭제하시겠습니까?") == true){    //확인
+   $("#del").click(function() {
+      if (confirm("삭제하시겠습니까?") == true){    //확인
 
-		     location.href="./fundingDelete?num=${fund.num}";
+           location.href="./fundingDelete?num=${fund.num}";
 
-		 }else{   //취소
-		     return false;
-		 }
-		});
-	
+       }else{   //취소
+           return false;
+       }
+      });
+   
 </script>
    <script type="text/javascript">
 
