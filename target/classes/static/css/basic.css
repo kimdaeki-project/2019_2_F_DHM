@@ -747,7 +747,43 @@ th{
 .reviewBox{
    clear:both;
 }
-
+/*  */
+.reviewBox2{
+	width: 330px;
+	padding: 5px;
+	background: white;
+	margin:10px;
+	float: left;
+	max-height: 150px;
+}
+.reviewMemberImg2{
+	height: 40px;
+}
+.reviewMemberImg_img2{
+	float: left;
+	width: 36px;
+	height: 36px;
+	border: 2px solid #888;
+	border-radius: 100%;
+}
+.reviewCommentsWrapper2{
+	min-height: 100px;
+	padding: 20px;
+}
+.reviewComments_header_id2{
+	color: #555;
+	margin-left: 20px;
+}
+.reviewComments_header_date2{
+	color: #999;
+	float: right;
+}
+.reviewComments_comments2{
+	padding: 5px;
+	border: 1px solid #333;
+	border-radius: 3px;
+}
+/*  */
 .aaaa{
    clear: both;
 }
