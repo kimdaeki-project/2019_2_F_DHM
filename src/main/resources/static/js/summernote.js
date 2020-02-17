@@ -13,7 +13,7 @@
 			}
 		});*/
 		
-		$("#mkp-contents").summernote({
+		$("#contents").summernote({
 			
 			height:400,
 			callbacks:{

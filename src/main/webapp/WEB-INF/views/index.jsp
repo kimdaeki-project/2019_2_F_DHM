@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 
@@ -15,7 +12,6 @@
 <title>대동여행지도</title>
 
 <link rel="stylesheet"  href="../css/membercss.css">
-
 <link rel="icon" href="../imgs/logos/logo-fav.ico">
 
 
@@ -23,43 +19,28 @@
 <meta charset="UTF-8">
 
 <title>DHM Planner</title>
-
-<c:import url="./template/boot.jsp"/>
-
-<link rel="stylesheet"  href="../css/basic.css">
-
- <link rel="stylesheet"  href="../css/schedule.css">
-
-  <link rel="stylesheet"  href="../css/funding.css">
-
-  <link rel="icon" href="../imgs/logos/logo-fav.ico">
-
+<c:import url="./template/boot.jsp" />
+<link rel="stylesheet" href="../css/basic.css">
+<link rel="stylesheet" href="../css/schedule.css">
+<link rel="stylesheet" href="../css/funding.css">
+<link rel="icon" href="../imgs/logos/logo-fav.ico">
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 
 <style type="text/css">
+.active {
+	color: #18A8F1;
+}
 
-	.active{
+a {
+	color: black;
+}
 
-		color: #18A8F1;
-
-	}
-
- 	a{
-
-		color:black;
-
-	} 
-
-	a:hover{
-
-		color:#18A8F1;
-
-		font-weight: bold;
-
-	}
-
+a:hover {
+	color: #18A8F1;
+	font-weight: bold;
+}
 </style>
 
 </head>
@@ -765,112 +746,79 @@
 		
 
 	<div class="row">
+				<div class="marginTop50px">
+					<h3 class="contitle">모집중인 펀딩여행</h3>
+					<div class="swiper-container2" style="overflow: hidden;">
+						<div class="funding_block swiper-wrapper">
+							<c:forEach items="${fundinglist }" var="vo">
 
-      <div class="marginTop50px">
 
-         <h3 class="contitle">모집중인 펀딩여행</h3>
+								<div class="funding_block2 swiper-slide">
+									<div class="funding_block3">
+										<div class="funding_inner_area">
 
-       	<div class="swiper-container2" style="overflow: hidden;">
+											<div class="mp-li-wrap">
+												<div class="funding_block2">
+													<div class="funding_block3">
 
-        	<div class="funding_block swiper-wrapper">
 
-        		 <c:forEach items="${fundinglist }" var="vo">
+														<iframe
+															src="http://localhost/planner/mapTestindex?plNum=${vo.plNum}"
+															width="100%" height="100%" style="border: none;"></iframe>
 
-				<div class="funding_block2 swiper-slide">
+														<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+														<%-- <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div> --%>
+														<div
+															style="height: 50px; font-size: 15px; font-weight: bold; padding: 5px;">
+															${vo.name}</div>
+													</div>
 
-					<div class="funding_block3">
+												</div>
+											</div>
 
-						<div class="funding_inner_area">
 
-						<a href="./funding/fundingSelect?num=${vo.num}">
 
-				
+											<%-- 				<img class="funding_img" src="../test_img/test${i.index}.jpg"></a> --%>
+										</div>
+									</div>
+									<a href="./funding/fundingSelect?num=${vo.num}">
 
-						  <div class="mp-li-wrap">
 
-                                 <div class="mp-card">
-
-                                    <div class="mp-p">
-
-                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum}" width="226px" height="207px" style="border: none;"></iframe>
-
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
-
-								<%-- <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div> --%>
-
-                                    </div>
-
-                                    <div class="mp-f">
-
-                                       <div class="mp">${vo.name}</div>
-
-								<%-- <div class="mp-f1"> ${days[i.index]} 일간</div> --%>
-
-                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
-
-                                       <div class="mp-f3">D-16</div>
-
-                                    </div>
-
-                                 </div>
-
-                              
-
-                              </div>
-
-						</a>
-
-				
-
-				
-
-<%-- 				<img class="funding_img" src="../test_img/test${i.index}.jpg"></a> --%>
-
+										<div class="funding_inner_area2">
+											<div class="mp-f">
+												<div class="mp">${vo.name}</div>
+												<%-- <div class="mp-f1"> ${days[i.index]} 일간</div> --%>
+												<div class="mp-f2">
+													<%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>
+													여행 기간
+												</div>
+												<div class="mp-f3">${vo.startTime}
+												<div>${vo.endTime}</div>
+												</div>
+											</div>
+											<div class="funding_start" style="margin-top: 20px">
+												<span class="glyphicon glyphicon-calendar"></span>
+												${vo.restTime} 일 남았어요!
+											</div>
+											<div class="funding_bar">
+												<div class="funding_bar2"
+													style="width: ${vo.gage}%;min-width: 0%;background: rgb(250, 100, 98);transition-duration: 200ms;height: 2px;"></div>
+											</div>
+											<div class="funding_start"
+												style="float: right; padding-right: 1em">${vo.gage}%</div>
+											<div class="funding_start"
+												style="float: left; padding-right: 1em">현재 모인 금액 :
+												${vo.status}원</div>
+										</div>
+								</div>
+								</a>
+							</c:forEach>
 						</div>
 
 					</div>
-
-					<div class="funding_inner_area2">
-
-						<div class="funding_start">
-
-							<span class="glyphicon glyphicon-calendar"></span>
-
-							${vo.restTime} 일 남았어요!
-
-						</div>
-
-						<div class="funding_bar">
-
-							<div class="funding_bar2" style="width: ${vo.gage}%;min-width: 0%;background: rgb(250, 100, 98);transition-duration: 200ms;height: 2px;"></div>
-
-						</div>
-
-						<div class="funding_start" style="float: right; padding-right: 1em">
-
-							${vo.gage}%
-
-						</div>
-
-						<div  class="funding_start" style="float: left; padding-right: 1em">
-
-							현재 모인 금액 : ${vo.status}원
-
-						</div>
-
-					</div>
-
 				</div>
-
-         			</c:forEach>
-
 			</div>
-
-         </div>
-
-      </div>
-
-   </div>
+		</div>
 
    
 
@@ -1465,15 +1413,15 @@
    //     top.window.location.href = "http://"+top.window.location.host;
     }
 
+			});
 
-
-
-
-
+			$(this).children(".ac").addClass("active2");
+			$(this).children(".ac").removeClass("active2");
+		});
+	</script>
   </script>
 
   <c:import url="./template/footer.jsp"></c:import>
-
 </body>
 
 </html>

@@ -40,7 +40,7 @@
 									<label class="fj_inner_area4_1_1">참여 완료</label>
 								</div>
 								<div class="fj_inner_area4_2">${vo2[i.index].name}</div>
-								<div class="fj_inner_area4_3">아이디 : ${vo2[i.index].id}</div>
+								<div class="fj_inner_area4_3">펀딩 제안한 아이디 : ${vo2[i.index].id}</div>
 								<div class="fj_inner_area4_3">여행 기간 : ${vo2[i.index].startTime} ~ ${vo2[i.index].endTime} </div>
 								<div class="fj_inner_area4_4">참여 인원 ${list.participationPeople}명, ${vo2[i.index].price}원을 후원하셨습니다.</div>
 							</div>

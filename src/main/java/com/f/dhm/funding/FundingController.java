@@ -179,7 +179,7 @@ public class FundingController {
 			vo.setType(type);
 			people = people.replaceAll("명", "");
 			vo.setPeople(Integer.valueOf(people));
-
+			
 			int y = Integer.parseInt(deDate[i].substring(0, 4));
 			int m = Integer.parseInt(deDate[i].substring(5, 7));
 			int d = Integer.parseInt(deDate[i].substring(8));
@@ -263,9 +263,11 @@ public class FundingController {
 		Date endTime2 = transFormat.parse(endTime);
 		//날짜 차이 구해서 집어넣기
 		SimpleDateFormat transFormat2 = new SimpleDateFormat("yyyy-MM-dd");
-		Date start2 = transFormat2.parse(start);
 		Date end2 = transFormat2.parse(end);
-		long restTime  = (end2.getTime() - start2.getTime()) / (60*60*24*1000);
+		Date today = Calendar.getInstance().getTime();;
+		
+		long restTime  = (end2.getTime() - today.getTime()) / (60*60*24*1000);
+
 		fundingVO.setStartTime(startTime2);
 		fundingVO.setEndTime(endTime2);
 		fundingVO.setRestTime((int)restTime+1);
@@ -312,12 +314,13 @@ public class FundingController {
 		Date endTime2 = transFormat.parse(endTime);
 		//날짜 차이 구해서 집어넣기
 		SimpleDateFormat transFormat2 = new SimpleDateFormat("yyyy-MM-dd");
-		Date start2 = transFormat2.parse(start);
+		Date en2 = transFormat2.parse(end);
 		Date end2 = Calendar.getInstance().getTime();
-		long restTime  = (start2.getTime() - end2.getTime()) / (60*60*24*1000);
+		long restTime  = (en2.getTime() - end2.getTime()) / (60*60*24*1000);
 		fundingVO.setStartTime(startTime2);
 		fundingVO.setEndTime(endTime2);
 		fundingVO.setRestTime((int)restTime+1);
+		fundingVO.setPlNum(fundingVO.getPlNum());
 		//목표 금액과 금액을 이용해 제한 인원 구하기
 		int people = goal/price;
 		fundingVO.setPeople(people);
@@ -420,10 +423,10 @@ public class FundingController {
 			@RequestParam int participationPeople,
 			@RequestParam int pp, FundingJoinVO fundingJoinVO,
 			FundingVO fundingVO, int fNum) throws Exception{
-		//DB에 넣을 status
+		//DB에 추가할 status
 		int status = price*participationPeople;
 		//		System.out.println(status+"status/controller");
-		//DB에 넣을 gage
+		//DB에 추가할 gage
 		double gage = (status*100/goal);
 		//		System.out.println(gage+"gage/controller");
 		//DB에 저장되어 있던 status
@@ -470,40 +473,84 @@ public class FundingController {
 
 		int plNum = fundingVO.get().getPlNum();
 //		System.out.println(plNum);
-	
 		
+		System.out.println(plNum);
 		
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		
 
-		List<PlannerVO> plannerList = plannerService.plannerSelect(plNum, session);
-
-		int bak=0;
-		
-		for (int i = 0; i < plannerList.size(); i++) {
-			
-			bak = plannerList.get(i).getBak();
-			mv.addObject("bak", bak);
-			
-		}
+	      Integer totalCost=scheduleService.totalCost(plNum);
+	      
+	      if(totalCost!=null && totalCost>0 ) {
+	    	  
+	    	  mv.addObject("totalCost",totalCost);
+	      }
+	      
+	      List<PlannerVO> plannerList = plannerService.plannerSelect2(plNum);
+	      
+	      int totalBak=0;
+	      int mu = 0;
+	      
+	      List<Integer> bak = new ArrayList<Integer>();
+	      List<Date> everyDay = new ArrayList<Date>();
+	      List<String> region = new ArrayList<String>();
+	      List<Integer> arCode = new ArrayList<Integer>();
+	      
+	      for (int i = 0; i < plannerList.size(); i++) {
+	         if (plannerList.get(i).getBak() == 0) {
+	            mu = 1;
+	         }
+	         totalBak += plannerList.get(i).getBak();
+	         bak.add(totalBak);
+	      }
+	      
+	      long firstDay = plannerList.get(0).getDeDate().getTime();
+	      long oneDay = 1000*60*60*24;
+	      everyDay.add(new Date(firstDay));
+	      int everyCheck = 0;
+	      int bakNum = 0;
+	      
+	      for (int i = 0; i < totalBak; i++) {
+	         if (plannerList.get(everyCheck).getBak()==0) {
+	            everyDay.add(new Date(firstDay));
+	            everyCheck++;
+	            i=i-1;
+	         }else {            
+	            firstDay = firstDay + oneDay;
+	            everyDay.add(new Date(firstDay));
+	         }
+	      }
+	      
+	      
+	      if (mu == 1) {         
+	         everyDay.add(plannerList.get(plannerList.size()-1).getArDate());
+	      }
+	      
+	      for (int i = 0; i < everyDay.size(); i++) {
+	            if (i < bak.get(bakNum)) {
+	               region.add(plannerList.get(bakNum).getRegion());
+	               arCode.add(plannerList.get(bakNum).getArCode());
+	            }else {
+	               arCode.add(plannerList.get(bakNum).getArCode());
+	               region.add(plannerList.get(bakNum).getRegion());
+	               bakNum++;
+	            }
+	            
+	      }
+	      mv.addObject("mu", mu);
+	      mv.addObject("everyDay", everyDay);
+	      mv.addObject("city", region);
+	      mv.addObject("arCode", arCode);
+	      
+	      
+	      mv.addObject("bak", bak);
 		
 		
 		List<ScheduleVO> scheduleList = scheduleService.scheduleList(plNum);
 		List<WishVO> wishlist = wishService.myWish(session, plNum);
 		
+		mv.addObject("fund", fundingVO.get());
 		
-		if(memberVO==null) {
-			String msg="로그인이 필요합니다.";
-			mv.addObject("message",msg);
-			mv.addObject("path","../member/memberLogin");
-			mv.setViewName("common/result");
-			
-		}else if(plannerList.get(0).getId().equals(memberVO.getId())) {
-			
-				
-				mv.addObject("fund", fundingVO.get());
-			
-			
 			List<ScheduleInfoVO> scheduleInfoVOs = new ArrayList<ScheduleInfoVO>();
 			ScheduleInfoVO scheduleInfoVO =null;
 			
@@ -551,16 +598,9 @@ public class FundingController {
 			mv.addObject("days", days);
 			mv.setViewName("/funding/myFundingSelect");
 			
-		}else if(plannerList.size()==0){
-			String msg="다른사람의 플래너는 열람할 수 없습니다.";
-			mv.addObject("message",msg);
-			mv.addObject("path","../");
-			mv.setViewName("common/result");
+			return mv;
 		}
 		
-
-		return mv;
-	}
 	
 	@GetMapping("scDelete")
 	public void scDelete(Integer plNum, HttpSession session) throws Exception{

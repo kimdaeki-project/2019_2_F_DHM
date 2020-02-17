@@ -576,22 +576,17 @@
 	console.log(today_ar);
 	
 	/* 여행 시작시간에서 년 월 일만 추출 */
-	var start2 = startTime.substring(0, 10);
-	var start_ar = start2.split("-");
-	console.log(start2);
-	console.log(start_ar);
+	var end2 = endTime.substring(0, 10);
+	var end_ar = end2.split("-");
 
 	var to = new Date(today_ar[0], today_ar[1], today_ar[2]);
-    var st = new Date(start_ar[0], start_ar[1], start_ar[2]);
+    var end = new Date(end_ar[0], end_ar[1], end_ar[2]);
 	
-    var dif2 = st - to;
+    var dif2 = end - to;
     var cDay = 24 * 60 * 60 * 1000;// 시 * 분 * 초 * 밀리세컨
 
 	var dif3 = dif2/cDay;
 
-	console.log(to);
-	console.log(st);
-	console.log(dif3);
 	
 	if(dif <= 0){
 		document.getElementById('btn').innerHTML = "펀딩 성공";
