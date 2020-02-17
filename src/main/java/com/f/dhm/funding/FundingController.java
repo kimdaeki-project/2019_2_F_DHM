@@ -87,12 +87,13 @@ public class FundingController {
 	}
 
 	@GetMapping("makeFundingList")
-	public ModelAndView makeFundingList(String id, HttpSession session) throws Exception{
+	public ModelAndView makeFundingList(HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		List<FundingVO> list = fundingService.makeFundingList(id);
+		MemberVO vo = (MemberVO)session.getAttribute("member");
+		List<FundingVO> list = fundingService.makeFundingList(vo.getId());
 
 		String s_id = (String)session.getAttribute("id");
-		if (id.equals(s_id)) {
+		if (vo.getId().equals(s_id)) {
 			mv.addObject("vo", list);
 			mv.setViewName("funding/makeFundingList");
 		} else {
@@ -162,6 +163,7 @@ public class FundingController {
 		if (plNum != null) {         
 			plannerService.plannerDel(id, plNum);
 		}
+		
 
 		plNum = plannerService.getPlnum();
 

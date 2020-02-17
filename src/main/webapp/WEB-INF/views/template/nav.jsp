@@ -35,7 +35,10 @@
 					<a class="nav-service-div-a" href="${pageContext.request.contextPath}/qna/qnaList">qna</a>
 					<a class="nav-service-div-a" href="${pageContext.request.contextPath}/gnb/serviceCenter">faq</a>
 				</div>
-				 <a class="nav-li" href="${pageContext.request.contextPath}/funding/makeFundingList?id=${member.id}">나의 펀딩</a>
+				 <div class="nav-funding-div" onmouseenter="funOn()" onmouseleave="funOff()">나의 펀딩 
+					<a class="nav-funding-div-a"  href="${pageContext.request.contextPath}/funding/makeFundingList">모집중인 펀딩</a>
+					<a class="nav-funding-div-a" href="${pageContext.request.contextPath}/funding/myFundingList">참여중인 펀딩</a>
+				</div>
 				<a class="nav-li" href="${pageContext.request.contextPath}/funding/fundingList">펀딩</a>
 				<a class="nav-li" href="${pageContext.request.contextPath}/planner/myPlanner">나의 플래너</a>
 				<a class="nav-li" href="${pageContext.request.contextPath}/planner/makePlanner">플래너</a>
@@ -72,6 +75,13 @@ function serOff() {
 	$(".nav-service-div-a").css("display","none");
 }
 
+function funOn() {
+	$(".nav-funding-div-a").css("display","block");
+}
+
+function funOff() {
+	$(".nav-funding-div-a").css("display","none");
+}
 
 
 
