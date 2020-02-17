@@ -4,7 +4,6 @@
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <!DOCTYPE html>
@@ -175,16 +174,23 @@
 
 		  
 		  <ul class="nav nav-tabs" style="border-bottom: none;">
-		      <li class="index_buttons_li index_buttons_li" ><a class="ac" data-toggle="tab"  href="#home">최신</a></li>
+		      <li class="index_buttons_li index_buttons_li"><a class="ac" data-toggle="tab"  href="#home">최신</a></li>
 
-               <li class="index_buttons_li" id="2"><a class="ac" data-toggle="tab"  href="#menu2">커플/신혼</a></li>
-               <li class="index_buttons_li" id="8"><a class="ac" data-toggle="tab"  href="#menu8">남녀그룹</a></li>
-               <li class="index_buttons_li" id="3"><a class="ac" data-toggle="tab"  href="#menu3">부모님과</a></li>
-               <li class="index_buttons_li" id="1"><a class="ac" data-toggle="tab"  href="#menu1">아이들과</a></li>
-               <li class="index_buttons_li" id="5"><a class="ac" data-toggle="tab"  href="#menu5">여자혼자</a></li>
-               <li class="index_buttons_li" id="6"><a class="ac" data-toggle="tab"  href="#menu6">여자끼리</a></li>
-               <li class="index_buttons_li" id="4"><a class="ac" data-toggle="tab"  href="#menu4">남자혼자</a></li>
-               <li class="index_buttons_li" id="7"><a class="ac" data-toggle="tab"  href="#menu7">남자끼리</a></li>
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu1">아이들과</a></li>
+
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu2">커플/신혼</a></li>
+
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu3">부모님과</a></li>
+
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu4">남자혼자</a></li>
+
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu5">여자혼자</a></li>
+
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu6">여자끼리</a></li>
+
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu7">남자끼리</a></li>
+
+               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu8">남녀그룹</a></li>
 
 		  </ul>
 			<br>
@@ -759,79 +765,112 @@
 		
 
 	<div class="row">
-				<div class="marginTop50px">
-					<h3 class="contitle">모집중인 펀딩여행</h3>
-					<div class="swiper-container2" style="overflow: hidden;">
-						<div class="funding_block swiper-wrapper">
-							<c:forEach items="${fundinglist }" var="vo">
 
+      <div class="marginTop50px">
 
-								<div class="funding_block2 swiper-slide">
-									<div class="funding_block3">
-										<div class="funding_inner_area">
+         <h3 class="contitle">모집중인 펀딩여행</h3>
 
-											<div class="mp-li-wrap">
-												<div class="funding_block2">
-													<div class="funding_block3">
+       	<div class="swiper-container2" style="overflow: hidden;">
 
+        	<div class="funding_block swiper-wrapper">
 
-														<iframe
-															src="http://localhost/planner/mapTestindex?plNum=${vo.plNum}"
-															width="100%" height="100%" style="border: none;"></iframe>
+        		 <c:forEach items="${fundinglist }" var="vo">
 
-														<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
-														<%-- <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div> --%>
-														<div
-															style="height: 50px; font-size: 15px; font-weight: bold; padding: 5px;">
-															${vo.name}</div>
-													</div>
+				<div class="funding_block2 swiper-slide">
 
-												</div>
-											</div>
+					<div class="funding_block3">
 
+						<div class="funding_inner_area">
 
+						<a href="./funding/fundingSelect?num=${vo.num}">
 
-											<%-- 				<img class="funding_img" src="../test_img/test${i.index}.jpg"></a> --%>
-										</div>
-									</div>
-									<a href="./funding/fundingSelect?num=${vo.num}">
+				
 
+						  <div class="mp-li-wrap">
 
-										<div class="funding_inner_area2">
-											<div class="mp-f">
-												<div class="mp">${vo.name}</div>
-												<%-- <div class="mp-f1"> ${days[i.index]} 일간</div> --%>
-												<div class="mp-f2">
-													<%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>
-													여행 기간
-												</div>
-												<div class="mp-f3">${vo.startTime}
-												<div>${vo.endTime}</div>
-												</div>
-											</div>
-											<div class="funding_start" style="margin-top: 20px">
-												<span class="glyphicon glyphicon-calendar"></span>
-												${vo.restTime} 일 남았어요!
-											</div>
-											<div class="funding_bar">
-												<div class="funding_bar2"
-													style="width: ${vo.gage}%;min-width: 0%;background: rgb(250, 100, 98);transition-duration: 200ms;height: 2px;"></div>
-											</div>
-											<div class="funding_start"
-												style="float: right; padding-right: 1em">${vo.gage}%</div>
-											<div class="funding_start"
-												style="float: left; padding-right: 1em">현재 모인 금액 :
-												${vo.status}원</div>
-										</div>
-								</div>
-								</a>
-							</c:forEach>
+                                 <div class="mp-card">
+
+                                    <div class="mp-p">
+
+                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum}" width="226px" height="207px" style="border: none;"></iframe>
+
+									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+
+								<%-- <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div> --%>
+
+                                    </div>
+
+                                    <div class="mp-f">
+
+                                       <div class="mp">${vo.name}</div>
+
+								<%-- <div class="mp-f1"> ${days[i.index]} 일간</div> --%>
+
+                                       <div class="mp-f2"><%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>출발</div>
+
+                                       <div class="mp-f3">D-16</div>
+
+                                    </div>
+
+                                 </div>
+
+                              
+
+                              </div>
+
+						</a>
+
+				
+
+				
+
+<%-- 				<img class="funding_img" src="../test_img/test${i.index}.jpg"></a> --%>
+
 						</div>
 
 					</div>
+
+					<div class="funding_inner_area2">
+
+						<div class="funding_start">
+
+							<span class="glyphicon glyphicon-calendar"></span>
+
+							${vo.restTime} 일 남았어요!
+
+						</div>
+
+						<div class="funding_bar">
+
+							<div class="funding_bar2" style="width: ${vo.gage}%;min-width: 0%;background: rgb(250, 100, 98);transition-duration: 200ms;height: 2px;"></div>
+
+						</div>
+
+						<div class="funding_start" style="float: right; padding-right: 1em">
+
+							${vo.gage}%
+
+						</div>
+
+						<div  class="funding_start" style="float: left; padding-right: 1em">
+
+							현재 모인 금액 : ${vo.status}원
+
+						</div>
+
+					</div>
+
 				</div>
+
+         			</c:forEach>
+
 			</div>
-		</div>
+
+         </div>
+
+      </div>
+
+   </div>
 
    
 
@@ -841,7 +880,7 @@
 
          <h3 class="contitle">2월, 축제속으로</h3>
 
-         	<ul class="nav nav-tabs" style="border-bottom: none;">
+         	<ul class="nav nav-tabs">
 
                <li class="index_buttons_li"><a class="ac" data-toggle="tab"   href="#f0">서울</a></li>
 
@@ -860,7 +899,7 @@
                <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#f7">전라북도</a></li>
 
 		  </ul>
-		<br>
+
          
 
          <div class="tab-content">
@@ -1273,44 +1312,39 @@
 
    
 
-   <div class="row" >
+   <div class="row">
 
       <div class="marginTop50px">
          <h3 class="contitle">여행자들의 최근 리뷰</h3>
       </div>
 
-	</div>
-   <div class="tab-content" style="margin-bottom: 50px;">
-
-		    <div id="f0" class="tab-pane fade in active">
-
-		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
-
-                     <div class="swiper-wrapper" >						
-						<c:forEach items="${commentVOs }" var="comments">
-						<!-- 					reviewBox -->
-						<div class="reviewBox2" style="width: 250px;">
-							<div class="reviewMemberImg2"><img src="imgage/user.jpg" class="reviewMemberImg_img2">
-								<span class="reviewComments_header_id2">${comments.id }</span>
-								<span class="reviewComments_header_date2">
-									<fmt:formatDate value="${comments.regDate }" pattern="yy년 MM월 dd일"/>
+					<c:forEach items="${commentVOs }" var="comments">
+<!-- 					reviewBox -->
+					<div class="reviewBox ">
+						<div class="reviewMemberImg"><img alt="members_img" src="../images/user.jpg" class="reviewMemberImg_img"></div>
+						<div class="reviewCommentsWrapper">
+							<h5 class="reviewComments_header_info">
+								<span>${comments.id } </span>
+								<span class="reviewComments_header_date">${comments.regDate }</span>
+								<span style="float: right;">
+								<c:if test="${comments.id eq sessionScope.member.id}">
+									<a style="color: #999;" href="./reviewUpdate?cNum=${comments.CNum}">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;
+									<b><a style="color: #999;" href="reviewDelete?cNum=${comments.CNum}">x</a></b>
+								</c:if>
 								</span>
-							</div>
-							<div class="reviewCommentsWrapper2">
-								<div class="reviewComments_comments2">${comments.contents }</div>
-							</div>
+							</h5>
+							<div class="reviewComments_comments">${comments.contents }</div>
 						</div>
-						<!-- 					reviewBox -->
-						</c:forEach>
 					</div>
-				</div>
-			</div>	
+<!-- 					reviewBox -->
+					</c:forEach>	
    </div>
 
    
 
+</div>
 
-  </div>
+   </div>
 
 </div>
 
@@ -1432,29 +1466,7 @@
     }
 
 
-    $(".index_buttons_li").click(function(){
-    	var type = $(this).prop("id");
 
-		$.ajax({
-			type : "POST",
-			url : "typeList",
-			data : {
-				type : type
-			},
-			success : function(d){
-				d = d.trim();
-				
-				$("#menu"+type).html(d);
-				
-				} 
-				
-			});
-
-
-    	
-		$(this).children(".ac").addClass("active2");
-		$(this).children(".ac").removeClass("active2");
- });
 
 
 
