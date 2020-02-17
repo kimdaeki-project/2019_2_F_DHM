@@ -27,8 +27,9 @@
 		<div class="funding_inner_wrap">
 		<div class="funding_titarea">
 			<h3 class="funding_title">
-				나의 펀딩 리스트
+				나의 펀딩 리스트 
 			</h3>
+			<button style="float: right; background-color: #18a8f1; outline: noen; border: none; color: white; height: 30px; width: 200px; font-size: 20px; border-radius: 10px;"> 펀딩 모집하기</button>
 		</div>
 
 	<div class="funding_area">
