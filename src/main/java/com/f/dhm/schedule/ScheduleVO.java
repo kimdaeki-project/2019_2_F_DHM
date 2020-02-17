@@ -9,11 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.criteria.CriteriaBuilder.In;
 import javax.validation.constraints.NotEmpty;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -41,4 +38,6 @@ public class ScheduleVO {
 
 	private String transfer;
 	private Integer arCode;
+
+
 }
