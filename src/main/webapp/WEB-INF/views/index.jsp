@@ -175,23 +175,16 @@
 
 		  
 		  <ul class="nav nav-tabs" style="border-bottom: none;">
-		      <li class="index_buttons_li index_buttons_li"><a class="ac" data-toggle="tab"  href="#home">최신</a></li>
+		      <li class="index_buttons_li index_buttons_li" ><a class="ac" data-toggle="tab"  href="#home">최신</a></li>
 
-               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu1">아이들과</a></li>
-
-               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu2">커플/신혼</a></li>
-
-               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu3">부모님과</a></li>
-
-               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu4">남자혼자</a></li>
-
-               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu5">여자혼자</a></li>
-
-               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu6">여자끼리</a></li>
-
-               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu7">남자끼리</a></li>
-
-               <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#menu8">남녀그룹</a></li>
+               <li class="index_buttons_li" id="2"><a class="ac" data-toggle="tab"  href="#menu2">커플/신혼</a></li>
+               <li class="index_buttons_li" id="8"><a class="ac" data-toggle="tab"  href="#menu8">남녀그룹</a></li>
+               <li class="index_buttons_li" id="3"><a class="ac" data-toggle="tab"  href="#menu3">부모님과</a></li>
+               <li class="index_buttons_li" id="1"><a class="ac" data-toggle="tab"  href="#menu1">아이들과</a></li>
+               <li class="index_buttons_li" id="5"><a class="ac" data-toggle="tab"  href="#menu5">여자혼자</a></li>
+               <li class="index_buttons_li" id="6"><a class="ac" data-toggle="tab"  href="#menu6">여자끼리</a></li>
+               <li class="index_buttons_li" id="4"><a class="ac" data-toggle="tab"  href="#menu4">남자혼자</a></li>
+               <li class="index_buttons_li" id="7"><a class="ac" data-toggle="tab"  href="#menu7">남자끼리</a></li>
 
 		  </ul>
 			<br>
@@ -1439,7 +1432,29 @@
     }
 
 
+    $(".index_buttons_li").click(function(){
+    	var type = $(this).prop("id");
 
+		$.ajax({
+			type : "POST",
+			url : "typeList",
+			data : {
+				type : type
+			},
+			success : function(d){
+				d = d.trim();
+				
+				$("#menu"+type).html(d);
+				
+				} 
+				
+			});
+
+
+    	
+		$(this).children(".ac").addClass("active2");
+		$(this).children(".ac").removeClass("active2");
+ });
 
 
 
