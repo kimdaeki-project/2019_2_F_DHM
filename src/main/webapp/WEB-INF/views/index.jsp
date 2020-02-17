@@ -422,8 +422,30 @@
    
    <div class="row">
       <div class="marginTop50px">
-         <h3 class="contitle">여행자들의 베스트 리뷰</h3>
+         <h3 class="contitle">여행자들의 최근 리뷰</h3>
       </div>
+
+					<c:forEach items="${commentVOs }" var="comments">
+<!-- 					reviewBox -->
+					<div class="reviewBox ">
+						<div class="reviewMemberImg"><img alt="members_img" src="../images/user.jpg" class="reviewMemberImg_img"></div>
+						<div class="reviewCommentsWrapper">
+							<h5 class="reviewComments_header_info">
+								<span>${comments.id } </span>
+								<span class="reviewComments_header_date">${comments.regDate }</span>
+								<span style="float: right;">
+								<c:if test="${comments.id eq sessionScope.member.id}">
+									<a style="color: #999;" href="./reviewUpdate?cNum=${comments.CNum}">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;
+									<b><a style="color: #999;" href="reviewDelete?cNum=${comments.CNum}">x</a></b>
+								</c:if>
+								</span>
+							</h5>
+							<div class="reviewComments_comments">${comments.contents }</div>
+						</div>
+					</div>
+<!-- 					reviewBox -->
+					</c:forEach>			
+
    </div>
    
 </div>

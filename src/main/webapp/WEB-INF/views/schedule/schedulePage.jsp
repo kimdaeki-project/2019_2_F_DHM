@@ -31,7 +31,7 @@
 <c:import url="../template/nav.jsp"/>
 	<!-- <form action="schedulePage" method="POST"> -->
 
-	<div style="background-color: #f5f5f5; height: auto; max-height: 2600px;">
+	<div style="background-color: #f5f5f5;" class="row">
 	<div class="header">
 	</div>
 	<div class="container container2" style="padding-top: 90px;">
@@ -1027,23 +1027,7 @@
 		</div>
 		</div>
 	</div>
-	
-	<!-- 스케줄 모달 -->
-	<div id="mySc" class="mySc" class="modal fade" role="dialog" style="display: none;">
-  		<div class="modal-dialog">
-  		<div class="m-wrapper"></div>
-  			<div class="m-box row">
-					<div class="close" onclick="hide();">X</div>
-	  			<div class="md2-child2">
-		  			
-	  			</div>
-  			</div>
-  		</div>
-  	</div>
-	
-
-
-   <!--=======================================================================================================================-->
+ <!--=======================================================================================================================-->
    <div class="container" style="margin-top: -50px; position: relative;">
 		<h1 style="color: #c9c9c9; border-bottom: 1px solid #c9c9c9; padding-bottom: 10px;">review</h1>
 		<div class="section" style="background: gold;">
@@ -1090,7 +1074,20 @@
 			</div>
 		</div>
 	</div>
-   <!---=======================================================================================================================  -->
+   <!---=======================================================================================================================  -->	
+	<!-- 스케줄 모달 -->
+	<div id="mySc" class="mySc" class="modal fade" role="dialog" style="display: none;">
+  		<div class="modal-dialog">
+  		<div class="m-wrapper"></div>
+  			<div class="m-box row">
+					<div class="close" onclick="hide();">X</div>
+	  			<div class="md2-child2">
+		  			
+	  			</div>
+  			</div>
+  		</div>
+  	</div>
+  
    <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
       <div class="m-wrapper"></div>

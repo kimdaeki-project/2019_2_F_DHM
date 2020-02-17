@@ -17,7 +17,7 @@
 <body>
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
-		<h3 class="page_title">Notice list</h3>
+		<h3 class="page_title">공지사항</h3>
 		<!-- search -->
 		<form action="./noticeList" method="get" >
 		<img alt="" src="../images/search_icon.png" style="width: 24px; height: 24px; display: inline; float: left; margin:0 5px 5px 5px;" id="icon">
@@ -54,7 +54,6 @@
 									<c:if test="${nowFormatTime-regdFormatTime eq 0}">방금</c:if>
 								</c:if>
 								<c:if test="${nowFormatTime-regdFormatTime gt 60}">
-								${nowFormatTime } - ${ regdFormatTime }
 									<fmt:parseNumber  value="${(nowFormatTime-regdFormatTime) / 60}" integerOnly="true"/>시간 전
 								</c:if>
 							</c:if>
@@ -66,10 +65,11 @@
 			</table>
 
 		</div>
-		<div class="board_list_btn">
-			<input type="button" class="button" value="글쓰기" id="write">
-		</div>
-
+		<c:if test="${sessionScope.member.id eq 'admin' }">
+			<div class="board_list_btn">
+				<input type="button" class="button" value="글쓰기" id="write">
+			</div>
+		</c:if>
 		<ul class="pager">
 			<c:forEach begin="1" end="${noticePage.totalPages }" var="i">
 <%-- 				<li><a href="?page=${postPage.number-1}">Back</a></li> --%>

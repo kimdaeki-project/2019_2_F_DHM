@@ -14,13 +14,6 @@ import org.springframework.data.jpa.repository.Query;
 import com.f.dhm.funding.FundingVO;
 
 public interface QnaRepository extends JpaRepository<QnaVO, Integer>{
-
-	//public void findByNumOrderByStepAsc()throws Exception;
-	
-//	public List<QnaVO> findAllOrderByRefDesc()throws Exception;
-	
-//	@Query("SELECT f FROM FundingVO f WHERE fNum = ?1")
-//	FundingVO fundingSelect(int num) throws Exception;
 	
 	@Query(nativeQuery = true, value = "select * from qna order by ref desc, step asc" )
 	public Page<QnaVO> qnalisst(Pageable pageable)throws Exception;

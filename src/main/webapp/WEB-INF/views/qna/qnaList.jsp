@@ -14,7 +14,7 @@
 <body>
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
-		<h3 class="page_title">Qna list</h3>
+		<h3 class="page_title">Qna</h3>
 		<!-- search -->
 		<form action="./qnaList" method="get" >
 		<img alt="" src="../images/search_icon.png" style="width: 24px; height: 24px; display: inline; float: left; margin:0 5px 5px 5px;" id="icon">
@@ -68,7 +68,6 @@
 		<c:if test="${not empty sessionScope.member }">
 			<input type="button" class="button" value="글쓰기" id="write">
 		</c:if>
-			<input type="button" class="button" value="전체 지우기" id="deleteAll">
 		</div>
 		
 		<ul class="pager">

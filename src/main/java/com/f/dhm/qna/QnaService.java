@@ -94,4 +94,6 @@ public class QnaService {
 			return qnaRepository.qnalisst(pageable);
 		}
 	}
+	
+	
 }

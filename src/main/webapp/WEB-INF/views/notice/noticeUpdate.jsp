@@ -37,6 +37,10 @@
 
 			<form:input path="hit" class="displayNone"/>
 			
+			<c:forEach items="${noticeVO.noticeFilesVOs }" var="noticeFiles">
+				<p class="fileLink">${noticeFiles.oname }&nbsp;&nbsp;&nbsp; <span class="x" title="${noticeFiles.fnum }">x</span></p> <br>
+			</c:forEach>
+			
 			<div class="fileDiv">
 				<div>
 						
@@ -48,7 +52,7 @@
 			</form:form>
 		</article>
 </div>
-	<div style="height: 200px; background: gold; margin-top: 100px;">footer</div>
+<input type="text" value="${fileSize}" id="fileSize" class="displayNone">
 
 
 <script>
@@ -58,7 +62,7 @@ $('.contents').summernote({
     height: 500
   });
 
-var count=0;
+var count=$('#fileSize').val();
 
 $('#filePlus').click(function(){
 	if(count==5){
@@ -66,6 +70,29 @@ $('#filePlus').click(function(){
 	else{
 	count++;
 	$('.fileDiv').append('<input type="file" class="inputFile" name="files"> ');
+		}
+});
+
+$('.x').click(function(){
+	var con=confirm("정말 삭제 하시겠습니까?");
+	if(con==true){
+		var fnum=$(this).prop('title');	
+		$.ajax({
+				type:"get",
+				url: "notice_file_delete", 
+				data:{
+					fileNum:fnum
+					},
+				success: function(result){
+				if(!result){
+					alert('삭제되었습니다');
+					$(this).parent().remove();
+					location.reload();
+					}else{
+					alert('삭제 실패');
+						}
+			   
+		  }});
 		}
 });
   </script>

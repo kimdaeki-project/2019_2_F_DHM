@@ -26,6 +26,7 @@ import com.f.dhm.funding.FundingVO;
 import com.f.dhm.location.LocationService;
 import com.f.dhm.location.LocationVO;
 import com.f.dhm.planner.MyPlannerVO;
+import com.f.dhm.planner.PlannerCommentVO;
 import com.f.dhm.planner.PlannerService;
 import com.f.dhm.planner.PlannerVO;
 import com.f.dhm.schedule.test.XmlService;
@@ -36,22 +37,19 @@ public class HomeController {
 	
 	@Autowired
 	private LocationService LoService; 
-	
 	@Autowired
 	private MemberService memberService;
-	
 	@Autowired
 	private FundingService fuService;
-	
 	@Autowired
 	private PlannerService plService;
-
 	@Autowired
 	private PlannerService plannerService;
 	@Autowired 
 	private FundingService fundingService;
 	@Autowired
 	private XmlService xmlService;
+	
 	
 	  @GetMapping("mapTestindex")
 	   public ModelAndView mapTest(int plNum, HttpSession session) throws Exception{
@@ -71,6 +69,7 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public ModelAndView index(Integer plNum, Integer acode) throws Exception{
+		List<PlannerCommentVO> commentVOs=plannerService.getCommentsOrderByRegDateDesc();
 		ModelAndView mv = new ModelAndView();
 		int plannerCount = plannerService.plannerCount();
 		
@@ -117,7 +116,7 @@ public class HomeController {
 		mv.addObject("fundinglist",ar2);
 		mv.addObject("plannerCount", plannerCount);
 		mv.setViewName("index");
-
+		mv.addObject("commentVOs", commentVOs);
 		return mv;
 	}
 	

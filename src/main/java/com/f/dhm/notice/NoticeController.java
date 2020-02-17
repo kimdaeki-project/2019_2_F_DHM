@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -40,7 +41,10 @@ public class NoticeController {
    private NoticeService noticeService;
    private FileDown fileDown;
    
-   
+   @GetMapping("noticeFileDown")
+   public void noticeFileDown(int fnum)throws Exception{
+	   //noticeFileDown 
+   }
    
    @PostMapping("noticeUpdate")
    public String noticeUpdate(NoticeVO noticeVO, List<MultipartFile> files)throws Exception{
@@ -55,8 +59,9 @@ public class NoticeController {
    }
    
    @GetMapping("notice_file_delete")
-   public void notice_file_delete(int fileNum)throws Exception{
-      noticeService.notice_file_delete(fileNum);      
+   @ResponseBody
+   public boolean notice_file_delete(int fileNum)throws Exception{
+    return noticeService.notice_file_delete(fileNum);      
    }
    
    @GetMapping("noticeUpdate")
@@ -66,6 +71,7 @@ public class NoticeController {
       if(member!=null) {
          //loged in!
          NoticeVO noticeVO=noticeService.selectById(num);
+         mv.addObject("fileSize", noticeVO.getNoticeFilesVOs().size());
          mv.addObject("noticeVO", noticeVO);
          mv.setViewName("notice/noticeUpdate");
       }

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,11 @@ public class PlannerService {
 	@Autowired
 	private PlannerCommentRepository commentRepository;
 
+	public List<PlannerCommentVO> getCommentsOrderByRegDateDesc()throws Exception{
+		List<PlannerCommentVO> commentVOs=commentRepository.findAllOrderByRegDateDesc(PageRequest.of(0, 10));
+		return commentVOs;
+	}
+	
 	public PlannerCommentVO findPlNum(int cNum)throws Exception{
 		PlannerCommentVO commentVO=commentRepository.findById(cNum).get();
 		return commentVO;
@@ -166,5 +172,7 @@ public class PlannerService {
 	public List<MyPlannerVO> plannerEq(String id) throws Exception{
 		return repository.plannerList(id);
 	}
+	
+	
 
 }

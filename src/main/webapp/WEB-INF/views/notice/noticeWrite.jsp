@@ -37,7 +37,7 @@
 			
 		</article>
 </div>
-	<div style="height: 200px; background: gold; margin-top: 100px;">footer</div>
+
 <script>
 $('.contents').summernote({
     placeholder: 'write contents!',

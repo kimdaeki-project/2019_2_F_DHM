@@ -691,6 +691,7 @@ th{
    margin:0 2.5px;
 }
 .page_title{
+	font-weight: bold;
    text-align: center;
    letter-spacing: 0.5px;
    font-family: 'Montserrat', sans-serif;

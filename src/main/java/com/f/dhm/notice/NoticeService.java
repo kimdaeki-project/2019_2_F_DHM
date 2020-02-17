@@ -29,8 +29,9 @@ public class NoticeService {
    
   
    
-   public void notice_file_delete(int num)throws Exception{
+   public boolean notice_file_delete(int num)throws Exception{
       noticeFilesRepository.deleteById(num);
+     return noticeFilesRepository.existsById(num);
    }
    
    public void noticeUpdate(NoticeVO noticeVO, List<MultipartFile> files)throws Exception{

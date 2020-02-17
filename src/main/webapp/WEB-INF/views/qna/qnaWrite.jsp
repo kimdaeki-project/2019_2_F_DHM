@@ -14,10 +14,9 @@
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
 		<article>
-	<h1>${kind }</h1>
 		<c:if test="${comment ne null}">
-<%-- 			 --%>
-			<div class="form-group">${qnaVO.contents}</div>
+
+<%-- 			<div class="form-group">${qnaVO.contents}</div> --%>
 		</c:if>
 			<form:form action="${kind }" modelAttribute="qnaVO" method="post">
 			<div class="form-group">
@@ -31,15 +30,13 @@
 			<div class="form-group">
 				<label for="usr">contents:</label>
 				 <form:textarea path="contents" class="contents" id="content"/>
-					
 			</div>
 			<form:input path="num" class="displayNone"/>
 			<div class="float_right"><button class="button2">submit</button></div>
 			</form:form>
-			
 		</article>
 </div>
-	<div style="height: 200px; background: gold; margin-top: 100px;">footer</div>
+	
 <script>
 var contentsPlaceholder="write contents!";
 

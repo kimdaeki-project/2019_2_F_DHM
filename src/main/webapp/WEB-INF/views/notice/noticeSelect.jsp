@@ -12,7 +12,6 @@
 <body>
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
-		<h6>NOTICE</h6>
 		<div class="section">
 			<article>
 			

@@ -12,7 +12,6 @@
 <body>
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
-		<h1>${qnaVO.title }</h1>
 		<div class="section">
 			<article>
 			<div class="board_select_row">
@@ -41,7 +40,7 @@
 			
 			<c:if test="${not empty sessionScope.member }">
 			<c:set value="${ sessionScope.member.id }" var="sessionID"/>
-			<h1>session id : ${sessionID } / ${qnaVO.writer }</h1>
+		
 				<input type="button" class="button2" value="댓글쓰기" id="comment">
 				<c:if test="${sessionID eq qnaVO.writer  }">
 					<input type="button" class="button" value="delete" id="delete">
