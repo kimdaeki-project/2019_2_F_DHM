@@ -60,16 +60,11 @@ public class PlannerController {
 	      ModelAndView mv = new ModelAndView();
 	      
 	      List<Integer> days= new ArrayList<Integer>();
-	      
 	      List<MyPlannerVO> ar = service.plannerList(plannerVO, session);
-	      
 	      List<String> ar2 = new ArrayList<String>();
-	      
 	      List<java.util.Date> deDate = new ArrayList<java.util.Date>();
-	      
 	      //D-day 계산
 	      List<String> leftDay = new ArrayList<>();
-	      
 	      long today = Calendar.getInstance().getTimeInMillis();
 	      
 	      for (int i = 0; i < ar.size(); i++) {
@@ -94,7 +89,6 @@ public class PlannerController {
 	               path = path + ", " + list.get(j).getPolyPath();
 	            }
 	         }
-	         
 	         path = "["+path+"]";
 	         ar2.add(path);
 	      }
@@ -247,6 +241,7 @@ public class PlannerController {
 		      //////////////////////////////////////////
 		      
 		      //MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		      
 		      List<WishVO> wishlist = new ArrayList<WishVO>();
 		      
 		      //id= memberVO.getId();
@@ -265,6 +260,7 @@ public class PlannerController {
 			      }
 			      
 			      wishService.wishAdd(wishlist, plNum, title);
+			      
 		     }
 		      return pList.get(0).getPlNum();
 		   }

@@ -299,7 +299,7 @@
 												${vo.title}
 										</td>
 										<td class="text-center">${vo.scName}</td>
-										<td class="text-center">  ${vo.day} / ${vo.start}시</td>
+										<td class="text-center">  <fmt:formatDate value="${everyDay[e.index+4] }" pattern="M월 dd일"/> / ${vo.start}시</td>
 										<td class="text-center">￦ ${vo.cost }원</td>
 										
 									</tr>

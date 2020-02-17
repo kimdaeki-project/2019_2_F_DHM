@@ -62,7 +62,7 @@ public class ScheduleController {
             scheduleInfoVO.getAddr1();
             scheduleInfoVO.getFirstimage();
             scheduleInfoVO.getCost();
-      //      scheduleInfoVO.getStart();
+            scheduleInfoVO.getStart();
             scheduleInfoVO.getTitle();
              mv.addObject("scInfo",scheduleInfoVO); 
          }
@@ -79,16 +79,13 @@ public class ScheduleController {
    public Integer plannerPage(String scName, Integer cost, Integer start,String day ,String title, Integer plNum,
          Integer arCode) throws Exception {
 
-     
-
       boolean check=false;
       int flag=0;
-      String msg="";
+
       ModelAndView mv = new ModelAndView();
       List<ScheduleVO> ar = scheduleService.scheduleCheck(plNum, title);
          
          if(ar.size()==0) {
-   
             ScheduleVO scheduleVO = new ScheduleVO();
             scheduleVO.setPlNum(plNum);
             scheduleVO.setScName(scName);
@@ -104,30 +101,21 @@ public class ScheduleController {
                flag=1;
             }
          }
-   
-         
+ 
          mv.setViewName("schedulePage");
-      
-      
 
       return flag;
    }
 
-   public void sc() throws Exception{
-      
-   }
+ 
    @GetMapping("schedulePage")
    public ModelAndView plannerPage(PlannerVO plannerVO, ScheduleVO scheduleVO, HttpSession session, int plNum, String scName)
          throws Exception {
       ModelAndView mv = new ModelAndView();
-
-      
       MemberVO memberVO = (MemberVO) session.getAttribute("member");
-      
       Integer totalCost=scheduleService.totalCost(plNum);
       
       if(totalCost!=null && totalCost>0 ) {
-    	  
     	  mv.addObject("totalCost",totalCost);
       }
       
@@ -140,8 +128,6 @@ public class ScheduleController {
       List<Date> everyDay = new ArrayList<Date>();
       List<String> region = new ArrayList<String>();
       List<Integer> arCode = new ArrayList<Integer>();
-      
-      
       
       for (int i = 0; i < plannerList.size(); i++) {
          if (plannerList.get(i).getBak() == 0) {
@@ -184,17 +170,13 @@ public class ScheduleController {
                
                bakNum++;
             }
-            
       }
-      
-
       int duNum=0;
       int duNum2 =0;
+      
       for(int i =0; i< everyDay.size();i++) {
     	 
     	  DayArCodeVO aa = new DayArCodeVO();
-    	  
-    	  
     	  if (i < bak.get(duNum)) {
     		  aa.setDu(0);
     		  aa.setDu2(0);
@@ -208,16 +190,10 @@ public class ScheduleController {
     		  duNum2+=aa.getDu();
     		  aa.setDu2(duNum2);
     	  }
-    	  
-    	  
     	  aa.setArCode(arCode.get(i));
     	  aa.setEveryDay(everyDay.get(i));
     	  
     	  codeVO.add(aa);
-    	 
-    	  System.out.println(i +"          :         "+codeVO.get(i).getArCode());
-    	  System.out.println(i +"          :         "+codeVO.get(i).getDu());
-    	  System.out.println(i +"          :         "+codeVO.get(i).getEveryDay());
       }
       
       mv.addObject("codeVO",codeVO);
@@ -225,13 +201,10 @@ public class ScheduleController {
       mv.addObject("everyDay", everyDay);
       mv.addObject("city", region);
       mv.addObject("arCode", arCode);
-      
-      
       mv.addObject("bak", bak);
       
       List<ScheduleVO> scheduleList = scheduleService.scheduleList(plNum);
       List<WishVO> wishlist = wishService.myWish(session, plNum);
-      
       
       if(memberVO==null) {
          String msg="로그인이 필요합니다.";
@@ -241,24 +214,16 @@ public class ScheduleController {
          
       }else if(plannerList.size() !=0 && plannerList.get(0).getId().equals(memberVO.getId())) {
          
-         
          List<ScheduleInfoVO> scheduleInfoVOs = new ArrayList<ScheduleInfoVO>();
          ScheduleInfoVO scheduleInfoVO =null;
          
          for(int i=0; i<scheduleList.size();i++) {
             
             String tour = scheduleList.get(i).getTour();
-            System.out.println("tour    :    " +tour);
-            
             String day = scheduleList.get(i).getDay();
-            System.out.println("day    :    " +day);
-            
             
             Map<String, Object> scInfo = scheduleService.scheduleInfo(tour, plNum);
-//            String Dday = (String)scInfo.get("day");
-//            SimpleDateFormat trans = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//            Date day2=trans.parse(Dday);
-            
+     
             scheduleInfoVO = new ScheduleInfoVO();
             scheduleInfoVO.setTitle((String)scInfo.get("title"));
             scheduleInfoVO.setAddr1((String)scInfo.get("addr1"));
@@ -266,8 +231,6 @@ public class ScheduleController {
             scheduleInfoVO.setFirstimage((String)scInfo.get("firstimage"));
             scheduleInfoVO.setStart((Integer)scInfo.get("start"));
             scheduleInfoVO.setDay((String)scInfo.get("day"));
-            
-            
             scheduleInfoVO.setTour((String)scInfo.get("tour"));
             scheduleInfoVO.setArCode((Integer)scInfo.get("arCode"));
             scheduleInfoVO.setScName((String)scInfo.get("scName"));
@@ -284,7 +247,6 @@ public class ScheduleController {
          // scheduleService.findDay(deDate);
          // Items ar2=xmlService.parseTour();
          Items ar2 = xmlService.searchTour(1, 39, "P", 1);
-         
          
          if (wishlist != null) {
             mv.addObject("wishlist", wishlist);

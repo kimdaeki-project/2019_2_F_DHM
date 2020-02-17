@@ -17,7 +17,7 @@
 <body>
 <c:import url="../template/nav.jsp"/>
 	<div class="container">
-		<h3 class="page_title">Notice list</h3>
+		<h3 class="page_title" style="font-weight: bold;">공지사항</h3>
 		<!-- search -->
 		<form action="./noticeList" method="get" >
 		<img alt="" src="../images/search_icon.png" style="width: 24px; height: 24px; display: inline; float: left; margin:0 5px 5px 5px;" id="icon">
