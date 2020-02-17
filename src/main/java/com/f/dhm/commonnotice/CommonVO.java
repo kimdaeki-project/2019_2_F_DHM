@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
-
 import lombok.Data;
 
 @Data
@@ -23,6 +22,5 @@ public class CommonVO {
 	@CreationTimestamp
 	private Date coMakeDay;
 	
-
 	
 }

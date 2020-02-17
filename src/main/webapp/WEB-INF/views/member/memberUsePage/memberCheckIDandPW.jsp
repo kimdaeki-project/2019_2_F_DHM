@@ -13,6 +13,7 @@
 <link rel="stylesheet"  href="../../css/basic.css">
  <link rel="stylesheet" href="../../package/css/swiper.min.css">
 <meta charset="UTF-8">
+<title>ID/PW 찾기</title>
 	<c:import url="../../template/nav.jsp"/>
 </head>
 <body>
@@ -37,17 +38,17 @@
 				</div>
 			
 				<div class="idpwmain4-3">
-					<input type="text" class="idpwmain4-3-1" name="emailCheck">					
+					<input type="text" class="idpwmain4-3-1" id="hellofafa" name="emailCheck">					
 					<div class="idpwmain4-3-2">찾기</div>
 				</div>
 			</form>
-			<!-- 이메일1 입력창----------- -->				
+			<!-- 이메일1 입력창----------- -->				 
 			</div>
 			
 			<!-- ------------------------------------------------------------ -->	
 			<div class="idpwmain5">
 				<div class="idpwmain5-1">
-					<div class="idpwmain5-1-1">비밀번호 재발급</div>
+					<div class="idpwmain5-1-1">비밀번호 찾기</div>
 				</div>
 				<div class="idpwmain6-2">
 					<div class="idpwmain6-2-1">
@@ -56,7 +57,7 @@
 				</div>			
 			<!-- 아이디1 입력창 -->
 				<div class="idpwmain6-3">
-					<input type="text" class="idpwmain6-3-1">
+					<input type="text" class="idpwmain6-3-1" id="hellomama" >
 				</div>
 			<!-- 아이디1 입력창 -->	
 				<div class="idpwmain5-2">
@@ -66,8 +67,8 @@
 				</div>			
 			<!-- 이메일2 입력창 -->	
 				<div class="idpwmain5-3">
-					<input type="text" class="idpwmain5-3-1">
-					<div class="idpwmain5-3-2">재발급</div>
+					<input type="text" class="idpwmain5-3-1" id="hellomama2">
+					<div class="idpwmain5-3-2">발급</div>
 				</div>
 			<!-- 이메일2 입력창 -->
 				
@@ -111,6 +112,26 @@
 
 </body>
 <script type="text/javascript">
+//click box----------------------------------------------------------------------
+$("#Xid2").hide(); //정상 상자 숨기
+$('#Xid3').hide(); //오류 상자 숨기
+
+$(".Xidsame4").click(function(){
+
+	$("#Xid2").hide();
+
+	$(".idpwmain4-3-2").css("background","#e74c3c");
+
+});
+
+$(".Xidsame8").click(function(){
+
+	$("#Xid3").hide();
+
+	$(".idpwmain5-3-2").css("background","#e74c3c");
+
+});
+//----------------------------------------------------------------------
 //아이디 찾기----------------------------------------------------------------
 //email 입력창
 $(document).ready(function (){
@@ -140,6 +161,7 @@ $(document).ready(function (){
    		});
  
 });
+
 //비밀번호 재발급----------------------------------------------------------------
 //아이디 입력창
 $(document).ready(function (){
@@ -171,13 +193,11 @@ $(document).ready(function (){
 });
 
 //ID 찾기  start----------------------------------------------------------------
-var email = $(".idpwmain4-3-1").val();
-var email2 = '${member.email}';
+var email = $("#hellofafa").val();
 
 $(".idpwmain4-3-2").click(function(){
 
-email = $(".idpwmain4-3-1").val();
-email2 = '${member.email}';
+email = $("#hellofafa").val();
 	
 	$.ajax({
 
@@ -200,41 +220,22 @@ email2 = '${member.email}';
 }); //function문
 //ID찾기  end----------------------------------------------------------------
 
-//click box----------------------------------------------------------------------
-$("#Xid2").hide(); //정상 상자 숨기
-$('#Xid3').hide(); //오류 상자 숨기
-
-$(".Xidsame4").click(function(){
-
-	$("#Xid2").hide();
-
-	$(".idpwmain4-3-2").css("background","#e74c3c");
-
-});
-
-$(".Xidsame8").click(function(){
-
-	$("#Xid3").hide();
-
-	$(".idpwmain5-3-2").css("background","#e74c3c");
-
-});
-//----------------------------------------------------------------------
-
 //PW 찾기  start----------------------------------------------------------------
-var id = $(".idpwmain6-3-1").val();
-var id2 = '${member.id}';
+var id = $("#hellomama").val();
+var email2 = $("#hellomama2").val();
+
+
 
 $(".idpwmain5-3-2").click(function(){
-	id = $(".idpwmain6-3-1").val();
-	id2 = '${member.id}';
+	id = $("#hellomama").val();
+	email2 = $("#hellomama2").val();
 	
 	$.ajax({
-
 		type : "POST",
 		url  : "memberEMAIL3Check",
 		data : {
-			id : id
+			id : id,
+			email : email
 			},
 		success : function(getpw){
 			//성공창
@@ -249,5 +250,17 @@ $(".idpwmain5-3-2").click(function(){
 
 }); //function문
 //PW 찾기  end----------------------------------------------------------------
+
+//enter키 막기
+//방법1
+document.addEventListener('keydown', function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+  };
+}, true);
+
+
+
+
 </script>
 </html>

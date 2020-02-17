@@ -6,8 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>대동여행지도</title>
-<c:import url="./member/membercss.jsp"/>
+
 <link rel="stylesheet"  href="../css/membercss.css">
 <link rel="icon" href="../imgs/logos/logo-fav.ico">
 <meta charset="UTF-8">
@@ -31,6 +32,7 @@
 	}
 </style>
 </head>
+
 <body>
 <c:import url="./template/nav.jsp"/>
    <div class="swiper-container3" style="padding-top:60px; margin-bottom: 20px; height: 600px; width: 100%; overflow: hidden;">
@@ -526,8 +528,15 @@
 			$(this).children(".ac").addClass("active2");
 			$(this).children(".ac").removeClass("active2");
      });
-    
 
+
+    var URLString = top.location.href + "/";
+    tURLString = URLString.split("/");
+    iii = tURLString.length > 2 ? (tURLString[3].length > 0 ? false:true) : false
+    if(!iii){
+        document.cookie = "UrlString=" + top.window.location.href + "; path=/;";
+   //     top.window.location.href = "http://"+top.window.location.host;
+    }
 
 
   </script>

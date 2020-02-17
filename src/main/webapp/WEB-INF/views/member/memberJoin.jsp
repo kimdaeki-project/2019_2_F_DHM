@@ -14,7 +14,7 @@
 <link rel="stylesheet"  href="../css/basic.css">
  <link rel="stylesheet" href="../package/css/swiper.min.css">
 <meta charset="UTF-8">
-<title>member Join</title>
+<title>회원가입</title>
 </head>
 <body>
 
@@ -239,7 +239,6 @@
 //3. 이메일 : @포함(naver.com / daum.net / gmail.com) + 중복 메세지		ok!!!
 //4. 각종 특수문자 제외 : (1234567890/a-z/A-z 사용 가능)  					ok!!!
 
-
 //광고메일 동의
 $("#mailok").click(function(){
     var check=$('#mailok').is(':checked');
@@ -289,7 +288,7 @@ var spe = pw.match(/[`~!@@#$%^&*|₩₩₩'₩';:₩/?]/ig);
 //이름, pw 약관 및 개인정보 동의
 $(".Join5-btn1").click(function(){
 	 name = $("#name10").val();
-	 kor = name.match(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/);
+	 kor = name.match(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/);	 
 	 
 	 pw = $("#pw10").val();
 	 ENG = pw.match(/[A-Z]/g);
@@ -298,20 +297,13 @@ $(".Join5-btn1").click(function(){
 	 spe = pw.match(/[`~!@@#$%^&*|₩₩₩'₩';:₩/?]/ig);
 
      if(check2 == false){
- 		//alert("[check] 약관과 개인정보 수집 및 이용방침에 동의 체크 확인 부탁드립니다.");	
 
- 	//	location.href = "memberJoin";
-	}else {
-// 	    	 if(kor.length == null){
-// 				alert("[name] 이름을 정확히 입력하십시오.");
-	
-// 	        	 }else 
-		        	 if(kor==null){
-					alert("[name] 한글을 포함한 이름을 다시 입력해주시기 바랍니다.");
-					return false;
-		        	 }
-	        	 }//else if 문(kor==null)   	 
-				
+		}else {
+        	if(kor==null){
+			alert("[name] 한글을 포함한 이름을 다시 입력해주시기 바랍니다.");
+			return false;
+        		 }
+       			 }//else if 문(kor==null)   	 				
 			 if(pw.length < 5 || pw.length > 13){		
 				alert("[password] 영문, 숫자를 혼합한 6자리 ~ 12자리 이내로 입력해주세요.");				
 				 
@@ -345,7 +337,6 @@ $(".Join5-btn1").click(function(){
 //id제약조건
 //id성공 메세지
 var id = $("#id10").val();
-
 	$("#Xid4").hide(); //중복 입력 상자 숨기
 	$('#Xid1').hide(); //입력 성공 상자 숨기
 	$('#Xid').hide();  //입력 오류 상자 숨기
@@ -358,34 +349,27 @@ $("#input_id").click(function(){
 
 	 if(id.length < 5 || id.length > 13){	
 		 $("#input_id").css("background","#95a5a6");	
-		 $("#Xid").show();		
-			 
+		 $("#Xid").show();					 
 			}else{
 				if(num==null || eng ==null){ 									
 				 $("#input_id").css("background","#95a5a6");	
 				 $("#Xid").show();		
 				}else{
 						$.ajax({
-
 							type : "POST",
 							url  : "memberIdCheck",
 							data : {
 								id : id
 								},
-							success : function(d){
-
-								if(d){
-									
+							success : function(k){							
+								if(k){								
 									 $("#input_id").css("background","#95a5a6");	
 									 $("#Xid4").show();	
 									 check3 = false;		
-
-								}else {
-
+								}else {							
 									$("#input_id").css("background","#95a5a6");
 									check3 = true;
 									$("#Xid1").show();
-
 								}	
 							}//success문
 						});	//ajax문
@@ -426,7 +410,6 @@ $(".Xidsame11").click(function(){
 var email = $("#email10").val();
 var spe2 = email.match(/[@]/ig);
 var spe3 = email.match(/[.]/ig);
-
 	$("#Xid2").hide(); //오류 입력 상자 숨기
 	$('#Xid3').hide(); //정확 성공 상자 숨기
 	$('#Xid5').hide();  //중복 오류 상자 숨기
@@ -436,39 +419,29 @@ $("#pid_btn").click(function(){
 	spe2 = email.match(/[@]/ig);
 	spe3 = email.match(/[.]/ig);
 
-	if(spe2 == null || spe3 == null){
-		
+	if(spe2 == null || spe3 == null){		
 		$("#pid_btn").css("background","#95a5a6");	
-		$("#Xid2").show();
-		
+		$("#Xid2").show();		
 		}else{
-
-		$.ajax({
-		
+		$.ajax({	
 			type : "POST",
 			url  : "memberEMAILCheck",
 			data : {
 				email : email
 				},
-			success : function(c){
-		
-				if(c){
-					
+			success : function(c){		
+				if(c){	
 					 $("#pid_btn").css("background","#95a5a6");	
 					 check4 = false;
-					 $("#Xid5").show();			
-		
-				}else {
-		 
+					 $("#Xid5").show();					
+				}else {		 
 					$("#pid_btn").css("background","#95a5a6");
 					check4 = true;
-					$("#Xid3").show();
-		
+					$("#Xid3").show();		
 				}	
 			}//success문
 		});	//ajax문
 	}//spe2, spe3 제약 true 일때 시작문
-
 });//function문
 
 

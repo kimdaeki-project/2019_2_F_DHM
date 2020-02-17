@@ -25,8 +25,14 @@ public class InterceptorConfig implements WebMvcConfigurer {
 		//Interceptor를 제외할 URL 패턴 등록
 		.excludePathPatterns("/member/memberLogin")
 		.excludePathPatterns("/member/memberJoin")
+		.excludePathPatterns("/member/memberUsePage/memberCommonNotice")
 		.excludePathPatterns("/funding/fundingList")
-		.excludePathPatterns("/funding/fundingSelect*");
+		.excludePathPatterns("/funding/fundingSelect*")
+		.excludePathPatterns("/member/memberIdCheck")
+		.excludePathPatterns("/member/memberPWCheck")
+		.excludePathPatterns("/member/memberEMAILCheck")
+		.excludePathPatterns("/member/memberEMAIL2Check")
+		.excludePathPatterns("/member/memberEMAIL3Check");
 		
 		
 

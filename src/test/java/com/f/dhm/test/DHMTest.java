@@ -33,15 +33,4 @@ public class DHMTest {
 	private PlannerCommentRepository commentRepository;
 	
 	
-	//@Test
-	void test5()throws Exception{
-		//List<PlannerCommentVO> commentVOs=commentRepository.findAll();
-		//commentVOs.forEach(System.out::println);
-		
-		//List<PlannerCommentVO> commentVOs=commentRepository.findAll(Sort.by("regDate", "desc"));
-		System.out.println("^^^^^^^^^^^^^^^^^");
-		List<PlannerCommentVO> commentVOs=commentRepository.findAll();
-		//List<PlannerCommentVO> commentVOs=commentRepository.findAllOrderByRegDateDesc();
-		commentVOs.forEach(System.out::println);
-	}
 }

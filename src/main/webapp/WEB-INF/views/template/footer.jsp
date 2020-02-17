@@ -4,28 +4,27 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
-
 <footer>
 
    <div class="footermain1">
       <div class="footermain1-1">
          <div class="foot1">
-            <div class="textline">광고/제휴문의</div>
+            <div class="textline go1"><a style="color: #86868c;" target="_blank" href="${pageContext.request.contextPath}/member/memberUsePage/memberCommonNotice">광고/제휴문의</a></div>
          </div>
          <div class="foot2">
-            <div class="textline">서비스문의</div>
+            <div class="textline  go2"><a style="color: #86868c;" target="_blank" href="${pageContext.request.contextPath}/member/memberUsePage/memberPrivacyPolicy">서비스문의</a></div>
          </div>
          <div class="foot3">
-            <div class="textline">개인정보 취급방침</div>
+            <div class="textline  go3"><a style="color: #86868c;" target="_blank" href="${pageContext.request.contextPath}/member/memberUsePage/memberTermsAndConditions">개인정보 취급방침</a></div>
          </div>
          <div class="foot4">
-            <div class="textline">이용약관</div>
+            <div class="textline  go4"><a style="color: #86868c;" target="_blank" href="${pageContext.request.contextPath}/member/memberUsePage/memberTermsAndConditions">이용약관</a></div>
          </div>
          <div class="foot5">
-            <div class="textline">여행자약관</div>
+            <div class="textline  go5"><a style="color: #86868c;" target="_blank" href="${pageContext.request.contextPath}/member/memberUsePage/memberTravelReservation">여행자약관</a></div>
          </div>
          <div class="foot6">
-            <div class="textline2">가이드약관</div>
+            <div class="textline2 go6"><a style="color: #86868c;" target="_blank" href="${pageContext.request.contextPath}/member/memberUsePage/memberGuideTermsandConditions">가이드약관</a></div>
          </div>
          <div class="foot7">            
                <div class=""></div>
@@ -39,7 +38,7 @@
 
    <div class="footermain2">
       <div class="footermain2-1">
-         <div class="footermain2-1-1"><img src="../imgs/logos/hello.png" class="plannerimg">
+         <div class="footermain2-1-1"><img src="${pageContext.request.contextPath}/imgs/logos/hello.png" class="plannerimg">
          </div>
          
          <div class="footermain2-1-2">
@@ -78,6 +77,19 @@
    });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+   
 
 </script>
 </html>

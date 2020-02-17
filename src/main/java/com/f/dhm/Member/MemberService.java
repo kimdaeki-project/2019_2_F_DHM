@@ -14,6 +14,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.f.dhm.util.FilePathGenerator;
 import com.f.dhm.util.FileSaver;
 import com.f.dhm.Member.MemberVO;
+import com.f.dhm.commonnotice.CommonRepository;
+import com.f.dhm.commonnotice.CommonVO;
 
 @Service
 @Transactional(rollbackOn = Exception.class)
@@ -27,8 +29,20 @@ public class MemberService {
 	private FileSaver fileSaver;
 	@Autowired
 	private MemberFilesRepository memberFilesRepository;
+	@Autowired
+	private CommonRepository commonRepository;
 	
+	//광고 접수----------------------------------------
+	public void commonNotice(CommonVO commonVO)throws Exception{
+		
+
+		 commonRepository.save(commonVO);
+	}
 	
+	public boolean commonNoticeCheck(CommonVO commonVO)throws Exception{
+		
+		return commonRepository.existsById(commonVO.getCemail());
+	}
 	
 	//로그인----------------------------------------
 	public MemberVO memberLogin(MemberVO memberVO)throws Exception{
@@ -75,14 +89,20 @@ public class MemberService {
 		
 		return memberVO;
 	}
-	//PW 불러오기----------------------------------------
-	public MemberVO memberEMAIL3Check(String id)throws Exception{
+
+	
+	//2개
+	public MemberVO memberEMAIL3Check(String id, String email)throws Exception{
+		System.out.println("@@@@@@@ Service Check? : "+memberRepository.existsByIdAndEmail(id, email));
 		
-		if(memberRepository.existsById(id)) {
+		boolean check=memberRepository.existsByIdAndEmail(id, email);
+		
+		if(check) {
+			//있을때
 			return memberRepository.findById(id).get();
 			
 		}else {
-			
+
 			return null;
 		}
 	}
@@ -107,19 +127,18 @@ public class MemberService {
 		return memberRepository.findByEmail(email);
 	}
 	//프로필 사진 변경----------------------------------------
-	public boolean memberMypageImg(MemberVO memberVO,HttpSession session, MultipartFile files)throws Exception{
-
+	public boolean memberMypageImg(HttpSession session, MultipartFile files)throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		MemberFilesVO memberFilesVO = new MemberFilesVO();
-		String realPath=session.getServletContext().getRealPath("/imgs/member");
-		MemberVO setDay = memberRepository.findById(memberVO.getId()).get();
-		memberVO.setJoinDay(setDay.getJoinDay());
+		String realPath=session.getServletContext().getRealPath("/imgs/member");;
 		memberFilesVO.setMemberVO(memberVO);
 		memberFilesVO.setFname(fileSaver.save2(realPath, files));
 		memberFilesVO.setOname(files.getOriginalFilename());
 
 		memberFilesRepository.save(memberFilesVO);
-		memberVO =  memberRepository.findById(memberVO.getId()).get();
-
+		Thread.sleep(100);
+		memberVO = memberRepository.findById(memberVO.getId()).get();
+		
 		return memberFilesRepository.existsById(memberVO.getMemberFilesVO().getFnum());	
 	}
 	
