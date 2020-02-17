@@ -208,6 +208,20 @@ display: none;
 	height: 140px;
 }
 
+.adm-advertisement{
+	clear: both;
+	width: 97%;
+}
+
+.adm-advertisement li{
+	background-color: #eaeaea;
+	width: 15%;
+	margin-left: 1%;
+	float: left;
+	margin-bottom: 40px;
+	height: 180px;
+}
+
 .adm-funding-div{
 	position: relative;
 }
@@ -231,7 +245,7 @@ html{
 
 .today-info li{
 	border-radius:20px;
-	width: 30%;
+	width: 22%;
 	margin-left: 2%;
 	height: 70px;
 	color: black;

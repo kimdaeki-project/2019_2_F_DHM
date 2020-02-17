@@ -353,7 +353,7 @@ function openComplete() {
          }
       });
    }else{
-      alert("일정을 추가해주세염!");
+      alert("일정을 추가해주세요!");
    }
 }
 

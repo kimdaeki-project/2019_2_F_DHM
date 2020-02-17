@@ -20,6 +20,7 @@
 			<p class="adm-left-p"><a class="adm-left-menu" id="Planner" href="#adm-planner">플래너 정보</a></p>
 			<p class="adm-left-p"><a class="adm-left-menu" id="Funding" href="#adm-funding">펀딩 정보</a></p>
 			<p class="adm-left-p"><a class="adm-left-menu" id="review" >리뷰 관리</a></p>
+			<p class="adm-left-p"><a class="adm-left-menu" id="advertisement" href="#adm-advertisement">광고 문의</a></p>
 			</div>
 		<div class="adm-right">
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ인기도시 -->
@@ -36,6 +37,10 @@
 					<li>
 						<p class="today-info-top">오늘 신청된 펀딩</p>
 						<p class="today-info-bot"><font style="font-size: 30px; ">${newF }</font> 개</p>
+					</li>
+					<li>
+						<p class="today-info-top">오늘 신청된 광고 문의</p>
+						<p class="today-info-bot"><font style="font-size: 30px; ">${newA }</font> 개</p>
 					</li>
 				</ul>
 			</div>
@@ -187,7 +192,28 @@
 					</c:forEach>
 				</ul>
 			</div>
-<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ펀딩-->	
+<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ펀딩-->
+<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ광고문의-->
+		<div class="adm-advertisement" id="adm-advertisement">
+			<br>
+			<h1 class="adm-info-h1"> ADVERTISEMENT - 새로 등록된 광고 문의 : ${newA } 개</h1>
+			<ul>
+					<c:forEach items="${adList }" var="adv">
+						<li>
+							<div class="adm-funding-div">
+								<p style="background-color: #18A8F1; color: white;">광고 목적 회사 : ${adv.ccompon }</p>
+								<p>문의자 메일 : ${adv.cemail }</p>
+								<p>광고 목적 도시 : ${adv.ccity }</p>
+								<p>광고 내용 : ${adv.ccintro }</p>
+								<p>연락처 : ${adv.cphone }</p>
+								<p>문의 요청 날짜 : ${adv.coMakeDay }</p>
+								<p></p>
+							</div>
+						</li>
+					</c:forEach>
+				</ul>
+		</div>
+<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ광고문의-->	
 		</div>
 		
 	</div>

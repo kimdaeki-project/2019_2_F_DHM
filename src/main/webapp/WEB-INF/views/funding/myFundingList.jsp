@@ -14,15 +14,14 @@
 </head>
 <body>
 <c:import url="../template/nav.jsp"/>
-
+<div class="container" style="min-height: 719px;">
 <c:choose>
 <c:when test="${vo.size() eq 0 }">
-						<a href="fundingList">
-							<img width="60%" height="100%" src="../imgs/no-pFunding.png" style="left: 22%; position: relative; margin-top: 200px;">
-						</a>
-					</c:when>
+	<a href="fundingList">
+		<img width="60%" height="100%" src="../imgs/no-pFunding.png" style="left: 22%; position: relative;">
+	</a>
+</c:when>
 <c:otherwise>
-<div style="height: 100px;"></div>
 <c:forEach items="${vo}" var="list" varStatus="i">
 <div class="fj_list" >
 	<div>
@@ -60,6 +59,7 @@
 </c:choose>
 
 <div style="height: 100px;"></div>
+</div>
 <c:import url="../template/footer.jsp"/>
 
 <script type="text/javascript">
