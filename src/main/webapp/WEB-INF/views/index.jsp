@@ -4,6 +4,7 @@
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <!DOCTYPE html>
@@ -1318,26 +1319,22 @@
          <h3 class="contitle">여행자들의 최근 리뷰</h3>
       </div>
 
-					<c:forEach items="${commentVOs }" var="comments">
+					
+<c:forEach items="${commentVOs }" var="comments">
 <!-- 					reviewBox -->
-					<div class="reviewBox ">
-						<div class="reviewMemberImg"><img alt="members_img" src="../images/user.jpg" class="reviewMemberImg_img"></div>
-						<div class="reviewCommentsWrapper">
-							<h5 class="reviewComments_header_info">
-								<span>${comments.id } </span>
-								<span class="reviewComments_header_date">${comments.regDate }</span>
-								<span style="float: right;">
-								<c:if test="${comments.id eq sessionScope.member.id}">
-									<a style="color: #999;" href="./reviewUpdate?cNum=${comments.CNum}">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;
-									<b><a style="color: #999;" href="reviewDelete?cNum=${comments.CNum}">x</a></b>
-								</c:if>
-								</span>
-							</h5>
-							<div class="reviewComments_comments">${comments.contents }</div>
-						</div>
-					</div>
+<div class="reviewBox2">
+	<div class="reviewMemberImg2"><img src="imgage/user.jpg" class="reviewMemberImg_img2">
+		<span class="reviewComments_header_id2">${comments.id }</span>
+		<span class="reviewComments_header_date2">
+			<fmt:formatDate value="${comments.regDate }" pattern="yy년 MM월 dd일"/>
+		</span>
+	</div>
+	<div class="reviewCommentsWrapper2">
+		<div class="reviewComments_comments2">${comments.contents }</div>
+	</div>
+</div>
 <!-- 					reviewBox -->
-					</c:forEach>	
+</c:forEach>	
    </div>
 
    
