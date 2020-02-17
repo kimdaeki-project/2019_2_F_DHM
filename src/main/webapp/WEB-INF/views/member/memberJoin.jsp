@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<%-- 	<c:import url="../template/nav.jsp"/> --%>
+	<c:import url="../template/nav.jsp"/>
 	
 	<div class="Joinmain" style="padding-top: 100px;">
 		<div class="JoinMainPage">
@@ -229,7 +229,7 @@
 	</div>
 	
 	
-<%-- 	<c:import url="../template/footer.jsp"/> --%>
+	<c:import url="../template/footer.jsp"/>
 <script type="text/javascript">
 //-----------------------------------------------------------------------	
 //회원가입 제약조건 
@@ -372,16 +372,15 @@ $("#input_id").click(function(){
 								id : id
 								},
 							success : function(k){
-								alert(id);
-
+								
 								if(k){
-									alert(k);
+								
 									 $("#input_id").css("background","#95a5a6");	
 									 $("#Xid4").show();	
 									 check3 = false;		
 
 								}else {
-
+							
 									$("#input_id").css("background","#95a5a6");
 									check3 = true;
 									$("#Xid1").show();
@@ -446,14 +445,14 @@ $("#pid_btn").click(function(){
 		$.ajax({
 		
 			type : "POST",
-			url  : "memberEMAIL3Check",
+			url  : "memberEMAILCheck",
 			data : {
 				email : email
 				},
 			success : function(c){
 		
 				if(c){
-					alert(c);
+	
 					 $("#pid_btn").css("background","#95a5a6");	
 					 check4 = false;
 					 $("#Xid5").show();			

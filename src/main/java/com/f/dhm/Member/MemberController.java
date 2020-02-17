@@ -163,18 +163,18 @@ public class MemberController {
 		}		
 	}	
 	//ID 체크-----------------------------------------------------------------------
-//	@PostMapping("memberIdCheck")
-//	@ResponseBody
-//	public boolean memberIdCheck(String id)throws Exception{
-//		return memberService.memberIdCheck(id);
-//	}
-	
 	@PostMapping("memberIdCheck")
+	@ResponseBody
 	public boolean memberIdCheck(String id)throws Exception{
-		boolean check= memberService.memberIdCheck(id);
-		System.out.println("있냐" +check);
-		return true;
+		return memberService.memberIdCheck(id);
 	}
+	
+//	@PostMapping("memberIdCheck")
+//	public boolean memberIdCheck(String id)throws Exception{
+//		boolean check= memberService.memberIdCheck(id);
+//		System.out.println("있냐" +check);
+//		return true;
+//	}
 	//PW 체크-----------------------------------------------------------------------
 	@PostMapping("memberPWCheck")
 	@ResponseBody
