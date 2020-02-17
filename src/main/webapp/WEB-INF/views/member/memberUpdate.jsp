@@ -150,13 +150,13 @@
 	<!--오류사항 ------------------------------------------------------------------------------------------------------------------------------------>
 	<div id="Xid" style="">
 		<div id="idsame" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
-			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
+			<div style="background-color: #4ea0f6; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
 				<div style="color: white; font-size: 12pt; width: 190px; padding-left: 15px; padding-top: 10px; line-height: 17px;">특수/영문 대소문자/숫자만 사용가능, 6~12자 사용가능합니다.</div>
 			</div>
 		</div>
 	
 		<div class="Xidsame3" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
-			<div class="Xidsame2" style="background-color: #64db99; height: 40px; width: 40px; 
+			<div class="Xidsame2" style="background-color: #4ea0f6; height: 40px; width: 40px; 
   				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div>  
 		</div>
 	</div>
@@ -164,13 +164,13 @@
 	<!--정상사항 ---------------------------------------------------------------------------------------------------------------------------------- -->
 	<div id="Xid1" style="">
 		<div id="idsame2" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
-			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
+			<div style="background-color: #4ea0f6; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
 				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">사용 가능한 비밀번호입니다.</div>
 			</div>
 		</div>
 	
 		<div class="Xidsame7" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
-			<div class="Xidsame6" style="background-color: #64db99; height: 40px; width: 40px; 
+			<div class="Xidsame6" style="background-color: #4ea0f6; height: 40px; width: 40px; 
    				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div> 
 		</div>
 	</div>
@@ -178,13 +178,13 @@
 	<!--중복사항 ---------------------------------------------------------------------------------------------------------------------------------- -->
 	<div id="Xid4" style="">
 		<div id="idsame3" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
-			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
+			<div style="background-color: #4ea0f6; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
 				<div style="color: white; font-size: 12pt; width: 190px; padding-left: 15px; padding-top: 10px;">기존 비밀번호 입력하셨습니다. 재입력하십시오.</div>
 			</div>
 		</div>
 	
 		<div class="Xidsame10" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
-			<div class="Xidsame11" style="background-color: #64db99; height: 40px; width: 40px; 
+			<div class="Xidsame11" style="background-color: #4ea0f6; height: 40px; width: 40px; 
    				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div>  
 		</div>
 	</div>
@@ -193,13 +193,13 @@
 	<!--오류사항 ------------------------------------------------------------------------------------------------------------------------------------>
 	<div id="Xid2" style="">
 		<div id="emailsame" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
-			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
+			<div style="background-color: #4ea0f6; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
 				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">잘못된 이메일 주소입니다.</div>
 			</div>
 		</div>
 	
 		<div class="Xidsame5" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
-			<div class="Xidsame4" style="background-color: #64db99; height: 40px; width: 40px; 
+			<div class="Xidsame4" style="background-color: #4ea0f6; height: 40px; width: 40px; 
 				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div> 
 		</div>
 	</div>
@@ -207,13 +207,13 @@
 	<!--정상사항 ------------------------------------------------------------------------------------------------------------------------------------>
 	<div id="Xid3" style="">
 		<div id="emailsame2" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
-			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
+			<div style="background-color: #4ea0f6; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
 				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">사용 가능한 이메일입니다.</div>
 			</div>
 		</div>
 	
 		<div class="Xidsame9" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
-			<div class="Xidsame8" style="background-color: #64db99; height: 40px; width: 40px; 
+			<div class="Xidsame8" style="background-color: #4ea0f6; height: 40px; width: 40px; 
  				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div> 
 		</div>
 	</div>
@@ -221,13 +221,13 @@
 	<!--중복사항 ------------------------------------------------------------------------------------------------------------------------------------>
 	<div id="Xid5" style="">
 		<div id="emailsame3" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
-			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
+			<div style="background-color: #4ea0f6; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
 				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">이메일 중복입니다.</div>
 			</div>
 		</div>
 	
 		<div class="Xidsame12" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
-			<div class="Xidsame13" style="background-color: #64db99; height: 40px; width: 40px; 
+			<div class="Xidsame13" style="background-color: #4ea0f6; height: 40px; width: 40px; 
   				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div> 
 		</div>
 	</div>
@@ -354,20 +354,15 @@
 					 $("#Xid").show();		
 					}else{
 						var pass=$('#getPW').val();
-							if(pw == pass){
-								
+							if(pw == pass){						
 								 $("#ppw_btn").css("background","#95a5a6");	
 								 $("#Xid4").show();	
 								 check3 = false;		
-
 							}else {
-
 								$("#ppw_btn").css("background","#95a5a6");
 								check3 = true;
 								$("#Xid1").show();
-
 							}	
-
 					}	
 			}
 	}); //function문

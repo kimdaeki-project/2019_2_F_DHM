@@ -76,13 +76,13 @@
 	<!--오류사항 ------------------------------------------------------------------------------------------------------------------------------------>
 	<div id="Xid" style="">
 		<div id="idsame" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
-			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
+			<div style="background-color: #f64a4a; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
 				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">비밀번호를 다시 입력하십시오.</div>
 			</div>
 		</div>
 	
 		<div class="Xidsame3" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
-			<div class="Xidsame2" style="background-color: #64db99; height: 40px; width: 40px; 
+			<div class="Xidsame2" style="background-color: #f64a4a; height: 40px; width: 40px; 
   				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div>  
 		</div>
 	</div>
@@ -90,13 +90,13 @@
 	<!--정상사항 ---------------------------------------------------------------------------------------------------------------------------------- -->
 	<div id="Xid1" style="">
 		<div id="idsame2" style="position: fixed; top: 125px; left:830px; background-color: #fff; height: 80px; width: 250px;">
-			<div style="background-color: #64db99; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
+			<div style="background-color: #f64a4a; height: 70px; width: 240px; margin-left: 5px; margin-top: 5px;">
 				<div style="color: white; font-size: 13pt; width: 190px; padding-left: 15px; padding-top: 10px;">올바른 비밀번호입니다.</div>
 			</div>
 		</div>
 	
 		<div class="Xidsame7" style= " position: fixed; background-color: #fff; top: 110px; left: 1050px; height: 50px; width: 50px;"> 
-			<div class="Xidsame6" style="background-color: #64db99; height: 40px; width: 40px; 
+			<div class="Xidsame6" style="background-color: #f64a4a; height: 40px; width: 40px; 
    				margin-left: 5px; margin-top: 5px;"><i class="fa fa-times" style="color: #fff; font-size: 30px; padding-left: 7px; padding-top: 4px;"></i></div> 
 		</div>
 	</div>

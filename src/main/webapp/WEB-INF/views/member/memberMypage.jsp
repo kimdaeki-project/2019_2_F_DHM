@@ -45,13 +45,6 @@
          	<div class="my2-1">
 
 				<h4>방명록</h4>
-
-
-
-
-
-
-
 			 </div>
 
          </div>
@@ -701,7 +694,7 @@ $(".mypage2-2-2").click(function(){
 //리뷰
 $(".my3-1-3").click(function(){
    
-    location.href = "${pageContext.request.contextPath}/planner/reviewPlanner";
+    location.href = "${pageContext.request.contextPath}/schedule/schedulePage";
          
    });
 </script>
