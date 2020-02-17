@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 <!DOCTYPE html>
 
@@ -12,6 +16,7 @@
 <title>대동여행지도</title>
 
 <link rel="stylesheet"  href="../css/membercss.css">
+
 <link rel="icon" href="../imgs/logos/logo-fav.ico">
 
 
@@ -19,28 +24,43 @@
 <meta charset="UTF-8">
 
 <title>DHM Planner</title>
-<c:import url="./template/boot.jsp" />
-<link rel="stylesheet" href="../css/basic.css">
-<link rel="stylesheet" href="../css/schedule.css">
-<link rel="stylesheet" href="../css/funding.css">
-<link rel="icon" href="../imgs/logos/logo-fav.ico">
+
+<c:import url="./template/boot.jsp"/>
+
+<link rel="stylesheet"  href="../css/basic.css">
+
+ <link rel="stylesheet"  href="../css/schedule.css">
+
+  <link rel="stylesheet"  href="../css/funding.css">
+
+  <link rel="icon" href="../imgs/logos/logo-fav.ico">
+
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 
 <style type="text/css">
-.active {
-	color: #18A8F1;
-}
 
-a {
-	color: black;
-}
+	.active{
 
-a:hover {
-	color: #18A8F1;
-	font-weight: bold;
-}
+		color: #18A8F1;
+
+	}
+
+ 	a{
+
+		color:black;
+
+	} 
+
+	a:hover{
+
+		color:#18A8F1;
+
+		font-weight: bold;
+
+	}
+
 </style>
 
 </head>
@@ -847,9 +867,9 @@ a:hover {
                <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#f7">전라북도</a></li>
 
 		  </ul>
+		<br>
+         
 
-        <br> 
-		
          <div class="tab-content">
 
 		    <div id="f0" class="tab-pane fade in active">
@@ -1266,26 +1286,22 @@ a:hover {
          <h3 class="contitle">여행자들의 최근 리뷰</h3>
       </div>
 
-					<c:forEach items="${commentVOs }" var="comments">
+					
+<c:forEach items="${commentVOs }" var="comments">
 <!-- 					reviewBox -->
-					<div class="reviewBox ">
-						<div class="reviewMemberImg"><img alt="members_img" src="../images/user.jpg" class="reviewMemberImg_img"></div>
-						<div class="reviewCommentsWrapper">
-							<h5 class="reviewComments_header_info">
-								<span>${comments.id } </span>
-								<span class="reviewComments_header_date">${comments.regDate }</span>
-								<span style="float: right;">
-								<c:if test="${comments.id eq sessionScope.member.id}">
-									<a style="color: #999;" href="./reviewUpdate?cNum=${comments.CNum}">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;
-									<b><a style="color: #999;" href="reviewDelete?cNum=${comments.CNum}">x</a></b>
-								</c:if>
-								</span>
-							</h5>
-							<div class="reviewComments_comments">${comments.contents }</div>
-						</div>
-					</div>
+<div class="reviewBox2">
+	<div class="reviewMemberImg2"><img src="imgage/user.jpg" class="reviewMemberImg_img2">
+		<span class="reviewComments_header_id2">${comments.id }</span>
+		<span class="reviewComments_header_date2">
+			<fmt:formatDate value="${comments.regDate }" pattern="yy년 MM월 dd일"/>
+		</span>
+	</div>
+	<div class="reviewCommentsWrapper2">
+		<div class="reviewComments_comments2">${comments.contents }</div>
+	</div>
+</div>
 <!-- 					reviewBox -->
-					</c:forEach>	
+</c:forEach>	
    </div>
 
    
@@ -1413,15 +1429,15 @@ a:hover {
    //     top.window.location.href = "http://"+top.window.location.host;
     }
 
-			});
 
-			$(this).children(".ac").addClass("active2");
-			$(this).children(".ac").removeClass("active2");
-		});
-	</script>
+
+
+
+
   </script>
 
   <c:import url="./template/footer.jsp"></c:import>
+
 </body>
 
 </html>
