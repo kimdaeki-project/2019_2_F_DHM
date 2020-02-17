@@ -41,25 +41,25 @@
 
 <style type="text/css">
 
-	.active{
+   .active{
 
-		color: #18A8F1;
+      color: #18A8F1;
 
-	}
+   }
 
- 	a{
+    a{
 
-		color:black;
+      color:black;
 
-	} 
+   } 
 
-	a:hover{
+   a:hover{
 
-		color:#18A8F1;
+      color:#18A8F1;
 
-		font-weight: bold;
+      font-weight: bold;
 
-	}
+   }
 
 </style>
 
@@ -71,67 +71,67 @@
 
    <div class="swiper-container3" style="padding-top:60px; margin-bottom: 20px; height: 600px; width: 100%; overflow: hidden;">
 
- 	  <div class="swiper-wrapper" style="width: 100%;">
+      <div class="swiper-wrapper" style="width: 100%;">
 
-      		<div id="back-image1" class="image swiper-slide">
+            <div id="back-image1" class="image swiper-slide">
 
-      			<div class="backTitle">경상북도 경주 동궁과월지</div>
+               <div class="backTitle">경상북도 경주 동궁과월지</div>
 
-      		</div>
+            </div>
 
-     		<div id="back-image2" class="image swiper-slide">
+           <div id="back-image2" class="image swiper-slide">
 
-     			<div class="backTitle">부산광역시 광안리해수욕장</div>
+              <div class="backTitle">부산광역시 광안리해수욕장</div>
 
-     		</div>
+           </div>
 
-      		<div id="back-image3" class="image swiper-slide">
+            <div id="back-image3" class="image swiper-slide">
 
-      			<div class="backTitle">경상남도 진해 군항제</div>
+               <div class="backTitle">경상남도 진해 군항제</div>
 
-      		</div>
+            </div>
 
-      		<div id="back-image4" class="image swiper-slide">
+            <div id="back-image4" class="image swiper-slide">
 
-      			<div class="backTitle">서울특별시 광화문광장</div>
+               <div class="backTitle">서울특별시 광화문광장</div>
 
-      		</div>
+            </div>
 
-      		<div id="back-image5" class="image swiper-slide">
+            <div id="back-image5" class="image swiper-slide">
 
-      			<div class="backTitle">서울특별시 강남</div>
+               <div class="backTitle">서울특별시 강남</div>
 
-      		</div>
+            </div>
 
-      		<div id="back-image6" class="image swiper-slide">
+            <div id="back-image6" class="image swiper-slide">
 
-      			<div class="backTitle">전라북도 전주 한옥마을</div>
+               <div class="backTitle">전라북도 전주 한옥마을</div>
 
-      		</div>
+            </div>
 
-      		<div id="back-image7" class="image swiper-slide">
+            <div id="back-image7" class="image swiper-slide">
 
-      			<div class="backTitle">전라남도 담양 메타세콰이어길</div>
+               <div class="backTitle">전라남도 담양 메타세콰이어길</div>
 
-      		</div>
+            </div>
 
-      		<div id="back-image8" class="image swiper-slide">
+            <div id="back-image8" class="image swiper-slide">
 
-      			<div class="backTitle">충청북도 단양 패러글라이딩</div>
+               <div class="backTitle">충청북도 단양 패러글라이딩</div>
 
-      		</div>
+            </div>
 
-      		<div id="back-image9" class="image swiper-slide">
+            <div id="back-image9" class="image swiper-slide">
 
-      			<div class="backTitle">강원도 강릉시 안반데기</div>
+               <div class="backTitle">강원도 강릉시 안반데기</div>
 
-      		</div>
+            </div>
 
-      		<div id="back-image10" class="image swiper-slide">
+            <div id="back-image10" class="image swiper-slide">
 
-      			<div class="backTitle">제주특별자치시 광치기해변</div>
+               <div class="backTitle">제주특별자치시 광치기해변</div>
 
-      		</div>
+            </div>
 
       </div>
 
@@ -141,25 +141,25 @@
 
    <div class="container" style="margin-top: -60px;">
 
-      	<img class="mainimage" src="../images/mainimage2.jpg">
+         <img class="mainimage" src="../images/mainimage2.jpg">
 
       <div class="row">
 
-	      <div class="jumbotron marginTop50px" style="width: 743px; float: left; margin-left: 20px;">
+         <div class="jumbotron marginTop50px" style="width: 743px; float: left; margin-left: 20px;">
 
-	         <h3>DHM플래너로 대한민국 곳곳을 여행해보세요.</h3>
+            <h3>DHM플래너로 대한민국 곳곳을 여행해보세요.</h3>
 
-	         <p>맞춤 여행 추천과 플래너 작성을 통해 보다 효율적인 여행을 계획해보세요!</p>
+            <p>맞춤 여행 추천과 플래너 작성을 통해 보다 효율적인 여행을 계획해보세요!</p>
 
-	         <div class="main_planner_btn_div">
+            <div class="main_planner_btn_div">
 
-	            <input type="button" class="main_planner_btn_diy" value="DIY">
+               <input type="button" class="main_planner_btn_diy" value="DIY">
 
-	            <input type="button" class="main_planner_btn_request" value="FUNDING">
+               <input type="button" class="main_planner_btn_request" value="FUNDING">
 
-	         </div>
+            </div>
 
-	      </div>
+         </div>
 
       </div>
 
@@ -169,13 +169,13 @@
 
 
 
-		<div class="row">
+      <div class="row">
 
          <h3 class="contitle">다른 여행자들의 플래너 ${plannerCount}개</h3>
 
-		  
-		  <ul class="nav nav-tabs" style="border-bottom: none;">
-		      <li class="index_buttons_li index_buttons_li" ><a class="ac" data-toggle="tab"  href="#home">최신</a></li>
+        
+        <ul class="nav nav-tabs" style="border-bottom: none;">
+            <li class="index_buttons_li index_buttons_li" ><a class="ac" data-toggle="tab"  href="#home">최신</a></li>
 
                <li class="index_buttons_li" id="2"><a class="ac" data-toggle="tab"  href="#menu2">커플/신혼</a></li>
                <li class="index_buttons_li" id="8"><a class="ac" data-toggle="tab"  href="#menu8">남녀그룹</a></li>
@@ -186,13 +186,13 @@
                <li class="index_buttons_li" id="4"><a class="ac" data-toggle="tab"  href="#menu4">남자혼자</a></li>
                <li class="index_buttons_li" id="7"><a class="ac" data-toggle="tab"  href="#menu7">남자끼리</a></li>
 
-		  </ul>
-			<br>
-		  <div class="tab-content">
+        </ul>
+         <br>
+        <div class="tab-content">
 
-		    <div id="home" class="tab-pane fade in active">
+          <div id="home" class="tab-pane fade in active">
 
-		    	<div class="swiper-container" style=" clear: both; overflow: hidden;">
+             <div class="swiper-container" style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper nolist" >
 
@@ -210,7 +210,7 @@
 
                                        <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+                           <%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
 
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
 
@@ -244,11 +244,11 @@
 
                   </div>
 
-		    </div>
+          </div>
 
-		    <div id="menu1" class="tab-pane fade">
+          <div id="menu1" class="tab-pane fade">
 
-		       <div class="swiper-container"  style=" clear: both; overflow: hidden;">
+             <div class="swiper-container"  style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper nolist">
 
@@ -268,7 +268,7 @@
 
                                        <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+                           <%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
 
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
 
@@ -304,11 +304,11 @@
 
                   </div>
 
-		    </div>
+          </div>
 
-		    <div id="menu2" class="tab-pane fade">
+          <div id="menu2" class="tab-pane fade">
 
-		       <div class="swiper-container"  style=" clear: both; overflow: hidden;">
+             <div class="swiper-container"  style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper nolist">
 
@@ -328,7 +328,7 @@
 
                                        <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+                           <%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
 
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
 
@@ -364,11 +364,11 @@
 
                   </div>
 
-		    </div>
+          </div>
 
-		    <div id="menu3" class="tab-pane fade">
+          <div id="menu3" class="tab-pane fade">
 
-		      <div class="swiper-container" style=" clear: both; overflow: hidden;">
+            <div class="swiper-container" style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper nolist" >
 
@@ -388,7 +388,7 @@
 
                                        <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+                           <%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
 
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
 
@@ -424,15 +424,15 @@
 
                   </div>
 
-		    </div>
+          </div>
 
-		    
+          
 
-		    
+          
 
-		    <div id="menu4" class="tab-pane fade">
+          <div id="menu4" class="tab-pane fade">
 
-		      <div class="swiper-container" style=" clear: both; overflow: hidden;">
+            <div class="swiper-container" style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper nolist" >
 
@@ -452,7 +452,7 @@
 
                                        <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+                           <%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
 
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
 
@@ -488,15 +488,15 @@
 
                   </div>
 
-		    </div>
+          </div>
 
-		    
+          
 
-		    
+          
 
-		    <div id="menu5" class="tab-pane fade">
+          <div id="menu5" class="tab-pane fade">
 
-		      <div class="swiper-container" style=" clear: both; overflow: hidden;">
+            <div class="swiper-container" style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper nolist">
 
@@ -516,7 +516,7 @@
 
                                       <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+                           <%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
 
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
 
@@ -552,15 +552,15 @@
 
                   </div>
 
-		    </div>
+          </div>
 
-		    
+          
 
-		    
+          
 
-		    <div id="menu6" class="tab-pane fade">
+          <div id="menu6" class="tab-pane fade">
 
-		      <div class="swiper-container" style=" clear: both; overflow: hidden;">
+            <div class="swiper-container" style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper nolist" >
 
@@ -580,7 +580,7 @@
 
                                        <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+                           <%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
 
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
 
@@ -616,15 +616,15 @@
 
                   </div>
 
-		    </div>
+          </div>
 
-		    
+          
 
-		    
+          
 
-		    <div id="menu7" class="tab-pane fade">
+          <div id="menu7" class="tab-pane fade">
 
-		      <div class="swiper-container"  style=" clear: both; overflow: hidden;">
+            <div class="swiper-container"  style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper nolist">
 
@@ -644,7 +644,7 @@
 
                                        <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+                           <%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
 
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
 
@@ -680,15 +680,15 @@
 
                   </div>
 
-		    </div>
+          </div>
 
-		    
+          
 
-		    
+          
 
-		    <div id="menu8" class="tab-pane fade">
+          <div id="menu8" class="tab-pane fade">
 
-		      <div class="swiper-container" style=" clear: both; overflow: hidden;">
+            <div class="swiper-container" style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper nolist" >
 
@@ -708,7 +708,7 @@
 
                                        <iframe src="http://localhost/planner/mapTestindex?plNum=${vo.plNum }" width="226px" height="207px" style="border: none;"></iframe>
 
-									<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+                           <%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
 
                                        <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div>
 
@@ -744,94 +744,94 @@
 
                   </div>
 
-		    </div>
+          </div>
 
-		    
+          
 
-		    
+          
 
-		    
+          
 
-		  </div>
+        </div>
 
-		</div>
+      </div>
 
-		
+      
 
-	<div class="row">
-				<div class="marginTop50px">
-					<h3 class="contitle">모집중인 펀딩여행</h3>
-					<div class="swiper-container2" style="overflow: hidden;">
-						<div class="funding_block swiper-wrapper">
-							<c:forEach items="${fundinglist }" var="vo">
-
-
-								<div class="funding_block2 swiper-slide">
-									<div class="funding_block3">
-										<div class="funding_inner_area">
-
-											<div class="mp-li-wrap">
-												<div class="funding_block2">
-													<div class="funding_block3">
+   <div class="row">
+            <div class="marginTop50px">
+               <h3 class="contitle">모집중인 펀딩여행</h3>
+               <div class="swiper-container2" style="overflow: hidden;">
+                  <div class="funding_block swiper-wrapper">
+                     <c:forEach items="${fundinglist }" var="vo">
 
 
-														<iframe
-															src="http://localhost/planner/mapTestindex?plNum=${vo.plNum}"
-															width="100%" height="100%" style="border: none;"></iframe>
+                        <div class="funding_block2 swiper-slide">
+                           <div class="funding_block3">
+                              <div class="funding_inner_area">
 
-														<%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
-														<%-- <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div> --%>
-														<div
-															style="height: 50px; font-size: 15px; font-weight: bold; padding: 5px;">
-															${vo.name}</div>
-													</div>
-
-												</div>
-											</div>
+                                 <div class="mp-li-wrap">
+                                    <div class="funding_block2">
+                                       <div class="funding_block3">
 
 
+                                          <iframe
+                                             src="http://localhost/planner/mapTestindex?plNum=${vo.plNum}"
+                                             width="100%" height="100%" style="border: none;"></iframe>
 
-											<%-- 				<img class="funding_img" src="../test_img/test${i.index}.jpg"></a> --%>
-										</div>
-									</div>
-									<a href="./funding/fundingSelect?num=${vo.num}">
+                                          <%--   <img src="http://localhost/planner/mapTest?plNum=${vo.plNum }" width="256px" height="205px"> --%>
+                                          <%-- <div class="mp-info"><font style="color: #fff;">${vo.type}</font></div> --%>
+                                          <div
+                                             style="height: 50px; font-size: 15px; font-weight: bold; padding: 5px;">
+                                             ${vo.name}</div>
+                                       </div>
+
+                                    </div>
+                                 </div>
 
 
-										<div class="funding_inner_area2">
-											<div class="mp-f">
-												<div class="mp">${vo.name}</div>
-												<%-- <div class="mp-f1"> ${days[i.index]} 일간</div> --%>
-												<div class="mp-f2">
-													<%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>
-													여행 기간
-												</div>
-												<div class="mp-f3">${vo.startTime}
-												<div>${vo.endTime}</div>
-												</div>
-											</div>
-											<div class="funding_start" style="margin-top: 20px">
-												<span class="glyphicon glyphicon-calendar"></span>
-												${vo.restTime} 일 남았어요!
-											</div>
-											<div class="funding_bar">
-												<div class="funding_bar2"
-													style="width: ${vo.gage}%;min-width: 0%;background: rgb(250, 100, 98);transition-duration: 200ms;height: 2px;"></div>
-											</div>
-											<div class="funding_start"
-												style="float: right; padding-right: 1em">${vo.gage}%</div>
-											<div class="funding_start"
-												style="float: left; padding-right: 1em">현재 모인 금액 :
-												${vo.status}원</div>
-										</div>
-								</div>
-								</a>
-							</c:forEach>
-						</div>
 
-					</div>
-				</div>
-			</div>
-		</div>
+                                 <%--             <img class="funding_img" src="../test_img/test${i.index}.jpg"></a> --%>
+                              </div>
+                           </div>
+                           <a href="./funding/fundingSelect?num=${vo.num}">
+
+
+                              <div class="funding_inner_area2">
+                                 <div class="mp-f">
+                                    <div class="mp">${vo.name}</div>
+                                    <%-- <div class="mp-f1"> ${days[i.index]} 일간</div> --%>
+                                    <div class="mp-f2">
+                                       <%-- <fmt:formatDate value="${vo.deDate}" pattern="yy년MM월dd일"/> --%>
+                                       여행 기간
+                                    </div>
+                                    <div class="mp-f3">${vo.startTime}
+                                    <div>${vo.endTime}</div>
+                                    </div>
+                                 </div>
+                                 <div class="funding_start" style="margin-top: 20px">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                    ${vo.restTime} 일 남았어요!
+                                 </div>
+                                 <div class="funding_bar">
+                                    <div class="funding_bar2"
+                                       style="width: ${vo.gage}%;min-width: 0%;background: rgb(250, 100, 98);transition-duration: 200ms;height: 2px;"></div>
+                                 </div>
+                                 <div class="funding_start"
+                                    style="float: right; padding-right: 1em">${vo.gage}%</div>
+                                 <div class="funding_start"
+                                    style="float: left; padding-right: 1em">현재 모인 금액 :
+                                    ${vo.status}원</div>
+                              </div>
+                        </div>
+                        </a>
+                     </c:forEach>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+      </div>
 
    
 
@@ -841,7 +841,7 @@
 
          <h3 class="contitle">2월, 축제속으로</h3>
 
-         	<ul class="nav nav-tabs" style="border-bottom: none;">
+            <ul class="nav nav-tabs" style="border-bottom: none;">
 
                <li class="index_buttons_li"><a class="ac" data-toggle="tab"   href="#f0">서울</a></li>
 
@@ -859,15 +859,15 @@
 
                <li class="index_buttons_li"><a class="ac" data-toggle="tab"  href="#f7">전라북도</a></li>
 
-		  </ul>
-		<br>
+        </ul>
+      <br>
          
 
          <div class="tab-content">
 
-		    <div id="f0" class="tab-pane fade in active">
+          <div id="f0" class="tab-pane fade in active">
 
-		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+             <div class="swiper-container4" style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper" >
 
@@ -877,37 +877,37 @@
 
                            <div style="width: 200px;"class="swiper-slide">
 
-								<div style="position: relative; margin: 0 auto;">									
+                        <div style="position: relative; margin: 0 auto;">                           
 
-									<div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
+                           <div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
 
-								</div>
+                        </div>
 
-								<div>
+                        <div>
 
-									<div style="padding: 3px; width: 80%;float: left;">
+                           <div style="padding: 3px; width: 80%;float: left;">
 
-										<div class="i-card-title">${fe.title}</div>
+                              <div class="i-card-title">${fe.title}</div>
 
-										<div class="addr">${fe.addr1 }</div>
+                              <div class="addr">${fe.addr1 }</div>
 
-									</div>
+                           </div>
 
-									<div style="width: 20%; float: left; padding-top: 10px">
+                           <div style="width: 20%; float: left; padding-top: 10px">
 
-										<a onclick="clickinfo('${fe.title}')">
+                              <a onclick="clickinfo('${fe.title}')">
 
-											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+                                 <i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
 
-										</a>
+                              </a>
 
-									</div>
+                           </div>
 
-								</div>	 
+                        </div>    
 
-							</div>
+                     </div>
 
-							
+                     
 
                          </c:forEach>
 
@@ -915,13 +915,13 @@
 
                   </div>
 
-		    </div>
+          </div>
 
         
 
-		    <div id="f1" class="tab-pane fade in">
+          <div id="f1" class="tab-pane fade in">
 
-		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+             <div class="swiper-container4" style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper" >
 
@@ -929,35 +929,35 @@
 
                            <div style="width: 200px;"class="swiper-slide">
 
-								<div style="position: relative; margin: 0 auto;">									
+                        <div style="position: relative; margin: 0 auto;">                           
 
-									<div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
+                           <div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
 
-								</div>
+                        </div>
 
-								<div>
+                        <div>
 
-									<div style="padding: 3px; width: 80%;float: left;">
+                           <div style="padding: 3px; width: 80%;float: left;">
 
-										<div class="i-card-title">${fe.title}</div>
+                              <div class="i-card-title">${fe.title}</div>
 
-										<div class="addr">${fe.addr1 }</div>
+                              <div class="addr">${fe.addr1 }</div>
 
-									</div>
+                           </div>
 
-									<div style="width: 20%; float: left; padding-top: 10px">
+                           <div style="width: 20%; float: left; padding-top: 10px">
 
-										<a onclick="clickinfo('${fe.title}')">
+                              <a onclick="clickinfo('${fe.title}')">
 
-											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+                                 <i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
 
-										</a>
+                              </a>
 
-									</div>
+                           </div>
 
-								</div>	 
+                        </div>    
 
-							</div>
+                     </div>
 
                          </c:forEach> 
 
@@ -965,13 +965,13 @@
 
                   </div>
 
-		     </div>
+           </div>
 
-		     
+           
 
-		      <div id="f2" class="tab-pane fade in">
+            <div id="f2" class="tab-pane fade in">
 
-		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+             <div class="swiper-container4" style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper" >
 
@@ -979,35 +979,35 @@
 
                            <div style="width: 200px;"class="swiper-slide">
 
-								<div style="position: relative; margin: 0 auto;">									
+                        <div style="position: relative; margin: 0 auto;">                           
 
-									<div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
+                           <div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
 
-								</div>
+                        </div>
 
-								<div>
+                        <div>
 
-									<div style="padding: 3px; width: 80%;float: left;">
+                           <div style="padding: 3px; width: 80%;float: left;">
 
-										<div class="i-card-title">${fe.title}</div>
+                              <div class="i-card-title">${fe.title}</div>
 
-										<div class="addr">${fe.addr1 }</div>
+                              <div class="addr">${fe.addr1 }</div>
 
-									</div>
+                           </div>
 
-									<div style="width: 20%; float: left; padding-top: 10px">
+                           <div style="width: 20%; float: left; padding-top: 10px">
 
-										<a onclick="clickinfo('${fe.title}')">
+                              <a onclick="clickinfo('${fe.title}')">
 
-											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+                                 <i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
 
-										</a>
+                              </a>
 
-									</div>
+                           </div>
 
-								</div>	 
+                        </div>    
 
-							</div>
+                     </div>
 
                          </c:forEach> 
 
@@ -1015,13 +1015,13 @@
 
                   </div>
 
-		     </div>
+           </div>
 
-		     
+           
 
-		      <div id="f3" class="tab-pane fade in">
+            <div id="f3" class="tab-pane fade in">
 
-		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+             <div class="swiper-container4" style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper" >
 
@@ -1029,35 +1029,35 @@
 
                            <div style="width: 200px;"class="swiper-slide">
 
-								<div style="position: relative; margin: 0 auto;">									
+                        <div style="position: relative; margin: 0 auto;">                           
 
-									<div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
+                           <div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
 
-								</div>
+                        </div>
 
-								<div>
+                        <div>
 
-									<div style="padding: 3px; width: 80%;float: left;">
+                           <div style="padding: 3px; width: 80%;float: left;">
 
-										<div class="i-card-title">${fe.title}</div>
+                              <div class="i-card-title">${fe.title}</div>
 
-										<div class="addr">${fe.addr1 }</div>
+                              <div class="addr">${fe.addr1 }</div>
 
-									</div>
+                           </div>
 
-									<div style="width: 20%; float: left; padding-top: 10px">
+                           <div style="width: 20%; float: left; padding-top: 10px">
 
-										<a onclick="clickinfo('${fe.title}')">
+                              <a onclick="clickinfo('${fe.title}')">
 
-											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+                                 <i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
 
-										</a>
+                              </a>
 
-									</div>
+                           </div>
 
-								</div>	 
+                        </div>    
 
-							</div>
+                     </div>
 
                          </c:forEach> 
 
@@ -1065,13 +1065,13 @@
 
                   </div>
 
-		     </div>
+           </div>
 
-		     
+           
 
-		      <div id="f4" class="tab-pane fade in">
+            <div id="f4" class="tab-pane fade in">
 
-		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+             <div class="swiper-container4" style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper" >
 
@@ -1079,35 +1079,35 @@
 
                            <div style="width: 200px;"class="swiper-slide">
 
-								<div style="position: relative; margin: 0 auto;">									
+                        <div style="position: relative; margin: 0 auto;">                           
 
-									<div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
+                           <div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
 
-								</div>
+                        </div>
 
-								<div>
+                        <div>
 
-									<div style="padding: 3px; width: 80%;float: left;">
+                           <div style="padding: 3px; width: 80%;float: left;">
 
-										<div class="i-card-title">${fe.title}</div>
+                              <div class="i-card-title">${fe.title}</div>
 
-										<div class="addr">${fe.addr1 }</div>
+                              <div class="addr">${fe.addr1 }</div>
 
-									</div>
+                           </div>
 
-									<div style="width: 20%; float: left; padding-top: 10px">
+                           <div style="width: 20%; float: left; padding-top: 10px">
 
-										<a onclick="clickinfo('${fe.title}')">
+                              <a onclick="clickinfo('${fe.title}')">
 
-											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+                                 <i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
 
-										</a>
+                              </a>
 
-									</div>
+                           </div>
 
-								</div>	 
+                        </div>    
 
-							</div>
+                     </div>
 
                          </c:forEach> 
 
@@ -1115,13 +1115,13 @@
 
                   </div>
 
-		     </div>
+           </div>
 
-		     
+           
 
-		      <div id="f5" class="tab-pane fade in">
+            <div id="f5" class="tab-pane fade in">
 
-		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+             <div class="swiper-container4" style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper" >
 
@@ -1129,35 +1129,35 @@
 
                            <div style="width: 200px;"class="swiper-slide">
 
-								<div style="position: relative; margin: 0 auto;">									
+                        <div style="position: relative; margin: 0 auto;">                           
 
-									<div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
+                           <div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
 
-								</div>
+                        </div>
 
-								<div>
+                        <div>
 
-									<div style="padding: 3px; width: 80%;float: left;">
+                           <div style="padding: 3px; width: 80%;float: left;">
 
-										<div class="i-card-title">${fe.title}</div>
+                              <div class="i-card-title">${fe.title}</div>
 
-										<div class="addr">${fe.addr1 }</div>
+                              <div class="addr">${fe.addr1 }</div>
 
-									</div>
+                           </div>
 
-									<div style="width: 20%; float: left; padding-top: 10px">
+                           <div style="width: 20%; float: left; padding-top: 10px">
 
-										<a onclick="clickinfo('${fe.title}')">
+                              <a onclick="clickinfo('${fe.title}')">
 
-											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+                                 <i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
 
-										</a>
+                              </a>
 
-									</div>
+                           </div>
 
-								</div>	 
+                        </div>    
 
-							</div>
+                     </div>
 
                          </c:forEach> 
 
@@ -1165,13 +1165,13 @@
 
                   </div>
 
-		     </div>
+           </div>
 
-		     
+           
 
-		      <div id="f6" class="tab-pane fade in">
+            <div id="f6" class="tab-pane fade in">
 
-		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+             <div class="swiper-container4" style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper" >
 
@@ -1179,35 +1179,35 @@
 
                            <div style="width: 200px;"class="swiper-slide">
 
-								<div style="position: relative; margin: 0 auto;">									
+                        <div style="position: relative; margin: 0 auto;">                           
 
-									<div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
+                           <div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
 
-								</div>
+                        </div>
 
-								<div>
+                        <div>
 
-									<div style="padding: 3px; width: 80%;float: left;">
+                           <div style="padding: 3px; width: 80%;float: left;">
 
-										<div class="i-card-title">${fe.title}</div>
+                              <div class="i-card-title">${fe.title}</div>
 
-										<div class="addr">${fe.addr1 }</div>
+                              <div class="addr">${fe.addr1 }</div>
 
-									</div>
+                           </div>
 
-									<div style="width: 20%; float: left; padding-top: 10px">
+                           <div style="width: 20%; float: left; padding-top: 10px">
 
-										<a onclick="clickinfo('${fe.title}')">
+                              <a onclick="clickinfo('${fe.title}')">
 
-											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+                                 <i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
 
-										</a>
+                              </a>
 
-									</div>
+                           </div>
 
-								</div>	 
+                        </div>    
 
-							</div>
+                     </div>
 
                          </c:forEach> 
 
@@ -1215,13 +1215,13 @@
 
                   </div>
 
-		     </div>
+           </div>
 
-		     
+           
 
-		      <div id="f7" class="tab-pane fade in">
+            <div id="f7" class="tab-pane fade in">
 
-		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+             <div class="swiper-container4" style=" clear: both; overflow: hidden;">
 
                      <div class="swiper-wrapper" >
 
@@ -1229,35 +1229,35 @@
 
                            <div style="width: 200px;"class="swiper-slide">
 
-								<div style="position: relative; margin: 0 auto;">									
+                        <div style="position: relative; margin: 0 auto;">                           
 
-									<div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
+                           <div class="img-wrap" style="width: 0px;"><img class="wish-img" alt="여행사진" src="${fe.firstimage}"></div>
 
-								</div>
+                        </div>
 
-								<div>
+                        <div>
 
-									<div style="padding: 3px; width: 80%;float: left;">
+                           <div style="padding: 3px; width: 80%;float: left;">
 
-										<div class="i-card-title">${fe.title}</div>
+                              <div class="i-card-title">${fe.title}</div>
 
-										<div class="addr">${fe.addr1 }</div>
+                              <div class="addr">${fe.addr1 }</div>
 
-									</div>
+                           </div>
 
-									<div style="width: 20%; float: left; padding-top: 10px">
+                           <div style="width: 20%; float: left; padding-top: 10px">
 
-										<a onclick="clickinfo('${fe.title}')">
+                              <a onclick="clickinfo('${fe.title}')">
 
-											<i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
+                                 <i class="fa fa-info-circle" style="color: gray; font-size: 23px;"></i>
 
-										</a>
+                              </a>
 
-									</div>
+                           </div>
 
-								</div>	 
+                        </div>    
 
-							</div>
+                     </div>
 
                          </c:forEach> 
 
@@ -1265,7 +1265,7 @@
 
                   </div>
 
-		     </div>
+           </div>
 
          </div>
 
@@ -1279,32 +1279,32 @@
          <h3 class="contitle">여행자들의 최근 리뷰</h3>
       </div>
 
-	</div>
+   </div>
    <div class="tab-content" style="margin-bottom: 50px;">
 
-		    <div id="f0" class="tab-pane fade in active">
+          <div id="f0" class="tab-pane fade in active">
 
-		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+             <div class="swiper-container4" style=" clear: both; overflow: hidden;">
 
-                     <div class="swiper-wrapper" >						
-						<c:forEach items="${commentVOs }" var="comments">
-						<!-- 					reviewBox -->
-						<div class="reviewBox2" style="width: 250px;">
-							<div class="reviewMemberImg2"><img src="imgage/user.jpg" class="reviewMemberImg_img2">
-								<span class="reviewComments_header_id2">${comments.id }</span>
-								<span class="reviewComments_header_date2">
-									<fmt:formatDate value="${comments.regDate }" pattern="yy년 MM월 dd일"/>
-								</span>
-							</div>
-							<div class="reviewCommentsWrapper2">
-								<div class="reviewComments_comments2">${comments.contents }</div>
-							</div>
-						</div>
-						<!-- 					reviewBox -->
-						</c:forEach>
-					</div>
-				</div>
-			</div>	
+                     <div class="swiper-wrapper" >                  
+                  <c:forEach items="${commentVOs }" var="comments">
+                  <!--                reviewBox -->
+                  <div class="reviewBox2" style="width: 250px;">
+                     <div class="reviewMemberImg2"><img src="imgage/user.jpg" class="reviewMemberImg_img2">
+                        <span class="reviewComments_header_id2">${comments.id }</span>
+                        <span class="reviewComments_header_date2">
+                           <fmt:formatDate value="${comments.regDate }" pattern="yy년 MM월 dd일"/>
+                        </span>
+                     </div>
+                     <div class="reviewCommentsWrapper2">
+                        <div class="reviewComments_comments2">${comments.contents }</div>
+                     </div>
+                  </div>
+                  <!--                reviewBox -->
+                  </c:forEach>
+               </div>
+            </div>
+         </div>   
    </div>
 
    
@@ -1360,37 +1360,37 @@
 
     var swiper = new Swiper('.swiper-container3', {
 
-    	
+       
 
-    	      spaceBetween: 50,
+             spaceBetween: 50,
 
-    	      centeredSlides: true,
+             centeredSlides: true,
 
-    	      autoplay: {
+             autoplay: {
 
-    	        delay: 3500,
+               delay: 3500,
 
-    	        disableOnInteraction: false,
+               disableOnInteraction: false,
 
-    	      },
+             },
 
-    	      pagination: {
+             pagination: {
 
-    	        el: '.swiper-pagination',
+               el: '.swiper-pagination',
 
-    	        clickable: true,
+               clickable: true,
 
-    	      },
+             },
 
-    	      navigation: {
+             navigation: {
 
-    	        nextEl: '.swiper-button-next',
+               nextEl: '.swiper-button-next',
 
-    	        prevEl: '.swiper-button-prev',
+               prevEl: '.swiper-button-prev',
 
-    	      },
+             },
 
-    	    
+           
 
       });
 
@@ -1416,9 +1416,9 @@
 
         
 
-			$(this).children(".ac").addClass("active2");
+         $(this).children(".ac").addClass("active2");
 
-			$(this).children(".ac").removeClass("active2");
+         $(this).children(".ac").removeClass("active2");
 
      });
 
@@ -1433,27 +1433,27 @@
 
 
     $(".index_buttons_li").click(function(){
-    	var type = $(this).prop("id");
+       var type = $(this).prop("id");
 
-		$.ajax({
-			type : "POST",
-			url : "typeList",
-			data : {
-				type : type
-			},
-			success : function(d){
-				d = d.trim();
-				
-				$("#menu"+type).html(d);
-				
-				} 
-				
-			});
+      $.ajax({
+         type : "POST",
+         url : "typeList",
+         data : {
+            type : type
+         },
+         success : function(d){
+            d = d.trim();
+            
+            $("#menu"+type).html(d);
+            
+            } 
+            
+         });
 
 
-    	
-		$(this).children(".ac").addClass("active2");
-		$(this).children(".ac").removeClass("active2");
+       
+      $(this).children(".ac").addClass("active2");
+      $(this).children(".ac").removeClass("active2");
  });
 
 
