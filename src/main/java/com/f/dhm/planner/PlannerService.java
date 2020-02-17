@@ -3,6 +3,7 @@ package com.f.dhm.planner;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
@@ -82,6 +83,12 @@ public class PlannerService {
 		
 		return repository.findByIdAndPlNum(memberVO.getId(),plNum);
 	}
+	
+	public List<PlannerVO> plannerSelect2(int plNum) throws Exception {
+		
+		return repository.findByPlNum(plNum);
+	}
+	
 	
 	public List<PlannerVO> plannerSelectIndex(int plNum) throws Exception {
 

@@ -279,8 +279,8 @@
 
                   <input id="mkp-time1" type="time">
 
-                  <input type="text" name="mkp-time1" value="" placeholder="시간선택"  id="mkp-time1" required size="8" maxlength="5">
-
+                 <!--  <input type="text" name="mkp-time1" value="" placeholder="시간선택"  id="mkp-time1" required size="8" maxlength="5">
+ -->
 
                </td>
             </tr>

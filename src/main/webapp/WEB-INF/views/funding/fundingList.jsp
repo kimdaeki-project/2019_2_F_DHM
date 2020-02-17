@@ -55,7 +55,7 @@ width: 100%;
 						</div> --%>
 						<div class="funding_start">
 							<span class="glyphicon glyphicon-calendar"></span>
-							${vo.restTime} 일 남았어요!
+							<span id="day">${vo.restTime} 일 남았어요!</span>
 						</div>
 						<div class="funding_bar">
 							<div class="funding_bar2" style="width: ${vo.gage}%;min-width: 0%;background: rgb(250, 100, 98);transition-duration: 200ms;height: 2px;"></div>
@@ -88,6 +88,5 @@ width: 100%;
 	</ul>
 	</div>
 </div>
-
 </body>
 </html>
