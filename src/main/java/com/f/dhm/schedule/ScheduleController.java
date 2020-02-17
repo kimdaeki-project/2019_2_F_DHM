@@ -1,6 +1,7 @@
 package com.f.dhm.schedule;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -175,6 +176,8 @@ public class ScheduleController {
 	      }
 	      
 	      for (int i = 0; i < everyDay.size(); i++) {
+	    	  if (bak.size() != 0) {
+				
 	            if (i < bak.get(bakNum)) {
 	               region.add(plannerList.get(bakNum).getRegion());
 	               arCode.add(plannerList.get(bakNum).getArCode());
@@ -184,6 +187,7 @@ public class ScheduleController {
 	               
 	               bakNum++;
 	            }
+	    	  }
 	            
 	      }
 	      
@@ -193,7 +197,8 @@ public class ScheduleController {
 	      for(int i =0; i< everyDay.size();i++) {
 	    	 
 	    	  DayArCodeVO aa = new DayArCodeVO();
-	    	  
+	    	  if (bak.size() != 0) {
+				
 	    	  
 	    	  if (i < bak.get(duNum)) {
 	    		  aa.setDu(0);
@@ -207,6 +212,7 @@ public class ScheduleController {
 	    		  duNum++;
 	    		  duNum2+=aa.getDu();
 	    		  aa.setDu2(duNum2);
+	    	  	}
 	    	  }
 	    	  
 	    	  

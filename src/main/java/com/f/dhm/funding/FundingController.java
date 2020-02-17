@@ -199,8 +199,10 @@ public class FundingController {
 			date = new Date(c.getTimeInMillis());
 
 			vo.setArDate(date);
-			if (bak[i].equals("무")) {
-				bak[i] = "0";
+			if (bak.length != 0) {
+				if (bak[i].equals("무")) {
+					bak[i] = "0";
+				}
 			}
 			vo.setBak(Integer.valueOf(bak[i]));
 			vo.setRegion(region[i]);

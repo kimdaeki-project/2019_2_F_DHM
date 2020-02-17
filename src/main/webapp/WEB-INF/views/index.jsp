@@ -880,7 +880,7 @@
 
          <h3 class="contitle">2월, 축제속으로</h3>
 
-         	<ul class="nav nav-tabs">
+         	<ul class="nav nav-tabs" style="border-bottom: none;">
 
                <li class="index_buttons_li"><a class="ac" data-toggle="tab"   href="#f0">서울</a></li>
 
@@ -900,8 +900,8 @@
 
 		  </ul>
 
-         
-
+        <br> 
+		
          <div class="tab-content">
 
 		    <div id="f0" class="tab-pane fade in active">
