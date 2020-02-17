@@ -13,7 +13,7 @@
 </head>
 <body>
 <c:import url="../template/nav.jsp"/>
-<div class="container">
+<div class="container" style="min-height: 719px;">
 
 <c:choose>
 <c:when test="${vo.size() eq 0 }">
@@ -79,6 +79,6 @@
 </c:choose>
 
 </div>
-
+<c:import url="../template/footer.jsp"/>
 </body>
 </html>

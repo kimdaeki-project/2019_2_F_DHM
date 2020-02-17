@@ -353,11 +353,8 @@ public class FundingController {
 	@GetMapping("myFundingList")
 	public ModelAndView fundingJoinSelect(String participationId, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		//		Optional<FundingVO> opt = fundingService.fundingJoinSelect(participationId);
-		//		Map<String, Object> ar = fundingService.fundingJoinSelect(participationId);
-		//		FundingVO fundingVO = ar.get();
-		//		List<FundingVO> ar = fundingService.fundingJoinSelect(participationId);
-		//		FundingVO fundingVO = ar.get(0);
+		MemberVO vo = (MemberVO)session.getAttribute("member");
+		participationId = vo.getId();
 		List<FundingJoinVO> ar = fundingService.myFundingList(participationId);
 		List<FundingVO> ar2= new ArrayList<FundingVO>();
 		//		System.out.println(ar.size());

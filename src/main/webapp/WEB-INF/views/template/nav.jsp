@@ -39,9 +39,9 @@
 					<a class="nav-funding-div-a"  href="${pageContext.request.contextPath}/funding/makeFundingList">모집중인 펀딩</a>
 					<a class="nav-funding-div-a" href="${pageContext.request.contextPath}/funding/myFundingList">참여중인 펀딩</a>
 				</div>
-				<a class="nav-li" href="${pageContext.request.contextPath}/funding/fundingList">펀딩</a>
+				<a class="nav-li" href="${pageContext.request.contextPath}/funding/fundingList">펀딩 리스트</a>
 				<a class="nav-li" href="${pageContext.request.contextPath}/planner/myPlanner">나의 플래너</a>
-				<a class="nav-li" href="${pageContext.request.contextPath}/planner/makePlanner">플래너</a>
+				<a class="nav-li" href="${pageContext.request.contextPath}/planner/makePlanner">플래너 만들기</a>
 				<c:if test="${member.grade gt 5 }">
 					<a class="nav-li" href="${pageContext.request.contextPath}/admin/administer">관리자 페이지</a>
 				</c:if>
