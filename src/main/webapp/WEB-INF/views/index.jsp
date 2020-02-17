@@ -218,7 +218,7 @@
 
                                     <div class="mp-f">
 
-                                       <div class="mp">${vo.title}</div>
+                                       <div class="mp" style="overflow: hidden; font-size: 13px;">${vo.title}</div>
 
                                        <div class="mp-f1"> ${days[i.index]} 일간</div>
 
@@ -1284,13 +1284,13 @@
 
           <div id="f0" class="tab-pane fade in active">
 
-             <div class="swiper-container4" style=" clear: both; overflow: hidden;">
+             <div class="swiper-container6" style=" clear: both; overflow: hidden;">
 
-                     <div class="swiper-wrapper" >                  
+                <div class="swiper-wrapper" >                  
                   <c:forEach items="${commentVOs }" var="comments">
                   <!--                reviewBox -->
-                  <div class="reviewBox2" style="width: 250px;">
-                     <div class="reviewMemberImg2"><img src="imgage/user.jpg" class="reviewMemberImg_img2">
+                  <div class="reviewBox2 swiper-slide" style="width: 250px;">
+                     <div class="reviewMemberImg2"><img src="imgs/noimage.JPG" class="reviewMemberImg_img2">
                         <span class="reviewComments_header_id2">${comments.id }</span>
                         <span class="reviewComments_header_date2">
                            <fmt:formatDate value="${comments.regDate }" pattern="yy년 MM월 dd일"/>
@@ -1411,7 +1411,24 @@
       });
 
 
+    var swiper = new Swiper('.swiper-container6', {
 
+        slidesPerView: 2,
+
+        spaceBetween: 10,
+
+        pagination: {
+
+          el: '.swiper-pagination',
+
+          clickable: true,
+
+        },
+
+      });
+
+
+    
     $(".index_buttons_li").click(function(){
 
         
