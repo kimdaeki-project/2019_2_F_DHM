@@ -1280,35 +1280,44 @@
 
    
 
-   <div class="row">
+   <div class="row" >
 
       <div class="marginTop50px">
          <h3 class="contitle">여행자들의 최근 리뷰</h3>
       </div>
 
-					
-<c:forEach items="${commentVOs }" var="comments">
-<!-- 					reviewBox -->
-<div class="reviewBox2">
-	<div class="reviewMemberImg2"><img src="imgage/user.jpg" class="reviewMemberImg_img2">
-		<span class="reviewComments_header_id2">${comments.id }</span>
-		<span class="reviewComments_header_date2">
-			<fmt:formatDate value="${comments.regDate }" pattern="yy년 MM월 dd일"/>
-		</span>
 	</div>
-	<div class="reviewCommentsWrapper2">
-		<div class="reviewComments_comments2">${comments.contents }</div>
-	</div>
-</div>
-<!-- 					reviewBox -->
-</c:forEach>	
+   <div class="tab-content" style="margin-bottom: 50px;">
+
+		    <div id="f0" class="tab-pane fade in active">
+
+		    	<div class="swiper-container4" style=" clear: both; overflow: hidden;">
+
+                     <div class="swiper-wrapper" >						
+						<c:forEach items="${commentVOs }" var="comments">
+						<!-- 					reviewBox -->
+						<div class="reviewBox2" style="width: 250px;">
+							<div class="reviewMemberImg2"><img src="imgage/user.jpg" class="reviewMemberImg_img2">
+								<span class="reviewComments_header_id2">${comments.id }</span>
+								<span class="reviewComments_header_date2">
+									<fmt:formatDate value="${comments.regDate }" pattern="yy년 MM월 dd일"/>
+								</span>
+							</div>
+							<div class="reviewCommentsWrapper2">
+								<div class="reviewComments_comments2">${comments.contents }</div>
+							</div>
+						</div>
+						<!-- 					reviewBox -->
+						</c:forEach>
+					</div>
+				</div>
+			</div>	
    </div>
 
    
 
-</div>
 
-   </div>
+  </div>
 
 </div>
 
