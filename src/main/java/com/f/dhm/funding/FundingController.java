@@ -87,12 +87,13 @@ public class FundingController {
 	}
 
 	@GetMapping("makeFundingList")
-	public ModelAndView makeFundingList(String id, HttpSession session) throws Exception{
+	public ModelAndView makeFundingList(HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		List<FundingVO> list = fundingService.makeFundingList(id);
+		MemberVO vo = (MemberVO)session.getAttribute("member");
+		List<FundingVO> list = fundingService.makeFundingList(vo.getId());
 
 		String s_id = (String)session.getAttribute("id");
-		if (id.equals(s_id)) {
+		if (vo.getId().equals(s_id)) {
 			mv.addObject("vo", list);
 			mv.setViewName("funding/makeFundingList");
 		} else {
@@ -162,6 +163,7 @@ public class FundingController {
 		if (plNum != null) {         
 			plannerService.plannerDel(id, plNum);
 		}
+		
 
 		plNum = plannerService.getPlnum();
 
@@ -203,8 +205,12 @@ public class FundingController {
 			vo.setBak(Integer.valueOf(bak[i]));
 			vo.setRegion(region[i]);
 
-			//도시 정보 추가
-			if (i > 0 && deDate.length > 1) {            
+			int tLength = 0; 
+	         if (transfer != null) {
+	        	 tLength = transfer.length;
+			}
+	         //도시 정보 추가           
+	         if (i > 0 && deDate.length > 1 && tLength > 0) {          
 				vo.setTransfer(transfer[i-1]);
 				locationService.updateLoc(arCodeP[i], Integer.parseInt(bak[i]), transfer[i-1]);
 			}else {
@@ -230,7 +236,7 @@ public class FundingController {
 		List<WishVO> wishlist = new ArrayList<WishVO>();
 
 		//id= memberVO.getId();
-
+		if(titleA!=null) { 
 		for(int i=0; i< titleA.length; i++) {
 			WishVO wishVO = new WishVO();
 			wishVO.setId(id);
@@ -243,8 +249,9 @@ public class FundingController {
 			wishlist.add(wishVO);
 
 		}
+		
 		wishService.wishAdd(wishlist, plNum, title);
-
+		}
 		//funding Table
 		//날짜+시간 합쳐서 집어넣기
 		String startTime = start +" "+ time1;
@@ -346,11 +353,8 @@ public class FundingController {
 	@GetMapping("myFundingList")
 	public ModelAndView fundingJoinSelect(String participationId, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		//		Optional<FundingVO> opt = fundingService.fundingJoinSelect(participationId);
-		//		Map<String, Object> ar = fundingService.fundingJoinSelect(participationId);
-		//		FundingVO fundingVO = ar.get();
-		//		List<FundingVO> ar = fundingService.fundingJoinSelect(participationId);
-		//		FundingVO fundingVO = ar.get(0);
+		MemberVO vo = (MemberVO)session.getAttribute("member");
+		participationId = vo.getId();
 		List<FundingJoinVO> ar = fundingService.myFundingList(participationId);
 		List<FundingVO> ar2= new ArrayList<FundingVO>();
 		//		System.out.println(ar.size());

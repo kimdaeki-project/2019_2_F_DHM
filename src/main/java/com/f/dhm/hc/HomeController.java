@@ -21,6 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.f.dhm.Member.MemberService;
 import com.f.dhm.Member.MemberVO;
+import com.f.dhm.commonnotice.CommonService;
+import com.f.dhm.commonnotice.CommonVO;
 import com.f.dhm.funding.FundingService;
 import com.f.dhm.funding.FundingVO;
 import com.f.dhm.location.LocationService;
@@ -50,6 +52,10 @@ public class HomeController {
 	@Autowired
 	private XmlService xmlService;
 	
+
+	@Autowired
+	private CommonService commonService;
+
 	
 	  @GetMapping("mapTestindex")
 	   public ModelAndView mapTest(int plNum, HttpSession session) throws Exception{
@@ -138,6 +144,7 @@ public class HomeController {
 		int newMember = 0;
 		int newPlanner = 0;
 		int newFunding = 0;
+		int newAdvertise = 0;
 		List<Integer> howMany = new ArrayList<Integer>();
 		
 		List<LocationVO> loList = LoService.selectList();
@@ -171,13 +178,22 @@ public class HomeController {
 			}
 		}
 		
+		List<CommonVO> adList = commonService.getAdverList();
+		
+		for (CommonVO commonVO : adList) {
+			if (dd - commonVO.getCoMakeDay().getTime() <= 0) {
+				newAdvertise++;
+			}
+		}
 		
 		mv.addObject("Lolist", loList);
 		mv.addObject("memList", memList);
 		mv.addObject("plList", plList);
 		mv.addObject("fuList", fuList);
 		mv.addObject("howMany", howMany);
+		mv.addObject("adList", adList);
 		
+		mv.addObject("newA", newAdvertise);
 		mv.addObject("newM", newMember);
 		mv.addObject("newP", newPlanner);
 		mv.addObject("newF", newFunding);

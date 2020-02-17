@@ -14,17 +14,16 @@
 </head>
 <body>
 <c:import url="../template/nav.jsp"/>
-
+<div class="container" style="min-height: 719px;">
 <c:choose>
 <c:when test="${vo.size() eq 0 }">
-						<a href="fundingList">
-							<img width="60%" height="100%" src="../imgs/no-pFunding.png" style="left: 22%; position: relative; margin-top: 200px;">
-						</a>
-					</c:when>
+	<a href="fundingList">
+		<img width="60%" height="100%" src="../imgs/no-pFunding.png" style="left: 22%; position: relative;">
+	</a>
+</c:when>
 <c:otherwise>
-<div style="height: 100px;"></div>
 <c:forEach items="${vo}" var="list" varStatus="i">
-<div class="fj_list">
+<div class="fj_list" >
 	<div>
 		<div>
 			<a href="./myFundingSelect?num=${list.fundingVO.num}" class="fj_l">
@@ -59,10 +58,10 @@
 </c:otherwise>
 </c:choose>
 
-<div style="text-align: center; width: 100%; height: 30px; margin-top : 50px;">
-	<button id="re" class="btn btn-primary" style="margin: 0 auto; padding-left: 15px; padding-right: 15px; font-size: 2em;">뒤로 가기</button>
-</div>
 <div style="height: 100px;"></div>
+</div>
+<c:import url="../template/footer.jsp"/>
+
 <script type="text/javascript">
 $("#re").click(function(){
 	history.back();

@@ -39,12 +39,14 @@
 			
 			<div >
 				<h3 class="contents-title" style="float: left;">${plannerTitle}</h3>
-				<div class="btn-group">
-					<button type="button" class="btn-u btn-u-dark" onclick="scDelete(${plNum});"  style="border-radius: 25px; background: gray;" data-toggle="dropdown" aria-expanded="false">
-						<span class="fa fa-cog" >삭제</span>
-						<span class="fa fa-angle-down"> </span>
-					</button>
-				</div>
+				<c:if test="${planner[0].id eq member.id }">
+					<div class="btn-group">
+						<button type="button" class="btn-u btn-u-dark" onclick="scDelete(${plNum});"  style="border-radius: 25px; background: gray;" data-toggle="dropdown" aria-expanded="false">
+							<span class="fa fa-cog" >삭제</span>
+							<span class="fa fa-angle-down"> </span>
+						</button>
+					</div>
+				</c:if>
 				<input type="hidden" id="plNum" value="${plNum}" name ="plNum">
 			</div>
 			<div class="main-contents" style="clear: both;">
@@ -83,6 +85,7 @@
 								</div>
 								<div class="map-body">${plannerType}</div>
 							</div>
+							
 							<div class="swiper-modal swiper">
 								<div class="modal-head" style="text-align: center; padding-top: 20px;">
 									<font style="color: white; font-size: 13pt; font-weight: 700;">누구와 함께하는 여행인가요?</font>
@@ -172,13 +175,15 @@
 								</div>
 							</div>	
 						</div>
-						<div class="map-rootModify"  style="cursor: pointer;" onclick="uptPlanner(${plNum})">
-							<div class="map-header">
-								<i class="fa fa-cog fa-2x" style="color: #747474; margin-top: 9px;margin-bottom: 7px;"></i>
+						<c:if test="${member.id eq planner[0].id }">
+							<div class="map-rootModify"  style="cursor: pointer;" onclick="uptPlanner(${plNum})">
+								<div class="map-header">
+									<i class="fa fa-cog fa-2x" style="color: #747474; margin-top: 9px;margin-bottom: 7px;"></i>
+								</div>
+								<div class="map-body">루트수정</div>
+								
 							</div>
-							<div class="map-body">루트수정</div>
-							
-						</div>
+						</c:if>
 						<div class="map-startDate">
 							<div class="map-header">
 								<i class="fa fa-cog" aria-hidden="true" style="color: #747474; margin-top: 9px;margin-bottom: 7px;">
@@ -289,7 +294,7 @@
 
 								<tbody>
 								<c:if test="${not empty scheduleInfo}">
-									<c:forEach items="${scheduleInfo}" var="vo">
+									<c:forEach items="${scheduleInfo}" var="vo" varStatus="e">
 									<tr>
 										
 										<td class="col-xs-1 text-center">
@@ -299,7 +304,7 @@
 												${vo.title}
 										</td>
 										<td class="text-center">${vo.scName}</td>
-										<td class="text-center">${vo.start}시</td>
+										<td class="text-center"> <fmt:formatDate value="${everyDay[e.index] }" pattern="M월 dd일"/> / ${vo.start}시</td>
 										<td class="text-center">￦ ${vo.cost }원</td>
 										
 									</tr>
@@ -348,7 +353,7 @@
 					<div class="tourlist">
 						<div class="swiper-container swiper-container2">
 							<div class="swiper-wrapper">
-								<c:forEach items="${wishlist}" var="vo">
+								<c:forEach items="${wishlist}" var="vo" varStatus="w">
 									<div class="swiper-slide" style="width: 170px;">
 										<div class="card">
 										
@@ -359,11 +364,14 @@
 														<input id="votitle" type="hidden" value="${vo.title}">
 													</div>
 										  </div>
-										<a data-toggle="modal" class="md" data-target="#myModal" title="${vo.arCode}">
-											<div class="tour-add">
-												<font><i class="fa fa-plus"></i>일정추가</font>
-											</div>
-										</a>
+										  <c:if test="${planner[0].id eq member.id }">
+											<a data-toggle="modal" class="md" id="${vo.arCount }" data-target="#myModal" title="${vo.arCode}">
+												<div class="tour-add">
+													<font><i class="fa fa-plus"></i>일정추가</font>
+												</div>
+											</a>
+										</c:if>
+
 										</div>
 									</div>
 								</c:forEach>
@@ -389,11 +397,25 @@
                                                 </a>
                                              </div>
                                              <div class="sbold">
-                                            <fmt:formatDate value="${everyDay[e.index] }" pattern="MM월 dd일"/>             
+                                            <fmt:formatDate value="${everyDay[e.index] }" pattern="M월 dd일"/>             
                                                 <span style="font-size: 10pt; color: #c0c0c0"><fmt:formatDate value="${everyDay[e.index] }" pattern="E"/> </span>
                                              </div>
                                              <div class="sarea">
-                                                <div style="line-height: 110%; height: 32px;">${city[e.index] }</div>
+                                                <div style="line-height: 110%; height: 32px;">
+                                                	<c:choose>
+                                                		<c:when test="${city[e.index] eq city[e.index+1]}">
+                                                			${city[e.index]}
+                                                		</c:when>
+                                                		<c:otherwise>
+                                                			<div>
+                                                			${city[e.index]}                                                			
+                                                			</div>
+                                                			<div style="margin-top: 5px;">
+                                                			${city[e.index+1]}
+                                                			</div>
+                                                		</c:otherwise>
+                                                	</c:choose>
+                                                </div>
                                              </div>
                                           </div>
                                           <div class="schedule-body">
@@ -441,7 +463,7 @@
 					                                 <div class="schedule-body-content">
 					                                   <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 10 && sc.arCode eq arCode[e.index]}">
+																<c:if test="${sc.start eq 10 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index]}">
 					                                			 <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -478,7 +500,7 @@
 					                                 <div class="schedule-body-content">
 						                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 10 && sc.arCode eq arCode[e.index]}">
+																<c:if test="${sc.start eq 10 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index]}">
 					                                			 <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -515,7 +537,7 @@
 					                                 <div class="schedule-body-content">
 					                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 11 && sc.arCode eq arCode[e.index]}">
+																<c:if test="${sc.start eq 11 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index]}">
 					                                			  <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -552,7 +574,7 @@
 					                                 <div class="schedule-body-content">
 					                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 12 && sc.arCode eq arCode[e.index]}">
+																<c:if test="${sc.start eq 12 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index]}">
 					                                			  <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -589,7 +611,7 @@
 					                                 <div class="schedule-body-content">
 					                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 13 && sc.arCode eq arCode[e.index]}">
+																<c:if test="${sc.start eq 13 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index]}">
 					                                			  <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -626,7 +648,7 @@
 					                                 <div class="schedule-body-content">
 														<c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 14 && sc.arCode eq arCode[e.index]}">
+																<c:if test="${sc.start eq 14 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index]}">
 					                                			 <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -663,7 +685,7 @@
 					                                 <div class="schedule-body-content">
 					                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 15 && sc.arCode eq arCode[e.index]}">
+																<c:if test="${sc.start eq 15 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index]}">
 					                                			 <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -700,7 +722,7 @@
 					                                 <div class="schedule-body-content">
 					                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 16 && sc.arCode eq arCode[e.index]}">
+																<c:if test="${sc.start eq 16 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index]}">
 					                                			  <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -737,7 +759,7 @@
 					                                 <div class="schedule-body-content">
 					                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 17 && sc.arCode eq arCode[e.index]}">
+																<c:if test="${sc.start eq 17 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index]}">
 					                                			  <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -774,7 +796,7 @@
 					                                 <div class="schedule-body-content">
 					                                 <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 18 && sc.arCode eq arCode[e.index]}">
+																<c:if test="${sc.start eq 18 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index]}">
 					                                			  <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -811,7 +833,7 @@
 					                                 <div class="schedule-body-content">
 					                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 19 && sc.arCode eq arCode[e.index]}">
+																<c:if test="${sc.start eq 19 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index]}">
 					                                			 <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -848,7 +870,7 @@
 					                                 <div class="schedule-body-content">
 					                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 20 && sc.arCode eq arCode[e.index]}">
+																<c:if test="${sc.start eq 20 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index]}">
 					                                			 <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -885,7 +907,7 @@
 					                                 <div class="schedule-body-content">
 					                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 21 && sc.arCode eq arCode[e.index]}">
+																<c:if test="${sc.start eq 21 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index]}">
 					                                			  <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -922,7 +944,7 @@
 					                                 <div class="schedule-body-content">
 					                                  <c:forEach items="${scheduleInfo}" var="sc">
 															<div title="${sc.scName}">
-																<c:if test="${sc.start eq 22 && sc.arCode eq arCode[e.index]}">
+																<c:if test="${sc.start eq 22 && sc.arCode eq arCode[e.index] && sc.day eq everyDay[e.index]}">
 					                                			  <a class="md2" style="text-align: center;">
 																		<div>${sc.scName}</div>
 																		<div class="md2-child" style="display: none;">
@@ -969,6 +991,58 @@
 		</div>
 		
 	</div>
+	
+	
+	<!--=======================================================================================================================-->
+   <div class="container" style="margin-top: -50px; position: relative;">
+      <h1 style="color: #c9c9c9; border-bottom: 1px solid #c9c9c9; padding-bottom: 10px;">review</h1>
+      <div class="section" style="background: gold;">
+         <div class="reviewFlexWrapper">
+            <div class="reviewWrapper_leftSide">
+               <c:forEach items="${commentVOs }" var="comments">
+<!--                reviewBox -->
+               <div class="reviewBox ">
+                  <div class="reviewMemberImg"><img alt="members_img" src="../images/pixel.jpg" class="reviewMemberImg_img"></div>
+                  <div class="reviewCommentsWrapper">
+                     <h5 class="reviewComments_header_info">
+                        <span>${comments.id } </span>
+                        <span class="reviewComments_header_date">${comments.regDate }</span>
+                        <span style="float: right;">
+                        <c:if test="${comments.id eq sessionScope.member.id}">
+                           <a style="color: #999;" href="./reviewUpdate?cNum=${comments.CNum}">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                           <b><a style="color: #999;" href="reviewDelete?cNum=${comments.CNum}">x</a></b>
+                        </c:if>
+                        </span>
+                     </h5>
+                     <div class="reviewComments_comments">${comments.contents }</div>
+                  </div>
+               </div>
+<!--                reviewBox -->
+               </c:forEach>         
+               <!-- summernote *****************************-->
+               <form action="./scheduleComment" method="post">
+               <div class="reviewBox" >
+                  <div class="reviewMemberImg"><img alt="members_img" src="../images/user.jpg" class="reviewMemberImg_img"></div>
+                  <div class="reviewCommentsWrapper">
+                     <textarea class="contents" name="contents"></textarea>
+                  </div>
+               </div>
+               <button class="button" style="margin-left: 50px;">답글입력</button>
+               <input type="text" name="plNum" value="${plNum }" class="displayNone">
+               </form>
+               <!-- summernote *****************************-->
+            </div>
+<!--             <div class="reviewWrapper_rightSide"> -->
+<!--                <div class="reviewWrapper_rightSide_rel"> -->
+<!--                   연관정보 -->
+<!--                </div> -->
+<!--             </div> -->
+         </div>
+      </div>
+   </div>
+   <!---=======================================================================================================================  -->
+	
+	
 	<div id="myModal" class="modal fade" role="dialog">
   		<div class="modal-dialog">
 		<div class="m-wrapper"></div>
@@ -991,9 +1065,13 @@
 						</div>
 						<div style="float: left; width: 28%; margin-right: 10px; ">
 							<select name="day" title="day" id="day" class="form-control" style="height: 30pt; font-size: 10pt; font-weight: 600;">
-								<c:forEach begin="0" end="${everyDay.size()-1}" varStatus="e">
-									<option value="${everyDay[e.index] }"><fmt:formatDate value="${everyDay[e.index] }" pattern="MM/dd"/>  일</option>
+								<option disabled="disabled" style="pointer-events: none;" selected="selected">선택</option>
+								<c:forEach items="${codeVO}" var="c" begin="0" end="${everyDay.size()-1}" varStatus="e">
+									
+									<option title="${c.arCode}" class="everyday ${c.du}" id="${c.du2}" value="${c.everyDay }"><fmt:formatDate value="${c.everyDay}" pattern="MM/dd"/>  일</option>
+								
 								</c:forEach>
+								
 							</select>
 						</div>
 						<div style="float:left; width: 30%; ">
@@ -1027,8 +1105,24 @@
 		</div>
 		</div>
 	</div>
- <!--=======================================================================================================================-->
-   <div class="container" style="margin-top: -50px; position: relative;">
+	<!-- 스케줄 모달 -->
+	<div id="mySc" class="mySc" class="modal fade" role="dialog" style="display: none;">
+  		<div class="modal-dialog">
+  		<div class="m-wrapper"></div>
+  			<div class="m-box row">
+					<div class="close" onclick="hide();">X</div>
+	  			<div class="md2-child2">
+		  			
+	  			</div>
+  			</div>
+  		</div>
+  	</div>
+	
+
+
+   <!--=======================================================================================================================-->
+   <div class="row" style="margin-top: 50px; position: relative; top:auto; display: block;">
+   	<div class="container">
 		<h1 style="color: #c9c9c9; border-bottom: 1px solid #c9c9c9; padding-bottom: 10px;">review</h1>
 		<div class="section" style="background: gold;">
 			<div class="reviewFlexWrapper">
@@ -1072,6 +1166,7 @@
 <!-- 					</div> -->
 <!-- 				</div> -->
 			</div>
+		</div>
 		</div>
 	</div>
    <!---=======================================================================================================================  -->	
@@ -1143,7 +1238,36 @@
   
 
 </div>
+	<c:if test="${planner[0].id eq member.id }">
+		<script type="text/javascript">
+			$('.map-peopleType').click(function(){
+						
+						$('.map-peopleType').toggleClass("peopleTypeSwiper");
+						$('.swiper-before').toggleClass("swiper");
+						$('.swiper-modal').toggleClass("swiper");	
+					});
+			
+		</script>
+				
+	</c:if>
+
+
 	<script type="text/javascript">
+
+
+// 	$(".md").click(
+// 			function(){
+				
+// 				tt = $(this).attr("title");
+// 				title2 = $(this).prev().children().children("input").val();
+
+// 				$(".b").each(function(){
+// 					if($(this).attr("title") == tt){
+// 							$(this).prop("selected",true);
+// 					}
+// 				});
+// 			}
+// 	);
 
 		function scDelete(plNum){
 			
@@ -1198,15 +1322,42 @@
 		
 		$(".md").click(
 				function(){
-					
+					indexCheck = $(this).prop("id");
 					tt = $(this).attr("title");
 					title2 = $(this).prev().children().children("input").val();
 
 					
 					$(".b").each(function(){
-						if($(this).attr("title") == tt){
+						if($(this).attr("title") == tt ){
 								$(this).prop("selected",true);
 						}
+					});
+
+					
+
+					$(".everyday").each(function(){
+
+						
+						if( $(this).hasClass("0")){
+							if($(this).attr("title") == tt){
+					
+								$(this).css("display","inline");
+
+								}else{
+									$(this).css("display","none");
+
+								}
+
+						}else{
+							if($(this).attr("title") == tt || indexCheck - $(this).prop("id") == 0){
+
+								$(this).css("display","inline");
+
+							}else{
+								$(this).css("display","none");
+							}		
+						}						
+
 					});
 				}
 		);
@@ -1275,11 +1426,6 @@
 		}
 
 	
-	
-		function transfer(){
-			alert('dd');
-		}
-
 		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 
 		//////////////////////////////////////////////////////////////잠시 수정
@@ -1291,12 +1437,7 @@
 
 		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
-		$('.map-peopleType').click(function(){
-			
-			$('.map-peopleType').toggleClass("peopleTypeSwiper");
-			$('.swiper-before').toggleClass("swiper");
-			$('.swiper-modal').toggleClass("swiper");	
-		});
+		
 
 		
 		$('.nolist-transfer').click(function(){
@@ -1407,6 +1548,8 @@
 		tabsize : 2,
 		height : 150
 	});
+
+
       
    </script>
 

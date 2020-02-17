@@ -222,7 +222,6 @@ $("body").on("click",".click-sleep", function() {
          
          $(".chos-sleep-per").each(function() {
             $(this).text(d[pc]+"%");
-            console.log(pc);
             pc++;
          });
       }
@@ -316,10 +315,10 @@ function setNumber(move) {
 /////////////////////////////////////////////////////
 //헤현
 
-var titleA = new Array();
-var firstimageA = new Array();
-var addr1A = new Array();
-var arCodeA = new Array();
+var titleA = [];
+var firstimageA = [];
+var addr1A = [];
+var arCodeA = [];
 
 
 function saveSch(t, f, a, c) {
@@ -354,7 +353,7 @@ function openComplete() {
          }
       });
    }else{
-      alert("일정을 추가해주세염!");
+      alert("일정을 추가해주세요!");
    }
 }
 
@@ -364,13 +363,13 @@ function closeComplete() {
    $(".city-btn").css("visibility","visible");
 }
 
-var deDate = new Array();
-var arDate = new Array();
-var bak = new Array();
-var region = new Array();
-var transfer = new Array();
-var polyIndex = new Array();
-var arCodeP = new Array();
+var deDate = [];
+var arDate = [];
+var bak = [];
+var region = [];
+var transfer = [];
+var polyIndex = [];
+var arCodeP = [];
 
 
 $(".mkp-clp-btn").click(function() {
@@ -649,7 +648,10 @@ $(".mkp-city-list").on("click",".ifm-info", function() {
 });
 
 
-
+$(".fund-table").change(function() {
+	var x = ($("mkp-goal").val()*1) / ($("#mkp-people").val()*1);
+	$("#mkp-price").prop("value",x);
+});
 
 
 

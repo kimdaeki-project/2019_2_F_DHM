@@ -18,7 +18,7 @@
 <c:import url="../template/nav.jsp"/>
 <c:choose>
 <c:when test="${member ne null }">
-<div style="background-color: #f5f5f5;">
+<div style="background-color: #f5f5f5; min-height: 719px;">
 	<div class="container">
 		<div class="main-container row">
 			<div class="inner-wrap">

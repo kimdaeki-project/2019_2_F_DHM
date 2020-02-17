@@ -183,8 +183,9 @@ public class PlannerController {
 		      }
 		      
 		      plNum = service.getPlnum();
-		      
-		      System.out.println("plNum = " + deDate.length);
+		      if (plLock == null) {
+				plLock = 0;
+			}
 		      
 		      for (int i = 0; i < deDate.length; i++) {
 
@@ -223,8 +224,12 @@ public class PlannerController {
 		         vo.setBak(Integer.valueOf(bak[i]));
 		         vo.setRegion(region[i]);
 		         
+		         int tLength = 0; 
+		         if (transfer != null) {
+		        	 tLength = transfer.length;
+				}
 		         //도시 정보 추가
-		         if (i > 0 && deDate.length > 1 && transfer.length > 0) {            
+		         if (i > 0 && deDate.length > 1 && tLength > 0) {            
 		            vo.setTransfer(transfer[i-1]);
 		            LoService.updateLoc(arCodeP[i], Integer.parseInt(bak[i]), transfer[i-1]);
 		         }else {
@@ -239,18 +244,15 @@ public class PlannerController {
 		         pList.add(vo);
 		      }
 		      
-		      for (PlannerVO plannerVO : pList) {
-		         System.out.println(plannerVO);
-		      }
+		      
 		      service.saveList(pList);
 		      
 		      //////////////////////////////////////////
 		      
 		      //MemberVO memberVO = (MemberVO)session.getAttribute("member");
 		      List<WishVO> wishlist = new ArrayList<WishVO>();
-		      
-		      //id= memberVO.getId();
-		     if(titleA.length!=0) { 
+		    
+		     if(titleA!=null) { 
 			      for(int i=0; i< titleA.length; i++) {
 			         WishVO wishVO = new WishVO();
 			         wishVO.setId(id);
@@ -259,7 +261,6 @@ public class PlannerController {
 			         wishVO.setAddr1(addr1[i]);
 			         wishVO.setPlNum(plNum);
 			         wishVO.setArCode(arCode[i]);
-			         System.out.println(i+"   +    "+wishVO.getTitle());
 			         wishlist.add(wishVO);
 	
 			      }

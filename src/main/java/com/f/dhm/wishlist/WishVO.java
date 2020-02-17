@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -26,4 +27,6 @@ public class WishVO {
 	private String firstimage;
 	private String addr1;
 	private int arCode;
+	@Transient
+	private int arCount=0;
 }

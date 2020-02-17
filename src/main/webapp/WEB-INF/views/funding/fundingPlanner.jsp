@@ -212,7 +212,7 @@
             <p class="mkp-table-save">펀딩 저장
                <a onclick="closeComplete()" style="color:#fff; font-size:27pt; float: right; cursor: pointer;"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
             </p>
-         <table class="mkp-table" style="height: 700px;">
+         <table class="mkp-table fund-table" style="height: 700px;">
             <tbody>
             <tr>
                <td class="mkp-table-title">
@@ -267,7 +267,7 @@
                   <p>인당 모집 금액</p>
                </td>
                <td>
-                  <input id="mkp-price">
+                  <input id="mkp-price" readonly="readonly">
                </td>
             </tr>
             <tr>
