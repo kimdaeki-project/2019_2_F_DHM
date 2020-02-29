@@ -66,7 +66,7 @@ class NoticeRepositoryTest {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void searchtest() throws Exception{
 		Page<NoticeVO> noticePage=noticeRepository.findByTitleContains("f",PageRequest.of(0, 10));
 		System.out.println("@@@@@@@@@@@@@@@@  test  @@@@@@@@@@@@@@@@");

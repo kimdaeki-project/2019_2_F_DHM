@@ -72,7 +72,7 @@ class QnaRepositoryTest {
 		qnapPage.forEach(System.out::println);
 	}
 	
-	@Test
+	//@Test
 	@Rollback(false)
 	public void searchWidth() throws Exception{
 		Page<QnaVO> qnaQage=qnaRepository.findByTitleContains("9", PageRequest.of(0, 10));

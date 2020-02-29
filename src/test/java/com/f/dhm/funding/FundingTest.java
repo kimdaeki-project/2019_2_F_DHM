@@ -65,11 +65,9 @@ class FundingTest {
 //	@Test
 	void listTest() throws Exception{
 		List<FundingVO> ar = fundingRepository.fundingList();
-//		Page<FundingVO> ar2 = fundingService.fundingList(pager);
 	}
 //	@Test
 	void listTest2() throws Exception{
-//		List<FundingJoinVO> ar = fundingJoinRepository.findByFNum(18);
 		FundingVO fundingVO = new FundingVO();
 		fundingVO.setNum(18);
 		Optional<FundingVO> ar = fundingRepository.findById(18);
@@ -77,12 +75,8 @@ class FundingTest {
 		System.out.println(fundingVO.getFundingJoinVOs().size());
 	}
 	
-	@Test
+	//@Test
 	void joinSelectTest() throws Exception{
-//		FundingVO fundingVO = new FundingVO();
-//		List<FundingVO> ar = fundingRepository.fundingJoinSelect("ttt18");
-//		fundingVO = ar.get(0);
-//		System.out.println(fundingVO.getFundingJoinVOs().size());
 		FundingVO fundingVO = new FundingVO();
 		List<FundingVO> ar = fundingRepository.findByFundingJoinVOsParticipationId("ttt16");
 		System.out.println(ar.get(0).getFundingJoinVOs().size());

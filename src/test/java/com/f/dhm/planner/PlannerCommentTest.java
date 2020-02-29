@@ -23,7 +23,7 @@ class PlannerCommentTest {
 	private PlannerRepository plannerRepository;
 	
 	
-	@Test
+	//@Test
 	void test()throws Exception{
 		//List<PlannerCommentVO> commentVOs=commentRepository.findAll(Sort.by("regDate", "desc"));
 		System.out.println("^^^^^^^^^^^^^^^^^");
