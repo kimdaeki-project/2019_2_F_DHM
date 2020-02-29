@@ -648,10 +648,6 @@ $(".mkp-city-list").on("click",".ifm-info", function() {
 });
 
 
-$(".fund-table").change(function() {
-	var x = ($("mkp-goal").val()*1) / ($("#mkp-people").val()*1);
-	$("#mkp-price").prop("value",x);
-});
 
 
 

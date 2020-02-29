@@ -151,7 +151,12 @@ public class PlannerService {
 	}
 	public int getPlnum() throws Exception{
 		List<PlannerVO> list = repository.findAllByOrderByPlStepDesc();
-		return	list.get(0).getPlNum()+1;
+		if (list.size() != 0) {
+			
+			return	list.get(0).getPlNum()+1;
+		}else {
+			return	1;
+		}
 	}
 	
 	public int saveList(List<PlannerVO> list) throws Exception{

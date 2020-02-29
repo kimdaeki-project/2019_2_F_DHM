@@ -228,6 +228,9 @@ public class PlannerController {
 		         if (transfer != null) {
 		        	 tLength = transfer.length;
 				}
+		         
+		         System.out.println(" i = "+ i + ", 교통수단 개수 = "+tLength);
+		         
 		         //도시 정보 추가
 		         if (i > 0 && deDate.length > 1 && tLength > 0) {            
 		            vo.setTransfer(transfer[i-1]);

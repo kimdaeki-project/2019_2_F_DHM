@@ -267,7 +267,7 @@
                   <p>인당 모집 금액</p>
                </td>
                <td>
-                  <input id="mkp-price" readonly="readonly">
+                  <input id="mkp-price">
                </td>
             </tr>
             <tr>

@@ -86,7 +86,7 @@ public class HomeController {
 		//이틀전추가된 플래너까지
 		long dd = d.getTime()-1000*60*60*24*2;
 		List<MyPlannerVO> newPlanner = new ArrayList<MyPlannerVO>();
-		
+		List<Integer> days = new ArrayList<Integer>();
 
 		List<Date> deDate = new ArrayList<Date>();
 		List<Integer> bak = new ArrayList<Integer>();
@@ -94,6 +94,7 @@ public class HomeController {
 		long cd = new Date().getTime();
 		for (MyPlannerVO myPlannerVO : plList) {
 			if (dd - myPlannerVO.getMakeDay().getTime() <=0) {
+				days.add(plService.days(myPlannerVO.getPlNum()));
 				newPlanner.add(myPlannerVO);
 				Date ddd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
 				deDate.add(ddd);
@@ -101,7 +102,7 @@ public class HomeController {
 				dDay.add((int)((cd - ddd.getTime()) / 1000/60/60/24));
 			}
 		}
-
+		mv.addObject("days", days);
 		mv.addObject("dDay", dDay);
 		mv.addObject("deDate", deDate);
 		mv.addObject("bak", bak);
@@ -217,6 +218,7 @@ public class HomeController {
 			List<Date> deDate = new ArrayList<Date>();
 			List<Integer> bak = new ArrayList<Integer>();
 			List<Integer> dDay = new ArrayList<Integer>();
+			List<Integer> days = new ArrayList<Integer>();
 			long d = new Date().getTime();
 			
 			
@@ -226,6 +228,7 @@ public class HomeController {
 						if (myPlannerVO.getType().equals("아이들과")) {
 							typeList.add(myPlannerVO);
 							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							days.add(plService.days(myPlannerVO.getPlNum()));
 							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
 							deDate.add(dd);
 							bak.add(plService.days(myPlannerVO.getPlNum()));
@@ -237,6 +240,7 @@ public class HomeController {
 						if (myPlannerVO.getType().equals("커플/신혼")) {
 							typeList.add(myPlannerVO);
 							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							days.add(plService.days(myPlannerVO.getPlNum()));
 							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
 							deDate.add(dd);
 							bak.add(plService.days(myPlannerVO.getPlNum()));
@@ -249,6 +253,7 @@ public class HomeController {
 						if (myPlannerVO.getType().equals("부모님과")) {
 							typeList.add(myPlannerVO);
 							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							days.add(plService.days(myPlannerVO.getPlNum()));
 							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
 							deDate.add(dd);
 							bak.add(plService.days(myPlannerVO.getPlNum()));
@@ -260,6 +265,7 @@ public class HomeController {
 						if (myPlannerVO.getType().equals("남자혼자")) {
 							typeList.add(myPlannerVO);
 							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							days.add(plService.days(myPlannerVO.getPlNum()));
 							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
 							deDate.add(dd);
 							bak.add(plService.days(myPlannerVO.getPlNum()));
@@ -271,6 +277,7 @@ public class HomeController {
 						if (myPlannerVO.getType().equals("여자혼자")) {
 							typeList.add(myPlannerVO);
 							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							days.add(plService.days(myPlannerVO.getPlNum()));
 							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
 							deDate.add(dd);
 							bak.add(plService.days(myPlannerVO.getPlNum()));
@@ -282,6 +289,7 @@ public class HomeController {
 						if (myPlannerVO.getType().equals("여자끼리")) {
 							typeList.add(myPlannerVO);
 							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							days.add(plService.days(myPlannerVO.getPlNum()));
 							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
 							deDate.add(dd);
 							bak.add(plService.days(myPlannerVO.getPlNum()));
@@ -293,6 +301,7 @@ public class HomeController {
 						if (myPlannerVO.getType().equals("남자끼리")) {
 							typeList.add(myPlannerVO);
 							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							days.add(plService.days(myPlannerVO.getPlNum()));
 							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
 							deDate.add(dd);
 							bak.add(plService.days(myPlannerVO.getPlNum()));
@@ -304,6 +313,7 @@ public class HomeController {
 						if (myPlannerVO.getType().equals("남녀함께")) {
 							typeList.add(myPlannerVO);
 							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							days.add(plService.days(myPlannerVO.getPlNum()));
 							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
 							deDate.add(dd);
 							bak.add(plService.days(myPlannerVO.getPlNum()));
@@ -315,6 +325,7 @@ public class HomeController {
 						if (myPlannerVO.getType().equals("부모님끼리")) {
 							typeList.add(myPlannerVO);
 							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							days.add(plService.days(myPlannerVO.getPlNum()));
 							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
 							deDate.add(dd);
 							bak.add(plService.days(myPlannerVO.getPlNum()));
@@ -326,6 +337,7 @@ public class HomeController {
 						if (myPlannerVO.getType().equals("타입선택")) {
 							typeList.add(myPlannerVO);
 							Date dd = plService.plannerSelectIndex(myPlannerVO.getPlNum()).get(0).getDeDate();
+							days.add(plService.days(myPlannerVO.getPlNum()));
 							dDay.add((int)((d - dd.getTime()) / 1000/60/60/24));
 							deDate.add(dd);
 							bak.add(plService.days(myPlannerVO.getPlNum()));
@@ -334,6 +346,7 @@ public class HomeController {
 					break;
 				}
 				mv.addObject("typeList", typeList);
+				mv.addObject("days", days);
 				mv.addObject("cat", type);
 				mv.addObject("dDay", dDay);
 				mv.addObject("deDate", deDate);
