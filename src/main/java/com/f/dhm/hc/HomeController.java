@@ -180,10 +180,12 @@ public class HomeController {
 		}
 		
 		List<CommonVO> adList = commonService.getAdverList();
-		
-		for (CommonVO commonVO : adList) {
-			if (dd - commonVO.getCoMakeDay().getTime() <= 0) {
-				newAdvertise++;
+		if (adList.size() != 0) {
+			
+			for (CommonVO commonVO : adList) {
+				if (dd - commonVO.getCoMakeDay().getTime() <= 0) {
+					newAdvertise++;
+				}
 			}
 		}
 		
