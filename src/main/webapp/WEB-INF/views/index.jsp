@@ -7,15 +7,15 @@
 <html>
 <head>
 <title>대동여행지도</title>
-<link rel="stylesheet"  href="../css/membercss.css">
-<link rel="icon" href="../imgs/logos/logo-fav.ico">
+<link rel="stylesheet"  href="${pageContext.request.contextPath}/css/membercss.css">
+<link rel="icon" href="${pageContext.request.contextPath}/imgs/logos/logo-fav.ico">
 <meta charset="UTF-8">
 <title>DHM Planner</title>
 <c:import url="./template/boot.jsp"/>
-<link rel="stylesheet"  href="../css/basic.css">
-<link rel="stylesheet"  href="../css/schedule.css">
-<link rel="stylesheet"  href="../css/funding.css">
-<link rel="icon" href="../imgs/logos/logo-fav.ico">
+<link rel="stylesheet"  href="${pageContext.request.contextPath}/css/basic.css">
+<link rel="stylesheet"  href="${pageContext.request.contextPath}/css/schedule.css">
+<link rel="stylesheet"  href="${pageContext.request.contextPath}/css/funding.css">
+<link rel="icon" href="${pageContext.request.contextPath}/imgs/logos/logo-fav.ico">
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 

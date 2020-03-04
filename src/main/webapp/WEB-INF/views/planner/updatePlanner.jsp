@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="icon" href="../imgs/logos/logo-fav.ico">
+<link rel="icon" href="${pageContext.request.contextPath}/imgs/logos/logo-fav.ico">
 <link rel="stylesheet" type="text/css" href="../css/makePlanner.css"> 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
@@ -13,14 +13,14 @@
 <title>경로 수정하기</title>
 </head>
 <body>
-<c:import url="../template/boot.jsp"/>
-<c:import url="../template/dragJquery.jsp"/>
+<c:import url="${pageContext.request.contextPath}/template/boot.jsp"/>
+<c:import url="${pageContext.request.contextPath}/template/dragJquery.jsp"/>
 <section>
 <div class="mkp-left">
 	<div class="mkp-left-menu">
 		<div id="topControllerLeft" style="padding-top:5px;width:75%;float:left;">
 			<div style="padding-left:10px;">
-				<a href="/"><img src="/imgs/logos/logo-white.png" height="40px" width="50%"></a>
+				<a href="/"><img src="${pageContext.request.contextPath}/imgs/logos/logo-white.png" height="40px" width="50%"></a>
 			</div>
 			<div style="height:40px;padding-top:2px;padding-left:4px;">
 				<div style="text-align:left;padding-top:5px;padding-left:5px;">
@@ -36,46 +36,46 @@
 			</div>
 		</div>
 		<div id="tripwith">
-			<div style="display:block"><img id="tripwith_img" src="/imgs/tripwith/TW_1_3.png" height="43px"></div>
+			<div style="display:block"><img id="tripwith_img" src="${pageContext.request.contextPath}/imgs/tripwith/TW_1_3.png" height="43px"></div>
 			<div style="font-size:8pt;"><span id="tripwith_txt">${list.get(0).type }</span> <i class="fa fa-angle-down"></i></div>
 		</div>
 		<div id="mkp-left-tripwith">
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡ trip with ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 			<div style="padding-bottom:15px;">
 				<div style="float:left;width:33%">
-					<div><a href="javascript:selectTripImgs(1,1,'여자혼자')"><img src="/imgs/tripwith/TW_1_1_w.png" width="100%"></a> </div>
+					<div><a href="javascript:selectTripImgs(1,1,'여자혼자')"><img src="${pageContext.request.contextPath}/imgs/tripwith/TW_1_1_w.png" width="100%"></a> </div>
 					<div style="margin-top:-15px;text-align:center;"> <font style="color:#fff;font-size:8pt">여자혼자</font></div>
 				</div>
 				<div style="float:left;width:33%">
-					<div><a href="javascript:selectTripImgs(1,2,'남자혼자')"><img src="/imgs/tripwith/TW_1_2_w.png" width="100%"></a></div>
+					<div><a href="javascript:selectTripImgs(1,2,'남자혼자')"><img src="${pageContext.request.contextPath}/imgs/tripwith/TW_1_2_w.png" width="100%"></a></div>
 					<div style="margin-top:-15px;text-align:center;"><font style="color:#fff;font-size:8pt">남자혼자</font></div>
 				</div>
 				<div style="float:left;width:33%">
-					<div><a href="javascript:selectTripImgs(1,3,'커플/신혼')"><img src="/imgs/tripwith/TW_1_3_w.png" width="100%"></a></div>
+					<div><a href="javascript:selectTripImgs(1,3,'커플/신혼')"><img src="${pageContext.request.contextPath}/imgs/tripwith/TW_1_3_w.png" width="100%"></a></div>
 					<div style="margin-top:-15px;text-align:center;"><font style="color:#fff;font-size:8pt">커플/신혼</font></div>
 				</div>
 				<div style="float:left;width:33%">
-					<div><a href="javascript:selectTripImgs(2,1,'여자끼리')"><img src="/imgs/tripwith/TW_2_1_w.png" width="100%"></a></div>
+					<div><a href="javascript:selectTripImgs(2,1,'여자끼리')"><img src="${pageContext.request.contextPath}/imgs/tripwith/TW_2_1_w.png" width="100%"></a></div>
 					<div style="margin-top:-15px;text-align:center;"><font style="color:#fff;font-size:8pt">여자끼리</font></div>
 				</div>
 				<div style="float:left;width:33%">
-					<div><a href="javascript:selectTripImgs(2,2,'남자끼리')"><img src="/imgs/tripwith/TW_2_2_w.png" width="100%"></a></div>
+					<div><a href="javascript:selectTripImgs(2,2,'남자끼리')"><img src="${pageContext.request.contextPath}/imgs/tripwith/TW_2_2_w.png" width="100%"></a></div>
 					<div style="margin-top:-15px;text-align:center;"><font style="color:#fff;font-size:8pt">남자끼리</font></div>
 				</div>
 				<div style="float:left;width:33%">
-					<div><a href="javascript:selectTripImgs(2,3,'남녀함께')"><img src="/imgs/tripwith/TW_2_3_w.png" width="100%"></a></div>
+					<div><a href="javascript:selectTripImgs(2,3,'남녀함께')"><img src="${pageContext.request.contextPath}/imgs/tripwith/TW_2_3_w.png" width="100%"></a></div>
 					<div style="margin-top:-15px;text-align:center;"><font style="color:#fff;font-size:8pt">남녀함께</font></div>
 				</div>
 				<div style="float:left;width:33%">
-					<div><a href="javascript:selectTripImgs(3,1,'아이들과')"><img src="/imgs/tripwith/TW_3_1_w.png" width="100%"></a></div>
+					<div><a href="javascript:selectTripImgs(3,1,'아이들과')"><img src="${pageContext.request.contextPath}/imgs/tripwith/TW_3_1_w.png" width="100%"></a></div>
 					<div style="margin-top:-15px;text-align:center;"><font style="color:#fff;font-size:8pt">아이들과</font></div>
 				</div>
 				<div style="float:left;width:33%">
-					<div><a href="javascript:selectTripImgs(3,2,'부모님과')"><img src="/imgs/tripwith/TW_3_2_w.png" width="100%"></a></div>
+					<div><a href="javascript:selectTripImgs(3,2,'부모님과')"><img src="${pageContext.request.contextPath}/imgs/tripwith/TW_3_2_w.png" width="100%"></a></div>
 					<div style="margin-top:-15px;text-align:center;"><font style="color:#fff;font-size:8pt">부모님과</font></div>
 				</div>
 				<div style="float:left;width:33%">
-					<div><a href="javascript:selectTripImgs(3,3,'부모님끼리')"><img src="/imgs/tripwith/TW_3_3_w.png" width="100%"></a></div>
+					<div><a href="javascript:selectTripImgs(3,3,'부모님끼리')"><img src="${pageContext.request.contextPath}/imgs/tripwith/TW_3_3_w.png" width="100%"></a></div>
 					<div style="margin-top:-15px;text-align:center;"><font style="color:#fff;font-size:8pt">부모님끼리</font></div>
 				</div>
 				<div style="clear:both"></div>

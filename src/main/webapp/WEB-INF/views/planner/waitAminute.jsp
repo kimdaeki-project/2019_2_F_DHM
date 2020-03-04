@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="icon" href="../imgs/logos/logo-fav.ico">
+<link rel="icon" href="${pageContext.request.contextPath}/imgs/logos/logo-fav.ico">
 <title>잠시만 기다려 주세요</title>
 </head>
 <body style="background-color: white; width: 100%; height: 100%;">
